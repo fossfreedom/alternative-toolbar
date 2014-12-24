@@ -1,6 +1,6 @@
 [Plugin]
 Loader=python3
-Module=alttoolbar
+Module=alternative-toolbar
 IAge=2
 Depends=rb
 Name=AlternativeToolbar
