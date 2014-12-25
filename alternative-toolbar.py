@@ -134,7 +134,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                                    'main-toolbar', 'by_id')
                                    
         builder = Gtk.Builder()
-        ui = rb.find_plugin_file(self, 'ui/alttoolbar.ui')
+        ui = rb.find_plugin_file(self, 'ui/altheaderbar.ui')
         print (ui)
         builder.add_from_file( ui )
         
@@ -153,6 +153,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             
         # for environments that dont support app-menus
         menu_button = Gtk.MenuButton.new()
+        menu_button.set_relief(Gtk.ReliefStyle.NONE)
         menu = self.shell.props.application.get_shared_menu('app-menu')
         menu_button.set_menu_model(menu)
         
@@ -169,6 +170,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         if (not default.props.gtk_shell_shows_app_menu) or default.props.gtk_shell_shows_menubar:
             self.headerbar.pack_end(menu_button)
             
+        # required for Gtk 3.14 to stop RB adding a title to the header bar
+        empty = Gtk.DrawingArea.new()
+        self.headerbar.set_custom_title(empty) 
         self.headerbar.show_all()
 
         #self.shell.add_widget(self.headerbar,
@@ -248,6 +252,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.album_art_db.request( key,
                                        self.display_song_album_art_callback,
                                        entry )
+                                       
                                        
     def display_song_album_art_callback( self, key, filename, data, entry ):
         if( ( data is not None ) and ( isinstance( data, GdkPixbuf.Pixbuf ) ) ):
