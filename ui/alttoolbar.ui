@@ -9,7 +9,7 @@
     <child>
       <object class="GtkBox" id="playback option box">
         <property name="can_focus">False</property>
-        <property name="margin_right">14</property>
+        <property name="margin_right">4</property>
         <child>
           <object class="GtkToggleButton" id="repeat toggle">
             <property name="visible">True</property>
@@ -66,7 +66,7 @@
     <child>
       <object class="GtkBox" id="playback control box">
         <property name="can_focus">False</property>
-        <property name="margin_right">14</property>
+        <property name="margin_right">4</property>
         <child>
           <object class="GtkButton" id="prev button">
             <property name="can_focus">False</property>
@@ -86,7 +86,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkToggleButton" id="play button">
+          <object class="GtkButton" id="play button">
             <property name="can_focus">False</property>
             <property name="receives_default">False</property>
             <child>
@@ -198,9 +198,6 @@
         <property name="width">1</property>
         <property name="height">1</property>
       </packing>
-    </child>
-    <child>
-      <placeholder/>
     </child>
     <child>
       <placeholder/>

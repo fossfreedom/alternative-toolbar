@@ -150,11 +150,25 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             a.set_action_name("app." + b)
             #if b == "play-repeat" or b == "play-shuffle":
             #    a.set_action_target_value(GLib.Variant("b", True))
+            
+        # for environments that dont support app-menus
+        menu_button = Gtk.MenuButton.new()
+        menu = self.shell.props.application.get_shared_menu('app-menu')
+        menu_button.set_menu_model(menu)
+        
+        
+        #g_object_get (gtk_settings_get_default (),
+		#      "gtk-shell-shows-app-menu", &shell_shows_app_menu,
+		#      NULL);
+        default = Gtk.Settings.get_default()
     
         self.headerbar = Gtk.HeaderBar.new()   
         #self.headerbar.set_title("Rhythmbox")
         self.headerbar.set_show_close_button(True)
         self.headerbar.pack_start(self.small_bar)
+        if (not default.props.gtk_shell_shows_app_menu) or default.props.gtk_shell_shows_menubar:
+            self.headerbar.pack_end(menu_button)
+            
         self.headerbar.show_all()
 
         #self.shell.add_widget(self.headerbar,
@@ -169,6 +183,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         
         self.sh_op = self.shell_player.connect("elapsed-changed",
                                                 self._sh_on_playing )  
+                                                
+        self.sh_pc = self.shell_player.connect("playing-changed",
+                                               self._sh_on_playing_change )
         
         
     # Couldn't find better way to find widgets than loop through them
@@ -196,6 +213,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         '''
         self.shell_player.disconnect( self.sh_op )
         self.shell_player.disconnect( self.sh_psc )
+        self.shell_player.disconnect( self.sh_pc)
         del self.shell_player
         
         self.appshell.cleanup()
@@ -222,12 +240,10 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         else:
             self.song_button_label.set_markup(
                 "<b>{title}</b> <small>{album} - {artist}</small>".format(
-                title = entry.get_string( RB.RhythmDBPropType.TITLE ),
-                album = entry.get_string( RB.RhythmDBPropType.ALBUM ),
-                artist = entry.get_string( RB.RhythmDBPropType.ARTIST ) ) )
+                title = GLib.markup_escape_text(entry.get_string( RB.RhythmDBPropType.TITLE )),
+                album = GLib.markup_escape_text(entry.get_string( RB.RhythmDBPropType.ALBUM )),
+                artist = GLib.markup_escape_text(entry.get_string( RB.RhythmDBPropType.ARTIST )) ))
                 
-            print (self.song_button_label.get_label())
-            
             key = entry.create_ext_db_key( RB.RhythmDBPropType.ALBUM )
             self.album_art_db.request( key,
                                        self.display_song_album_art_callback,
@@ -245,6 +261,19 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.album_cover.clear()
                                        
     # Signal Handlers ##########################################################
+    
+    def _sh_on_playing_change(self, player, playing):
+        image = self.play_button.get_child()
+        if (playing):
+            if player.get_active_source().can_pause():
+                icon_name = "media-playback-pause-symbolic"
+            else:
+                icon_name = "media-playback-stop-symbolic"
+            
+        else:
+            icon_name = "media-playback-start-symbolic"
+            
+        image.set_from_icon_name(icon_name, 16)
     
     def _sh_on_song_change(self, player, entry):
         if( entry is not None ):
