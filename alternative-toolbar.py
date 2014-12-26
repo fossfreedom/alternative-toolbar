@@ -21,10 +21,12 @@
 from gi.repository import Gtk
 from gi.repository import GObject
 from gi.repository import Peas
+from gi.repository import PeasGtk
 from gi.repository import RB
 from gi.repository import Gdk
 from gi.repository import GLib
 from gi.repository import GdkPixbuf
+from gi.repository import Gio
 
 from alttoolbar_rb3compat import ActionGroup
 from alttoolbar_rb3compat import ApplicationShell
@@ -40,6 +42,150 @@ view_menu_ui = """
   </menubar>
 </ui>
 """
+
+class GSetting:
+    '''
+    This class manages the different settings that the plugin has to
+    access to read or write.
+    '''
+    # storage for the instance reference
+    __instance = None
+
+    class __impl:
+        """ Implementation of the singleton interface """
+        # below public variables and methods that can be called for GSetting
+        def __init__(self):
+            '''
+            Initializes the singleton interface, assigning all the constants
+            used to access the plugin's settings.
+            '''
+            self.Path = self._enum(
+                PLUGIN='org.gnome.rhythmbox.plugins.alternative_toolbar')
+
+            self.PluginKey = self._enum(
+                DISPLAY_TYPE='display-type',
+                START_HIDDEN='start-hidden',
+                SHOW_COMPACT='show-compact'
+                )
+
+            self.setting = {}
+
+        def get_setting(self, path):
+            '''
+            Return an instance of Gio.Settings pointing at the selected path.
+            '''
+            try:
+                setting = self.setting[path]
+            except:
+                self.setting[path] = Gio.Settings.new(path)
+                setting = self.setting[path]
+
+            return setting
+
+        def get_value(self, path, key):
+            '''
+            Return the value saved on key from the settings path.
+            '''
+            return self.get_setting(path)[key]
+
+        def set_value(self, path, key, value):
+            '''
+            Set the passed value to key in the settings path.
+            '''
+            self.get_setting(path)[key] = value
+
+        def _enum(self, **enums):
+            '''
+            Create an enumn.
+            '''
+            return type('Enum', (), enums)
+
+    def __init__(self):
+        """ Create singleton instance """
+        # Check whether we already have an instance
+        if GSetting.__instance is None:
+            # Create and remember instance
+            GSetting.__instance = GSetting.__impl()
+
+        # Store instance reference as the only member in the handle
+        self.__dict__['_GSetting__instance'] = GSetting.__instance
+
+    def __getattr__(self, attr):
+        """ Delegate access to implementation """
+        return getattr(self.__instance, attr)
+
+    def __setattr__(self, attr, value):
+        """ Delegate access to implementation """
+        return setattr(self.__instance, attr, value)
+
+
+class Preferences(GObject.Object, PeasGtk.Configurable):
+    '''
+    Preferences for the Plugins. It holds the settings for
+    the plugin and also is the responsible of creating the preferences dialog.
+    '''
+    __gtype_name__ = 'AlternativeToolbarPreferences'
+    object = GObject.property(type=GObject.Object)
+
+
+    def __init__(self):
+        '''
+        Initialises the preferences, getting an instance of the settings saved
+        by Gio.
+        '''
+        GObject.Object.__init__(self)
+        self.gs = GSetting()
+        self.settings = self.gs.get_setting(self.gs.Path.PLUGIN)
+
+    def do_create_configure_widget(self):
+        '''
+        Creates the plugin's preferences dialog
+        '''
+        print ("DEBUG - create_display_contents")
+        # create the ui
+        self._first_run = True
+        
+        builder = Gtk.Builder()
+        builder.add_from_file(rb.find_plugin_file(self,
+                                                  'ui/altpreferences.ui'))
+        builder.connect_signals(self)
+
+        # bind the toggles to the settings
+        start_hidden = builder.get_object('start_hidden_checkbox')
+        self.settings.bind(self.gs.PluginKey.START_HIDDEN,
+                           start_hidden, 'active', Gio.SettingsBindFlags.DEFAULT)
+                           
+        show_compact = builder.get_object('show_compact_checkbox')
+        self.settings.bind(self.gs.PluginKey.SHOW_COMPACT,
+                           show_compact, 'active', Gio.SettingsBindFlags.DEFAULT)
+
+        self.display_type = self.settings[self.gs.PluginKey.DISPLAY_TYPE]
+        self.auto_radiobutton = builder.get_object('auto_radiobutton')
+        self.headerbar_radiobutton = builder.get_object('headerbar_radiobutton')
+        self.toolbar_radiobutton = builder.get_object('toolbar_radiobutton')
+        
+        if self.display_type == 0:
+            self.auto_radiobutton.set_active(True)
+        elif self.display_type == 1:
+            self.headerbar_radiobutton.set_active(True)
+        else:
+            self.toolbar_radiobutton.set_active(True)
+            
+        self._first_run = False
+
+        return builder.get_object('preferences_box')
+
+    def on_display_type_radiobutton_toggled(self, button):
+        if self._first_run:
+            return
+            
+        if button.get_active():
+            if button == self.auto_radiobutton:
+                self.settings[self.gs.PluginKey.DISPLAY_TYPE] = 0
+            elif button == self.headerbar_radiobutton:
+                self.settings[self.gs.PluginKey.DISPLAY_TYPE] = 1
+            else:
+                self.settings[self.gs.PluginKey.DISPLAY_TYPE] = 2
 
 class AltToolbarPlugin(GObject.Object, Peas.Activatable):
     '''
@@ -98,6 +244,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         Initialises the plugin object.
         '''
         GObject.Object.__init__(self)
+        self.gs = GSetting()
+        self.settings = self.gs.get_setting(self.gs.Path.PLUGIN)
+        self.appshell = None
 
     def do_activate(self):
         '''
@@ -109,7 +258,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.shell = self.object
         self.db = self.shell.props.db
         self.main_window = self.shell.props.window
-        self.main_window.set_border_width(10)
+        #self.main_window.set_border_width(10)
         
         # Prepare internal variables
         self.song_duration = 0
@@ -118,24 +267,29 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         
         # Prepare Album Art Displaying
         self.album_art_db = GObject.new( RB.ExtDB, name="album-art" )
-        
-
-        #self.main_window.set_decorated(False)
-
-        self.appshell = ApplicationShell(self.shell)
-        self.toggle_action_group = ActionGroup(self.shell, 'AltToolbarPluginActions')
-        self.toggle_action_group.add_action(func=self.toggle_visibility,
-        action_name='ToggleToolbar', label=_("Show Toolbar"), action_state=ActionGroup.TOGGLE,
-        action_type='app', accel="<Ctrl>t", tooltip=_("Show or hide the main toolbar"))
-        self.appshell.insert_action_group(self.toggle_action_group)
-        self.appshell.add_app_menuitems(view_menu_ui, 'AltToolbarPluginActions', 'view')
 
         self.rb_toolbar = self.find(self.shell.props.window,
                                    'main-toolbar', 'by_id')
                                    
         builder = Gtk.Builder()
-        ui = rb.find_plugin_file(self, 'ui/altheaderbar.ui')
-        print (ui)
+        display_type = self.settings[self.gs.PluginKey.DISPLAY_TYPE]
+        start_hidden = self.settings[self.gs.PluginKey.START_HIDDEN]
+
+        default = Gtk.Settings.get_default()
+    
+        if display_type == 0:
+            if (not default.props.gtk_shell_shows_app_menu) or default.props.gtk_shell_shows_menubar:
+                display_type = 2
+            else:
+                display_type = 1
+        
+        print ("display type %d" % display_type)
+
+        if display_type == 1:
+            ui = rb.find_plugin_file(self, 'ui/altheaderbar.ui')
+        else:
+            ui = rb.find_plugin_file(self, 'ui/alttoolbar.ui')
+        
         builder.add_from_file( ui )
         
         self.load_builder_content( builder )
@@ -148,38 +302,52 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                        (self.repeat_toggle, "play-repeat"),
                        (self.shuffle_toggle, "play-shuffle")):
             a.set_action_name("app." + b)
-            #if b == "play-repeat" or b == "play-shuffle":
-            #    a.set_action_target_value(GLib.Variant("b", True))
-            
-        # for environments that dont support app-menus
-        menu_button = Gtk.MenuButton.new()
-        menu_button.set_relief(Gtk.ReliefStyle.NONE)
-        menu = self.shell.props.application.get_shared_menu('app-menu')
-        menu_button.set_menu_model(menu)
         
-        
-        #g_object_get (gtk_settings_get_default (),
-		#      "gtk-shell-shows-app-menu", &shell_shows_app_menu,
-		#      NULL);
-        default = Gtk.Settings.get_default()
-    
-        self.headerbar = Gtk.HeaderBar.new()   
-        #self.headerbar.set_title("Rhythmbox")
-        self.headerbar.set_show_close_button(True)
-        self.headerbar.pack_start(self.small_bar)
-        if (not default.props.gtk_shell_shows_app_menu) or default.props.gtk_shell_shows_menubar:
-            self.headerbar.pack_end(menu_button)
-            
-        # required for Gtk 3.14 to stop RB adding a title to the header bar
-        empty = Gtk.DrawingArea.new()
-        self.headerbar.set_custom_title(empty) 
-        self.headerbar.show_all()
+        if display_type == 1:        
+            self.headerbar = Gtk.HeaderBar.new()   
+            self.headerbar.set_show_close_button(True)
+            self.headerbar.pack_start(self.small_bar)
+            if (not default.props.gtk_shell_shows_app_menu) or default.props.gtk_shell_shows_menubar:
+                # for environments that dont support app-menus
+                menu_button = Gtk.MenuButton.new()
+                menu_button.set_relief(Gtk.ReliefStyle.NONE)
+                menu = self.shell.props.application.get_shared_menu('app-menu')
+                menu_button.set_menu_model(menu)
+                self.headerbar.pack_end(menu_button)
+                
+            # required for Gtk 3.14 to stop RB adding a title to the header bar
+            empty = Gtk.DrawingArea.new()
+            self.headerbar.set_custom_title(empty) 
+            self.headerbar.show_all()
 
-        #self.shell.add_widget(self.headerbar,
-        #    RB.ShellUILocation.MAIN_TOP, expand=True, fill=True)
-        self.main_window.set_titlebar(self.headerbar) # this is needed for gnome-shell to replace the decoration
-        self.rb_toolbar.hide()   
-        
+            self.main_window.set_titlebar(self.headerbar) # this is needed for gnome-shell to replace the decoration
+            self.rb_toolbar.hide()
+            
+        if display_type == 2:
+            self.appshell = ApplicationShell(self.shell)
+            self.toggle_action_group = ActionGroup(self.shell, 'AltToolbarPluginActions')
+            self.toggle_action_group.add_action(func=self.toggle_visibility,
+            action_name='ToggleToolbar', label=_("Show Toolbar"), action_state=ActionGroup.TOGGLE,
+            action_type='app', accel="<Ctrl>t", tooltip=_("Show or hide the main toolbar"))
+            self.appshell.insert_action_group(self.toggle_action_group)
+            self.appshell.add_app_menuitems(view_menu_ui, 'AltToolbarPluginActions', 'view')
+            action = self.toggle_action_group.get_action('ToggleToolbar')
+            
+            self.show_compact_toolbar = self.settings[self.gs.PluginKey.SHOW_COMPACT]
+            print ("show compact %d" % self.show_compact_toolbar)
+            if not start_hidden and self.show_compact_toolbar:
+                self.shell.add_widget(self.small_bar,
+                    RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
+                self.small_bar.show_all()
+                self.rb_toolbar.hide()
+                action.set_active(True)
+                print ("not hidden but compact")
+            elif start_hidden:
+                self.rb_toolbar.hide()   
+                print ("hidden")
+            else:
+                action.set_active(True)
+                
         # Connect signal handlers to rhythmbox
         self.shell_player = self.shell.props.shell_player
         self.sh_psc = self.shell_player.connect("playing-song-changed",
@@ -194,7 +362,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         
     # Couldn't find better way to find widgets than loop through them
     def find(self, node, search_id, search_type):
-        print (node.get_name())
+        #print (node.get_name())
         if isinstance(node, Gtk.Buildable):
             if search_type == 'by_id':
                 if Gtk.Buildable.get_name(node) == search_id:
@@ -220,7 +388,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.shell_player.disconnect( self.sh_pc)
         del self.shell_player
         
-        self.appshell.cleanup()
+        if self.appshell:
+            self.appshell.cleanup()
         self.rb_toolbar.set_visible(True)
         
         self.purge_builder_content()
@@ -228,9 +397,26 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         del self.db
         
     def toggle_visibility(self, action, param=None, data=None):
+        print ("toggle_visibility")
         action = self.toggle_action_group.get_action('ToggleToolbar')
 
-        self.rb_toolbar.set_visible(action.get_active())
+        if action.get_active():
+            if self.show_compact_toolbar:
+                print ("show_compact")
+                self.shell.add_widget(self.small_bar,
+                    RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
+                self.small_bar.show_all()
+            else:
+                print ("show full")
+                self.rb_toolbar.set_visible(True)
+        else:
+            if self.show_compact_toolbar:
+                print ("hide compact")
+                self.shell.remove_widget(self.small_bar, 
+                    RB.ShellUILocation.MAIN_TOP)
+            else:
+                print ("hide full")
+                self.rb_toolbar.set_visible(False)
         
     def display_song(self, entry):
         self.entry = entry

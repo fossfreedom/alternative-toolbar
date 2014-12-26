@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+    <schema path="/org/gnome/rhythmbox/plugins/alternative_toolbar/" id="org.gnome.rhythmbox.plugins.alternative_toolbar">
+        <key type="i" name="display-type">
+            <default>0</default>
+            <summary>Type of display</summary>
+            <description>Type of display</description>
+        </key>
+        <key type="b" name="start-hidden">
+            <default>false</default>
+            <summary>Start toolbar in hidden state</summary>
+            <description>Start toolbar in hidden state</description>
+        </key>
+        <key type="b" name="show-compact">
+            <default>true</default>
+            <summary>Show compact toolbar</summary>
+            <description>Show compact toolbar</description>
+        </key>
+    </schema>
+</schemalist>
