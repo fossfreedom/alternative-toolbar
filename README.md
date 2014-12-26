@@ -1,7 +1,7 @@
 alternative-toolbar
 ==================
 
-Show or hide the main toolbar for Rhythmbox
+Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact Toolbar which can be hidden
 
  - fossfreedom <foss.freedom@gmail.com>, website - https://github.com/fossfreedom
 
@@ -13,8 +13,10 @@ Show or hide the main toolbar for Rhythmbox
 To install the plugin:
 
 <pre>
-cd ~/.local/share/rhythmbox/plugins
+cd ~/Downloads
 git clone https://github.com/fossfreedom/alternative-toolbar.git
+cd alternative-toolbar
+./install.sh
 </pre>
 
 Then enable the plugin in the plugins window.
