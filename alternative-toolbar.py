@@ -27,6 +27,7 @@ from gi.repository import Gdk
 from gi.repository import GLib
 from gi.repository import GdkPixbuf
 from gi.repository import Gio
+import datetime
 
 from alttoolbar_rb3compat import ActionGroup
 from alttoolbar_rb3compat import ApplicationShell
@@ -479,7 +480,23 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
     def _sh_on_playing(self, player, second ):
         if( self.song_duration != 0 ):
             self.song_progress.progress = float(second) / self.song_duration
-        
+            
+            m, s = divmod(player.get_playing_time()[1], 60)
+            h, m = divmod(m, 60)
+            
+            tm, ts = divmod(self.song_duration, 60)
+            th, tmm = divmod(tm, 60)
+            
+            if th == 0:
+                label = "<small>{time}</small>".format(time="%02d:%02d" % (m, s))
+                tlabel = "<small>{time}</small>".format(time="%02d:%02d" % (tm, ts))
+            else:
+                label = "<small>{time}</small>".format(time="%d:%02d:%02d" % (h, m, s))
+                tlabel = "<small>{time}</small>".format(time="%d:%02d:%02d" % (th, tm, ts))
+            
+            self.current_time_label.set_markup( label )
+            self.total_time_label.set_markup( tlabel )
+            
     def _sh_progress_control( self, progress, fraction ):
         if( self.song_duration != 0 ):
             self.shell_player.set_playing_time( self.song_duration * fraction )
@@ -526,11 +543,11 @@ class SmallProgressBar( Gtk.DrawingArea ):
         fgc = sc.get_color( self.get_state_flags() )
         
         cc.set_source_rgba(1, 1, 1, 1 )
-        cc.rectangle(0, 0, alloc.width, alloc.height )
+        cc.rectangle(0, alloc.height / 2, alloc.width, alloc.height / 4 )
         cc.fill()
         
         cc.set_source_rgba( fgc.red, fgc.green, fgc.blue, fgc.alpha )
-        cc.rectangle(0, 0, alloc.width * self.progress, alloc.height )
+        cc.rectangle(0, alloc.height / 2, alloc.width * self.progress, alloc.height / 4 )
         cc.fill()
         
     def do_motion_notify_event( self, event ):
