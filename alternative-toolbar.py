@@ -248,6 +248,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.gs = GSetting()
         self.settings = self.gs.get_setting(self.gs.Path.PLUGIN)
         self.appshell = None
+        self.sh_psc = self.sh_op = self.sh_pc = None
 
     def do_activate(self):
         '''
@@ -348,6 +349,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                 print ("hidden")
             else:
                 action.set_active(True)
+                return
                 
         # Connect signal handlers to rhythmbox
         self.shell_player = self.shell.props.shell_player
@@ -359,7 +361,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                                                 
         self.sh_pc = self.shell_player.connect("playing-changed",
                                                self._sh_on_playing_change )
-        
+    
         
     # Couldn't find better way to find widgets than loop through them
     def find(self, node, search_id, search_type):
@@ -384,10 +386,11 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         Called by Rhythmbox when the plugin is deactivated. It makes sure to
         free all the resources used by the plugin.
         '''
-        self.shell_player.disconnect( self.sh_op )
-        self.shell_player.disconnect( self.sh_psc )
-        self.shell_player.disconnect( self.sh_pc)
-        del self.shell_player
+        if self.sh_op:
+            self.shell_player.disconnect( self.sh_op )
+            self.shell_player.disconnect( self.sh_psc )
+            self.shell_player.disconnect( self.sh_pc)
+            del self.shell_player
         
         if self.appshell:
             self.appshell.cleanup()
@@ -481,7 +484,14 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         if( self.song_duration != 0 ):
             self.song_progress.progress = float(second) / self.song_duration
             
-            m, s = divmod(player.get_playing_time()[1], 60)
+            try:
+                valid, time = player.get_playing_time()
+                if not valid or time == 0:
+                    return
+            except:
+                return
+                
+            m, s = divmod(time, 60)
             h, m = divmod(m, 60)
             
             tm, ts = divmod(self.song_duration, 60)
@@ -540,9 +550,10 @@ class SmallProgressBar( Gtk.DrawingArea ):
     def do_draw( self, cc ):
         alloc = self.get_allocation()
         sc = self.get_style_context()
-        fgc = sc.get_color( self.get_state_flags() )
+        fgc = sc.get_background_color( Gtk.StateFlags.SELECTED) #self.get_state_flags() )
+        bgc = sc.get_color( Gtk.StateFlags.NORMAL )#self.get_state_flags() )
         
-        cc.set_source_rgba(1, 1, 1, 1 )
+        cc.set_source_rgba( bgc.red, bgc.green, bgc.blue, bgc.alpha )
         cc.rectangle(0, alloc.height / 2, alloc.width, alloc.height / 4 )
         cc.fill()
         
