@@ -450,6 +450,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         else:
             self.cover_pixbuf = None
             self.album_cover.clear()
+            
+            
+        self.album_cover.trigger_tooltip_query()
                                        
     # Signal Handlers ##########################################################
     
