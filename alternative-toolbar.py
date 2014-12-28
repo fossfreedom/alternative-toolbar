@@ -495,7 +495,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             h, m = divmod(m, 60)
             
             tm, ts = divmod(self.song_duration, 60)
-            th, tmm = divmod(tm, 60)
+            th, tm = divmod(tm, 60)
             
             if th == 0:
                 label = "<small>{time}</small>".format(time="%02d:%02d" % (m, s))
