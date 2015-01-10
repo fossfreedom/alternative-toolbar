@@ -27,8 +27,8 @@ from gi.repository import Gdk
 from gi.repository import GLib
 from gi.repository import GdkPixbuf
 from gi.repository import Gio
-import datetime
 
+import datetime
 from alttoolbar_rb3compat import ActionGroup
 from alttoolbar_rb3compat import ApplicationShell
 
@@ -196,6 +196,12 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
     __gtype_name = 'AltToolbarPlugin'
     object = GObject.property(type=GObject.Object)
     
+    # signals
+    # toolbar-visibility - bool parameter True = visible, False = not visible
+    __gsignals__ = {
+        'toolbar-visibility': (GObject.SIGNAL_RUN_LAST, None, (bool,))
+    }
+    
     # Builder releated utility functions... ####################################
     
     def load_builder_content(self, builder):
@@ -304,18 +310,36 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                        (self.repeat_toggle, "play-repeat"),
                        (self.shuffle_toggle, "play-shuffle")):
             a.set_action_name("app." + b)
+            
+        self.shell.props.display_page_tree.connect(
+            "selected", self.on_page_change
+        )
         
         if display_type == 1:        
             self.headerbar = Gtk.HeaderBar.new()   
             self.headerbar.set_show_close_button(True)
             self.headerbar.pack_start(self.small_bar)
+            self.volume_box = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
+            self.volume_button = Gtk.VolumeButton.new()
+            self.volume_button.props.use_symbolic = True
+            self.volume_button.set_relief(Gtk.ReliefStyle.NONE)
+            self.volume_box.add(self.volume_button)
+            
+            self.toolbar_button = Gtk.Button.new_from_icon_name("go-up-symbolic", 20)
+            self.toolbar_button.set_relief(Gtk.ReliefStyle.NONE)
+            image = self.toolbar_button.get_image()
+            image.set_pixel_size(10)
+            self.volume_box.add(self.toolbar_button)
+            
             if (not default.props.gtk_shell_shows_app_menu) or default.props.gtk_shell_shows_menubar:
                 # for environments that dont support app-menus
                 menu_button = Gtk.MenuButton.new()
                 menu_button.set_relief(Gtk.ReliefStyle.NONE)
                 menu = self.shell.props.application.get_shared_menu('app-menu')
                 menu_button.set_menu_model(menu)
-                self.headerbar.pack_end(menu_button)
+                self.volume_box.add(menu_button)
+                
+            self.headerbar.pack_end(self.volume_box)
                 
             # required for Gtk 3.14 to stop RB adding a title to the header bar
             empty = Gtk.DrawingArea.new()
@@ -336,6 +360,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             action = self.toggle_action_group.get_action('ToggleToolbar')
             
             self.show_compact_toolbar = self.settings[self.gs.PluginKey.SHOW_COMPACT]
+            
             print ("show compact %d" % self.show_compact_toolbar)
             if not start_hidden and self.show_compact_toolbar:
                 self.shell.add_widget(self.small_bar,
@@ -351,6 +376,13 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                 action.set_active(True)
                 return
                 
+        self.volume_button.bind_property("value", self.shell.props.shell_player, "volume", Gio.SettingsBindFlags.DEFAULT)
+        self.volume_button.props.value = self.shell.props.shell_player.props.volume
+    
+        self.sh_tb = self.toolbar_button.connect('clicked', self._sh_on_toolbar_btn_clicked)
+        
+        #self.current_page = self.shell.props.display_page_tree.props.model[
+
         # Connect signal handlers to rhythmbox
         self.shell_player = self.shell.props.shell_player
         self.sh_psc = self.shell_player.connect("playing-song-changed",
@@ -361,11 +393,44 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                                                 
         self.sh_pc = self.shell_player.connect("playing-changed",
                                                self._sh_on_playing_change )
+                                               
+    def _sh_on_toolbar_btn_clicked(self, *args):
+        image = self.toolbar_button.get_image()
+        if not image:
+            image = self.toolbar_button.get_child()
+            
+        if image.props.icon_name == 'go-up-symbolic':
+            image.props.icon_name = 'go-down-symbolic'
+            self.emit('toolbar-visibility', False)
+            
+        else:
+            image.props.icon_name = 'go-up-symbolic'
+            self.emit('toolbar-visibility', True )
+            
+        self.on_page_change(self.shell.props.display_page_tree, self.shell.props.selected_page)
     
+    def on_page_change(self, display_page_tree, page):
+        toolbar = self.find(page, 'RBSourceToolbar', 'by_name')
+        
+        #self.current_page = page
+        image = self.toolbar_button.get_image()
+        if not image:
+            image = self.toolbar_button.get_child()
+        
+        if image.props.icon_name == 'go-up-symbolic':
+            visible = True
+        else:
+            visible = False
+            
+        if toolbar:
+            print ("found")
+            toolbar.set_visible(visible)
+        else:
+            print ("not found")
         
     # Couldn't find better way to find widgets than loop through them
     def find(self, node, search_id, search_type):
-        #print (node.get_name())
+        print (node.get_name())
         if isinstance(node, Gtk.Buildable):
             if search_type == 'by_id':
                 if Gtk.Buildable.get_name(node) == search_id:
