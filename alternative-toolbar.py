@@ -394,6 +394,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.sh_pc = self.shell_player.connect("playing-changed",
                                                self._sh_on_playing_change )
                                                
+        self.shell.alternative_toolbar = self
+                                               
     def _sh_on_toolbar_btn_clicked(self, *args):
         image = self.toolbar_button.get_image()
         if not image:
