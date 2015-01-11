@@ -21,8 +21,8 @@
                 <child>
                   <object class="GtkImage" id="repeat image">
                     <property name="can_focus">False</property>
-                    <property name="pixel_size">20</property>
                     <property name="icon_name">media-playlist-repeat-symbolic</property>
+                    <property name="icon_size">2</property>
                   </object>
                 </child>
               </object>
@@ -40,8 +40,8 @@
                 <child>
                   <object class="GtkImage" id="shuffle image">
                     <property name="can_focus">False</property>
-                    <property name="pixel_size">20</property>
                     <property name="icon_name">media-playlist-shuffle-symbolic</property>
+                    <property name="icon_size">2</property>
                   </object>
                 </child>
               </object>
@@ -77,8 +77,8 @@
                 <child>
                   <object class="GtkImage" id="prev image">
                     <property name="can_focus">False</property>
-                    <property name="pixel_size">20</property>
                     <property name="icon_name">media-skip-backward-symbolic</property>
+                    <property name="icon_size">2</property>
                   </object>
                 </child>
               </object>
@@ -96,8 +96,8 @@
                 <child>
                   <object class="GtkImage" id="play image">
                     <property name="can_focus">False</property>
-                    <property name="pixel_size">20</property>
                     <property name="icon_name">media-playback-start-symbolic</property>
+                    <property name="icon_size">2</property>
                   </object>
                 </child>
               </object>
@@ -115,8 +115,8 @@
                 <child>
                   <object class="GtkImage" id="next image">
                     <property name="can_focus">False</property>
-                    <property name="pixel_size">20</property>
                     <property name="icon_name">media-skip-forward-symbolic</property>
+                    <property name="icon_size">2</property>
                   </object>
                 </child>
               </object>
@@ -149,6 +149,7 @@
               <object class="GtkImage" id="album cover">
                 <property name="can_focus">False</property>
                 <property name="has_tooltip">True</property>
+                <property name="icon_size">2</property>
                 <signal name="query-tooltip" handler="bigger_cover" swapped="no"/>
               </object>
               <packing>
@@ -244,7 +245,6 @@
           <object class="GtkBox" id="volume control box">
             <property name="can_focus">False</property>
             <property name="margin_right">4</property>
-            <property name="homogeneous">True</property>
             <child>
               <object class="GtkVolumeButton" id="volume button">
                 <property name="visible">True</property>
@@ -289,7 +289,6 @@ audio-volume-medium</property>
                 <child>
                   <object class="GtkImage" id="toolbar image">
                     <property name="can_focus">False</property>
-                    <property name="pixel_size">10</property>
                     <property name="icon_name">go-up-symbolic</property>
                     <property name="icon_size">2</property>
                   </object>

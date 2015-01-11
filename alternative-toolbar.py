@@ -315,6 +315,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             "selected", self.on_page_change
         )
         
+        what, width, height = Gtk.icon_size_lookup(Gtk.IconSize.SMALL_TOOLBAR)
+        
         if display_type == 1:        
             self.headerbar = Gtk.HeaderBar.new()   
             self.headerbar.set_show_close_button(True)
@@ -325,16 +327,16 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.volume_button.set_relief(Gtk.ReliefStyle.NONE)
             self.volume_box.add(self.volume_button)
             
-            self.toolbar_button = Gtk.Button.new_from_icon_name("go-up-symbolic", 20)
+            self.toolbar_button = Gtk.Button.new_from_icon_name("go-up-symbolic", width)
             self.toolbar_button.set_relief(Gtk.ReliefStyle.NONE)
-            image = self.toolbar_button.get_image()
-            image.set_pixel_size(10)
             self.volume_box.add(self.toolbar_button)
             
             if (not default.props.gtk_shell_shows_app_menu) or default.props.gtk_shell_shows_menubar:
                 # for environments that dont support app-menus
                 menu_button = Gtk.MenuButton.new()
                 menu_button.set_relief(Gtk.ReliefStyle.NONE)
+                image = Gtk.Image.new_from_icon_name("emblem-system-symbolic", Gtk.IconSize.SMALL_TOOLBAR)
+                menu_button.add(image)
                 menu = self.shell.props.application.get_shared_menu('app-menu')
                 menu_button.set_menu_model(menu)
                 self.volume_box.add(menu_button)
@@ -378,6 +380,13 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                 
         self.volume_button.bind_property("value", self.shell.props.shell_player, "volume", Gio.SettingsBindFlags.DEFAULT)
         self.volume_button.props.value = self.shell.props.shell_player.props.volume
+        
+        image = self.toolbar_button.get_image()
+        if not image:
+            image = self.toolbar_button.get_child()
+            
+        image.set_pixel_size(width / 2)
+            
     
         self.sh_tb = self.toolbar_button.connect('clicked', self._sh_on_toolbar_btn_clicked)
         
