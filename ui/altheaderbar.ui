@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.16.1 -->
+<!-- Generated with glade 3.18.3 -->
 <interface>
   <requires lib="gtk+" version="3.10"/>
   <object class="GtkGrid" id="small bar">
@@ -20,10 +20,13 @@
             <child>
               <object class="GtkImage" id="repeat image">
                 <property name="can_focus">False</property>
-                <property name="pixel_size">16</property>
                 <property name="icon_name">media-playlist-repeat-symbolic</property>
+                <property name="icon_size">2</property>
               </object>
             </child>
+            <style>
+              <class name="linked"/>
+            </style>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -39,10 +42,13 @@
             <child>
               <object class="GtkImage" id="shuffle image">
                 <property name="can_focus">False</property>
-                <property name="pixel_size">16</property>
                 <property name="icon_name">media-playlist-shuffle-symbolic</property>
+                <property name="icon_size">2</property>
               </object>
             </child>
+            <style>
+              <class name="linked"/>
+            </style>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -54,8 +60,6 @@
       <packing>
         <property name="left_attach">1</property>
         <property name="top_attach">0</property>
-        <property name="width">1</property>
-        <property name="height">1</property>
       </packing>
     </child>
     <child>
@@ -70,10 +74,13 @@
             <child>
               <object class="GtkImage" id="prev image">
                 <property name="can_focus">False</property>
-                <property name="pixel_size">16</property>
                 <property name="icon_name">media-skip-backward-symbolic</property>
+                <property name="icon_size">2</property>
               </object>
             </child>
+            <style>
+              <class name="linked"/>
+            </style>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -89,10 +96,13 @@
             <child>
               <object class="GtkImage" id="play image">
                 <property name="can_focus">False</property>
-                <property name="pixel_size">16</property>
                 <property name="icon_name">media-playback-start-symbolic</property>
+                <property name="icon_size">2</property>
               </object>
             </child>
+            <style>
+              <class name="linked"/>
+            </style>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -108,10 +118,13 @@
             <child>
               <object class="GtkImage" id="next image">
                 <property name="can_focus">False</property>
-                <property name="pixel_size">16</property>
                 <property name="icon_name">media-skip-forward-symbolic</property>
+                <property name="icon_size">2</property>
               </object>
             </child>
+            <style>
+              <class name="linked"/>
+            </style>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -123,8 +136,6 @@
       <packing>
         <property name="left_attach">2</property>
         <property name="top_attach">0</property>
-        <property name="width">1</property>
-        <property name="height">1</property>
       </packing>
     </child>
     <child>
@@ -136,6 +147,7 @@
           <object class="GtkImage" id="album cover">
             <property name="can_focus">False</property>
             <property name="has_tooltip">True</property>
+            <property name="icon_size">2</property>
             <signal name="query-tooltip" handler="bigger_cover" swapped="no"/>
           </object>
           <packing>
@@ -225,8 +237,6 @@
       <packing>
         <property name="left_attach">3</property>
         <property name="top_attach">0</property>
-        <property name="width">1</property>
-        <property name="height">1</property>
       </packing>
     </child>
     <child>
