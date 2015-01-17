@@ -1,4 +1,0 @@
-compiz (core) - Info: Loading plugin: core
-compiz (core) - Info: Starting plugin: core
-XIO:  fatal IO error 11 (Resource temporarily unavailable) on X server ":0"
-      after 218 requests (218 known processed) with 10 events remaining.
