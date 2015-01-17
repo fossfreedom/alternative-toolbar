@@ -199,6 +199,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
     __gtype_name = 'AltToolbarPlugin'
     object = GObject.property(type=GObject.Object)
     display_page_tree_visible = GObject.property(type=bool, default=False)
+    show_album_art = GObject.property(type=bool, default=False)
 
     # signals
     # toolbar-visibility - bool parameter True = visible, False = not visible
@@ -423,15 +424,22 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         # so have to use bind and notify method to detect key changes
         self.settings.bind('display-page-tree-visible', self, 'display_page_tree_visible',
                      Gio.SettingsBindFlags.GET)
-        self.connect('notify::display-page-tree-visible', self.rb_settings_changed)
+        self.connect('notify::display-page-tree-visible', self.display_page_tree_visible_settings_changed)
 
         self.sh_sb = self.sidepane_button.connect('clicked', self._sh_on_sidepane_btn_clicked)
-        self.rb_settings_changed(None)
+
+        self.settings.bind('show-album-art', self, 'show_album_art',
+                     Gio.SettingsBindFlags.GET)
+        self.connect('notify::show-album-art', self.show_album_art_settings_changed)
+        self.show_album_art_settings_changed(None)
+
+
+        self.display_page_tree_visible_settings_changed(None)
 
 
         self.shell.alternative_toolbar = self
 
-    def rb_settings_changed(self, *args):
+    def display_page_tree_visible_settings_changed(self, *args):
 
         if self.display_page_tree_visible:
             image_name = 'go-next-symbolic'
@@ -443,6 +451,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             image = self.sidepane_button.get_child()
 
         image.props.icon_name = image_name
+
+    def show_album_art_settings_changed(self, *args):
+        self.album_cover.set_visible(self.show_album_art)
 
     def _sh_on_sidepane_btn_clicked(self, *args):
             self.settings.set_boolean('display-page-tree-visible', not self.display_page_tree_visible)
