@@ -316,7 +316,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                        (self.shuffle_toggle, "play-shuffle")):
             a.set_action_name("app." + b)
 
-        self.shell.props.display_page_tree.connect(
+        self.sh_display_page_tree = self.shell.props.display_page_tree.connect(
             "selected", self.on_page_change
         )
 
@@ -424,7 +424,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         # so have to use bind and notify method to detect key changes
         self.settings.bind('display-page-tree-visible', self, 'display_page_tree_visible',
                      Gio.SettingsBindFlags.GET)
-        self.connect('notify::display-page-tree-visible', self.display_page_tree_visible_settings_changed)
+        self.sh_display_page = self.connect('notify::display-page-tree-visible', self.display_page_tree_visible_settings_changed)
 
         self.sh_sb = self.sidepane_button.connect('clicked', self._sh_on_sidepane_btn_clicked)
 
@@ -519,6 +519,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.shell_player.disconnect(self.sh_op)
             self.shell_player.disconnect(self.sh_psc)
             self.shell_player.disconnect(self.sh_pc)
+            self.disconnect(self.sh_display_page)
+            self.shell.props.display_page_tree.disconnect(self.sh_display_page_tree)
             del self.shell_player
 
         if self.appshell:
