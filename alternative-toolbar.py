@@ -198,6 +198,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
     '''
     __gtype_name = 'AltToolbarPlugin'
     object = GObject.property(type=GObject.Object)
+    display_page_tree_visible = GObject.property(type=bool, default=False)
 
     # signals
     # toolbar-visibility - bool parameter True = visible, False = not visible
@@ -334,6 +335,11 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.toolbar_button.set_relief(Gtk.ReliefStyle.NONE)
             self.volume_box.add(self.toolbar_button)
 
+            self.sidepane_button = Gtk.Button.new_from_icon_name("go-next-symbolic", width)
+            self.sidepane_button.set_relief(Gtk.ReliefStyle.NONE)
+            self.volume_box.add(self.sidepane_button)
+
+
             if (not default.props.gtk_shell_shows_app_menu) or default.props.gtk_shell_shows_menubar:
                 # for environments that dont support app-menus
                 menu_button = Gtk.MenuButton.new()
@@ -391,11 +397,15 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         if not image:
             image = self.toolbar_button.get_child()
 
-        image.set_pixel_size(width / 2)
+        image.set_pixel_size((width / 2))
+
+        image = self.sidepane_button.get_image()
+        if not image:
+            image = self.sidepane_button.get_child()
+
+        image.set_pixel_size((width / 2))
 
         self.sh_tb = self.toolbar_button.connect('clicked', self._sh_on_toolbar_btn_clicked)
-
-        #self.current_page = self.shell.props.display_page_tree.props.model[
 
         # Connect signal handlers to rhythmbox
         self.shell_player = self.shell.props.shell_player
@@ -408,7 +418,34 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.sh_pc = self.shell_player.connect("playing-changed",
                                                self._sh_on_playing_change)
 
+        self.settings = Gio.Settings.new('org.gnome.rhythmbox')
+        # tried to connect directly to changed signal but never seems to be fired
+        # so have to use bind and notify method to detect key changes
+        self.settings.bind('display-page-tree-visible', self, 'display_page_tree_visible',
+                     Gio.SettingsBindFlags.GET)
+        self.connect('notify::display-page-tree-visible', self.rb_settings_changed)
+
+        self.sh_sb = self.sidepane_button.connect('clicked', self._sh_on_sidepane_btn_clicked)
+        self.rb_settings_changed(None)
+
+
         self.shell.alternative_toolbar = self
+
+    def rb_settings_changed(self, *args):
+
+        if self.display_page_tree_visible:
+            image_name = 'go-next-symbolic'
+        else:
+            image_name = 'go-previous-symbolic'
+
+        image = self.sidepane_button.get_image()
+        if not image:
+            image = self.sidepane_button.get_child()
+
+        image.props.icon_name = image_name
+
+    def _sh_on_sidepane_btn_clicked(self, *args):
+            self.settings.set_boolean('display-page-tree-visible', not self.display_page_tree_visible)
 
     def _sh_on_toolbar_btn_clicked(self, *args):
         image = self.toolbar_button.get_image()

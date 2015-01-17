@@ -5,64 +5,6 @@
   <object class="GtkToolbar" id="small bar">
     <property name="can_focus">False</property>
     <child>
-      <object class="GtkToolItem" id="playback option item">
-        <property name="can_focus">False</property>
-        <child>
-          <object class="GtkBox" id="playback option box">
-            <property name="can_focus">False</property>
-            <property name="margin_right">4</property>
-            <child>
-              <object class="GtkToggleButton" id="repeat toggle">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="relief">none</property>
-                <property name="always_show_image">True</property>
-                <child>
-                  <object class="GtkImage" id="repeat image">
-                    <property name="can_focus">False</property>
-                    <property name="icon_name">media-playlist-repeat-symbolic</property>
-                    <property name="icon_size">2</property>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkToggleButton" id="shuffle toggle">
-                <property name="can_focus">False</property>
-                <property name="receives_default">False</property>
-                <property name="relief">none</property>
-                <child>
-                  <object class="GtkImage" id="shuffle image">
-                    <property name="can_focus">False</property>
-                    <property name="icon_name">media-playlist-shuffle-symbolic</property>
-                    <property name="icon_size">2</property>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-          </object>
-        </child>
-        <style>
-          <class name="linked"/>
-        </style>
-      </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="homogeneous">False</property>
-      </packing>
-    </child>
-    <child>
       <object class="GtkToolItem" id="playback control item">
         <property name="can_focus">False</property>
         <child>
@@ -124,6 +66,64 @@
                 <property name="expand">False</property>
                 <property name="fill">True</property>
                 <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+        </child>
+        <style>
+          <class name="linked"/>
+        </style>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="homogeneous">False</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkToolItem" id="playback option item">
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkBox" id="playback option box">
+            <property name="can_focus">False</property>
+            <property name="margin_right">4</property>
+            <child>
+              <object class="GtkToggleButton" id="repeat toggle">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="relief">none</property>
+                <property name="always_show_image">True</property>
+                <child>
+                  <object class="GtkImage" id="repeat image">
+                    <property name="can_focus">False</property>
+                    <property name="icon_name">media-playlist-repeat-symbolic</property>
+                    <property name="icon_size">2</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="shuffle toggle">
+                <property name="can_focus">False</property>
+                <property name="receives_default">False</property>
+                <property name="relief">none</property>
+                <child>
+                  <object class="GtkImage" id="shuffle image">
+                    <property name="can_focus">False</property>
+                    <property name="icon_name">media-playlist-shuffle-symbolic</property>
+                    <property name="icon_size">2</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
               </packing>
             </child>
           </object>
@@ -239,7 +239,7 @@
       </packing>
     </child>
     <child>
-      <object class="GtkToolItem" id="volume control item">
+      <object class="GtkToolItem" id="end control item">
         <property name="can_focus">False</property>
         <child>
           <object class="GtkBox" id="volume control box">
@@ -282,22 +282,54 @@ audio-volume-medium</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="toolbar button">
-                <property name="can_focus">True</property>
-                <property name="receives_default">False</property>
-                <property name="relief">none</property>
+              <object class="GtkBox" id="toggle box">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
                 <child>
-                  <object class="GtkImage" id="toolbar image">
-                    <property name="can_focus">False</property>
-                    <property name="icon_name">go-up-symbolic</property>
-                    <property name="icon_size">2</property>
+                  <object class="GtkButton" id="sidepane button">
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="relief">none</property>
+                    <child>
+                      <object class="GtkImage" id="sidepane image">
+                        <property name="can_focus">False</property>
+                        <property name="icon_name">go-next-symbolic</property>
+                        <property name="icon_size">2</property>
+                      </object>
+                    </child>
                   </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
+                    <property name="pack_type">end</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="toolbar button">
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="relief">none</property>
+                    <child>
+                      <object class="GtkImage" id="toolbar image">
+                        <property name="can_focus">False</property>
+                        <property name="icon_name">go-up-symbolic</property>
+                        <property name="icon_size">2</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
+                    <property name="pack_type">end</property>
+                    <property name="position">1</property>
+                  </packing>
                 </child>
               </object>
               <packing>
                 <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">2</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
               </packing>
             </child>
           </object>
