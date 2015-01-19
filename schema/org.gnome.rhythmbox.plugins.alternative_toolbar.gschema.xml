@@ -18,7 +18,7 @@
             <description>Show compact toolbar</description>
         </key>
         <key type="b" name="playing-label">
-            <default>true</default>
+            <default>false</default>
             <summary>Show album/genre/year for playing label</summary>
             <description>Show album/genre/year for playing label</description>
         </key>

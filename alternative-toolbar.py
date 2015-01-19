@@ -139,7 +139,7 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         '''
         GObject.Object.__init__(self)
         self.gs = GSetting()
-        self.settings = self.gs.get_setting(self.gs.Path.PLUGIN)
+        self.plugin_settings = self.gs.get_setting(self.gs.Path.PLUGIN)
 
     def do_create_configure_widget(self):
         '''
@@ -156,20 +156,20 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
 
         # bind the toggles to the settings
         start_hidden = builder.get_object('start_hidden_checkbox')
-        self.settings.bind(self.gs.PluginKey.START_HIDDEN,
+        self.plugin_settings.bind(self.gs.PluginKey.START_HIDDEN,
                            start_hidden, 'active', Gio.SettingsBindFlags.DEFAULT)
 
         show_compact = builder.get_object('show_compact_checkbox')
-        self.settings.bind(self.gs.PluginKey.SHOW_COMPACT,
+        self.plugin_settings.bind(self.gs.PluginKey.SHOW_COMPACT,
                            show_compact, 'active', Gio.SettingsBindFlags.DEFAULT)
 
-        self.display_type = self.settings[self.gs.PluginKey.DISPLAY_TYPE]
+        self.display_type = self.plugin_settings[self.gs.PluginKey.DISPLAY_TYPE]
         self.auto_radiobutton = builder.get_object('auto_radiobutton')
         self.headerbar_radiobutton = builder.get_object('headerbar_radiobutton')
         self.toolbar_radiobutton = builder.get_object('toolbar_radiobutton')
 
         playing_label = builder.get_object('playing_label_checkbox')
-        self.settings.bind(self.gs.PluginKey.PLAYING_LABEL,
+        self.plugin_settings.bind(self.gs.PluginKey.PLAYING_LABEL,
                            playing_label, 'active', Gio.SettingsBindFlags.DEFAULT)
 
         if self.display_type == 0:
@@ -189,11 +189,11 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
 
         if button.get_active():
             if button == self.auto_radiobutton:
-                self.settings[self.gs.PluginKey.DISPLAY_TYPE] = 0
+                self.plugin_settings[self.gs.PluginKey.DISPLAY_TYPE] = 0
             elif button == self.headerbar_radiobutton:
-                self.settings[self.gs.PluginKey.DISPLAY_TYPE] = 1
+                self.plugin_settings[self.gs.PluginKey.DISPLAY_TYPE] = 1
             else:
-                self.settings[self.gs.PluginKey.DISPLAY_TYPE] = 2
+                self.plugin_settings[self.gs.PluginKey.DISPLAY_TYPE] = 2
 
 
 class AltToolbarPlugin(GObject.Object, Peas.Activatable):
@@ -291,11 +291,11 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         builder = Gtk.Builder()
         self.gs = GSetting()
-        self.settings = self.gs.get_setting(self.gs.Path.PLUGIN)
+        self.plugin_settings = self.gs.get_setting(self.gs.Path.PLUGIN)
         print(self.gs.Path.PLUGIN)
 
-        display_type = self.settings[self.gs.PluginKey.DISPLAY_TYPE]
-        start_hidden = self.settings[self.gs.PluginKey.START_HIDDEN]
+        display_type = self.plugin_settings[self.gs.PluginKey.DISPLAY_TYPE]
+        start_hidden = self.plugin_settings[self.gs.PluginKey.START_HIDDEN]
 
         default = Gtk.Settings.get_default()
 
@@ -382,7 +382,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.appshell.add_app_menuitems(view_menu_ui, 'AltToolbarPluginActions', 'view')
             action = self.toggle_action_group.get_action('ToggleToolbar')
 
-            self.show_compact_toolbar = self.settings[self.gs.PluginKey.SHOW_COMPACT]
+            self.show_compact_toolbar = self.plugin_settings[self.gs.PluginKey.SHOW_COMPACT]
 
             print("show compact %d" % self.show_compact_toolbar)
             if not start_hidden and self.show_compact_toolbar:
@@ -428,24 +428,24 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.sh_pc = self.shell_player.connect("playing-changed",
                                                self._sh_on_playing_change)
 
-        self.settings.bind(self.gs.PluginKey.PLAYING_LABEL, self, 'playing_label',
+        self.plugin_settings.bind(self.gs.PluginKey.PLAYING_LABEL, self, 'playing_label',
                            Gio.SettingsBindFlags.GET)
 
-        rb_settings = Gio.Settings.new('org.gnome.rhythmbox')
+        self.rb_settings = Gio.Settings.new('org.gnome.rhythmbox')
         # tried to connect directly to changed signal but never seems to be fired
         # so have to use bind and notify method to detect key changes
-        rb_settings.bind('display-page-tree-visible', self, 'display_page_tree_visible',
+        self.rb_settings.bind('display-page-tree-visible', self, 'display_page_tree_visible',
                      Gio.SettingsBindFlags.GET)
         self.sh_display_page = self.connect('notify::display-page-tree-visible', self.display_page_tree_visible_settings_changed)
 
         self.sh_sb = self.sidepane_button.connect('clicked', self._sh_on_sidepane_btn_clicked)
 
-        rb_settings.bind('show-album-art', self, 'show_album_art',
+        self.rb_settings.bind('show-album-art', self, 'show_album_art',
                      Gio.SettingsBindFlags.GET)
         self.connect('notify::show-album-art', self.show_album_art_settings_changed)
         self.show_album_art_settings_changed(None)
 
-        rb_settings.bind('show-song-position-slider', self, 'show_song_position_slider',
+        self.rb_settings.bind('show-song-position-slider', self, 'show_song_position_slider',
                            Gio.SettingsBindFlags.GET)
         self.connect('notify::show-song-position-slider', self.show_song_position_slider_settings_changed)
         self.show_song_position_slider_settings_changed(None)
@@ -474,7 +474,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.album_cover.set_visible(self.show_album_art)
 
     def _sh_on_sidepane_btn_clicked(self, *args):
-            self.settings.set_boolean('display-page-tree-visible', not self.display_page_tree_visible)
+        self.rb_settings.set_boolean('display-page-tree-visible', not self.display_page_tree_visible)
 
     def _sh_on_toolbar_btn_clicked(self, *args):
         image = self.toolbar_button.get_image()
