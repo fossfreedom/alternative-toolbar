@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-    <schema path="/org/gnome/rhythmbox/plugins/alternative_toolbar/" id="org.gnome.rhythmbox.plugins.alternative_toolbar">
+    <schema path="/org/gnome/rhythmbox/plugins/alternative_toolbar/"
+            id="org.gnome.rhythmbox.plugins.alternative_toolbar">
         <key type="i" name="display-type">
             <default>0</default>
             <summary>Type of display</summary>
@@ -15,6 +16,11 @@
             <default>true</default>
             <summary>Show compact toolbar</summary>
             <description>Show compact toolbar</description>
+        </key>
+        <key type="b" name="playing-label">
+            <default>true</default>
+            <summary>Show album/genre/year for playing label</summary>
+            <description>Show album/genre/year for playing label</description>
         </key>
     </schema>
 </schemalist>

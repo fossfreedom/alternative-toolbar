@@ -18,6 +18,8 @@
 
 # define plugin
 
+from datetime import datetime, date
+
 from gi.repository import Gtk
 from gi.repository import GObject
 from gi.repository import Peas
@@ -66,7 +68,8 @@ class GSetting:
             self.PluginKey = self._enum(
                 DISPLAY_TYPE='display-type',
                 START_HIDDEN='start-hidden',
-                SHOW_COMPACT='show-compact'
+                SHOW_COMPACT='show-compact',
+                PLAYING_LABEL='playing-label'
             )
 
             self.setting = {}
@@ -165,6 +168,10 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         self.headerbar_radiobutton = builder.get_object('headerbar_radiobutton')
         self.toolbar_radiobutton = builder.get_object('toolbar_radiobutton')
 
+        playing_label = builder.get_object('playing_label_checkbox')
+        self.settings.bind(self.gs.PluginKey.PLAYING_LABEL,
+                           playing_label, 'active', Gio.SettingsBindFlags.DEFAULT)
+
         if self.display_type == 0:
             self.auto_radiobutton.set_active(True)
         elif self.display_type == 1:
@@ -199,6 +206,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
     display_page_tree_visible = GObject.property(type=bool, default=False)
     show_album_art = GObject.property(type=bool, default=False)
     show_song_position_slider = GObject.property(type=bool, default=False)
+    playing_label = GObject.property(type=bool, default=False)
 
     # signals
     # toolbar-visibility - bool parameter True = visible, False = not visible
@@ -255,8 +263,6 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         Initialises the plugin object.
         '''
         GObject.Object.__init__(self)
-        self.gs = GSetting()
-        self.settings = self.gs.get_setting(self.gs.Path.PLUGIN)
         self.appshell = None
         self.sh_psc = self.sh_op = self.sh_pc = None
 
@@ -284,6 +290,10 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                                     'main-toolbar', 'by_id')
 
         builder = Gtk.Builder()
+        self.gs = GSetting()
+        self.settings = self.gs.get_setting(self.gs.Path.PLUGIN)
+        print(self.gs.Path.PLUGIN)
+
         display_type = self.settings[self.gs.PluginKey.DISPLAY_TYPE]
         start_hidden = self.settings[self.gs.PluginKey.START_HIDDEN]
 
@@ -418,21 +428,24 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.sh_pc = self.shell_player.connect("playing-changed",
                                                self._sh_on_playing_change)
 
-        self.settings = Gio.Settings.new('org.gnome.rhythmbox')
+        self.settings.bind(self.gs.PluginKey.PLAYING_LABEL, self, 'playing_label',
+                           Gio.SettingsBindFlags.GET)
+
+        rb_settings = Gio.Settings.new('org.gnome.rhythmbox')
         # tried to connect directly to changed signal but never seems to be fired
         # so have to use bind and notify method to detect key changes
-        self.settings.bind('display-page-tree-visible', self, 'display_page_tree_visible',
+        rb_settings.bind('display-page-tree-visible', self, 'display_page_tree_visible',
                      Gio.SettingsBindFlags.GET)
         self.sh_display_page = self.connect('notify::display-page-tree-visible', self.display_page_tree_visible_settings_changed)
 
         self.sh_sb = self.sidepane_button.connect('clicked', self._sh_on_sidepane_btn_clicked)
 
-        self.settings.bind('show-album-art', self, 'show_album_art',
+        rb_settings.bind('show-album-art', self, 'show_album_art',
                      Gio.SettingsBindFlags.GET)
         self.connect('notify::show-album-art', self.show_album_art_settings_changed)
         self.show_album_art_settings_changed(None)
 
-        self.settings.bind('show-song-position-slider', self, 'show_song_position_slider',
+        rb_settings.bind('show-song-position-slider', self, 'show_song_position_slider',
                            Gio.SettingsBindFlags.GET)
         self.connect('notify::show-song-position-slider', self.show_song_position_slider_settings_changed)
         self.show_song_position_slider_settings_changed(None)
@@ -568,11 +581,24 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.song_button_label.set_text("")
 
         else:
-            self.song_button_label.set_markup(
-                "<b>{title}</b> <small>{album} - {artist}</small>".format(
-                    title=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.TITLE)),
-                    album=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ALBUM)),
-                    artist=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ARTIST))))
+            if self.playing_label:
+                year = entry.get_ulong(RB.RhythmDBPropType.DATE)
+                if year == 0:
+                    year = date.today().year
+                else:
+                    year = datetime.fromordinal(year).year
+
+                self.song_button_label.set_markup(
+                    "<small>{album} - {genre} - {year}</small>".format(
+                        album=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ALBUM)),
+                        genre=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.GENRE)),
+                        year=GLib.markup_escape_text(str(year))))
+            else:
+                self.song_button_label.set_markup(
+                    "<b>{title}</b> <small>{album} - {artist}</small>".format(
+                        title=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.TITLE)),
+                        album=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ALBUM)),
+                        artist=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ARTIST))))
 
             key = entry.create_ext_db_key(RB.RhythmDBPropType.ALBUM)
             self.album_art_db.request(key,
