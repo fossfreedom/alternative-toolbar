@@ -18,8 +18,6 @@
 
 # define plugin
 
-import datetime
-
 from gi.repository import Gtk
 from gi.repository import GObject
 from gi.repository import Peas
@@ -200,6 +198,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
     object = GObject.property(type=GObject.Object)
     display_page_tree_visible = GObject.property(type=bool, default=False)
     show_album_art = GObject.property(type=bool, default=False)
+    show_song_position_slider = GObject.property(type=bool, default=False)
 
     # signals
     # toolbar-visibility - bool parameter True = visible, False = not visible
@@ -433,11 +432,17 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.connect('notify::show-album-art', self.show_album_art_settings_changed)
         self.show_album_art_settings_changed(None)
 
+        self.settings.bind('show-song-position-slider', self, 'show_song_position_slider',
+                           Gio.SettingsBindFlags.GET)
+        self.connect('notify::show-song-position-slider', self.show_song_position_slider_settings_changed)
+        self.show_song_position_slider_settings_changed(None)
 
         self.display_page_tree_visible_settings_changed(None)
 
-
         self.shell.alternative_toolbar = self
+
+    def show_song_position_slider_settings_changed(self, *args):
+        self.song_box.set_visible(self.show_song_position_slider)
 
     def display_page_tree_visible_settings_changed(self, *args):
 
