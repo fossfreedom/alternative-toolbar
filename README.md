@@ -40,3 +40,11 @@ Then enable the plugin in the plugins window.
 
  - Use the keyboard shortcut CTRL+T to toggle the visibility of the compact/standard toolbar.
  - From the menu use View - Show Toolbar
+ 
+To uninstall the plugin:
+
+<pre>
+cd alternative-toolbar
+./install.sh --uninstall
+</pre>
+ 
