@@ -331,6 +331,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         what, width, height = Gtk.icon_size_lookup(Gtk.IconSize.SMALL_TOOLBAR)
 
+        self.icon_width = width
+
         if display_type == 1:
             self.headerbar = Gtk.HeaderBar.new()
             self.headerbar.set_show_close_button(True)
@@ -609,7 +611,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
     def display_song_album_art_callback(self, key, filename, data, entry):
         if ( ( data is not None ) and ( isinstance(data, GdkPixbuf.Pixbuf) ) ):
             self.cover_pixbuf = data
-            scale_cover = self.cover_pixbuf.scale_simple(24, 24,
+            scale_cover = self.cover_pixbuf.scale_simple(self.icon_width, self.icon_width,
                                                          GdkPixbuf.InterpType.HYPER)
 
             self.album_cover.set_from_pixbuf(scale_cover)
@@ -632,7 +634,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         else:
             icon_name = "media-playback-start-symbolic"
 
-        image.set_from_icon_name(icon_name, 16)
+        image.set_from_icon_name(icon_name, self.icon_width)
 
     def _sh_on_song_change(self, player, entry):
         if ( entry is not None ):
