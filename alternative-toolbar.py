@@ -610,10 +610,16 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                                       entry)
 
 
-    def display_song_album_art_callback(self, key, filename, data, entry):
+    def display_song_album_art_callback(self, *args): #key, filename, data, entry):
+        # rhythmbox 3.2 breaks the API - need to find the parameter with the pixbuf
+        data = None
+        for data in args:
+            if isinstance(data, GdkPixbuf.Pixbuf):
+                break
+                
         if ( ( data is not None ) and ( isinstance(data, GdkPixbuf.Pixbuf) ) ):
             self.cover_pixbuf = data
-            scale_cover = self.cover_pixbuf.scale_simple(self.icon_width, self.icon_width,
+            scale_cover = self.cover_pixbuf.scale_simple(self.icon_width + 10, self.icon_width + 10,
                                                          GdkPixbuf.InterpType.HYPER)
 
             self.album_cover.set_from_pixbuf(scale_cover)
