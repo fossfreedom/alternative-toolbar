@@ -511,6 +511,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             toolbar.set_visible(visible)
         else:
             print("not found")
+        
+        self.emit('toolbar-visibility', visible)
 
     # Couldn't find better way to find widgets than loop through them
     def find(self, node, search_id, search_type):
