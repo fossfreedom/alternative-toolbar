@@ -52,4 +52,4 @@ cd alternative-toolbar
 
 <hr/>
  
-Thanks to the [rhythmbox-seek project](thttps://github.com/cgarvey/rhythmbox-seek) for the track-seeking code
+Thanks to the [rhythmbox-seek](https://github.com/cgarvey/rhythmbox-seek) project for the track-seeking code.
