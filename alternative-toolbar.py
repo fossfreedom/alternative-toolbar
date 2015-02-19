@@ -39,12 +39,25 @@ view_menu_ui = """
 <ui>
   <menubar name="MenuBar">
     <menu name="ViewMenu" action="View">
-      <menuitem name="Show Toolbar" action="ToggleToolbar" />
+        <menuitem name="Show Toolbar" action="ToggleToolbar" />
     </menu>
   </menubar>
 </ui>
 """
 
+view_seek_menu_ui = """
+<ui>
+  <menubar name="MenuBar">
+    <menu name="ViewMenu" action="View">
+        <menuitem name="SeekBackward" action="SeekBackward" />
+        <menuitem name="SeekForward" action="SeekForward" />
+    </menu>
+  </menubar>
+</ui>
+"""
+
+seek_backward_time = 5
+seek_forward_time = 10
 
 class GSetting:
     '''
@@ -372,8 +385,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.main_window.set_titlebar(self.headerbar)  # this is needed for gnome-shell to replace the decoration
             self.rb_toolbar.hide()
 
+        self.appshell = ApplicationShell(self.shell)
+
         if display_type == 2:
-            self.appshell = ApplicationShell(self.shell)
             self.toggle_action_group = ActionGroup(self.shell, 'AltToolbarPluginActions')
             self.toggle_action_group.add_action(func=self.toggle_visibility,
                                                 action_name='ToggleToolbar', label=_("Show Toolbar"),
@@ -419,6 +433,18 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         self.sh_tb = self.toolbar_button.connect('clicked', self._sh_on_toolbar_btn_clicked)
 
+        self.seek_action_group = ActionGroup(self.shell, 'AltToolbarPluginSeekActions')
+        self.seek_action_group.add_action(func=self.on_skip_backward,
+                                            action_name='SeekBackward', label=_("Seek Backward"),
+                                            action_type='app', accel="<Alt>Left",
+                                            tooltip=_("Seek backward, in current track, by 5 seconds."))
+        self.seek_action_group.add_action(func=self.on_skip_forward,
+                                            action_name='SeekForward', label=_("Seek Forward"),
+                                            action_type='app', accel="<Alt>Right",
+                                            tooltip=_("Seek forward, in current track, by 10 seconds."))
+        self.appshell.insert_action_group(self.seek_action_group)
+        self.appshell.add_app_menuitems(view_seek_menu_ui, 'AltToolbarPluginSeekActions', 'view')
+
         # Connect signal handlers to rhythmbox
         self.shell_player = self.shell.props.shell_player
         self.sh_psc = self.shell_player.connect("playing-song-changed",
@@ -455,6 +481,26 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.display_page_tree_visible_settings_changed(None)
 
         self.shell.alternative_toolbar = self
+
+    def on_skip_backward( self, *args ):
+        sp = self.object.props.shell_player
+        if( sp.get_playing()[1] ):
+            seek_time = sp.get_playing_time()[1] - seek_backward_time
+            print (seek_time)
+            if( seek_time < 0 ): seek_time = 0
+
+            print (seek_time)
+            sp.set_playing_time( seek_time )
+
+    def on_skip_forward( self, *args ):
+        sp = self.object.props.shell_player
+        if( sp.get_playing()[1] ):
+            seek_time = sp.get_playing_time()[1] + seek_forward_time
+            song_duration = sp.get_playing_song_duration()
+            if( song_duration > 0 ): #sanity check
+                if( seek_time > song_duration ): seek_time = song_duration
+
+                sp.set_playing_time( seek_time )
 
     def show_song_position_slider_settings_changed(self, *args):
         self.song_box.set_visible(self.show_song_position_slider)

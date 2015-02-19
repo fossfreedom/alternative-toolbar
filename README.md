@@ -40,6 +40,8 @@ Then enable the plugin in the plugins window.
 
  - Use the keyboard shortcut CTRL+T to toggle the visibility of the compact/standard toolbar.
  - From the menu use View - Show Toolbar
+ - To seek forward (fast-forward) through a track - Alt+Right Cursor key
+ - To seek backward through a track - Alt+Left Cursor key
  
 To uninstall the plugin:
 
@@ -47,4 +49,7 @@ To uninstall the plugin:
 cd alternative-toolbar
 ./install.sh --uninstall
 </pre>
+
+<hr/>
  
+Thanks to the [rhythmbox-seek project](thttps://github.com/cgarvey/rhythmbox-seek) for the track-seeking code
