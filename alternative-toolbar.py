@@ -455,6 +455,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         self.sh_pc = self.shell_player.connect("playing-changed",
                                                self._sh_on_playing_change)
+                                               
+        self.sh_pspc = self.shell_player.connect("playing-song-property-changed",
+                                                 self._sh_on_song_property_changed)
 
         self.plugin_settings.bind(self.gs.PluginKey.PLAYING_LABEL, self, 'playing_label',
                            Gio.SettingsBindFlags.GET)
@@ -562,7 +565,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
     # Couldn't find better way to find widgets than loop through them
     def find(self, node, search_id, search_type):
-        print(node.get_name())
+        #print(node.get_name())
         if isinstance(node, Gtk.Buildable):
             if search_type == 'by_id':
                 if Gtk.Buildable.get_name(node) == search_id:
@@ -587,6 +590,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.shell_player.disconnect(self.sh_op)
             self.shell_player.disconnect(self.sh_psc)
             self.shell_player.disconnect(self.sh_pc)
+            self.shell_player.disconnect(self.sh_pspc)
             self.disconnect(self.sh_display_page)
             self.shell.props.display_page_tree.disconnect(self.sh_display_page_tree)
             del self.shell_player
@@ -631,6 +635,26 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.song_button_label.set_text("")
 
         else:
+            stream_title = self.shell.props.db.entry_request_extra_metadata(entry, RB.RHYTHMDB_PROP_STREAM_SONG_TITLE)
+            stream_artist = self.shell.props.db.entry_request_extra_metadata(entry, RB.RHYTHMDB_PROP_STREAM_SONG_ARTIST)
+            
+            if stream_title:
+                if stream_artist:
+                    markup = "<b>{title}</b> <small>{artist}</small>".format(
+                        title=GLib.markup_escape_text(stream_title),
+                        artist=GLib.markup_escape_text(stream_artist))
+                else:
+                    markup = "<b>{title}</b>".format(
+                        title=GLib.markup_escape_text(stream_title))
+                self.song_button_label.set_markup(markup)
+                return
+                
+            album = entry.get_string(RB.RhythmDBPropType.ALBUM) 
+            if not album or album == "":
+                self.song_button_label.set_markup("<b>{title}</b>".format( 
+                    title=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.TITLE))))
+                return
+                
             if self.playing_label:
                 year = entry.get_ulong(RB.RhythmDBPropType.DATE)
                 if year == 0:
@@ -676,7 +700,16 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.album_cover.trigger_tooltip_query()
 
     # Signal Handlers ##########################################################
-
+    def _sh_on_song_property_changed(self, sp, uri, property, old, new):
+        if sp.get_playing() and property in ('artist', 
+                                             'album', 
+                                             'title',
+                                             RB.RHYTHMDB_PROP_STREAM_SONG_ARTIST,
+                                             RB.RHYTHMDB_PROP_STREAM_SONG_ALBUM,
+                                             RB.RHYTHMDB_PROP_STREAM_SONG_TITLE):
+            entry = sp.get_playing_entry()
+            self.display_song(entry)
+    
     def _sh_on_playing_change(self, player, playing):
         image = self.play_button.get_child()
         if (playing):
@@ -695,6 +728,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.song_duration = entry.get_ulong(RB.RhythmDBPropType.DURATION)
         else:
             self.song_duration = 0
+            
         self.display_song(entry)
 
     def _sh_on_playing(self, player, second):
