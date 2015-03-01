@@ -30,6 +30,7 @@ from gi.repository import GLib
 from gi.repository import GdkPixbuf
 from gi.repository import Gio
 
+from alttoolbar_rb3compat import gtk_version
 from alttoolbar_rb3compat import ActionGroup
 from alttoolbar_rb3compat import ApplicationShell
 import rb
@@ -369,7 +370,12 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                 # for environments that dont support app-menus
                 menu_button = Gtk.MenuButton.new()
                 menu_button.set_relief(Gtk.ReliefStyle.NONE)
-                image = Gtk.Image.new_from_icon_name("emblem-system-symbolic", Gtk.IconSize.SMALL_TOOLBAR)
+                if gtk_version() >= 3.14:
+                    symbol = "open-menu-symbolic"
+                else:
+                    symbol = "emblem-system-symbolic"
+                    
+                image = Gtk.Image.new_from_icon_name(symbol, Gtk.IconSize.SMALL_TOOLBAR)
                 menu_button.add(image)
                 menu = self.shell.props.application.get_shared_menu('app-menu')
                 menu_button.set_menu_model(menu)
