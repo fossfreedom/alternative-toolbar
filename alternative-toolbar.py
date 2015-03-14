@@ -83,7 +83,8 @@ class GSetting:
                 DISPLAY_TYPE='display-type',
                 START_HIDDEN='start-hidden',
                 SHOW_COMPACT='show-compact',
-                PLAYING_LABEL='playing-label'
+                PLAYING_LABEL='playing-label',
+                VOLUME_CONTROL='volume-control'
             )
 
             self.setting = {}
@@ -185,6 +186,10 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         playing_label = builder.get_object('playing_label_checkbox')
         self.plugin_settings.bind(self.gs.PluginKey.PLAYING_LABEL,
                            playing_label, 'active', Gio.SettingsBindFlags.DEFAULT)
+
+        volume_control = builder.get_object('volume_control_checkbox')
+        self.plugin_settings.bind(self.gs.PluginKey.VOLUME_CONTROL,
+                           volume_control, 'active', Gio.SettingsBindFlags.DEFAULT)
 
         if self.display_type == 0:
             self.auto_radiobutton.set_active(True)
@@ -306,10 +311,12 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         builder = Gtk.Builder()
         self.gs = GSetting()
         self.plugin_settings = self.gs.get_setting(self.gs.Path.PLUGIN)
-        print(self.gs.Path.PLUGIN)
 
+        # get values from gsettings
         display_type = self.plugin_settings[self.gs.PluginKey.DISPLAY_TYPE]
-        start_hidden = self.plugin_settings[self.gs.PluginKey.START_HIDDEN]
+        self.volume_control = self.plugin_settings[self.gs.PluginKey.VOLUME_CONTROL]
+        self.show_compact_toolbar = self.plugin_settings[self.gs.PluginKey.SHOW_COMPACT]
+
 
         default = Gtk.Settings.get_default()
 
@@ -339,91 +346,26 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                        (self.shuffle_toggle, "play-shuffle")):
             a.set_action_name("app." + b)
 
-        self.sh_display_page_tree = self.shell.props.display_page_tree.connect(
-            "selected", self.on_page_change
-        )
-
         what, width, height = Gtk.icon_size_lookup(Gtk.IconSize.SMALL_TOOLBAR)
 
         self.icon_width = width
 
-        if display_type == 1:
-            self.headerbar = Gtk.HeaderBar.new()
-            self.headerbar.set_show_close_button(True)
-            self.headerbar.pack_start(self.small_bar)
-            self.volume_box = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
-            self.volume_button = Gtk.VolumeButton.new()
-            self.volume_button.props.use_symbolic = True
-            self.volume_button.set_relief(Gtk.ReliefStyle.NONE)
-            self.volume_box.add(self.volume_button)
-
-            self.toolbar_button = Gtk.Button.new_from_icon_name("go-up-symbolic", width)
-            self.toolbar_button.set_relief(Gtk.ReliefStyle.NONE)
-            self.volume_box.add(self.toolbar_button)
-
-            self.sidepane_button = Gtk.Button.new_from_icon_name("go-next-symbolic", width)
-            self.sidepane_button.set_relief(Gtk.ReliefStyle.NONE)
-            self.volume_box.add(self.sidepane_button)
-
-
-            if (not default.props.gtk_shell_shows_app_menu) or default.props.gtk_shell_shows_menubar:
-                # for environments that dont support app-menus
-                menu_button = Gtk.MenuButton.new()
-                menu_button.set_relief(Gtk.ReliefStyle.NONE)
-                if gtk_version() >= 3.14:
-                    symbol = "open-menu-symbolic"
-                else:
-                    symbol = "emblem-system-symbolic"
-                    
-                image = Gtk.Image.new_from_icon_name(symbol, Gtk.IconSize.SMALL_TOOLBAR)
-                menu_button.add(image)
-                menu = self.shell.props.application.get_shared_menu('app-menu')
-                menu_button.set_menu_model(menu)
-                self.volume_box.add(menu_button)
-
-            self.headerbar.pack_end(self.volume_box)
-
-            # required for Gtk 3.14 to stop RB adding a title to the header bar
-            empty = Gtk.DrawingArea.new()
-            self.headerbar.set_custom_title(empty)
-            self.headerbar.show_all()
-
-            self.main_window.set_titlebar(self.headerbar)  # this is needed for gnome-shell to replace the decoration
-            self.rb_toolbar.hide()
-
         self.appshell = ApplicationShell(self.shell)
 
+        if display_type == 1:
+            self._setup_headerbar()
+
         if display_type == 2:
-            self.toggle_action_group = ActionGroup(self.shell, 'AltToolbarPluginActions')
-            self.toggle_action_group.add_action(func=self.toggle_visibility,
-                                                action_name='ToggleToolbar', label=_("Show Toolbar"),
-                                                action_state=ActionGroup.TOGGLE,
-                                                action_type='app', accel="<Ctrl>t",
-                                                tooltip=_("Show or hide the main toolbar"))
-            self.appshell.insert_action_group(self.toggle_action_group)
-            self.appshell.add_app_menuitems(view_menu_ui, 'AltToolbarPluginActions', 'view')
-            action = self.toggle_action_group.get_action('ToggleToolbar')
+            self._setup_compactbar()
 
-            self.show_compact_toolbar = self.plugin_settings[self.gs.PluginKey.SHOW_COMPACT]
+        if self.volume_control:
+            self.volume_button.bind_property("value", self.shell.props.shell_player, "volume",
+                                             Gio.SettingsBindFlags.DEFAULT)
+            self.volume_button.props.value = self.shell.props.shell_player.props.volume
+        elif not self.show_compact_toolbar and display_type == 2:
+            self.volume_button = self.find(self.rb_toolbar, 'GtkVolumeButton', 'by_id')
 
-            print("show compact %d" % self.show_compact_toolbar)
-            if not start_hidden and self.show_compact_toolbar:
-                self.shell.add_widget(self.small_bar,
-                                      RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
-                self.small_bar.show_all()
-                self.rb_toolbar.hide()
-                action.set_active(True)
-                print("not hidden but compact")
-            elif start_hidden:
-                self.rb_toolbar.hide()
-                print("hidden")
-            else:
-                action.set_active(True)
-                return
-
-        self.volume_button.bind_property("value", self.shell.props.shell_player, "volume",
-                                         Gio.SettingsBindFlags.DEFAULT)
-        self.volume_button.props.value = self.shell.props.shell_player.props.volume
+        self.volume_button.set_visible(self.volume_control)
 
         image = self.toolbar_button.get_image()
         if not image:
@@ -437,8 +379,16 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         image.set_pixel_size((width / 2))
 
-        self.sh_tb = self.toolbar_button.connect('clicked', self._sh_on_toolbar_btn_clicked)
+        self.shell_player = self.shell.props.shell_player
 
+        self._add_menu_options()
+        self._connect_signals()
+        self._connect_properties()
+
+        # allow other plugins access to this toolbar
+        self.shell.alternative_toolbar = self
+
+    def _add_menu_options(self):
         self.seek_action_group = ActionGroup(self.shell, 'AltToolbarPluginSeekActions')
         self.seek_action_group.add_action(func=self.on_skip_backward,
                                             action_name='SeekBackward', label=_("Seek Backward"),
@@ -451,8 +401,19 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.appshell.insert_action_group(self.seek_action_group)
         self.appshell.add_app_menuitems(view_seek_menu_ui, 'AltToolbarPluginSeekActions', 'view')
 
-        # Connect signal handlers to rhythmbox
-        self.shell_player = self.shell.props.shell_player
+
+    def _connect_properties(self):
+        self.plugin_settings.bind(self.gs.PluginKey.PLAYING_LABEL, self, 'playing_label',
+                           Gio.SettingsBindFlags.GET)
+
+
+    def _connect_signals(self):
+        self.sh_display_page_tree = self.shell.props.display_page_tree.connect(
+            "selected", self.on_page_change
+        )
+
+        self.sh_tb = self.toolbar_button.connect('clicked', self._sh_on_toolbar_btn_clicked)
+
         self.sh_psc = self.shell_player.connect("playing-song-changed",
                                                 self._sh_on_song_change)
 
@@ -461,12 +422,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         self.sh_pc = self.shell_player.connect("playing-changed",
                                                self._sh_on_playing_change)
-                                               
+
         self.sh_pspc = self.shell_player.connect("playing-song-property-changed",
                                                  self._sh_on_song_property_changed)
-
-        self.plugin_settings.bind(self.gs.PluginKey.PLAYING_LABEL, self, 'playing_label',
-                           Gio.SettingsBindFlags.GET)
 
         self.rb_settings = Gio.Settings.new('org.gnome.rhythmbox')
         # tried to connect directly to changed signal but never seems to be fired
@@ -489,7 +447,79 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         self.display_page_tree_visible_settings_changed(None)
 
-        self.shell.alternative_toolbar = self
+
+    def _setup_compactbar(self):
+        self.toggle_action_group = ActionGroup(self.shell, 'AltToolbarPluginActions')
+        self.toggle_action_group.add_action(func=self.toggle_visibility,
+                                            action_name='ToggleToolbar', label=_("Show Toolbar"),
+                                            action_state=ActionGroup.TOGGLE,
+                                            action_type='app', accel="<Ctrl>t",
+                                            tooltip=_("Show or hide the main toolbar"))
+        self.appshell.insert_action_group(self.toggle_action_group)
+        self.appshell.add_app_menuitems(view_menu_ui, 'AltToolbarPluginActions', 'view')
+        action = self.toggle_action_group.get_action('ToggleToolbar')
+
+        start_hidden = self.plugin_settings[self.gs.PluginKey.START_HIDDEN]
+
+        if not start_hidden and self.show_compact_toolbar:
+            self.shell.add_widget(self.small_bar,
+                                  RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
+            self.small_bar.show_all()
+            self.rb_toolbar.hide()
+            action.set_active(True)
+            print("not hidden but compact")
+        elif start_hidden:
+            self.rb_toolbar.hide()
+            print("hidden")
+        else:
+            action.set_active(True)
+            return
+
+    def _setup_headerbar(self):
+        default = Gtk.Settings.get_default()
+        self.headerbar = Gtk.HeaderBar.new()
+        self.headerbar.set_show_close_button(True)
+        self.headerbar.pack_start(self.small_bar)
+        self.volume_box = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
+        self.volume_button = Gtk.VolumeButton.new()
+        self.volume_button.props.use_symbolic = True
+        self.volume_button.set_relief(Gtk.ReliefStyle.NONE)
+        self.volume_box.add(self.volume_button)
+
+        self.toolbar_button = Gtk.Button.new_from_icon_name("go-up-symbolic", self.icon_width)
+        self.toolbar_button.set_relief(Gtk.ReliefStyle.NONE)
+        self.volume_box.add(self.toolbar_button)
+
+        self.sidepane_button = Gtk.Button.new_from_icon_name("go-next-symbolic", self.icon_width)
+        self.sidepane_button.set_relief(Gtk.ReliefStyle.NONE)
+        self.volume_box.add(self.sidepane_button)
+
+
+        if (not default.props.gtk_shell_shows_app_menu) or default.props.gtk_shell_shows_menubar:
+            # for environments that dont support app-menus
+            menu_button = Gtk.MenuButton.new()
+            menu_button.set_relief(Gtk.ReliefStyle.NONE)
+            if gtk_version() >= 3.14:
+                symbol = "open-menu-symbolic"
+            else:
+                symbol = "emblem-system-symbolic"
+
+            image = Gtk.Image.new_from_icon_name(symbol, Gtk.IconSize.SMALL_TOOLBAR)
+            menu_button.add(image)
+            menu = self.shell.props.application.get_shared_menu('app-menu')
+            menu_button.set_menu_model(menu)
+            self.volume_box.add(menu_button)
+
+        self.headerbar.pack_end(self.volume_box)
+
+        # required for Gtk 3.14 to stop RB adding a title to the header bar
+        empty = Gtk.DrawingArea.new()
+        self.headerbar.set_custom_title(empty)
+        self.headerbar.show_all()
+
+        self.main_window.set_titlebar(self.headerbar)  # this is needed for gnome-shell to replace the decoration
+        self.rb_toolbar.hide()
+
 
     def on_skip_backward( self, *args ):
         sp = self.object.props.shell_player
@@ -571,7 +601,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
     # Couldn't find better way to find widgets than loop through them
     def find(self, node, search_id, search_type):
-        #print(node.get_name())
+        print(node.get_name())
         if isinstance(node, Gtk.Buildable):
             if search_type == 'by_id':
                 if Gtk.Buildable.get_name(node) == search_id:
@@ -619,6 +649,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                 self.shell.add_widget(self.small_bar,
                                       RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
                 self.small_bar.show_all()
+                self.volume_button.set_visible(self.volume_control)
+
             else:
                 print("show full")
                 self.rb_toolbar.set_visible(True)

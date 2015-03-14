@@ -22,5 +22,10 @@
             <summary>Show album/genre/year for playing label</summary>
             <description>Show album/genre/year for playing label</description>
         </key>
+        <key type="b" name="volume-control">
+            <default>false</default>
+            <summary>volume-control</summary>
+            <description>volume-control</description>
+        </key>
     </schema>
 </schemalist>
