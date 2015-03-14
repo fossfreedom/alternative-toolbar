@@ -345,6 +345,15 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                        (self.repeat_toggle, "play-repeat"),
                        (self.shuffle_toggle, "play-shuffle")):
             a.set_action_name("app." + b)
+            if b == "play-repeat" or b == "play-shuffle":
+                # for some distros you need to set the target_value
+                # for others this would actually disable the action
+                # so work around this by testing if the action is disabled
+                # then reset the action
+                a.set_action_target_value(GLib.Variant("b", True))
+                if not a.get_sensitive():
+                    a.set_detailed_action_name("app."+b)
+                
 
         what, width, height = Gtk.icon_size_lookup(Gtk.IconSize.SMALL_TOOLBAR)
 
