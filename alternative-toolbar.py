@@ -338,23 +338,6 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.load_builder_content(builder)
         self.connect_builder_content(builder)
 
-        # Bring Builtin Actions to plugin
-        for (a, b) in ((self.play_button, "play"),
-                       (self.prev_button, "play-previous"),
-                       (self.next_button, "play-next"),
-                       (self.repeat_toggle, "play-repeat"),
-                       (self.shuffle_toggle, "play-shuffle")):
-            a.set_action_name("app." + b)
-            if b == "play-repeat" or b == "play-shuffle":
-                # for some distros you need to set the target_value
-                # for others this would actually disable the action
-                # so work around this by testing if the action is disabled
-                # then reset the action
-                a.set_action_target_value(GLib.Variant("b", True))
-                if not a.get_sensitive():
-                    a.set_detailed_action_name("app."+b)
-                
-
         what, width, height = Gtk.icon_size_lookup(Gtk.IconSize.SMALL_TOOLBAR)
 
         self.icon_width = width
@@ -394,6 +377,23 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self._connect_signals()
         self._connect_properties()
 
+		# Bring Builtin Actions to plugin
+        for (a, b) in ((self.play_button, "play"),
+                       (self.prev_button, "play-previous"),
+                       (self.next_button, "play-next"),
+                       (self.repeat_toggle, "play-repeat"),
+                       (self.shuffle_toggle, "play-shuffle")):
+            a.set_action_name("app." + b)
+            if b == "play-repeat" or b == "play-shuffle":
+                # for some distros you need to set the target_value
+                # for others this would actually disable the action
+                # so work around this by testing if the action is disabled
+                # then reset the action
+                a.set_action_target_value(GLib.Variant("b", True))
+                print (a.get_sensitive())
+                if not a.get_sensitive():
+                    a.set_detailed_action_name("app."+b)
+        
         # allow other plugins access to this toolbar
         self.shell.alternative_toolbar = self
 
