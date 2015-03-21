@@ -387,6 +387,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         
     def _load_complete(self, *args):
         self._hide_toolbar_controls()
+        self._library_radiobutton_toggled(None)
 
     def _add_menu_options(self):
         self.seek_action_group = ActionGroup(self.shell, 'AltToolbarPluginSeekActions')
