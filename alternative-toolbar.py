@@ -343,6 +343,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         if display_type == 1:
             self._setup_headerbar()
+            self._setup_searchbar()
             self._setup_playbar()
             self.shell.props.db.connect('load-complete', self._load_complete)
 
@@ -444,6 +445,18 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.show_song_position_slider_settings_changed(None)
 
         self.display_page_tree_visible_settings_changed(None)
+        
+    def _setup_searchbar(self):
+        
+        self.search_bar = Gtk.SearchBar.new()
+        #entry = Gtk.Entry.new()
+        #self.search_bar.add(entry)
+        #self.search_bar.connect_entry(entry)
+        self.search_bar.show_all()
+        self.shell.add_widget(self.search_bar,
+                                      RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
+                           
+        #self.search_bar.set_search_mode(True)
 
     def _setup_playbar(self):
         box = self.find(self.shell.props.window,
@@ -528,18 +541,37 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             else:
                 view_name = "Categories"
             
+            view_name = "Categories" #hard-code
             self.library_browser_radiobutton.set_label(view_name)  
             
             self.library_browser_radiobutton.connect('toggled', self._library_radiobutton_toggled)
             self.library_song_radiobutton.connect('toggled', self._library_radiobutton_toggled)
             
-            
             self.search = self.find(toolbar, 'RBSearchEntry', 'by_name')
+            entry=self.find(self.search, 'GtkEntry', 'by_name')
             toolbar.remove(self.search)
-            self.headerbar.pack_end(self.search)
+        
+            self.search_bar.add(self.search)
+            self.search_bar.connect_entry(entry)
+            
+            self.search_button = Gtk.ToggleButton.new()
+            image = Gtk.Image.new_from_icon_name("preferences-system-search-symbolic", Gtk.IconSize.SMALL_TOOLBAR)
+            self.search_button.add(image)
+            
+            self.end_box.add(self.search_button)
+            self.end_box.reorder_child(self.search_button, 0)
+            self.search_button.show_all()
+            self.search_button.connect('toggled', self._search_button_toggled)
+            #self.headerbar.pack_end(self.search)
+            
+    def _search_button_toggled(self, *args):
+        self.search_bar.set_search_mode(self.search_button.get_active())
              
             
     def _library_radiobutton_toggled(self, toggle_button):
+        if not hasattr(self, 'library_song_radiobutton'):
+            return #kludge = fix this later
+            
         val = True
         if self.library_song_radiobutton.get_active():
             val = False
@@ -547,13 +579,14 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.shell.props.selected_page.props.show_browser = val
     def _window_controls(self):
         self.window_box = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
+        
         self.toolbar_button = Gtk.Button.new_from_icon_name("go-up-symbolic", self.icon_width)
         self.toolbar_button.set_relief(Gtk.ReliefStyle.NONE)
-        self.window_box.add(self.toolbar_button)
+        #self.window_box.add(self.toolbar_button)
 
         self.sidepane_button = Gtk.Button.new_from_icon_name("go-next-symbolic", self.icon_width)
         self.sidepane_button.set_relief(Gtk.ReliefStyle.NONE)
-        self.window_box.add(self.sidepane_button)
+        #self.window_box.add(self.sidepane_button)
         
         image = self.toolbar_button.get_image()
         if not image:
@@ -575,17 +608,18 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.headerbar.set_show_close_button(True)
         
         # required for Gtk 3.14 to stop RB adding a title to the header bar
-        empty = Gtk.DrawingArea.new()
-        self.headerbar.set_custom_title(empty)
+        #empty = Gtk.DrawingArea.new()
+        #self.headerbar.set_custom_title(empty)
         
         self.main_window.set_titlebar(self.headerbar)  # this is needed for gnome-shell to replace the decoration
         self.rb_toolbar.hide()
         
         self.headerbar.pack_start(self._window_controls())
 
+        self.end_box = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
+        
         if (not default.props.gtk_shell_shows_app_menu) or default.props.gtk_shell_shows_menubar:
-            self.end_box = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
-
+        
             # for environments that dont support app-menus
             menu_button = Gtk.MenuButton.new()
             menu_button.set_relief(Gtk.ReliefStyle.NONE)
@@ -600,8 +634,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             menu_button.set_menu_model(menu)
             self.end_box.add(menu_button)
 
-            self.headerbar.pack_end(self.end_box)
-
+        self.headerbar.pack_end(self.end_box)
         self.headerbar.show_all()
 
     
@@ -663,6 +696,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             toolbar.set_visible(visible)
         else:
             print("not found")
+        
+        self._library_radiobutton_toggled(None)
         
         self.emit('toolbar-visibility', visible)
 
