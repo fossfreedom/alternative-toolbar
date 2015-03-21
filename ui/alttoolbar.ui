@@ -7,6 +7,8 @@
     <child>
       <object class="GtkToolItem" id="window control item">
         <property name="can_focus">False</property>
+        <property name="margin_left">12</property>
+        <property name="margin_right">12</property>
         <child>
           <placeholder/>
         </child>
@@ -22,7 +24,6 @@
         <child>
           <object class="GtkBox" id="playback control box">
             <property name="can_focus">False</property>
-            <property name="margin_right">4</property>
             <property name="homogeneous">True</property>
             <child>
               <object class="GtkButton" id="prev button">
@@ -95,12 +96,13 @@
         <child>
           <object class="GtkBox" id="song display">
             <property name="can_focus">False</property>
-            <property name="margin_right">14</property>
             <property name="hexpand">True</property>
             <child>
               <object class="GtkImage" id="album cover">
                 <property name="can_focus">False</property>
                 <property name="has_tooltip">True</property>
+                <property name="margin_left">12</property>
+                <property name="margin_right">12</property>
                 <property name="icon_size">2</property>
                 <signal name="query-tooltip" handler="bigger_cover" swapped="no"/>
               </object>
@@ -113,7 +115,6 @@
             <child>
               <object class="GtkBox" id="song box">
                 <property name="can_focus">False</property>
-                <property name="margin_left">4</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkLabel" id="song button label">
@@ -133,6 +134,7 @@
                   <object class="GtkBox" id="box2">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="margin_right">12</property>
                     <child>
                       <object class="GtkLabel" id="current_time_label">
                         <property name="visible">True</property>
@@ -197,12 +199,12 @@
         <child>
           <object class="GtkBox" id="volume control box">
             <property name="can_focus">False</property>
-            <property name="margin_right">4</property>
             <child>
               <object class="GtkVolumeButton" id="volume button">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="margin_right">12</property>
                 <property name="relief">none</property>
                 <property name="focus_on_click">False</property>
                 <property name="orientation">vertical</property>
@@ -244,6 +246,7 @@ audio-volume-medium</property>
     <child>
       <object class="GtkToolItem" id="playback option item">
         <property name="can_focus">False</property>
+        <property name="margin_right">12</property>
         <child>
           <object class="GtkBox" id="playback option box">
             <property name="can_focus">False</property>
@@ -253,6 +256,7 @@ audio-volume-medium</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="margin_right">6</property>
                 <property name="relief">none</property>
                 <property name="always_show_image">True</property>
                 <child>

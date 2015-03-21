@@ -34,6 +34,7 @@ from alttoolbar_rb3compat import gtk_version
 from alttoolbar_rb3compat import ActionGroup
 from alttoolbar_rb3compat import ApplicationShell
 import rb
+import math
 
 
 view_menu_ui = """
@@ -78,7 +79,7 @@ class GSetting:
             '''
             self.Path = self._enum(
                 PLUGIN='org.gnome.rhythmbox.plugins.alternative_toolbar')
-
+                
             self.PluginKey = self._enum(
                 DISPLAY_TYPE='display-type',
                 START_HIDDEN='start-hidden',
@@ -86,7 +87,7 @@ class GSetting:
                 PLAYING_LABEL='playing-label',
                 VOLUME_CONTROL='volume-control'
             )
-
+            
             self.setting = {}
 
         def get_setting(self, path):
@@ -155,7 +156,7 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         GObject.Object.__init__(self)
         self.gs = GSetting()
         self.plugin_settings = self.gs.get_setting(self.gs.Path.PLUGIN)
-
+        
     def do_create_configure_widget(self):
         '''
         Creates the plugin's preferences dialog
@@ -226,7 +227,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
     show_album_art = GObject.property(type=bool, default=False)
     show_song_position_slider = GObject.property(type=bool, default=False)
     playing_label = GObject.property(type=bool, default=False)
-
+    
     # signals
     # toolbar-visibility - bool parameter True = visible, False = not visible
     __gsignals__ = {
@@ -295,12 +296,13 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.shell = self.object
         self.db = self.shell.props.db
         self.main_window = self.shell.props.window
-        # self.main_window.set_border_width(10)
 
         # Prepare internal variables
         self.song_duration = 0
         self.cover_pixbuf = None
         self.entry = None
+        
+        self.toolbars={}
 
         # Prepare Album Art Displaying
         self.album_art_db = GObject.new(RB.ExtDB, name="album-art")
@@ -311,12 +313,11 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         builder = Gtk.Builder()
         self.gs = GSetting()
         self.plugin_settings = self.gs.get_setting(self.gs.Path.PLUGIN)
-
+        
         # get values from gsettings
         display_type = self.plugin_settings[self.gs.PluginKey.DISPLAY_TYPE]
         self.volume_control = self.plugin_settings[self.gs.PluginKey.VOLUME_CONTROL]
         self.show_compact_toolbar = self.plugin_settings[self.gs.PluginKey.SHOW_COMPACT]
-
 
         default = Gtk.Settings.get_default()
 
@@ -343,6 +344,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         if display_type == 1:
             self._setup_headerbar()
             self._setup_playbar()
+            self.shell.props.db.connect('load-complete', self._load_complete)
 
         if display_type == 2:
             self._setup_compactbar()
@@ -381,6 +383,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         
         # allow other plugins access to this toolbar
         self.shell.alternative_toolbar = self
+        
+    def _load_complete(self, *args):
+        self._hide_toolbar_controls()
 
     def _add_menu_options(self):
         self.seek_action_group = ActionGroup(self.shell, 'AltToolbarPluginSeekActions')
@@ -399,8 +404,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
     def _connect_properties(self):
         self.plugin_settings.bind(self.gs.PluginKey.PLAYING_LABEL, self, 'playing_label',
                            Gio.SettingsBindFlags.GET)
-
-
+        
     def _connect_signals(self):
         self.sh_display_page_tree = self.shell.props.display_page_tree.connect(
             "selected", self.on_page_change
@@ -477,7 +481,70 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         else:
             action.set_active(True)
             return
+            
+    def _hide_toolbar_controls(self):
+        self._sh_on_toolbar_btn_clicked() #used to hide the source bar
+        #if not self.shell.props.selected_page:
+        #    return
 
+        if not self.shell.props.selected_page in self.toolbars:
+            toolbar = self.find(self.shell.props.selected_page, 'RBSourceToolbar', 'by_name')
+            
+            if not toolbar:
+                return
+
+            elements = { 'GtkMenuButton',
+                         'GtkSeparator',
+                         'GtkToggleButton',
+                         'GtkButton'}
+
+            for element in elements:
+                while True:
+                    found_element = self.find(toolbar, element, 'by_name', find_only_visible=True)
+                    if found_element:
+                        found_element.set_visible(False)
+                    else:
+                        break
+                
+            builder = Gtk.Builder()
+            ui = rb.find_plugin_file(self, 'ui/altlibrary.ui')
+            builder.add_from_file(ui)
+
+            self.load_builder_content(builder)
+            
+            #self.library_search_togglebutton.connect('toggled', self._sh_on_toolbar_btn_clicked)
+            self.headerbar.set_custom_title(self.library_box) 
+
+            
+            setting = Gio.Settings.new('org.gnome.rhythmbox.sources')
+            browser_view = setting['browser-views']
+            print (browser_view)
+            if browser_view == 'artists-albums':
+                view_name = "Artists and albums"
+            elif browser_view == 'genres-artists':
+                view_name = "Genres and artists"
+            elif browser_view == 'genres-artists-albums':
+                view_name = "Genres, artists and albums"
+            else:
+                view_name = "Categories"
+            
+            self.library_browser_radiobutton.set_label(view_name)  
+            
+            self.library_browser_radiobutton.connect('toggled', self._library_radiobutton_toggled)
+            self.library_song_radiobutton.connect('toggled', self._library_radiobutton_toggled)
+            
+            
+            self.search = self.find(toolbar, 'RBSearchEntry', 'by_name')
+            toolbar.remove(self.search)
+            self.headerbar.pack_end(self.search)
+             
+            
+    def _library_radiobutton_toggled(self, toggle_button):
+        val = True
+        if self.library_song_radiobutton.get_active():
+            val = False
+            
+        self.shell.props.selected_page.props.show_browser = val
     def _window_controls(self):
         self.window_box = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
         self.toolbar_button = Gtk.Button.new_from_icon_name("go-up-symbolic", self.icon_width)
@@ -577,27 +644,10 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
     def show_album_art_settings_changed(self, *args):
         self.album_cover.set_visible(self.show_album_art)
 
-    def _sh_on_sidepane_btn_clicked(self, *args):
-        self.rb_settings.set_boolean('display-page-tree-visible', not self.display_page_tree_visible)
-
-    def _sh_on_toolbar_btn_clicked(self, *args):
-        image = self.toolbar_button.get_image()
-        if not image:
-            image = self.toolbar_button.get_child()
-
-        if image.props.icon_name == 'go-up-symbolic':
-            image.props.icon_name = 'go-down-symbolic'
-            self.emit('toolbar-visibility', False)
-
-        else:
-            image.props.icon_name = 'go-up-symbolic'
-            self.emit('toolbar-visibility', True)
-
-        self.on_page_change(self.shell.props.display_page_tree, self.shell.props.selected_page)
-
     def on_page_change(self, display_page_tree, page):
+        print ("page changed")
         toolbar = self.find(page, 'RBSourceToolbar', 'by_name')
-
+         
         # self.current_page = page
         image = self.toolbar_button.get_image()
         if not image:
@@ -617,19 +667,21 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.emit('toolbar-visibility', visible)
 
     # Couldn't find better way to find widgets than loop through them
-    def find(self, node, search_id, search_type):
+    def find(self, node, search_id, search_type, find_only_visible=None):
         print(node.get_name())
         if isinstance(node, Gtk.Buildable):
             if search_type == 'by_id':
                 if Gtk.Buildable.get_name(node) == search_id:
-                    return node
+                    if find_only_visible == None or (find_only_visible and node.get_visible() == True):
+                        return node
             elif search_type == 'by_name':
                 if node.get_name() == search_id:
-                    return node
+                    if find_only_visible == None or (find_only_visible and node.get_visible() == True):
+                        return node
 
         if isinstance(node, Gtk.Container):
             for child in node.get_children():
-                ret = self.find(child, search_id, search_type)
+                ret = self.find(child, search_id, search_type, find_only_visible)
                 if ret:
                     return ret
         return None
@@ -755,6 +807,24 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.album_cover.trigger_tooltip_query()
 
     # Signal Handlers ##########################################################
+    def _sh_on_sidepane_btn_clicked(self, *args):
+        self.rb_settings.set_boolean('display-page-tree-visible', not self.display_page_tree_visible)
+
+    def _sh_on_toolbar_btn_clicked(self, *args):
+        image = self.toolbar_button.get_image()
+        if not image:
+            image = self.toolbar_button.get_child()
+
+        if image.props.icon_name == 'go-up-symbolic':
+            image.props.icon_name = 'go-down-symbolic'
+            self.emit('toolbar-visibility', False)
+
+        else:
+            image.props.icon_name = 'go-up-symbolic'
+            self.emit('toolbar-visibility', True)
+
+        self.on_page_change(self.shell.props.display_page_tree, self.shell.props.selected_page)
+    
     def _sh_on_song_property_changed(self, sp, uri, property, old, new):
         if sp.get_playing() and property in ('artist', 
                                              'album', 
@@ -865,6 +935,17 @@ class SmallProgressBar(Gtk.DrawingArea):
         cc.set_source_rgba(fgc.red, fgc.green, fgc.blue, fgc.alpha)
         cc.rectangle(0, alloc.height / 2, alloc.width * self.progress, alloc.height / 4)
         cc.fill()
+        
+        if self.progress != 0:
+            cc.set_line_width(1)  
+            cc.set_source_rgba(bgc.red, bgc.green, bgc.blue, bgc.alpha)
+      
+            cc.translate((alloc.width * self.progress), (alloc.height / 2) + 1)
+            print (self.progress)
+            cc.arc(0, 0, 5, 0, 2*math.pi)
+            cc.stroke_preserve()
+            
+            cc.fill() 
 
     def do_motion_notify_event(self, event):
         if ( self.button_pressed ):
