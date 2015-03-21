@@ -296,6 +296,16 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.shell = self.object
         self.db = self.shell.props.db
         self.main_window = self.shell.props.window
+        
+        # css stuff
+        cssProvider = Gtk.CssProvider()
+        css = rb.find_plugin_file(self, 'ui/buttonbox.css')
+        cssProvider.load_from_path(css)
+        screen = Gdk.Screen.get_default()
+        styleContext = Gtk.StyleContext()
+        styleContext.add_provider_for_screen(screen, cssProvider,
+                                             Gtk.STYLE_PROVIDER_PRIORITY_USER)
+                                             
 
         # Prepare internal variables
         self.song_duration = 0
@@ -350,6 +360,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         if display_type == 2:
             self._setup_compactbar()
 
+        self.playback_control_box.set_name('altcontrols')
+        self.playback_option_box.set_name('altcontrols')
+        
         if self.volume_control:
             self.volume_button.bind_property("value", self.shell.props.shell_player, "volume",
                                              Gio.SettingsBindFlags.DEFAULT)

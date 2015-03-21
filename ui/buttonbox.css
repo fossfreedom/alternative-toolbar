@@ -1,0 +1,10 @@
+/*
+You can type here any CSS rule recognised by GTK+.
+You can temporarily disable this custom CSS by clicking on the "Pause" button above.
+
+Changes are applied instantly and globally, for the whole application.
+*/
+
+GtkButtonBox#altcontrols {
+-GtkButtonBox-child-min-width: 1;
+}

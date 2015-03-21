@@ -2,6 +2,11 @@
 <!-- Generated with glade 3.18.3 -->
 <interface>
   <requires lib="gtk+" version="3.10"/>
+  <object class="GtkImage" id="image1">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">media-skip-backward-symbolic</property>
+  </object>
   <object class="GtkToolbar" id="small bar">
     <property name="can_focus">False</property>
     <child>
@@ -30,14 +35,8 @@
               <object class="GtkButton" id="prev button">
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
+                <property name="image">image1</property>
                 <property name="relief">half</property>
-                <child>
-                  <object class="GtkImage" id="prev image">
-                    <property name="can_focus">False</property>
-                    <property name="icon_name">media-skip-backward-symbolic</property>
-                    <property name="icon_size">2</property>
-                  </object>
-                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -54,7 +53,6 @@
                   <object class="GtkImage" id="play image">
                     <property name="can_focus">False</property>
                     <property name="icon_name">media-playback-start-symbolic</property>
-                    <property name="icon_size">2</property>
                   </object>
                 </child>
               </object>
@@ -73,7 +71,6 @@
                   <object class="GtkImage" id="next image">
                     <property name="can_focus">False</property>
                     <property name="icon_name">media-skip-forward-symbolic</property>
-                    <property name="icon_size">2</property>
                   </object>
                 </child>
               </object>
@@ -195,20 +192,25 @@
       </packing>
     </child>
     <child>
-      <object class="GtkToolItem" id="end control item">
+      <object class="GtkToolItem" id="playback option item">
         <property name="can_focus">False</property>
+        <property name="margin_right">12</property>
         <child>
-          <object class="GtkBox" id="volume control box">
+          <object class="GtkButtonBox" id="playback option box">
             <property name="can_focus">False</property>
+            <property name="resize_mode">queue</property>
+            <property name="homogeneous">True</property>
+            <property name="layout_style">spread</property>
             <child>
               <object class="GtkVolumeButton" id="volume button">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="margin_right">12</property>
+                <property name="margin_right">6</property>
                 <property name="relief">half</property>
                 <property name="focus_on_click">False</property>
                 <property name="orientation">vertical</property>
+                <property name="size">button</property>
                 <property name="icons">audio-volume-muted
 audio-volume-high
 audio-volume-low
@@ -236,22 +238,6 @@ audio-volume-medium</property>
                 <property name="position">0</property>
               </packing>
             </child>
-          </object>
-        </child>
-      </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="homogeneous">False</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkToolItem" id="playback option item">
-        <property name="can_focus">False</property>
-        <property name="margin_right">12</property>
-        <child>
-          <object class="GtkBox" id="playback option box">
-            <property name="can_focus">False</property>
-            <property name="homogeneous">True</property>
             <child>
               <object class="GtkToggleButton" id="repeat toggle">
                 <property name="visible">True</property>
@@ -270,7 +256,7 @@ audio-volume-medium</property>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">0</property>
+                <property name="position">1</property>
               </packing>
             </child>
             <child>
@@ -288,7 +274,7 @@ audio-volume-medium</property>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">1</property>
+                <property name="position">2</property>
               </packing>
             </child>
           </object>
