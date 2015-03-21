@@ -22,15 +22,14 @@
       <object class="GtkToolItem" id="playback control item">
         <property name="can_focus">False</property>
         <child>
-          <object class="GtkButtonBox" id="playback control box">
+          <object class="GtkBox" id="playback control box">
             <property name="can_focus">False</property>
             <property name="homogeneous">True</property>
-            <property name="layout_style">expand</property>
             <child>
               <object class="GtkButton" id="prev button">
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
-                <property name="relief">half</property>
+                <property name="relief">none</property>
                 <child>
                   <object class="GtkImage" id="prev image">
                     <property name="can_focus">False</property>
@@ -49,7 +48,7 @@
               <object class="GtkButton" id="play button">
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
-                <property name="relief">half</property>
+                <property name="relief">none</property>
                 <child>
                   <object class="GtkImage" id="play image">
                     <property name="can_focus">False</property>
@@ -68,7 +67,7 @@
               <object class="GtkButton" id="next button">
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
-                <property name="relief">half</property>
+                <property name="relief">none</property>
                 <child>
                   <object class="GtkImage" id="next image">
                     <property name="can_focus">False</property>
@@ -206,7 +205,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="margin_right">12</property>
-                <property name="relief">half</property>
+                <property name="relief">none</property>
                 <property name="focus_on_click">False</property>
                 <property name="orientation">vertical</property>
                 <property name="icons">audio-volume-muted
@@ -258,12 +257,13 @@ audio-volume-medium</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="margin_right">6</property>
-                <property name="relief">half</property>
+                <property name="relief">none</property>
                 <property name="always_show_image">True</property>
                 <child>
                   <object class="GtkImage" id="repeat image">
                     <property name="can_focus">False</property>
                     <property name="icon_name">media-playlist-repeat-symbolic</property>
+                    <property name="icon_size">2</property>
                   </object>
                 </child>
               </object>
@@ -277,11 +277,12 @@ audio-volume-medium</property>
               <object class="GtkToggleButton" id="shuffle toggle">
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
-                <property name="relief">half</property>
+                <property name="relief">none</property>
                 <child>
                   <object class="GtkImage" id="shuffle image">
                     <property name="can_focus">False</property>
                     <property name="icon_name">media-playlist-shuffle-symbolic</property>
+                    <property name="icon_size">2</property>
                   </object>
                 </child>
               </object>
