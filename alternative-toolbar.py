@@ -297,16 +297,6 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.db = self.shell.props.db
         self.main_window = self.shell.props.window
         
-        # css stuff
-        cssProvider = Gtk.CssProvider()
-        css = rb.find_plugin_file(self, 'ui/buttonbox.css')
-        cssProvider.load_from_path(css)
-        screen = Gdk.Screen.get_default()
-        styleContext = Gtk.StyleContext()
-        styleContext.add_provider_for_screen(screen, cssProvider,
-                                             Gtk.STYLE_PROVIDER_PRIORITY_USER)
-                                             
-
         # Prepare internal variables
         self.song_duration = 0
         self.cover_pixbuf = None
@@ -359,10 +349,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         if display_type == 2:
             self._setup_compactbar()
+            
+        self._load_blank_cover()
 
-        self.playback_control_box.set_name('altcontrols')
-        self.playback_option_box.set_name('altcontrols')
-        
         if self.volume_control:
             self.volume_button.bind_property("value", self.shell.props.shell_player, "volume",
                                              Gio.SettingsBindFlags.DEFAULT)
@@ -835,6 +824,10 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                                       self.display_song_album_art_callback,
                                       entry)
 
+    def _load_blank_cover(self):
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(rb.find_plugin_file(self, 'img/transparent_graphic.png'), 37, 1, False)
+        
+        self.album_cover.set_from_pixbuf(pixbuf)
 
     def display_song_album_art_callback(self, *args): #key, filename, data, entry):
         # rhythmbox 3.2 breaks the API - need to find the parameter with the pixbuf
@@ -845,7 +838,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                 
         if ( ( data is not None ) and ( isinstance(data, GdkPixbuf.Pixbuf) ) ):
             self.cover_pixbuf = data
-            scale_cover = self.cover_pixbuf.scale_simple(self.icon_width + 10, self.icon_width + 10,
+            scale_cover = self.cover_pixbuf.scale_simple(34, 34,
                                                          GdkPixbuf.InterpType.HYPER)
 
             self.album_cover.set_from_pixbuf(scale_cover)
