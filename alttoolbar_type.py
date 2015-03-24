@@ -79,6 +79,9 @@ class AltToolbarBase(GObject.Object):
         
     def show_cover_tooltip(self, tooltip):
         return False
+        
+    def reset_toolbar(self, page):
+        page
     
 
 class AltToolbarStandard(AltToolbarBase):
@@ -121,8 +124,8 @@ class AltToolbarShared(AltToolbarBase):
         self.album_art_db = GObject.new(RB.ExtDB, name="album-art")
         
         what, width, height = Gtk.icon_size_lookup(Gtk.IconSize.SMALL_TOOLBAR)
-
         self.icon_width = width
+        self.cover_pixbuf=None
         
     def initialise(self, plugin):
         super(AltToolbarShared, self).initialise(plugin)
@@ -256,7 +259,7 @@ class AltToolbarShared(AltToolbarBase):
     def _load_blank_cover(self):
         pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(rb.find_plugin_file(self.plugin, 'img/transparent_graphic.png'), 37, 1, False)
         
-        self.album_cover.set_from_pixbuf(pixbuf)
+        #self.album_cover.set_from_pixbuf(pixbuf)
 
     def display_song_album_art_callback(self, *args): #key, filename, data, entry):
         # rhythmbox 3.2 breaks the API - need to find the parameter with the pixbuf
@@ -303,7 +306,7 @@ class AltToolbarShared(AltToolbarBase):
         else:
             icon_name = "media-playback-start-symbolic"
 
-        image.set_from_icon_name(icon_name, self.icon_width)
+        image.set_from_icon_name(icon_name, image.props.icon_size)
             
     # Builder releated utility functions... ####################################
 
@@ -423,6 +426,28 @@ class AltToolbarCompact(AltToolbarShared):
             print("hide compact")
             self.shell.remove_widget(self.small_bar,
                                          RB.ShellUILocation.MAIN_TOP)
+    
+    def reset_toolbar(self, page):
+        toolbar = self.find(page, 'RBSourceToolbar', 'by_name')
+         
+        # self.current_page = page
+        image = self.toolbar_button.get_image()
+        if not image:
+            image = self.toolbar_button.get_child()
+
+        if image.props.icon_name == 'go-up-symbolic':
+            visible = True
+        else:
+            visible = False
+
+        if toolbar:
+            print("found")
+            toolbar.set_visible(visible)
+        else:
+            print("not found")
+        
+        self.plugin.emit('toolbar-visibility', visible)
+
         
 class AltToolbarHeaderBar(AltToolbarShared):
     '''
@@ -436,8 +461,12 @@ class AltToolbarHeaderBar(AltToolbarShared):
         '''
         AltToolbarShared.__init__(self)
         
+        self.toolbars={}
+        
     def initialise(self, plugin):
         super(AltToolbarHeaderBar, self).initialise(plugin)
+        
+        self.main_window = self.shell.props.window
         
         self._setup_headerbar()
         self._setup_searchbar()
@@ -462,9 +491,13 @@ class AltToolbarHeaderBar(AltToolbarShared):
         box.reorder_child(self.small_bar, 3)
         
         self.small_bar.show_all()
+        
+        # hide status bar
+        action = self.plugin.appshell.lookup_action('', 'statusbar-visible', 'win')
+        action.set_active(True)
 
     def _hide_toolbar_controls(self):
-        self.plugin._sh_on_toolbar_btn_clicked() #used to hide the source bar
+        self._sh_on_toolbar_btn_clicked() #used to hide the source bar
 
         if not self.shell.props.selected_page in self.toolbars:
             toolbar = self.find(self.shell.props.selected_page, 'RBSourceToolbar', 'by_name')
@@ -486,7 +519,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
                         break
                 
             builder = Gtk.Builder()
-            ui = rb.find_plugin_file(self, 'ui/altlibrary.ui')
+            ui = rb.find_plugin_file(self.plugin, 'ui/altlibrary.ui')
             builder.add_from_file(ui)
 
             self.load_builder_content(builder)
@@ -540,7 +573,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
         #self.headerbar.set_custom_title(empty)
         
         self.main_window.set_titlebar(self.headerbar)  # this is needed for gnome-shell to replace the decoration
-        self.rb_toolbar.hide()
+        self.plugin.rb_toolbar.hide()
         
         self.headerbar.pack_start(self._window_controls())
 
@@ -564,3 +597,9 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
         self.headerbar.pack_end(self.end_box)
         self.headerbar.show_all()
+        
+    def reset_toolbar(self, page):
+        super(AltToolbarHeaderBar, self).reset_toolbar(page)
+        
+        self._library_radiobutton_toggled(None)
+        

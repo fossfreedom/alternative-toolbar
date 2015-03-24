@@ -256,11 +256,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         self.shell = self.object
         self.db = self.shell.props.db
-        self.main_window = self.shell.props.window
         
         # Prepare internal variables
         self.song_duration = 0
-        self.cover_pixbuf = None
         self.entry = None
         
         self.rb_toolbar = AltToolbarPlugin.find(self.shell.props.window,
@@ -413,14 +411,14 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             th, tm = divmod(tm, 60)
 
             if th == 0:
-                label = "<small>{time}</small>".format(time="%02d:%02d" % (m, s))
-                tlabel = "<small>{time}</small>".format(time="%02d:%02d" % (tm, ts))
+                label = "<small>{time}/{ttime}</small>".format(time="%02d:%02d" % (m, s), ttime="%02d:%02d" % (tm, ts))
+                #tlabel = "<small>{time}</small>".format(time="%02d:%02d" % (tm, ts))
             else:
                 label = "<small>{time}</small>".format(time="%d:%02d:%02d" % (h, m, s))
-                tlabel = "<small>{time}</small>".format(time="%d:%02d:%02d" % (th, tm, ts))
+                tlabel = "<small>{time}/{ttime}</small>".format(time="%d:%02d:%02d" % (h, m, s), ttime="%d:%02d:%02d" % (th, tm, ts))
 
-            self.toolbar_type.current_time_label.set_markup(label)
-            self.toolbar_type.total_time_label.set_markup(tlabel)
+            #self.toolbar_type.current_time_label.set_markup(label)
+            self.toolbar_type.total_time_label.set_markup(label)
         
     def on_skip_backward( self, *args ):
         sp = self.object.props.shell_player
@@ -453,28 +451,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         
     def on_page_change(self, display_page_tree, page):
         print ("page changed")
-        toolbar = self.find(page, 'RBSourceToolbar', 'by_name')
-         
-        # self.current_page = page
-        image = self.toolbar_button.get_image()
-        if not image:
-            image = self.toolbar_button.get_child()
-
-        if image.props.icon_name == 'go-up-symbolic':
-            visible = True
-        else:
-            visible = False
-
-        if toolbar:
-            print("found")
-            toolbar.set_visible(visible)
-        else:
-            print("not found")
+        self.toolbar_type.reset_toolbar(page)
         
-        self._library_radiobutton_toggled(None)
-        
-        self.emit('toolbar-visibility', visible)
-
     @staticmethod
     def find(node, search_id, search_type, find_only_visible=None):
         # Couldn't find better way to find widgets than loop through them
