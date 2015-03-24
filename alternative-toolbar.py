@@ -33,6 +33,11 @@ from gi.repository import Gio
 from alttoolbar_rb3compat import gtk_version
 from alttoolbar_rb3compat import ActionGroup
 from alttoolbar_rb3compat import ApplicationShell
+
+from alttoolbar_type import AltToolbarStandard
+from alttoolbar_type import AltToolbarCompact
+from alttoolbar_type import AltToolbarHeaderBar
+
 import rb
 import math
 
@@ -234,50 +239,6 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         'toolbar-visibility': (GObject.SIGNAL_RUN_LAST, None, (bool,))
     }
 
-    # Builder releated utility functions... ####################################
-
-    def load_builder_content(self, builder):
-        if ( not hasattr(self, "__builder_obj_names") ):
-            self.__builder_obj_names = list()
-
-        for obj in builder.get_objects():
-            if ( isinstance(obj, Gtk.Buildable) ):
-                name = Gtk.Buildable.get_name(obj).replace(' ', '_')
-                self.__dict__[name] = obj
-                self.__builder_obj_names.append(name)
-
-    def connect_builder_content(self, builder):
-        builder.connect_signals_full(self.connect_builder_content_func, self)
-
-    def connect_builder_content_func(self,
-                                     builder,
-                                     object,
-                                     sig_name,
-                                     handler_name,
-                                     conn_object,
-                                     flags,
-                                     target):
-        handler = None
-
-        h_name_internal = "_sh_" + handler_name.replace(" ", "_")
-
-        if ( hasattr(target, h_name_internal) ):
-            handler = getattr(target, h_name_internal)
-        else:
-            handler = eval(handler_name)
-
-        object.connect(sig_name, handler)
-
-    def purge_builder_content(self):
-        for name in self.__builder_obj_names:
-            o = self.__dict__[name]
-            if ( isinstance(o, Gtk.Widget) ):
-                o.destroy()
-            del self.__dict__[name]
-
-        del self.__builder_obj_names
-
-
     def __init__(self):
         '''
         Initialises the plugin object.
@@ -302,15 +263,10 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.cover_pixbuf = None
         self.entry = None
         
-        self.toolbars={}
-
-        # Prepare Album Art Displaying
-        self.album_art_db = GObject.new(RB.ExtDB, name="album-art")
-
-        self.rb_toolbar = self.find(self.shell.props.window,
+        self.rb_toolbar = AltToolbarPlugin.find(self.shell.props.window,
                                     'main-toolbar', 'by_id')
-
-        builder = Gtk.Builder()
+        
+        
         self.gs = GSetting()
         self.plugin_settings = self.gs.get_setting(self.gs.Path.PLUGIN)
         
@@ -318,6 +274,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         display_type = self.plugin_settings[self.gs.PluginKey.DISPLAY_TYPE]
         self.volume_control = self.plugin_settings[self.gs.PluginKey.VOLUME_CONTROL]
         self.show_compact_toolbar = self.plugin_settings[self.gs.PluginKey.SHOW_COMPACT]
+        self.start_hidden = self.plugin_settings[self.gs.PluginKey.START_HIDDEN]
 
         default = Gtk.Settings.get_default()
 
@@ -328,68 +285,29 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                 display_type = 1
 
         print("display type %d" % display_type)
-
-        ui = rb.find_plugin_file(self, 'ui/alttoolbar.ui')
-        builder.add_from_file(ui)
-
-        self.load_builder_content(builder)
-        self.connect_builder_content(builder)
-
-        what, width, height = Gtk.icon_size_lookup(Gtk.IconSize.SMALL_TOOLBAR)
-
-        self.icon_width = width
+        
+        self.toolbar_type = None
+        if display_type == 1:
+            self.toolbar_type = AltToolbarHeaderBar()
+        elif self.show_compact_toolbar:
+            self.toolbar_type = AltToolbarCompact()
+        else:
+            self.toolbar_type = AltToolbarStandard()
 
         self.appshell = ApplicationShell(self.shell)
-
-        if display_type == 1:
-            self._setup_headerbar()
-            self._setup_searchbar()
-            self._setup_playbar()
-            self.shell.props.db.connect('load-complete', self._load_complete)
-
-        if display_type == 2:
-            self._setup_compactbar()
-            
-        self._load_blank_cover()
-
-        if self.volume_control:
-            self.volume_button.bind_property("value", self.shell.props.shell_player, "volume",
-                                             Gio.SettingsBindFlags.DEFAULT)
-            self.volume_button.props.value = self.shell.props.shell_player.props.volume
-        elif not self.show_compact_toolbar and display_type == 2:
-            self.volume_button = self.find(self.rb_toolbar, 'GtkVolumeButton', 'by_id')
-            
-        self.volume_button.set_visible(self.volume_control)
         
+        self.toolbar_type.initialise(self)
+        self.toolbar_type.post_initialise()
+
         self.shell_player = self.shell.props.shell_player
 
         self._add_menu_options()
         self._connect_signals()
         self._connect_properties()
 
-		# Bring Builtin Actions to plugin
-        for (a, b) in ((self.play_button, "play"),
-                       (self.prev_button, "play-previous"),
-                       (self.next_button, "play-next"),
-                       (self.repeat_toggle, "play-repeat"),
-                       (self.shuffle_toggle, "play-shuffle")):
-            a.set_action_name("app." + b)
-            if b == "play-repeat" or b == "play-shuffle":
-                # for some distros you need to set the target_value
-                # for others this would actually disable the action
-                # so work around this by testing if the action is disabled
-                # then reset the action
-                a.set_action_target_value(GLib.Variant("b", True))
-                print (a.get_sensitive())
-                if not a.get_sensitive():
-                    a.set_detailed_action_name("app."+b)
-        
         # allow other plugins access to this toolbar
         self.shell.alternative_toolbar = self
         
-    def _load_complete(self, *args):
-        self._hide_toolbar_controls()
-        self._library_radiobutton_toggled(None)
 
     def _add_menu_options(self):
         self.seek_action_group = ActionGroup(self.shell, 'AltToolbarPluginSeekActions')
@@ -403,7 +321,15 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                                             tooltip=_("Seek forward, in current track, by 10 seconds."))
         self.appshell.insert_action_group(self.seek_action_group)
         self.appshell.add_app_menuitems(view_seek_menu_ui, 'AltToolbarPluginSeekActions', 'view')
-
+        
+        self.toggle_action_group = ActionGroup(self.shell, 'AltToolbarPluginActions')
+        self.toggle_action_group.add_action(func=self.toggle_visibility,
+                                            action_name='ToggleToolbar', label=_("Show Toolbar"),
+                                            action_state=ActionGroup.TOGGLE,
+                                            action_type='app', accel="<Ctrl>t",
+                                            tooltip=_("Show or hide the main toolbar"))
+        self.appshell.insert_action_group(self.toggle_action_group)
+        self.appshell.add_app_menuitems(view_menu_ui, 'AltToolbarPluginActions', 'view')
 
     def _connect_properties(self):
         self.plugin_settings.bind(self.gs.PluginKey.PLAYING_LABEL, self, 'playing_label',
@@ -413,8 +339,6 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.sh_display_page_tree = self.shell.props.display_page_tree.connect(
             "selected", self.on_page_change
         )
-
-        self.sh_tb = self.toolbar_button.connect('clicked', self._sh_on_toolbar_btn_clicked)
 
         self.sh_psc = self.shell_player.connect("playing-song-changed",
                                                 self._sh_on_song_change)
@@ -435,8 +359,6 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                      Gio.SettingsBindFlags.GET)
         self.sh_display_page = self.connect('notify::display-page-tree-visible', self.display_page_tree_visible_settings_changed)
 
-        self.sh_sb = self.sidepane_button.connect('clicked', self._sh_on_sidepane_btn_clicked)
-
         self.rb_settings.bind('show-album-art', self, 'show_album_art',
                      Gio.SettingsBindFlags.GET)
         self.connect('notify::show-album-art', self.show_album_art_settings_changed)
@@ -449,424 +371,6 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         self.display_page_tree_visible_settings_changed(None)
         
-    def _setup_searchbar(self):
-        
-        self.search_bar = Gtk.SearchBar.new()
-        #entry = Gtk.Entry.new()
-        #self.search_bar.add(entry)
-        #self.search_bar.connect_entry(entry)
-        self.search_bar.show_all()
-        self.shell.add_widget(self.search_bar,
-                                      RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
-                           
-        #self.search_bar.set_search_mode(True)
-
-    def _setup_playbar(self):
-        box = self.find(self.shell.props.window,
-                                    'GtkBox', 'by_name')
-        box.pack_start(self.small_bar, False, True, 0)
-        box.reorder_child(self.small_bar, 3)
-        
-        self.small_bar.show_all()
-            
-    def _setup_compactbar(self):
-        self.toggle_action_group = ActionGroup(self.shell, 'AltToolbarPluginActions')
-        self.toggle_action_group.add_action(func=self.toggle_visibility,
-                                            action_name='ToggleToolbar', label=_("Show Toolbar"),
-                                            action_state=ActionGroup.TOGGLE,
-                                            action_type='app', accel="<Ctrl>t",
-                                            tooltip=_("Show or hide the main toolbar"))
-        self.appshell.insert_action_group(self.toggle_action_group)
-        self.appshell.add_app_menuitems(view_menu_ui, 'AltToolbarPluginActions', 'view')
-        action = self.toggle_action_group.get_action('ToggleToolbar')
-
-        start_hidden = self.plugin_settings[self.gs.PluginKey.START_HIDDEN]
-
-        self.window_control_item.add(self._window_controls())
-        
-        if not start_hidden and self.show_compact_toolbar:
-            self.shell.add_widget(self.small_bar,
-                                 RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
-            self.small_bar.show_all()
-            self.rb_toolbar.hide()
-            action.set_active(True)
-            print("not hidden but compact")
-        elif start_hidden:
-            self.rb_toolbar.hide()
-            print("hidden")
-        else:
-            action.set_active(True)
-            return
-            
-    def _hide_toolbar_controls(self):
-        self._sh_on_toolbar_btn_clicked() #used to hide the source bar
-        #if not self.shell.props.selected_page:
-        #    return
-
-        if not self.shell.props.selected_page in self.toolbars:
-            toolbar = self.find(self.shell.props.selected_page, 'RBSourceToolbar', 'by_name')
-            
-            if not toolbar:
-                return
-
-            elements = { 'GtkMenuButton',
-                         'GtkSeparator',
-                         'GtkToggleButton',
-                         'GtkButton'}
-
-            for element in elements:
-                while True:
-                    found_element = self.find(toolbar, element, 'by_name', find_only_visible=True)
-                    if found_element:
-                        found_element.set_visible(False)
-                    else:
-                        break
-                
-            builder = Gtk.Builder()
-            ui = rb.find_plugin_file(self, 'ui/altlibrary.ui')
-            builder.add_from_file(ui)
-
-            self.load_builder_content(builder)
-            
-            #self.library_search_togglebutton.connect('toggled', self._sh_on_toolbar_btn_clicked)
-            self.headerbar.set_custom_title(self.library_box) 
-
-            
-            setting = Gio.Settings.new('org.gnome.rhythmbox.sources')
-            browser_view = setting['browser-views']
-            print (browser_view)
-            if browser_view == 'artists-albums':
-                view_name = "Artists and albums"
-            elif browser_view == 'genres-artists':
-                view_name = "Genres and artists"
-            elif browser_view == 'genres-artists-albums':
-                view_name = "Genres, artists and albums"
-            else:
-                view_name = "Categories"
-            
-            view_name = "Categories" #hard-code
-            self.library_browser_radiobutton.set_label(view_name)  
-            
-            self.library_browser_radiobutton.connect('toggled', self._library_radiobutton_toggled)
-            self.library_song_radiobutton.connect('toggled', self._library_radiobutton_toggled)
-            
-            self.search = self.find(toolbar, 'RBSearchEntry', 'by_name')
-            entry=self.find(self.search, 'GtkEntry', 'by_name')
-            toolbar.remove(self.search)
-        
-            self.search_bar.add(self.search)
-            self.search_bar.connect_entry(entry)
-            
-            self.search_button = Gtk.ToggleButton.new()
-            image = Gtk.Image.new_from_icon_name("preferences-system-search-symbolic", Gtk.IconSize.SMALL_TOOLBAR)
-            self.search_button.add(image)
-            
-            self.end_box.add(self.search_button)
-            self.end_box.reorder_child(self.search_button, 0)
-            self.search_button.show_all()
-            self.search_button.connect('toggled', self._search_button_toggled)
-            #self.headerbar.pack_end(self.search)
-            
-    def _search_button_toggled(self, *args):
-        self.search_bar.set_search_mode(self.search_button.get_active())
-             
-            
-    def _library_radiobutton_toggled(self, toggle_button):
-        if not hasattr(self, 'library_song_radiobutton'):
-            return #kludge = fix this later
-            
-        val = True
-        if self.library_song_radiobutton.get_active():
-            val = False
-            
-        self.shell.props.selected_page.props.show_browser = val
-    def _window_controls(self):
-        self.window_box = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
-        
-        self.toolbar_button = Gtk.Button.new_from_icon_name("go-up-symbolic", self.icon_width)
-        self.toolbar_button.set_relief(Gtk.ReliefStyle.NONE)
-        #self.window_box.add(self.toolbar_button)
-
-        self.sidepane_button = Gtk.Button.new_from_icon_name("go-next-symbolic", self.icon_width)
-        self.sidepane_button.set_relief(Gtk.ReliefStyle.NONE)
-        #self.window_box.add(self.sidepane_button)
-        
-        image = self.toolbar_button.get_image()
-        if not image:
-            image = self.toolbar_button.get_child()
-
-        image.set_pixel_size((self.icon_width / 2))
-
-        image = self.sidepane_button.get_image()
-        if not image:
-            image = self.sidepane_button.get_child()
-
-        image.set_pixel_size((self.icon_width / 2))
-
-        return self.window_box
-
-    def _setup_headerbar(self):
-        default = Gtk.Settings.get_default()
-        self.headerbar = Gtk.HeaderBar.new()
-        self.headerbar.set_show_close_button(True)
-        
-        # required for Gtk 3.14 to stop RB adding a title to the header bar
-        #empty = Gtk.DrawingArea.new()
-        #self.headerbar.set_custom_title(empty)
-        
-        self.main_window.set_titlebar(self.headerbar)  # this is needed for gnome-shell to replace the decoration
-        self.rb_toolbar.hide()
-        
-        self.headerbar.pack_start(self._window_controls())
-
-        self.end_box = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
-        
-        if (not default.props.gtk_shell_shows_app_menu) or default.props.gtk_shell_shows_menubar:
-        
-            # for environments that dont support app-menus
-            menu_button = Gtk.MenuButton.new()
-            menu_button.set_relief(Gtk.ReliefStyle.NONE)
-            if gtk_version() >= 3.14:
-                symbol = "open-menu-symbolic"
-            else:
-                symbol = "emblem-system-symbolic"
-
-            image = Gtk.Image.new_from_icon_name(symbol, Gtk.IconSize.SMALL_TOOLBAR)
-            menu_button.add(image)
-            menu = self.shell.props.application.get_shared_menu('app-menu')
-            menu_button.set_menu_model(menu)
-            self.end_box.add(menu_button)
-
-        self.headerbar.pack_end(self.end_box)
-        self.headerbar.show_all()
-
-    
-    def on_skip_backward( self, *args ):
-        sp = self.object.props.shell_player
-        if( sp.get_playing()[1] ):
-            seek_time = sp.get_playing_time()[1] - seek_backward_time
-            print (seek_time)
-            if( seek_time < 0 ): seek_time = 0
-
-            print (seek_time)
-            sp.set_playing_time( seek_time )
-
-    def on_skip_forward( self, *args ):
-        sp = self.object.props.shell_player
-        if( sp.get_playing()[1] ):
-            seek_time = sp.get_playing_time()[1] + seek_forward_time
-            song_duration = sp.get_playing_song_duration()
-            if( song_duration > 0 ): #sanity check
-                if( seek_time > song_duration ): seek_time = song_duration
-
-                sp.set_playing_time( seek_time )
-
-    def show_song_position_slider_settings_changed(self, *args):
-        self.song_box.set_visible(self.show_song_position_slider)
-
-    def display_page_tree_visible_settings_changed(self, *args):
-
-        if self.display_page_tree_visible:
-            image_name = 'go-next-symbolic'
-        else:
-            image_name = 'go-previous-symbolic'
-
-        image = self.sidepane_button.get_image()
-        if not image:
-            image = self.sidepane_button.get_child()
-
-        image.props.icon_name = image_name
-
-    def show_album_art_settings_changed(self, *args):
-        self.album_cover.set_visible(self.show_album_art)
-
-    def on_page_change(self, display_page_tree, page):
-        print ("page changed")
-        toolbar = self.find(page, 'RBSourceToolbar', 'by_name')
-         
-        # self.current_page = page
-        image = self.toolbar_button.get_image()
-        if not image:
-            image = self.toolbar_button.get_child()
-
-        if image.props.icon_name == 'go-up-symbolic':
-            visible = True
-        else:
-            visible = False
-
-        if toolbar:
-            print("found")
-            toolbar.set_visible(visible)
-        else:
-            print("not found")
-        
-        self._library_radiobutton_toggled(None)
-        
-        self.emit('toolbar-visibility', visible)
-
-    # Couldn't find better way to find widgets than loop through them
-    def find(self, node, search_id, search_type, find_only_visible=None):
-        print(node.get_name())
-        if isinstance(node, Gtk.Buildable):
-            if search_type == 'by_id':
-                if Gtk.Buildable.get_name(node) == search_id:
-                    if find_only_visible == None or (find_only_visible and node.get_visible() == True):
-                        return node
-            elif search_type == 'by_name':
-                if node.get_name() == search_id:
-                    if find_only_visible == None or (find_only_visible and node.get_visible() == True):
-                        return node
-
-        if isinstance(node, Gtk.Container):
-            for child in node.get_children():
-                ret = self.find(child, search_id, search_type, find_only_visible)
-                if ret:
-                    return ret
-        return None
-
-    def do_deactivate(self):
-        '''
-        Called by Rhythmbox when the plugin is deactivated. It makes sure to
-        free all the resources used by the plugin.
-        '''
-        if self.sh_op:
-            self.shell_player.disconnect(self.sh_op)
-            self.shell_player.disconnect(self.sh_psc)
-            self.shell_player.disconnect(self.sh_pc)
-            self.shell_player.disconnect(self.sh_pspc)
-            self.disconnect(self.sh_display_page)
-            self.shell.props.display_page_tree.disconnect(self.sh_display_page_tree)
-            del self.shell_player
-
-        if self.appshell:
-            self.appshell.cleanup()
-        self.rb_toolbar.set_visible(True)
-
-        self.purge_builder_content()
-        del self.shell
-        del self.db
-
-    def toggle_visibility(self, action, param=None, data=None):
-        print("toggle_visibility")
-        action = self.toggle_action_group.get_action('ToggleToolbar')
-
-        if action.get_active():
-            if self.show_compact_toolbar:
-                print("show_compact")
-                self.shell.add_widget(self.small_bar,
-                                      RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
-                self.small_bar.show_all()
-                self.volume_button.set_visible(self.volume_control)
-
-            else:
-                print("show full")
-                self.rb_toolbar.set_visible(True)
-        else:
-            if self.show_compact_toolbar:
-                print("hide compact")
-                self.shell.remove_widget(self.small_bar,
-                                         RB.ShellUILocation.MAIN_TOP)
-            else:
-                print("hide full")
-                self.rb_toolbar.set_visible(False)
-
-    def display_song(self, entry):
-        self.entry = entry
-
-        self.cover_pixbuf = None
-        self.album_cover.clear()
-
-        if ( entry is None ):
-            self.song_button_label.set_text("")
-
-        else:
-            stream_title = self.shell.props.db.entry_request_extra_metadata(entry, RB.RHYTHMDB_PROP_STREAM_SONG_TITLE)
-            stream_artist = self.shell.props.db.entry_request_extra_metadata(entry, RB.RHYTHMDB_PROP_STREAM_SONG_ARTIST)
-            
-            if stream_title:
-                if stream_artist:
-                    markup = "<b>{title}</b> <small>{artist}</small>".format(
-                        title=GLib.markup_escape_text(stream_title),
-                        artist=GLib.markup_escape_text(stream_artist))
-                else:
-                    markup = "<b>{title}</b>".format(
-                        title=GLib.markup_escape_text(stream_title))
-                self.song_button_label.set_markup(markup)
-                return
-                
-            album = entry.get_string(RB.RhythmDBPropType.ALBUM) 
-            if not album or album == "":
-                self.song_button_label.set_markup("<b>{title}</b>".format( 
-                    title=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.TITLE))))
-                return
-                
-            if self.playing_label:
-                year = entry.get_ulong(RB.RhythmDBPropType.DATE)
-                if year == 0:
-                    year = date.today().year
-                else:
-                    year = datetime.fromordinal(year).year
-
-                self.song_button_label.set_markup(
-                    "<small>{album} - {genre} - {year}</small>".format(
-                        album=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ALBUM)),
-                        genre=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.GENRE)),
-                        year=GLib.markup_escape_text(str(year))))
-            else:
-                self.song_button_label.set_markup(
-                    "<b>{title}</b> <small>{album} - {artist}</small>".format(
-                        title=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.TITLE)),
-                        album=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ALBUM)),
-                        artist=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ARTIST))))
-
-            key = entry.create_ext_db_key(RB.RhythmDBPropType.ALBUM)
-            self.album_art_db.request(key,
-                                      self.display_song_album_art_callback,
-                                      entry)
-
-    def _load_blank_cover(self):
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(rb.find_plugin_file(self, 'img/transparent_graphic.png'), 37, 1, False)
-        
-        self.album_cover.set_from_pixbuf(pixbuf)
-
-    def display_song_album_art_callback(self, *args): #key, filename, data, entry):
-        # rhythmbox 3.2 breaks the API - need to find the parameter with the pixbuf
-        data = None
-        for data in args:
-            if isinstance(data, GdkPixbuf.Pixbuf):
-                break
-                
-        if ( ( data is not None ) and ( isinstance(data, GdkPixbuf.Pixbuf) ) ):
-            self.cover_pixbuf = data
-            scale_cover = self.cover_pixbuf.scale_simple(34, 34,
-                                                         GdkPixbuf.InterpType.HYPER)
-
-            self.album_cover.set_from_pixbuf(scale_cover)
-        else:
-            self.cover_pixbuf = None
-            self.album_cover.clear()
-
-        self.album_cover.trigger_tooltip_query()
-
-    # Signal Handlers ##########################################################
-    def _sh_on_sidepane_btn_clicked(self, *args):
-        self.rb_settings.set_boolean('display-page-tree-visible', not self.display_page_tree_visible)
-
-    def _sh_on_toolbar_btn_clicked(self, *args):
-        image = self.toolbar_button.get_image()
-        if not image:
-            image = self.toolbar_button.get_child()
-
-        if image.props.icon_name == 'go-up-symbolic':
-            image.props.icon_name = 'go-down-symbolic'
-            self.emit('toolbar-visibility', False)
-
-        else:
-            image.props.icon_name = 'go-up-symbolic'
-            self.emit('toolbar-visibility', True)
-
-        self.on_page_change(self.shell.props.display_page_tree, self.shell.props.selected_page)
-    
     def _sh_on_song_property_changed(self, sp, uri, property, old, new):
         if sp.get_playing() and property in ('artist', 
                                              'album', 
@@ -876,19 +380,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                                              RB.RHYTHMDB_PROP_STREAM_SONG_TITLE):
             entry = sp.get_playing_entry()
             self.display_song(entry)
-    
+            
     def _sh_on_playing_change(self, player, playing):
-        image = self.play_button.get_child()
-        if (playing):
-            if player.get_active_source().can_pause():
-                icon_name = "media-playback-pause-symbolic"
-            else:
-                icon_name = "media-playback-stop-symbolic"
-
-        else:
-            icon_name = "media-playback-start-symbolic"
-
-        image.set_from_icon_name(icon_name, self.icon_width)
+        self.toolbar_type.play_control_change(playing)
 
     def _sh_on_song_change(self, player, entry):
         if ( entry is not None ):
@@ -896,9 +390,12 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         else:
             self.song_duration = 0
             
-        self.display_song(entry)
+        self.toolbar_type.display_song(entry)
 
     def _sh_on_playing(self, player, second):
+        if not hasattr(self, 'song_progress'):
+            return
+            
         if ( self.song_duration != 0 ):
             self.song_progress.progress = float(second) / self.song_duration
 
@@ -926,17 +423,139 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.total_time_label.set_markup(tlabel)
 
     def _sh_progress_control(self, progress, fraction):
+        if not hasattr(self, 'song_duration'):
+            return
+        
         if ( self.song_duration != 0 ):
             self.shell_player.set_playing_time(self.song_duration * fraction)
 
     def _sh_bigger_cover(self, cover, x, y, key, tooltip):
-        if ( self.cover_pixbuf is not None ):
-            tooltip.set_icon(self.cover_pixbuf.scale_simple(300, 300,
-                                                            GdkPixbuf.InterpType.HYPER))
-            return True
-        else:
-            return False
+        return self.toolbar_type.show_cover_tooltip(tooltip)
+        
+    def on_skip_backward( self, *args ):
+        sp = self.object.props.shell_player
+        if( sp.get_playing()[1] ):
+            seek_time = sp.get_playing_time()[1] - seek_backward_time
+            print (seek_time)
+            if( seek_time < 0 ): seek_time = 0
 
+            print (seek_time)
+            sp.set_playing_time( seek_time )
+
+    def on_skip_forward( self, *args ):
+        sp = self.object.props.shell_player
+        if( sp.get_playing()[1] ):
+            seek_time = sp.get_playing_time()[1] + seek_forward_time
+            song_duration = sp.get_playing_song_duration()
+            if( song_duration > 0 ): #sanity check
+                if( seek_time > song_duration ): seek_time = song_duration
+
+                sp.set_playing_time( seek_time )
+
+    def show_song_position_slider_settings_changed(self, *args):
+        self.toolbar_type.show_slider(self.show_song_position_slider)
+        
+    def display_page_tree_visible_settings_changed(self, *args):
+        self.toolbar_type.toggle_sidepane(self.display_page_tree_visible)
+        
+    def show_album_art_settings_changed(self, *args):
+        self.toolbar_type.show_cover(self.show_album_art)
+        
+    def on_page_change(self, display_page_tree, page):
+        print ("page changed")
+        toolbar = self.find(page, 'RBSourceToolbar', 'by_name')
+         
+        # self.current_page = page
+        image = self.toolbar_button.get_image()
+        if not image:
+            image = self.toolbar_button.get_child()
+
+        if image.props.icon_name == 'go-up-symbolic':
+            visible = True
+        else:
+            visible = False
+
+        if toolbar:
+            print("found")
+            toolbar.set_visible(visible)
+        else:
+            print("not found")
+        
+        self._library_radiobutton_toggled(None)
+        
+        self.emit('toolbar-visibility', visible)
+
+    @staticmethod
+    def find(node, search_id, search_type, find_only_visible=None):
+        # Couldn't find better way to find widgets than loop through them
+        print(node.get_name())
+        if isinstance(node, Gtk.Buildable):
+            if search_type == 'by_id':
+                if Gtk.Buildable.get_name(node) == search_id:
+                    if find_only_visible == None or (find_only_visible and node.get_visible() == True):
+                        return node
+            elif search_type == 'by_name':
+                if node.get_name() == search_id:
+                    if find_only_visible == None or (find_only_visible and node.get_visible() == True):
+                        return node
+
+        if isinstance(node, Gtk.Container):
+            for child in node.get_children():
+                ret = AltToolbarPlugin.find(child, search_id, search_type, find_only_visible)
+                if ret:
+                    return ret
+        return None
+
+    def do_deactivate(self):
+        '''
+        Called by Rhythmbox when the plugin is deactivated. It makes sure to
+        free all the resources used by the plugin.
+        '''
+        if self.sh_op:
+            self.shell_player.disconnect(self.sh_op)
+            self.shell_player.disconnect(self.sh_psc)
+            self.shell_player.disconnect(self.sh_pc)
+            self.shell_player.disconnect(self.sh_pspc)
+            self.disconnect(self.sh_display_page)
+            self.shell.props.display_page_tree.disconnect(self.sh_display_page_tree)
+            del self.shell_player
+
+        if self.appshell:
+            self.appshell.cleanup()
+            
+        self.rb_toolbar.set_visible(True)
+
+        self.toolbar_type.purge_builder_content()
+
+        del self.shell
+        del self.db
+
+    def toggle_visibility(self, action, param=None, data=None):
+        print("toggle_visibility")
+        action = self.toggle_action_group.get_action('ToggleToolbar')
+
+        self.toolbar_type.set_visible(action.get_active())
+
+
+    # Signal Handlers ##########################################################
+    def _sh_on_sidepane_btn_clicked(self, *args):
+        self.rb_settings.set_boolean('display-page-tree-visible', not self.display_page_tree_visible)
+
+    def _sh_on_toolbar_btn_clicked(self, *args):
+        image = self.toolbar_button.get_image()
+        if not image:
+            image = self.toolbar_button.get_child()
+
+        if image.props.icon_name == 'go-up-symbolic':
+            image.props.icon_name = 'go-down-symbolic'
+            self.emit('toolbar-visibility', False)
+
+        else:
+            image.props.icon_name = 'go-up-symbolic'
+            self.emit('toolbar-visibility', True)
+
+        self.on_page_change(self.shell.props.display_page_tree, self.shell.props.selected_page)
+    
 
 # ###############################################################################
 # Custom Widgets ###############################################################
