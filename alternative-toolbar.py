@@ -286,6 +286,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         print("display type %d" % display_type)
         
+        self.appshell = ApplicationShell(self.shell)
+        self._add_menu_options()
+        
         self.toolbar_type = None
         if display_type == 1:
             self.toolbar_type = AltToolbarHeaderBar()
@@ -294,14 +297,11 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         else:
             self.toolbar_type = AltToolbarStandard()
 
-        self.appshell = ApplicationShell(self.shell)
-        
         self.toolbar_type.initialise(self)
         self.toolbar_type.post_initialise()
 
         self.shell_player = self.shell.props.shell_player
 
-        self._add_menu_options()
         self._connect_signals()
         self._connect_properties()
 
@@ -382,7 +382,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.display_song(entry)
             
     def _sh_on_playing_change(self, player, playing):
-        self.toolbar_type.play_control_change(playing)
+        self.toolbar_type.play_control_change(player, playing)
 
     def _sh_on_song_change(self, player, entry):
         if ( entry is not None ):
@@ -393,11 +393,11 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.toolbar_type.display_song(entry)
 
     def _sh_on_playing(self, player, second):
-        if not hasattr(self, 'song_progress'):
+        if not hasattr(self.toolbar_type, 'song_progress'):
             return
             
         if ( self.song_duration != 0 ):
-            self.song_progress.progress = float(second) / self.song_duration
+            self.toolbar_type.song_progress.progress = float(second) / self.song_duration
 
             try:
                 valid, time = player.get_playing_time()
@@ -419,18 +419,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                 label = "<small>{time}</small>".format(time="%d:%02d:%02d" % (h, m, s))
                 tlabel = "<small>{time}</small>".format(time="%d:%02d:%02d" % (th, tm, ts))
 
-            self.current_time_label.set_markup(label)
-            self.total_time_label.set_markup(tlabel)
-
-    def _sh_progress_control(self, progress, fraction):
-        if not hasattr(self, 'song_duration'):
-            return
-        
-        if ( self.song_duration != 0 ):
-            self.shell_player.set_playing_time(self.song_duration * fraction)
-
-    def _sh_bigger_cover(self, cover, x, y, key, tooltip):
-        return self.toolbar_type.show_cover_tooltip(tooltip)
+            self.toolbar_type.current_time_label.set_markup(label)
+            self.toolbar_type.total_time_label.set_markup(tlabel)
         
     def on_skip_backward( self, *args ):
         sp = self.object.props.shell_player
@@ -488,7 +478,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
     @staticmethod
     def find(node, search_id, search_type, find_only_visible=None):
         # Couldn't find better way to find widgets than loop through them
-        print(node.get_name())
+        #print(node.get_name())
         if isinstance(node, Gtk.Buildable):
             if search_type == 'by_id':
                 if Gtk.Buildable.get_name(node) == search_id:
@@ -536,26 +526,6 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         self.toolbar_type.set_visible(action.get_active())
 
-
-    # Signal Handlers ##########################################################
-    def _sh_on_sidepane_btn_clicked(self, *args):
-        self.rb_settings.set_boolean('display-page-tree-visible', not self.display_page_tree_visible)
-
-    def _sh_on_toolbar_btn_clicked(self, *args):
-        image = self.toolbar_button.get_image()
-        if not image:
-            image = self.toolbar_button.get_child()
-
-        if image.props.icon_name == 'go-up-symbolic':
-            image.props.icon_name = 'go-down-symbolic'
-            self.emit('toolbar-visibility', False)
-
-        else:
-            image.props.icon_name = 'go-up-symbolic'
-            self.emit('toolbar-visibility', True)
-
-        self.on_page_change(self.shell.props.display_page_tree, self.shell.props.selected_page)
-    
 
 # ###############################################################################
 # Custom Widgets ###############################################################

@@ -65,7 +65,7 @@ class AltToolbarBase(GObject.Object):
     def display_song(self, visible):
         pass
         
-    def play_control_change(self, playing):
+    def play_control_change(self, player, playing):
         pass
         
     def purge_builder_content(self):
@@ -99,6 +99,8 @@ class AltToolbarStandard(AltToolbarBase):
         
         self.volume_button = self.find(self.plugin.rb_toolbar, 'GtkVolumeButton', 'by_id')
         self.volume_button.set_visible(self.plugin.volume_control)
+        
+        self.set_visible(not self.plugin.start_hidden)
         
     def set_visible(self, visible):
         self.plugin.rb_toolbar.set_visible(visible)
@@ -227,7 +229,7 @@ class AltToolbarShared(AltToolbarBase):
                     title=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.TITLE))))
                 return
                 
-            if self.playing_label:
+            if self.plugin.playing_label:
                 year = entry.get_ulong(RB.RhythmDBPropType.DATE)
                 if year == 0:
                     year = date.today().year
@@ -252,7 +254,7 @@ class AltToolbarShared(AltToolbarBase):
                                       entry)
 
     def _load_blank_cover(self):
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(rb.find_plugin_file(self, 'img/transparent_graphic.png'), 37, 1, False)
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(rb.find_plugin_file(self.plugin, 'img/transparent_graphic.png'), 37, 1, False)
         
         self.album_cover.set_from_pixbuf(pixbuf)
 
@@ -288,9 +290,9 @@ class AltToolbarShared(AltToolbarBase):
         image.props.icon_name = image_name
 
     def show_cover(self, visibility):        
-        self.album_cover.set_visible(self.show_album_art)
+        self.album_cover.set_visible(self.plugin.show_album_art)
 
-    def play_control_change(self, playing):
+    def play_control_change(self, player, playing):
         image = self.play_button.get_child()
         if (playing):
             if player.get_active_source().can_pause():
@@ -346,9 +348,36 @@ class AltToolbarShared(AltToolbarBase):
 
         del self.__builder_obj_names
 
+    # Signal Handlers ##########################################################
 
+    def _sh_progress_control(self, progress, fraction):
+        if not hasattr(self, 'song_duration'):
+            return
+        
+        if ( self.song_duration != 0 ):
+            self.shell_player.set_playing_time(self.song_duration * fraction)
 
+    def _sh_bigger_cover(self, cover, x, y, key, tooltip):
+        return self.show_cover_tooltip(tooltip)
+        
+    def _sh_on_sidepane_btn_clicked(self, *args):
+        self.plugin.rb_settings.set_boolean('display-page-tree-visible', not self.plugin.display_page_tree_visible)
 
+    def _sh_on_toolbar_btn_clicked(self, *args):
+        image = self.toolbar_button.get_image()
+        if not image:
+            image = self.toolbar_button.get_child()
+
+        if image.props.icon_name == 'go-up-symbolic':
+            image.props.icon_name = 'go-down-symbolic'
+            self.plugin.emit('toolbar-visibility', False)
+
+        else:
+            image.props.icon_name = 'go-up-symbolic'
+            self.plugin.emit('toolbar-visibility', True)
+
+        self.plugin.on_page_change(self.shell.props.display_page_tree, self.shell.props.selected_page)
+    
 class AltToolbarCompact(AltToolbarShared):
     '''
     compact RB toolbar
@@ -389,7 +418,7 @@ class AltToolbarCompact(AltToolbarShared):
             self.shell.add_widget(self.small_bar,
                                   RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
             self.small_bar.show_all()
-            self.volume_button.set_visible(self.volume_control)
+            self.volume_button.set_visible(self.plugin.volume_control)
         else:
             print("hide compact")
             self.shell.remove_widget(self.small_bar,
