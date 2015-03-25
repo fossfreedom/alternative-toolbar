@@ -47,6 +47,7 @@ view_menu_ui = """
   <menubar name="MenuBar">
     <menu name="ViewMenu" action="View">
         <menuitem name="Show Toolbar" action="ToggleToolbar" />
+        <menuitem name="Show Playlist/Media Toolbar" action="TogglePlaylistMediaToolbar" />
     </menu>
   </menubar>
 </ui>
@@ -263,7 +264,12 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         
         self.rb_toolbar = AltToolbarPlugin.find(self.shell.props.window,
                                     'main-toolbar', 'by_id')
-        
+                                    
+        displaypagetree = AltToolbarPlugin.find(self.shell.props.window,
+                                    'RBDisplayPageTree', 'by_name')
+        self.playlistmedia_toolbar = AltToolbarPlugin.find(displaypagetree,
+                                    'GtkToolbar', 'by_name')
+        self.playlistmedia_toolbar.set_visible(False)
         
         self.gs = GSetting()
         self.plugin_settings = self.gs.get_setting(self.gs.Path.PLUGIN)
@@ -317,6 +323,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                                             action_name='SeekForward', label=_("Seek Forward"),
                                             action_type='app', accel="<Alt>Right",
                                             tooltip=_("Seek forward, in current track, by 10 seconds."))
+        
         self.appshell.insert_action_group(self.seek_action_group)
         self.appshell.add_app_menuitems(view_seek_menu_ui, 'AltToolbarPluginSeekActions', 'view')
         
@@ -326,8 +333,15 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                                             action_state=ActionGroup.TOGGLE,
                                             action_type='app', accel="<Ctrl>t",
                                             tooltip=_("Show or hide the main toolbar"))
+        self.toggle_action_group.add_action(func=self.toggle_playlistmedia_visibility,
+                                            action_name='TogglePlaylistMediaToolbar', label=_("Show Playlist/Media Toolbar"),
+                                            action_state=ActionGroup.TOGGLE,
+                                            action_type='app',
+                                            tooltip=_("Show or hide the playlist/media toolbar"))
+        
         self.appshell.insert_action_group(self.toggle_action_group)
         self.appshell.add_app_menuitems(view_menu_ui, 'AltToolbarPluginActions', 'view')
+
 
     def _connect_properties(self):
         self.plugin_settings.bind(self.gs.PluginKey.PLAYING_LABEL, self, 'playing_label',
@@ -492,6 +506,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.appshell.cleanup()
             
         self.rb_toolbar.set_visible(True)
+        self.playlistmedia_toolbar.set_visible(True)
 
         self.toolbar_type.purge_builder_content()
 
@@ -504,6 +519,11 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         self.toolbar_type.set_visible(action.get_active())
 
+    def toggle_playlistmedia_visibility(self, action, param=None, data=None):
+        print("toggle_playlistmedia_visibility")
+        action = self.toggle_action_group.get_action('TogglePlaylistMediaToolbar')
+
+        self.playlistmedia_toolbar.set_visible(action.get_active())
 
 # ###############################################################################
 # Custom Widgets ###############################################################
