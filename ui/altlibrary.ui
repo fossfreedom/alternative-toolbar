@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.18.3 -->
+<!-- Generated with glade 3.16.1 -->
 <interface>
   <requires lib="gtk+" version="3.10"/>
   <object class="GtkBox" id="library_box">
@@ -11,7 +11,7 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="homogeneous">True</property>
-        <property name="layout_style">expand</property>
+        <property name="layout_style"/>
         <child>
           <object class="GtkRadioButton" id="library_song_radiobutton">
             <property name="label" translatable="yes">Songs</property>
@@ -45,6 +45,9 @@
             <property name="position">1</property>
           </packing>
         </child>
+        <style>
+          <class name="linked"/>
+        </style>
       </object>
       <packing>
         <property name="expand">False</property>

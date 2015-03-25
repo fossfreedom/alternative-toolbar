@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.18.3 -->
+<!-- Generated with glade 3.16.1 -->
 <interface>
   <requires lib="gtk+" version="3.10"/>
   <object class="GtkToolbar" id="small bar">
@@ -29,7 +29,6 @@
               <object class="GtkButton" id="prev button">
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
-                <property name="relief">half</property>
                 <property name="xalign">0.50999999046325684</property>
                 <child>
                   <object class="GtkImage" id="previous image">
@@ -48,7 +47,6 @@
               <object class="GtkButton" id="play button">
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
-                <property name="relief">half</property>
                 <child>
                   <object class="GtkImage" id="play image">
                     <property name="can_focus">False</property>
@@ -66,7 +64,6 @@
               <object class="GtkButton" id="next button">
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
-                <property name="relief">half</property>
                 <child>
                   <object class="GtkImage" id="next image">
                     <property name="can_focus">False</property>
@@ -209,7 +206,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="relief">half</property>
                 <property name="always_show_image">True</property>
                 <child>
                   <object class="GtkImage" id="repeat image">
@@ -229,7 +225,6 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
                 <property name="margin_right">6</property>
-                <property name="relief">half</property>
                 <child>
                   <object class="GtkImage" id="shuffle image">
                     <property name="can_focus">False</property>
@@ -268,7 +263,6 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="margin_right">12</property>
-                <property name="relief">half</property>
                 <property name="focus_on_click">False</property>
                 <property name="orientation">vertical</property>
                 <property name="size">button</property>
@@ -307,8 +301,5 @@ audio-volume-medium-symbolic</property>
         <property name="homogeneous">False</property>
       </packing>
     </child>
-    <style>
-      <class name="primary-toolbar"/>
-    </style>
   </object>
 </interface>
