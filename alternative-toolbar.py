@@ -411,11 +411,11 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             th, tm = divmod(tm, 60)
 
             if th == 0:
-                label = "<small>{time}/{ttime}</small>".format(time="%02d:%02d" % (m, s), ttime="%02d:%02d" % (tm, ts))
+                label = "<small>{time} / {ttime}</small>".format(time="%02d:%02d" % (m, s), ttime="%02d:%02d" % (tm, ts))
                 #tlabel = "<small>{time}</small>".format(time="%02d:%02d" % (tm, ts))
             else:
                 label = "<small>{time}</small>".format(time="%d:%02d:%02d" % (h, m, s))
-                tlabel = "<small>{time}/{ttime}</small>".format(time="%d:%02d:%02d" % (h, m, s), ttime="%d:%02d:%02d" % (th, tm, ts))
+                tlabel = "<small>{time} / {ttime}</small>".format(time="%d:%02d:%02d" % (h, m, s), ttime="%d:%02d:%02d" % (th, tm, ts))
 
             #self.toolbar_type.current_time_label.set_markup(label)
             self.toolbar_type.total_time_label.set_markup(label)

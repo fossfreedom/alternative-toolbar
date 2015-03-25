@@ -536,6 +536,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
             self.search = self.find(toolbar, 'RBSearchEntry', 'by_name')
             entry=self.find(self.search, 'GtkEntry', 'by_name')
             toolbar.remove(self.search)
+            toolbar.set_visible(False)
         
             self.search_bar.add(self.search)
             self.search_bar.connect_entry(entry)
