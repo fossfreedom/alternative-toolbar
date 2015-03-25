@@ -468,9 +468,9 @@ class AltToolbarHeaderBar(AltToolbarShared):
         
         self.main_window = self.shell.props.window
         
+        self._setup_playbar()
         self._setup_headerbar()
         self._setup_searchbar()
-        self._setup_playbar()
         self.shell.props.db.connect('load-complete', self._load_complete)
         
     def _load_complete(self, *args):
@@ -599,8 +599,18 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self.headerbar.pack_end(self.end_box)
         self.headerbar.show_all()
         
+        action = self.plugin.toggle_action_group.get_action('ToggleToolbar')
+        if not self.plugin.start_hidden:
+            action.set_active(True)
+            print("not hidden")
+        else:
+            action.set_active(False)
+            self.set_visible(False)
+        
     def reset_toolbar(self, page):
         super(AltToolbarHeaderBar, self).reset_toolbar(page)
         
         self._library_radiobutton_toggled(None)
         
+    def set_visible(self, visible):
+        self.small_bar.set_visible(visible)
