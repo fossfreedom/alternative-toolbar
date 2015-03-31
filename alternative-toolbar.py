@@ -296,6 +296,10 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.toolbar_type = None
         if display_type == 1:
             self.toolbar_type = AltToolbarHeaderBar()
+            # every potential source should have its own controller to manage the headerbar controls
+            # where a controller is not specified then a generic controller is used
+            # i.e. use add_controller method to add a controller
+            
         elif self.show_compact_toolbar:
             self.toolbar_type = AltToolbarCompact()
         else:
@@ -468,24 +472,37 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.toolbar_type.reset_toolbar(page)
         
     @staticmethod
-    def find(node, search_id, search_type, find_only_visible=None):
+    def find(node, search_id, search_type, button_label=None):
         # Couldn't find better way to find widgets than loop through them
-        #print(node.get_name())
+        print("by_name %s by_id %s" % (node.get_name(), Gtk.Buildable.get_name(node)))
+        
+        def extract_label(button):
+            label = button.get_label()
+            if label:
+                return label
+                
+            child = button.get_child()
+            if child and child.get_name() == "GtkLabel":
+                return child.get_text()
+                
+            return None
+            
         if isinstance(node, Gtk.Buildable):
             if search_type == 'by_id':
                 if Gtk.Buildable.get_name(node) == search_id:
-                    if find_only_visible == None or (find_only_visible and node.get_visible() == True):
+                    if button_label == None or ('Button' in node.get_name() and extract_label(node) == button_label):
                         return node
             elif search_type == 'by_name':
                 if node.get_name() == search_id:
-                    if find_only_visible == None or (find_only_visible and node.get_visible() == True):
+                    if button_label == None or ('Button' in node.get_name() and extract_label(node) == button_label):
                         return node
 
         if isinstance(node, Gtk.Container):
             for child in node.get_children():
-                ret = AltToolbarPlugin.find(child, search_id, search_type, find_only_visible)
+                ret = AltToolbarPlugin.find(child, search_id, search_type, button_label)
                 if ret:
                     return ret
+                    
         return None
 
     def do_deactivate(self):

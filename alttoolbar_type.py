@@ -33,6 +33,9 @@ from gi.repository import Gio
 from alttoolbar_rb3compat import gtk_version
 from alttoolbar_rb3compat import ActionGroup
 from alttoolbar_rb3compat import ApplicationShell
+
+from alttoolbar_controller import AltGenericController
+
 import rb
 import math
 
@@ -461,30 +464,34 @@ class AltToolbarHeaderBar(AltToolbarShared):
         '''
         AltToolbarShared.__init__(self)
         
-        self.toolbars={}
+        self.sources={}
+        self._controllers={}
+        self.searchbar = None
         
     def initialise(self, plugin):
         super(AltToolbarHeaderBar, self).initialise(plugin)
         
         self.main_window = self.shell.props.window
         
+        self._controllers['generic'] = AltGenericController(self)
+        
         self._setup_playbar()
         self._setup_headerbar()
-        self._setup_searchbar()
+        
+        # finally - complete the headerbar setup after the database has fully loaded because
+        # rhythmbox has everything initiated at this point.
+        
         self.shell.props.db.connect('load-complete', self._load_complete)
         
     def _load_complete(self, *args):
         self._hide_toolbar_controls()
-        self._library_radiobutton_toggled(None)
-
-    def _setup_searchbar(self):
+        #self._library_radiobutton_toggled(None) # kludge
         
-        self.search_bar = Gtk.SearchBar.new()
-        self.search_bar.show_all()
-        self.shell.add_widget(self.search_bar,
-                                      RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
-
     def _setup_playbar(self):
+        '''
+          setup the play controls at the bottom part of the application
+        '''
+        
         box = self.find(self.shell.props.window,
                                     'GtkBox', 'by_name')
         box.pack_start(self.small_bar, False, True, 0)
@@ -497,72 +504,59 @@ class AltToolbarHeaderBar(AltToolbarShared):
         action.set_active(True)
 
     def _hide_toolbar_controls(self):
-        self._sh_on_toolbar_btn_clicked() #used to hide the source bar
+        #self._sh_on_toolbar_btn_clicked() #used to hide the source bar
 
-        if not self.shell.props.selected_page in self.toolbars:
-            toolbar = self.find(self.shell.props.selected_page, 'RBSourceToolbar', 'by_name')
-            
-            if not toolbar:
-                return
-
-            elements = { 'GtkMenuButton',
-                         'GtkSeparator',
-                         'GtkToggleButton',
-                         'GtkButton'}
-
-            for element in elements:
-                while True:
-                    found_element = self.find(toolbar, element, 'by_name', find_only_visible=True)
-                    if found_element:
-                        found_element.set_visible(False)
-                    else:
-                        break
-                
-            builder = Gtk.Builder()
-            ui = rb.find_plugin_file(self.plugin, 'ui/altlibrary.ui')
-            builder.add_from_file(ui)
-
-            self.load_builder_content(builder)
-            
-            #self.library_search_togglebutton.connect('toggled', self._sh_on_toolbar_btn_clicked)
-            self.headerbar.set_custom_title(self.library_box) 
-
-            view_name = "Categories" 
-            self.library_browser_radiobutton.set_label(view_name)  
-            
-            self.library_browser_radiobutton.connect('toggled', self._library_radiobutton_toggled)
-            self.library_song_radiobutton.connect('toggled', self._library_radiobutton_toggled)
-            
-            self.search = self.find(toolbar, 'RBSearchEntry', 'by_name')
-            entry=self.find(self.search, 'GtkEntry', 'by_name')
-            toolbar.remove(self.search)
-            toolbar.set_visible(False)
+        current_controller = None
         
-            self.search_bar.add(self.search)
-            self.search_bar.connect_entry(entry)
+        if not self.shell.props.selected_page in self.sources:
+            # loop through controllers to find one that is most applicable
             
-            self.search_button = Gtk.ToggleButton.new()
-            image = Gtk.Image.new_from_icon_name("preferences-system-search-symbolic", Gtk.IconSize.SMALL_TOOLBAR)
-            self.search_button.add(image)
-            
-            self.end_box.add(self.search_button)
-            self.end_box.reorder_child(self.search_button, 0)
-            self.search_button.show_all()
-            self.search_button.connect('toggled', self._search_button_toggled)
-            #self.headerbar.pack_end(self.search)
-            
-    def _search_button_toggled(self, *args):
-        self.search_bar.set_search_mode(self.search_button.get_active())
-             
-    def _library_radiobutton_toggled(self, toggle_button):
+            found = False
+            for controller_type in self._controllers:
+                print (controller_type)
+                if self._controllers[controller_type].valid_source(self.shell.props.selected_page):
+                    self.sources[self.shell_props.selected_page] = self._controllers[controller_type]
+                    found = True
+                    break
+                    
+            if not found:
+                self.sources[self.shell.props.selected_page] = self._controllers['generic']
+        
+        current_controller = self.sources[self.shell.props.selected_page]
+        current_controller.update_controls(self.shell.props.selected_page)
+    
+    def search_button_toggled(self, search_button):
+        print ("search_button_toggled")
+        print (search_button.get_active())
+        self.searchbar.set_search_mode(search_button.get_active())
+    
+    def library_radiobutton_toggled(self, toggle_button):
+        print ("library_radiobutton_toggled")
         if not hasattr(self, 'library_song_radiobutton'):
             return #kludge = fix this later
+            
+        if not self.is_browser_view(self.shell.props.selected_page):
+            return
             
         val = True
         if self.library_song_radiobutton.get_active():
             val = False
             
         self.shell.props.selected_page.props.show_browser = val
+        
+    def is_browser_view(self, source):
+        print ("is_browser_view")
+        toolbar = self.find(source, 'RBSourceToolbar', 'by_name')
+        if not toolbar:
+            return False
+            
+        ret = self.find(toolbar, 'GtkToggleButton', 'by_name', _("Browse"))
+        
+        if ret:
+            return True
+            
+        else:
+            return False
 
     def _setup_headerbar(self):
         default = Gtk.Settings.get_default()
@@ -578,7 +572,9 @@ class AltToolbarHeaderBar(AltToolbarShared):
         
         self.headerbar.pack_start(self._window_controls())
 
-        self.end_box = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
+        self._end_box_controls = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0) # right side box
+        self.end_box = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0) # any source defined controls
+        self._end_box_controls.add(self.end_box)
         
         if (not default.props.gtk_shell_shows_app_menu) or default.props.gtk_shell_shows_menubar:
         
@@ -594,9 +590,9 @@ class AltToolbarHeaderBar(AltToolbarShared):
             menu_button.add(image)
             menu = self.shell.props.application.get_shared_menu('app-menu')
             menu_button.set_menu_model(menu)
-            self.end_box.add(menu_button)
+            self._end_box_controls.add(menu_button)
 
-        self.headerbar.pack_end(self.end_box)
+        self.headerbar.pack_end(self._end_box_controls)
         self.headerbar.show_all()
         
         action = self.plugin.toggle_action_group.get_action('ToggleToolbar')
@@ -608,9 +604,15 @@ class AltToolbarHeaderBar(AltToolbarShared):
             self.set_visible(False)
         
     def reset_toolbar(self, page):
+        print (page)
         super(AltToolbarHeaderBar, self).reset_toolbar(page)
         
-        self._library_radiobutton_toggled(None)
+        self.library_radiobutton_toggled(None)
+        self._hide_toolbar_controls()
         
     def set_visible(self, visible):
         self.small_bar.set_visible(visible)
+        
+    def add_controller(self, controller):
+        if not controller in self._controllers:
+            self._controllers.append(controller)
