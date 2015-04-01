@@ -38,8 +38,8 @@ cd alternative-toolbar
 
 Then enable the plugin in the plugins window.
 
- - Use the keyboard shortcut CTRL+T to toggle the visibility of the compact/standard toolbar.
- - From the menu use View - Show Toolbar
+ - From the menu use View - Show Play-Controls Toolbar
+ - From the menu use View - Show Source and Media Toolbars
  - To seek forward (fast-forward) through a track - Alt+Right Cursor key
  - To seek backward through a track - Alt+Left Cursor key
  

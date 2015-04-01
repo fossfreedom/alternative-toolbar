@@ -47,7 +47,7 @@ view_menu_ui = """
   <menubar name="MenuBar">
     <menu name="ViewMenu" action="View">
         <menuitem name="Show Toolbar" action="ToggleToolbar" />
-        <menuitem name="Show Playlist/Media Toolbar" action="TogglePlaylistMediaToolbar" />
+        <menuitem name="Show Source and Media Toolbar" action="ToggleSourceMediaToolbar" />
     </menu>
   </menubar>
 </ui>
@@ -267,9 +267,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                                     
         displaypagetree = AltToolbarPlugin.find(self.shell.props.window,
                                     'RBDisplayPageTree', 'by_name')
-        self.playlistmedia_toolbar = AltToolbarPlugin.find(displaypagetree,
+        self.sourcemedia_toolbar = AltToolbarPlugin.find(displaypagetree,
                                     'GtkToolbar', 'by_name')
-        self.playlistmedia_toolbar.set_visible(False)
+        self.sourcemedia_toolbar.set_visible(False)
         
         self.gs = GSetting()
         self.plugin_settings = self.gs.get_setting(self.gs.Path.PLUGIN)
@@ -333,15 +333,15 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         
         self.toggle_action_group = ActionGroup(self.shell, 'AltToolbarPluginActions')
         self.toggle_action_group.add_action(func=self.toggle_visibility,
-                                            action_name='ToggleToolbar', label=_("Show Toolbar"),
-                                            action_state=ActionGroup.TOGGLE,
-                                            action_type='app', accel="<Ctrl>t",
-                                            tooltip=_("Show or hide the main toolbar"))
-        self.toggle_action_group.add_action(func=self.toggle_playlistmedia_visibility,
-                                            action_name='TogglePlaylistMediaToolbar', label=_("Show Playlist/Media Toolbar"),
+                                            action_name='ToggleToolbar', label=_("Show Play-Controls Toolbar"),
                                             action_state=ActionGroup.TOGGLE,
                                             action_type='app',
-                                            tooltip=_("Show or hide the playlist/media toolbar"))
+                                            tooltip=_("Show or hide the main toolbar"))
+        self.toggle_action_group.add_action(func=self.toggle_sourcemedia_visibility,
+                                            action_name='ToggleSourceMediaToolbar', label=_("Show Source and Media Toolbars"),
+                                            action_state=ActionGroup.TOGGLE,
+                                            action_type='app', accel="<Ctrl>t",
+                                            tooltip=_("Show or hide the source and media toolbars"))
         
         self.appshell.insert_action_group(self.toggle_action_group)
         self.appshell.add_app_menuitems(view_menu_ui, 'AltToolbarPluginActions', 'view')
@@ -371,9 +371,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.rb_settings = Gio.Settings.new('org.gnome.rhythmbox')
         # tried to connect directly to changed signal but never seems to be fired
         # so have to use bind and notify method to detect key changes
-        self.rb_settings.bind('display-page-tree-visible', self, 'display_page_tree_visible',
-                     Gio.SettingsBindFlags.GET)
-        self.sh_display_page = self.connect('notify::display-page-tree-visible', self.display_page_tree_visible_settings_changed)
+        #self.rb_settings.bind('display-page-tree-visible', self, 'display_page_tree_visible',
+        #             Gio.SettingsBindFlags.GET)
+        #self.sh_display_page = self.connect('notify::display-page-tree-visible', self.display_page_tree_visible_settings_changed)
 
         self.rb_settings.bind('show-album-art', self, 'show_album_art',
                      Gio.SettingsBindFlags.GET)
@@ -385,7 +385,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.connect('notify::show-song-position-slider', self.show_song_position_slider_settings_changed)
         self.show_song_position_slider_settings_changed(None)
 
-        self.display_page_tree_visible_settings_changed(None)
+        #self.display_page_tree_visible_settings_changed(None)
         
     def _sh_on_song_property_changed(self, sp, uri, property, old, new):
         if sp.get_playing() and property in ('artist', 
@@ -461,8 +461,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
     def show_song_position_slider_settings_changed(self, *args):
         self.toolbar_type.show_slider(self.show_song_position_slider)
         
-    def display_page_tree_visible_settings_changed(self, *args):
-        self.toolbar_type.toggle_sidepane(self.display_page_tree_visible)
+    #def display_page_tree_visible_settings_changed(self, *args):
+    #    self.toolbar_type.toggle_sidepane(self.display_page_tree_visible)
         
     def show_album_art_settings_changed(self, *args):
         self.toolbar_type.show_cover(self.show_album_art)
@@ -515,7 +515,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.shell_player.disconnect(self.sh_psc)
             self.shell_player.disconnect(self.sh_pc)
             self.shell_player.disconnect(self.sh_pspc)
-            self.disconnect(self.sh_display_page)
+            #self.disconnect(self.sh_display_page)
             self.shell.props.display_page_tree.disconnect(self.sh_display_page_tree)
             del self.shell_player
 
@@ -523,7 +523,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.appshell.cleanup()
             
         self.rb_toolbar.set_visible(True)
-        self.playlistmedia_toolbar.set_visible(True)
+        self.sourcemedia_toolbar.set_visible(True)
 
         self.toolbar_type.purge_builder_content()
 
@@ -536,11 +536,13 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         self.toolbar_type.set_visible(action.get_active())
 
-    def toggle_playlistmedia_visibility(self, action, param=None, data=None):
-        print("toggle_playlistmedia_visibility")
-        action = self.toggle_action_group.get_action('TogglePlaylistMediaToolbar')
+    def toggle_sourcemedia_visibility(self, action, param=None, data=None):
+        print("toggle_sourcemedia_visibility")
+        action = self.toggle_action_group.get_action('ToggleSourceMediaToolbar')
 
-        self.playlistmedia_toolbar.set_visible(action.get_active())
+        self.sourcemedia_toolbar.set_visible(action.get_active())
+        self.toolbar_type.toggle_source_toolbar()
+        
 
 # ###############################################################################
 # Custom Widgets ###############################################################
@@ -561,6 +563,7 @@ class SmallProgressBar(Gtk.DrawingArea):
 
     def __init__(self):
         super(SmallProgressBar, self).__init__()
+        print ("############")
         self.add_events(Gdk.EventMask.POINTER_MOTION_MASK |
                         Gdk.EventMask.BUTTON_PRESS_MASK |
                         Gdk.EventMask.BUTTON_RELEASE_MASK)

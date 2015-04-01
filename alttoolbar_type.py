@@ -50,11 +50,18 @@ class AltToolbarBase(GObject.Object):
         '''
         GObject.Object.__init__(self)
         
+        self.source_toolbar_visible = True
+        
     def initialise(self, plugin):
         self.plugin = plugin
         self.shell = plugin.shell
         
         self.find = plugin.find
+        
+        action = self.plugin.toggle_action_group.get_action('ToggleSourceMediaToolbar')
+        action.set_active(self.source_toolbar_visible)
+        #self.toolbar_type.set_visible()
+
         
     def post_initialise(self):
         pass
@@ -77,16 +84,33 @@ class AltToolbarBase(GObject.Object):
     def show_slider(self, visible):
         pass
         
-    def toggle_sidepane(self, visible):
-        pass
+    #def toggle_sidepane(self, visible):
+    #    pass
         
     def show_cover_tooltip(self, tooltip):
         return False
         
     def reset_toolbar(self, page):
-        page
+        if not page:
+            return
+            
+        toolbar = self.find(page, 'RBSourceToolbar', 'by_name')
+         
+        if toolbar:
+            print("found")
+            toolbar.set_visible(not self.source_toolbar_visible)
+        else:
+            print("not found")
+        
+        self.plugin.emit('toolbar-visibility', not self.source_toolbar_visible)
+        
+    def toggle_source_toolbar(self):
+        self.source_toolbar_visible = not self.source_toolbar_visible
+        #self.plugin.emit('toolbar-visibility', self.source_toolbar_visible)
+        self.plugin.on_page_change(self.shell.props.display_page_tree, self.shell.props.selected_page)
     
-
+    
+    
 class AltToolbarStandard(AltToolbarBase):
     '''
     standard RB toolbar
@@ -100,11 +124,11 @@ class AltToolbarStandard(AltToolbarBase):
         AltToolbarBase.__init__(self)
         
     def post_initialise(self):
-        #self.plugin.rb_toolbar.hide()
-        print("hidden")
-        
         self.volume_button = self.find(self.plugin.rb_toolbar, 'GtkVolumeButton', 'by_id')
         self.volume_button.set_visible(self.plugin.volume_control)
+        
+        action = self.plugin.toggle_action_group.get_action('ToggleToolbar')
+        action.set_active(not self.plugin.start_hidden)
         
         self.set_visible(not self.plugin.start_hidden)
         
@@ -166,36 +190,12 @@ class AltToolbarShared(AltToolbarBase):
         self.volume_button.props.value = self.shell.props.shell_player.props.volume            
         self.volume_button.set_visible(self.plugin.volume_control)
         
-        self.sh_tb = self.toolbar_button.connect('clicked', self._sh_on_toolbar_btn_clicked)
-        self.sh_sb = self.sidepane_button.connect('clicked', self._sh_on_sidepane_btn_clicked)
-        
-    def _window_controls(self):
-        self.window_box = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
-        
-        self.toolbar_button = Gtk.Button.new_from_icon_name("go-up-symbolic", self.icon_width)
-        self.toolbar_button.set_relief(Gtk.ReliefStyle.NONE)
-        #self.window_box.add(self.toolbar_button)
-
-        self.sidepane_button = Gtk.Button.new_from_icon_name("go-next-symbolic", self.icon_width)
-        self.sidepane_button.set_relief(Gtk.ReliefStyle.NONE)
-        #self.window_box.add(self.sidepane_button)
-        
-        image = self.toolbar_button.get_image()
-        if not image:
-            image = self.toolbar_button.get_child()
-
-        image.set_pixel_size((self.icon_width / 2))
-
-        image = self.sidepane_button.get_image()
-        if not image:
-            image = self.sidepane_button.get_child()
-
-        image.set_pixel_size((self.icon_width / 2))
-
-        return self.window_box
+        #self.sh_tb = self.toolbar_button.connect('clicked', self._sh_on_toolbar_btn_clicked)
+        #self.sh_sb = self.sidepane_button.connect('clicked', self._sh_on_sidepane_btn_clicked)
         
     def show_cover_tooltip(self, tooltip):
         if ( self.cover_pixbuf is not None ):
+            print ("cover_pixbuf")
             tooltip.set_icon(self.cover_pixbuf.scale_simple(300, 300,
                                                             GdkPixbuf.InterpType.HYPER))
             return True
@@ -283,17 +283,17 @@ class AltToolbarShared(AltToolbarBase):
 
         self.album_cover.trigger_tooltip_query()
         
-    def toggle_sidepane(self, visibility):
-        if visibility:
-            image_name = 'go-next-symbolic'
-        else:
-            image_name = 'go-previous-symbolic'
+    #def toggle_sidepane(self, visibility):
+    #    if visibility:
+    #        image_name = 'go-next-symbolic'
+    #    else:
+    #        image_name = 'go-previous-symbolic'
 
-        image = self.sidepane_button.get_image()
-        if not image:
-            image = self.sidepane_button.get_child()
+    #    image = self.sidepane_button.get_image()
+    #    if not image:
+    #        image = self.sidepane_button.get_child()
 
-        image.props.icon_name = image_name
+    #    image.props.icon_name = image_name
 
     def show_cover(self, visibility):        
         self.album_cover.set_visible(self.plugin.show_album_art)
@@ -357,32 +357,18 @@ class AltToolbarShared(AltToolbarBase):
     # Signal Handlers ##########################################################
 
     def _sh_progress_control(self, progress, fraction):
-        if not hasattr(self, 'song_duration'):
-            return
+        #if not hasattr(self, 'song_duration'):
+        #    return
         
-        if ( self.song_duration != 0 ):
-            self.shell_player.set_playing_time(self.song_duration * fraction)
+        if ( self.plugin.song_duration != 0 ):
+            self.shell.props.shell_player.set_playing_time(self.plugin.song_duration * fraction)
 
     def _sh_bigger_cover(self, cover, x, y, key, tooltip):
         return self.show_cover_tooltip(tooltip)
         
-    def _sh_on_sidepane_btn_clicked(self, *args):
-        self.plugin.rb_settings.set_boolean('display-page-tree-visible', not self.plugin.display_page_tree_visible)
+    #def _sh_on_sidepane_btn_clicked(self, *args):
+    #    self.plugin.rb_settings.set_boolean('display-page-tree-visible', not self.plugin.display_page_tree_visible)
 
-    def _sh_on_toolbar_btn_clicked(self, *args):
-        image = self.toolbar_button.get_image()
-        if not image:
-            image = self.toolbar_button.get_child()
-
-        if image.props.icon_name == 'go-up-symbolic':
-            image.props.icon_name = 'go-down-symbolic'
-            self.plugin.emit('toolbar-visibility', False)
-
-        else:
-            image.props.icon_name = 'go-up-symbolic'
-            self.plugin.emit('toolbar-visibility', True)
-
-        self.plugin.on_page_change(self.shell.props.display_page_tree, self.shell.props.selected_page)
     
 class AltToolbarCompact(AltToolbarShared):
     '''
@@ -403,20 +389,22 @@ class AltToolbarCompact(AltToolbarShared):
         
     def _setup_compactbar(self):
 
-        self.window_control_item.add(self._window_controls())
+        #self.window_control_item.add(self._window_controls())
         
         action = self.plugin.toggle_action_group.get_action('ToggleToolbar')
+        
+        self.small_bar.get_style_context().add_class(Gtk.STYLE_CLASS_PRIMARY_TOOLBAR)
 
         if not self.plugin.start_hidden:
             self.shell.add_widget(self.small_bar,
                                  RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
             self.small_bar.show_all()
-            self.plugin.rb_toolbar.hide()
             action.set_active(True)
             print("not hidden but compact")
         else:
-            action = self.plugin.toggle_action_group.get_action('ToggleToolbar')
-            action.set_active(True)
+            action.set_active(False)
+
+        self.plugin.rb_toolbar.hide()
             
     def set_visible(self, visible):
         if visible:
@@ -430,28 +418,6 @@ class AltToolbarCompact(AltToolbarShared):
             self.shell.remove_widget(self.small_bar,
                                          RB.ShellUILocation.MAIN_TOP)
     
-    def reset_toolbar(self, page):
-        toolbar = self.find(page, 'RBSourceToolbar', 'by_name')
-         
-        # self.current_page = page
-        image = self.toolbar_button.get_image()
-        if not image:
-            image = self.toolbar_button.get_child()
-
-        if image.props.icon_name == 'go-up-symbolic':
-            visible = True
-        else:
-            visible = False
-
-        if toolbar:
-            print("found")
-            toolbar.set_visible(visible)
-        else:
-            print("not found")
-        
-        self.plugin.emit('toolbar-visibility', visible)
-
-        
 class AltToolbarHeaderBar(AltToolbarShared):
     '''
     headerbar RB toolbar
@@ -467,6 +433,9 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self.sources={}
         self._controllers={}
         self.searchbar = None
+        
+        self.source_toolbar_visible = False # override - for headerbars source toolbar is not visible
+        
         
     def initialise(self, plugin):
         super(AltToolbarHeaderBar, self).initialise(plugin)
@@ -484,7 +453,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self.shell.props.db.connect('load-complete', self._load_complete)
         
     def _load_complete(self, *args):
-        self._hide_toolbar_controls()
+        self._set_toolbar_controller()
         #self._library_radiobutton_toggled(None) # kludge
         
     def _setup_playbar(self):
@@ -502,28 +471,6 @@ class AltToolbarHeaderBar(AltToolbarShared):
         # hide status bar
         action = self.plugin.appshell.lookup_action('', 'statusbar-visible', 'win')
         action.set_active(True)
-
-    def _hide_toolbar_controls(self):
-        #self._sh_on_toolbar_btn_clicked() #used to hide the source bar
-
-        current_controller = None
-        
-        if not self.shell.props.selected_page in self.sources:
-            # loop through controllers to find one that is most applicable
-            
-            found = False
-            for controller_type in self._controllers:
-                print (controller_type)
-                if self._controllers[controller_type].valid_source(self.shell.props.selected_page):
-                    self.sources[self.shell_props.selected_page] = self._controllers[controller_type]
-                    found = True
-                    break
-                    
-            if not found:
-                self.sources[self.shell.props.selected_page] = self._controllers['generic']
-        
-        current_controller = self.sources[self.shell.props.selected_page]
-        current_controller.update_controls(self.shell.props.selected_page)
     
     def search_button_toggled(self, search_button):
         print ("search_button_toggled")
@@ -535,7 +482,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
         if not hasattr(self, 'library_song_radiobutton'):
             return #kludge = fix this later
             
-        if not self.is_browser_view(self.shell.props.selected_page):
+        val, button = self.is_browser_view(self.shell.props.selected_page)
+        if not val:
             return
             
         val = True
@@ -545,18 +493,25 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self.shell.props.selected_page.props.show_browser = val
         
     def is_browser_view(self, source):
+        '''
+           returns bool, browser-button where this is a browser-view
+           i.e. assume if there is a browser button this makes it a browser-view
+        '''
         print ("is_browser_view")
+        if not source:
+            return False, None
+            
         toolbar = self.find(source, 'RBSourceToolbar', 'by_name')
         if not toolbar:
-            return False
+            return False, None
             
         ret = self.find(toolbar, 'GtkToggleButton', 'by_name', _("Browse"))
         
         if ret:
-            return True
+            return True, ret
             
         else:
-            return False
+            return False, None
 
     def _setup_headerbar(self):
         default = Gtk.Settings.get_default()
@@ -570,7 +525,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self.main_window.set_titlebar(self.headerbar)  # this is needed for gnome-shell to replace the decoration
         self.plugin.rb_toolbar.hide()
         
-        self.headerbar.pack_start(self._window_controls())
+        #self.headerbar.pack_start(self._window_controls())
 
         self._end_box_controls = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0) # right side box
         self.end_box = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0) # any source defined controls
@@ -608,7 +563,28 @@ class AltToolbarHeaderBar(AltToolbarShared):
         super(AltToolbarHeaderBar, self).reset_toolbar(page)
         
         self.library_radiobutton_toggled(None)
-        self._hide_toolbar_controls()
+        
+        self._set_toolbar_controller()
+        
+    def _set_toolbar_controller(self):
+        current_controller = None
+        
+        if not self.shell.props.selected_page in self.sources:
+            # loop through controllers to find one that is most applicable
+            
+            found = False
+            for controller_type in self._controllers:
+                print (controller_type)
+                if self._controllers[controller_type].valid_source(self.shell.props.selected_page):
+                    self.sources[self.shell_props.selected_page] = self._controllers[controller_type]
+                    found = True
+                    break
+                    
+            if not found:
+                self.sources[self.shell.props.selected_page] = self._controllers['generic']
+        
+        current_controller = self.sources[self.shell.props.selected_page]
+        current_controller.update_controls(self.shell.props.selected_page)
         
     def set_visible(self, visible):
         self.small_bar.set_visible(visible)

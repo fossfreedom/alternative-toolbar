@@ -165,8 +165,9 @@ class AltGenericController(AltControllerBase):
         print (toolbar)
         print (source)
         
-        if not toolbar or not self.header.is_browser_view(source):
-            # if not a browser_view based source or not a RB toolbar then default just to the title
+        val, browser_button = self.header.is_browser_view(source)
+        if not val:
+            # if not a browser_view based source then default just to the title
             print ("no browser view")
             label = Gtk.Label.new()
             markup = "<b>{title}</b>".format(
@@ -178,6 +179,7 @@ class AltGenericController(AltControllerBase):
         else:
             #self.library_search_togglebutton.connect('toggled', self._sh_on_toolbar_btn_clicked)
             print ("browser view found")
+            browser_button.set_visible(False)
             self.header.headerbar.set_custom_title(self.header.library_box) 
 
         if not toolbar:
