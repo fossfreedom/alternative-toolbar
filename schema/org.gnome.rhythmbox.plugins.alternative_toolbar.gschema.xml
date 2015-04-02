@@ -27,5 +27,11 @@
             <summary>volume-control</summary>
             <description>volume-control</description>
         </key>
+        <key type="b" name="inline-label">
+            <default>true</default>
+            <summary>inline album label</summary>
+            <description>display album label before progress bar instead of above it</description>
+        </key>
+        
     </schema>
 </schemalist>

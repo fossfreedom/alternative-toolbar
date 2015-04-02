@@ -91,7 +91,8 @@ class GSetting:
                 START_HIDDEN='start-hidden',
                 SHOW_COMPACT='show-compact',
                 PLAYING_LABEL='playing-label',
-                VOLUME_CONTROL='volume-control'
+                VOLUME_CONTROL='volume-control',
+                INLINE_LABEL='inline-label'
             )
             
             self.setting = {}
@@ -193,6 +194,10 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         playing_label = builder.get_object('playing_label_checkbox')
         self.plugin_settings.bind(self.gs.PluginKey.PLAYING_LABEL,
                            playing_label, 'active', Gio.SettingsBindFlags.DEFAULT)
+                           
+        inline_label = builder.get_object('inline_label_checkbutton')
+        self.plugin_settings.bind(self.gs.PluginKey.INLINE_LABEL,
+                           inline_label, 'active', Gio.SettingsBindFlags.DEFAULT)
 
         volume_control = builder.get_object('volume_control_checkbox')
         self.plugin_settings.bind(self.gs.PluginKey.VOLUME_CONTROL,
@@ -279,6 +284,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.volume_control = self.plugin_settings[self.gs.PluginKey.VOLUME_CONTROL]
         self.show_compact_toolbar = self.plugin_settings[self.gs.PluginKey.SHOW_COMPACT]
         self.start_hidden = self.plugin_settings[self.gs.PluginKey.START_HIDDEN]
+        self.inline_label = self.plugin_settings[self.gs.PluginKey.INLINE_LABEL]
 
         default = Gtk.Settings.get_default()
 

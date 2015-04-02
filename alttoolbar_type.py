@@ -210,54 +210,124 @@ class AltToolbarShared(AltToolbarBase):
 
         self.cover_pixbuf = None
         self.album_cover.clear()
+        
+        if self.plugin.inline_label:
+            ret = self._inline_progress_label(entry)
+        else:
+            ret = self._combined_progress_label(entry)
+        
+        if ret:
+            key = entry.create_ext_db_key(RB.RhythmDBPropType.ALBUM)
+            self.album_art_db.request(key,
+                                  self.display_song_album_art_callback,
+                                  entry)
+
+    def _inline_progress_label(self, entry):
+        
+        if ( entry is None ):
+            #self.song_button_label.set_text("")
+            self.inline_box.set_visible(False)
+            return False
+            
+        self.inline_box.set_visible(True)
+            
+        stream_title = self.shell.props.db.entry_request_extra_metadata(entry, RB.RHYTHMDB_PROP_STREAM_SONG_TITLE)
+        stream_artist = self.shell.props.db.entry_request_extra_metadata(entry, RB.RHYTHMDB_PROP_STREAM_SONG_ARTIST)
+        
+        if stream_title:
+            if stream_artist:
+                artist_markup = "<small>{artist}</small>".format(
+                    artist=GLib.markup_escape_text(stream_artist))
+            else:
+                artist_markup = ""
+            
+            title_markup = "<small><b>{title}</b></small>".format(
+                    title=GLib.markup_escape_text(stream_title))
+                    
+            self.song_title.set_markup(title_markup)
+            self.song_artist.set_markup(artist_markup)
+            
+            return True
+            
+        album = entry.get_string(RB.RhythmDBPropType.ALBUM) 
+        if not album or album == "":
+            self.song_title.set_markup("<small><b>{title}</b></small>".format( 
+                title=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.TITLE))))
+            self.song_artist.set_label("")
+            return True
+            
+        if self.plugin.playing_label:
+            year = entry.get_ulong(RB.RhythmDBPropType.DATE)
+            if year == 0:
+                year = date.today().year
+            else:
+                year = datetime.fromordinal(year).year
+
+            self.song_title.set_markup(
+                "<small>{album}</small>".format(
+                    album=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ALBUM))))
+            self.song_artist.set_markup(
+                "<small>{genre} - {year}</small>".format(
+                    genre=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.GENRE)),
+                    year=GLib.markup_escape_text(str(year))))
+        else:
+            self.song_title.set_markup(
+                "<small><b>{title}</b></small>".format(
+                    title=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.TITLE))))
+                    
+            self.song_artist.set_markup(
+                "<small>{artist}</small>".format(
+                    artist=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ARTIST))))
+                    
+        return True
+
+
+    def _combined_progress_label(self, entry):
 
         if ( entry is None ):
             self.song_button_label.set_text("")
-
-        else:
-            stream_title = self.shell.props.db.entry_request_extra_metadata(entry, RB.RHYTHMDB_PROP_STREAM_SONG_TITLE)
-            stream_artist = self.shell.props.db.entry_request_extra_metadata(entry, RB.RHYTHMDB_PROP_STREAM_SONG_ARTIST)
+            return False
             
-            if stream_title:
-                if stream_artist:
-                    markup = "<b>{title}</b> <small>{artist}</small>".format(
-                        title=GLib.markup_escape_text(stream_title),
-                        artist=GLib.markup_escape_text(stream_artist))
-                else:
-                    markup = "<b>{title}</b>".format(
-                        title=GLib.markup_escape_text(stream_title))
-                self.song_button_label.set_markup(markup)
-                return
-                
-            album = entry.get_string(RB.RhythmDBPropType.ALBUM) 
-            if not album or album == "":
-                self.song_button_label.set_markup("<b>{title}</b>".format( 
-                    title=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.TITLE))))
-                return
-                
-            if self.plugin.playing_label:
-                year = entry.get_ulong(RB.RhythmDBPropType.DATE)
-                if year == 0:
-                    year = date.today().year
-                else:
-                    year = datetime.fromordinal(year).year
-
-                self.song_button_label.set_markup(
-                    "<small>{album} - {genre} - {year}</small>".format(
-                        album=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ALBUM)),
-                        genre=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.GENRE)),
-                        year=GLib.markup_escape_text(str(year))))
+        stream_title = self.shell.props.db.entry_request_extra_metadata(entry, RB.RHYTHMDB_PROP_STREAM_SONG_TITLE)
+        stream_artist = self.shell.props.db.entry_request_extra_metadata(entry, RB.RHYTHMDB_PROP_STREAM_SONG_ARTIST)
+        
+        if stream_title:
+            if stream_artist:
+                markup = "<small><b>{title}</b> {artist}</small>".format(
+                    title=GLib.markup_escape_text(stream_title),
+                    artist=GLib.markup_escape_text(stream_artist))
             else:
-                self.song_button_label.set_markup(
-                    "<b>{title}</b> <small>{album} - {artist}</small>".format(
-                        title=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.TITLE)),
-                        album=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ALBUM)),
-                        artist=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ARTIST))))
+                markup = "<small><b>{title}</b></small>".format(
+                    title=GLib.markup_escape_text(stream_title))
+            self.song_button_label.set_markup(markup)
+            return True
+            
+        album = entry.get_string(RB.RhythmDBPropType.ALBUM) 
+        if not album or album == "":
+            self.song_button_label.set_markup("<small><b>{title}</b></small>".format( 
+                title=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.TITLE))))
+            return True
+            
+        if self.plugin.playing_label:
+            year = entry.get_ulong(RB.RhythmDBPropType.DATE)
+            if year == 0:
+                year = date.today().year
+            else:
+                year = datetime.fromordinal(year).year
 
-            key = entry.create_ext_db_key(RB.RhythmDBPropType.ALBUM)
-            self.album_art_db.request(key,
-                                      self.display_song_album_art_callback,
-                                      entry)
+            self.song_button_label.set_markup(
+                "<small>{album} - {genre} - {year}</small>".format(
+                    album=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ALBUM)),
+                    genre=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.GENRE)),
+                    year=GLib.markup_escape_text(str(year))))
+        else:
+            self.song_button_label.set_markup(
+                "<small><b>{title}</b> {album} - {artist}</small>".format(
+                    title=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.TITLE)),
+                    album=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ALBUM)),
+                    artist=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ARTIST))))
+                    
+        return True
 
     def _load_blank_cover(self):
         pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(rb.find_plugin_file(self.plugin, 'img/transparent_graphic.png'), 37, 1, False)
@@ -399,6 +469,7 @@ class AltToolbarCompact(AltToolbarShared):
             self.shell.add_widget(self.small_bar,
                                  RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
             self.small_bar.show_all()
+            self.inline_box.set_visible(False)
             action.set_active(True)
             print("not hidden but compact")
         else:
@@ -412,6 +483,7 @@ class AltToolbarCompact(AltToolbarShared):
             self.shell.add_widget(self.small_bar,
                                   RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
             self.small_bar.show_all()
+            self.inline_box.set_visible(False)
             self.volume_button.set_visible(self.plugin.volume_control)
         else:
             print("hide compact")
@@ -467,6 +539,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
         box.reorder_child(self.small_bar, 3)
         
         self.small_bar.show_all()
+        self.inline_box.set_visible(False)
         
         # hide status bar
         action = self.plugin.appshell.lookup_action('', 'statusbar-visible', 'win')
