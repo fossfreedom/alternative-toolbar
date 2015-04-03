@@ -23,6 +23,7 @@ from gi.repository import GLib
 
 import rb
 
+
 class AltControllerBase(GObject.Object):
     '''
     base controller
@@ -33,43 +34,43 @@ class AltControllerBase(GObject.Object):
         Initialises the object.
         '''
         self.header = header
-        self.find = self.header.find # convenience function
-        
+        self.find = self.header.find  # convenience function
+
         super(AltControllerBase, self).__init__()
-        
+
     def valid_source(self, source):
         '''
           returns bool if the given source is applicable to the controller
         '''
-        
+
         return False
-        
+
     def update_controls(self, source):
         '''
            update the button controls on the header
         '''
-        
+
         pass
-        
+
     def remove_controls(self, container):
         '''
           remove any controls that are contained in a container
         '''
-        print ("remove_controls")
+        print("remove_controls")
         for child in container.get_children():
-            print (child)
+            print(child)
             container.remove(child)
-        
+
     def hide_control(self, control_type, label):
         '''
           control_type is a str for example GtkToggleButton
           label is the label of the control
         '''
-        
-        elements = { 'GtkMenuButton',
-                     'GtkSeparator',
-                     'GtkToggleButton',
-                     'GtkButton'}
+
+        elements = {'GtkMenuButton',
+                    'GtkSeparator',
+                    'GtkToggleButton',
+                    'GtkButton'}
 
         for element in elements:
             while True:
@@ -78,167 +79,168 @@ class AltControllerBase(GObject.Object):
                     found_element.set_visible(False)
                 else:
                     break
-                    
-        
+
+
 class AltExampleController(AltControllerBase):
     '''
     example controller
     '''
     __gtype_name = 'AltExampleController'
 
-    def __init__(self,  header):
+    def __init__(self, header):
         '''
         Initialises the object.
         '''
         super(AltExampleController, self).__init__(header)
-        
+
     def valid_source(self, source):
         '''
           override
         '''
-        
+
         if "RBPodcastMainSource" in type(page).__name__:
-            print ("podcast")
-        
+            print("podcast")
+
         if "RBIRadioSource" in type(page).__name__:
-            print ("radio")
-            
+            print("radio")
+
         # so we should pass the page to our object.is_of_type() and this will return true/false 
-        
-        #from coverart_browser_source import CoverArtBrowserSource
+
+        # from coverart_browser_source import CoverArtBrowserSource
         #if isinstance(page, CoverArtBrowserSource):
         #    print ("is coverart")
-            
+
         #from MagnatuneSource import MagnatuneSource
         #if isinstance(page, MagnatuneSource):
         #    print ("is magnatune")
-            
+
         # RBMissingFilesSource
         # is playlist if page is in this
         #print (self.shell.props.playlist_manager.get_playlists())
         if page in self.shell.props.playlist_manager.get_playlists():
-            print ("true playlist")
+            print("true playlist")
         else:
-            print ("not playlist" )
-            
-        print ("###")
-        print (page) # page = library_source or queue_source
+            print("not playlist")
+
+        print("###")
+        print(page)  # page = library_source or queue_source
         #print (self.shell.props.library_source)
         #print (self.shell.props.queue_source)
-        
+
         return a_bool_result
-  
+
+
 class AltGenericController(AltControllerBase):
     '''
     base controller
     '''
     __gtype_name = 'AltGenericController'
 
-    def __init__(self,  header):
+    def __init__(self, header):
         '''
         Initialises the object.
         '''
         super(AltGenericController, self).__init__(header)
-        
-        self._centre_controls={}
-        self._end_controls={}
-        
+
+        self._centre_controls = {}
+        self._end_controls = {}
+
         builder = Gtk.Builder()
         ui = rb.find_plugin_file(self.header.plugin, 'ui/altlibrary.ui')
         builder.add_from_file(ui)
 
         self.header.load_builder_content(builder)
-        
-        view_name = "Categories" 
-        self.header.library_browser_radiobutton.set_label(view_name)  
-        
+
+        view_name = "Categories"
+        self.header.library_browser_radiobutton.set_label(view_name)
+
         self.header.library_browser_radiobutton.connect('toggled', self.header.library_radiobutton_toggled)
         self.header.library_song_radiobutton.connect('toggled', self.header.library_radiobutton_toggled)
-        
-  
+
+
     def update_controls(self, source):
         '''
            update the button controls on the header
         '''
-        
+
         toolbar = self.find(source, 'RBSourceToolbar', 'by_name')
-        print (toolbar)
-        print (source)
-        
+        print(toolbar)
+        print(source)
+
         val, browser_button = self.header.is_browser_view(source)
         if not val:
             # if not a browser_view based source then default just to the title
-            print ("no browser view")
+            print("no browser view")
             label = Gtk.Label.new()
             markup = "<b>{title}</b>".format(
-                        title=GLib.markup_escape_text(_("Rhythmbox")))
+                title=GLib.markup_escape_text(_("Rhythmbox")))
             label.set_markup(markup)
             label.show_all()
-            
+
             self.header.headerbar.set_custom_title(label)
         else:
-            #self.library_search_togglebutton.connect('toggled', self._sh_on_toolbar_btn_clicked)
-            print ("browser view found")
+            # self.library_search_togglebutton.connect('toggled', self._sh_on_toolbar_btn_clicked)
+            print("browser view found")
             browser_button.set_visible(False)
-            self.header.headerbar.set_custom_title(self.header.library_box) 
+            self.header.headerbar.set_custom_title(self.header.library_box)
 
         if not toolbar:
             # there is no source-bar so the header is empty
             self.remove_controls(self.header.end_box)
             return
-        
+
         if source not in self._end_controls:
             # this is the first time for the source so extract the RBSearchEntry
-            print ("first time around")
+            print("first time around")
             search = self.find(toolbar, 'RBSearchEntry', 'by_name')
-            
+
             self.remove_controls(self.header.end_box)
-            
+
             if not search:
-                print ("no RBSearchEntry found")
+                print("no RBSearchEntry found")
                 return
-                
+
             controls = {}
-            
-            entry=self.find(search, 'GtkEntry', 'by_name')
-            print (entry)
+
+            entry = self.find(search, 'GtkEntry', 'by_name')
+            print(entry)
             toolbar.remove(search)
             toolbar.set_visible(False)
-            
-            print ("removing from searchbar")
-            #self.remove_controls(self.header.searchbar)
+
+            print("removing from searchbar")
+            # self.remove_controls(self.header.searchbar)
             if self.header.searchbar:
                 self.header.searchbar.set_visible(False)
             # define a searchbar widget
             self.header.searchbar = Gtk.SearchBar.new()
             self.header.searchbar.show_all()
             self.header.shell.add_widget(self.header.searchbar,
-                                      RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
-        
+                                         RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
+
             self.header.searchbar.add(search)
             self.header.searchbar.show_all()
-        
+
             search_button = Gtk.ToggleButton.new()
             image = Gtk.Image.new_from_icon_name("preferences-system-search-symbolic", Gtk.IconSize.SMALL_TOOLBAR)
             search_button.add(image)
-            
+
             self.header.end_box.add(search_button)
             self.header.end_box.reorder_child(search_button, 0)
             search_button.show_all()
             search_button.connect('toggled', self.header.search_button_toggled)
-            
+
             controls['searchbar'] = self.header.searchbar
             controls['search_button'] = search_button
             self._end_controls[source] = controls
-            print (search_button)
+            print(search_button)
         else:
-            print ("second time around")
+            print("second time around")
             search = self._end_controls[source]['searchbar']
             if self.header.searchbar:
                 self.header.searchbar.set_visible(False)
             self.header.searchbar = search
             self.header.searchbar.set_visible(True)
-            
+
             self.remove_controls(self.header.end_box)
             search_button = self._end_controls[source]['search_button']
             self.header.end_box.add(search_button)

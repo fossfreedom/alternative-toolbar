@@ -33,13 +33,15 @@ from gi.repository import RB
 
 import rb
 
+
 def gtk_version():
     '''
     returns float of the major and minor parts of the GTK version
     e.g. return float(3.10)
     '''
-    
-    return float(str(Gtk.get_major_version())+"."+str(Gtk.get_minor_version()))
+
+    return float(str(Gtk.get_major_version()) + "." + str(Gtk.get_minor_version()))
+
 
 def pygobject_version():
     ''' 
