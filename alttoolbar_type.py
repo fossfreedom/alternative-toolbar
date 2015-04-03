@@ -172,6 +172,9 @@ class AltToolbarShared(AltToolbarBase):
         self.volume_button.set_visible(self.plugin.volume_control)
         self.volume_button.set_relief(Gtk.ReliefStyle.NORMAL)
         
+        if self.plugin.inline_label:
+            self.song_box.remove(self.song_button_label)
+        
         #self.sh_tb = self.toolbar_button.connect('clicked', self._sh_on_toolbar_btn_clicked)
         #self.sh_sb = self.sidepane_button.connect('clicked', self._sh_on_sidepane_btn_clicked)
         
