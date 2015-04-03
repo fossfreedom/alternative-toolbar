@@ -165,6 +165,16 @@ class AltToolbarShared(AltToolbarBase):
         self.load_builder_content(builder)
         self.connect_builder_content(builder)
         
+    def post_initialise(self):
+        self.volume_button.bind_property("value", self.shell.props.shell_player, "volume",
+                                         Gio.SettingsBindFlags.DEFAULT)
+        self.volume_button.props.value = self.shell.props.shell_player.props.volume            
+        self.volume_button.set_visible(self.plugin.volume_control)
+        self.volume_button.set_relief(Gtk.ReliefStyle.NORMAL)
+        
+        #self.sh_tb = self.toolbar_button.connect('clicked', self._sh_on_toolbar_btn_clicked)
+        #self.sh_sb = self.sidepane_button.connect('clicked', self._sh_on_sidepane_btn_clicked)
+        
         # Bring Builtin Actions to plugin
         for (a, b) in ((self.play_button, "play"),
                        (self.prev_button, "play-previous"),
@@ -181,17 +191,6 @@ class AltToolbarShared(AltToolbarBase):
                 print (a.get_sensitive())
                 if not a.get_sensitive():
                     a.set_detailed_action_name("app."+b)
-        
-    def post_initialise(self):
-        self._load_blank_cover()
-        
-        self.volume_button.bind_property("value", self.shell.props.shell_player, "volume",
-                                         Gio.SettingsBindFlags.DEFAULT)
-        self.volume_button.props.value = self.shell.props.shell_player.props.volume            
-        self.volume_button.set_visible(self.plugin.volume_control)
-        
-        #self.sh_tb = self.toolbar_button.connect('clicked', self._sh_on_toolbar_btn_clicked)
-        #self.sh_sb = self.sidepane_button.connect('clicked', self._sh_on_sidepane_btn_clicked)
         
     def show_cover_tooltip(self, tooltip):
         if ( self.cover_pixbuf is not None ):
@@ -329,11 +328,6 @@ class AltToolbarShared(AltToolbarBase):
                     
         return True
 
-    def _load_blank_cover(self):
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(rb.find_plugin_file(self.plugin, 'img/transparent_graphic.png'), 37, 1, False)
-        
-        #self.album_cover.set_from_pixbuf(pixbuf)
-
     def display_song_album_art_callback(self, *args): #key, filename, data, entry):
         # rhythmbox 3.2 breaks the API - need to find the parameter with the pixbuf
         data = None
@@ -367,6 +361,14 @@ class AltToolbarShared(AltToolbarBase):
 
     def show_cover(self, visibility):        
         self.album_cover.set_visible(self.plugin.show_album_art)
+        
+    def show_small_bar(self):
+        self.small_bar.show_all()
+        self.inline_box.set_visible(False)
+        
+        #if self.plugin.inline_label:
+        #    self.song_button_label.set_visible(False)
+            
 
     def play_control_change(self, player, playing):
         image = self.play_button.get_child()
@@ -468,8 +470,7 @@ class AltToolbarCompact(AltToolbarShared):
         if not self.plugin.start_hidden:
             self.shell.add_widget(self.small_bar,
                                  RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
-            self.small_bar.show_all()
-            self.inline_box.set_visible(False)
+            self.show_small_bar()
             action.set_active(True)
             print("not hidden but compact")
         else:
@@ -482,8 +483,7 @@ class AltToolbarCompact(AltToolbarShared):
             print("show_compact")
             self.shell.add_widget(self.small_bar,
                                   RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
-            self.small_bar.show_all()
-            self.inline_box.set_visible(False)
+            self.show_small_bar()
             self.volume_button.set_visible(self.plugin.volume_control)
         else:
             print("hide compact")
@@ -542,7 +542,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
         box.reorder_child(self.small_frame, 3)
         
         self.small_frame.show_all()
-        self.inline_box.set_visible(False)
+        self.show_small_bar()
         
         # hide status bar
         action = self.plugin.appshell.lookup_action('', 'statusbar-visible', 'win')
@@ -643,6 +643,9 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self._set_toolbar_controller()
         
     def _set_toolbar_controller(self):
+        if 'generic' not in self._controllers:
+            return
+            
         current_controller = None
         
         if not self.shell.props.selected_page in self.sources:

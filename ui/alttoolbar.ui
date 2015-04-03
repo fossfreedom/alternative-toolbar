@@ -94,6 +94,7 @@
         <child>
           <object class="GtkBox" id="song display">
             <property name="can_focus">False</property>
+            <property name="margin_right">12</property>
             <property name="hexpand">True</property>
             <child>
               <object class="GtkImage" id="album cover">
@@ -151,12 +152,15 @@
             <child>
               <object class="GtkBox" id="song box">
                 <property name="can_focus">False</property>
+                <property name="hexpand">True</property>
                 <property name="orientation">vertical</property>
+                <property name="homogeneous">True</property>
                 <child>
                   <object class="GtkLabel" id="song button label">
                     <property name="can_focus">False</property>
                     <property name="hexpand">True</property>
                     <property name="xalign">0</property>
+                    <property name="yalign">0</property>
                     <property name="label" translatable="yes">    </property>
                     <property name="ellipsize">end</property>
                   </object>
@@ -175,6 +179,7 @@
                       <object class="GtkLabel" id="current_time_label">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="yalign">0</property>
                         <property name="use_markup">True</property>
                       </object>
                       <packing>
@@ -196,17 +201,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="total_time_label">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="margin_left">4</property>
-                        <property name="use_markup">True</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">2</property>
-                      </packing>
+                      <placeholder/>
                     </child>
                   </object>
                   <packing>
@@ -220,6 +215,21 @@
                 <property name="expand">False</property>
                 <property name="fill">True</property>
                 <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="total_time_label">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_left">4</property>
+                <property name="yalign">0.69999998807907104</property>
+                <property name="use_markup">True</property>
+                <property name="wrap">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">3</property>
               </packing>
             </child>
           </object>

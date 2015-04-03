@@ -584,20 +584,23 @@ class SmallProgressBar(Gtk.DrawingArea):
         bgc = sc.get_color(Gtk.StateFlags.NORMAL)  #self.get_state_flags() )
 
         cc.set_source_rgba(bgc.red, bgc.green, bgc.blue, bgc.alpha)
-        cc.rectangle(0, alloc.height / 2, alloc.width, alloc.height / 4)
+        
+        offset = int((alloc.height / 5))
+        print (offset)
+        cc.rectangle(0, offset, alloc.width, offset)
         cc.fill()
 
         cc.set_source_rgba(fgc.red, fgc.green, fgc.blue, fgc.alpha)
-        cc.rectangle(0, alloc.height / 2, alloc.width * self.progress, alloc.height / 4)
+        cc.rectangle(0, offset, alloc.width * self.progress, offset)
         cc.fill()
         
         if self.progress != 0:
             cc.set_line_width(1)  
             cc.set_source_rgba(bgc.red, bgc.green, bgc.blue, bgc.alpha)
       
-            cc.translate((alloc.width * self.progress), (alloc.height / 2) + 1)
+            cc.translate((alloc.width * self.progress), offset+2)
             print (self.progress)
-            cc.arc(0, 0, 5, 0, 2*math.pi)
+            cc.arc(0, 0, 4, 0, 2*math.pi)
             cc.stroke_preserve()
             
             cc.fill() 
