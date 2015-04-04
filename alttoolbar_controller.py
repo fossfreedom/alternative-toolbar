@@ -61,25 +61,12 @@ class AltControllerBase(GObject.Object):
             print(child)
             container.remove(child)
 
-    def hide_control(self, control_type, label):
+    def hide_controls(self, source):
         '''
-          control_type is a str for example GtkToggleButton
-          label is the label of the control
+          hide controls for a given controller
         '''
 
-        elements = {'GtkMenuButton',
-                    'GtkSeparator',
-                    'GtkToggleButton',
-                    'GtkButton'}
-
-        for element in elements:
-            while True:
-                found_element = self.find(toolbar, element, 'by_name', find_only_visible=True)
-                if found_element:
-                    found_element.set_visible(False)
-                else:
-                    break
-
+        pass
 
 class AltExampleController(AltControllerBase):
     '''
@@ -98,11 +85,9 @@ class AltExampleController(AltControllerBase):
           override
         '''
 
-        if "RBPodcastMainSource" in type(page).__name__:
-            print("podcast")
+        a_bool_result = "RBPodcastMainSource" in type(source).__name__
 
-        if "RBIRadioSource" in type(page).__name__:
-            print("radio")
+        #return "RBIRadioSource" in type(ource).__name__:
 
         # so we should pass the page to our object.is_of_type() and this will return true/false 
 
@@ -117,15 +102,10 @@ class AltExampleController(AltControllerBase):
         # RBMissingFilesSource
         # is playlist if page is in this
         #print (self.shell.props.playlist_manager.get_playlists())
-        if page in self.shell.props.playlist_manager.get_playlists():
-            print("true playlist")
-        else:
-            print("not playlist")
-
-        print("###")
-        print(page)  # page = library_source or queue_source
-        #print (self.shell.props.library_source)
-        #print (self.shell.props.queue_source)
+        #if page in self.shell.props.playlist_manager.get_playlists():
+        #    print("true playlist")
+        #else:
+        #    print("not playlist")
 
         return a_bool_result
 
@@ -141,9 +121,9 @@ class AltGenericController(AltControllerBase):
         Initialises the object.
         '''
         super(AltGenericController, self).__init__(header)
-
-        self._centre_controls = {}
-        self._end_controls = {}
+        print ("###")
+        self.centre_controls = {}
+        self.end_controls = {}
 
         builder = Gtk.Builder()
         ui = rb.find_plugin_file(self.header.plugin, 'ui/altlibrary.ui')
@@ -157,7 +137,12 @@ class AltGenericController(AltControllerBase):
         self.header.library_browser_radiobutton.connect('toggled', self.header.library_radiobutton_toggled)
         self.header.library_song_radiobutton.connect('toggled', self.header.library_radiobutton_toggled)
 
-
+    def hide_controls(self, source):
+        val, view_button = self.header.has_button_with_label(source, _('View All'))
+        
+        if val:
+            view_button.set_visible(False)
+        
     def update_controls(self, source):
         '''
            update the button controls on the header
@@ -188,8 +173,10 @@ class AltGenericController(AltControllerBase):
             # there is no source-bar so the header is empty
             self.remove_controls(self.header.end_box)
             return
+            
+        self.hide_controls(toolbar)
 
-        if source not in self._end_controls:
+        if source not in self.end_controls:
             # this is the first time for the source so extract the RBSearchEntry
             print("first time around")
             search = self.find(toolbar, 'RBSearchEntry', 'by_name')
@@ -231,19 +218,46 @@ class AltGenericController(AltControllerBase):
 
             controls['searchbar'] = self.header.searchbar
             controls['search_button'] = search_button
-            self._end_controls[source] = controls
+            self.end_controls[source] = controls
             print(search_button)
         else:
             print("second time around")
-            search = self._end_controls[source]['searchbar']
+            search = self.end_controls[source]['searchbar']
             if self.header.searchbar:
                 self.header.searchbar.set_visible(False)
             self.header.searchbar = search
             self.header.searchbar.set_visible(True)
 
             self.remove_controls(self.header.end_box)
-            search_button = self._end_controls[source]['search_button']
+            search_button = self.end_controls[source]['search_button']
             self.header.end_box.add(search_button)
             self.header.end_box.reorder_child(search_button, 0)
             search_button.show_all()
             
+
+class AltMusicLibraryController(AltGenericController):
+    '''
+    music library controller
+    '''
+    __gtype_name = 'AltMusicLibraryController'
+
+    def __init__(self, header):
+        '''
+        Initialises the object.
+        '''
+        super(AltMusicLibraryController, self).__init__(header)
+
+    def valid_source(self, source):
+        '''
+          override
+        '''
+
+        return "LibrarySource" in type(source).__name__
+            
+    def hide_controls(self, source):
+        super(AltMusicLibraryController, self).hide_controls(source)
+        
+        val, import_button = self.header.has_button_with_label(source, _('Import'))
+        
+        if val:
+            import_button.set_visible(False)

@@ -33,6 +33,7 @@ from alttoolbar_rb3compat import ApplicationShell
 from alttoolbar_type import AltToolbarStandard
 from alttoolbar_type import AltToolbarCompact
 from alttoolbar_type import AltToolbarHeaderBar
+
 import rb
 
 
@@ -297,10 +298,6 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.toolbar_type = None
         if display_type == 1:
             self.toolbar_type = AltToolbarHeaderBar()
-            # every potential source should have its own controller to manage the headerbar controls
-            # where a controller is not specified then a generic controller is used
-            # i.e. use add_controller method to add a controller
-
         elif self.show_compact_toolbar:
             self.toolbar_type = AltToolbarCompact()
         else:

@@ -29,6 +29,8 @@ from gi.repository import Gio
 
 from alttoolbar_rb3compat import gtk_version
 from alttoolbar_controller import AltGenericController
+from alttoolbar_controller import AltMusicLibraryController
+
 import rb
 
 
@@ -41,7 +43,7 @@ class AltToolbarBase(GObject.Object):
         '''
         Initialises the object.
         '''
-        GObject.Object.__init__(self)
+        super(AltToolbarBase, self).__init__()
 
         self.source_toolbar_visible = True
 
@@ -113,7 +115,7 @@ class AltToolbarStandard(AltToolbarBase):
         '''
         Initialises the object.
         '''
-        AltToolbarBase.__init__(self)
+        super(AltToolbarStandard, self).__init__()
 
     def post_initialise(self):
         self.volume_button = self.find(self.plugin.rb_toolbar, 'GtkVolumeButton', 'by_id')
@@ -137,7 +139,7 @@ class AltToolbarShared(AltToolbarBase):
         '''
         Initialises the object.
         '''
-        AltToolbarBase.__init__(self)
+        super(AltToolbarShared, self).__init__()
 
         # Prepare Album Art Displaying
         self.album_art_db = GObject.new(RB.ExtDB, name="album-art")
@@ -447,7 +449,7 @@ class AltToolbarCompact(AltToolbarShared):
         '''
         Initialises the object.
         '''
-        AltToolbarShared.__init__(self)
+        super(AltToolbarCompact, self).__init__()
 
     def initialise(self, plugin):
         super(AltToolbarCompact, self).initialise(plugin)
@@ -496,7 +498,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
         '''
         Initialises the object.
         '''
-        AltToolbarShared.__init__(self)
+        super(AltToolbarHeaderBar, self).__init__()
 
         self.sources = {}
         self._controllers = {}
@@ -511,6 +513,12 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self.main_window = self.shell.props.window
 
         self._controllers['generic'] = AltGenericController(self)
+        # every potential source should have its own controller to manage the headerbar controls
+        # where a controller is not specified then a generic controller is used
+        # i.e. use add_controller method to add a controller
+        print ("hi")
+        self.add_controller(AltMusicLibraryController(self))
+        print ("bye")
 
         self._setup_playbar()
         self._setup_headerbar()
@@ -564,12 +572,10 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
         self.shell.props.selected_page.props.show_browser = val
 
-    def is_browser_view(self, source):
+    def has_button_with_label(self, source, label):
         '''
-           returns bool, browser-button where this is a browser-view
-           i.e. assume if there is a browser button this makes it a browser-view
+           returns bool, button where the button has a given label
         '''
-        print("is_browser_view")
         if not source:
             return False, None
 
@@ -577,13 +583,30 @@ class AltToolbarHeaderBar(AltToolbarShared):
         if not toolbar:
             return False, None
 
-        ret = self.find(toolbar, 'GtkToggleButton', 'by_name', _("Browse"))
+        ret = self.find(toolbar, 'GtkToggleButton', 'by_name', label)
+
+        if ret:
+            return True, ret
+            
+        ret = self.find(toolbar, 'GtkButton', 'by_name', label)
 
         if ret:
             return True, ret
 
-        else:
-            return False, None
+        ret = self.find(toolbar, 'GtkMenuButton', 'by_name', label)
+
+        if ret:
+            return True, ret
+
+        return False, None
+
+    def is_browser_view(self, source):
+        '''
+           returns bool, browser-button where this is a browser-view
+           i.e. assume if there is a browser button this makes it a browser-view
+        '''
+
+        return self.has_button_with_label(source, _("Browse"))
 
     def _setup_headerbar(self):
         default = Gtk.Settings.get_default()
@@ -651,7 +674,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
             for controller_type in self._controllers:
                 print(controller_type)
                 if self._controllers[controller_type].valid_source(self.shell.props.selected_page):
-                    self.sources[self.shell_props.selected_page] = self._controllers[controller_type]
+                    self.sources[self.shell.props.selected_page] = self._controllers[controller_type]
                     found = True
                     break
 
@@ -666,4 +689,4 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
     def add_controller(self, controller):
         if not controller in self._controllers:
-            self._controllers.append(controller)
+            self._controllers[controller]=controller
