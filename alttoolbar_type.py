@@ -30,6 +30,7 @@ from gi.repository import Gio
 from alttoolbar_rb3compat import gtk_version
 from alttoolbar_controller import AltGenericController
 from alttoolbar_controller import AltMusicLibraryController
+from alttoolbar_controller import AltSoundCloudController
 
 import rb
 
@@ -516,9 +517,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
         # every potential source should have its own controller to manage the headerbar controls
         # where a controller is not specified then a generic controller is used
         # i.e. use add_controller method to add a controller
-        print ("hi")
         self.add_controller(AltMusicLibraryController(self))
-        print ("bye")
+        self.add_controller(AltSoundCloudController(self))
 
         self._setup_playbar()
         self._setup_headerbar()
