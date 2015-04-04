@@ -31,6 +31,7 @@ from alttoolbar_rb3compat import gtk_version
 from alttoolbar_controller import AltGenericController
 from alttoolbar_controller import AltMusicLibraryController
 from alttoolbar_controller import AltSoundCloudController
+from alttoolbar_controller import AltCoverArtBrowserController
 
 import rb
 
@@ -519,6 +520,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
         # i.e. use add_controller method to add a controller
         self.add_controller(AltMusicLibraryController(self))
         self.add_controller(AltSoundCloudController(self))
+        self.add_controller(AltCoverArtBrowserController(self))
 
         self._setup_playbar()
         self._setup_headerbar()

@@ -42,7 +42,7 @@ view_menu_ui = """
   <menubar name="MenuBar">
     <menu name="ViewMenu" action="View">
         <menuitem name="Show Toolbar" action="ToggleToolbar" />
-        <menuitem name="Show Source and Media Toolbar" action="ToggleSourceMediaToolbar" />
+        <menuitem name="Show Source Toolbar" action="ToggleSourceMediaToolbar" />
     </menu>
   </menubar>
 </ui>
@@ -268,9 +268,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         displaypagetree = AltToolbarPlugin.find(self.shell.props.window,
                                                 'RBDisplayPageTree', 'by_name')
-        self.sourcemedia_toolbar = AltToolbarPlugin.find(displaypagetree,
-                                                         'GtkToolbar', 'by_name')
-        self.sourcemedia_toolbar.set_visible(False)
+        #self.sourcemedia_toolbar = AltToolbarPlugin.find(displaypagetree,
+        #                                                 'GtkToolbar', 'by_name')
+        #self.sourcemedia_toolbar.set_visible(False)
 
         self.gs = GSetting()
         self.plugin_settings = self.gs.get_setting(self.gs.Path.PLUGIN)
@@ -334,13 +334,13 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                                             action_name='ToggleToolbar', label=_("Show Play-Controls Toolbar"),
                                             action_state=ActionGroup.TOGGLE,
                                             action_type='app',
-                                            tooltip=_("Show or hide the main toolbar"))
+                                            tooltip=_("Show or hide the play-controls toolbar"))
         self.toggle_action_group.add_action(func=self.toggle_sourcemedia_visibility,
                                             action_name='ToggleSourceMediaToolbar',
-                                            label=_("Show Source and Media Toolbars"),
+                                            label=_("Show Source Toolbar"),
                                             action_state=ActionGroup.TOGGLE,
                                             action_type='app', accel="<Ctrl>t",
-                                            tooltip=_("Show or hide the source and media toolbars"))
+                                            tooltip=_("Show or hide the source toolbar"))
 
         self.appshell.insert_action_group(self.toggle_action_group)
         self.appshell.add_app_menuitems(view_menu_ui, 'AltToolbarPluginActions', 'view')
@@ -524,7 +524,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.appshell.cleanup()
 
         self.rb_toolbar.set_visible(True)
-        self.sourcemedia_toolbar.set_visible(True)
+        #self.sourcemedia_toolbar.set_visible(True)
 
         self.toolbar_type.purge_builder_content()
 
@@ -541,7 +541,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         print("toggle_sourcemedia_visibility")
         action = self.toggle_action_group.get_action('ToggleSourceMediaToolbar')
 
-        self.sourcemedia_toolbar.set_visible(action.get_active())
+        #self.sourcemedia_toolbar.set_visible(action.get_active())
         self.toolbar_type.toggle_source_toolbar()
 
 
