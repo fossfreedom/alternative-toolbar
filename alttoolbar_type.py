@@ -541,13 +541,16 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
         box = self.find(self.shell.props.window,
                         'GtkBox', 'by_name')
+        frame_box = Gtk.Box()
+        frame_box.set_orientation(Gtk.Orientation.VERTICAL)
         self.small_frame = Gtk.Frame()
         self.small_frame.set_shadow_type(Gtk.ShadowType.ETCHED_IN)
-        self.small_frame.add(self.small_bar)
-        box.pack_start(self.small_frame, False, True, 0)
-        box.reorder_child(self.small_frame, 3)
+        frame_box.pack_start(self.small_frame, False, True,0)
+        frame_box.pack_start(self.small_bar, False, True, 1)
+        box.pack_start(frame_box, False, True, 0)
+        box.reorder_child(frame_box, 3)
 
-        self.small_frame.show_all()
+        frame_box.show_all()
         self.show_small_bar()
 
         # hide status bar
