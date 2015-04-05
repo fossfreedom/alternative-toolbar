@@ -25,6 +25,7 @@ from gi.repository import RB
 from gi.repository import GLib
 from gi.repository import GdkPixbuf
 from gi.repository import Gio
+from gi.repository import Gdk
 
 from alttoolbar_rb3compat import gtk_version
 
@@ -553,11 +554,23 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
         self._setup_playbar()
         self._setup_headerbar()
+        
+        # hook the key-press for the application window
+        self.shell.props.window.connect("key-press-event", self._on_key_press)
 
         # finally - complete the headerbar setup after the database has fully loaded because
         # rhythmbox has everything initiated at this point.
 
         self.shell.props.db.connect('load-complete', self._load_complete)
+        
+    def _on_key_press(self, widget, event):
+        keyname = Gdk.keyval_name(event.keyval)
+        if keyname == 'Escape' and self.current_search_button:
+            self.current_search_button.set_active(False)
+        if event.state and Gdk.ModifierType.CONTROL_MASK:
+            if keyname == 'f' and self.current_search_button:
+                self.current_search_button.set_active(True)
+        
 
     def _load_complete(self, *args):
         self._set_toolbar_controller()

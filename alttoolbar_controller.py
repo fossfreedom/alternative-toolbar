@@ -218,6 +218,8 @@ class AltGenericController(AltControllerBase):
             browser_button.set_visible(False)
             self.header.headerbar.set_custom_title(self.header.library_box)
 
+        self.header.current_search_button = None
+        
         toolbar = self.get_toolbar(source)
         if not toolbar:
             # there is no source-bar so the header is empty
@@ -276,6 +278,7 @@ class AltGenericController(AltControllerBase):
 
             controls['searchbar'] = self.header.searchbar
             controls['search_button'] = search_button
+            self.header.current_search_button = search_button
             self.end_controls[source] = controls
             print(controls)
         else:
@@ -289,6 +292,7 @@ class AltGenericController(AltControllerBase):
 
             self.remove_controls(self.header.end_box)
             search_button = self.end_controls[source]['search_button']
+            self.header.current_search_button = search_button
             self.header.end_box.add(search_button)
             self.header.end_box.reorder_child(search_button, 0)
             self.header.end_box.show_all()

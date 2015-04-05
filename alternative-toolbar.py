@@ -343,8 +343,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         self.appshell.insert_action_group(self.toggle_action_group)
         self.appshell.add_app_menuitems(view_menu_ui, 'AltToolbarPluginActions', 'view')
-
-
+        
     def _connect_properties(self):
         '''
           bind plugin properties to various gsettings that we dynamically interact with
