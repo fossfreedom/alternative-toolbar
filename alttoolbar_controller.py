@@ -243,9 +243,24 @@ class AltGenericController(AltControllerBase):
 
             # define a searchbar widget
             self.header.searchbar = Gtk.SearchBar.new()
-            self.header.shell.add_widget(self.header.searchbar,
-                                         RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
+            #self.header.shell.add_widget(self.header.searchbar,
+            #                             RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
 
+            # we need to add this to the top of the source window
+            # todo this - find the first child and physically move this into the
+            # second position in a box - the first position being the searchbar
+            children = source.get_children()
+            print (children)
+            first = children[0]
+            box = Gtk.Box()
+            box.set_orientation(Gtk.Orientation.VERTICAL)
+            box.pack_start(self.header.searchbar, False, True, 0)
+            box.show_all()
+            Gtk.Container.remove(source, first)
+            box.pack_start(first, True, True, 1)
+            
+            source.add(box)
+            
             self.moveto_searchbar(toolbar, search, self.header.searchbar)
             self.header.searchbar.connect_entry(entry)
             self.header.searchbar.show_all()
