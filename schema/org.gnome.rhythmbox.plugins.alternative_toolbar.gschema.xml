@@ -32,6 +32,10 @@
             <summary>inline album label</summary>
             <description>display album label before progress bar instead of above it</description>
         </key>
-        
+        <key type="b" name="compact-progressbar">
+            <default>false</default>
+            <summary>compact progressbar</summary>
+            <description>Use the compact progressbar instead of the stock progress bar</description>
+        </key>
     </schema>
 </schemalist>

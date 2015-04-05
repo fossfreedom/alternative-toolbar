@@ -1,6 +1,6 @@
 # -*- Mode: python; coding: utf-8; tab-width: 4; indent-tabs-mode: nil; -*-
 #
-# Copyright (C) 2014 - fossfreedom
+# Copyright (C) 2015 - fossfreedom
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,8 +16,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301  USA.
 
-# define plugin
-
 from datetime import datetime, date
 
 from gi.repository import Gtk
@@ -32,10 +30,11 @@ from alttoolbar_controller import AltGenericController
 from alttoolbar_controller import AltMusicLibraryController
 from alttoolbar_controller import AltSoundCloudController
 from alttoolbar_controller import AltCoverArtBrowserController
+from alttoolbar_widget import SmallProgressBar
+from alttoolbar_widget import SmallScale
 
 import rb
-
-
+            
 class AltToolbarBase(GObject.Object):
     '''
     base for all toolbar types - never instantiated by itself
@@ -170,6 +169,15 @@ class AltToolbarShared(AltToolbarBase):
 
         if self.plugin.inline_label:
             self.song_box.remove(self.song_button_label)
+            
+        if self.plugin.compact_progressbar:
+            self.song_progress = SmallProgressBar()
+        else:
+            self.song_progress = SmallScale()
+            
+        self.song_progress.connect('control', self._sh_progress_control)
+        self.song_progress.show_all()
+        self.song_progress_box.pack_start(self.song_progress, False, True, 1)
 
         # self.sh_tb = self.toolbar_button.connect('clicked', self._sh_on_toolbar_btn_clicked)
         #self.sh_sb = self.sidepane_button.connect('clicked', self._sh_on_sidepane_btn_clicked)
@@ -382,7 +390,7 @@ class AltToolbarShared(AltToolbarBase):
 
         image.set_from_icon_name(icon_name, image.props.icon_size)
 
-    # Builder releated utility functions... ####################################
+    # Builder related utility functions... ####################################
 
     def load_builder_content(self, builder):
         if ( not hasattr(self, "__builder_obj_names") ):

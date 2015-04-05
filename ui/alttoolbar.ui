@@ -29,7 +29,6 @@
               <object class="GtkButton" id="prev button">
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
-                <property name="xalign">0.50999999046325684</property>
                 <child>
                   <object class="GtkImage" id="previous image">
                     <property name="can_focus">False</property>
@@ -187,7 +186,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkBox" id="box2">
+                  <object class="GtkBox" id="song progress box">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="margin_right">12</property>
@@ -202,18 +201,6 @@
                         <property name="expand">False</property>
                         <property name="fill">False</property>
                         <property name="position">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="alternative-toolbar+SmallProgressBar" id="song progress">
-                        <property name="height-request">5</property>
-                        <property name="margin-bottom">2</property>
-                        <signal name="control" handler="progress_control"/>
-                      </object>
-                      <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
-                        <property name="position">1</property>
                       </packing>
                     </child>
                     <child>

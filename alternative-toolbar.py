@@ -88,7 +88,8 @@ class GSetting:
                 SHOW_COMPACT='show-compact',
                 PLAYING_LABEL='playing-label',
                 VOLUME_CONTROL='volume-control',
-                INLINE_LABEL='inline-label'
+                INLINE_LABEL='inline-label',
+                COMPACT_PROGRESSBAR='compact-progressbar'
             )
 
             self.setting = {}
@@ -191,13 +192,17 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         self.plugin_settings.bind(self.gs.PluginKey.PLAYING_LABEL,
                                   playing_label, 'active', Gio.SettingsBindFlags.DEFAULT)
 
-        inline_label = builder.get_object('inline_label_checkbutton')
+        inline_label = builder.get_object('inline_label_checkbox')
         self.plugin_settings.bind(self.gs.PluginKey.INLINE_LABEL,
                                   inline_label, 'active', Gio.SettingsBindFlags.DEFAULT)
 
         volume_control = builder.get_object('volume_control_checkbox')
         self.plugin_settings.bind(self.gs.PluginKey.VOLUME_CONTROL,
                                   volume_control, 'active', Gio.SettingsBindFlags.DEFAULT)
+
+        compact_control = builder.get_object('compact_checkbox')
+        self.plugin_settings.bind(self.gs.PluginKey.COMPACT_PROGRESSBAR,
+                                  compact_control, 'active', Gio.SettingsBindFlags.DEFAULT)
 
         if self.display_type == 0:
             self.auto_radiobutton.set_active(True)
@@ -281,6 +286,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.show_compact_toolbar = self.plugin_settings[self.gs.PluginKey.SHOW_COMPACT]
         self.start_hidden = self.plugin_settings[self.gs.PluginKey.START_HIDDEN]
         self.inline_label = self.plugin_settings[self.gs.PluginKey.INLINE_LABEL]
+        self.compact_progressbar = self.plugin_settings[self.gs.PluginKey.COMPACT_PROGRESSBAR]
 
         default = Gtk.Settings.get_default()
 
@@ -413,6 +419,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         if ( self.song_duration != 0 ):
             self.toolbar_type.song_progress.progress = float(second) / self.song_duration
+            
+            print (self.toolbar_type.song_progress.progress)
 
             try:
                 valid, time = player.get_playing_time()
@@ -543,85 +551,3 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         #self.sourcemedia_toolbar.set_visible(action.get_active())
         self.toolbar_type.toggle_source_toolbar()
-
-
-# ###############################################################################
-# Custom Widgets ###############################################################
-
-class SmallProgressBar(Gtk.DrawingArea):
-    __gsignals__ = {
-        "control": (GObject.SIGNAL_RUN_LAST, None, (float,))
-    }
-
-    @GObject.Property
-    def progress(self):
-        return self.__progress__
-
-    @progress.setter
-    def progress(self, value):
-        self.__progress__ = value
-        self.queue_draw()
-
-    def __init__(self):
-        super(SmallProgressBar, self).__init__()
-        print("############")
-        self.add_events(Gdk.EventMask.POINTER_MOTION_MASK |
-                        Gdk.EventMask.BUTTON_PRESS_MASK |
-                        Gdk.EventMask.BUTTON_RELEASE_MASK)
-        self.button_pressed = False
-        self.button_time = 0
-        self.__progress__ = 0
-
-    def do_draw(self, cc):
-        alloc = self.get_allocation()
-        sc = self.get_style_context()
-        fgc = sc.get_background_color(Gtk.StateFlags.SELECTED)  # self.get_state_flags() )
-        bgc = sc.get_color(Gtk.StateFlags.NORMAL)  # self.get_state_flags() )
-
-        cc.set_source_rgba(bgc.red, bgc.green, bgc.blue, bgc.alpha)
-
-        print(alloc.height)
-        offset = int(alloc.height / 2)
-        print(offset)
-        cc.rectangle(0, offset, alloc.width, 2)
-        cc.fill()
-
-        cc.set_source_rgba(fgc.red, fgc.green, fgc.blue, fgc.alpha)
-        cc.rectangle(0, offset, alloc.width * self.progress, 2)
-        cc.fill()
-
-        if self.progress != 0:
-            cc.set_line_width(1)
-            cc.set_source_rgba(bgc.red, bgc.green, bgc.blue, bgc.alpha)
-
-            cc.translate((alloc.width * self.progress), offset + 1)
-            print(self.progress)
-            cc.arc(0, 0, 4, 0, 2 * math.pi)
-            cc.stroke_preserve()
-
-            cc.fill()
-
-    def do_motion_notify_event(self, event):
-        if ( self.button_pressed ):
-            self.control_by_event(event)
-            return True
-        else:
-            return False
-
-    def do_button_press_event(self, event):
-        self.button_pressed = True
-        self.control_by_event(event)
-        return True
-
-    def do_button_release_event(self, event):
-        self.button_pressed = False
-        self.control_by_event(event)
-        return True
-
-    def control_by_event(self, event):
-        allocw = self.get_allocated_width()
-        fraction = event.x / allocw
-        if ( self.button_time + 100 < event.time ):
-            self.button_time = event.time
-            self.emit("control", fraction)
-

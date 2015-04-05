@@ -33,6 +33,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
+            <property name="tooltip_text" translatable="yes">Let the plugin determine if to display either the CSD or Toolbar depending upon the desktop-environment running.</property>
             <property name="margin_left">14</property>
             <property name="xalign">0</property>
             <property name="active">True</property>
@@ -51,6 +52,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
+            <property name="tooltip_text" translatable="yes">Force to display Client-Side decorated window</property>
             <property name="margin_left">14</property>
             <property name="xalign">0.5</property>
             <property name="active">True</property>
@@ -74,6 +76,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
+                <property name="tooltip_text" translatable="yes">Force to display a toolbar</property>
                 <property name="margin_left">14</property>
                 <property name="xalign">0</property>
                 <property name="active">True</property>
@@ -93,6 +96,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
+                <property name="tooltip_text" translatable="yes">If checked, display the playing controls in a visually compact style instead of the standard rhythmbox style.</property>
                 <property name="margin_left">17</property>
                 <property name="xalign">0</property>
                 <property name="draw_indicator">True</property>
@@ -135,6 +139,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
+            <property name="tooltip_text" translatable="yes">Display album/genre/year instead of song-artist-album.  Useful for those desktop-environments where song-artist-album is already displayed in the Window Title.</property>
             <property name="margin_left">14</property>
             <property name="xalign">0</property>
             <property name="draw_indicator">True</property>
@@ -146,11 +151,12 @@
           </packing>
         </child>
         <child>
-          <object class="GtkCheckButton" id="inline_label_checkbutton">
+          <object class="GtkCheckButton" id="inline_label_checkbox">
             <property name="label" translatable="yes">Inline Song/Artist Label</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
+            <property name="tooltip_text" translatable="yes">Display Song and Artist before the progress bar.  If not checked, the label is displayed above the progress bar.</property>
             <property name="margin_left">14</property>
             <property name="xalign">0</property>
             <property name="draw_indicator">True</property>
@@ -159,6 +165,23 @@
             <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="position">7</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="compact_checkbox">
+            <property name="label" translatable="yes">Use Compact Progress-bar</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="tooltip_text" translatable="yes">Display and use a compact progress bar - useful where the default theme progress-bar is visually too large</property>
+            <property name="margin_left">14</property>
+            <property name="xalign">0</property>
+            <property name="draw_indicator">True</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">8</property>
           </packing>
         </child>
       </object>
@@ -195,6 +218,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
+            <property name="tooltip_text" translatable="yes">Show or hide the volume-control.</property>
             <property name="margin_left">14</property>
             <property name="xalign">0</property>
             <property name="draw_indicator">True</property>
@@ -207,10 +231,11 @@
         </child>
         <child>
           <object class="GtkCheckButton" id="start_hidden_checkbox">
-            <property name="label" translatable="yes">Start hidden</property>
+            <property name="label" translatable="yes">Hide Playing Controls on startup</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
+            <property name="tooltip_text" translatable="yes">Hide the playing controls on first startup of the application.</property>
             <property name="margin_left">14</property>
             <property name="xalign">0</property>
             <property name="draw_indicator">True</property>
