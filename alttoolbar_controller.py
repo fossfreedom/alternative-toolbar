@@ -248,6 +248,7 @@ class AltGenericController(AltControllerBase):
                                          RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
 
             self.moveto_searchbar(toolbar, search, self.header.searchbar)
+            self.header.searchbar.connect_entry(entry)
             self.header.searchbar.show_all()
 
             search_button = Gtk.ToggleButton.new()
