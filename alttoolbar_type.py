@@ -19,6 +19,7 @@
 from datetime import datetime, date
 
 from gi.repository import Gtk
+
 from gi.repository import GObject
 from gi.repository import RB
 from gi.repository import GLib
@@ -26,15 +27,16 @@ from gi.repository import GdkPixbuf
 from gi.repository import Gio
 
 from alttoolbar_rb3compat import gtk_version
+
 from alttoolbar_controller import AltGenericController
 from alttoolbar_controller import AltMusicLibraryController
 from alttoolbar_controller import AltSoundCloudController
 from alttoolbar_controller import AltCoverArtBrowserController
 from alttoolbar_widget import SmallProgressBar
 from alttoolbar_widget import SmallScale
-
 import rb
-            
+
+
 class AltToolbarBase(GObject.Object):
     '''
     base for all toolbar types - never instantiated by itself
@@ -49,6 +51,12 @@ class AltToolbarBase(GObject.Object):
         self.source_toolbar_visible = True
 
     def initialise(self, plugin):
+        '''
+          one off initialisation call
+
+          :param plugin is the plugin reference
+        '''
+
         self.plugin = plugin
         self.shell = plugin.shell
 
@@ -56,37 +64,60 @@ class AltToolbarBase(GObject.Object):
 
         action = self.plugin.toggle_action_group.get_action('ToggleSourceMediaToolbar')
         action.set_active(self.source_toolbar_visible)
-        # self.toolbar_type.set_visible()
-
 
     def post_initialise(self):
+        '''
+          one off post initialisation call
+        '''
         pass
 
     def set_visible(self, visible):
+        '''
+           change the visibility of the toolbar
+           :param bool
+        '''
         pass
 
     def show_cover(self, visible):
+        '''
+           change the visibility of the toolbar coverart
+           :param bool
+        '''
         pass
 
     def display_song(self, visible):
+        '''
+           change the visibility of the song label on the toolbar
+           :param bool
+        '''
         pass
 
     def play_control_change(self, player, playing):
+        '''
+           control the display of various play-controls
+           :param player is the shell-player
+           :param playing bool as to whether a track is being played
+        '''
         pass
 
     def purge_builder_content(self):
+        '''
+           one off cleanup routine called when the plugin in deactivated
+        '''
         pass
 
     def show_slider(self, visible):
+        '''
+           show or hide the slider (progress bar)
+           :param visible is a bool
+        '''
         pass
 
-    # def toggle_sidepane(self, visible):
-    #    pass
-
-    def show_cover_tooltip(self, tooltip):
-        return False
-
     def reset_toolbar(self, page):
+        '''
+           whenever a source changes this resets the toolbar to reflect the changed source
+           :param RBDisplayPage
+        '''
         if not page:
             return
 
@@ -101,8 +132,10 @@ class AltToolbarBase(GObject.Object):
         self.plugin.emit('toolbar-visibility', not self.source_toolbar_visible)
 
     def toggle_source_toolbar(self):
+        '''
+           called to toggle the source toolbar
+        '''
         self.source_toolbar_visible = not self.source_toolbar_visible
-        #self.plugin.emit('toolbar-visibility', self.source_toolbar_visible)
         self.plugin.on_page_change(self.shell.props.display_page_tree, self.shell.props.selected_page)
 
 
@@ -169,18 +202,16 @@ class AltToolbarShared(AltToolbarBase):
 
         if self.plugin.inline_label:
             self.song_box.remove(self.song_button_label)
-            
+
         if self.plugin.compact_progressbar:
             self.song_progress = SmallProgressBar()
         else:
             self.song_progress = SmallScale()
-            
+
         self.song_progress.connect('control', self._sh_progress_control)
         self.song_progress.show_all()
         self.song_progress_box.pack_start(self.song_progress, False, True, 1)
 
-        # self.sh_tb = self.toolbar_button.connect('clicked', self._sh_on_toolbar_btn_clicked)
-        #self.sh_sb = self.sidepane_button.connect('clicked', self._sh_on_sidepane_btn_clicked)
 
         # Bring Builtin Actions to plugin
         for (a, b) in ((self.play_button, "play"),
@@ -289,6 +320,10 @@ class AltToolbarShared(AltToolbarBase):
 
 
     def _combined_progress_label(self, entry):
+        '''
+           utility function to calculate the label to be used when a progress bar has the label above it
+           :param RBEntry
+        '''
 
         if ( entry is None ):
             self.song_button_label.set_text("")
@@ -336,6 +371,9 @@ class AltToolbarShared(AltToolbarBase):
         return True
 
     def display_song_album_art_callback(self, *args):  # key, filename, data, entry):
+        '''
+          RBExtDB signal callback to display the album-art
+        '''
         # rhythmbox 3.2 breaks the API - need to find the parameter with the pixbuf
         data = None
         for data in args:
@@ -354,17 +392,6 @@ class AltToolbarShared(AltToolbarBase):
 
         self.album_cover.trigger_tooltip_query()
 
-    # def toggle_sidepane(self, visibility):
-    #    if visibility:
-    #        image_name = 'go-next-symbolic'
-    #    else:
-    #        image_name = 'go-previous-symbolic'
-
-    #    image = self.sidepane_button.get_image()
-    #    if not image:
-    #        image = self.sidepane_button.get_child()
-
-    #    image.props.icon_name = image_name
 
     def show_cover(self, visibility):
         self.album_cover.set_visible(self.plugin.show_album_art)
@@ -372,9 +399,6 @@ class AltToolbarShared(AltToolbarBase):
     def show_small_bar(self):
         self.small_bar.show_all()
         self.inline_box.set_visible(False)
-
-        #if self.plugin.inline_label:
-        #    self.song_button_label.set_visible(False)
 
 
     def play_control_change(self, player, playing):
@@ -444,9 +468,6 @@ class AltToolbarShared(AltToolbarBase):
 
     def _sh_bigger_cover(self, cover, x, y, key, tooltip):
         return self.show_cover_tooltip(tooltip)
-
-        #def _sh_on_sidepane_btn_clicked(self, *args):
-        #    self.plugin.rb_settings.set_boolean('display-page-tree-visible', not self.plugin.display_page_tree_visible)
 
 
 class AltToolbarCompact(AltToolbarShared):
@@ -540,7 +561,6 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
     def _load_complete(self, *args):
         self._set_toolbar_controller()
-        # self._library_radiobutton_toggled(None) # kludge
 
     def _setup_playbar(self):
         '''
@@ -553,7 +573,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
         frame_box.set_orientation(Gtk.Orientation.VERTICAL)
         self.small_frame = Gtk.Frame()
         self.small_frame.set_shadow_type(Gtk.ShadowType.ETCHED_IN)
-        frame_box.pack_start(self.small_frame, False, True,0)
+        frame_box.pack_start(self.small_frame, False, True, 0)
         frame_box.pack_start(self.small_bar, False, True, 1)
         box.pack_start(frame_box, False, True, 0)
         box.reorder_child(frame_box, 3)
@@ -600,7 +620,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
         if ret:
             return True, ret
-            
+
         ret = self.find(toolbar, 'GtkButton', 'by_name', label)
 
         if ret:
@@ -625,10 +645,6 @@ class AltToolbarHeaderBar(AltToolbarShared):
         default = Gtk.Settings.get_default()
         self.headerbar = Gtk.HeaderBar.new()
         self.headerbar.set_show_close_button(True)
-
-        # required for Gtk 3.14 to stop RB adding a title to the header bar
-        # empty = Gtk.DrawingArea.new()
-        #self.headerbar.set_custom_title(empty)
 
         self.main_window.set_titlebar(self.headerbar)  # this is needed for gnome-shell to replace the decoration
         self.plugin.rb_toolbar.hide()
@@ -702,4 +718,4 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
     def add_controller(self, controller):
         if not controller in self._controllers:
-            self._controllers[controller]=controller
+            self._controllers[controller] = controller

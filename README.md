@@ -13,19 +13,19 @@ Replace the current standard toolbar:
 
 with either a compact toolbar:
 
-![pic](http://i.imgur.com/G51nDCV.png)
+![pic](http://i.imgur.com/90krK80.png)
 
 or with the new Gnome-style client-side decoration:
 
-![pic](http://i.imgur.com/fQCs5ar.png)
+![pic](http://i.imgur.com/yFUdGxn.png)
 
-The compact or standard toolbar can also be toggled on or off as well:
-
-![pic](http://i.imgur.com/HBmZs9G.png)
+ - The compact or standard toolbar can also be toggled on or off
+ - Volume Control can be switched off for all toolbars
+ - Source Toolbars can be toggled - CTRL+T keyboard shortcut
 
 The plugin preferences allows you to define which toolbars are used:
 
-![pic](http://i.imgur.com/cUoZ01R.png)
+![pic](http://i.imgur.com/ozOUtSM.png)
 
 To install the plugin:
 
@@ -51,5 +51,9 @@ cd alternative-toolbar
 </pre>
 
 <hr/>
- 
+
 Thanks to the [rhythmbox-seek](https://github.com/cgarvey/rhythmbox-seek) project for the track-seeking code.
+
+Contributors:
+
+ - [me4oslav](https://github.com/me4oslav) - design inspiration for the header-bar vision

@@ -67,7 +67,7 @@ class AltControllerBase(GObject.Object):
         '''
 
         pass
-        
+
     def get_search_entry(self, toolbar_container):
         '''
           find the GtkEntry field corresponding to the search entry
@@ -78,23 +78,24 @@ class AltControllerBase(GObject.Object):
           returns None if nothing found
           
         '''
-        
+
         return None
-        
+
     def get_toolbar(self, source):
         '''
           return GtkWidget corresponding to the toolbar within the source
                  None if no toolbar
         '''
-        
+
         return None
-        
+
     def moveto_searchbar(self, toolbar, widget, searchbar):
         '''
           move from toolbar the widget and add to the searchbar
         '''
-        
+
         pass
+
 
 class AltExampleController(AltControllerBase):
     '''
@@ -115,7 +116,7 @@ class AltExampleController(AltControllerBase):
 
         a_bool_result = "RBPodcastMainSource" in type(source).__name__
 
-        #return "RBIRadioSource" in type(ource).__name__:
+        # return "RBIRadioSource" in type(ource).__name__:
 
         # so we should pass the page to our object.is_of_type() and this will return true/false 
 
@@ -149,7 +150,7 @@ class AltGenericController(AltControllerBase):
         Initialises the object.
         '''
         super(AltGenericController, self).__init__(header)
-        print ("###")
+        print("###")
         self.centre_controls = {}
         self.end_controls = {}
 
@@ -167,18 +168,18 @@ class AltGenericController(AltControllerBase):
 
     def hide_controls(self, source):
         val, view_button = self.header.has_button_with_label(source, _('View All'))
-        
+
         if val:
             view_button.set_visible(False)
-            
+
     def get_toolbar(self, source):
-        
+
         toolbar = self.find(source, 'RBSourceToolbar', 'by_name')
         print(toolbar)
         print(source)
-        
+
         return toolbar
-            
+
     def get_search_entry(self, container):
         search = self.find(container, 'RBSearchEntry', 'by_name')
 
@@ -189,13 +190,13 @@ class AltGenericController(AltControllerBase):
         entry = self.find(search, 'GtkEntry', 'by_name')
         print(entry)
         return search, entry
-        
-    def moveto_searchbar(self, toolbar, search, searchbar):        
+
+    def moveto_searchbar(self, toolbar, search, searchbar):
         toolbar.remove(search)
         toolbar.set_visible(False)
-        
+
         searchbar.add(search)
-            
+
     def update_controls(self, source):
         '''
            update the button controls on the header
@@ -213,7 +214,6 @@ class AltGenericController(AltControllerBase):
 
             self.header.headerbar.set_custom_title(label)
         else:
-            # self.library_search_togglebutton.connect('toggled', self._sh_on_toolbar_btn_clicked)
             print("browser view found")
             browser_button.set_visible(False)
             self.header.headerbar.set_custom_title(self.header.library_box)
@@ -221,10 +221,10 @@ class AltGenericController(AltControllerBase):
         toolbar = self.get_toolbar(source)
         if not toolbar:
             # there is no source-bar so the header is empty
-            print ("no toolbar so nothing left to do - cleanup endbox and exit")
+            print("no toolbar so nothing left to do - cleanup endbox and exit")
             self.remove_controls(self.header.end_box)
             return
-            
+
         self.hide_controls(toolbar)
 
         if source not in self.end_controls:
@@ -237,13 +237,12 @@ class AltGenericController(AltControllerBase):
             search, entry = self.get_search_entry(toolbar)
             if not search:
                 return
-            
+
             if self.header.searchbar:
                 self.header.searchbar.set_visible(False)
-            
+
             # define a searchbar widget
             self.header.searchbar = Gtk.SearchBar.new()
-            #self.header.searchbar.show_all()
             self.header.shell.add_widget(self.header.searchbar,
                                          RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
 
@@ -266,7 +265,7 @@ class AltGenericController(AltControllerBase):
             print(controls)
         else:
             print("second time around")
-            print (self.end_controls[source])
+            print(self.end_controls[source])
             search = self.end_controls[source]['searchbar']
             if self.header.searchbar:
                 self.header.searchbar.set_visible(False)
@@ -278,7 +277,7 @@ class AltGenericController(AltControllerBase):
             self.header.end_box.add(search_button)
             self.header.end_box.reorder_child(search_button, 0)
             self.header.end_box.show_all()
-            
+
 
 class AltMusicLibraryController(AltGenericController):
     '''
@@ -298,14 +297,15 @@ class AltMusicLibraryController(AltGenericController):
         '''
 
         return "LibrarySource" in type(source).__name__
-            
+
     def hide_controls(self, source):
         super(AltMusicLibraryController, self).hide_controls(source)
-        
+
         val, import_button = self.header.has_button_with_label(source, _('Import'))
-        
+
         if val:
             import_button.set_visible(False)
+
 
 class AltSoundCloudController(AltGenericController):
     '''
@@ -318,7 +318,7 @@ class AltSoundCloudController(AltGenericController):
         Initialises the object.
         '''
         super(AltSoundCloudController, self).__init__(header)
-        
+
         self._has_toolbar = None
 
     def valid_source(self, source):
@@ -327,14 +327,14 @@ class AltSoundCloudController(AltGenericController):
         '''
 
         return "SoundCloud" in type(source).__name__
-        
+
     def get_toolbar(self, source):
         if self._has_toolbar:
             return self._has_toolbar
-            
+
         search_box = self.find(source, 'box1', 'by_id')
-        
-        print (search_box)
+
+        print(search_box)
         self._has_toolbar = search_box
         return search_box
 
@@ -343,11 +343,12 @@ class AltSoundCloudController(AltGenericController):
           override - here we want to actually remove the toolbar from the source
           so get the parent
         '''
-        
+
         parent_grid = toolbar.get_parent()
         parent_grid.remove(toolbar)
         searchbar.add(toolbar)
-        
+
+
 class AltCoverArtBrowserController(AltGenericController):
     '''
     sound-cloud controller
@@ -359,7 +360,7 @@ class AltCoverArtBrowserController(AltGenericController):
         Initialises the object.
         '''
         super(AltCoverArtBrowserController, self).__init__(header)
-        
+
         self._has_toolbar = None
 
     def valid_source(self, source):
@@ -368,14 +369,14 @@ class AltCoverArtBrowserController(AltGenericController):
         '''
 
         return "CoverArtBrowser" in type(source).__name__
-        
+
     def get_toolbar(self, source):
         if self._has_toolbar:
             return self._has_toolbar
-            
+
         search_box = self.find(source, 'toolbar', 'by_id')
-        
-        print (search_box)
+
+        print(search_box)
         self._has_toolbar = search_box
         return search_box
 
@@ -384,17 +385,17 @@ class AltCoverArtBrowserController(AltGenericController):
           override - here we want to actually remove the toolbar from the source
           so get the parent
         '''
-        
+
         parent_grid = toolbar.get_parent()
         parent_grid.remove(toolbar)
         searchbar.add(toolbar)
-        
+
     def get_search_entry(self, toolbar):
         '''
           override - use the GtkEntry in the coverartbrowser
         '''
-        
+
         entrysearch = self.find(toolbar, 'entry_search_alignment', 'by_id')
         entry = self.find(entrysearch, 'GtkEntry', 'by_name')
-        
+
         return entrysearch, entry

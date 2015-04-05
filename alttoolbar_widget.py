@@ -16,10 +16,12 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301  USA.
 
+import math
+
 from gi.repository import Gtk
 from gi.repository import Gdk
 from gi.repository import GObject
-import math
+
 
 # ###############################################################################
 # Custom Widgets ###############################################################     
@@ -47,7 +49,7 @@ class SmallProgressBar(Gtk.DrawingArea):
         self.button_pressed = False
         self.button_time = 0
         self.__progress__ = 0
-        
+
         self.set_hexpand(True)
         self.props.height_request = 5
         self.props.margin_bottom = 2
@@ -119,29 +121,30 @@ class SmallProgressBar(Gtk.DrawingArea):
                     </child>
                     
         '''
-        
+
+
 class SmallScale(Gtk.Scale):
     __gsignals__ = {
         'control': (GObject.SIGNAL_RUN_LAST, None, (float,))
     }
-    
+
     def __init__(self):
         super(SmallScale, self).__init__()
         self.__progress__ = 0
-        
+
         self.set_orientation(Gtk.Orientation.HORIZONTAL)
         self._adjustment = Gtk.Adjustment(0, 0, 1, 0.01, 0.1, 0)
         self.set_adjustment(self._adjustment)
         self.set_hexpand(True)
         self.set_draw_value(False)
-        
+
         self.button_pressed = False
         self.button_time = 0
-        
+
         self.connect('button-press-event', self._button_press_event)
         self.connect('button-release-event', self._button_release_event)
         self.connect('motion-notify-event', self._motion_notify_event)
-        
+
     @GObject.Property
     def progress(self):
         return self.__progress__
@@ -150,14 +153,14 @@ class SmallScale(Gtk.Scale):
     def progress(self, value):
         self.__progress__ = value
         self.set_value(value)
-        
+
     def _motion_notify_event(self, widget, event):
         if ( self.button_pressed ):
             self.control_by_event(event)
             return True
         else:
             return False
-            
+
     def _button_press_event(self, widget, event):
         self.button_pressed = True
         self.control_by_event(event)
