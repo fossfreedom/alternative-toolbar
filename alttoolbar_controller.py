@@ -206,17 +206,19 @@ class AltGenericController(AltControllerBase):
         if not val:
             # if not a browser_view based source then default just to the title
             print("no browser view")
-            label = Gtk.Label.new()
-            markup = "<b>{title}</b>".format(
-                title=GLib.markup_escape_text(_("Rhythmbox")))
-            label.set_markup(markup)
-            label.show_all()
+            #label = Gtk.Label.new()
+            #markup = "<b>{title}</b>".format(
+            #    title=GLib.markup_escape_text(_("Rhythmbox")))
+            #label.set_markup(markup)
+            #label.show_all()
 
-            self.header.headerbar.set_custom_title(label)
+            #self.header.headerbar.set_custom_title(label)
+            self.header.library_box.set_sensitive(False)
         else:
             print("browser view found")
             browser_button.set_visible(False)
-            self.header.headerbar.set_custom_title(self.header.library_box)
+            #self.header.headerbar.set_custom_title(self.header.library_box)
+            self.header.library_box.set_sensitive(True)
 
         self.header.current_search_button = None
         
