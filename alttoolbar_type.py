@@ -525,6 +525,12 @@ class AltToolbarHeaderBar(AltToolbarShared):
     headerbar RB toolbar
     '''
     __gtype_name = 'AltToolbarHeaderBar'
+    
+    __gsignals__ = {
+        'song-category-clicked': (GObject.SIGNAL_RUN_LAST, None, (bool,))
+    }
+    
+    # song-category-clicked signal emitted when song-categoy buttons clicked - param True if Song clicked
 
     def __init__(self):
         '''
@@ -537,7 +543,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self.searchbar = None
 
         self.source_toolbar_visible = False  # override - for headerbars source toolbar is not visible
-
+        
+        self._always_visible_sources = {}
 
     def initialise(self, plugin):
         super(AltToolbarHeaderBar, self).initialise(plugin)
@@ -563,6 +570,12 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
         self.shell.props.db.connect('load-complete', self._load_complete)
         
+    def add_always_visible_source(self, source):
+        '''
+           remember which sources always have the song-category buttons enabled
+        '''
+        self._always_visible_sources[source] = source
+        
     def _on_key_press(self, widget, event):
         keyname = Gdk.keyval_name(event.keyval)
         if keyname == 'Escape' and self.current_search_button:
@@ -573,6 +586,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
         
 
     def _load_complete(self, *args):
+        self.library_radiobutton_toggled(None)
         self._set_toolbar_controller()
 
     def _setup_playbar(self):
@@ -607,6 +621,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
         print("library_radiobutton_toggled")
         if not hasattr(self, 'library_song_radiobutton'):
             return  # kludge = fix this later
+            
+        self.emit('song-category-clicked', self.library_song_radiobutton.get_active())
 
         val, button = self.is_browser_view(self.shell.props.selected_page)
         if not val:
@@ -703,7 +719,6 @@ class AltToolbarHeaderBar(AltToolbarShared):
         super(AltToolbarHeaderBar, self).reset_toolbar(page)
 
         self.library_radiobutton_toggled(None)
-
         self._set_toolbar_controller()
 
     def _set_toolbar_controller(self):
@@ -735,3 +750,11 @@ class AltToolbarHeaderBar(AltToolbarShared):
     def add_controller(self, controller):
         if not controller in self._controllers:
             self._controllers[controller] = controller
+
+    def set_library_box_sensitive(self, sensitivity):
+        sensitive = sensitivity
+        
+        if self.shell.props.selected_page in self._always_visible_sources:
+            sensitive = True
+            
+        self.library_box.set_sensitive(sensitive)

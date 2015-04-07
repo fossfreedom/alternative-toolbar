@@ -213,12 +213,12 @@ class AltGenericController(AltControllerBase):
             #label.show_all()
 
             #self.header.headerbar.set_custom_title(label)
-            self.header.library_box.set_sensitive(False)
+            self.header.set_library_box_sensitive(False)
         else:
             print("browser view found")
             browser_button.set_visible(False)
             #self.header.headerbar.set_custom_title(self.header.library_box)
-            self.header.library_box.set_sensitive(True)
+            self.header.set_library_box_sensitive(True)
 
         self.header.current_search_button = None
         
