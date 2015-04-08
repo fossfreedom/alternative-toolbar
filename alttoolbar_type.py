@@ -622,7 +622,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
         if not hasattr(self, 'library_song_radiobutton'):
             return  # kludge = fix this later
             
-        self.emit('song-category-clicked', self.library_song_radiobutton.get_active())
+        if toggle_button:
+            self.emit('song-category-clicked', self.library_song_radiobutton.get_active())
 
         val, button = self.is_browser_view(self.shell.props.selected_page)
         if not val:

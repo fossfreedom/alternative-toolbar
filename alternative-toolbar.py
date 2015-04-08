@@ -509,7 +509,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         :return:N/A
         '''
         # Couldn't find better way to find widgets than loop through them
-        print("by_name %s by_id %s" % (node.get_name(), Gtk.Buildable.get_name(node)))
+        #print("by_name %s by_id %s" % (node.get_name(), Gtk.Buildable.get_name(node)))
 
         def extract_label(button):
             label = button.get_label()
