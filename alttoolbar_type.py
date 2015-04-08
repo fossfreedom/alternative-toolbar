@@ -275,50 +275,80 @@ class AltToolbarShared(AltToolbarBase):
         stream_title = self.shell.props.db.entry_request_extra_metadata(entry, RB.RHYTHMDB_PROP_STREAM_SONG_TITLE)
         stream_artist = self.shell.props.db.entry_request_extra_metadata(entry, RB.RHYTHMDB_PROP_STREAM_SONG_ARTIST)
 
+        def set_labels(title, artist):
+            for child  in self.inline_box:
+                self.inline_box.remove(child)
+
+            self.song_title = Gtk.Label()
+            self.song_title.set_markup(title)
+            self.song_title.show()
+            self.inline_box.pack_start(self.song_title, False, True, 0)
+            print (artist)
+            if artist != "" or artist:
+                print ("adding artist")
+                self.song_artist = Gtk.Label()
+                self.song_artist.set_markup(artist)
+                self.song_artist.show()
+                self.inline_box.pack_start(self.song_artist, False, True, 1)
+
+            
         if stream_title:
+            print ("stream_title")
             if stream_artist:
                 artist_markup = "<small>{artist}</small>".format(
                     artist=GLib.markup_escape_text(stream_artist))
             else:
                 artist_markup = ""
 
-            title_markup = "<small><b>{title}</b></small>".format(
+            title_markup = "<b>{title}</b>".format(
                 title=GLib.markup_escape_text(stream_title))
 
-            self.song_title.set_markup(title_markup)
-            self.song_artist.set_markup(artist_markup)
-
+                
+            set_labels(title_markup, artist_markup)
+            
             return True
 
         album = entry.get_string(RB.RhythmDBPropType.ALBUM)
         if not album or album == "":
-            self.song_title.set_markup("<small><b>{title}</b></small>".format(
-                title=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.TITLE))))
-            self.song_artist.set_label("")
+            print ("album")
+            title_markup = "<b>{title}</b>".format(
+                title=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.TITLE)))
+               
+            artist = entry.get_string(RB.RhythmDBPropType.ARTIST)
+            if artist and artist != "":
+                artist_markup= "<small>{artist}</small>".format(
+                        artist=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ARTIST)))
+            else:
+                artist_markup = ""
+                
+            set_labels(title_markup, artist_markup)
+            
             return True
 
         if self.plugin.playing_label:
+            print ("playing_label")
             year = entry.get_ulong(RB.RhythmDBPropType.DATE)
             if year == 0:
                 year = date.today().year
             else:
                 year = datetime.fromordinal(year).year
 
-            self.song_title.set_markup(
-                "<small>{album}</small>".format(
-                    album=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ALBUM))))
-            self.song_artist.set_markup(
-                "<small>{genre} - {year}</small>".format(
+            title_markup = "<b>{album}</b>".format(
+                    album=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ALBUM)))
+            artist_markup = "<small>{genre} - {year}</small>".format(
                     genre=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.GENRE)),
-                    year=GLib.markup_escape_text(str(year))))
+                    year=GLib.markup_escape_text(str(year)))
+                    
+            set_labels(title_markup, artist_markup)
         else:
-            self.song_title.set_markup(
-                "<small><b>{title}</b></small>".format(
-                    title=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.TITLE))))
+            print ("not playing_label")
+            title_markup = "<b>{title}</b>".format(
+                    title=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.TITLE)))
 
-            self.song_artist.set_markup(
-                "<small>{artist}</small>".format(
-                    artist=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ARTIST))))
+            artist_markup= "<small>{artist}</small>".format(
+                    artist=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ARTIST)))
+            
+            set_labels(title_markup, artist_markup)
 
         return True
 

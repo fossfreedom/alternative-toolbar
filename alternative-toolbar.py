@@ -395,7 +395,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                                              RB.RHYTHMDB_PROP_STREAM_SONG_ALBUM,
                                              RB.RHYTHMDB_PROP_STREAM_SONG_TITLE):
             entry = sp.get_playing_entry()
-            self.display_song(entry)
+            self.toolbar_type.display_song(entry)
 
     def _sh_on_playing_change(self, player, playing):
         '''
