@@ -200,6 +200,9 @@ class AltToolbarShared(AltToolbarBase):
         self.volume_button.props.value = self.shell.props.shell_player.props.volume
         self.volume_button.set_visible(self.plugin.volume_control)
         self.volume_button.set_relief(Gtk.ReliefStyle.NORMAL)
+        child = self.volume_button.get_child()
+        child.set_margin_left(5)
+        child.set_margin_right(5)
 
         if self.plugin.inline_label:
             self.song_box.remove(self.song_button_label)
