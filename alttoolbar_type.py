@@ -217,7 +217,6 @@ class AltToolbarShared(AltToolbarBase):
         self.song_progress.show_all()
         self.song_progress_box.pack_start(self.song_progress, False, True, 1)
 
-
         # Bring Builtin Actions to plugin
         for (a, b) in ((self.play_button, "play"),
                        (self.prev_button, "play-previous"),
@@ -234,11 +233,24 @@ class AltToolbarShared(AltToolbarBase):
                 print(a.get_sensitive())
                 if not a.get_sensitive():
                     a.set_detailed_action_name("app." + b)
-
+                    
+ 
+        if gtk_version() >= 3.12:
+            self.cover_popover = Gtk.Popover.new(self.album_cover)
+            image = Gtk.Image.new()
+            self.cover_popover.add(image)
+        
     def show_cover_tooltip(self, tooltip):
         if ( self.cover_pixbuf is not None ):
-            print("cover_pixbuf")
-            tooltip.set_icon(self.cover_pixbuf.scale_simple(300, 300,
+            if gtk_version() >= 3.12:
+                if self.cover_popover.get_visible():
+                    return False
+                image = self.cover_popover.get_child()
+                image.set_from_pixbuf(self.cover_pixbuf.scale_simple(300, 300,
+                                                                GdkPixbuf.InterpType.HYPER))
+                self.cover_popover.show_all()
+            else:
+                tooltip.set_icon(self.cover_pixbuf.scale_simple(300, 300,
                                                             GdkPixbuf.InterpType.HYPER))
             return True
         else:
