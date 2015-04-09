@@ -53,6 +53,7 @@ class SmallProgressBar(Gtk.DrawingArea):
         self.set_hexpand(True)
         self.props.height_request = 5
         self.props.margin_bottom = 2
+        self.set_size_request(250, -1)
 
     def do_draw(self, cc):
         alloc = self.get_allocation()
@@ -144,6 +145,8 @@ class SmallScale(Gtk.Scale):
         self.connect('button-press-event', self._button_press_event)
         self.connect('button-release-event', self._button_release_event)
         self.connect('motion-notify-event', self._motion_notify_event)
+        
+        self.set_size_request(250, -1)
 
     @GObject.Property
     def progress(self):

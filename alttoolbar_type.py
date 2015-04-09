@@ -26,6 +26,7 @@ from gi.repository import GLib
 from gi.repository import GdkPixbuf
 from gi.repository import Gio
 from gi.repository import Gdk
+from gi.repository import Pango
 
 from alttoolbar_rb3compat import gtk_version
 
@@ -281,6 +282,7 @@ class AltToolbarShared(AltToolbarBase):
 
             self.song_title = Gtk.Label()
             self.song_title.set_markup(title)
+            self.song_title.set_ellipsize(Pango.EllipsizeMode.END)
             self.song_title.show()
             self.inline_box.pack_start(self.song_title, False, True, 0)
             print (artist)
@@ -288,10 +290,10 @@ class AltToolbarShared(AltToolbarBase):
                 print ("adding artist")
                 self.song_artist = Gtk.Label()
                 self.song_artist.set_markup(artist)
+                self.song_artist.set_ellipsize(Pango.EllipsizeMode.END)
                 self.song_artist.show()
                 self.inline_box.pack_start(self.song_artist, False, True, 1)
 
-            
         if stream_title:
             print ("stream_title")
             if stream_artist:
