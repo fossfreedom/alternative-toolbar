@@ -724,6 +724,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self.headerbar.set_show_close_button(True)
 
         self.main_window.set_titlebar(self.headerbar)  # this is needed for gnome-shell to replace the decoration
+        self.main_window.set_show_menubar(False)
         self.plugin.rb_toolbar.hide()
         
         self.start_box = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0) # left side box
