@@ -265,6 +265,10 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.song_duration = 0
         self.entry = None
 
+        # for custom icons ensure we start looking in the plugin img folder as a fallback
+        theme = Gtk.IconTheme.get_default()
+        theme.append_search_path(rb.find_plugin_file(self, 'img'))
+
         # Find the Rhythmbox Toolbar
         self.rb_toolbar = AltToolbarPlugin.find(self.shell.props.window,
                                                 'main-toolbar', 'by_id')

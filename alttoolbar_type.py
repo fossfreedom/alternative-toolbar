@@ -1,20 +1,3 @@
-# -*- Mode: python; coding: utf-8; tab-width: 4; indent-tabs-mode: nil; -*-
-#
-# Copyright (C) 2015 - fossfreedom
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 3, or (at your option)
-# any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301  USA.
 
 from datetime import datetime, date
 
@@ -31,9 +14,17 @@ from gi.repository import Pango
 from alttoolbar_rb3compat import gtk_version
 
 from alttoolbar_controller import AltGenericController
+from alttoolbar_controller import AltCoverArtBrowserController
 from alttoolbar_controller import AltMusicLibraryController
 from alttoolbar_controller import AltSoundCloudController
-from alttoolbar_controller import AltCoverArtBrowserController
+from alttoolbar_controller import AltQueueController
+from alttoolbar_controller import AltPodcastController
+from alttoolbar_controller import AltRadioController
+from alttoolbar_controller import AltLastFMController
+from alttoolbar_controller import AltPlaylistController
+from alttoolbar_controller import AltErrorsController
+from alttoolbar_sidebar import AltToolbarSidebar
+
 from alttoolbar_widget import SmallProgressBar
 from alttoolbar_widget import SmallScale
 import rb
@@ -67,10 +58,24 @@ class AltToolbarBase(GObject.Object):
         action = self.plugin.toggle_action_group.get_action('ToggleSourceMediaToolbar')
         action.set_active(self.source_toolbar_visible)
 
+        # finally - complete the headerbar setup after the database has fully loaded because
+        # rhythmbox has everything initiated at this point.
+
+        self.shell.props.db.connect('load-complete', self.on_load_complete)
+
     def post_initialise(self):
         '''
           one off post initialisation call
         '''
+        pass
+
+    def on_load_complete(self, *args):
+        '''
+          call after RB has loaded its music database
+        :param args:
+        :return:
+        '''
+
         pass
 
     def set_visible(self, visible):
@@ -152,7 +157,7 @@ class AltToolbarStandard(AltToolbarBase):
         Initialises the object.
         '''
         super(AltToolbarStandard, self).__init__()
-
+        
     def post_initialise(self):
         self.volume_button = self.find(self.plugin.rb_toolbar, 'GtkVolumeButton', 'by_id')
         self.volume_button.set_visible(self.plugin.volume_control)
@@ -183,6 +188,7 @@ class AltToolbarShared(AltToolbarBase):
         what, width, height = Gtk.icon_size_lookup(Gtk.IconSize.SMALL_TOOLBAR)
         self.icon_width = width
         self.cover_pixbuf = None
+        self._controllers = {}
 
     def initialise(self, plugin):
         super(AltToolbarShared, self).initialise(plugin)
@@ -194,6 +200,21 @@ class AltToolbarShared(AltToolbarBase):
 
         self.load_builder_content(builder)
         self.connect_builder_content(builder)
+        
+        self._controllers['generic'] = AltGenericController(self)
+        # every potential source should have its own controller - we use this to
+        # categorise the source and provide specific capability for inherited classes
+        # where a controller is not specified then a generic controller is used
+        # i.e. use add_controller method to add a controller
+        self.add_controller(AltMusicLibraryController(self))
+        self.add_controller(AltSoundCloudController(self))
+        self.add_controller(AltCoverArtBrowserController(self))
+        self.add_controller(AltQueueController(self))
+        self.add_controller(AltPodcastController(self))
+        self.add_controller(AltRadioController(self))
+        self.add_controller(AltLastFMController(self))
+        self.add_controller(AltPlaylistController(self))
+        self.add_controller(AltErrorsController(self))
 
     def post_initialise(self):
         self.volume_button.bind_property("value", self.shell.props.shell_player, "volume",
@@ -239,7 +260,38 @@ class AltToolbarShared(AltToolbarBase):
             self.cover_popover = Gtk.Popover.new(self.album_cover)
             image = Gtk.Image.new()
             self.cover_popover.add(image)
+
+    def on_load_complete(self, *args):
+        super(AltToolbarShared, self).on_load_complete(*args)
+
+        self.sidebar = AltToolbarSidebar(self)
+        self.sidebar.show_all()
+        self.shell.add_widget(self.sidebar, RB.ShellUILocation.SIDEBAR, expand=True, fill=True)
         
+    def add_controller(self, controller):
+        '''
+          register a new controller
+        '''
+        if not controller in self._controllers:
+            self._controllers[controller] = controller
+
+    def is_controlled(self, source):
+        ''' 
+          determine if the source has a controller
+          return bool, controller
+             if no specific controller (False) then the generic controller returned
+        '''
+        
+        if source in self._controllers:
+            return True, self._controllers[source]
+            
+        # loop through controllers to find one that is most applicable
+        for controller_type in self._controllers:
+            if self._controllers[controller_type].valid_source(source):
+                return True, self._controllers[controller_type]
+        
+        return False, self._controllers['generic']
+            
     def show_cover_tooltip(self, tooltip):
         if ( self.cover_pixbuf is not None ):
             if gtk_version() >= 3.12:
@@ -374,7 +426,7 @@ class AltToolbarShared(AltToolbarBase):
         '''
 
         if ( entry is None ):
-            self.song_button_label.set_text("")
+            self.song_button_label._set_text("")
             return False
 
         stream_title = self.shell.props.db.entry_request_extra_metadata(entry, RB.RHYTHMDB_PROP_STREAM_SONG_TITLE)
@@ -586,36 +638,24 @@ class AltToolbarHeaderBar(AltToolbarShared):
         super(AltToolbarHeaderBar, self).__init__()
 
         self.sources = {}
-        self._controllers = {}
         self.searchbar = None
 
         self.source_toolbar_visible = False  # override - for headerbars source toolbar is not visible
         
         self._always_visible_sources = {}
+        
 
     def initialise(self, plugin):
         super(AltToolbarHeaderBar, self).initialise(plugin)
 
         self.main_window = self.shell.props.window
-
-        self._controllers['generic'] = AltGenericController(self)
-        # every potential source should have its own controller to manage the headerbar controls
-        # where a controller is not specified then a generic controller is used
-        # i.e. use add_controller method to add a controller
-        self.add_controller(AltMusicLibraryController(self))
-        self.add_controller(AltSoundCloudController(self))
-        self.add_controller(AltCoverArtBrowserController(self))
-
+        
         self._setup_playbar()
         self._setup_headerbar()
         
         # hook the key-press for the application window
         self.shell.props.window.connect("key-press-event", self._on_key_press)
 
-        # finally - complete the headerbar setup after the database has fully loaded because
-        # rhythmbox has everything initiated at this point.
-
-        self.shell.props.db.connect('load-complete', self._load_complete)
         
     def add_always_visible_source(self, source):
         '''
@@ -632,7 +672,9 @@ class AltToolbarHeaderBar(AltToolbarShared):
                 self.current_search_button.set_active(True)
         
 
-    def _load_complete(self, *args):
+    def on_load_complete(self, *args):
+        super(AltToolbarHeaderBar, self).on_load_complete(*args)
+
         self.library_radiobutton_toggled(None)
         self._set_toolbar_controller()
 
@@ -771,34 +813,27 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self._set_toolbar_controller()
 
     def _set_toolbar_controller(self):
-        if 'generic' not in self._controllers:
+        
+        ret_generic_bool, generic_controller = self.is_controlled('generic')
+        if not ret_generic_bool:
             return
-
+        
         current_controller = None
 
         if not self.shell.props.selected_page in self.sources:
-            # loop through controllers to find one that is most applicable
-
-            found = False
-            for controller_type in self._controllers:
-                print(controller_type)
-                if self._controllers[controller_type].valid_source(self.shell.props.selected_page):
-                    self.sources[self.shell.props.selected_page] = self._controllers[controller_type]
-                    found = True
-                    break
-
-            if not found:
-                self.sources[self.shell.props.selected_page] = self._controllers['generic']
-
+            
+            ret_bool, controller = self.is_controlled(self.shell.props.selected_page)
+            
+            #if ret_bool:
+            self.sources[self.shell.props.selected_page] = controller
+            #else:
+            #    self.sources[self.shell.props.selected_page] = generic_controller
+            
         current_controller = self.sources[self.shell.props.selected_page]
         current_controller.update_controls(self.shell.props.selected_page)
 
     def set_visible(self, visible):
         self.small_bar.set_visible(visible)
-
-    def add_controller(self, controller):
-        if not controller in self._controllers:
-            self._controllers[controller] = controller
 
     def set_library_box_sensitive(self, sensitivity):
         sensitive = sensitivity
