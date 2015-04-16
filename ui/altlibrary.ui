@@ -11,7 +11,6 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="homogeneous">True</property>
-        <property name="layout_style"/>
         <child>
           <object class="GtkRadioButton" id="library_song_radiobutton">
             <property name="label" translatable="yes">Songs</property>
