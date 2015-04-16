@@ -242,6 +242,9 @@ class AltGenericController(AltControllerBase):
         return toolbar
 
     def get_search_entry(self, container):
+        if container == None:
+            print ("no container to search")
+            return
         search = self.find(container, 'RBSearchEntry', 'by_name')
 
         if not search:
@@ -548,7 +551,7 @@ class AltRadioController(AltGenericController):
         '''
         super(AltRadioController, self).__init__(header)
 
-        self._gicon = Gio.ThemedIcon(name='audio-radio')
+        self._gicon = Gio.ThemedIcon(name='audio-radio-symbolic')
 
     def valid_source(self, source):
         return "RBIRadioSource" in type(source).__name__
@@ -571,7 +574,7 @@ class AltLastFMController(AltGenericController):
         '''
         super(AltLastFMController, self).__init__(header)
 
-        self._libre_gicon = Gio.ThemedIcon(name='librefm')
+        self._libre_gicon = Gio.ThemedIcon(name='librefm-symbolic')
 
     def valid_source(self, source):
         print (source.props.name)
@@ -601,6 +604,11 @@ class AltPlaylistController(AltGenericController):
         self._static_gicon = Gio.ThemedIcon(name='audio-x-playlist-symbolic')
         self._auto_gicon = Gio.ThemedIcon(name='audio-x-playlist-recently-played-symbolic')
 
+        self._toprated_gicon = Gio.ThemedIcon(name='starred-symbolic')
+        self._recentlyadded_gicon = Gio.ThemedIcon(name='audio-x-playlist-recently-added-symbolic')
+        self._recentlyplayed_gicon = Gio.ThemedIcon(name='audio-x-playlist-recently-played-symbolic')
+
+
     def valid_source(self, source):
         '''
           override
@@ -609,6 +617,17 @@ class AltPlaylistController(AltGenericController):
         return "PlaylistSource" in type(source).__name__
 
     def get_gicon(self, source):
+
+        print (source.props.name)
+        if source.props.name == _('My Top Rated'):
+            return self._toprated_gicon
+
+        if source.props.name == _('Recently Added'):
+            return self._recentlyadded_gicon
+
+        if source.props.name == _('Recently Played'):
+            return self._recentlyplayed_gicon
+
         if "StaticPlaylistSource" in type(source).__name__:
             return self._static_gicon
         else:
