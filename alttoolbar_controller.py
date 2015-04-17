@@ -577,7 +577,6 @@ class AltLastFMController(AltGenericController):
         self._libre_gicon = Gio.ThemedIcon(name='librefm-symbolic')
 
     def valid_source(self, source):
-        print (source.props.name)
         return "RBAudioscrobblerProfilePage" in type(source).__name__
 
     def get_gicon(self, source):

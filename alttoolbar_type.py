@@ -215,6 +215,7 @@ class AltToolbarShared(AltToolbarBase):
         self.add_controller(AltErrorsController(self))
 
     def post_initialise(self):
+        super (AltToolbarShared, self).post_initialise()
         self.volume_button.bind_property("value", self.shell.props.shell_player, "volume",
                                          Gio.SettingsBindFlags.DEFAULT)
         self.volume_button.props.value = self.shell.props.shell_player.props.volume
