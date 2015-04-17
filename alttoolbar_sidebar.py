@@ -46,6 +46,8 @@ class AltToolbarSidebar(Gtk.Grid):
         self.treestore_filter.set_visible_column(2)
 
         self.treeview = Gtk.TreeView.new_with_model(self.treestore_filter)
+        context = self.treeview.get_style_context()
+        context.add_class(Gtk.STYLE_CLASS_SIDEBAR)
         self.treeview.set_headers_visible(False)
 
         self.scrolledwindow = Gtk.ScrolledWindow.new()
