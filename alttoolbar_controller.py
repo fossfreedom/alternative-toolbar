@@ -530,6 +530,14 @@ class AltErrorsController(AltGenericController):
     '''
     __gtype_name = 'AltErrorsController'
 
+    def __init__(self, header):
+        '''
+        Initialises the object.
+        '''
+        super(AltErrorsController, self).__init__(header)
+
+        self._gicon = Gio.ThemedIcon(name='dialog-error-symbolic')
+
     def valid_source(self, source):
         print (type(source).__name__)
         return "RBImportErrorsSource" in type(source).__name__
@@ -537,6 +545,8 @@ class AltErrorsController(AltGenericController):
     def get_category(self):
         return AltControllerCategory.LOCAL
 
+    def get_gicon(self, source):
+        return self._gicon
 
         
 class AltRadioController(AltGenericController):

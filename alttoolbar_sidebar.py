@@ -308,6 +308,7 @@ class AltToolbarSidebar(Gtk.Grid):
 
             #renderer.props.pixbuf = controller.get_icon_pixbuf(source)
             renderer.props.gicon = controller.get_gicon(source)
+            renderer.props.follow_state = True
 
         path = model.get_path(treeiter)
         if path.get_depth() == 1:
