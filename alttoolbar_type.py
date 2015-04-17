@@ -55,9 +55,6 @@ class AltToolbarBase(GObject.Object):
 
         self.find = plugin.find
 
-        action = self.plugin.toggle_action_group.get_action('ToggleSourceMediaToolbar')
-        action.set_active(self.source_toolbar_visible)
-
         # finally - complete the headerbar setup after the database has fully loaded because
         # rhythmbox has everything initiated at this point.
 
@@ -67,7 +64,8 @@ class AltToolbarBase(GObject.Object):
         '''
           one off post initialisation call
         '''
-        pass
+        action = self.plugin.toggle_action_group.get_action('ToggleSourceMediaToolbar')
+        action.set_active(self.source_toolbar_visible)
 
     def on_load_complete(self, *args):
         '''
