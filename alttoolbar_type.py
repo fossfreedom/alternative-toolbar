@@ -214,6 +214,32 @@ class AltToolbarShared(AltToolbarBase):
         self.add_controller(AltPlaylistController(self))
         self.add_controller(AltErrorsController(self))
 
+        # now move current RBDisplayPageTree to listview stack
+        display_tree = self.shell.props.display_page_tree
+        self.display_tree_parent = display_tree.get_parent()
+        self.display_tree_parent.remove(display_tree)
+        stack = Gtk.Stack()
+        stack.set_transition_type(Gtk.StackTransitionType.SLIDE_LEFT_RIGHT)
+        stack.set_transition_duration(1000)
+
+        image_name = 'view-list-symbolic'
+
+        box_listview = Gtk.Box()
+        box_listview.pack_start(display_tree, True, True, 0)
+        #box_listview.show_all()
+        stack.add_named(box_listview, "listview")
+        stack.child_set_property(box_listview, "icon-name", image_name)
+        stack.show_all()
+
+        self.display_tree_parent.pack1(stack, True, True)
+
+
+        # find the actual GtkTreeView in the RBDisplayTree and substitute it for our sidebar
+        self.rbtree = self.find(display_tree, 'GtkTreeView', 'by_name')
+        self.rbtreeparent = self.rbtree.get_parent()
+        self.rbtreeparent.remove(self.rbtree)
+        
+
     def post_initialise(self):
         super (AltToolbarShared, self).post_initialise()
         self.volume_button.bind_property("value", self.shell.props.shell_player, "volume",
@@ -265,7 +291,10 @@ class AltToolbarShared(AltToolbarBase):
 
         self.sidebar = AltToolbarSidebar(self)
         self.sidebar.show_all()
-        self.shell.add_widget(self.sidebar, RB.ShellUILocation.SIDEBAR, expand=True, fill=True)
+        self.rbtreeparent.add(self.sidebar)
+
+        #self.shell.add_widget(self.rbtree, RB.ShellUILocation.SIDEBAR, expand=True, fill=True)
+
         
     def add_controller(self, controller):
         '''

@@ -27,7 +27,7 @@ from alttoolbar_controller import AltControllerCategory
 import rb
 
 
-class AltToolbarSidebar(Gtk.Grid):
+class AltToolbarSidebar(Gtk.TreeView):
     def __init__(self, toolbar):
         '''
         Initialises the object.
@@ -45,17 +45,19 @@ class AltToolbarSidebar(Gtk.Grid):
         self.treestore_filter = self.treestore.filter_new(root=None)
         self.treestore_filter.set_visible_column(2)
 
-        self.treeview = Gtk.TreeView.new_with_model(self.treestore_filter)
+        self.set_model(self.treestore_filter)
+        self.treeview = self
+        #Gtk.TreeView.new_with_model(self.treestore_filter)
         context = self.treeview.get_style_context()
         context.add_class(Gtk.STYLE_CLASS_SIDEBAR)
         self.treeview.set_headers_visible(False)
 
-        self.scrolledwindow = Gtk.ScrolledWindow.new()
-        self.scrolledwindow.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
-        self.scrolledwindow.set_hexpand(True)
-        self.scrolledwindow.set_vexpand(True)
-        self.add(self.treeview)
-        self.attach(self.scrolledwindow, 0, 0, 1, 1)
+        #self.scrolledwindow = Gtk.ScrolledWindow.new()
+        #self.scrolledwindow.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
+        #self.scrolledwindow.set_hexpand(True)
+        #self.scrolledwindow.set_vexpand(True)
+        #self.add(self.treeview)
+        #self.attach(self.scrolledwindow, 0, 0, 1, 1)
 
 
         # define the headers - not visible by default
