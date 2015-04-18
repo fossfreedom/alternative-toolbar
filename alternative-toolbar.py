@@ -563,7 +563,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         self.rb_toolbar.set_visible(True)
 
-        self.toolbar_type.purge_builder_content()
+        self.toolbar_type.cleanup()
 
         del self.shell
         del self.db

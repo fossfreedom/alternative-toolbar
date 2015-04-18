@@ -244,12 +244,12 @@ class AltGenericController(AltControllerBase):
     def get_search_entry(self, container):
         if container == None:
             print ("no container to search")
-            return
+            return None, None
         search = self.find(container, 'RBSearchEntry', 'by_name')
 
         if not search:
             print("no RBSearchEntry found")
-            return None
+            return None, None
 
         entry = self.find(search, 'GtkEntry', 'by_name')
         print(entry)
@@ -302,6 +302,7 @@ class AltGenericController(AltControllerBase):
 
             self.remove_controls(self.header.end_box)
 
+            print (toolbar)
             search, entry = self.get_search_entry(toolbar)
             if not search:
                 return
