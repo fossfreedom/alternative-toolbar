@@ -664,7 +664,7 @@ class AltToolbarCompact(AltToolbarShared):
         self._setup_compactbar()
 
     def on_load_complete(self, *args):
-        super(AltToolbarHeaderBar, self).on_load_complete(*args)
+        super(AltToolbarCompact, self).on_load_complete(*args)
 
         self.setup_completed = True
 
@@ -844,6 +844,20 @@ class AltToolbarHeaderBar(AltToolbarShared):
         return self.has_button_with_label(source, _("Browse"))
 
     def _setup_headerbar(self):
+
+        # define the main buttons for the headerbar
+        builder = Gtk.Builder()
+        ui = rb.find_plugin_file(self.plugin, 'ui/altlibrary.ui')
+        builder.add_from_file(ui)
+
+        self.load_builder_content(builder)
+
+        view_name = "Categories"
+        self.library_browser_radiobutton.set_label(view_name)
+
+        self.library_browser_radiobutton.connect('toggled', self.library_radiobutton_toggled)
+        self.library_song_radiobutton.connect('toggled', self.library_radiobutton_toggled)
+
         default = Gtk.Settings.get_default()
         self.headerbar = Gtk.HeaderBar.new()
         self.headerbar.set_show_close_button(True)

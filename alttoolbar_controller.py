@@ -199,7 +199,7 @@ class AltExampleController(AltControllerBase):
 
 class AltGenericController(AltControllerBase):
     '''
-    base controller
+    generic controller for the headerbar (only)
     '''
     __gtype_name = 'AltGenericController'
 
@@ -208,21 +208,9 @@ class AltGenericController(AltControllerBase):
         Initialises the object.
         '''
         super(AltGenericController, self).__init__(header)
-        print("###")
+
         self.centre_controls = {}
         self.end_controls = {}
-
-        builder = Gtk.Builder()
-        ui = rb.find_plugin_file(self.header.plugin, 'ui/altlibrary.ui')
-        builder.add_from_file(ui)
-
-        self.header.load_builder_content(builder)
-
-        view_name = "Categories"
-        self.header.library_browser_radiobutton.set_label(view_name)
-
-        self.header.library_browser_radiobutton.connect('toggled', self.header.library_radiobutton_toggled)
-        self.header.library_song_radiobutton.connect('toggled', self.header.library_radiobutton_toggled)
         
     def get_category(self):
         return AltControllerCategory.LOCAL
