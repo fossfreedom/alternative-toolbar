@@ -38,6 +38,7 @@ class AltToolbarSidebar(Gtk.TreeView):
         self.toolbar = toolbar
         self.plugin = toolbar.plugin
 
+        self.set_name("AltToolbarSideBar")
         self._category = {}
 
         # title, source, visible
