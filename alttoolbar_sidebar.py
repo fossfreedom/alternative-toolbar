@@ -20,12 +20,8 @@ from gi.repository import Gtk
 from gi.repository import GObject
 from gi.repository import GLib
 from gi.repository import Pango
-from gi.repository import GdkPixbuf
 from gi.repository import RB
 from alttoolbar_controller import AltControllerCategory
-
-import rb
-
 
 class AltToolbarSidebar(Gtk.TreeView):
     def __init__(self, toolbar):
@@ -40,6 +36,7 @@ class AltToolbarSidebar(Gtk.TreeView):
 
         self.set_name("AltToolbarSideBar")
         self._category = {}
+        self._last_click_source = None
 
         # title, source, visible
         self.treestore = Gtk.TreeStore.new([str, GObject.Object, bool])
@@ -47,26 +44,15 @@ class AltToolbarSidebar(Gtk.TreeView):
         self.treestore_filter.set_visible_column(2)
 
         self.set_model(self.treestore_filter)
-        self.treeview = self
-        #Gtk.TreeView.new_with_model(self.treestore_filter)
-        context = self.treeview.get_style_context()
+        context = self.get_style_context()
         context.add_class(Gtk.STYLE_CLASS_SIDEBAR)
-        self.treeview.set_headers_visible(False)
-
-        #self.scrolledwindow = Gtk.ScrolledWindow.new()
-        #self.scrolledwindow.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
-        #self.scrolledwindow.set_hexpand(True)
-        #self.scrolledwindow.set_vexpand(True)
-        #self.add(self.treeview)
-        #self.attach(self.scrolledwindow, 0, 0, 1, 1)
-
+        self.set_headers_visible(False)
 
         # define the headers - not visible by default
         def define_category(text, category):
             local = self.treestore.append(None)
             self.treestore[local] = [text, None, False]
             self._category[category] = local
-
 
         define_category(_("Local collection"), AltControllerCategory.LOCAL)
         define_category(_("Online sources"), AltControllerCategory.ONLINE)
@@ -82,7 +68,6 @@ class AltToolbarSidebar(Gtk.TreeView):
             self._traverse_rows(model, rootiter, None, depth)
 
             # next add playlists to our model
-
             playlists = self.shell.props.playlist_manager.get_playlists()
             playlist_iter = self._category[AltControllerCategory.PLAYLIST]
             for playlist in playlists:
@@ -95,7 +80,7 @@ class AltToolbarSidebar(Gtk.TreeView):
             # tidy up syncing by connecting signals
             self._connect_signals()
 
-            self.treeview.expand_row(self.treestore.get_path(self._category[AltControllerCategory.LOCAL]), True)
+            self.expand_row(self.treestore.get_path(self._category[AltControllerCategory.LOCAL]), True)
             return False
 
         GLib.timeout_add_seconds(1, delayed)
@@ -105,14 +90,18 @@ class AltToolbarSidebar(Gtk.TreeView):
         pixbuf_renderer = Gtk.CellRendererPixbuf()
         column.pack_start(pixbuf_renderer, False)
         renderer = Gtk.CellRendererText()
+        renderer.connect('edited', self.on_renderertext_edited)
+        self.text_renderer = renderer
         column.pack_start(renderer, False)
 
         column.set_cell_data_func(pixbuf_renderer, self._set_pixbuf)
         column.set_cell_data_func(renderer, self._set_text)
 
-        self.treeview.append_column(column)
-        self.treeview.show_all()
+        self.tree_column = column
 
+        self.append_column(column)
+        self.show_all()
+        self.set_can_focus(True)
 
     def _connect_signals(self):
         # display_page_model signals to keep the sidebar model in sync
@@ -122,9 +111,17 @@ class AltToolbarSidebar(Gtk.TreeView):
         model.connect('row-changed', self._model_page_changed)
 
         # when we click on the sidebar - need to keep the display_page_tree in sync
-        self.treeview.connect('button-press-event', self._row_click)
+        self.connect('button-press-event', self._row_click)
         # and visa versa
         self.shell.props.display_page_tree.connect('selected', self._display_page_tree_selected)
+
+    def on_renderertext_edited(self, renderer, path, new_text):
+        print ("edited")
+
+        print (path)
+        print (new_text)
+
+        self.treestore_filter[path][1].props.name = new_text
 
     def _traverse_rows(self, store, treeiter, new_parent_iter, depth):
         while treeiter != None:
@@ -150,7 +147,7 @@ class AltToolbarSidebar(Gtk.TreeView):
             treeiter = store.iter_next(treeiter)
 
     def _model_page_changed(self, model, path, page_iter):
-        print (model[page_iter])
+        print (model[page_iter][1])
         print (path)
 
     def _model_page_inserted(self, model, path, page_iter):
@@ -159,6 +156,8 @@ class AltToolbarSidebar(Gtk.TreeView):
 
         page = model[path][1]
 
+        print (page)
+
         category_iter = self._get_category_iter(page)
         leaf_iter = self.treestore.append(category_iter)
         self.treestore[leaf_iter][1] = page
@@ -166,6 +165,30 @@ class AltToolbarSidebar(Gtk.TreeView):
         self.treestore[leaf_iter][2] = True
 
         self._refresh_headers()
+
+        if "PlaylistSource" in type(page).__name__:
+            # a playlist of somesort has been added - so lets put the user into edit mode
+            self.edit_playlist(leaf_iter)
+
+    def edit_playlist(self, leaf_iter):
+        '''
+           edit the playlist
+        :param leaf_iter: treestore iter
+        :return:
+        '''
+        print ("edit_playlist")
+        self.text_renderer.props.editable = True
+        path = self.treestore.get_path(leaf_iter)
+        path = self.treestore_filter.convert_child_path_to_path(path)
+        print (path)
+        self.grab_focus()
+
+        def delayed(*args):
+
+            self.set_cursor_on_cell(path, self.tree_column, self.text_renderer, True)
+
+        GLib.timeout_add_seconds(1, delayed, None)
+
 
     def _model_page_deleted(self, model, path):
         '''
@@ -195,12 +218,9 @@ class AltToolbarSidebar(Gtk.TreeView):
 
         find_lookup_rows(self.treestore, rootiter)
 
-        #print (lookup)
-
         # next iterate through the displaytreemodel - where we have a matching source, delete it from our lookup
         def find_rows(store, treeiter):
             while treeiter != None:
-                #print (str(store[treeiter][:]))
                 if store[treeiter][1] in lookup:
                     del lookup[store[treeiter][1]]
 
@@ -234,6 +254,11 @@ class AltToolbarSidebar(Gtk.TreeView):
         if active_object:
             # we have a source
             self.shell.props.display_page_tree.select(active_object)
+            if self._last_click_source == active_object:
+                self.text_renderer.props.editable = "PlaylistSource" in type(active_object).__name__
+            else:
+                self.text_renderer.props.editable = False
+                self._last_click_source = active_object
 
     def _display_page_tree_selected(self, display_page_tree, page):
         '''
@@ -263,8 +288,8 @@ class AltToolbarSidebar(Gtk.TreeView):
 
         if page in lookup:
             path = self.treestore_filter.get_path(lookup[page])
-            self.treeview.expand_to_path(path)
-            self.treeview.set_cursor(path)
+            self.expand_to_path(path)
+            self.set_cursor(path)
 
     def _set_text(self, column, renderer, model, treeiter, arg):
         source = model[treeiter][1]
@@ -309,7 +334,6 @@ class AltToolbarSidebar(Gtk.TreeView):
         else:
             ret_bool, controller = self.toolbar.is_controlled(source)
 
-            #renderer.props.pixbuf = controller.get_icon_pixbuf(source)
             renderer.props.gicon = controller.get_gicon(source)
             renderer.props.follow_state = True
 
