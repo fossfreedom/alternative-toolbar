@@ -37,5 +37,10 @@
             <summary>compact progressbar</summary>
             <description>Use the compact progressbar instead of the stock progress bar</description>
         </key>
+        <key type="b" name="enhanced-sidebar">
+            <default>true</default>
+            <summary>use the enhanced sidebar</summary>
+            <description>Use the enhanced sidebar rather than the stock sidebar</description>
+        </key>
     </schema>
 </schemalist>

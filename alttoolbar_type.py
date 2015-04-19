@@ -326,9 +326,12 @@ class AltToolbarShared(AltToolbarBase):
     def on_load_complete(self, *args):
         super(AltToolbarShared, self).on_load_complete(*args)
 
-        self.sidebar = AltToolbarSidebar(self, self.rbtree)
-        self.sidebar.show_all()
-        self.rbtreeparent.add(self.sidebar)
+        if self.plugin.enhanced_sidebar:
+            self.sidebar = AltToolbarSidebar(self, self.rbtree)
+            self.sidebar.show_all()
+            self.rbtreeparent.add(self.sidebar)
+        else:
+            self.rbtreeparent.add(self.rbtree)
 
         #self.shell.add_widget(self.rbtree, RB.ShellUILocation.SIDEBAR, expand=True, fill=True)
 

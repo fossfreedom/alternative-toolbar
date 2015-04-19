@@ -85,7 +85,8 @@ class GSetting:
                 PLAYING_LABEL='playing-label',
                 VOLUME_CONTROL='volume-control',
                 INLINE_LABEL='inline-label',
-                COMPACT_PROGRESSBAR='compact-progressbar'
+                COMPACT_PROGRESSBAR='compact-progressbar',
+                ENHANCED_SIDEBAR='enhanced-sidebar'
             )
 
             self.setting = {}
@@ -200,6 +201,10 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         self.plugin_settings.bind(self.gs.PluginKey.COMPACT_PROGRESSBAR,
                                   compact_control, 'active', Gio.SettingsBindFlags.DEFAULT)
 
+        enhanced_sidebar = builder.get_object('enhanced_sidebar_checkbox')
+        self.plugin_settings.bind(self.gs.PluginKey.ENHANCED_SIDEBAR,
+                                  enhanced_sidebar, 'active', Gio.SettingsBindFlags.DEFAULT)
+
         if self.display_type == 0:
             self.auto_radiobutton.set_active(True)
         elif self.display_type == 1:
@@ -283,6 +288,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.start_hidden = self.plugin_settings[self.gs.PluginKey.START_HIDDEN]
         self.inline_label = self.plugin_settings[self.gs.PluginKey.INLINE_LABEL]
         self.compact_progressbar = self.plugin_settings[self.gs.PluginKey.COMPACT_PROGRESSBAR]
+        self.enhanced_sidebar = self.plugin_settings[self.gs.PluginKey.ENHANCED_SIDEBAR]
 
         # Add the various application view menus
         self.appshell = ApplicationShell(self.shell)
