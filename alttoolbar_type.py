@@ -270,11 +270,11 @@ class AltToolbarShared(AltToolbarBase):
 
         self.display_tree_parent.pack1(self.stack, True, True)
 
-
-        # find the actual GtkTreeView in the RBDisplayTree and substitute it for our sidebar
+        # find the actual GtkTreeView in the RBDisplayTree and remove it
         self.rbtree = self.find(display_tree, 'GtkTreeView', 'by_name')
         self.rbtreeparent = self.rbtree.get_parent()
         self.rbtreeparent.remove(self.rbtree)
+        self.sidebar = None
 
 
     def post_initialise(self):
@@ -343,8 +343,11 @@ class AltToolbarShared(AltToolbarBase):
 
         super (AltToolbarShared, self).cleanup()
 
-        self.rbtreeparent.remove(self.sidebar) # remove our sidebar
-        self.rbtreeparent.add(self.rbtree) # add the original GtkTree view
+        self.display_tree_parent.remove(self.stack)
+        self.display_tree_parent.pack1(self.shell.props.display_page_tree)
+        if self.sidebar:
+            self.rbtreeparent.remove(self.sidebar) # remove our sidebar
+            self.rbtreeparent.add(self.rbtree) # add the original GtkTree view
 
         
     def add_controller(self, controller):
