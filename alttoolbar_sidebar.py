@@ -107,6 +107,7 @@ class AltToolbarSidebar(Gtk.TreeView):
     def _connect_signals(self):
         # display_page_model signals to keep the sidebar model in sync
         model = self.shell.props.display_page_model
+        model.props.child_model.connect('row-inserted', self._model_page_inserted)
         model.connect('row-inserted', self._model_page_inserted)
         model.connect('row-deleted', self._model_page_deleted)
         model.connect('row-changed', self._model_page_changed)
@@ -173,30 +174,46 @@ class AltToolbarSidebar(Gtk.TreeView):
 
         print (parent_iter)
 
-        def find_lookup_rows(store, treeiter):
+        def find_lookup_rows(store, treeiter, page):
             while treeiter != None:
 
                 found_page = store[treeiter][1]
+                print (found_page)
                 if found_page != None and found_page == page:
+                    print ("found")
                     return treeiter
 
                 if store.iter_has_child(treeiter):
                     childiter = store.iter_children(treeiter)
-                    find_lookup_rows(store, childiter)
+                    ret = find_lookup_rows(store, childiter, page)
+
+                    if ret:
+                        return ret
 
                 treeiter = store.iter_next(treeiter)
 
+            print ("nothing found")
             return None
 
+        # first check if we've already got the page in the model
+        rootiter = self.treestore.get_iter_first()
+        if find_lookup_rows(self.treestore, rootiter, page):
+            return
 
         if (parent_iter and isinstance(model[parent_iter][1], RB.DisplayPageGroup)) or not parent_iter:
             # the parent of the inserted row is a top-level item in the display-page-model
+            print ("top level")
             category_iter = self._get_category_iter(page)
             leaf_iter = self.treestore.append(category_iter)
         else:
             # the parent is another source so we need to find the iter in our model to hang it off
-            rootiter = self.treestore.get_iter_first()
-            leaf_iter = find_lookup_rows(self.treestore, rootiter)
+            print ("child level")
+            searchpage = model[parent_iter][1]
+            print ("####", searchpage)
+            leaf_iter = find_lookup_rows(self.treestore, rootiter, searchpage)
+            print ("##2", leaf_iter)
+            leaf_iter = self.treestore.append(leaf_iter)
+
 
         self.treestore[leaf_iter][1] = page
         self.treestore[leaf_iter][0] = ""
@@ -207,6 +224,8 @@ class AltToolbarSidebar(Gtk.TreeView):
         if "PlaylistSource" in type(page).__name__:
             # a playlist of somesort has been added - so lets put the user into edit mode
             self.edit_playlist(leaf_iter)
+
+        self.rbtree.expand_all()
 
     def edit_playlist(self, leaf_iter):
         '''
