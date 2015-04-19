@@ -73,9 +73,6 @@ class AltControllerBase(GObject.Object):
         '''
         self._pixbuf = None
         if source.props.icon:
-            #print (source.props.icon)
-
-
             try:
                 names = source.props.icon.props.names
 

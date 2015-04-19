@@ -115,6 +115,16 @@ class AltToolbarSidebar(Gtk.TreeView):
         self.connect('button-press-event', self._row_click)
         # and visa versa
         self.shell.props.display_page_tree.connect('selected', self._display_page_tree_selected)
+        self.shell.props.shell_player.connect('playing-song-changed', self._on_playing_song_changed)
+
+    def _on_playing_song_changed(self, *args):
+        '''
+          signal when a playing song changes - need to invoke a tree-refresh to ensure the user can see which source
+        :param args:
+        :return:
+        '''
+        print ("playing song changed")
+        self.queue_draw()
 
     def on_renderertext_edited(self, renderer, path, new_text):
         print ("edited")
