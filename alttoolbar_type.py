@@ -326,7 +326,7 @@ class AltToolbarShared(AltToolbarBase):
     def on_load_complete(self, *args):
         super(AltToolbarShared, self).on_load_complete(*args)
 
-        self.sidebar = AltToolbarSidebar(self)
+        self.sidebar = AltToolbarSidebar(self, self.rbtree)
         self.sidebar.show_all()
         self.rbtreeparent.add(self.sidebar)
 

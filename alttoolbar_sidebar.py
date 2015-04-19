@@ -24,7 +24,7 @@ from gi.repository import RB
 from alttoolbar_controller import AltControllerCategory
 
 class AltToolbarSidebar(Gtk.TreeView):
-    def __init__(self, toolbar):
+    def __init__(self, toolbar, rbtree):
         '''
         Initialises the object.
         '''
@@ -33,6 +33,7 @@ class AltToolbarSidebar(Gtk.TreeView):
         self.shell = toolbar.shell
         self.toolbar = toolbar
         self.plugin = toolbar.plugin
+        self.rbtree = rbtree
 
         self.set_name("AltToolbarSideBar")
         self._category = {}
@@ -158,8 +159,35 @@ class AltToolbarSidebar(Gtk.TreeView):
 
         print (page)
 
-        category_iter = self._get_category_iter(page)
-        leaf_iter = self.treestore.append(category_iter)
+        parent_iter = model.iter_parent(page_iter)
+
+        print (parent_iter)
+
+        def find_lookup_rows(store, treeiter):
+            while treeiter != None:
+
+                found_page = store[treeiter][1]
+                if found_page != None and found_page == page:
+                    return treeiter
+
+                if store.iter_has_child(treeiter):
+                    childiter = store.iter_children(treeiter)
+                    find_lookup_rows(store, childiter)
+
+                treeiter = store.iter_next(treeiter)
+
+            return None
+
+
+        if (parent_iter and isinstance(model[parent_iter][1], RB.DisplayPageGroup)) or not parent_iter:
+            # the parent of the inserted row is a top-level item in the display-page-model
+            category_iter = self._get_category_iter(page)
+            leaf_iter = self.treestore.append(category_iter)
+        else:
+            # the parent is another source so we need to find the iter in our model to hang it off
+            rootiter = self.treestore.get_iter_first()
+            leaf_iter = find_lookup_rows(self.treestore, rootiter)
+
         self.treestore[leaf_iter][1] = page
         self.treestore[leaf_iter][0] = ""
         self.treestore[leaf_iter][2] = True
@@ -250,9 +278,11 @@ class AltToolbarSidebar(Gtk.TreeView):
             return
 
         active_object = self.treestore_filter[treepath][1]
+        print (active_object)
 
         if active_object:
             # we have a source
+            self.rbtree.expand_all()
             self.shell.props.display_page_tree.select(active_object)
             if self._last_click_source == active_object:
                 self.text_renderer.props.editable = "PlaylistSource" in type(active_object).__name__

@@ -629,7 +629,7 @@ class AltPlaylistController(AltGenericController):
         if "StaticPlaylistSource" in type(source).__name__:
             return self._static_gicon
         else:
-            return self._auto_gicon
+            return source.props.icon #self._auto_gicon
 
     def get_category(self):
         return AltControllerCategory.PLAYLIST
