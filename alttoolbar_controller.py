@@ -571,6 +571,7 @@ class AltLastFMController(AltGenericController):
         super(AltLastFMController, self).__init__(header)
 
         self._libre_gicon = Gio.ThemedIcon(name='librefm-symbolic')
+        self._lastfm_gicon = Gio.ThemedIcon(name='lastfm-symbolic')
 
     def valid_source(self, source):
         return "RBAudioscrobblerProfilePage" in type(source).__name__
@@ -579,7 +580,7 @@ class AltLastFMController(AltGenericController):
         if source.props.name == _("Libre.fm"):
             return self._libre_gicon
         else:
-            return source.props.icon
+            return self._lastfm_gicon
         
     def get_category(self):
         return AltControllerCategory.ONLINE
@@ -597,7 +598,7 @@ class AltPlaylistController(AltGenericController):
         super(AltPlaylistController, self).__init__(header)
 
         self._static_gicon = Gio.ThemedIcon(name='audio-x-playlist-symbolic')
-        self._auto_gicon = Gio.ThemedIcon(name='audio-x-playlist-recently-played-symbolic')
+        self._auto_gicon = Gio.ThemedIcon(name='audio-x-playlist-automatic-symbolic')
 
         self._toprated_gicon = Gio.ThemedIcon(name='starred-symbolic')
         self._recentlyadded_gicon = Gio.ThemedIcon(name='audio-x-playlist-recently-added-symbolic')
@@ -626,7 +627,7 @@ class AltPlaylistController(AltGenericController):
         if "StaticPlaylistSource" in type(source).__name__:
             return self._static_gicon
         else:
-            return source.props.icon #self._auto_gicon
+            return self._auto_gicon
 
     def get_category(self):
         return AltControllerCategory.PLAYLIST

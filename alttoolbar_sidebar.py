@@ -180,7 +180,7 @@ class AltToolbarSidebar(Gtk.TreeView):
                 found_page = store[treeiter][1]
                 print (found_page)
                 if found_page != None and found_page == page:
-                    print ("found")
+                    print ("found %s" % found_page.props.name)
                     return treeiter
 
                 if store.iter_has_child(treeiter):
@@ -337,6 +337,7 @@ class AltToolbarSidebar(Gtk.TreeView):
 
                 if store[treeiter][1] != None:
                     lookup[store[treeiter][1]] = treeiter
+                    print (store[treeiter][1].props.name)
 
                 if store.iter_has_child(treeiter):
                     childiter = store.iter_children(treeiter)
