@@ -64,16 +64,20 @@ class AltToolbarSidebar(Gtk.TreeView):
             model = self.shell.props.display_page_model
             rootiter = model.get_iter_first()
             depth = 0
-
+            print ("##############")
+            #treeiter = model.get_iter_first()
+            #while treeiter != None:
+            #    print (model[treeiter][1].props.name)
+            #    treeiter = model.iter_next(treeiter)
             # add display-page-model to our model
             self._traverse_rows(model, rootiter, None, depth)
 
             # next add playlists to our model
-            playlists = self.shell.props.playlist_manager.get_playlists()
-            playlist_iter = self._category[AltControllerCategory.PLAYLIST]
-            for playlist in playlists:
-                local = self.treestore.append(playlist_iter)
-                self.treestore[local] = ["", playlist, True]
+            #playlists = self.shell.props.playlist_manager.get_playlists()
+            #playlist_iter = self._category[AltControllerCategory.PLAYLIST]
+            #for playlist in playlists:
+            #    local = self.treestore.append(playlist_iter)
+            #    self.treestore[local] = ["", playlist, True]
 
             # switch on/off headers depending upon what's in the model
             self._refresh_headers()
@@ -107,8 +111,9 @@ class AltToolbarSidebar(Gtk.TreeView):
     def _connect_signals(self):
         # display_page_model signals to keep the sidebar model in sync
         model = self.shell.props.display_page_model
-        model.props.child_model.connect('row-inserted', self._model_page_inserted)
-        model.connect('row-inserted', self._model_page_inserted)
+        #model.props.child_model.connect('row-inserted', self._model_page_inserted)
+        #model.connect('row-inserted', self._model_page_inserted)
+        model.connect('page-inserted', self._model_page_inserted)
         model.connect('row-deleted', self._model_page_deleted)
         model.connect('row-changed', self._model_page_changed)
 
@@ -140,7 +145,10 @@ class AltToolbarSidebar(Gtk.TreeView):
             print (depth, store[treeiter][1])
             print (depth, store[treeiter][1].props.name)
             if isinstance(store[treeiter][1], RB.DisplayPageGroup):
-                treeiter = store.iter_children(treeiter)
+                if store.iter_has_child(treeiter):
+                    childiter = store.iter_children(treeiter)
+                    self._traverse_rows(store, childiter, treeiter, depth)
+                treeiter = store.iter_next(treeiter)
                 continue
 
             if depth == 0:
@@ -159,16 +167,12 @@ class AltToolbarSidebar(Gtk.TreeView):
             treeiter = store.iter_next(treeiter)
 
     def _model_page_changed(self, model, path, page_iter):
-        print (model[page_iter][1])
+        print (model[page_iter][1].props.name)
         print (path)
 
-    def _model_page_inserted(self, model, path, page_iter):
-        print (path)
-        print (page_iter)
-
-        page = model[path][1]
-
+    def _model_page_inserted(self, model, page, page_iter):
         print (page)
+        print (page_iter)
 
         parent_iter = model.iter_parent(page_iter)
 
