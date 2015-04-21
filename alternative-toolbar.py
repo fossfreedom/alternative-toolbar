@@ -21,7 +21,6 @@
 from gi.repository import Gtk
 from gi.repository import GObject
 from gi.repository import Peas
-from gi.repository import PeasGtk
 from gi.repository import RB
 from gi.repository import Gio
 
@@ -30,6 +29,9 @@ from alttoolbar_rb3compat import ApplicationShell
 from alttoolbar_type import AltToolbarStandard
 from alttoolbar_type import AltToolbarCompact
 from alttoolbar_type import AltToolbarHeaderBar
+from alttoolbar_preferences import Preferences
+from alttoolbar_preferences import GSetting
+
 import rb
 
 
@@ -57,172 +59,6 @@ view_seek_menu_ui = """
 
 seek_backward_time = 5
 seek_forward_time = 10
-
-
-class GSetting:
-    '''
-    This class manages the different settings that the plugin has to
-    access to read or write.
-    '''
-    # storage for the instance reference
-    __instance = None
-
-    class __impl:
-        """ Implementation of the singleton interface """
-        # below public variables and methods that can be called for GSetting
-        def __init__(self):
-            '''
-            Initializes the singleton interface, assigning all the constants
-            used to access the plugin's settings.
-            '''
-            self.Path = self._enum(
-                PLUGIN='org.gnome.rhythmbox.plugins.alternative_toolbar')
-
-            self.PluginKey = self._enum(
-                DISPLAY_TYPE='display-type',
-                START_HIDDEN='start-hidden',
-                SHOW_COMPACT='show-compact',
-                PLAYING_LABEL='playing-label',
-                VOLUME_CONTROL='volume-control',
-                INLINE_LABEL='inline-label',
-                COMPACT_PROGRESSBAR='compact-progressbar'
-            )
-
-            self.setting = {}
-
-        def get_setting(self, path):
-            '''
-            Return an instance of Gio.Settings pointing at the selected path.
-            '''
-            try:
-                setting = self.setting[path]
-            except:
-                self.setting[path] = Gio.Settings.new(path)
-                setting = self.setting[path]
-
-            return setting
-
-        def get_value(self, path, key):
-            '''
-            Return the value saved on key from the settings path.
-            '''
-            return self.get_setting(path)[key]
-
-        def set_value(self, path, key, value):
-            '''
-            Set the passed value to key in the settings path.
-            '''
-            self.get_setting(path)[key] = value
-
-        def _enum(self, **enums):
-            '''
-            Create an enumn.
-            '''
-            return type('Enum', (), enums)
-
-    def __init__(self):
-        """ Create singleton instance """
-        # Check whether we already have an instance
-        if GSetting.__instance is None:
-            # Create and remember instance
-            GSetting.__instance = GSetting.__impl()
-
-        # Store instance reference as the only member in the handle
-        self.__dict__['_GSetting__instance'] = GSetting.__instance
-
-    def __getattr__(self, attr):
-        """ Delegate access to implementation """
-        return getattr(self.__instance, attr)
-
-    def __setattr__(self, attr, value):
-        """ Delegate access to implementation """
-        return setattr(self.__instance, attr, value)
-
-
-class Preferences(GObject.Object, PeasGtk.Configurable):
-    '''
-    Preferences for the Plugins. It holds the settings for
-    the plugin and also is the responsible of creating the preferences dialog.
-    '''
-    __gtype_name__ = 'AlternativeToolbarPreferences'
-    object = GObject.property(type=GObject.Object)
-
-
-    def __init__(self):
-        '''
-        Initialises the preferences, getting an instance of the settings saved
-        by Gio.
-        '''
-        GObject.Object.__init__(self)
-        self.gs = GSetting()
-        self.plugin_settings = self.gs.get_setting(self.gs.Path.PLUGIN)
-
-    def do_create_configure_widget(self):
-        '''
-        Creates the plugin's preferences dialog
-        '''
-        print("DEBUG - create_display_contents")
-        # create the ui
-        self._first_run = True
-
-        builder = Gtk.Builder()
-        builder.add_from_file(rb.find_plugin_file(self,
-                                                  'ui/altpreferences.ui'))
-        builder.connect_signals(self)
-
-        # bind the toggles to the settings
-        start_hidden = builder.get_object('start_hidden_checkbox')
-        self.plugin_settings.bind(self.gs.PluginKey.START_HIDDEN,
-                                  start_hidden, 'active', Gio.SettingsBindFlags.DEFAULT)
-
-        show_compact = builder.get_object('show_compact_checkbox')
-        self.plugin_settings.bind(self.gs.PluginKey.SHOW_COMPACT,
-                                  show_compact, 'active', Gio.SettingsBindFlags.DEFAULT)
-
-        self.display_type = self.plugin_settings[self.gs.PluginKey.DISPLAY_TYPE]
-        self.auto_radiobutton = builder.get_object('auto_radiobutton')
-        self.headerbar_radiobutton = builder.get_object('headerbar_radiobutton')
-        self.toolbar_radiobutton = builder.get_object('toolbar_radiobutton')
-
-        playing_label = builder.get_object('playing_label_checkbox')
-        self.plugin_settings.bind(self.gs.PluginKey.PLAYING_LABEL,
-                                  playing_label, 'active', Gio.SettingsBindFlags.DEFAULT)
-
-        inline_label = builder.get_object('inline_label_checkbox')
-        self.plugin_settings.bind(self.gs.PluginKey.INLINE_LABEL,
-                                  inline_label, 'active', Gio.SettingsBindFlags.DEFAULT)
-
-        volume_control = builder.get_object('volume_control_checkbox')
-        self.plugin_settings.bind(self.gs.PluginKey.VOLUME_CONTROL,
-                                  volume_control, 'active', Gio.SettingsBindFlags.DEFAULT)
-
-        compact_control = builder.get_object('compact_checkbox')
-        self.plugin_settings.bind(self.gs.PluginKey.COMPACT_PROGRESSBAR,
-                                  compact_control, 'active', Gio.SettingsBindFlags.DEFAULT)
-
-        if self.display_type == 0:
-            self.auto_radiobutton.set_active(True)
-        elif self.display_type == 1:
-            self.headerbar_radiobutton.set_active(True)
-        else:
-            self.toolbar_radiobutton.set_active(True)
-
-        self._first_run = False
-
-        return builder.get_object('preferences_box')
-
-    def on_display_type_radiobutton_toggled(self, button):
-        if self._first_run:
-            return
-
-        if button.get_active():
-            if button == self.auto_radiobutton:
-                self.plugin_settings[self.gs.PluginKey.DISPLAY_TYPE] = 0
-            elif button == self.headerbar_radiobutton:
-                self.plugin_settings[self.gs.PluginKey.DISPLAY_TYPE] = 1
-            else:
-                self.plugin_settings[self.gs.PluginKey.DISPLAY_TYPE] = 2
-
 
 class AltToolbarPlugin(GObject.Object, Peas.Activatable):
     '''
@@ -265,6 +101,10 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.song_duration = 0
         self.entry = None
 
+        # for custom icons ensure we start looking in the plugin img folder as a fallback
+        theme = Gtk.IconTheme.get_default()
+        theme.append_search_path(rb.find_plugin_file(self, 'img'))
+
         # Find the Rhythmbox Toolbar
         self.rb_toolbar = AltToolbarPlugin.find(self.shell.props.window,
                                                 'main-toolbar', 'by_id')
@@ -279,6 +119,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.start_hidden = self.plugin_settings[self.gs.PluginKey.START_HIDDEN]
         self.inline_label = self.plugin_settings[self.gs.PluginKey.INLINE_LABEL]
         self.compact_progressbar = self.plugin_settings[self.gs.PluginKey.COMPACT_PROGRESSBAR]
+        self.enhanced_sidebar = self.plugin_settings[self.gs.PluginKey.ENHANCED_SIDEBAR]
 
         # Add the various application view menus
         self.appshell = ApplicationShell(self.shell)
@@ -545,6 +386,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         Called by Rhythmbox when the plugin is deactivated. It makes sure to
         free all the resources used by the plugin.
         '''
+        del self.db
+
         if self.sh_op:
             self.shell_player.disconnect(self.sh_op)
             self.shell_player.disconnect(self.sh_psc)
@@ -559,10 +402,10 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         self.rb_toolbar.set_visible(True)
 
-        self.toolbar_type.purge_builder_content()
+        self.toolbar_type.cleanup()
 
         del self.shell
-        del self.db
+
 
     def toggle_visibility(self, action, param=None, data=None):
         '''
@@ -587,3 +430,11 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         action = self.toggle_action_group.get_action('ToggleSourceMediaToolbar')
 
         self.toolbar_type.toggle_source_toolbar()
+
+    def dummy(self):
+        '''
+          dummmy function stopping pycharm optimizing out preferences import
+        :return:
+        '''
+
+        x = Preferences()

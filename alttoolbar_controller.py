@@ -18,11 +18,16 @@
 
 from gi.repository import GObject
 from gi.repository import Gtk
-from gi.repository import RB
-from gi.repository import GLib
+from gi.repository import GdkPixbuf
+from gi.repository import Gio
 
 import rb
 
+class AltControllerCategory(object):
+    OTHER = 0
+    LOCAL = 1
+    ONLINE = 2
+    PLAYLIST = 3
 
 class AltControllerBase(GObject.Object):
     '''
@@ -36,7 +41,62 @@ class AltControllerBase(GObject.Object):
         self.header = header
         self.find = self.header.find  # convenience function
 
+        self._pixbuf = None
+
         super(AltControllerBase, self).__init__()
+        
+    def get_category(self):
+        ''' 
+           return the category type for the source
+        '''
+        
+        return AltControllerCategory.OTHER
+
+    def _get_pixbuf(self, filename):
+        filename = rb.find_plugin_file(self.header.plugin, filename)
+        what, width, height = Gtk.icon_size_lookup(Gtk.IconSize.BUTTON)
+
+        self._pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(filename, 128, 128)
+
+        if self._pixbuf.get_width() != width or self._pixbuf.get_height() != height:
+            self._pixbuf = pixbuf.scale_simple(16, 16,
+                                         GdkPixbuf.InterpType.BILINEAR)
+
+        return self._pixbuf
+
+    def get_icon_pixbuf(self, source):
+        '''
+          return the pixbuf for the source
+        :param plugin
+        :param source:
+        :return:
+        '''
+        self._pixbuf = None
+        if source.props.icon:
+            try:
+                names = source.props.icon.props.names
+
+                default = Gtk.IconTheme.get_default()
+                info = default.choose_icon(names, 16, 0)
+                style_context = source.get_style_context()
+                self._pixbuf, symbol = info.load_symbolic_for_context(style_context)
+            except:
+                filename = source.props.icon.get_file().get_path()
+                return self._get_pixbuf(filename)
+
+        return self._pixbuf
+
+    def get_gicon(self, source):
+        '''
+          return the source icon
+        :param source:
+        :return:
+        '''
+
+        if source.props.icon:
+            return source.props.icon
+
+        return None
 
     def valid_source(self, source):
         '''
@@ -56,9 +116,7 @@ class AltControllerBase(GObject.Object):
         '''
           remove any controls that are contained in a container
         '''
-        print("remove_controls")
         for child in container.get_children():
-            print(child)
             container.remove(child)
 
     def hide_controls(self, source):
@@ -96,52 +154,9 @@ class AltControllerBase(GObject.Object):
 
         pass
 
-
-class AltExampleController(AltControllerBase):
-    '''
-    example controller
-    '''
-    __gtype_name = 'AltExampleController'
-
-    def __init__(self, header):
-        '''
-        Initialises the object.
-        '''
-        super(AltExampleController, self).__init__(header)
-
-    def valid_source(self, source):
-        '''
-          override
-        '''
-
-        a_bool_result = "RBPodcastMainSource" in type(source).__name__
-
-        # return "RBIRadioSource" in type(ource).__name__:
-
-        # so we should pass the page to our object.is_of_type() and this will return true/false 
-
-        # from coverart_browser_source import CoverArtBrowserSource
-        #if isinstance(page, CoverArtBrowserSource):
-        #    print ("is coverart")
-
-        #from MagnatuneSource import MagnatuneSource
-        #if isinstance(page, MagnatuneSource):
-        #    print ("is magnatune")
-
-        # RBMissingFilesSource
-        # is playlist if page is in this
-        #print (self.shell.props.playlist_manager.get_playlists())
-        #if page in self.shell.props.playlist_manager.get_playlists():
-        #    print("true playlist")
-        #else:
-        #    print("not playlist")
-
-        return a_bool_result
-
-
 class AltGenericController(AltControllerBase):
     '''
-    base controller
+    generic controller for the headerbar (only)
     '''
     __gtype_name = 'AltGenericController'
 
@@ -150,21 +165,12 @@ class AltGenericController(AltControllerBase):
         Initialises the object.
         '''
         super(AltGenericController, self).__init__(header)
-        print("###")
+
         self.centre_controls = {}
         self.end_controls = {}
-
-        builder = Gtk.Builder()
-        ui = rb.find_plugin_file(self.header.plugin, 'ui/altlibrary.ui')
-        builder.add_from_file(ui)
-
-        self.header.load_builder_content(builder)
-
-        view_name = "Categories"
-        self.header.library_browser_radiobutton.set_label(view_name)
-
-        self.header.library_browser_radiobutton.connect('toggled', self.header.library_radiobutton_toggled)
-        self.header.library_song_radiobutton.connect('toggled', self.header.library_radiobutton_toggled)
+        
+    def get_category(self):
+        return AltControllerCategory.LOCAL
 
     def hide_controls(self, source):
         val, view_button = self.header.has_button_with_label(source, _('View All'))
@@ -181,11 +187,14 @@ class AltGenericController(AltControllerBase):
         return toolbar
 
     def get_search_entry(self, container):
+        if container == None:
+            print ("no container to search")
+            return None, None
         search = self.find(container, 'RBSearchEntry', 'by_name')
 
         if not search:
             print("no RBSearchEntry found")
-            return None
+            return None, None
 
         entry = self.find(search, 'GtkEntry', 'by_name')
         print(entry)
@@ -206,18 +215,10 @@ class AltGenericController(AltControllerBase):
         if not val:
             # if not a browser_view based source then default just to the title
             print("no browser view")
-            #label = Gtk.Label.new()
-            #markup = "<b>{title}</b>".format(
-            #    title=GLib.markup_escape_text(_("Rhythmbox")))
-            #label.set_markup(markup)
-            #label.show_all()
-
-            #self.header.headerbar.set_custom_title(label)
             self.header.set_library_box_sensitive(False)
         else:
             print("browser view found")
             browser_button.set_visible(False)
-            #self.header.headerbar.set_custom_title(self.header.library_box)
             self.header.set_library_box_sensitive(True)
 
         self.header.current_search_button = None
@@ -238,6 +239,7 @@ class AltGenericController(AltControllerBase):
 
             self.remove_controls(self.header.end_box)
 
+            print (toolbar)
             search, entry = self.get_search_entry(toolbar)
             if not search:
                 return
@@ -348,6 +350,9 @@ class AltSoundCloudController(AltGenericController):
         '''
 
         return "SoundCloud" in type(source).__name__
+        
+    def get_category(self):
+        return AltControllerCategory.ONLINE
 
     def get_toolbar(self, source):
         if self._has_toolbar:
@@ -355,7 +360,6 @@ class AltSoundCloudController(AltGenericController):
 
         search_box = self.find(source, 'box1', 'by_id')
 
-        print(search_box)
         self._has_toolbar = search_box
         return search_box
 
@@ -390,6 +394,9 @@ class AltCoverArtBrowserController(AltGenericController):
         '''
 
         return "CoverArtBrowser" in type(source).__name__
+        
+    def get_category(self):
+        return AltControllerCategory.LOCAL
 
     def get_toolbar(self, source):
         if self._has_toolbar:
@@ -397,7 +404,6 @@ class AltCoverArtBrowserController(AltGenericController):
 
         search_box = self.find(source, 'toolbar', 'by_id')
 
-        print(search_box)
         self._has_toolbar = search_box
         return search_box
 
@@ -420,3 +426,200 @@ class AltCoverArtBrowserController(AltGenericController):
         entry = self.find(entrysearch, 'GtkEntry', 'by_name')
 
         return entrysearch, entry
+
+class AltQueueController(AltGenericController):
+    '''
+    RB QueueSource controller
+    '''
+    __gtype_name = 'AltQueueController'
+
+    def __init__(self, header):
+        '''
+        Initialises the object.
+        '''
+        super(AltQueueController, self).__init__(header)
+
+        self._gicon = Gio.ThemedIcon(name='audio-x-queue-symbolic')
+
+    def valid_source(self, source):
+        return "RBPlayQueueSource" in type(source).__name__
+
+    def get_gicon(self, source):
+        return self._gicon
+
+
+class AltErrorsController(AltGenericController):
+    '''
+    RB ErrorsSource controller
+    '''
+    __gtype_name = 'AltErrorsController'
+
+    def __init__(self, header):
+        '''
+        Initialises the object.
+        '''
+        super(AltErrorsController, self).__init__(header)
+
+        self._gicon = Gio.ThemedIcon(name='dialog-error-symbolic')
+
+    def valid_source(self, source):
+        return "RBImportErrorsSource" in type(source).__name__
+
+    def get_category(self):
+        return AltControllerCategory.LOCAL
+
+    def get_gicon(self, source):
+        return self._gicon
+
+        
+class AltRadioController(AltGenericController):
+    '''
+    RB RadioSource controller
+    '''
+    __gtype_name = 'AltRadioController'
+
+    def __init__(self, header):
+        '''
+        Initialises the object.
+        '''
+        super(AltRadioController, self).__init__(header)
+
+        self._gicon = Gio.ThemedIcon(name='audio-radio-symbolic')
+
+    def valid_source(self, source):
+        return "RBIRadioSource" in type(source).__name__
+
+    def get_gicon(self, source):
+        return self._gicon
+        
+    def get_category(self):
+        return AltControllerCategory.ONLINE
+        
+class AltLastFMController(AltGenericController):
+    '''
+    RB LastFMSource controller
+    '''
+    __gtype_name = 'AltLastFMController'
+
+    def __init__(self, header):
+        '''
+        Initialises the object.
+        '''
+        super(AltLastFMController, self).__init__(header)
+
+        self._libre_gicon = Gio.ThemedIcon(name='librefm-symbolic')
+        self._lastfm_gicon = Gio.ThemedIcon(name='lastfm-symbolic')
+
+    def valid_source(self, source):
+        return "RBAudioscrobblerProfilePage" in type(source).__name__
+
+    def get_gicon(self, source):
+        if source.props.name == _("Libre.fm"):
+            return self._libre_gicon
+        else:
+            return self._lastfm_gicon
+        
+    def get_category(self):
+        return AltControllerCategory.ONLINE
+
+class AltPlaylistController(AltGenericController):
+    '''
+    playlist controller
+    '''
+    __gtype_name = 'AltPlaylistController'
+
+    def __init__(self, header):
+        '''
+        Initialises the object.
+        '''
+        super(AltPlaylistController, self).__init__(header)
+
+        self._static_gicon = Gio.ThemedIcon(name='audio-x-playlist-symbolic')
+        self._auto_gicon = Gio.ThemedIcon(name='audio-x-playlist-automatic-symbolic')
+
+        self._toprated_gicon = Gio.ThemedIcon(name='starred-symbolic')
+        self._recentlyadded_gicon = Gio.ThemedIcon(name='audio-x-playlist-recently-added-symbolic')
+        self._recentlyplayed_gicon = Gio.ThemedIcon(name='audio-x-playlist-recently-played-symbolic')
+
+
+    def valid_source(self, source):
+        '''
+          override
+        '''
+        return "PlaylistSource" in type(source).__name__
+
+    def get_gicon(self, source):
+
+        if source.props.name == _('My Top Rated'):
+            return self._toprated_gicon
+
+        if source.props.name == _('Recently Added'):
+            return self._recentlyadded_gicon
+
+        if source.props.name == _('Recently Played'):
+            return self._recentlyplayed_gicon
+
+        if "StaticPlaylistSource" in type(source).__name__:
+            return self._static_gicon
+        else:
+            return self._auto_gicon
+
+    def get_category(self):
+        return AltControllerCategory.PLAYLIST
+
+
+class AltStandardOnlineController(AltGenericController):
+    '''
+      standard controller where we dont need specific customisation
+    '''
+    __gtype_name = 'AltStandardOnlineController'
+
+    def __init__(self, header):
+        '''
+        Initialises the object.
+        '''
+        super(AltStandardOnlineController, self).__init__(header)
+
+        self._source_types=[ 'RBPodcastMainSource',
+                             'MagnatuneSource',
+                             'RBGriloSource',
+                             'RadioBrowserSource']
+
+    def valid_source(self, source):
+
+        print (type(source).__name__)
+        for source_type in self._source_types:
+            if source_type in type(source).__name__:
+                return True
+
+        return False
+
+    def get_category(self):
+        return AltControllerCategory.ONLINE
+
+class AltStandardLocalController(AltGenericController):
+    '''
+      standard controller where we dont need specific customisation
+    '''
+    __gtype_name = 'AltStandardLocalController'
+
+    def __init__(self, header):
+        '''
+        Initialises the object.
+        '''
+        super(AltStandardLocalController, self).__init__(header)
+
+        self._source_types=[ 'RBMtpSource',
+                             'RBMissingFilesSource']
+
+    def valid_source(self, source):
+
+        print (type(source).__name__)
+        for source_type in self._source_types:
+            if source_type in type(source).__name__:
+                return True
+
+        return False
+
+    def get_category(self):
+        return AltControllerCategory.LOCAL

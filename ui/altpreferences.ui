@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.18.3 -->
+<!-- Generated with glade 3.16.1 -->
 <interface>
   <requires lib="gtk+" version="3.10"/>
   <object class="GtkBox" id="preferences_box">
@@ -182,6 +182,22 @@
             <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="position">8</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="enhanced_sidebar_checkbox">
+            <property name="label" translatable="yes">Use the enhanced sidebar</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="margin_left">14</property>
+            <property name="xalign">0</property>
+            <property name="draw_indicator">True</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">9</property>
           </packing>
         </child>
       </object>

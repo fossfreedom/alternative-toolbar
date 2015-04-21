@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="16"
+   viewBox="0 0 16 16"
+   height="16"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="audio-x-playlist-automatic-symbolic.svg">
+  <metadata
+     id="metadata22">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs20" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1048"
+     id="namedview18"
+     showgrid="true"
+     inkscape:zoom="44.704928"
+     inkscape:cx="-2.6463986"
+     inkscape:cy="8.0006788"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2999" />
+  </sodipodi:namedview>
+  <path
+     style="fill:#bebebe;fill-opacity:1;stroke:none"
+     d="m 10,2.0000002 c -2.2091388,0 -3.9999999,1.790861 -3.9999999,4 C 6.0000001,8.2091392 7.7908612,10 10,10 c 2.209139,0 4,-1.7908608 4,-3.9999998 0,-2.209139 -1.790861,-4 -4,-4 z m 0,2 c 1.104569,0 2,0.8954305 2,2 0,1.1045695 -0.895431,2 -2,2 -1.1045689,0 -1.9999999,-0.8954305 -1.9999999,-2 0,-1.1045695 0.895431,-2 1.9999999,-2 z"
+     id="path3006"
+     inkscape:connector-curvature="0" />
+  <rect
+     style="fill:#bebebe;fill-opacity:1;stroke:none"
+     id="rect3012"
+     width="2"
+     height="8"
+     x="10.313708"
+     y="0.069781229"
+     rx="1"
+     ry="1"
+     transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)" />
+  <rect
+     width="5"
+     x="0"
+     y="3"
+     height="1"
+     id="rect3014"
+     style="fill:#bebebe" />
+  <rect
+     style="fill:#bebebe"
+     id="rect3016"
+     height="1"
+     y="5"
+     x="0"
+     width="4" />
+  <rect
+     width="4"
+     x="0"
+     y="7"
+     height="1"
+     id="rect3037"
+     style="fill:#bebebe" />
+  <rect
+     style="fill:#bebebe"
+     id="rect3039"
+     height="1"
+     y="9"
+     x="0"
+     width="3" />
+  <rect
+     width="2"
+     x="0"
+     y="11"
+     height="1"
+     id="rect3041"
+     style="fill:#bebebe" />
+  <rect
+     style="fill:#bebebe"
+     id="rect3043"
+     height="1"
+     y="13"
+     x="0"
+     width="1" />
+  <rect
+     style="fill:#bebebe"
+     id="rect3045"
+     height="1"
+     y="13"
+     x="6"
+     width="10" />
+  <rect
+     width="8"
+     x="8"
+     y="11"
+     height="1"
+     id="rect3047"
+     style="fill:#bebebe" />
+  <rect
+     style="fill:#bebebe"
+     id="rect3049"
+     height="1"
+     y="9"
+     x="14"
+     width="2" />
+  <rect
+     width="1"
+     x="15"
+     y="7"
+     height="1"
+     id="rect3051"
+     style="fill:#bebebe" />
+  <rect
+     style="fill:#bebebe"
+     id="rect3053"
+     height="1"
+     y="5"
+     x="15"
+     width="1" />
+  <rect
+     width="1"
+     x="15"
+     y="3"
+     height="1"
+     id="rect3055"
+     style="fill:#bebebe" />
+</svg>
