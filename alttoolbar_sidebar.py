@@ -21,9 +21,15 @@ from gi.repository import GObject
 from gi.repository import GLib
 from gi.repository import Pango
 from gi.repository import RB
+from gi.repository import Gio
+
 from alttoolbar_controller import AltControllerCategory
+from alttoolbar_preferences import GSetting
 
 class AltToolbarSidebar(Gtk.TreeView):
+
+    expanders = GObject.property(type=str, default='{1:True}')
+
     def __init__(self, toolbar, rbtree):
         '''
         Initialises the object.
@@ -38,6 +44,11 @@ class AltToolbarSidebar(Gtk.TreeView):
         self.set_name("AltToolbarSideBar")
         self._category = {}
         self._last_click_source = None
+
+        gs = GSetting()
+        plugin_settings = gs.get_setting(gs.Path.PLUGIN)
+        plugin_settings.bind(gs.PluginKey.EXPANDERS, self, 'expanders',
+                                  Gio.SettingsBindFlags.DEFAULT)
 
         # title, source, visible
         self.treestore = Gtk.TreeStore.new([str, GObject.Object, bool])
@@ -64,20 +75,7 @@ class AltToolbarSidebar(Gtk.TreeView):
             model = self.shell.props.display_page_model
             rootiter = model.get_iter_first()
             depth = 0
-            print ("##############")
-            #treeiter = model.get_iter_first()
-            #while treeiter != None:
-            #    print (model[treeiter][1].props.name)
-            #    treeiter = model.iter_next(treeiter)
-            # add display-page-model to our model
             self._traverse_rows(model, rootiter, None, depth)
-
-            # next add playlists to our model
-            #playlists = self.shell.props.playlist_manager.get_playlists()
-            #playlist_iter = self._category[AltControllerCategory.PLAYLIST]
-            #for playlist in playlists:
-            #    local = self.treestore.append(playlist_iter)
-            #    self.treestore[local] = ["", playlist, True]
 
             # switch on/off headers depending upon what's in the model
             self._refresh_headers()
@@ -85,7 +83,18 @@ class AltToolbarSidebar(Gtk.TreeView):
             # tidy up syncing by connecting signals
             self._connect_signals()
 
-            self.expand_row(self.treestore.get_path(self._category[AltControllerCategory.LOCAL]), True)
+            # now expand or collapse each expander that we have saved from a previous session
+            expanders=eval(self.expanders)
+
+            print (expanders)
+            print (self.expanders)
+            for category in expanders:
+                print (category)
+                path = self.treestore.get_path(self._category[category])
+
+                if path and expanders[category]:
+                    self.expand_row(path, expanders[category])
+
             return False
 
         GLib.timeout_add_seconds(1, delayed)
@@ -130,7 +139,9 @@ class AltToolbarSidebar(Gtk.TreeView):
         :return:
         '''
         print ("playing song changed")
-        self.queue_draw()
+        if hasattr(self.plugin, "db"): # curious crash when exiting - lets not send the queue_draw in this case
+            print ("queuing")
+            self.queue_draw()
 
     def on_renderertext_edited(self, renderer, path, new_text):
         print ("edited")
@@ -308,6 +319,7 @@ class AltToolbarSidebar(Gtk.TreeView):
         try:
             treepath, treecolumn, cellx, celly = widget.get_path_at_pos(event.x, event.y)
         except:
+            print ("exit")
             return
 
         active_object = self.treestore_filter[treepath][1]
@@ -322,6 +334,19 @@ class AltToolbarSidebar(Gtk.TreeView):
             else:
                 self.text_renderer.props.editable = False
                 self._last_click_source = active_object
+
+        def delayed(*args):
+            # save current state of each category in the treeview
+            cat_vals = {}
+            for category in self._category:
+                path = self.treestore.get_path(self._category[category])
+                if path:
+                    cat_vals[category] = self.row_expanded(path)
+
+            self.expanders=str(cat_vals)
+            print (self.expanders)
+
+        GLib.timeout_add_seconds(1, delayed)
 
     def _display_page_tree_selected(self, display_page_tree, page):
         '''
