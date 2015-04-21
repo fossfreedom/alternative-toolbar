@@ -154,42 +154,6 @@ class AltControllerBase(GObject.Object):
 
         pass
 
-
-class AltExampleController(AltControllerBase):
-    '''
-    example controller
-    '''
-    __gtype_name = 'AltExampleController'
-
-    def __init__(self, header):
-        '''
-        Initialises the object.
-        '''
-        super(AltExampleController, self).__init__(header)
-
-    def valid_source(self, source):
-        '''
-          override
-        '''
-
-        a_bool_result = "RBPodcastMainSource" in type(source).__name__
-
-
-        #from MagnatuneSource import MagnatuneSource
-        #if isinstance(page, MagnatuneSource):
-        #    print ("is magnatune")
-
-        # RBMissingFilesSource
-        # is playlist if page is in this
-        #print (self.shell.props.playlist_manager.get_playlists())
-        #if page in self.shell.props.playlist_manager.get_playlists():
-        #    print("true playlist")
-        #else:
-        #    print("not playlist")
-
-        return a_bool_result
-
-
 class AltGenericController(AltControllerBase):
     '''
     generic controller for the headerbar (only)
@@ -632,3 +596,30 @@ class AltStandardOnlineController(AltGenericController):
 
     def get_category(self):
         return AltControllerCategory.ONLINE
+
+class AltStandardLocalController(AltGenericController):
+    '''
+      standard controller where we dont need specific customisation
+    '''
+    __gtype_name = 'AltStandardLocalController'
+
+    def __init__(self, header):
+        '''
+        Initialises the object.
+        '''
+        super(AltStandardLocalController, self).__init__(header)
+
+        self._source_types=[ 'RBMtpSource',
+                             'RBMissingFilesSource']
+
+    def valid_source(self, source):
+
+        print (type(source).__name__)
+        for source_type in self._source_types:
+            if source_type in type(source).__name__:
+                return True
+
+        return False
+
+    def get_category(self):
+        return AltControllerCategory.LOCAL
