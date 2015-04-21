@@ -18,11 +18,11 @@ from alttoolbar_controller import AltCoverArtBrowserController
 from alttoolbar_controller import AltMusicLibraryController
 from alttoolbar_controller import AltSoundCloudController
 from alttoolbar_controller import AltQueueController
-from alttoolbar_controller import AltPodcastController
 from alttoolbar_controller import AltRadioController
 from alttoolbar_controller import AltLastFMController
 from alttoolbar_controller import AltPlaylistController
 from alttoolbar_controller import AltErrorsController
+from alttoolbar_controller import AltStandardOnlineController
 from alttoolbar_sidebar import AltToolbarSidebar
 
 from alttoolbar_widget import SmallProgressBar
@@ -245,7 +245,7 @@ class AltToolbarShared(AltToolbarBase):
         self.add_controller(AltSoundCloudController(self))
         self.add_controller(AltCoverArtBrowserController(self))
         self.add_controller(AltQueueController(self))
-        self.add_controller(AltPodcastController(self))
+        self.add_controller(AltStandardOnlineController(self))
         self.add_controller(AltRadioController(self))
         self.add_controller(AltLastFMController(self))
         self.add_controller(AltPlaylistController(self))

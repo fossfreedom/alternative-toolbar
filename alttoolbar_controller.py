@@ -55,7 +55,7 @@ class AltControllerBase(GObject.Object):
     def _get_pixbuf(self, filename):
         filename = rb.find_plugin_file(self.header.plugin, filename)
         what, width, height = Gtk.icon_size_lookup(Gtk.IconSize.BUTTON)
-        #print (filename)
+
         self._pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(filename, 128, 128)
 
         if self._pixbuf.get_width() != width or self._pixbuf.get_height() != height:
@@ -82,9 +82,7 @@ class AltControllerBase(GObject.Object):
                 self._pixbuf, symbol = info.load_symbolic_for_context(style_context)
             except:
                 filename = source.props.icon.get_file().get_path()
-                #print (filename)
                 return self._get_pixbuf(filename)
-                #print (pixbuf)
 
         return self._pixbuf
 
@@ -118,9 +116,7 @@ class AltControllerBase(GObject.Object):
         '''
           remove any controls that are contained in a container
         '''
-        print("remove_controls")
         for child in container.get_children():
-            print(child)
             container.remove(child)
 
     def hide_controls(self, source):
@@ -255,18 +251,10 @@ class AltGenericController(AltControllerBase):
         if not val:
             # if not a browser_view based source then default just to the title
             print("no browser view")
-            #label = Gtk.Label.new()
-            #markup = "<b>{title}</b>".format(
-            #    title=GLib.markup_escape_text(_("Rhythmbox")))
-            #label.set_markup(markup)
-            #label.show_all()
-
-            #self.header.headerbar.set_custom_title(label)
             self.header.set_library_box_sensitive(False)
         else:
             print("browser view found")
             browser_button.set_visible(False)
-            #self.header.headerbar.set_custom_title(self.header.library_box)
             self.header.set_library_box_sensitive(True)
 
         self.header.current_search_button = None
@@ -408,7 +396,6 @@ class AltSoundCloudController(AltGenericController):
 
         search_box = self.find(source, 'box1', 'by_id')
 
-        print(search_box)
         self._has_toolbar = search_box
         return search_box
 
@@ -453,7 +440,6 @@ class AltCoverArtBrowserController(AltGenericController):
 
         search_box = self.find(source, 'toolbar', 'by_id')
 
-        print(search_box)
         self._has_toolbar = search_box
         return search_box
 
@@ -497,18 +483,6 @@ class AltQueueController(AltGenericController):
     def get_gicon(self, source):
         return self._gicon
 
-class AltPodcastController(AltGenericController):
-    '''
-    RB PodcastSource controller
-    '''
-    __gtype_name = 'AltPodcastController'
-
-    def valid_source(self, source):
-        return "RBPodcastMainSource" in type(source).__name__
-        
-    def get_category(self):
-        return AltControllerCategory.ONLINE
-
 
 class AltErrorsController(AltGenericController):
     '''
@@ -525,7 +499,6 @@ class AltErrorsController(AltGenericController):
         self._gicon = Gio.ThemedIcon(name='dialog-error-symbolic')
 
     def valid_source(self, source):
-        print (type(source).__name__)
         return "RBImportErrorsSource" in type(source).__name__
 
     def get_category(self):
@@ -609,12 +582,10 @@ class AltPlaylistController(AltGenericController):
         '''
           override
         '''
-        print (type(source).__name__)
         return "PlaylistSource" in type(source).__name__
 
     def get_gicon(self, source):
 
-        print (source.props.name)
         if source.props.name == _('My Top Rated'):
             return self._toprated_gicon
 
@@ -631,3 +602,33 @@ class AltPlaylistController(AltGenericController):
 
     def get_category(self):
         return AltControllerCategory.PLAYLIST
+
+
+class AltStandardOnlineController(AltGenericController):
+    '''
+      standard controller where we dont need specific customisation
+    '''
+    __gtype_name = 'AltStandardOnlineController'
+
+    def __init__(self, header):
+        '''
+        Initialises the object.
+        '''
+        super(AltStandardOnlineController, self).__init__(header)
+
+        self._source_types=[ 'RBPodcastMainSource',
+                             'MagnatuneSource',
+                             'RBGriloSource',
+                             'RadioBrowserSource']
+
+    def valid_source(self, source):
+
+        print (type(source).__name__)
+        for source_type in self._source_types:
+            if source_type in type(source).__name__:
+                return True
+
+        return False
+
+    def get_category(self):
+        return AltControllerCategory.ONLINE
