@@ -315,8 +315,8 @@ class AltToolbarSidebar(Gtk.TreeView):
 
         if active_object:
             # we have a source
-            self.rbtree.expand_all()
             self.shell.props.display_page_tree.select(active_object)
+            self.rbtree.expand_all()
             if self._last_click_source == active_object:
                 self.text_renderer.props.editable = "PlaylistSource" in type(active_object).__name__
             else:
@@ -402,10 +402,10 @@ class AltToolbarSidebar(Gtk.TreeView):
             renderer.props.follow_state = True
 
         path = model.get_path(treeiter)
-        if path.get_depth() == 1:
-            renderer.props.visible = False # headers dont have pixbuf's so no renderer to display
-        else:
+        if path.get_depth() == 2:
             renderer.props.visible = True # must be a child so show the pixbuf renderer
+        else:
+            renderer.props.visible = False # headers or children of child dont have pixbuf's so no renderer to display
 
         renderer.props.xpad = 3
 
