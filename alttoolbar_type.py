@@ -887,11 +887,13 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
             # for environments that dont support app-menus
             menu_button = Gtk.MenuButton.new()
-            menu_button.set_relief(Gtk.ReliefStyle.NONE)
+            #menu_button.set_relief(Gtk.ReliefStyle.NONE)
             if gtk_version() >= 3.14:
                 symbol = "open-menu-symbolic"
+                menu_button.set_margin_start(3)
             else:
                 symbol = "emblem-system-symbolic"
+                menu_button.set_margin_left(3)
 
             image = Gtk.Image.new_from_icon_name(symbol, Gtk.IconSize.SMALL_TOOLBAR)
             menu_button.add(image)
