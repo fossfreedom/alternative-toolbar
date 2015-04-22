@@ -277,8 +277,7 @@ class AltToolbarShared(AltToolbarBase):
         self.rbtreeparent = self.rbtree.get_parent()
         self.rbtreeparent.remove(self.rbtree)
         self.sidebar = None
-
-
+        
     def post_initialise(self):
         super (AltToolbarShared, self).post_initialise()
         self.volume_button.bind_property("value", self.shell.props.shell_player, "volume",
@@ -324,6 +323,16 @@ class AltToolbarShared(AltToolbarBase):
             self.cover_popover = Gtk.Popover.new(self.album_cover)
             image = Gtk.Image.new()
             self.cover_popover.add(image)
+            
+            self._popover_inprogress = 0
+            self.cover_popover.set_modal(False)
+            self.cover_popover.connect('leave-notify-event', self._on_cover_popover_mouse_over)
+            self.cover_popover.connect('enter-notify-event', self._on_cover_popover_mouse_over)
+            # detect when mouse moves out of the cover image (it has a parent eventbox)
+            self.album_cover_eventbox.connect('leave-notify-event', self._on_cover_popover_mouse_over)
+            self.album_cover_eventbox.connect('enter-notify-event', self._on_cover_popover_mouse_over)
+            
+        
 
     def on_load_complete(self, *args):
         super(AltToolbarShared, self).on_load_complete(*args)
@@ -350,7 +359,6 @@ class AltToolbarShared(AltToolbarBase):
         if self.sidebar:
             self.rbtreeparent.remove(self.sidebar) # remove our sidebar
             self.rbtreeparent.add(self.rbtree) # add the original GtkTree view
-
         
     def add_controller(self, controller):
         '''
@@ -391,6 +399,32 @@ class AltToolbarShared(AltToolbarBase):
             return True
         else:
             return False
+            
+    def _on_cover_popover_mouse_over(self, widget, eventcrossing):
+        if eventcrossing.type == Gdk.EventType.ENTER_NOTIFY:
+            if self._popover_inprogress == 0:
+                self._popover_inprogress = 1
+            else:
+                self._popover_inprogress = 2
+            print ("enter")
+        else:
+            print ("exit")
+            self._popover_inprogress = 3
+            
+        #print (eventcrossing.type)
+        
+        def delayed(*args):
+            if self._popover_inprogress == 3:
+                self.cover_popover.hide()
+                self._popover_inprogress = 0
+                return False
+            else:
+                return True
+                
+        if self._popover_inprogress == 1:
+            print ("addding timeout")
+            self._popover_inprogress = 2
+            GLib.timeout_add(500, delayed)
 
     def show_slider(self, visibility):
         self.song_box.set_visible(visibility)
