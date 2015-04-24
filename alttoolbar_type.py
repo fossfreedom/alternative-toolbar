@@ -22,6 +22,7 @@ from alttoolbar_controller import AltRadioController
 from alttoolbar_controller import AltLastFMController
 from alttoolbar_controller import AltPlaylistController
 from alttoolbar_controller import AltErrorsController
+from alttoolbar_controller import AltPodcastController
 from alttoolbar_controller import AltStandardOnlineController
 from alttoolbar_controller import AltStandardLocalController
 from alttoolbar_sidebar import AltToolbarSidebar
@@ -252,6 +253,7 @@ class AltToolbarShared(AltToolbarBase):
         self.add_controller(AltLastFMController(self))
         self.add_controller(AltPlaylistController(self))
         self.add_controller(AltErrorsController(self))
+        self.add_controller(AltPodcastController(self))
 
         # now move current RBDisplayPageTree to listview stack
         display_tree = self.shell.props.display_page_tree
@@ -383,6 +385,7 @@ class AltToolbarShared(AltToolbarBase):
                 return True, self._controllers[controller_type]
         
         return False, self._controllers['generic']
+
             
     def show_cover_tooltip(self, tooltip):
         if ( self.cover_pixbuf is not None ):
@@ -831,6 +834,18 @@ class AltToolbarHeaderBar(AltToolbarShared):
         print(search_button.get_active())
         self.searchbar.set_search_mode(search_button.get_active())
 
+    def set_library_labels(self, song_label = None, category_label = None):
+        if not song_label:
+            self.library_song_radiobutton.set_label(_('Songs'))
+        else:
+            self.library_song_radiobutton.set_label(song_label)
+
+
+        if not category_label:
+            self.library_browser_radiobutton.set_label(_('Categories'))
+        else:
+            self.library_browser_radiobutton.set_label(category_label)
+
     def library_radiobutton_toggled(self, toggle_button):
         print("library_radiobutton_toggled")
         if not hasattr(self, 'library_song_radiobutton'):
@@ -983,3 +998,10 @@ class AltToolbarHeaderBar(AltToolbarShared):
             sensitive = True
             
         self.library_box.set_sensitive(sensitive)
+
+    def reset_toolbar(self, page):
+        super(AltToolbarHeaderBar, self).reset_toolbar(page)
+
+        ret, controller = self.is_controlled(page)
+
+        controller.set_library_labels()

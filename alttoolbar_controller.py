@@ -154,6 +154,13 @@ class AltControllerBase(GObject.Object):
 
         pass
 
+    def set_library_labels(self):
+        '''
+          set the centre library song-category button label
+        '''
+
+        self.header.set_library_labels()
+
 class AltGenericController(AltControllerBase):
     '''
     generic controller for the headerbar (only)
@@ -205,6 +212,7 @@ class AltGenericController(AltControllerBase):
         toolbar.set_visible(False)
 
         searchbar.add(search)
+
 
     def update_controls(self, source):
         '''
@@ -494,6 +502,9 @@ class AltRadioController(AltGenericController):
         
     def get_category(self):
         return AltControllerCategory.ONLINE
+
+    def set_library_labels(self):
+        self.header.set_library_labels(song_label=_('Stations'))
         
 class AltLastFMController(AltGenericController):
     '''
@@ -567,6 +578,24 @@ class AltPlaylistController(AltGenericController):
     def get_category(self):
         return AltControllerCategory.PLAYLIST
 
+class AltPodcastController(AltGenericController):
+    '''
+    podcast controller
+    '''
+    __gtype_name = 'AltPodcastController'
+
+    def valid_source(self, source):
+        '''
+          override
+        '''
+        return 'RBPodcastMainSource' in type(source).__name__
+
+    def get_category(self):
+        return AltControllerCategory.ONLINE
+
+    def set_library_labels(self):
+        self.header.set_library_labels(song_label=_('Podcasts'))
+
 
 class AltStandardOnlineController(AltGenericController):
     '''
@@ -580,8 +609,7 @@ class AltStandardOnlineController(AltGenericController):
         '''
         super(AltStandardOnlineController, self).__init__(header)
 
-        self._source_types=[ 'RBPodcastMainSource',
-                             'MagnatuneSource',
+        self._source_types=[ 'MagnatuneSource',
                              'RBGriloSource',
                              'RadioBrowserSource']
 
