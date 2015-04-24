@@ -114,6 +114,7 @@
               <object class="GtkEventBox" id="album cover eventbox">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="visible-window">False</property>
                 <child>
                   <object class="GtkImage" id="album cover">
                     <property name="can_focus">False</property>
