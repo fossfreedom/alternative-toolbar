@@ -120,6 +120,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.inline_label = self.plugin_settings[self.gs.PluginKey.INLINE_LABEL]
         self.compact_progressbar = self.plugin_settings[self.gs.PluginKey.COMPACT_PROGRESSBAR]
         self.enhanced_sidebar = self.plugin_settings[self.gs.PluginKey.ENHANCED_SIDEBAR]
+        self.show_tooltips = self.plugin_settings[self.gs.PluginKey.SHOW_TOOLTIPS]
 
         # Add the various application view menus
         self.appshell = ApplicationShell(self.shell)

@@ -53,7 +53,8 @@ class GSetting:
                 INLINE_LABEL='inline-label',
                 COMPACT_PROGRESSBAR='compact-progressbar',
                 ENHANCED_SIDEBAR='enhanced-sidebar',
-                EXPANDERS='expanders'
+                EXPANDERS='expanders',
+                SHOW_TOOLTIPS='show-tooltips'
             )
 
             self.setting = {}
@@ -171,6 +172,10 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         enhanced_sidebar = builder.get_object('enhanced_sidebar_checkbox')
         self.plugin_settings.bind(self.gs.PluginKey.ENHANCED_SIDEBAR,
                                   enhanced_sidebar, 'active', Gio.SettingsBindFlags.DEFAULT)
+
+        show_tooltips = builder.get_object('tooltips_checkbox')
+        self.plugin_settings.bind(self.gs.PluginKey.SHOW_TOOLTIPS,
+                                  show_tooltips, 'active', Gio.SettingsBindFlags.DEFAULT)
 
         if self.display_type == 0:
             self.auto_radiobutton.set_active(True)

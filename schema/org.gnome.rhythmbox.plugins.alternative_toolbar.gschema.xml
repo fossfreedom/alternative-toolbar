@@ -47,5 +47,10 @@
             <summary>expanders status</summary>
             <description>expanders open or close status</description>
         </key>
+        <key type="b" name="show-tooltips">
+            <default>true</default>
+            <summary>show tooltips</summary>
+            <description>Show or hide tooltips used in the plugin</description>
+        </key>
     </schema>
 </schemalist>

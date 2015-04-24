@@ -226,6 +226,7 @@ class AltToolbarShared(AltToolbarBase):
         self.icon_width = width
         self.cover_pixbuf = None
         self._controllers = {}
+        self._tooltip_exceptions = ['album_cover']
 
     def initialise(self, plugin):
         super(AltToolbarShared, self).initialise(plugin)
@@ -319,8 +320,7 @@ class AltToolbarShared(AltToolbarBase):
                 print(a.get_sensitive())
                 if not a.get_sensitive():
                     a.set_detailed_action_name("app." + b)
-                    
- 
+
         if gtk_version() >= 3.12:
             self.cover_popover = Gtk.Popover.new(self.album_cover)
             image = Gtk.Image.new()
@@ -333,8 +333,6 @@ class AltToolbarShared(AltToolbarBase):
             # detect when mouse moves out of the cover image (it has a parent eventbox)
             self.album_cover_eventbox.connect('leave-notify-event', self._on_cover_popover_mouse_over)
             self.album_cover_eventbox.connect('enter-notify-event', self._on_cover_popover_mouse_over)
-            
-        
 
     def on_load_complete(self, *args):
         super(AltToolbarShared, self).on_load_complete(*args)
@@ -386,7 +384,6 @@ class AltToolbarShared(AltToolbarBase):
         
         return False, self._controllers['generic']
 
-            
     def show_cover_tooltip(self, tooltip):
         if ( self.cover_pixbuf is not None ):
             if gtk_version() >= 3.12:
@@ -646,6 +643,10 @@ class AltToolbarShared(AltToolbarBase):
                 name = Gtk.Buildable.get_name(obj).replace(' ', '_')
                 self.__dict__[name] = obj
                 self.__builder_obj_names.append(name)
+
+                if not self.plugin.show_tooltips and obj.get_has_tooltip():
+                    if not name in self._tooltip_exceptions:
+                        obj.set_has_tooltip(False)
 
     def connect_builder_content(self, builder):
         builder.connect_signals_full(self.connect_builder_content_func, self)
