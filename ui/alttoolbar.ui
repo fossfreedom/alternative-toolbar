@@ -29,6 +29,7 @@
               <object class="GtkButton" id="prev button">
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
+                <property name="tooltip_text" translatable="yes">Play the previous track</property>
                 <child>
                   <object class="GtkImage" id="previous image">
                     <property name="can_focus">False</property>
@@ -50,6 +51,7 @@
               <object class="GtkButton" id="play button">
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
+                <property name="tooltip_text" translatable="yes">Resume or pause the playback</property>
                 <child>
                   <object class="GtkImage" id="play image">
                     <property name="can_focus">False</property>
@@ -71,6 +73,7 @@
               <object class="GtkButton" id="next button">
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
+                <property name="tooltip_text" translatable="yes">Play the next track</property>
                 <child>
                   <object class="GtkImage" id="next image">
                     <property name="can_focus">False</property>
@@ -237,6 +240,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Repeat the current track</property>
                 <property name="always_show_image">True</property>
                 <child>
                   <object class="GtkImage" id="repeat image">
@@ -259,6 +263,7 @@
               <object class="GtkToggleButton" id="shuffle toggle">
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
+                <property name="tooltip_text" translatable="yes">Play the tracks in a random order</property>
                 <property name="margin_right">6</property>
                 <child>
                   <object class="GtkImage" id="shuffle image">
