@@ -264,7 +264,7 @@
               <object class="GtkToggleButton" id="shuffle toggle">
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
-                <property name="tooltip_text" translatable="yes">Play the tracks in a random order</property>
+                <property name="tooltip_text" translatable="yes">Play the tracks in random order</property>
                 <property name="margin_right">6</property>
                 <child>
                   <object class="GtkImage" id="shuffle image">
