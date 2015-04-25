@@ -544,7 +544,7 @@ class AltToolbarShared(AltToolbarBase):
         '''
 
         if ( entry is None ):
-            self.song_button_label._set_text("")
+            self.song_button_label.set_label("")
             return False
 
         stream_title = self.shell.props.db.entry_request_extra_metadata(entry, RB.RHYTHMDB_PROP_STREAM_SONG_TITLE)
