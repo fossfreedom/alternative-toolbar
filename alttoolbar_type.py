@@ -969,23 +969,20 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self.library_radiobutton_toggled(None)
         self._set_toolbar_controller()
 
+        ret, controller = self.is_controlled(page)
+        controller.set_library_labels()
+
+
     def _set_toolbar_controller(self):
         
         ret_generic_bool, generic_controller = self.is_controlled('generic')
         if not ret_generic_bool:
             return
         
-        current_controller = None
-
         if not self.shell.props.selected_page in self.sources:
-            
             ret_bool, controller = self.is_controlled(self.shell.props.selected_page)
-            
-            #if ret_bool:
             self.sources[self.shell.props.selected_page] = controller
-            #else:
-            #    self.sources[self.shell.props.selected_page] = generic_controller
-            
+
         current_controller = self.sources[self.shell.props.selected_page]
         current_controller.update_controls(self.shell.props.selected_page)
 
@@ -999,10 +996,3 @@ class AltToolbarHeaderBar(AltToolbarShared):
             sensitive = True
             
         self.library_box.set_sensitive(sensitive)
-
-    def reset_toolbar(self, page):
-        super(AltToolbarHeaderBar, self).reset_toolbar(page)
-
-        ret, controller = self.is_controlled(page)
-
-        controller.set_library_labels()
