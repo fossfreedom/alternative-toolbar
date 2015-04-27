@@ -33,10 +33,7 @@
                 <child>
                   <object class="GtkImage" id="previous image">
                     <property name="can_focus">False</property>
-                    <property name="xalign">1</property>
-                    <property name="yalign">1</property>
-                    <property name="xpad">5</property>
-                    <property name="ypad">5</property>
+                    <property name="margin">5</property>
                     <property name="icon_name">media-skip-backward-symbolic</property>
                   </object>
                 </child>
@@ -55,10 +52,7 @@
                 <child>
                   <object class="GtkImage" id="play image">
                     <property name="can_focus">False</property>
-                    <property name="xalign">1</property>
-                    <property name="yalign">1</property>
-                    <property name="xpad">5</property>
-                    <property name="ypad">5</property>
+                    <property name="margin">5</property>
                     <property name="icon_name">media-playback-start-symbolic</property>
                   </object>
                 </child>
@@ -77,10 +71,7 @@
                 <child>
                   <object class="GtkImage" id="next image">
                     <property name="can_focus">False</property>
-                    <property name="xalign">1</property>
-                    <property name="yalign">1</property>
-                    <property name="xpad">5</property>
-                    <property name="ypad">5</property>
+                    <property name="margin">5</property>
                     <property name="icon_name">media-skip-forward-symbolic</property>
                   </object>
                 </child>
@@ -246,10 +237,7 @@
                 <child>
                   <object class="GtkImage" id="repeat image">
                     <property name="can_focus">False</property>
-                    <property name="xalign">1</property>
-                    <property name="yalign">1</property>
-                    <property name="xpad">5</property>
-                    <property name="ypad">5</property>
+                    <property name="margin">5</property>
                     <property name="icon_name">media-playlist-repeat-symbolic</property>
                   </object>
                 </child>
@@ -269,10 +257,7 @@
                 <child>
                   <object class="GtkImage" id="shuffle image">
                     <property name="can_focus">False</property>
-                    <property name="xalign">1</property>
-                    <property name="yalign">1</property>
-                    <property name="xpad">5</property>
-                    <property name="ypad">5</property>
+                    <property name="margin">5</property>
                     <property name="icon_name">media-playlist-shuffle-symbolic</property>
                   </object>
                 </child>
