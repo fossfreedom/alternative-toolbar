@@ -591,7 +591,7 @@ class AltPodcastController(AltGenericController):
         return 'RBPodcastMainSource' in type(source).__name__
 
     def get_category(self):
-        return AltControllerCategory.ONLINE
+        return AltControllerCategory.LOCAL
 
     def set_library_labels(self):
         self.header.set_library_labels(song_label=_('Podcasts'))
