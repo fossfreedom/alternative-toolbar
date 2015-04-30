@@ -104,6 +104,8 @@
               <object class="GtkLabel" id="label4">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Best suitable for desktop
+environments like Gnome and Elementary.</property>
                 <property name="label" translatable="yes">Modern</property>
               </object>
               <packing>
@@ -116,6 +118,8 @@
               <object class="GtkSwitch" id="modern_switch">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">Best suitable for desktop
+environments like Gnome and Elementary.</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -138,7 +142,8 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
-            <property name="tooltip_text" translatable="yes">If checked, display the playing controls in a visually compact style instead of the standard rhythmbox style.</property>
+            <property name="tooltip_text" translatable="yes">Display the playback controls in the toolbar in visually compact style instead of the standard rhythmbox style.
+Always enabled for modern toolbar mode.</property>
             <property name="xalign">0</property>
             <property name="draw_indicator">True</property>
           </object>
@@ -172,7 +177,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
-            <property name="tooltip_text" translatable="yes">Display album/genre/year instead of song-artist-album.  Useful for those desktop-environments where song-artist-album is already displayed in the Window Title.</property>
+            <property name="tooltip_text" translatable="yes">Display album/genre/year instead of song-artist-album.  Useful for those desktop-environments where song-artist-album is already displayed in the window title.</property>
             <property name="xalign">0</property>
             <property name="draw_indicator">True</property>
           </object>
@@ -188,6 +193,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
+            <property name="tooltip_text" translatable="yes">Show or hide the tooltips for the playback controls.</property>
             <property name="xalign">0</property>
             <property name="draw_indicator">True</property>
           </object>
@@ -203,7 +209,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
-            <property name="tooltip_text" translatable="yes">Show or hide the volume-control.</property>
+            <property name="tooltip_text" translatable="yes">Show or hide the volume control.</property>
             <property name="xalign">0</property>
             <property name="draw_indicator">True</property>
           </object>
@@ -219,7 +225,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <property name="tooltip_text" translatable="yes">Show or hide the playing controls on first startup of the application.</property>
+            <property name="tooltip_text" translatable="yes">Show or hide the playing controls on player startup.</property>
             <property name="xalign">0</property>
             <property name="draw_indicator">True</property>
           </object>
@@ -267,7 +273,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
-            <property name="tooltip_text" translatable="yes">Display Song and Artist before the progress bar.  If not checked, the label is displayed above the progress bar.</property>
+            <property name="tooltip_text" translatable="yes">Display Song and Artist labels before the progress slider.  If not checked, they are displayed above the progress slider.</property>
             <property name="xalign">0</property>
             <property name="draw_indicator">True</property>
           </object>
@@ -283,7 +289,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
-            <property name="tooltip_text" translatable="yes">Display and use a compact progress bar - useful where the default theme progress-bar is visually too large</property>
+            <property name="tooltip_text" translatable="yes">Display and use a compact track progress slider - useful where the default theme progress slider is visually too large.</property>
             <property name="xalign">0</property>
             <property name="draw_indicator">True</property>
           </object>
@@ -299,6 +305,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
+            <property name="tooltip_text" translatable="yes">Show or hide redesigned sidebar for the player. It features improved symbolic icons, better sources organisation and ability to expand and collapse categories.</property>
             <property name="xalign">0</property>
             <property name="draw_indicator">True</property>
           </object>
@@ -319,6 +326,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
+                <property name="tooltip_text" translatable="yes">Restart the player so the changes will take effect.</property>
                 <style>
                   <class name="suggested-action"/>
                 </style>
