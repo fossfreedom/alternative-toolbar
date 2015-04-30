@@ -179,7 +179,8 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
                                   self._show_tooltips, 'active', Gio.SettingsBindFlags.DEFAULT)
 
         modern_switch = builder.get_object('modern_switch')
-        modern_switch.connect('state-set', self._modern_switch_state)
+        #modern_switch.connect('state-set', self._modern_switch_state)
+        modern_switch.connect('notify', self._modern_switch_state)
         
         # Determine what type of toolbar is to be displayed
         default = Gtk.Settings.get_default()
@@ -187,15 +188,15 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         
         if display_type == 0:
             if (not default.props.gtk_shell_shows_app_menu) or default.props.gtk_shell_shows_menubar:
-                modern_switch.set_state(False)
+                modern_switch.set_active(False)
             else:
-                modern_switch.set_state(True)
+                modern_switch.set_active(True)
         elif display_type == 1:
-            modern_switch.set_state(True)
+            modern_switch.set_active(True)
         else:
-            modern_switch.set_state(False)
+            modern_switch.set_active(False)
             
-        if modern_switch.get_state():
+        if modern_switch.get_active():
             self._show_compact.set_active(True)
         
         self._show_compact_checkbox_toggled(self._show_compact)
@@ -222,7 +223,11 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         self._playing_label.set_sensitive(enabled)
         self._compact_control.set_sensitive(enabled)
         
-    def _modern_switch_state(self, switch, state):
+    def _modern_switch_state(self, switch, param):
+        print ("here")
+        print (switch)
+        state = switch.get_active()
+        print (state)
         self._show_compact.set_sensitive(not state)
         
         if state:
