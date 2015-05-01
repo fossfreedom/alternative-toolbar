@@ -277,7 +277,7 @@ class AltGenericController(AltControllerBase):
             
             self.moveto_searchbar(toolbar, search, self.header.searchbar)
             self.header.searchbar.connect_entry(entry)
-            self.header.searchbar.show_all()
+            #self.header.searchbar.show_all()
 
             search_button = Gtk.ToggleButton.new()
             image = Gtk.Image.new_from_icon_name("preferences-system-search-symbolic", Gtk.IconSize.SMALL_TOOLBAR)

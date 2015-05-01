@@ -276,26 +276,29 @@ class AltToolbarShared(AltToolbarBase):
         self.display_tree_parent.pack1(self.stack, True, True)
         
         self._moved_controls = []
-        
-        toolbar = self.find(display_tree, 'GtkToolbar', 'by_name')
-        box = self.find(toolbar, 'GtkBox', 'by_name')
-        box.props.halign = Gtk.Align.CENTER
-        context = box.get_style_context()
-        context.add_class('linked')
-        parent = box.get_parent()
-        parent.remove(box)
-        parent_toolbar = toolbar.get_parent()
-        parent_toolbar.remove(toolbar)
-        display_tree.attach(box, 0, 10, 1 ,1 )
-        
-        # child, new-parent, old-parent
-        self._moved_controls.append((box, display_tree, parent))
-        self._moved_controls.append((toolbar, None, parent_toolbar))
 
-        # find the actual GtkTreeView in the RBDisplayTree and remove it
-        self.rbtree = self.find(display_tree, 'GtkTreeView', 'by_name')
-        self.rbtreeparent = self.rbtree.get_parent()
-        self.rbtreeparent.remove(self.rbtree)
+        if self.plugin.enhanced_sidebar:
+            toolbar = self.find(display_tree, 'GtkToolbar', 'by_name')
+            box = self.find(toolbar, 'GtkBox', 'by_name')
+            box.props.margin_bottom = 5
+            box.props.margin_left = 5
+            context = box.get_style_context()
+            context.add_class('linked')
+            parent = box.get_parent()
+            parent.remove(box)
+            parent_toolbar = toolbar.get_parent()
+            parent_toolbar.remove(toolbar)
+            display_tree.attach(box, 0, 10, 1 ,1 )
+
+            # child, new-parent, old-parent
+            self._moved_controls.append((box, display_tree, parent))
+            self._moved_controls.append((toolbar, None, parent_toolbar))
+
+            # find the actual GtkTreeView in the RBDisplayTree and remove it
+            self.rbtree = self.find(display_tree, 'GtkTreeView', 'by_name')
+            self.rbtreeparent = self.rbtree.get_parent()
+            self.rbtreeparent.remove(self.rbtree)
+
         self.sidebar = None
         
     def post_initialise(self):
@@ -887,6 +890,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
         if toggle_button:
             self.emit('song-category-clicked', self.library_song_radiobutton.get_active())
 
+        self._resize_source(self.shell.props.selected_page)
+
         val, button = self.is_browser_view(self.shell.props.selected_page)
         if not val:
             return
@@ -994,6 +999,12 @@ class AltToolbarHeaderBar(AltToolbarShared):
             action.set_active(False)
             self.set_visible(False)
 
+    def _resize_source(self, page):
+        if page:
+            child = self.find(page, 'GtkGrid', "by_name")
+            if child and child.props.margin_top == 6: # hard-coded test for sources where grid is this value
+                child.props.margin_top = 0
+
     def reset_toolbar(self, page):
         print(page)
         super(AltToolbarHeaderBar, self).reset_toolbar(page)
@@ -1001,9 +1012,10 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self.library_radiobutton_toggled(None)
         self._set_toolbar_controller()
 
+        self._resize_source(page)
+
         ret, controller = self.is_controlled(page)
         controller.set_library_labels()
-
 
     def _set_toolbar_controller(self):
         

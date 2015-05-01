@@ -335,7 +335,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         '''
            sources display-tree signal handler
         '''
-        print("page changed")
+        print("page changed", page)
         self.toolbar_type.reset_toolbar(page)
 
     @staticmethod
