@@ -277,28 +277,30 @@ class AltToolbarShared(AltToolbarBase):
         
         self._moved_controls = []
 
-        if self.plugin.enhanced_sidebar:
-            toolbar = self.find(display_tree, 'GtkToolbar', 'by_name')
-            box = self.find(toolbar, 'GtkBox', 'by_name')
-            box.props.margin_top = 5
-            box.props.margin_bottom = 5
-            box.props.margin_left = 5
-            context = box.get_style_context()
-            context.add_class('linked')
-            parent = box.get_parent()
-            parent.remove(box)
-            parent_toolbar = toolbar.get_parent()
-            parent_toolbar.remove(toolbar)
-            display_tree.attach(box, 0, 10, 1 ,1 )
+        #if 1==2: #self.plugin.enhanced_sidebar:
+        toolbar = self.find(display_tree, 'GtkToolbar', 'by_name')
+        #context = toolbar.get_style_context()
+        #context.add_class('toolbar')
+        box = self.find(toolbar, 'GtkBox', 'by_name')
+        #box.props.margin_top = 2
+        #box.props.margin_bottom = 0
+        #box.props.margin_left = 5
+        context = box.get_style_context()
+        context.add_class('linked')
+        #parent = box.get_parent()
+        #parent.remove(box)
+        #parent_toolbar = toolbar.get_parent()
+        #parent_toolbar.remove(toolbar)
+        #display_tree.attach(box, 0, 10, 1 ,1 )
 
-            # child, new-parent, old-parent
-            self._moved_controls.append((box, display_tree, parent))
-            self._moved_controls.append((toolbar, None, parent_toolbar))
+        # child, new-parent, old-parent
+        #self._moved_controls.append((box, display_tree, parent))
+        #self._moved_controls.append((toolbar, None, parent_toolbar))
 
-            # find the actual GtkTreeView in the RBDisplayTree and remove it
-            self.rbtree = self.find(display_tree, 'GtkTreeView', 'by_name')
-            self.rbtreeparent = self.rbtree.get_parent()
-            self.rbtreeparent.remove(self.rbtree)
+        # find the actual GtkTreeView in the RBDisplayTree and remove it
+        self.rbtree = self.find(display_tree, 'GtkTreeView', 'by_name')
+        self.rbtreeparent = self.rbtree.get_parent()
+        self.rbtreeparent.remove(self.rbtree)
 
         self.sidebar = None
         
