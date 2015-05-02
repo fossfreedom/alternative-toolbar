@@ -280,6 +280,7 @@ class AltToolbarShared(AltToolbarBase):
         if self.plugin.enhanced_sidebar:
             toolbar = self.find(display_tree, 'GtkToolbar', 'by_name')
             box = self.find(toolbar, 'GtkBox', 'by_name')
+            box.props.margin_top = 5
             box.props.margin_bottom = 5
             box.props.margin_left = 5
             context = box.get_style_context()
@@ -868,6 +869,16 @@ class AltToolbarHeaderBar(AltToolbarShared):
     def search_button_toggled(self, search_button):
         print("search_button_toggled")
         print(search_button.get_active())
+        
+        def delay_hide(*args):
+            # we use a delay to allow the searchbar minimise effect to be visible
+            self.searchbar.set_visible(False)
+            
+        if search_button.get_active():
+            self.searchbar.set_visible(True)
+        else:
+            GLib.timeout_add(350, delay_hide)
+            
         self.searchbar.set_search_mode(search_button.get_active())
 
     def set_library_labels(self, song_label = None, category_label = None):

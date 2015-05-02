@@ -278,6 +278,7 @@ class AltGenericController(AltControllerBase):
             self.moveto_searchbar(toolbar, search, self.header.searchbar)
             self.header.searchbar.connect_entry(entry)
             #self.header.searchbar.show_all()
+            self.header.searchbar.set_visible(False)
 
             search_button = Gtk.ToggleButton.new()
             image = Gtk.Image.new_from_icon_name("preferences-system-search-symbolic", Gtk.IconSize.SMALL_TOOLBAR)
@@ -300,11 +301,14 @@ class AltGenericController(AltControllerBase):
             if self.header.searchbar:
                 self.header.searchbar.set_visible(False)
             self.header.searchbar = search
-            self.header.searchbar.set_visible(True)
+            #self.header.searchbar.set_visible(True)
 
             self.remove_controls(self.header.end_box)
             search_button = self.end_controls[source]['search_button']
             self.header.current_search_button = search_button
+            
+            self.header.searchbar.set_visible(search_button.get_active())
+                
             self.header.end_box.add(search_button)
             self.header.end_box.reorder_child(search_button, 0)
             self.header.end_box.show_all()
