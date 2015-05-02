@@ -44,6 +44,8 @@ class AltToolbarSidebar(Gtk.TreeView):
         self.set_name("AltToolbarSideBar")
         self._category = {}
         self._last_click_source = None
+        
+        self._user_clicked = False
 
         gs = GSetting()
         plugin_settings = gs.get_setting(gs.Path.PLUGIN)
@@ -93,7 +95,8 @@ class AltToolbarSidebar(Gtk.TreeView):
                 path = self.treestore.get_path(self._category[category])
 
                 if path and expanders[category]:
-                    self.expand_row(path, expanders[category])
+                    #self._user_clicked = True
+                    self.expand_row(path, False) #expanders[category])
 
             return False
 
@@ -327,6 +330,7 @@ class AltToolbarSidebar(Gtk.TreeView):
 
         if active_object:
             # we have a source
+            self._user_clicked = True
             self.shell.props.display_page_tree.select(active_object)
             self.rbtree.expand_all()
             if self._last_click_source == active_object:
@@ -356,6 +360,10 @@ class AltToolbarSidebar(Gtk.TreeView):
         :return:
         '''
 
+        if self._user_clicked:
+            self._user_clicked = False
+            return
+            
         # first do a reverse lookup so that we can search quicker later
         # dict of sources in the sidebar model with their treeiter
         lookup = {}
