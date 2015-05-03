@@ -103,6 +103,11 @@ class AltToolbarSidebar(Gtk.TreeView):
         GLib.timeout_add_seconds(1, delayed)
 
         column = Gtk.TreeViewColumn.new()
+        column.set_fixed_width(5)
+        column.set_sizing(Gtk.TreeViewColumnSizing.FIXED)
+        self.append_column(column)
+
+        column = Gtk.TreeViewColumn.new()
 
         pixbuf_renderer = Gtk.CellRendererPixbuf()
         column.pack_start(pixbuf_renderer, False)
@@ -117,6 +122,7 @@ class AltToolbarSidebar(Gtk.TreeView):
         self.tree_column = column
 
         self.append_column(column)
+        self.set_expander_column(column)
         self.show_all()
         self.set_can_focus(True)
 
