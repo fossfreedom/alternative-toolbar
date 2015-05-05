@@ -125,15 +125,21 @@ class AltToolbarSidebar(Gtk.TreeView):
         model = self.shell.props.display_page_model
         #model.props.child_model.connect('row-inserted', self._model_page_inserted)
         #model.connect('row-inserted', self._model_page_inserted)
-        model.connect('page-inserted', self._model_page_inserted)
-        model.connect('row-deleted', self._model_page_deleted)
-        model.connect('row-changed', self._model_page_changed)
+        self._cpi = model.connect('page-inserted', self._model_page_inserted)
+        self._crd = model.connect('row-deleted', self._model_page_deleted)
+        self._crc = model.connect('row-changed', self._model_page_changed)
 
         # when we click on the sidebar - need to keep the display_page_tree in sync
         self.connect('button-press-event', self._row_click)
         # and visa versa
         self.shell.props.display_page_tree.connect('selected', self._display_page_tree_selected)
         self.shell.props.shell_player.connect('playing-song-changed', self._on_playing_song_changed)
+
+    def cleanup(self):
+        model = self.shell.props.display_page_model
+        model.disconnect(self._cpi)
+        model.disconnect(self._crd)
+        model.disconnect(self._crc)
 
     def _on_playing_song_changed(self, *args):
         '''

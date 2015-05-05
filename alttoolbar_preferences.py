@@ -201,8 +201,10 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         
         self._show_compact_checkbox_toggled(self._show_compact)
         
-        restart_button = builder.get_object('restart_button')
-        restart_button.connect('clicked', self._restart_button_clicked)
+        infobar = builder.get_object('infobar')
+        button = infobar.add_button(_("Restart"), 1)
+        #restart_button = builder.get_object('restart_button')
+        button.connect('clicked', self._restart_button_clicked)
     
         self._first_run = False
 
@@ -224,10 +226,7 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         self._compact_control.set_sensitive(enabled)
         
     def _modern_switch_state(self, switch, param):
-        print ("here")
-        print (switch)
         state = switch.get_active()
-        print (state)
         self._show_compact.set_sensitive(not state)
         
         if state:

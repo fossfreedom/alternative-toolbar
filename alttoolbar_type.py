@@ -377,6 +377,9 @@ class AltToolbarShared(AltToolbarBase):
 
         super (AltToolbarShared, self).cleanup()
 
+        if self.sidebar:
+            self.sidebar.cleanup()
+
         self.display_tree_parent.remove(self.stack)
         self.display_tree_parent.pack1(self.shell.props.display_page_tree)
         if self.sidebar:

@@ -26,11 +26,13 @@ from gi.repository import Gio
 
 from alttoolbar_rb3compat import ActionGroup
 from alttoolbar_rb3compat import ApplicationShell
+from alttoolbar_rb3compat import gtk_version
 from alttoolbar_type import AltToolbarStandard
 from alttoolbar_type import AltToolbarCompact
 from alttoolbar_type import AltToolbarHeaderBar
 from alttoolbar_preferences import Preferences
 from alttoolbar_preferences import GSetting
+from alttoolbar_plugins import PluginDialog
 
 import rb
 
@@ -145,6 +147,12 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         self.toolbar_type.initialise(self)
         self.toolbar_type.post_initialise()
+        
+        # redirect plugins action to our implementation
+        
+        action = Gio.SimpleAction.new('plugins', None)
+        action.connect('activate', self._display_plugins)
+        self.shell.props.application.add_action(action)
 
         self._connect_signals()
         self._connect_properties()
@@ -152,6 +160,24 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         # allow other plugins access to this toolbar
         self.shell.alternative_toolbar = self
 
+    def _display_plugins(self, *args):
+        ''' 
+          display our implementation of the LibPeas Plugin window
+        '''
+        
+        has_headerbar = isinstance(self.toolbar_type, AltToolbarHeaderBar)
+        
+        if gtk_version() < 3.12:
+            has_headerbar = False
+        
+        dlg = PluginDialog(self.shell.props.window, has_headerbar)
+        response = 0
+        
+        while response >= 0:
+            response = dlg.run()
+            print (response)
+            
+        dlg.destroy()
 
     def _add_menu_options(self):
         '''
