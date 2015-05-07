@@ -22,9 +22,12 @@ from gi.repository import Gtk
 from gi.repository import GObject
 from gi.repository import PeasGtk
 from gi.repository import Gio
+from gi.repository import RB
 import sys
 import os
 import shutil
+import locale
+import gettext
 
 import rb
 
@@ -110,6 +113,68 @@ class GSetting:
         """ Delegate access to implementation """
         return setattr(self.__instance, attr, value)
 
+class CoverLocale:
+    '''
+    This class manages the locale
+    '''
+    # storage for the instance reference
+    __instance = None
+
+    class __impl:
+        """ Implementation of the singleton interface """
+        # below public variables and methods that can be called for CoverLocale
+        def __init__(self):
+            '''
+            Initializes the singleton interface, assigning all the constants
+            used to access the plugin's settings.
+            '''
+            self.Locale = self._enum(
+                RB='rhythmbox',
+                LOCALE_DOMAIN='alternative-toolbar')
+
+        def switch_locale(self, locale_type):
+            '''
+            Change the locale
+            '''
+            locale.setlocale(locale.LC_ALL, '')
+            locale.bindtextdomain(locale_type, RB.locale_dir())
+            locale.textdomain(locale_type)
+            gettext.bindtextdomain(locale_type, RB.locale_dir())
+            gettext.textdomain(locale_type)
+            gettext.install(locale_type)
+
+        def get_locale(self):
+            '''
+            return the string representation of the users locale
+            for example
+            en_US
+            '''
+            return locale.getdefaultlocale()[0]
+
+        def _enum(self, **enums):
+            '''
+            Create an enumn.
+            '''
+            return type('Enum', (), enums)
+
+    def __init__(self):
+        """ Create singleton instance """
+        # Check whether we already have an instance
+        if CoverLocale.__instance is None:
+            # Create and remember instance
+            CoverLocale.__instance = CoverLocale.__impl()
+
+        # Store instance reference as the only member in the handle
+        self.__dict__['_CoverLocale__instance'] = CoverLocale.__instance
+
+    def __getattr__(self, attr):
+        """ Delegate access to implementation """
+        return getattr(self.__instance, attr)
+
+    def __setattr__(self, attr, value):
+        """ Delegate access to implementation """
+        return setattr(self.__instance, attr, value)
+
 
 class Preferences(GObject.Object, PeasGtk.Configurable):
     '''
@@ -137,7 +202,10 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         # create the ui
         self._first_run = True
 
+        cl = CoverLocale()
+        cl.switch_locale(cl.Locale.LOCALE_DOMAIN)
         builder = Gtk.Builder()
+        builder.set_translation_domain(cl.Locale.LOCALE_DOMAIN)
         builder.add_from_file(rb.find_plugin_file(self,
                                                   'ui/altpreferences.ui'))
         builder.connect_signals(self)

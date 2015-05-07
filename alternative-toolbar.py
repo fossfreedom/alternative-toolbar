@@ -32,6 +32,7 @@ from alttoolbar_type import AltToolbarCompact
 from alttoolbar_type import AltToolbarHeaderBar
 from alttoolbar_preferences import Preferences
 from alttoolbar_preferences import GSetting
+from alttoolbar_preferences import CoverLocale
 from alttoolbar_plugins import PluginDialog
 
 import rb
@@ -104,6 +105,10 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.entry = None
         self._plugin_dialog_width = 760
         self._plugin_dialog_height = 550
+        
+        # locale stuff
+        cl = CoverLocale()
+        cl.switch_locale(cl.Locale.LOCALE_DOMAIN)
 
         # for custom icons ensure we start looking in the plugin img folder as a fallback
         theme = Gtk.IconTheme.get_default()

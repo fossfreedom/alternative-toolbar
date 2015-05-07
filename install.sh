@@ -8,6 +8,7 @@ SCHEMA_FOLDER="schema/"
 GLIB_DIR="/usr/share/glib-2.0/schemas/"
 
 function uninstall {
+    sudo sh -c "cd /usr/share/locale && find . -name alternative-toolbar*.mo -delete"
     rm -rf "${PLUGIN_PATH}"
     sudo rm "${GLIB_DIR}${GLIB_SCHEME}"
     sudo glib-compile-schemas "${GLIB_DIR}"
@@ -69,6 +70,9 @@ cp -r "${SCRIPT_PATH}"* "$PLUGIN_PATH"
 
 #remove the install script from the dir (not needed)
 rm "${PLUGIN_PATH}${SCRIPT_NAME}"
+
+#install translations
+cd po; sudo ./lang.sh /usr/share/locale/
 
 #install the glib schema
 echo "Installing the glib schema (password needed)"

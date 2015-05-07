@@ -1,0 +1,241 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-07 22:01+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: tmp/altlibrary.ui.h:1 alttoolbar_type.py:905
+msgid "Songs"
+msgstr ""
+
+#: tmp/altlibrary.ui.h:2 alttoolbar_type.py:911
+msgid "Categories"
+msgstr ""
+
+#: tmp/altpreferences.ui.h:1
+msgid "Restart the player for the changes to take effect."
+msgstr ""
+
+#: tmp/altpreferences.ui.h:2
+msgid "Toolbar:"
+msgstr ""
+
+#: tmp/altpreferences.ui.h:3
+msgid ""
+"Best suitable for desktop\n"
+"environments like Gnome and Elementary."
+msgstr ""
+
+#: tmp/altpreferences.ui.h:5
+msgid "Modern"
+msgstr ""
+
+#: tmp/altpreferences.ui.h:6
+msgid "Use compact controls"
+msgstr ""
+
+#: tmp/altpreferences.ui.h:7
+msgid ""
+"Display the playback controls in the toolbar in visually compact style "
+"instead of the standard rhythmbox style.\n"
+"Always enabled for modern toolbar mode."
+msgstr ""
+
+#: tmp/altpreferences.ui.h:9
+msgid "Show:"
+msgstr ""
+
+#: tmp/altpreferences.ui.h:10
+msgid "Album/genre/year for playing song"
+msgstr ""
+
+#: tmp/altpreferences.ui.h:11
+msgid ""
+"Display album/genre/year instead of song-artist-album.  Useful for those "
+"desktop-environments where song-artist-album is already displayed in the "
+"window title."
+msgstr ""
+
+#: tmp/altpreferences.ui.h:12
+msgid "Toolips for the playback controls"
+msgstr ""
+
+#: tmp/altpreferences.ui.h:13
+msgid "Show or hide the tooltips for the playback controls."
+msgstr ""
+
+#: tmp/altpreferences.ui.h:14
+msgid "Volume Control"
+msgstr ""
+
+#: tmp/altpreferences.ui.h:15
+msgid "Show or hide the volume control."
+msgstr ""
+
+#: tmp/altpreferences.ui.h:16
+msgid "Playback controls"
+msgstr ""
+
+#: tmp/altpreferences.ui.h:17
+msgid "Show or hide the playing controls on player startup."
+msgstr ""
+
+#: tmp/altpreferences.ui.h:18
+msgid "Use:"
+msgstr ""
+
+#: tmp/altpreferences.ui.h:19
+msgid "Inline Song/Artist Label"
+msgstr ""
+
+#: tmp/altpreferences.ui.h:20
+msgid ""
+"Display Song and Artist labels before the progress slider.  If not checked, "
+"they are displayed above the progress slider."
+msgstr ""
+
+#: tmp/altpreferences.ui.h:21
+msgid "Compact Progress slider"
+msgstr ""
+
+#: tmp/altpreferences.ui.h:22
+msgid ""
+"Display and use a compact track progress slider - useful where the default "
+"theme progress slider is visually too large."
+msgstr ""
+
+#: tmp/altpreferences.ui.h:23
+msgid "Enhanced sidebar"
+msgstr ""
+
+#: tmp/altpreferences.ui.h:24
+msgid ""
+"Show or hide redesigned sidebar for the player. It features improved "
+"symbolic icons, better sources organisation and ability to expand and "
+"collapse categories."
+msgstr ""
+
+#: tmp/alttoolbar.ui.h:1
+msgid "Play the previous track"
+msgstr ""
+
+#: tmp/alttoolbar.ui.h:2
+msgid "Resume or pause the playback"
+msgstr ""
+
+#: tmp/alttoolbar.ui.h:3
+msgid "Play the next track"
+msgstr ""
+
+#: tmp/alttoolbar.ui.h:4
+msgid "Repeat the current track"
+msgstr ""
+
+#: tmp/alttoolbar.ui.h:5
+msgid "Play the tracks in random order"
+msgstr ""
+
+#: alternative-toolbar.py:192
+msgid "Seek Backward"
+msgstr ""
+
+#: alternative-toolbar.py:194
+msgid "Seek backward, in current track, by 5 seconds."
+msgstr ""
+
+#: alternative-toolbar.py:196
+msgid "Seek Forward"
+msgstr ""
+
+#: alternative-toolbar.py:198
+msgid "Seek forward, in current track, by 10 seconds."
+msgstr ""
+
+#: alternative-toolbar.py:205
+msgid "Show Play-Controls Toolbar"
+msgstr ""
+
+#: alternative-toolbar.py:208
+msgid "Show or hide the play-controls toolbar"
+msgstr ""
+
+#: alternative-toolbar.py:211
+msgid "Show Source Toolbar"
+msgstr ""
+
+#: alternative-toolbar.py:214
+msgid "Show or hide the source toolbar"
+msgstr ""
+
+#: alttoolbar_controller.py:183
+msgid "View All"
+msgstr ""
+
+#: alttoolbar_controller.py:339
+msgid "Import"
+msgstr ""
+
+#: alttoolbar_controller.py:514
+msgid "Stations"
+msgstr ""
+
+#: alttoolbar_controller.py:535
+msgid "Libre.fm"
+msgstr ""
+
+#: alttoolbar_controller.py:571
+msgid "My Top Rated"
+msgstr ""
+
+#: alttoolbar_controller.py:574
+msgid "Recently Added"
+msgstr ""
+
+#: alttoolbar_controller.py:577
+msgid "Recently Played"
+msgstr ""
+
+#: alttoolbar_controller.py:604
+msgid "Podcasts"
+msgstr ""
+
+#: alttoolbar_plugins.py:195
+msgid "Configure Plugins"
+msgstr ""
+
+#: alttoolbar_preferences.py:205
+msgid "Restart"
+msgstr ""
+
+#: alttoolbar_sidebar.py:71
+msgid "Local collection"
+msgstr ""
+
+#: alttoolbar_sidebar.py:72
+msgid "Online sources"
+msgstr ""
+
+#: alttoolbar_sidebar.py:73
+msgid "Other sources"
+msgstr ""
+
+#: alttoolbar_sidebar.py:74
+msgid "Playlists"
+msgstr ""
+
+#: alttoolbar_type.py:969
+msgid "Browse"
+msgstr ""
