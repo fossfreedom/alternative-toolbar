@@ -227,6 +227,7 @@ class AltToolbarShared(AltToolbarBase):
         self.cover_pixbuf = None
         self._controllers = {}
         self._tooltip_exceptions = ['album_cover']
+        self._moved_controls = []
 
     def initialise(self, plugin):
         super(AltToolbarShared, self).initialise(plugin)
@@ -274,8 +275,6 @@ class AltToolbarShared(AltToolbarBase):
         self.stack.show_all()
 
         self.display_tree_parent.pack1(self.stack, True, True)
-        
-        self._moved_controls = []
 
         #if 1==2: #self.plugin.enhanced_sidebar:
         toolbar = self.find(display_tree, 'GtkToolbar', 'by_name')
@@ -368,6 +367,21 @@ class AltToolbarShared(AltToolbarBase):
             self.rbtreeparent.add(self.rbtree)
 
         #self.shell.add_widget(self.rbtree, RB.ShellUILocation.SIDEBAR, expand=True, fill=True)
+
+    def register_moved_control(self, child, old_parent, new_parent=None):
+        '''
+           convenience function to save the GTK child & parents when they are moved.
+           we use this info to cleanup when quitting RB - we need to move stuff back because
+           otherwise there are random crashes due to memory deallocation issues
+
+        :param child: GTK Widget
+        :param old_parent: original GTK container that the child was moved from
+        :param new_parent: new GTK container that the child was added to (may just have removed without moving)
+        :return:
+        '''
+
+        # store as a tuple: child, new-parent, old-parent
+        self._moved_controls.append((child, new_parent, old_parent))
 
     def cleanup(self):
         '''

@@ -247,7 +247,7 @@ class AltGenericController(AltControllerBase):
 
             self.remove_controls(self.header.end_box)
 
-            print (toolbar)
+            print (toolbar) # should be the RBSourceToolbar
             search, entry = self.get_search_entry(toolbar)
             if not search:
                 return
@@ -257,23 +257,23 @@ class AltGenericController(AltControllerBase):
 
             # define a searchbar widget
             self.header.searchbar = Gtk.SearchBar.new()
-            #self.header.shell.add_widget(self.header.searchbar,
-            #                             RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
 
             # we need to add this to the top of the source window
-            # todo this - find the first child and physically move this into the
+            # to-do this - find the first child and physically move this into the
             # second position in a box - the first position being the searchbar
             children = source.get_children()
             print (children)
-            first = children[0]
+            first = children[0] # We assume the first container in a source is a GtkNotebook
             box = Gtk.Box()
             box.set_orientation(Gtk.Orientation.VERTICAL)
             box.pack_start(self.header.searchbar, False, True, 0)
             box.show_all()
-            Gtk.Container.remove(source, first)
-            box.pack_start(first, True, True, 1)
+            Gtk.Container.remove(source, first) # so remove the notebook from the source
+            box.pack_start(first, True, True, 1) # add the notebook to a box
             
-            source.add(box)
+            source.add(box) # then add the box back to the source - i.e. we added another parent
+
+            self.header.register_moved_control(child=first, old_parent=source, new_parent=box)
             
             self.moveto_searchbar(toolbar, search, self.header.searchbar)
             self.header.searchbar.connect_entry(entry)
@@ -385,6 +385,7 @@ class AltSoundCloudController(AltGenericController):
         parent_grid.remove(toolbar)
         searchbar.add(toolbar)
 
+        self.header.register_moved_control(child=toolbar, old_parent=parent_grid, new_parent=searchbar)
 
 class AltCoverArtBrowserController(AltGenericController):
     '''
@@ -428,6 +429,8 @@ class AltCoverArtBrowserController(AltGenericController):
         parent_grid = toolbar.get_parent()
         parent_grid.remove(toolbar)
         searchbar.add(toolbar)
+
+        self.header.register_moved_control(child=toolbar, old_parent=parent_grid, new_parent=searchbar)
 
     def get_search_entry(self, toolbar):
         '''
