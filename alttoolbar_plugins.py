@@ -47,11 +47,16 @@ class PluginListRow(Gtk.Box):
         switch = Gtk.Switch.new()
         self._switch = switch
         
-        if not plugin.is_available():
-            switch.set_sensitive(False)
+        sensitive = False
+        
+        try:
+            if plugin.is_available():
+                sensitive = True
+            switch.set_active(plugin.is_loaded())
+        except:
+            pass
             
-        switch.set_active(plugin.is_loaded())
-    
+        switch.set_sensitive(sensitive)
         switch.connect('notify::active', self._switch_changed)
         
         box = Gtk.Box()
@@ -84,12 +89,15 @@ class PluginListRow(Gtk.Box):
         GLib.timeout_add(250, delay, None)
             
     def refresh(self, *args):
-        self._switch.set_sensitive(self.plugin.is_available())
-            
-        if self._switch.get_active() == self.plugin.is_loaded():
-            return
-            
-        self._switch.set_active(self.plugin.is_loaded())
+        try:
+            self._switch.set_sensitive(self.plugin.is_available())
+                
+            if self._switch.get_active() == self.plugin.is_loaded():
+                return
+                
+            self._switch.set_active(self.plugin.is_loaded())
+        except:
+            self._switch.set_sensitive(False)
 
 class PluginDialog(Gtk.Dialog):
         
