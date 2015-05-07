@@ -105,7 +105,7 @@ class PluginDialog(Gtk.Dialog):
         self._has_headerbar = has_headerbar
         self._parent_window = parent_window
         
-        self.set_default_size(600, 400)
+        self.set_default_size(750, 400)
 
         listbox = Gtk.ListBox.new()
         listbox.set_sort_func(self._listbox_sort, None)
@@ -131,18 +131,23 @@ class PluginDialog(Gtk.Dialog):
         context.add_class(Gtk.STYLE_CLASS_INLINE_TOOLBAR)
         
         item = Gtk.ToolItem.new()
-        minitoolbar_box = Gtk.Box()
-        context = minitoolbar_box.get_style_context()
-        context.add_class('linked')
         
         btn = Gtk.Button()
         icon = Gio.ThemedIcon(name="preferences-system-symbolic")
         image = Gtk.Image()
         btn.add(image)
         image.set_from_gicon(icon, Gtk.IconSize.BUTTON)
-        minitoolbar_box.pack_start(btn, False, False, 0)
+        box = Gtk.Box()
+        box.pack_start(btn, False, False, 0)
+        item.add(box)
+        toolbar.insert(item, 0)
+        
         btn.connect('clicked', self._preferences_button_clicked)
         self._preferences_button = btn
+        
+        minitoolbar_box = Gtk.Box()
+        context = minitoolbar_box.get_style_context()
+        context.add_class('linked')
         
         btn = Gtk.Button()
         icon = Gio.ThemedIcon(name="dialog-information-symbolic")
@@ -154,7 +159,7 @@ class PluginDialog(Gtk.Dialog):
         self._info_button = btn
         
         btn = Gtk.Button()
-        icon = Gio.ThemedIcon(name="system-help-symbolic")
+        icon = Gio.ThemedIcon(name="help-browser-symbolic")
         image = Gtk.Image()
         btn.add(image)
         image.set_from_gicon(icon, Gtk.IconSize.BUTTON)
@@ -162,9 +167,15 @@ class PluginDialog(Gtk.Dialog):
         btn.connect('clicked', self._help_button_clicked)
         self._help_button = btn
         
+        item = Gtk.SeparatorToolItem.new()
+        item.props.draw=False
+        
+        toolbar.insert(item, 1)
+        toolbar.child_set_property(item, "expand",True)
+        
         item = Gtk.ToolItem.new()
         item.add(minitoolbar_box)
-        toolbar.insert(item, 0)
+        toolbar.insert(item, 2)
         
         contentbox = Gtk.Box()
         contentbox.set_orientation(Gtk.Orientation.VERTICAL)
