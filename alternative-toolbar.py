@@ -102,6 +102,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         # Prepare internal variables
         self.song_duration = 0
         self.entry = None
+        self._plugin_dialog_width = 760
+        self._plugin_dialog_height = 550
 
         # for custom icons ensure we start looking in the plugin img folder as a fallback
         theme = Gtk.IconTheme.get_default()
@@ -172,11 +174,13 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         
         dlg = PluginDialog(self.shell.props.window, has_headerbar)
         response = 0
+        dlg.set_default_size(self._plugin_dialog_width, self._plugin_dialog_height)
         
         while response >= 0:
             response = dlg.run()
             print (response)
             
+        self._plugin_dialog_width, self._plugin_dialog_height = dlg.get_size()
         dlg.destroy()
 
     def _add_menu_options(self):

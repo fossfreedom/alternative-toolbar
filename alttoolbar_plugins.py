@@ -105,8 +105,6 @@ class PluginDialog(Gtk.Dialog):
         self._has_headerbar = has_headerbar
         self._parent_window = parent_window
         
-        self.set_default_size(750, 400)
-
         listbox = Gtk.ListBox.new()
         listbox.set_sort_func(self._listbox_sort, None)
         self._listbox = listbox
@@ -124,8 +122,6 @@ class PluginDialog(Gtk.Dialog):
                 self._items[plugin.get_module_name()] = row
                 listbox.add(row)
             
-        #peas load-plugin and unload-plugin - should connect to these for engine load/unload.  This should update our listbox state
-        
         toolbar = Gtk.Toolbar.new()
         context = toolbar.get_style_context()
         context.add_class(Gtk.STYLE_CLASS_INLINE_TOOLBAR)
@@ -154,7 +150,7 @@ class PluginDialog(Gtk.Dialog):
         image = Gtk.Image()
         btn.add(image)
         image.set_from_gicon(icon, Gtk.IconSize.BUTTON)
-        minitoolbar_box.pack_start(btn, False, False, 1)
+        minitoolbar_box.pack_start(btn, False, False, 0)
         btn.connect('clicked', self._info_button_clicked)
         self._info_button = btn
         
@@ -163,7 +159,7 @@ class PluginDialog(Gtk.Dialog):
         image = Gtk.Image()
         btn.add(image)
         image.set_from_gicon(icon, Gtk.IconSize.BUTTON)
-        minitoolbar_box.pack_start(btn, False, False, 2)
+        minitoolbar_box.pack_start(btn, False, False, 1)
         btn.connect('clicked', self._help_button_clicked)
         self._help_button = btn
         
@@ -188,7 +184,7 @@ class PluginDialog(Gtk.Dialog):
         contentbox.pack_start(scrollwindow, True, True, 0)
         contentbox.pack_start(toolbar, False, False, 1)
         
-        self.props.title="Configure Plugins"
+        self.props.title=_("Configure Plugins")
         
         if not self._has_headerbar:
             self.add_button(Gtk.STOCK_CLOSE, Gtk.ResponseType.CLOSE)
