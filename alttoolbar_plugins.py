@@ -37,12 +37,17 @@ class PluginListRow(Gtk.Box):
         self._switch_callback = switch_callback
         
         label1 = Gtk.Label()
-        label1.set_markup("<b>" + plugin.get_name() + "</b>")
+        escape = GLib.markup_escape_text(plugin.get_name())
+        label1.set_markup("<b>" + escape + "</b>")
         label1.set_ellipsize(Pango.EllipsizeMode.END)
         label1.props.halign = Gtk.Align.START
+        label1.set_has_tooltip(True)
+        label1.connect('query-tooltip', self._display_tooltip)
         label2 = Gtk.Label(plugin.get_description())
         label2.set_ellipsize(Pango.EllipsizeMode.END)
         label2.props.halign = Gtk.Align.START
+        label2.set_has_tooltip(True)
+        label2.connect('query-tooltip', self._display_tooltip)
         
         switch = Gtk.Switch.new()
         self._switch = switch
@@ -56,9 +61,6 @@ class PluginListRow(Gtk.Box):
         except:
             pass
             
-        switch.set_sensitive(sensitive)
-        switch.connect('notify::active', self._switch_changed)
-        
         box = Gtk.Box()
         box.set_orientation(Gtk.Orientation.VERTICAL)
         box.pack_start(label1, True, False, 0)
@@ -70,8 +72,21 @@ class PluginListRow(Gtk.Box):
         box1.pack_end(switch, False, False, 1)
         box1.pack_end(Gtk.Label(""), False, False, 2)
         
-        self.pack_start(box, False, False, 0)
-        self.pack_end(box1, False, False, 1)
+        self.pack_start(Gtk.Label("  "), False, False, 0)
+        self.pack_start(box, False, False, 1)
+        self.pack_end(box1, False, False, 3)
+        
+        if not sensitive:
+            self.add_error()
+            
+        switch.connect('notify::active', self._switch_changed)
+        
+        
+    def _display_tooltip(self, label, x, y, mode, tooltip):
+        if label.get_layout().is_ellipsized():
+            tooltip.set_text(label.get_text())
+            return True
+        return False
         
     def _switch_changed(self, switch, *args):
         if self._refresh:
@@ -87,18 +102,31 @@ class PluginListRow(Gtk.Box):
             self._refresh = False
             
         GLib.timeout_add(250, delay, None)
+        
+    def add_error(self):
+        icon = Gio.ThemedIcon(name="dialog-error-symbolic")
+        error_image = Gtk.Image()
+        error_image.props.margin = 5
+        error_image.set_from_gicon(icon, Gtk.IconSize.BUTTON)
+        error_image.show_all()
+        error_image.set_has_tooltip(True)
+        error_image.set_tooltip_text(_('The plugin cannot be enabled'))
+        self.pack_end(error_image, False, False, 4)
+        self.set_sensitive(False)
             
     def refresh(self, *args):
         try:
-            self._switch.set_sensitive(self.plugin.is_available())
+                
+            if not self.plugin.is_available():
+                self.add_error()
                 
             if self._switch.get_active() == self.plugin.is_loaded():
                 return
                 
             self._switch.set_active(self.plugin.is_loaded())
         except:
-            self._switch.set_sensitive(False)
-
+            self.add_error()
+            
 class PluginDialog(Gtk.Dialog):
         
     def __init__(self, parent_window, has_headerbar):
@@ -139,6 +167,7 @@ class PluginDialog(Gtk.Dialog):
         btn = Gtk.Button()
         icon = Gio.ThemedIcon(name="preferences-system-symbolic")
         image = Gtk.Image()
+        image.props.margin = 3
         btn.add(image)
         image.set_from_gicon(icon, Gtk.IconSize.BUTTON)
         box = Gtk.Box()
@@ -156,6 +185,7 @@ class PluginDialog(Gtk.Dialog):
         btn = Gtk.Button()
         icon = Gio.ThemedIcon(name="dialog-information-symbolic")
         image = Gtk.Image()
+        image.props.margin = 3
         btn.add(image)
         image.set_from_gicon(icon, Gtk.IconSize.BUTTON)
         minitoolbar_box.pack_start(btn, False, False, 0)
@@ -165,6 +195,7 @@ class PluginDialog(Gtk.Dialog):
         btn = Gtk.Button()
         icon = Gio.ThemedIcon(name="help-browser-symbolic")
         image = Gtk.Image()
+        image.props.margin = 3
         btn.add(image)
         image.set_from_gicon(icon, Gtk.IconSize.BUTTON)
         minitoolbar_box.pack_start(btn, False, False, 1)
