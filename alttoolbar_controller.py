@@ -20,6 +20,7 @@ from gi.repository import GObject
 from gi.repository import Gtk
 from gi.repository import GdkPixbuf
 from gi.repository import Gio
+from alttoolbar_preferences import CoverLocale
 
 import rb
 
@@ -532,6 +533,10 @@ class AltLastFMController(AltGenericController):
         return "RBAudioscrobblerProfilePage" in type(source).__name__
 
     def get_gicon(self, source):
+        # locale stuff
+        cl = CoverLocale()
+        cl.switch_locale(cl.Locale.RB)
+        
         if source.props.name == _("Libre.fm"):
             return self._libre_gicon
         else:
@@ -567,14 +572,17 @@ class AltPlaylistController(AltGenericController):
         return "PlaylistSource" in type(source).__name__
 
     def get_gicon(self, source):
-
-        if source.props.name == _('My Top Rated'):
+        # locale stuff
+        cl = CoverLocale()
+        cl.switch_locale(cl.Locale.RB)
+        print (source.props.name)
+        if source.props.name == _('My Top Rated') or source.props.name == 'My Top Rated':
             return self._toprated_gicon
 
-        if source.props.name == _('Recently Added'):
+        if source.props.name == _('Recently Added') or source.props.name == 'Recently Added':
             return self._recentlyadded_gicon
 
-        if source.props.name == _('Recently Played'):
+        if source.props.name == _('Recently Played') or source.props.name == 'Recently Played':
             return self._recentlyplayed_gicon
 
         if "StaticPlaylistSource" in type(source).__name__:
@@ -601,6 +609,10 @@ class AltPodcastController(AltGenericController):
         return AltControllerCategory.LOCAL
 
     def set_library_labels(self):
+        # locale stuff
+        cl = CoverLocale()
+        cl.switch_locale(cl.Locale.LOCALE_DOMAIN)
+        
         self.header.set_library_labels(song_label=_('Podcasts'))
 
 
