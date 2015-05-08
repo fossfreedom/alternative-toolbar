@@ -189,7 +189,7 @@ Always enabled for modern toolbar mode.</property>
         </child>
         <child>
           <object class="GtkCheckButton" id="tooltips_checkbox">
-            <property name="label" translatable="yes">Toolips for the playback controls</property>
+            <property name="label" translatable="yes">Tooltips for the playback controls</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>

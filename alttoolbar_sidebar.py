@@ -25,6 +25,7 @@ from gi.repository import Gio
 
 from alttoolbar_controller import AltControllerCategory
 from alttoolbar_preferences import GSetting
+from alttoolbar_preferences import CoverLocale
 
 class AltToolbarSidebar(Gtk.TreeView):
 
@@ -40,6 +41,10 @@ class AltToolbarSidebar(Gtk.TreeView):
         self.toolbar = toolbar
         self.plugin = toolbar.plugin
         self.rbtree = rbtree
+        
+        # locale stuff
+        cl = CoverLocale()
+        cl.switch_locale(cl.Locale.LOCALE_DOMAIN)
 
         self.set_name("AltToolbarSideBar")
         self._category = {}

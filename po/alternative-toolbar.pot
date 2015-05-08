@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 22:01+0100\n"
+"POT-Creation-Date: 2015-05-08 17:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,7 +70,7 @@ msgid ""
 msgstr ""
 
 #: tmp/altpreferences.ui.h:12
-msgid "Toolips for the playback controls"
+msgid "Tooltips for the playback controls"
 msgstr ""
 
 #: tmp/altpreferences.ui.h:13
@@ -148,36 +148,47 @@ msgstr ""
 msgid "Play the tracks in random order"
 msgstr ""
 
-#: alternative-toolbar.py:192
+#: alternative-toolbar.py:197
 msgid "Seek Backward"
 msgstr ""
 
-#: alternative-toolbar.py:194
+#: alternative-toolbar.py:199
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr ""
 
-#: alternative-toolbar.py:196
+#: alternative-toolbar.py:201
 msgid "Seek Forward"
 msgstr ""
 
-#: alternative-toolbar.py:198
+#: alternative-toolbar.py:203
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr ""
 
-#: alternative-toolbar.py:205
+#: alternative-toolbar.py:210
 msgid "Show Play-Controls Toolbar"
 msgstr ""
 
-#: alternative-toolbar.py:208
+#: alternative-toolbar.py:213
 msgid "Show or hide the play-controls toolbar"
 msgstr ""
 
-#: alternative-toolbar.py:211
+#: alternative-toolbar.py:216
 msgid "Show Source Toolbar"
 msgstr ""
 
-#: alternative-toolbar.py:214
+#: alternative-toolbar.py:219
 msgid "Show or hide the source toolbar"
+msgstr ""
+
+#. define .plugin text strings used for translation
+#: alternative-toolbar.py:477
+msgid "Alternative Toolbar"
+msgstr ""
+
+#: alternative-toolbar.py:478
+msgid ""
+"Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
+"Toolbar which can be hidden"
 msgstr ""
 
 #: alttoolbar_controller.py:183
@@ -216,7 +227,7 @@ msgstr ""
 msgid "Configure Plugins"
 msgstr ""
 
-#: alttoolbar_preferences.py:205
+#: alttoolbar_preferences.py:273
 msgid "Restart"
 msgstr ""
 

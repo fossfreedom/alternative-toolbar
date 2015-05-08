@@ -467,10 +467,15 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         self.toolbar_type.toggle_source_toolbar()
 
-    def dummy(self):
+    def _translation_helper(self):
         '''
-          dummmy function stopping pycharm optimizing out preferences import
-        :return:
+        a method just to help out with translation strings
+        it is not meant to be called by itself
         '''
 
-        x = Preferences()
+        # define .plugin text strings used for translation
+        plugin = _('Alternative Toolbar')
+        desc = _('Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact Toolbar which can be hidden')
+
+        # stop PyCharm removing the Preference import on optimisation
+        pref = Preferences()
