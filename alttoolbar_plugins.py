@@ -304,9 +304,7 @@ class PluginDialog(Gtk.Dialog):
         
         title = row.get_child().plugin.get_name()
         version = row.get_child().plugin.get_version()
-        if version:
-            title = title + " " + version
-        dlg.props.title = title
+        dlg.props.title = _("About this plugin")
         
         area = dlg.get_content_area()
         
@@ -317,6 +315,7 @@ class PluginDialog(Gtk.Dialog):
         copyright = row.get_child().plugin.get_copyright()
         description = row.get_child().plugin.get_description()
         authors = row.get_child().plugin.get_authors()
+        help = row.get_child().plugin.get_help_uri()
         
         pos = 0
         
@@ -326,8 +325,26 @@ class PluginDialog(Gtk.Dialog):
             label.set_justify(Gtk.Justification.CENTER)
             return label
         
+        label = Gtk.Label()
+        escape = GLib.markup_escape_text(title)
+        label.set_markup("<b>" + escape + "</b>")
+        label.set_justify(Gtk.Justification.CENTER)
+        widget.pack_start(label, False, False, pos)
+        pos += 1
+        widget.pack_start(Gtk.Label(""), False, False, pos)
+        pos += 1
+        
+        if version:
+            label = get_label(_("Version: ") + version)
+        
+            widget.pack_start(label, False, False, pos)
+            pos += 1
+            widget.pack_start(Gtk.Label(""), False, False, pos)
+            pos += 1
+        
         if description:
             label = get_label(description)
+            label.set_justify(Gtk.Justification.LEFT)
             
             widget.pack_start(label, False, False, pos)
             pos += 1
@@ -348,26 +365,72 @@ class PluginDialog(Gtk.Dialog):
         #    pos += 1
         #    widget.pack_start(Gtk.Label(""), False, False, pos)
         #    pos += 1
-            
-        if website:
-            label = Gtk.Label()
-            print ("<a href=\"" + website + "\">" + website + "</a>")
-            label.set_markup("<a href=\"" + website + "\">" + website + "</a>")
-            widget.pack_start(label, False, False, pos)
-            pos += 1
-            widget.pack_start(Gtk.Label(""), False, False, pos)
-            pos += 1
         
+        if title == _("Alternative Toolbar"):
+            # special case for the this plugin
+            box = Gtk.Box()
+            box.set_homogeneous(True)
+            label = Gtk.Label(_("Developer:"))
+            label.props.halign = Gtk.Align.END
+            box.pack_start(label, False, True, 0)
+            
+            link = Gtk.LinkButton( "https://github.com/fossfreedom", "David Mohammed" )
+            link.props.halign = Gtk.Align.START
+            box.pack_start(link, False, True, 1)
+            widget.pack_start(box, False, True, pos)
+            pos += 1
+            box = Gtk.Box()
+            box.set_homogeneous(True)
+            label = Gtk.Label(_("Designer:"))
+            label.props.halign = Gtk.Align.END
+            box.pack_start(label, False, True, 0)
+            link = Gtk.LinkButton( "https://github.com/me4oslav", "Georgi Karavasilev" )
+            link.props.halign = Gtk.Align.START
+            box.pack_start(link, False, True, 1)
+            widget.pack_start(box, False, True, pos)
+            pos += 1
+            
+            widget.pack_start(Gtk.Label(""), False, True, pos)
+            pos += 1
+            
+            
+        box = Gtk.Box()
+        box.set_homogeneous(True)
+        
+        def launch_browser(button, uri):
+            webbrowser.open(uri)
+        
+        button = Gtk.Button( _("Help"))
+        if help:
+            button.connect('clicked', launch_browser, help)
+        else:
+            button.set_sensitive(False)
+            
+        box.pack_start(button, False, True, 0)
+            
+        button = Gtk.Button( _("Homepage"))
+        if help:
+            button.connect('clicked', launch_browser, website)
+        else:
+            button.set_sensitive(False)
+        
+        box.pack_start(Gtk.Label(""), False, True, 1)
+        box.pack_start(Gtk.Label(""), False, True, 2)
+        
+        box.pack_start(button, False, True, 3)
+            
+        widget.pack_start(box, False, True, pos)
+        #pos += 1
         
         widget.show_all()
         frame = Gtk.Frame.new("")
         frame.props.margin = 8
-        frame.set_shadow_type(Gtk.ShadowType.ETCHED_IN)
+        frame.set_shadow_type(Gtk.ShadowType.NONE)
         frame.add(widget)
         frame.show_all()
         
         area.add(frame)
-        dlg.set_default_size(400, 300)
+        dlg.set_default_size(400, 100)
         
         dlg.run()
         dlg.destroy()
