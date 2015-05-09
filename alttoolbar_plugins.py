@@ -177,9 +177,10 @@ class PluginDialog(Gtk.Dialog):
         btn.connect('clicked', self._preferences_button_clicked)
         self._preferences_button = btn
         
-        minitoolbar_box = Gtk.Box()
+        minitoolbar_box = Gtk.ButtonBox()
         context = minitoolbar_box.get_style_context()
         context.add_class('linked')
+        minitoolbar_box.set_layout(Gtk.ButtonBoxStyle.START)
         
         btn = Gtk.Button()
         icon = Gio.ThemedIcon(name="dialog-information-symbolic")
@@ -187,7 +188,8 @@ class PluginDialog(Gtk.Dialog):
         image.props.margin = 3
         btn.add(image)
         image.set_from_gicon(icon, Gtk.IconSize.BUTTON)
-        minitoolbar_box.pack_start(btn, False, False, 0)
+        minitoolbar_box.add(btn)
+        minitoolbar_box.child_set_property(btn, "non-homogeneous", True)
         btn.connect('clicked', self._info_button_clicked)
         self._info_button = btn
         
@@ -197,7 +199,8 @@ class PluginDialog(Gtk.Dialog):
         image.props.margin = 3
         btn.add(image)
         image.set_from_gicon(icon, Gtk.IconSize.BUTTON)
-        minitoolbar_box.pack_start(btn, False, False, 1)
+        minitoolbar_box.add(btn)
+        minitoolbar_box.child_set_property(btn, "non-homogeneous", True)
         btn.connect('clicked', self._help_button_clicked)
         self._help_button = btn
         
