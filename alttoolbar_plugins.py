@@ -23,7 +23,6 @@ from gi.repository import Gio
 from gi.repository import Pango
 from gi.repository import GLib
 
-import rb
 import webbrowser
 
 class PluginListRow(Gtk.Box):
@@ -330,61 +329,68 @@ class PluginDialog(Gtk.Dialog):
         escape = GLib.markup_escape_text(title)
         label.set_markup("<b>" + escape + "</b>")
         label.set_justify(Gtk.Justification.CENTER)
+        label.props.margin_bottom = 5
+
         widget.pack_start(label, False, False, pos)
         pos += 1
-        widget.pack_start(Gtk.Label(""), False, False, pos)
-        pos += 1
-        
+
         if version:
             label = get_label(_("Version: ") + version)
+            label.props.margin_bottom = 5
         
             widget.pack_start(label, False, False, pos)
             pos += 1
-            widget.pack_start(Gtk.Label(""), False, False, pos)
-            pos += 1
-        
+
         if description:
             label = get_label(description)
-            #label.set_justify(Gtk.Justification.LEFT)
-            
+            label.props.margin_bottom = 5
+
             widget.pack_start(label, False, False, pos)
             pos += 1
-            widget.pack_start(Gtk.Label(""), False, False, pos)
-            pos += 1
-            
+
         if copyright:
             label = get_label(copyright)
+            label.props.margin_bottom = 5
+
             widget.pack_start(label, False, False, pos)
             pos += 1
-            widget.pack_start(Gtk.Label(""), False, False, pos)
-            pos += 1
-        
+
             
         #if authors:
         #    label = get_label(authors)
         #    widget.pack_start(label, False, False, pos)
         #    pos += 1
-        #    widget.pack_start(Gtk.Label(""), False, False, pos)
-        #    pos += 1
-        
+
         if title == _("Alternative Toolbar"):
             # special case for the this plugin
+            grid = Gtk.Grid()
+            grid.props.halign = Gtk.Align.CENTER
+
+            label = Gtk.Label(_("Developer:"))
+            label.props.halign =  Gtk.Align.END
+
+            grid.attach(label, 0, 0, 1, 1)
+
             link = Gtk.Label()
-            link.set_markup(_("Developer:") + " <a href=\"https://github.com/fossfreedom\">David Mohammed</a>")#Gtk.LinkButton( "https://github.com/fossfreedom", "David Mohammed" )
-            link.set_justify(Gtk.Justification.CENTER)
-            widget.pack_start(link, False, False, pos)
-            
-            pos += 1
+            link.props.halign = Gtk.Align.START
+            link.set_markup(" <a href=\"https://github.com/fossfreedom\">David Mohammed</a>")
+            grid.attach(link, 1, 0, 1, 1)
+
+            label = Gtk.Label(_("Designer:"))
+            label.props.halign =  Gtk.Align.END
+
+            grid.attach(label, 0, 1, 1, 1)
+
             link = Gtk.Label()
-            link.set_markup(_("Designer:") + " <a href=\"https://github.com/me4oslav\">Georgi Karavasilev</a>")
-            link.set_justify(Gtk.Justification.CENTER)
-            widget.pack_start(link, False, False, pos)
+            link.props.halign = Gtk.Align.START
+            link.set_markup(" <a href=\"https://github.com/me4oslav\">Georgi Karavasilev</a>")
+            grid.attach(link, 1, 1, 1, 1)
+
+            widget.pack_start(grid, False, False, pos)
+
+            grid.props.margin_bottom = 5
             pos += 1
-            
-            widget.pack_start(Gtk.Label(""), False, False, pos)
-            pos += 1
-            
-            
+
         box = Gtk.Box()
         box.set_homogeneous(True)
         
@@ -421,7 +427,7 @@ class PluginDialog(Gtk.Dialog):
         frame.show_all()
         
         area.add(frame)
-        dlg.set_resizable(False) #set_default_size(400, 100)
+        dlg.set_resizable(False)
         
         dlg.run()
         dlg.destroy()
