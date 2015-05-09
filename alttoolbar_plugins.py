@@ -317,12 +317,13 @@ class PluginDialog(Gtk.Dialog):
         authors = row.get_child().plugin.get_authors()
         help = row.get_child().plugin.get_help_uri()
         
-        pos = 0
+        pos = 0 
         
         def get_label(label):
             label = Gtk.Label(label)
             label.set_line_wrap(True)
             label.set_justify(Gtk.Justification.CENTER)
+            label.set_max_width_chars(60)
             return label
         
         label = Gtk.Label()
@@ -344,7 +345,7 @@ class PluginDialog(Gtk.Dialog):
         
         if description:
             label = get_label(description)
-            label.set_justify(Gtk.Justification.LEFT)
+            #label.set_justify(Gtk.Justification.LEFT)
             
             widget.pack_start(label, False, False, pos)
             pos += 1
