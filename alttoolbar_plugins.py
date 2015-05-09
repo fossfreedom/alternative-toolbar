@@ -368,29 +368,19 @@ class PluginDialog(Gtk.Dialog):
         
         if title == _("Alternative Toolbar"):
             # special case for the this plugin
-            box = Gtk.Box()
-            box.set_homogeneous(True)
-            label = Gtk.Label(_("Developer:"))
-            label.props.halign = Gtk.Align.END
-            box.pack_start(label, False, True, 0)
+            link = Gtk.Label()
+            link.set_markup(_("Developer:") + " <a href=\"https://github.com/fossfreedom\">David Mohammed</a>")#Gtk.LinkButton( "https://github.com/fossfreedom", "David Mohammed" )
+            link.set_justify(Gtk.Justification.CENTER)
+            widget.pack_start(link, False, False, pos)
             
-            link = Gtk.LinkButton( "https://github.com/fossfreedom", "David Mohammed" )
-            link.props.halign = Gtk.Align.START
-            box.pack_start(link, False, True, 1)
-            widget.pack_start(box, False, True, pos)
             pos += 1
-            box = Gtk.Box()
-            box.set_homogeneous(True)
-            label = Gtk.Label(_("Designer:"))
-            label.props.halign = Gtk.Align.END
-            box.pack_start(label, False, True, 0)
-            link = Gtk.LinkButton( "https://github.com/me4oslav", "Georgi Karavasilev" )
-            link.props.halign = Gtk.Align.START
-            box.pack_start(link, False, True, 1)
-            widget.pack_start(box, False, True, pos)
+            link = Gtk.Label()
+            link.set_markup(_("Designer:") + " <a href=\"https://github.com/me4oslav\">Georgi Karavasilev</a>")
+            link.set_justify(Gtk.Justification.CENTER)
+            widget.pack_start(link, False, False, pos)
             pos += 1
             
-            widget.pack_start(Gtk.Label(""), False, True, pos)
+            widget.pack_start(Gtk.Label(""), False, False, pos)
             pos += 1
             
             
@@ -430,7 +420,7 @@ class PluginDialog(Gtk.Dialog):
         frame.show_all()
         
         area.add(frame)
-        dlg.set_default_size(400, 100)
+        dlg.set_resizable(False) #set_default_size(400, 100)
         
         dlg.run()
         dlg.destroy()
