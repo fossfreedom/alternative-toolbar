@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 17:23+0100\n"
+"POT-Creation-Date: 2015-05-09 23:09+0100\n"
 "PO-Revision-Date: 2015-05-07 22:01+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -197,7 +197,7 @@ msgid "Show or hide the source toolbar"
 msgstr "Show or hide the source toolbar"
 
 #. define .plugin text strings used for translation
-#: alternative-toolbar.py:477
+#: alternative-toolbar.py:477 alttoolbar_plugins.py:361
 msgid "Alternative Toolbar"
 msgstr ""
 
@@ -207,59 +207,87 @@ msgid ""
 "Toolbar which can be hidden"
 msgstr ""
 
-#: alttoolbar_controller.py:183
+#: alttoolbar_controller.py:184
 msgid "View All"
 msgstr "View All"
 
-#: alttoolbar_controller.py:339
+#: alttoolbar_controller.py:340
 msgid "Import"
 msgstr "Import"
 
-#: alttoolbar_controller.py:514
+#: alttoolbar_controller.py:515
 msgid "Stations"
 msgstr "Stations"
 
-#: alttoolbar_controller.py:535
+#: alttoolbar_controller.py:540
 msgid "Libre.fm"
 msgstr "Libre.fm"
 
-#: alttoolbar_controller.py:571
+#: alttoolbar_controller.py:579
 msgid "My Top Rated"
 msgstr "My Top Rated"
 
-#: alttoolbar_controller.py:574
+#: alttoolbar_controller.py:582
 msgid "Recently Added"
 msgstr "Recently Added"
 
-#: alttoolbar_controller.py:577
+#: alttoolbar_controller.py:585
 msgid "Recently Played"
 msgstr "Recently Played"
 
-#: alttoolbar_controller.py:604
+#: alttoolbar_controller.py:616
 msgid "Podcasts"
 msgstr "Podcasts"
 
-#: alttoolbar_plugins.py:195
+#: alttoolbar_plugins.py:112
+msgid "The plugin cannot be enabled"
+msgstr ""
+
+#: alttoolbar_plugins.py:228
 msgid "Configure Plugins"
 msgstr "Configure Plugins"
+
+#: alttoolbar_plugins.py:309
+msgid "About this plugin"
+msgstr ""
+
+#: alttoolbar_plugins.py:341
+msgid "Version: "
+msgstr ""
+
+#: alttoolbar_plugins.py:366
+msgid "Developer:"
+msgstr ""
+
+#: alttoolbar_plugins.py:376
+msgid "Designer:"
+msgstr ""
+
+#: alttoolbar_plugins.py:397
+msgid "Help"
+msgstr ""
+
+#: alttoolbar_plugins.py:405
+msgid "Homepage"
+msgstr ""
 
 #: alttoolbar_preferences.py:273
 msgid "Restart"
 msgstr "Restart"
 
-#: alttoolbar_sidebar.py:71
+#: alttoolbar_sidebar.py:76
 msgid "Local collection"
 msgstr "Local collection"
 
-#: alttoolbar_sidebar.py:72
+#: alttoolbar_sidebar.py:77
 msgid "Online sources"
 msgstr "Online sources"
 
-#: alttoolbar_sidebar.py:73
+#: alttoolbar_sidebar.py:78
 msgid "Other sources"
 msgstr "Other sources"
 
-#: alttoolbar_sidebar.py:74
+#: alttoolbar_sidebar.py:79
 msgid "Playlists"
 msgstr "Playlists"
 

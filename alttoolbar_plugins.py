@@ -358,12 +358,6 @@ class PluginDialog(Gtk.Dialog):
             widget.pack_start(label, False, False, pos)
             pos += 1
 
-            
-        #if authors:
-        #    label = get_label(authors)
-        #    widget.pack_start(label, False, False, pos)
-        #    pos += 1
-
         if title == _("Alternative Toolbar"):
             # special case for the this plugin
             grid = Gtk.Grid()
