@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-10 18:16+0100\n"
-"PO-Revision-Date: 2015-05-07 22:01+0100\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2015-05-10 17:24+0000\n"
+"Last-Translator: fossfreedom <Unknown>\n"
 "Language-Team: none\n"
-"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Launchpad-Export-Date: 2015-05-10 17:48+0000\n"
+"X-Generator: Launchpad (build 17474)\n"
+"Language: en_GB\n"
 
 #: tmp/altlibrary.ui.h:1 alttoolbar_type.py:905
 msgid "Songs"
@@ -40,7 +41,7 @@ msgid ""
 "environments like Gnome and Elementary."
 msgstr ""
 "Best suitable for desktop\n"
-"environments like Gnome and Elementary."
+"environments like GNOME and elementary."
 
 #: tmp/altpreferences.ui.h:5
 msgid "Modern"
@@ -57,7 +58,7 @@ msgid ""
 "Always enabled for modern toolbar mode."
 msgstr ""
 "Display the playback controls in the toolbar in visually compact style "
-"instead of the standard rhythmbox style.\n"
+"instead of the standard Rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 
 #: tmp/altpreferences.ui.h:9
@@ -79,18 +80,16 @@ msgstr ""
 "window title."
 
 #: tmp/altpreferences.ui.h:12
-#, fuzzy
 msgid "Tooltips for the playback controls"
-msgstr "Toolips for the playback controls"
+msgstr "Tooltips for the playback controls"
 
 #: tmp/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
 msgstr "Show or hide the tooltips for the playback controls."
 
 #: tmp/altpreferences.ui.h:14
-#, fuzzy
 msgid "Volume control"
-msgstr "Volume Control"
+msgstr "Volume control"
 
 #: tmp/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
@@ -102,29 +101,27 @@ msgstr "Playback controls"
 
 #: tmp/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
-msgstr "Show or hide the playing controls on player startup."
+msgstr "Show or hide the playing controls on player start-up."
 
 #: tmp/altpreferences.ui.h:18
 msgid "Use:"
 msgstr "Use:"
 
 #: tmp/altpreferences.ui.h:19
-#, fuzzy
 msgid "Inline song/artist label"
-msgstr "Inline Song/Artist Label"
+msgstr "Inline song/artist label"
 
 #: tmp/altpreferences.ui.h:20
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
-"Display Song and Artist labels before the progress slider.  If not checked, "
+"Display Song and Artist labels before the progress slider.  If not ticked, "
 "they are displayed above the progress slider."
 
 #: tmp/altpreferences.ui.h:21
-#, fuzzy
 msgid "Compact progress slider"
-msgstr "Compact Progress slider"
+msgstr "Compact progress slider"
 
 #: tmp/altpreferences.ui.h:22
 msgid ""
@@ -149,9 +146,8 @@ msgstr ""
 "collapse categories."
 
 #: tmp/altpreferences.ui.h:25
-#, fuzzy
 msgid "Enhanced plugins dialog"
-msgstr "Enhanced sidebar"
+msgstr "Enhanced plug-ins dialogue"
 
 #: tmp/altpreferences.ui.h:26
 msgid ""
@@ -159,6 +155,9 @@ msgid ""
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
 "based desktop environments."
 msgstr ""
+"Show or hide redesigned plugins dialogue. It features switches instead of "
+"checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
+"based desktop environments."
 
 #: tmp/alttoolbar.ui.h:1
 msgid "Play the previous track"
@@ -182,19 +181,19 @@ msgstr "Play the tracks in random order"
 
 #: alternative-toolbar.py:199
 msgid "Seek Backward"
-msgstr "Seek Backward"
+msgstr "Seek Backwards"
 
 #: alternative-toolbar.py:201
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr "Seek backward, in current track, by 5 seconds."
+msgstr "Seek backwards, in current track, by 5 seconds."
 
 #: alternative-toolbar.py:203
 msgid "Seek Forward"
-msgstr "Seek Forward"
+msgstr "Seek Forwards"
 
 #: alternative-toolbar.py:205
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr "Seek forward, in current track, by 10 seconds."
+msgstr "Seek forwards, in current track, by 10 seconds."
 
 #: alternative-toolbar.py:212
 msgid "Show Play-Controls Toolbar"
@@ -215,13 +214,15 @@ msgstr "Show or hide the source toolbar"
 #. define .plugin text strings used for translation
 #: alternative-toolbar.py:479 alttoolbar_plugins.py:364
 msgid "Alternative Toolbar"
-msgstr ""
+msgstr "Alternative Toolbar"
 
 #: alternative-toolbar.py:480
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr ""
+"Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
+"Toolbar which can be hidden"
 
 #: alttoolbar_controller.py:184
 msgid "View All"
@@ -257,35 +258,35 @@ msgstr "Podcasts"
 
 #: alttoolbar_plugins.py:115
 msgid "The plugin cannot be enabled"
-msgstr ""
+msgstr "The plug-in cannot be enabled"
 
 #: alttoolbar_plugins.py:231
 msgid "Configure Plugins"
-msgstr "Configure Plugins"
+msgstr "Configure Plug-ins"
 
 #: alttoolbar_plugins.py:312
 msgid "About this plugin"
-msgstr ""
+msgstr "About this plug-in"
 
 #: alttoolbar_plugins.py:344
 msgid "Version: "
-msgstr ""
+msgstr "Version: "
 
 #: alttoolbar_plugins.py:369
 msgid "Developer:"
-msgstr ""
+msgstr "Developer:"
 
 #: alttoolbar_plugins.py:379
 msgid "Designer:"
-msgstr ""
+msgstr "Designer:"
 
 #: alttoolbar_plugins.py:400
 msgid "Help"
-msgstr ""
+msgstr "Help"
 
 #: alttoolbar_plugins.py:408
 msgid "Homepage"
-msgstr ""
+msgstr "Homepage"
 
 #: alttoolbar_preferences.py:278
 msgid "Restart"
@@ -310,3 +311,12 @@ msgstr "Playlists"
 #: alttoolbar_type.py:969
 msgid "Browse"
 msgstr "Browse"
+
+#~ msgid ""
+#~ "Use a redesigned plugins dialog. It features improved symbolic icons with a "
+#~ "better reorganisation .  The preferences and about dialogs display correctly "
+#~ "in a Gnome-Shell desktop environment. "
+#~ msgstr ""
+#~ "Use a redesigned plug-ins dialogue. It features improved symbolic icons with "
+#~ "a better reorganisation .  The preferences and about dialogues display "
+#~ "correctly in a Gnome-Shell desktop environment. "
