@@ -72,5 +72,5 @@ Contributors:
 
 Credits:
 
- - our Translators: Launchpad Translation team - individual credits for each locale is shown in the plugin preferences
+ - our Translators: Launchpad Translation team
  - Thanks to the [rhythmbox-seek](https://github.com/cgarvey/rhythmbox-seek) project for the track-seeking code.
