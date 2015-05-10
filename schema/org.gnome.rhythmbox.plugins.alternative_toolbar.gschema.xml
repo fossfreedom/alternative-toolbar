@@ -52,5 +52,10 @@
             <summary>show tooltips</summary>
             <description>Show or hide tooltips used in the plugin</description>
         </key>
+        <key type="b" name="enhanced-plugins">
+            <default>true</default>
+            <summary>show enhanced plugins dialog</summary>
+            <description>Use the enhanced plugins dialog</description>
+        </key>
     </schema>
 </schemalist>

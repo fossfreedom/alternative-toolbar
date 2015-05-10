@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-09 23:09+0100\n"
+"POT-Creation-Date: 2015-05-10 10:02+0100\n"
 "PO-Revision-Date: 2015-05-07 22:01+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -87,7 +87,8 @@ msgid "Show or hide the tooltips for the playback controls."
 msgstr "Show or hide the tooltips for the playback controls."
 
 #: tmp/altpreferences.ui.h:14
-msgid "Volume Control"
+#, fuzzy
+msgid "Volume control"
 msgstr "Volume Control"
 
 #: tmp/altpreferences.ui.h:15
@@ -107,7 +108,8 @@ msgid "Use:"
 msgstr "Use:"
 
 #: tmp/altpreferences.ui.h:19
-msgid "Inline Song/Artist Label"
+#, fuzzy
+msgid "Inline song/artist label"
 msgstr "Inline Song/Artist Label"
 
 #: tmp/altpreferences.ui.h:20
@@ -119,7 +121,8 @@ msgstr ""
 "they are displayed above the progress slider."
 
 #: tmp/altpreferences.ui.h:21
-msgid "Compact Progress slider"
+#, fuzzy
+msgid "Compact progress slider"
 msgstr "Compact Progress slider"
 
 #: tmp/altpreferences.ui.h:22
@@ -144,6 +147,11 @@ msgstr ""
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 
+#: tmp/altpreferences.ui.h:25
+#, fuzzy
+msgid "Enhanced plugins dialog"
+msgstr "Enhanced sidebar"
+
 #: tmp/alttoolbar.ui.h:1
 msgid "Play the previous track"
 msgstr "Play the previous track"
@@ -164,44 +172,44 @@ msgstr "Repeat the current track"
 msgid "Play the tracks in random order"
 msgstr "Play the tracks in random order"
 
-#: alternative-toolbar.py:197
+#: alternative-toolbar.py:199
 msgid "Seek Backward"
 msgstr "Seek Backward"
 
-#: alternative-toolbar.py:199
+#: alternative-toolbar.py:201
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr "Seek backward, in current track, by 5 seconds."
 
-#: alternative-toolbar.py:201
+#: alternative-toolbar.py:203
 msgid "Seek Forward"
 msgstr "Seek Forward"
 
-#: alternative-toolbar.py:203
+#: alternative-toolbar.py:205
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr "Seek forward, in current track, by 10 seconds."
 
-#: alternative-toolbar.py:210
+#: alternative-toolbar.py:212
 msgid "Show Play-Controls Toolbar"
 msgstr "Show Play-Controls Toolbar"
 
-#: alternative-toolbar.py:213
+#: alternative-toolbar.py:215
 msgid "Show or hide the play-controls toolbar"
 msgstr "Show or hide the play-controls toolbar"
 
-#: alternative-toolbar.py:216
+#: alternative-toolbar.py:218
 msgid "Show Source Toolbar"
 msgstr "Show Source Toolbar"
 
-#: alternative-toolbar.py:219
+#: alternative-toolbar.py:221
 msgid "Show or hide the source toolbar"
 msgstr "Show or hide the source toolbar"
 
 #. define .plugin text strings used for translation
-#: alternative-toolbar.py:477 alttoolbar_plugins.py:361
+#: alternative-toolbar.py:479 alttoolbar_plugins.py:361
 msgid "Alternative Toolbar"
 msgstr ""
 
-#: alternative-toolbar.py:478
+#: alternative-toolbar.py:480
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -271,7 +279,7 @@ msgstr ""
 msgid "Homepage"
 msgstr ""
 
-#: alttoolbar_preferences.py:273
+#: alttoolbar_preferences.py:278
 msgid "Restart"
 msgstr "Restart"
 

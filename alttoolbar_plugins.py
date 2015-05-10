@@ -447,5 +447,6 @@ class PluginDialog(Gtk.Dialog):
         dlg.props.title = row.get_child().plugin.get_name()
         area = dlg.get_content_area()
         area.add(widget)
+        dlg.set_resizable(False)
         dlg.run()
         dlg.destroy()

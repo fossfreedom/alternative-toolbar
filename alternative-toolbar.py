@@ -130,6 +130,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.compact_progressbar = self.plugin_settings[self.gs.PluginKey.COMPACT_PROGRESSBAR]
         self.enhanced_sidebar = self.plugin_settings[self.gs.PluginKey.ENHANCED_SIDEBAR]
         self.show_tooltips = self.plugin_settings[self.gs.PluginKey.SHOW_TOOLTIPS]
+        self.enhanced_plugins = self.plugin_settings[self.gs.PluginKey.ENHANCED_PLUGINS]
 
         # Add the various application view menus
         self.appshell = ApplicationShell(self.shell)
@@ -154,12 +155,13 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         self.toolbar_type.initialise(self)
         self.toolbar_type.post_initialise()
-        
-        # redirect plugins action to our implementation
-        
-        action = Gio.SimpleAction.new('plugins', None)
-        action.connect('activate', self._display_plugins)
-        self.shell.props.application.add_action(action)
+
+        if self.enhanced_plugins:
+            # redirect plugins action to our implementation
+
+            action = Gio.SimpleAction.new('plugins', None)
+            action.connect('activate', self._display_plugins)
+            self.shell.props.application.add_action(action)
 
         self._connect_signals()
         self._connect_properties()
