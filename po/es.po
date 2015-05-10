@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-10 10:12+0100\n"
+"POT-Creation-Date: 2015-05-10 18:16+0100\n"
 "PO-Revision-Date: 2015-05-07 22:01+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -136,9 +136,9 @@ msgstr "Barra lateral mejorada"
 
 #: tmp/altpreferences.ui.h:26
 msgid ""
-"Use a redesigned plugins dialog. It features improved symbolic icons with a "
-"better reorganisation .  The preferences and about dialogs display correctly "
-"in a Gnome-Shell desktop environment. "
+"Show or hide redesigned plugins dialog. It features switches instead of "
+"checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
+"based desktop environments."
 msgstr ""
 
 #: tmp/alttoolbar.ui.h:1
@@ -194,7 +194,7 @@ msgid "Show or hide the source toolbar"
 msgstr ""
 
 #. define .plugin text strings used for translation
-#: alternative-toolbar.py:479 alttoolbar_plugins.py:361
+#: alternative-toolbar.py:479 alttoolbar_plugins.py:364
 msgid "Alternative Toolbar"
 msgstr "Barra de herramientas alternativa"
 
@@ -238,35 +238,35 @@ msgstr "Reproducido recientemente"
 msgid "Podcasts"
 msgstr ""
 
-#: alttoolbar_plugins.py:112
+#: alttoolbar_plugins.py:115
 msgid "The plugin cannot be enabled"
 msgstr ""
 
-#: alttoolbar_plugins.py:228
+#: alttoolbar_plugins.py:231
 msgid "Configure Plugins"
 msgstr "Configurar complementos"
 
-#: alttoolbar_plugins.py:309
+#: alttoolbar_plugins.py:312
 msgid "About this plugin"
 msgstr ""
 
-#: alttoolbar_plugins.py:341
+#: alttoolbar_plugins.py:344
 msgid "Version: "
 msgstr ""
 
-#: alttoolbar_plugins.py:366
+#: alttoolbar_plugins.py:369
 msgid "Developer:"
 msgstr ""
 
-#: alttoolbar_plugins.py:376
+#: alttoolbar_plugins.py:379
 msgid "Designer:"
 msgstr ""
 
-#: alttoolbar_plugins.py:397
+#: alttoolbar_plugins.py:400
 msgid "Help"
 msgstr ""
 
-#: alttoolbar_plugins.py:405
+#: alttoolbar_plugins.py:408
 msgid "Homepage"
 msgstr ""
 
