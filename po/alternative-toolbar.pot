@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-10 10:02+0100\n"
+"POT-Creation-Date: 2015-05-10 10:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -130,6 +130,13 @@ msgstr ""
 
 #: tmp/altpreferences.ui.h:25
 msgid "Enhanced plugins dialog"
+msgstr ""
+
+#: tmp/altpreferences.ui.h:26
+msgid ""
+"Use a redesigned plugins dialog. It features improved symbolic icons with a "
+"better reorganisation .  The preferences and about dialogs display correctly "
+"in a Gnome-Shell desktop environment. "
 msgstr ""
 
 #: tmp/alttoolbar.ui.h:1

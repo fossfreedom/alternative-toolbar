@@ -321,6 +321,7 @@ Always enabled for modern toolbar mode.</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
+            <property name="tooltip_text" translatable="yes">Use a redesigned plugins dialog. It features improved symbolic icons with a better reorganisation .  The preferences and about dialogs display correctly in a Gnome-Shell desktop environment. </property>
             <property name="xalign">0</property>
             <property name="draw_indicator">True</property>
           </object>
