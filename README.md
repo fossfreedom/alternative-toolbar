@@ -53,9 +53,24 @@ cd alternative-toolbar
 
 <hr/>
 
-Thanks to the [rhythmbox-seek](https://github.com/cgarvey/rhythmbox-seek) project for the track-seeking code.
+**Please help out with translating**
+
+We need you to help us translate the english text to your native language.
+
+Don't worry - it is easier that you think. Just visit:
+
+ - https://translations.launchpad.net/alternative-toolbar
+
+Remember to set your preferred language and then just submit your translation.
+
+-------
 
 Contributors:
 
  - [me4oslav](https://github.com/me4oslav) - design inspiration for the header-bar vision
  - [sergioad](https://github.com/sergioad) - for the initial translation (spanish) used for testing translations
+
+Credits:
+
+ - our Translators: Launchpad Translation team - individual credits for each locale is shown in the plugin preferences
+ - Thanks to the [rhythmbox-seek](https://github.com/cgarvey/rhythmbox-seek) project for the track-seeking code.
