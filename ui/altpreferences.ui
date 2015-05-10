@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.16.1 -->
+<!-- Generated with glade 3.18.3 -->
 <interface>
   <requires lib="gtk+" version="3.10"/>
   <object class="GtkBox" id="preferences_box">
@@ -321,7 +321,7 @@ Always enabled for modern toolbar mode.</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
-            <property name="tooltip_text" translatable="yes">Use a redesigned plugins dialog. It features improved symbolic icons with a better reorganisation .  The preferences and about dialogs display correctly in a Gnome-Shell desktop environment. </property>
+            <property name="tooltip_text" translatable="yes">Show or hide redesigned plugins dialog. It features switches instead of checkboxes and inline toolbar with symbolic icons .  Works best with Gnome based desktop environments.</property>
             <property name="xalign">0</property>
             <property name="draw_indicator">True</property>
           </object>
@@ -329,6 +329,22 @@ Always enabled for modern toolbar mode.</property>
             <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="position">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="box2">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="padding">5</property>
+            <property name="position">5</property>
           </packing>
         </child>
       </object>
