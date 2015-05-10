@@ -41,15 +41,18 @@ class PluginListRow(Gtk.Box):
         label1.set_ellipsize(Pango.EllipsizeMode.END)
         label1.props.halign = Gtk.Align.START
         label1.set_has_tooltip(True)
+        label1.props.margin_top = 5
         label1.connect('query-tooltip', self._display_tooltip)
         label2 = Gtk.Label(plugin.get_description())
         label2.set_ellipsize(Pango.EllipsizeMode.END)
         label2.props.halign = Gtk.Align.START
         label2.set_has_tooltip(True)
         label2.connect('query-tooltip', self._display_tooltip)
+        label2.props.margin_bottom = 5
         
         switch = Gtk.Switch.new()
         self._switch = switch
+        switch.props.valign = Gtk.Align.CENTER
         
         sensitive = False
         
@@ -65,15 +68,15 @@ class PluginListRow(Gtk.Box):
         box.pack_start(label1, True, False, 0)
         box.pack_start(label2, True, False, 1)
         
-        box1 = Gtk.Box()
-        box1.set_orientation(Gtk.Orientation.VERTICAL)
-        box1.pack_end(Gtk.Label(""), False, False, 0)
-        box1.pack_end(switch, False, False, 1)
-        box1.pack_end(Gtk.Label(""), False, False, 2)
+        #box1 = Gtk.Box()
+        #box1.set_orientation(Gtk.Orientation.VERTICAL)
+        #box1.pack_end(Gtk.Label(""), False, False, 0)
+        #box1.pack_end(switch, False, False, 1)
+        #box1.pack_end(Gtk.Label(""), False, False, 2)
         
         self.pack_start(Gtk.Label("  "), False, False, 0)
         self.pack_start(box, False, False, 1)
-        self.pack_end(box1, False, False, 3)
+        self.pack_end(switch, False, False, 3)
         
         if not sensitive:
             self.add_error()
