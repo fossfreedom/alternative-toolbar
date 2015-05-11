@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ASCII\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-05-10 17:48+0000\n"
-"X-Generator: Launchpad (build 17474)\n"
+"X-Launchpad-Export-Date: 2015-05-11 18:32+0000\n"
+"X-Generator: Launchpad (build 17487)\n"
 "Language: en_US\n"
 
 #: tmp/altlibrary.ui.h:1 alttoolbar_type.py:905
@@ -310,12 +310,3 @@ msgstr "Playlists"
 #: alttoolbar_type.py:969
 msgid "Browse"
 msgstr "Browse"
-
-#~ msgid ""
-#~ "Use a redesigned plugins dialog. It features improved symbolic icons with a "
-#~ "better reorganisation .  The preferences and about dialogs display correctly "
-#~ "in a Gnome-Shell desktop environment. "
-#~ msgstr ""
-#~ "Use a redesigned plugins dialog. It features improved symbolic icons with a "
-#~ "better reorganization .  The preferences and about dialogs display correctly "
-#~ "in a Gnome-Shell desktop environment. "
