@@ -34,7 +34,6 @@ from alttoolbar_preferences import Preferences
 from alttoolbar_preferences import GSetting
 from alttoolbar_preferences import CoverLocale
 from alttoolbar_plugins import PluginDialog
-
 import rb
 
 
@@ -62,6 +61,7 @@ view_seek_menu_ui = """
 
 seek_backward_time = 5
 seek_forward_time = 10
+
 
 class AltToolbarPlugin(GObject.Object, Peas.Activatable):
     '''
@@ -105,7 +105,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.entry = None
         self._plugin_dialog_width = 760
         self._plugin_dialog_height = 550
-        
+
         # locale stuff
         cl = CoverLocale()
         cl.switch_locale(cl.Locale.LOCALE_DOMAIN)
@@ -173,20 +173,20 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         ''' 
           display our implementation of the LibPeas Plugin window
         '''
-        
+
         has_headerbar = isinstance(self.toolbar_type, AltToolbarHeaderBar)
-        
+
         if gtk_version() < 3.12:
             has_headerbar = False
-        
+
         dlg = PluginDialog(self.shell.props.window, has_headerbar)
         response = 0
         dlg.set_default_size(self._plugin_dialog_width, self._plugin_dialog_height)
-        
+
         while response >= 0:
             response = dlg.run()
             print (response)
-            
+
         self._plugin_dialog_width, self._plugin_dialog_height = dlg.get_size()
         dlg.destroy()
 
@@ -222,7 +222,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         self.appshell.insert_action_group(self.toggle_action_group)
         self.appshell.add_app_menuitems(view_menu_ui, 'AltToolbarPluginActions', 'view')
-        
+
     def _connect_properties(self):
         '''
           bind plugin properties to various gsettings that we dynamically interact with
@@ -388,7 +388,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         :return:N/A
         '''
         # Couldn't find better way to find widgets than loop through them
-        #print("by_name %s by_id %s" % (node.get_name(), Gtk.Buildable.get_name(node)))
+        # print("by_name %s by_id %s" % (node.get_name(), Gtk.Buildable.get_name(node)))
 
         def extract_label(button):
             label = button.get_label()
@@ -431,7 +431,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.shell_player.disconnect(self.sh_psc)
             self.shell_player.disconnect(self.sh_pc)
             self.shell_player.disconnect(self.sh_pspc)
-            #self.disconnect(self.sh_display_page)
+            # self.disconnect(self.sh_display_page)
             self.shell.props.display_page_tree.disconnect(self.sh_display_page_tree)
             del self.shell_player
 
@@ -477,7 +477,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         # define .plugin text strings used for translation
         plugin = _('Alternative Toolbar')
-        desc = _('Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact Toolbar which can be hidden')
+        desc = _(
+            'Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact Toolbar which can be hidden')
 
         # stop PyCharm removing the Preference import on optimisation
         pref = Preferences()

@@ -20,15 +20,17 @@ from gi.repository import GObject
 from gi.repository import Gtk
 from gi.repository import GdkPixbuf
 from gi.repository import Gio
-from alttoolbar_preferences import CoverLocale
 
+from alttoolbar_preferences import CoverLocale
 import rb
+
 
 class AltControllerCategory(object):
     OTHER = 0
     LOCAL = 1
     ONLINE = 2
     PLAYLIST = 3
+
 
 class AltControllerBase(GObject.Object):
     '''
@@ -45,12 +47,12 @@ class AltControllerBase(GObject.Object):
         self._pixbuf = None
 
         super(AltControllerBase, self).__init__()
-        
+
     def get_category(self):
         ''' 
            return the category type for the source
         '''
-        
+
         return AltControllerCategory.OTHER
 
     def _get_pixbuf(self, filename):
@@ -61,7 +63,7 @@ class AltControllerBase(GObject.Object):
 
         if self._pixbuf.get_width() != width or self._pixbuf.get_height() != height:
             self._pixbuf = pixbuf.scale_simple(16, 16,
-                                         GdkPixbuf.InterpType.BILINEAR)
+                                               GdkPixbuf.InterpType.BILINEAR)
 
         return self._pixbuf
 
@@ -162,6 +164,7 @@ class AltControllerBase(GObject.Object):
 
         self.header.set_library_labels()
 
+
 class AltGenericController(AltControllerBase):
     '''
     generic controller for the headerbar (only)
@@ -176,7 +179,7 @@ class AltGenericController(AltControllerBase):
 
         self.centre_controls = {}
         self.end_controls = {}
-        
+
     def get_category(self):
         return AltControllerCategory.LOCAL
 
@@ -231,7 +234,7 @@ class AltGenericController(AltControllerBase):
             self.header.set_library_box_sensitive(True)
 
         self.header.current_search_button = None
-        
+
         toolbar = self.get_toolbar(source)
         if not toolbar:
             # there is no source-bar so the header is empty
@@ -248,7 +251,7 @@ class AltGenericController(AltControllerBase):
 
             self.remove_controls(self.header.end_box)
 
-            print (toolbar) # should be the RBSourceToolbar
+            print (toolbar)  # should be the RBSourceToolbar
             search, entry = self.get_search_entry(toolbar)
             if not search:
                 return
@@ -264,21 +267,21 @@ class AltGenericController(AltControllerBase):
             # second position in a box - the first position being the searchbar
             children = source.get_children()
             print (children)
-            first = children[0] # We assume the first container in a source is a GtkNotebook
+            first = children[0]  # We assume the first container in a source is a GtkNotebook
             box = Gtk.Box()
             box.set_orientation(Gtk.Orientation.VERTICAL)
             box.pack_start(self.header.searchbar, False, True, 0)
             box.show_all()
-            Gtk.Container.remove(source, first) # so remove the notebook from the source
-            box.pack_start(first, True, True, 1) # add the notebook to a box
-            
-            source.add(box) # then add the box back to the source - i.e. we added another parent
+            Gtk.Container.remove(source, first)  # so remove the notebook from the source
+            box.pack_start(first, True, True, 1)  # add the notebook to a box
+
+            source.add(box)  # then add the box back to the source - i.e. we added another parent
 
             self.header.register_moved_control(child=first, old_parent=source, new_parent=box)
-            
+
             self.moveto_searchbar(toolbar, search, self.header.searchbar)
             self.header.searchbar.connect_entry(entry)
-            #self.header.searchbar.show_all()
+            # self.header.searchbar.show_all()
             self.header.searchbar.set_visible(False)
 
             search_button = Gtk.ToggleButton.new()
@@ -302,14 +305,14 @@ class AltGenericController(AltControllerBase):
             if self.header.searchbar:
                 self.header.searchbar.set_visible(False)
             self.header.searchbar = search
-            #self.header.searchbar.set_visible(True)
+            # self.header.searchbar.set_visible(True)
 
             self.remove_controls(self.header.end_box)
             search_button = self.end_controls[source]['search_button']
             self.header.current_search_button = search_button
-            
+
             self.header.searchbar.set_visible(search_button.get_active())
-                
+
             self.header.end_box.add(search_button)
             self.header.end_box.reorder_child(search_button, 0)
             self.header.end_box.show_all()
@@ -363,7 +366,7 @@ class AltSoundCloudController(AltGenericController):
         '''
 
         return "SoundCloud" in type(source).__name__
-        
+
     def get_category(self):
         return AltControllerCategory.ONLINE
 
@@ -388,6 +391,7 @@ class AltSoundCloudController(AltGenericController):
 
         self.header.register_moved_control(child=toolbar, old_parent=parent_grid, new_parent=searchbar)
 
+
 class AltCoverArtBrowserController(AltGenericController):
     '''
     sound-cloud controller
@@ -408,7 +412,7 @@ class AltCoverArtBrowserController(AltGenericController):
         '''
 
         return "CoverArtBrowser" in type(source).__name__
-        
+
     def get_category(self):
         return AltControllerCategory.LOCAL
 
@@ -442,6 +446,7 @@ class AltCoverArtBrowserController(AltGenericController):
         entry = self.find(entrysearch, 'GtkEntry', 'by_name')
 
         return entrysearch, entry
+
 
 class AltQueueController(AltGenericController):
     '''
@@ -487,7 +492,7 @@ class AltErrorsController(AltGenericController):
     def get_gicon(self, source):
         return self._gicon
 
-        
+
 class AltRadioController(AltGenericController):
     '''
     RB RadioSource controller
@@ -507,13 +512,14 @@ class AltRadioController(AltGenericController):
 
     def get_gicon(self, source):
         return self._gicon
-        
+
     def get_category(self):
         return AltControllerCategory.ONLINE
 
     def set_library_labels(self):
         self.header.set_library_labels(song_label=_('Stations'))
-        
+
+
 class AltLastFMController(AltGenericController):
     '''
     RB LastFMSource controller
@@ -536,14 +542,15 @@ class AltLastFMController(AltGenericController):
         # locale stuff
         cl = CoverLocale()
         cl.switch_locale(cl.Locale.RB)
-        
+
         if source.props.name == _("Libre.fm"):
             return self._libre_gicon
         else:
             return self._lastfm_gicon
-        
+
     def get_category(self):
         return AltControllerCategory.ONLINE
+
 
 class AltPlaylistController(AltGenericController):
     '''
@@ -593,6 +600,7 @@ class AltPlaylistController(AltGenericController):
     def get_category(self):
         return AltControllerCategory.PLAYLIST
 
+
 class AltPodcastController(AltGenericController):
     '''
     podcast controller
@@ -612,7 +620,7 @@ class AltPodcastController(AltGenericController):
         # locale stuff
         cl = CoverLocale()
         cl.switch_locale(cl.Locale.LOCALE_DOMAIN)
-        
+
         self.header.set_library_labels(song_label=_('Podcasts'))
 
 
@@ -628,9 +636,9 @@ class AltStandardOnlineController(AltGenericController):
         '''
         super(AltStandardOnlineController, self).__init__(header)
 
-        self._source_types=[ 'MagnatuneSource',
-                             'RBGriloSource',
-                             'RadioBrowserSource']
+        self._source_types = ['MagnatuneSource',
+                              'RBGriloSource',
+                              'RadioBrowserSource']
 
     def valid_source(self, source):
 
@@ -644,6 +652,7 @@ class AltStandardOnlineController(AltGenericController):
     def get_category(self):
         return AltControllerCategory.ONLINE
 
+
 class AltStandardLocalController(AltGenericController):
     '''
       standard controller where we dont need specific customisation
@@ -656,8 +665,8 @@ class AltStandardLocalController(AltGenericController):
         '''
         super(AltStandardLocalController, self).__init__(header)
 
-        self._source_types=[ 'RBMtpSource',
-                             'RBMissingFilesSource']
+        self._source_types = ['RBMtpSource',
+                              'RBMissingFilesSource']
 
     def valid_source(self, source):
 

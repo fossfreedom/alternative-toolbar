@@ -145,7 +145,7 @@ class SmallScale(Gtk.Scale):
         self.connect('button-press-event', self._button_press_event)
         self.connect('button-release-event', self._button_release_event)
         self.connect('motion-notify-event', self._motion_notify_event)
-        
+
         self.set_size_request(250, -1)
 
     @GObject.Property

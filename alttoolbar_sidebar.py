@@ -27,8 +27,8 @@ from alttoolbar_controller import AltControllerCategory
 from alttoolbar_preferences import GSetting
 from alttoolbar_preferences import CoverLocale
 
-class AltToolbarSidebar(Gtk.TreeView):
 
+class AltToolbarSidebar(Gtk.TreeView):
     expanders = GObject.property(type=str, default='{1:True}')
 
     def __init__(self, toolbar, rbtree):
@@ -41,7 +41,7 @@ class AltToolbarSidebar(Gtk.TreeView):
         self.toolbar = toolbar
         self.plugin = toolbar.plugin
         self.rbtree = rbtree
-        
+
         # locale stuff
         cl = CoverLocale()
         cl.switch_locale(cl.Locale.LOCALE_DOMAIN)
@@ -49,13 +49,13 @@ class AltToolbarSidebar(Gtk.TreeView):
         self.set_name("AltToolbarSideBar")
         self._category = {}
         self._last_click_source = None
-        
+
         self._user_clicked = False
 
         gs = GSetting()
         plugin_settings = gs.get_setting(gs.Path.PLUGIN)
         plugin_settings.bind(gs.PluginKey.EXPANDERS, self, 'expanders',
-                                  Gio.SettingsBindFlags.DEFAULT)
+                             Gio.SettingsBindFlags.DEFAULT)
 
         # title, source, visible
         self.treestore = Gtk.TreeStore.new([str, GObject.Object, bool])
@@ -91,7 +91,7 @@ class AltToolbarSidebar(Gtk.TreeView):
             self._connect_signals()
 
             # now expand or collapse each expander that we have saved from a previous session
-            expanders=eval(self.expanders)
+            expanders = eval(self.expanders)
 
             print (expanders)
             print (self.expanders)
@@ -100,8 +100,8 @@ class AltToolbarSidebar(Gtk.TreeView):
                 path = self.treestore.get_path(self._category[category])
 
                 if path and expanders[category]:
-                    #self._user_clicked = True
-                    self.expand_row(path, False) #expanders[category])
+                    # self._user_clicked = True
+                    self.expand_row(path, False)  # expanders[category])
 
             return False
 
@@ -134,7 +134,7 @@ class AltToolbarSidebar(Gtk.TreeView):
     def _connect_signals(self):
         # display_page_model signals to keep the sidebar model in sync
         model = self.shell.props.display_page_model
-        #model.props.child_model.connect('row-inserted', self._model_page_inserted)
+        # model.props.child_model.connect('row-inserted', self._model_page_inserted)
         #model.connect('row-inserted', self._model_page_inserted)
         self._cpi = model.connect('page-inserted', self._model_page_inserted)
         self._crd = model.connect('row-deleted', self._model_page_deleted)
@@ -159,7 +159,7 @@ class AltToolbarSidebar(Gtk.TreeView):
         :return:
         '''
         print ("playing song changed")
-        if hasattr(self.plugin, "db"): # curious crash when exiting - lets not send the queue_draw in this case
+        if hasattr(self.plugin, "db"):  # curious crash when exiting - lets not send the queue_draw in this case
             print ("queuing")
             self.queue_draw()
 
@@ -249,7 +249,6 @@ class AltToolbarSidebar(Gtk.TreeView):
             print ("##2", leaf_iter)
             leaf_iter = self.treestore.append(leaf_iter)
 
-
         self.treestore[leaf_iter][1] = page
         self.treestore[leaf_iter][0] = ""
         self.treestore[leaf_iter][2] = True
@@ -276,7 +275,6 @@ class AltToolbarSidebar(Gtk.TreeView):
         self.grab_focus()
 
         def delayed(*args):
-
             self.set_cursor_on_cell(path, self.tree_column, self.text_renderer, True)
 
         GLib.timeout_add_seconds(1, delayed, None)
@@ -297,7 +295,7 @@ class AltToolbarSidebar(Gtk.TreeView):
 
         def find_lookup_rows(store, treeiter):
             while treeiter != None:
-                #if store[treeiter][0] == "":
+                # if store[treeiter][0] == "":
                 #    lookup[store[treeiter][1]] = treeiter
 
                 if store[treeiter][1] != None:
@@ -364,7 +362,7 @@ class AltToolbarSidebar(Gtk.TreeView):
                 if path:
                     cat_vals[category] = self.row_expanded(path)
 
-            self.expanders=str(cat_vals)
+            self.expanders = str(cat_vals)
             print (self.expanders)
 
         GLib.timeout_add_seconds(1, delayed)
@@ -380,7 +378,7 @@ class AltToolbarSidebar(Gtk.TreeView):
         if self._user_clicked:
             self._user_clicked = False
             return
-            
+
         # first do a reverse lookup so that we can search quicker later
         # dict of sources in the sidebar model with their treeiter
         lookup = {}
@@ -453,9 +451,9 @@ class AltToolbarSidebar(Gtk.TreeView):
 
         path = model.get_path(treeiter)
         if path.get_depth() == 2:
-            renderer.props.visible = True # must be a child so show the pixbuf renderer
+            renderer.props.visible = True  # must be a child so show the pixbuf renderer
         else:
-            renderer.props.visible = False # headers or children of child dont have pixbuf's so no renderer to display
+            renderer.props.visible = False  # headers or children of child dont have pixbuf's so no renderer to display
 
         renderer.props.xpad = 3
 

@@ -31,6 +31,7 @@ import gettext
 
 import rb
 
+
 class GSetting:
     '''
     This class manages the different settings that the plugin has to
@@ -113,6 +114,7 @@ class GSetting:
     def __setattr__(self, attr, value):
         """ Delegate access to implementation """
         return setattr(self.__instance, attr, value)
+
 
 class CoverLocale:
     '''
@@ -213,14 +215,14 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
 
         # bind the toggles to the settings
         start_hidden = builder.get_object('start_hidden_checkbox')
-        
+
         start_hidden.set_active(not self.plugin_settings[self.gs.PluginKey.START_HIDDEN])
-        start_hidden.connect('toggled', self._start_hidden_checkbox_toggled)    
-        
+        start_hidden.connect('toggled', self._start_hidden_checkbox_toggled)
+
         self._show_compact = builder.get_object('show_compact_checkbox')
         self.plugin_settings.bind(self.gs.PluginKey.SHOW_COMPACT,
                                   self._show_compact, 'active', Gio.SettingsBindFlags.DEFAULT)
-                                  
+
         self._show_compact.connect('toggled', self._show_compact_checkbox_toggled)
 
         self._playing_label = builder.get_object('playing_label_checkbox')
@@ -252,13 +254,13 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
                                   self._enhanced_plugins, 'active', Gio.SettingsBindFlags.DEFAULT)
 
         modern_switch = builder.get_object('modern_switch')
-        #modern_switch.connect('state-set', self._modern_switch_state)
+        # modern_switch.connect('state-set', self._modern_switch_state)
         modern_switch.connect('notify', self._modern_switch_state)
-        
+
         # Determine what type of toolbar is to be displayed
         default = Gtk.Settings.get_default()
         display_type = self.plugin_settings[self.gs.PluginKey.DISPLAY_TYPE]
-        
+
         if display_type == 0:
             if (not default.props.gtk_shell_shows_app_menu) or default.props.gtk_shell_shows_menubar:
                 modern_switch.set_active(False)
@@ -268,40 +270,40 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
             modern_switch.set_active(True)
         else:
             modern_switch.set_active(False)
-            
+
         if modern_switch.get_active():
             self._show_compact.set_active(True)
-        
+
         self._show_compact_checkbox_toggled(self._show_compact)
-        
+
         infobar = builder.get_object('infobar')
         button = infobar.add_button(_("Restart"), 1)
         #restart_button = builder.get_object('restart_button')
         button.connect('clicked', self._restart_button_clicked)
-    
+
         self._first_run = False
 
         return builder.get_object('preferences_box')
-        
+
     def _restart_button_clicked(self, *args):
         exepath = shutil.which('rhythmbox')
-        os.execl(exepath, exepath, * sys.argv)
-        
+        os.execl(exepath, exepath, *sys.argv)
+
     def _start_hidden_checkbox_toggled(self, toggle_button):
         self.plugin_settings[self.gs.PluginKey.START_HIDDEN] = not toggle_button.get_active()
-        
+
     def _show_compact_checkbox_toggled(self, toggle_button):
         enabled = toggle_button.get_active()
-        
+
         self._show_tooltips.set_sensitive(enabled)
         self._inline_label.set_sensitive(enabled)
         self._playing_label.set_sensitive(enabled)
         self._compact_control.set_sensitive(enabled)
-        
+
     def _modern_switch_state(self, switch, param):
         state = switch.get_active()
         self._show_compact.set_sensitive(not state)
-        
+
         if state:
             self._show_compact.set_active(True)
             self.plugin_settings[self.gs.PluginKey.DISPLAY_TYPE] = 1
