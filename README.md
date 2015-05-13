@@ -1,4 +1,4 @@
-alternative-toolbar (v0.10)
+alternative-toolbar (v0.10.1)
 ==================
 
 Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact Toolbar which can be hidden
@@ -68,9 +68,9 @@ Remember to set your preferred language and then just submit your translation.
 Contributors:
 
  - [me4oslav](https://github.com/me4oslav) - design inspiration for the header-bar vision
- - [sergioad](https://github.com/sergioad) - for the initial translation (spanish) used for testing translations
-
+ - our Translators: Launchpad Translation team
+ 
 Credits:
 
- - our Translators: Launchpad Translation team
+ - [sergioad](https://github.com/sergioad) - for the initial translation (spanish) used for testing translations
  - Thanks to the [rhythmbox-seek](https://github.com/cgarvey/rhythmbox-seek) project for the track-seeking code.
