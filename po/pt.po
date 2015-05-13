@@ -1,4 +1,4 @@
-# Indonesian translation for alternative-toolbar
+# Portuguese translation for alternative-toolbar
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the alternative-toolbar package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-10 18:16+0100\n"
-"PO-Revision-Date: 2015-05-12 15:49+0000\n"
-"Last-Translator: zmni <Unknown>\n"
-"Language-Team: Indonesian <id@li.org>\n"
-"Language: id\n"
+"PO-Revision-Date: 2015-05-13 06:14+0000\n"
+"Last-Translator: asensio <Unknown>\n"
+"Language-Team: Portuguese <pt@li.org>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,35 +20,35 @@ msgstr ""
 
 #: tmp/altlibrary.ui.h:1 alttoolbar_type.py:905
 msgid "Songs"
-msgstr "Lagu"
+msgstr "Músicas"
 
 #: tmp/altlibrary.ui.h:2 alttoolbar_type.py:911
 msgid "Categories"
-msgstr "Kategori"
+msgstr "Categorias"
 
 #: tmp/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
-msgstr "Mulai ulang pemutar agar perubahan terdampak"
+msgstr "Reiniciar o Rhythmbox para as mudanças terem efeito"
 
 #: tmp/altpreferences.ui.h:2
 msgid "Toolbar:"
-msgstr "Bilah Alat"
+msgstr "Barra de Ferramentas"
 
 #: tmp/altpreferences.ui.h:3
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
 msgstr ""
-"Paling cocok untuk lingkungan\n"
-"desktop seperti Gnome dan Elementary."
+"Mais adequado para ambientes\n"
+"de trabalho como o Gnome ou Elementary."
 
 #: tmp/altpreferences.ui.h:5
 msgid "Modern"
-msgstr "Modern"
+msgstr "Moderno"
 
 #: tmp/altpreferences.ui.h:6
 msgid "Use compact controls"
-msgstr "Gunakan pengendali ringkas"
+msgstr "Usar controlos compactos"
 
 #: tmp/altpreferences.ui.h:7
 msgid ""
@@ -56,17 +56,17 @@ msgid ""
 "instead of the standard rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 msgstr ""
-"Tampilkan pengendali pemutaran pada bilah alat dengan gaya visual ringkas "
-"daripada gaya standar rhythmbox.\n"
-"Selalu aktif untuk mode bilah alat modern."
+"Mostrar os controlos de reprodução da barra de ferramentas no estilo "
+"compacto em vez do estilo normal do rhytmbox.\n"
+"Sempre activado para o modo moderno da barra de ferramentas."
 
 #: tmp/altpreferences.ui.h:9
 msgid "Show:"
-msgstr "Tampilkan"
+msgstr "Mostrar:"
 
 #: tmp/altpreferences.ui.h:10
 msgid "Album/genre/year for playing song"
-msgstr "Album/jenis musik/tahun untuk lagu yang diputar"
+msgstr "Álbum/género/ano para a música actual"
 
 #: tmp/altpreferences.ui.h:11
 msgid ""
@@ -74,66 +74,65 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
-"Tampilkan album/jenis musik/tahun ketimbang lagu-jenis musik-tahun. Sangat "
-"beguna untuk beberapa lingkungan destop yang lagu-jenis musik-tahun sudah "
-"ditampilkan di judul jendela."
+"Mostrar álbum/género/ano em vez de música/artista/album. Útil para os "
+"ambientes de trabalho onde música/artista/album já é visível na barra de "
+"título"
 
 #: tmp/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
-msgstr "Tip alat untuk pengendali pemutaran"
+msgstr "Dicas de contexto para os controlos de reprodução"
 
 #: tmp/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
-msgstr "Tampilkan atau sembunyikan tip alat untuk pengendali pemutaran."
+msgstr "Mostrar ou esconder dicas de contexto para os controlos de reprodução"
 
 #: tmp/altpreferences.ui.h:14
 msgid "Volume control"
-msgstr "Pengendali volume"
+msgstr "Controlo de volume"
 
 #: tmp/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
-msgstr "Tampilkan atau sembunyikan pengendali volume."
+msgstr "Mostrar ou esconder controlo de volume"
 
 #: tmp/altpreferences.ui.h:16
 msgid "Playback controls"
-msgstr "Pengendali pemutaran"
+msgstr "Controlos de reprodução"
 
 #: tmp/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
-msgstr ""
-"Tampilkan atau sembunyikan pengendali pemutaran pada saat memulai pemutar."
+msgstr "Mostrar ou esconder os controlos de reprodução no início"
 
 #: tmp/altpreferences.ui.h:18
 msgid "Use:"
-msgstr "Gunakan"
+msgstr "Utilização:"
 
 #: tmp/altpreferences.ui.h:19
 msgid "Inline song/artist label"
-msgstr "Label lagu/artis sebaris"
+msgstr "Etiqueta música/artista alinhada"
 
 #: tmp/altpreferences.ui.h:20
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
-"Tampilkan label Lagu dan Artis sebelum penyusur laju. Jika tidak dicentang, "
-"mereka ditampilkan di atas penyusur laju."
+"Mostrar Música e Artista antes da barra deslizante de progresso. Se esta "
+"opção não for escolhida, serão mostrados acima da barra deslizante"
 
 #: tmp/altpreferences.ui.h:21
 msgid "Compact progress slider"
-msgstr "Penyusur laju ringkas"
+msgstr "Barra deslizante de progresso compacta"
 
 #: tmp/altpreferences.ui.h:22
 msgid ""
 "Display and use a compact track progress slider - useful where the default "
 "theme progress slider is visually too large."
 msgstr ""
-"Tampilkan dan gunakan penyusur laju trek ringkas - sangat berguna dengan "
-"tema bawaan penyusur laju yang secara visual terlalu besar."
+"Mostrar e usar uma barra de progresso de faixa compacta - útil se o tema, "
+"por defeito, da barra deslizante for visualmente demasiado larga"
 
 #: tmp/altpreferences.ui.h:23
 msgid "Enhanced sidebar"
-msgstr "Bilah sisi dipertingkat"
+msgstr "Barra lateral melhorada"
 
 #: tmp/altpreferences.ui.h:24
 msgid ""
@@ -141,13 +140,13 @@ msgid ""
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
-"Tampilkan atau sembunyikan bilah sisi pemutar yang didesain ulang. Dengan "
-"fitur ikon simbolik yang disempurnakan, organisasi sumber yang lebih baik, "
-"dan kemampuan untuk meluaskan dan meruntuhkan kategori."
+"Mostrar ou esconder a barra lateral redesenhada. Possui ícones simbólicos "
+"melhorados, melhor organização de fontes e a capacidade de expandir ou "
+"encolher categorias."
 
 #: tmp/altpreferences.ui.h:25
 msgid "Enhanced plugins dialog"
-msgstr "Dialog plugin dipertingkat"
+msgstr "Diálogo de extensões melhorado"
 
 #: tmp/altpreferences.ui.h:26
 msgid ""
@@ -155,86 +154,86 @@ msgid ""
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
 "based desktop environments."
 msgstr ""
-"Tampilkan atau sembunyikan dialog plugin yang didesain ulang. Dengan fitur "
-"sakelar ketimbang kotak centang dan batang alat sebaris dengan ikon "
-"simbolik. Sangat cocok dengan lingkungan destop berbasis Gnome."
+"Mostrar ou esconder o diálogo de extensões melhorado. Possui \"switches\" em "
+"vez de \"checkboxes\" e barra de ferramenta alinhada com ícones simbólicos. "
+"Funciona melhor num ambiente de trabalho Gnome."
 
 #: tmp/alttoolbar.ui.h:1
 msgid "Play the previous track"
-msgstr "Putar trek sebelumnya"
+msgstr "Reproduzir faixa anterior"
 
 #: tmp/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr "Lanjut atau jeda pemutaran"
+msgstr "Continuar ou pausar a reprodução"
 
 #: tmp/alttoolbar.ui.h:3
 msgid "Play the next track"
-msgstr "Putar trek selanjutnya"
+msgstr "Reproduzir faixa seguinte"
 
 #: tmp/alttoolbar.ui.h:4
 msgid "Repeat the current track"
-msgstr "Ulangi trek saat ini"
+msgstr "Repetir faixa actual"
 
 #: tmp/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
-msgstr "Putar trek secara acak"
+msgstr "Tocar faixas aleatoriamente"
 
 #: alternative-toolbar.py:199
 msgid "Seek Backward"
-msgstr "Cari Mundur"
+msgstr "Procurar para trás"
 
 #: alternative-toolbar.py:201
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr "Cari mundur, di trek saat ini, per 5 detik."
+msgstr "Procurar para trás, na faixa actual, 5 segundos"
 
 #: alternative-toolbar.py:203
 msgid "Seek Forward"
-msgstr "Cari Maju"
+msgstr "Procurar para a frente"
 
 #: alternative-toolbar.py:205
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr "Cari maju, di trek saat ini, per 10 detik."
+msgstr "Procurar para a frente, na faixa actual, 10 segundos"
 
 #: alternative-toolbar.py:212
 msgid "Show Play-Controls Toolbar"
-msgstr "Tampilkan Batang Alat Pengontrol-Putar"
+msgstr "Mostrar barra de ferramenta de controlos"
 
 #: alternative-toolbar.py:215
 msgid "Show or hide the play-controls toolbar"
-msgstr "Tampilkan atau sembunyikan batang alat pengontrol-putar"
+msgstr "Mostrar ou esconder a barra de ferramenta de controlos"
 
 #: alternative-toolbar.py:218
 msgid "Show Source Toolbar"
-msgstr "Tampilkan Batang Alat Sumber"
+msgstr "Mostrar barra de ferramentas de fontes"
 
 #: alternative-toolbar.py:221
 msgid "Show or hide the source toolbar"
-msgstr "Tampilkan atau sembunyikan batang alat sumber"
+msgstr "Mostrar ou esconder barra de ferramentas de fontes"
 
 #. define .plugin text strings used for translation
 #: alternative-toolbar.py:479 alttoolbar_plugins.py:364
 msgid "Alternative Toolbar"
-msgstr "Batang Alat Alternatif"
+msgstr "Barra de Ferramentas Alternativa"
 
 #: alternative-toolbar.py:480
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr ""
-"Ganti batang alat besar Rhythmbox dengan Dekorasi Sisi-Klien atau Batang "
-"Alat Ringkas yang dapat disembunyikan"
+"Substituir a barra de ferramentas larga do Rhythmbox por uma barra de "
+"ferramentas compacta que pode ser escondida."
 
 #: alttoolbar_controller.py:184
 msgid "View All"
-msgstr "Lihat Semua"
+msgstr "Ver Tudo"
 
 #: alttoolbar_controller.py:340
 msgid "Import"
-msgstr "Impor"
+msgstr "Importar"
 
 #: alttoolbar_controller.py:515
 msgid "Stations"
-msgstr "Stasiun"
+msgstr "Estações"
 
 #: alttoolbar_controller.py:540
 msgid "Libre.fm"
@@ -242,72 +241,72 @@ msgstr "Libre.fm"
 
 #: alttoolbar_controller.py:579
 msgid "My Top Rated"
-msgstr "Pilihan Top"
+msgstr "Meus Melhores Classificados"
 
 #: alttoolbar_controller.py:582
 msgid "Recently Added"
-msgstr "Baru Saja Ditambahkan"
+msgstr "Adicionados recentemente"
 
 #: alttoolbar_controller.py:585
 msgid "Recently Played"
-msgstr "Baru Saja Diputar"
+msgstr "Tocados Recentemente"
 
 #: alttoolbar_controller.py:616
 msgid "Podcasts"
-msgstr "Podcast"
+msgstr "Podcasts"
 
 #: alttoolbar_plugins.py:115
 msgid "The plugin cannot be enabled"
-msgstr "Plugin tidak dapat diaktifkan"
+msgstr "Extenções não podem ser habilitadas"
 
 #: alttoolbar_plugins.py:231
 msgid "Configure Plugins"
-msgstr "Konfigurasi Plugin"
+msgstr "Configurar Extensões"
 
 #: alttoolbar_plugins.py:312
 msgid "About this plugin"
-msgstr "Tentang plugin ini"
+msgstr "Acerca desta extensão"
 
 #: alttoolbar_plugins.py:344
 msgid "Version: "
-msgstr "Versi: "
+msgstr "Versão: "
 
 #: alttoolbar_plugins.py:369
 msgid "Developer:"
-msgstr "Pengembang:"
+msgstr "Programador:"
 
 #: alttoolbar_plugins.py:379
 msgid "Designer:"
-msgstr "Perancang:"
+msgstr "Designer:"
 
 #: alttoolbar_plugins.py:400
 msgid "Help"
-msgstr "Bantuan"
+msgstr "Ajuda"
 
 #: alttoolbar_plugins.py:408
 msgid "Homepage"
-msgstr "Laman Beranda"
+msgstr "Página web"
 
 #: alttoolbar_preferences.py:278
 msgid "Restart"
-msgstr "Mulai Ulang"
+msgstr "Reiniciar"
 
 #: alttoolbar_sidebar.py:76
 msgid "Local collection"
-msgstr "Koleksi lokal"
+msgstr "Colecção local"
 
 #: alttoolbar_sidebar.py:77
 msgid "Online sources"
-msgstr "Sumber daring"
+msgstr "Fontes online"
 
 #: alttoolbar_sidebar.py:78
 msgid "Other sources"
-msgstr "Sumber lainnya"
+msgstr "Outras fontes"
 
 #: alttoolbar_sidebar.py:79
 msgid "Playlists"
-msgstr "Daftar Putar"
+msgstr "Listas de reprodução"
 
 #: alttoolbar_type.py:969
 msgid "Browse"
-msgstr "Ramban"
+msgstr "Navegar"
