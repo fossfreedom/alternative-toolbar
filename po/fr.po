@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-10 18:16+0100\n"
-"PO-Revision-Date: 2015-05-12 20:39+0000\n"
-"Last-Translator: Éfrit <Unknown>\n"
+"PO-Revision-Date: 2015-05-15 11:05+0000\n"
+"Last-Translator: Jean-Marc <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-05-13 11:32+0000\n"
+"X-Launchpad-Export-Date: 2015-05-15 11:40+0000\n"
 "X-Generator: Launchpad (build 17493)\n"
 
 #: tmp/altlibrary.ui.h:1 alttoolbar_type.py:905
@@ -48,7 +48,7 @@ msgstr "Moderne"
 
 #: tmp/altpreferences.ui.h:6
 msgid "Use compact controls"
-msgstr "Utiliser des contrôles compacts"
+msgstr "Utiliser des commandes compactes"
 
 #: tmp/altpreferences.ui.h:7
 msgid ""
@@ -56,6 +56,9 @@ msgid ""
 "instead of the standard rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 msgstr ""
+"Afficher les commandes du lecteur dans la barre d’outils dans un style "
+"visuel compact au lieu du style standard de Rhythmbox.\n"
+"Toujours activé en mode barre d’outils moderne."
 
 #: tmp/altpreferences.ui.h:9
 msgid "Show:"
@@ -71,14 +74,17 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
+"Afficher album/genre/année au lieu de chanson-artiste-album. Utile pour les "
+"environnements de bureau dans lesquels chanson-artiste-album est déjà "
+"affiché dans la barre de titre de la fenêtre."
 
 #: tmp/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
-msgstr ""
+msgstr "Bulles d’aide pour les commandes du lecteur"
 
 #: tmp/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
-msgstr ""
+msgstr "Afficher ou masquer les bulles d’aide pour les commandes du lecteur."
 
 #: tmp/altpreferences.ui.h:14
 msgid "Volume control"
@@ -90,11 +96,11 @@ msgstr "Afficher ou masquer le contrôle du volume."
 
 #: tmp/altpreferences.ui.h:16
 msgid "Playback controls"
-msgstr "Contrôles de lecture"
+msgstr "Commandes de lecture"
 
 #: tmp/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
-msgstr "Afficher ou masquer les contrôles de lecture au lancement du lecteur."
+msgstr "Afficher ou masquer les commandes de lecture au lancement du lecteur."
 
 #: tmp/altpreferences.ui.h:18
 msgid "Use:"
@@ -119,10 +125,12 @@ msgid ""
 "Display and use a compact track progress slider - useful where the default "
 "theme progress slider is visually too large."
 msgstr ""
+"Afficher et utiliser un curseur progressif compact de pistes — utile là où "
+"le curseur progressif du thème par défaut est visuellement trop large."
 
 #: tmp/altpreferences.ui.h:23
 msgid "Enhanced sidebar"
-msgstr ""
+msgstr "Barre latérale améliorée"
 
 #: tmp/altpreferences.ui.h:24
 msgid ""
@@ -130,10 +138,13 @@ msgid ""
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
+"Afficher ou masquer la barre latérale repensée pour le lecteur. Elle inclut "
+"des icônes symboliques améliorées, de meilleures sources d’organisation et "
+"la possibilité d’agrandir ou de réduire les catégories."
 
 #: tmp/altpreferences.ui.h:25
 msgid "Enhanced plugins dialog"
-msgstr ""
+msgstr "Boîte de dialogue des extensions améliorée"
 
 #: tmp/altpreferences.ui.h:26
 msgid ""
@@ -148,7 +159,7 @@ msgstr "Lire la piste précédente"
 
 #: tmp/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr ""
+msgstr "Reprendre ou mettre en pause la lecture"
 
 #: tmp/alttoolbar.ui.h:3
 msgid "Play the next track"
@@ -156,7 +167,7 @@ msgstr "Lire la piste suivante"
 
 #: tmp/alttoolbar.ui.h:4
 msgid "Repeat the current track"
-msgstr ""
+msgstr "Répéter la piste courante"
 
 #: tmp/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
@@ -168,7 +179,7 @@ msgstr ""
 
 #: alternative-toolbar.py:201
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr ""
+msgstr "Reculer de 5 secondes dans la piste courante."
 
 #: alternative-toolbar.py:203
 msgid "Seek Forward"
@@ -176,15 +187,15 @@ msgstr ""
 
 #: alternative-toolbar.py:205
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr ""
+msgstr "Avancer de 10 secondes dans la piste courante."
 
 #: alternative-toolbar.py:212
 msgid "Show Play-Controls Toolbar"
-msgstr ""
+msgstr "Afficher les commandes de lecture de la barre d’outils"
 
 #: alternative-toolbar.py:215
 msgid "Show or hide the play-controls toolbar"
-msgstr ""
+msgstr "Afficher ou masquer les commandes de lecture de la barre d’outils"
 
 #: alternative-toolbar.py:218
 msgid "Show Source Toolbar"
@@ -197,7 +208,7 @@ msgstr ""
 #. define .plugin text strings used for translation
 #: alternative-toolbar.py:479 alttoolbar_plugins.py:364
 msgid "Alternative Toolbar"
-msgstr ""
+msgstr "Barre d’outils alternative"
 
 #: alternative-toolbar.py:480
 msgid ""
@@ -239,7 +250,7 @@ msgstr "Podcasts"
 
 #: alttoolbar_plugins.py:115
 msgid "The plugin cannot be enabled"
-msgstr ""
+msgstr "L’extension ne peut être activée"
 
 #: alttoolbar_plugins.py:231
 msgid "Configure Plugins"
@@ -283,7 +294,7 @@ msgstr ""
 
 #: alttoolbar_sidebar.py:78
 msgid "Other sources"
-msgstr ""
+msgstr "Autres sources"
 
 #: alttoolbar_sidebar.py:79
 msgid "Playlists"
