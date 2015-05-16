@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-10 18:16+0100\n"
-"PO-Revision-Date: 2015-05-10 17:16+0000\n"
-"Last-Translator: Alfredo Hernández <Unknown>\n"
+"PO-Revision-Date: 2015-05-14 20:58+0000\n"
+"Last-Translator: fossfreedom <Unknown>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-05-12 15:36+0000\n"
+"X-Launchpad-Export-Date: 2015-05-14 21:28+0000\n"
 "X-Generator: Launchpad (build 17493)\n"
 
 #: tmp/altlibrary.ui.h:1 alttoolbar_type.py:905
@@ -56,6 +56,9 @@ msgid ""
 "instead of the standard rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 msgstr ""
+"Mostrar los controles de reproducción en la barra de herramientas en el "
+"estilo visual compacta en lugar del estilo Rhythmbox estándar.\n"
+"Siempre activada para el modo de barra de herramientas moderno."
 
 #: tmp/altpreferences.ui.h:9
 msgid "Show:"
@@ -71,6 +74,9 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
+"Mostrar álbum/genero/año en vez de la canción-artista-álbum. Útil para "
+"aquellos entornos donde desktop-canción-artista-álbum ya está representada "
+"en el título de la ventana."
 
 #: tmp/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
@@ -94,7 +100,7 @@ msgstr "Controles de reproducción"
 
 #: tmp/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
-msgstr ""
+msgstr "Mostrar u ocultar los controles de juego en el arranque reproductor."
 
 #: tmp/altpreferences.ui.h:18
 msgid "Use:"
@@ -102,13 +108,16 @@ msgstr "Usar:"
 
 #: tmp/altpreferences.ui.h:19
 msgid "Inline song/artist label"
-msgstr ""
+msgstr "canción en linea/ etiqueta del artista"
 
 #: tmp/altpreferences.ui.h:20
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
+"Mostrar etiquetas canción y el artista antes de que el control deslizante de "
+"progreso. Si no está activada, se muestran por encima de la barra de "
+"progreso."
 
 #: tmp/altpreferences.ui.h:21
 msgid "Compact progress slider"
@@ -119,6 +128,8 @@ msgid ""
 "Display and use a compact track progress slider - useful where the default "
 "theme progress slider is visually too large."
 msgstr ""
+"Muestra y usa un control deslizante del progreso de pista - útil cuando el "
+"el control deslizante de progreso es visualmente demasiado grande."
 
 #: tmp/altpreferences.ui.h:23
 msgid "Enhanced sidebar"
@@ -130,6 +141,9 @@ msgid ""
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
+"Mostrar u ocultar la barra lateral re diseñada para el reproductor. Ofrece "
+"iconos simbólicos mejorados, una mejor organización de fuentes y la "
+"capacidad de expandir y contraer categorías."
 
 #: tmp/altpreferences.ui.h:25
 msgid "Enhanced plugins dialog"
@@ -141,6 +155,10 @@ msgid ""
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
 "based desktop environments."
 msgstr ""
+"Mostrar u oculta los plugin de dialogo rediseñado. Ofrece interruptores en "
+"vez de casillas de verificación y la barra de herramientas en línea con "
+"iconos simbólicos. Funciona mejor con los entornos de escritorio basados en "
+"Gnome."
 
 #: tmp/alttoolbar.ui.h:1
 msgid "Play the previous track"
@@ -168,7 +186,7 @@ msgstr "Buscar hacia atrás"
 
 #: alternative-toolbar.py:201
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr ""
+msgstr "Busque hacia atrás, en la pista actual, por 5 segundos."
 
 #: alternative-toolbar.py:203
 msgid "Seek Forward"
@@ -176,23 +194,23 @@ msgstr "Buscar hacia delante"
 
 #: alternative-toolbar.py:205
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr ""
+msgstr "Busque hacia adelante, en la pista actual, por 10 segundos."
 
 #: alternative-toolbar.py:212
 msgid "Show Play-Controls Toolbar"
-msgstr ""
+msgstr "Mostrar la barra de Herramientas Reproducir-controles"
 
 #: alternative-toolbar.py:215
 msgid "Show or hide the play-controls toolbar"
-msgstr ""
+msgstr "Muestra u oculta la barra de Herramientas Reproducir-controles"
 
 #: alternative-toolbar.py:218
 msgid "Show Source Toolbar"
-msgstr ""
+msgstr "Muestra la Barra de Herramientas fuente"
 
 #: alternative-toolbar.py:221
 msgid "Show or hide the source toolbar"
-msgstr ""
+msgstr "Mostrar u ocultar la barra de herramientas de fuente"
 
 #. define .plugin text strings used for translation
 #: alternative-toolbar.py:479 alttoolbar_plugins.py:364
@@ -241,7 +259,7 @@ msgstr "Podcasts"
 
 #: alttoolbar_plugins.py:115
 msgid "The plugin cannot be enabled"
-msgstr ""
+msgstr "No se puede activar el complemento"
 
 #: alttoolbar_plugins.py:231
 msgid "Configure Plugins"
