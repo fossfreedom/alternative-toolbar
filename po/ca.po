@@ -1,0 +1,311 @@
+# Catalan translation for alternative-toolbar
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# This file is distributed under the same license as the alternative-toolbar package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: alternative-toolbar\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-10 18:16+0100\n"
+"PO-Revision-Date: 2015-05-16 11:21+0000\n"
+"Last-Translator: VPablo <villumar@gmail.com>\n"
+"Language-Team: Catalan <ca@li.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2015-05-16 19:36+0000\n"
+"X-Generator: Launchpad (build 17493)\n"
+
+#: tmp/altlibrary.ui.h:1 alttoolbar_type.py:905
+msgid "Songs"
+msgstr "Temes"
+
+#: tmp/altlibrary.ui.h:2 alttoolbar_type.py:911
+msgid "Categories"
+msgstr "Categories"
+
+#: tmp/altpreferences.ui.h:1
+msgid "Restart the player for the changes to take effect."
+msgstr "Reinicie el reproductor per que els canvis tinguen efecte."
+
+#: tmp/altpreferences.ui.h:2
+msgid "Toolbar:"
+msgstr "Barra d'eines:"
+
+#: tmp/altpreferences.ui.h:3
+msgid ""
+"Best suitable for desktop\n"
+"environments like Gnome and Elementary."
+msgstr ""
+"Mes adequat per entorns\n"
+"d'escriptori con GNOME o Elementary."
+
+#: tmp/altpreferences.ui.h:5
+msgid "Modern"
+msgstr "Modern"
+
+#: tmp/altpreferences.ui.h:6
+msgid "Use compact controls"
+msgstr "Usa controls compactes"
+
+#: tmp/altpreferences.ui.h:7
+msgid ""
+"Display the playback controls in the toolbar in visually compact style "
+"instead of the standard rhythmbox style.\n"
+"Always enabled for modern toolbar mode."
+msgstr ""
+"Mostra els controls de reproducció a la barra d'eines amb un estil visual "
+"compacte en lloc de l'estil rhythmboc estàndard.\n"
+"Sempre activat per al mode de la barra d'eines modern."
+
+#: tmp/altpreferences.ui.h:9
+msgid "Show:"
+msgstr "Mostra:"
+
+#: tmp/altpreferences.ui.h:10
+msgid "Album/genre/year for playing song"
+msgstr "Àlbum/gènere/any per la cançó en reproducció"
+
+#: tmp/altpreferences.ui.h:11
+msgid ""
+"Display album/genre/year instead of song-artist-album.  Useful for those "
+"desktop-environments where song-artist-album is already displayed in the "
+"window title."
+msgstr ""
+"Mostra àlbum/gènere/any en lloc de cançò-artista-àlbum. Útil per entorns "
+"d'escriptori on cançò-artista-àlbum ja es mostra la títol de la finestra."
+
+#: tmp/altpreferences.ui.h:12
+msgid "Tooltips for the playback controls"
+msgstr "Consells per als controls de reproducció."
+
+#: tmp/altpreferences.ui.h:13
+msgid "Show or hide the tooltips for the playback controls."
+msgstr "Mostra o oculta els consells per als controls de reproducció."
+
+#: tmp/altpreferences.ui.h:14
+msgid "Volume control"
+msgstr "Control de volum"
+
+#: tmp/altpreferences.ui.h:15
+msgid "Show or hide the volume control."
+msgstr "Mostra o oculta el control de volum."
+
+#: tmp/altpreferences.ui.h:16
+msgid "Playback controls"
+msgstr "Controls de reproducció"
+
+#: tmp/altpreferences.ui.h:17
+msgid "Show or hide the playing controls on player startup."
+msgstr "Mostra o oculta els controls de reproducció a la pantalla inicial."
+
+#: tmp/altpreferences.ui.h:18
+msgid "Use:"
+msgstr "Usa:"
+
+#: tmp/altpreferences.ui.h:19
+msgid "Inline song/artist label"
+msgstr "Etiqueta de cançó/artista en línia."
+
+#: tmp/altpreferences.ui.h:20
+msgid ""
+"Display Song and Artist labels before the progress slider.  If not checked, "
+"they are displayed above the progress slider."
+msgstr ""
+"Mostra etiquetes de Cançó i Artista abans del control lliscant de progrés. "
+"Si no està activat, es mostraran damunt del control de progrés."
+
+#: tmp/altpreferences.ui.h:21
+msgid "Compact progress slider"
+msgstr "Lliscador de progrés compacte"
+
+#: tmp/altpreferences.ui.h:22
+msgid ""
+"Display and use a compact track progress slider - useful where the default "
+"theme progress slider is visually too large."
+msgstr ""
+"Mostra i usa un lliscador de progrés compacte de pista - útil quan el "
+"lliscador de progrés del tema per defecte és visualment massa gran."
+
+#: tmp/altpreferences.ui.h:23
+msgid "Enhanced sidebar"
+msgstr "Barra lateral millorada"
+
+#: tmp/altpreferences.ui.h:24
+msgid ""
+"Show or hide redesigned sidebar for the player. It features improved "
+"symbolic icons, better sources organisation and ability to expand and "
+"collapse categories."
+msgstr ""
+"Mosta o oculta la barra lateral redissenyada per al reproductor. Ofereix "
+"icones simbòliques millorades, millor organització de fonts i la capacitat "
+"de expandir i contraure categories."
+
+#: tmp/altpreferences.ui.h:25
+msgid "Enhanced plugins dialog"
+msgstr "Diàleg de complements millorat"
+
+#: tmp/altpreferences.ui.h:26
+msgid ""
+"Show or hide redesigned plugins dialog. It features switches instead of "
+"checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
+"based desktop environments."
+msgstr ""
+"Mostra o oculta el diàleg de complements redissenyat. Ofereix interruptors "
+"en lloc de caselles i la barra lateral en línia amb icones simbòliques. "
+"Funciona millor amb entorns d'escriptori basats en GNOME."
+
+#: tmp/alttoolbar.ui.h:1
+msgid "Play the previous track"
+msgstr "Reprodueix la pista anterior"
+
+#: tmp/alttoolbar.ui.h:2
+msgid "Resume or pause the playback"
+msgstr "Continua o pausa la reproducció"
+
+#: tmp/alttoolbar.ui.h:3
+msgid "Play the next track"
+msgstr "Reprodueix la pista següent"
+
+#: tmp/alttoolbar.ui.h:4
+msgid "Repeat the current track"
+msgstr "Repeteix la pista actual"
+
+#: tmp/alttoolbar.ui.h:5
+msgid "Play the tracks in random order"
+msgstr "Reprodueix les pistes en ordre aleatori"
+
+#: alternative-toolbar.py:199
+msgid "Seek Backward"
+msgstr "Cerca enrere"
+
+#: alternative-toolbar.py:201
+msgid "Seek backward, in current track, by 5 seconds."
+msgstr "Cerca enrere, a la pista actual, per 5 segons."
+
+#: alternative-toolbar.py:203
+msgid "Seek Forward"
+msgstr "Cerca endavant"
+
+#: alternative-toolbar.py:205
+msgid "Seek forward, in current track, by 10 seconds."
+msgstr "Cerca endavant, a la pista actual, per 10 segons."
+
+#: alternative-toolbar.py:212
+msgid "Show Play-Controls Toolbar"
+msgstr "Mostra la barra d'eines de Reproducció-Controls"
+
+#: alternative-toolbar.py:215
+msgid "Show or hide the play-controls toolbar"
+msgstr "Mostra o oculta la barra d'eines de reproducció-controls"
+
+#: alternative-toolbar.py:218
+msgid "Show Source Toolbar"
+msgstr "Mostra la Barra d'eines de Fonts"
+
+#: alternative-toolbar.py:221
+msgid "Show or hide the source toolbar"
+msgstr "Mostra o oculta la barra d'eines de fonts"
+
+#. define .plugin text strings used for translation
+#: alternative-toolbar.py:479 alttoolbar_plugins.py:364
+msgid "Alternative Toolbar"
+msgstr "Barra d'eines Alternativa"
+
+#: alternative-toolbar.py:480
+msgid ""
+"Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
+"Toolbar which can be hidden"
+msgstr ""
+"Reemplaça la barra gran de Rhythmbox per una Barra d'eines Decorada per la "
+"Part-Client o Compacta que es pot amagar"
+
+#: alttoolbar_controller.py:184
+msgid "View All"
+msgstr "Mostra-ho tot"
+
+#: alttoolbar_controller.py:340
+msgid "Import"
+msgstr "Importa"
+
+#: alttoolbar_controller.py:515
+msgid "Stations"
+msgstr "Estacions"
+
+#: alttoolbar_controller.py:540
+msgid "Libre.fm"
+msgstr "Libre.fm"
+
+#: alttoolbar_controller.py:579
+msgid "My Top Rated"
+msgstr "Les millor puntuades per mi"
+
+#: alttoolbar_controller.py:582
+msgid "Recently Added"
+msgstr "Afegits recents"
+
+#: alttoolbar_controller.py:585
+msgid "Recently Played"
+msgstr "Reproduccions recents"
+
+#: alttoolbar_controller.py:616
+msgid "Podcasts"
+msgstr "Podcasts"
+
+#: alttoolbar_plugins.py:115
+msgid "The plugin cannot be enabled"
+msgstr "No es pot activar el complement"
+
+#: alttoolbar_plugins.py:231
+msgid "Configure Plugins"
+msgstr "Configuració dels Complements"
+
+#: alttoolbar_plugins.py:312
+msgid "About this plugin"
+msgstr "Quant a aquest Complement"
+
+#: alttoolbar_plugins.py:344
+msgid "Version: "
+msgstr "Versió: "
+
+#: alttoolbar_plugins.py:369
+msgid "Developer:"
+msgstr "Desenvolupador:"
+
+#: alttoolbar_plugins.py:379
+msgid "Designer:"
+msgstr "Dissenyador:"
+
+#: alttoolbar_plugins.py:400
+msgid "Help"
+msgstr "Ajuda"
+
+#: alttoolbar_plugins.py:408
+msgid "Homepage"
+msgstr "Pàgina web"
+
+#: alttoolbar_preferences.py:278
+msgid "Restart"
+msgstr "Reinicia"
+
+#: alttoolbar_sidebar.py:76
+msgid "Local collection"
+msgstr "Col·lecció local"
+
+#: alttoolbar_sidebar.py:77
+msgid "Online sources"
+msgstr "Fonts en línia"
+
+#: alttoolbar_sidebar.py:78
+msgid "Other sources"
+msgstr "Altres fonts"
+
+#: alttoolbar_sidebar.py:79
+msgid "Playlists"
+msgstr "Llistes de reproducció"
+
+#: alttoolbar_type.py:969
+msgid "Browse"
+msgstr "Navega"
