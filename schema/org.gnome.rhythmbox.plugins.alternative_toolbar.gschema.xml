@@ -57,5 +57,10 @@
             <summary>show enhanced plugins dialog</summary>
             <description>Use the enhanced plugins dialog</description>
         </key>
+        <key type="i" name="repeat-type">
+            <default>2</default>
+            <summary>Repeat Button Type</summary>
+            <description>Icon and functionality for the repeat toggle-button</description>
+        </key>
     </schema>
 </schemalist>

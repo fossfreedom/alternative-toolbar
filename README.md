@@ -1,4 +1,4 @@
-alternative-toolbar (v0.10.1)
+alternative-toolbar (v0.11.1)
 ==================
 
 Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact Toolbar which can be hidden
@@ -23,6 +23,9 @@ or with the new Gnome-style client-side decoration:
  - Volume Control can be switched off for all toolbars
  - Source Toolbars can be toggled - CTRL+T keyboard shortcut
  - Redesigned sidebar
+ - Redesigned plugin window, about box and plugin preferences window
+ - Repeat button can now switch between repeat tracks and repeat-one-song mode
+ - Plugin translated into 18 languages and locales
 
 The plugin preferences allows you to define which toolbars are used:
 
@@ -74,3 +77,4 @@ Credits:
 
  - [sergioad](https://github.com/sergioad) - for the initial translation (spanish) used for testing translations
  - Thanks to the [rhythmbox-seek](https://github.com/cgarvey/rhythmbox-seek) project for the track-seeking code.
+ - Thanks to the [repeat-one-song](https://launchpad.net/repeat-one-song) project for the repeat-one-song code

@@ -42,6 +42,8 @@ from alttoolbar_controller import AltStandardLocalController
 from alttoolbar_sidebar import AltToolbarSidebar
 from alttoolbar_widget import SmallProgressBar
 from alttoolbar_widget import SmallScale
+from alttoolbar_repeat import Repeat
+
 import rb
 
 
@@ -356,6 +358,9 @@ class AltToolbarShared(AltToolbarBase):
                 print(a.get_sensitive())
                 if not a.get_sensitive():
                     a.set_detailed_action_name("app." + b)
+
+        # The Play-Repeat button is subject to the plugins Repeat All/one song capability
+        self._repeat = Repeat(self.shell, self.repeat_toggle)
 
         if gtk_version() >= 3.12:
             self.cover_popover = Gtk.Popover.new(self.album_cover)
