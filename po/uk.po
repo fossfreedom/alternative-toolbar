@@ -1,4 +1,4 @@
-# Chinese (Traditional) translation for alternative-toolbar
+# Ukrainian translation for alternative-toolbar
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the alternative-toolbar package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-10 18:16+0100\n"
-"PO-Revision-Date: 2015-05-11 13:06+0000\n"
-"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
-"Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2015-05-19 15:08+0000\n"
+"Last-Translator: JF-X <jf-x@ua.fm>\n"
+"Language-Team: Ukrainian <uk@li.org>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,35 +20,35 @@ msgstr ""
 
 #: tmp/altlibrary.ui.h:1 alttoolbar_type.py:905
 msgid "Songs"
-msgstr "歌曲"
+msgstr "Композиції"
 
 #: tmp/altlibrary.ui.h:2 alttoolbar_type.py:911
 msgid "Categories"
-msgstr "分類"
+msgstr "Категорії"
 
 #: tmp/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
-msgstr "請重新啟動播放器來讓變動生效。"
+msgstr "Перезавантажити програвач, щоб зміни набули чинності."
 
 #: tmp/altpreferences.ui.h:2
 msgid "Toolbar:"
-msgstr "工具列："
+msgstr "Панель інструментів:"
 
 #: tmp/altpreferences.ui.h:3
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
 msgstr ""
-"最適合 Gnome、Elementary\n"
-"這類的桌面環境。"
+"Найкраще пасує для стільниці\n"
+"середовищ, таких як: Gnome та Elementary."
 
 #: tmp/altpreferences.ui.h:5
 msgid "Modern"
-msgstr "現代"
+msgstr "Сучасна"
 
 #: tmp/altpreferences.ui.h:6
 msgid "Use compact controls"
-msgstr "使用精簡控制項"
+msgstr "Використовувати компактні елементи керування"
 
 #: tmp/altpreferences.ui.h:7
 msgid ""
@@ -56,16 +56,17 @@ msgid ""
 "instead of the standard rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 msgstr ""
-"在工具列中以精簡的視覺風格顯示播放控制項，而非標準的 rhythombox 風格。\n"
-"現代工具列模式下都會啟用這個項目。"
+"Відображати керування відтворенням на панелі інструментів у візуально "
+"компактному стилі, замість стандартного стилю rhytmbox.\n"
+"Завжди увімкнене для режиму сучасної панелі інтсрументів."
 
 #: tmp/altpreferences.ui.h:9
 msgid "Show:"
-msgstr "顯示："
+msgstr "Показати:"
 
 #: tmp/altpreferences.ui.h:10
 msgid "Album/genre/year for playing song"
-msgstr "播放歌曲的專輯/曲風/年代"
+msgstr "Альбом/жанр/рік для композиції, що відтворюється"
 
 #: tmp/altpreferences.ui.h:11
 msgid ""
@@ -73,62 +74,68 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
-"顯示專輯/曲風/年代而非曲目-演出者-專輯。對於那些已在視窗標題中顯示歌曲-演出"
-"者-專輯的桌面環境來說很有用。"
+"Відображати альбом/жанр/рік замість композиція-виконавець-альбом. Корисне "
+"для таких середовищ стільниці у яких композиція-виконавець-альбом вже "
+"відображається у вікні заголовку."
 
 #: tmp/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
-msgstr "播放控制項的提示框"
+msgstr "Підказки для елементів керування відтворенням."
 
 #: tmp/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
-msgstr "顯示或隱藏播放控制項的提示框。"
+msgstr "Показати або приховати підказки для  елементів керування відтворенням."
 
 #: tmp/altpreferences.ui.h:14
 msgid "Volume control"
-msgstr "音量控制"
+msgstr "Керування гучністю"
 
 #: tmp/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
-msgstr "顯示或隱藏音量控制項。"
+msgstr "Показати або приховати керування гучністю."
 
 #: tmp/altpreferences.ui.h:16
 msgid "Playback controls"
-msgstr "播放控制項"
+msgstr "Керування відтворенням"
 
 #: tmp/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
-msgstr "播放器啟動時是要顯示或隱藏播放控制項。"
+msgstr ""
+"Показати або приховати елементи керування відтворенням при завантаженні "
+"програвача."
 
 #: tmp/altpreferences.ui.h:18
 msgid "Use:"
-msgstr "使用："
+msgstr "Використовувати:"
 
 #: tmp/altpreferences.ui.h:19
 msgid "Inline song/artist label"
-msgstr "列內歌曲/演出者標籤"
+msgstr "Вмістити мітку композиція/виконавець"
 
 #: tmp/altpreferences.ui.h:20
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
-"在進度滑動列的前方顯示歌曲與演出者標籤。若未勾選，則在進度滑動列上方顯示。"
+"Відображати мітки Композиція та Виконавець перед повзунком поступу "
+"відтворення."
 
 #: tmp/altpreferences.ui.h:21
 msgid "Compact progress slider"
-msgstr "精簡進度滑動列"
+msgstr "Компактний повзунок поступу відтворення"
 
 #: tmp/altpreferences.ui.h:22
 msgid ""
 "Display and use a compact track progress slider - useful where the default "
 "theme progress slider is visually too large."
 msgstr ""
-"顯示並使用精簡的簡曲目進度滑動列 - 若預設進度滑動列看起來過於巨大時很有用。"
+"Відображати та використовувати компактний повзунок поступу відтворення - "
+"корисний, якщо вбудована тема повзунка поступу відтвореня є візуально надто "
+"великою."
 
 #: tmp/altpreferences.ui.h:23
 msgid "Enhanced sidebar"
-msgstr "強化式側邊欄"
+msgstr "Покращена бічна панель"
 
 #: tmp/altpreferences.ui.h:24
 msgid ""
@@ -136,12 +143,10 @@ msgid ""
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
-"顯示或隱藏重新設計過的播放器側邊欄。它擁有改良過的符號化圖示、來源整理得更"
-"好、具備展開與收納分類的能力等。"
 
 #: tmp/altpreferences.ui.h:25
 msgid "Enhanced plugins dialog"
-msgstr "強化式外掛對話盒"
+msgstr ""
 
 #: tmp/altpreferences.ui.h:26
 msgid ""
@@ -149,157 +154,154 @@ msgid ""
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
 "based desktop environments."
 msgstr ""
-"顯示或隱藏重新設計過的外掛對話盒。它採用切換開關而非勾選方框，並採用符號化圖"
-"示的列內工具列。這個功能與 Gnome 為基礎的桌面環境最搭。"
 
 #: tmp/alttoolbar.ui.h:1
 msgid "Play the previous track"
-msgstr "播放上一首曲目"
+msgstr "Відтворити попередню композицію"
 
 #: tmp/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr "繼續播放或暫停播放"
+msgstr "Поновити або призупинити відтворення"
 
 #: tmp/alttoolbar.ui.h:3
 msgid "Play the next track"
-msgstr "播放下一首曲目"
+msgstr ""
 
 #: tmp/alttoolbar.ui.h:4
 msgid "Repeat the current track"
-msgstr "重複播放目前曲目"
+msgstr ""
 
 #: tmp/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
-msgstr "隨機播放曲目"
+msgstr ""
 
 #: alternative-toolbar.py:199
 msgid "Seek Backward"
-msgstr "往回搜尋"
+msgstr ""
 
 #: alternative-toolbar.py:201
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr "往回搜尋，目前曲目，一次倒退 5 秒。"
+msgstr ""
 
 #: alternative-toolbar.py:203
 msgid "Seek Forward"
-msgstr "往前搜尋"
+msgstr ""
 
 #: alternative-toolbar.py:205
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr "往前搜尋，目前曲目，一次前進 10 秒。"
+msgstr ""
 
 #: alternative-toolbar.py:212
 msgid "Show Play-Controls Toolbar"
-msgstr "顯示播放控制項工具列"
+msgstr ""
 
 #: alternative-toolbar.py:215
 msgid "Show or hide the play-controls toolbar"
-msgstr "顯示或隱藏播放控制項工具列"
+msgstr ""
 
 #: alternative-toolbar.py:218
 msgid "Show Source Toolbar"
-msgstr "顯示來源工具列"
+msgstr ""
 
 #: alternative-toolbar.py:221
 msgid "Show or hide the source toolbar"
-msgstr "顯示或隱藏來源工具列"
+msgstr ""
 
 #. define .plugin text strings used for translation
 #: alternative-toolbar.py:479 alttoolbar_plugins.py:364
 msgid "Alternative Toolbar"
-msgstr "替代工具列"
+msgstr ""
 
 #: alternative-toolbar.py:480
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr ""
-"使用可隱藏的客戶端裝飾工具列或精簡工具列，來取代 Rhythmbox 的大型工具列"
 
 #: alttoolbar_controller.py:184
 msgid "View All"
-msgstr "檢視全部"
+msgstr ""
 
 #: alttoolbar_controller.py:340
 msgid "Import"
-msgstr "匯入"
+msgstr ""
 
 #: alttoolbar_controller.py:515
 msgid "Stations"
-msgstr "電臺"
+msgstr ""
 
 #: alttoolbar_controller.py:540
 msgid "Libre.fm"
-msgstr "Libre.fm"
+msgstr ""
 
 #: alttoolbar_controller.py:579
 msgid "My Top Rated"
-msgstr "我的最高評價"
+msgstr ""
 
 #: alttoolbar_controller.py:582
 msgid "Recently Added"
-msgstr "最近加入"
+msgstr ""
 
 #: alttoolbar_controller.py:585
 msgid "Recently Played"
-msgstr "最近播放"
+msgstr ""
 
 #: alttoolbar_controller.py:616
 msgid "Podcasts"
-msgstr "Podcast"
+msgstr ""
 
 #: alttoolbar_plugins.py:115
 msgid "The plugin cannot be enabled"
-msgstr "無法啟用該外掛"
+msgstr ""
 
 #: alttoolbar_plugins.py:231
 msgid "Configure Plugins"
-msgstr "設定外掛"
+msgstr ""
 
 #: alttoolbar_plugins.py:312
 msgid "About this plugin"
-msgstr "關於此外掛"
+msgstr ""
 
 #: alttoolbar_plugins.py:344
 msgid "Version: "
-msgstr "版本： "
+msgstr ""
 
 #: alttoolbar_plugins.py:369
 msgid "Developer:"
-msgstr "開發者："
+msgstr ""
 
 #: alttoolbar_plugins.py:379
 msgid "Designer:"
-msgstr "設計者："
+msgstr ""
 
 #: alttoolbar_plugins.py:400
 msgid "Help"
-msgstr "求助"
+msgstr ""
 
 #: alttoolbar_plugins.py:408
 msgid "Homepage"
-msgstr "首頁"
+msgstr ""
 
 #: alttoolbar_preferences.py:278
 msgid "Restart"
-msgstr "重新啟動"
+msgstr ""
 
 #: alttoolbar_sidebar.py:76
 msgid "Local collection"
-msgstr "本地端收藏集"
+msgstr ""
 
 #: alttoolbar_sidebar.py:77
 msgid "Online sources"
-msgstr "線上來源"
+msgstr ""
 
 #: alttoolbar_sidebar.py:78
 msgid "Other sources"
-msgstr "其他來源"
+msgstr ""
 
 #: alttoolbar_sidebar.py:79
 msgid "Playlists"
-msgstr "播放清單"
+msgstr ""
 
 #: alttoolbar_type.py:969
 msgid "Browse"
-msgstr "瀏覽"
+msgstr ""
