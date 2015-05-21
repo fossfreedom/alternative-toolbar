@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.18.3 -->
+<!-- Generated with glade 3.16.1 -->
 <interface>
   <requires lib="gtk+" version="3.10"/>
   <object class="GtkToolbar" id="small bar">
@@ -105,7 +105,7 @@
               <object class="GtkEventBox" id="album cover eventbox">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="visible-window">False</property>
+                <property name="visible_window">False</property>
                 <child>
                   <object class="GtkImage" id="album cover">
                     <property name="can_focus">False</property>
@@ -151,7 +151,7 @@
                     <property name="hexpand">True</property>
                     <property name="xalign">0</property>
                     <property name="yalign">0</property>
-                    <property name="label" translatable="no">    </property>
+                    <property name="label">    </property>
                     <property name="ellipsize">end</property>
                   </object>
                   <packing>
@@ -233,6 +233,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="tooltip_text" translatable="yes">Repeat the current track</property>
+                <property name="margin_right">3</property>
                 <property name="always_show_image">True</property>
                 <child>
                   <object class="GtkImage" id="repeat image">
@@ -253,7 +254,6 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
                 <property name="tooltip_text" translatable="yes">Play the tracks in random order</property>
-                <property name="margin_right">6</property>
                 <child>
                   <object class="GtkImage" id="shuffle image">
                     <property name="can_focus">False</property>
@@ -268,9 +268,6 @@
                 <property name="position">2</property>
               </packing>
             </child>
-            <style>
-              <class name="linked"/>
-            </style>
           </object>
         </child>
       </object>
@@ -282,7 +279,8 @@
     <child>
       <object class="GtkToolItem" id="end item">
         <property name="can_focus">False</property>
-        <property name="margin_left">6</property>
+        <property name="margin_left">3</property>
+        <property name="margin_right">9</property>
         <child>
           <object class="GtkBox" id="end box">
             <property name="visible">True</property>
@@ -292,7 +290,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="margin_right">12</property>
                 <property name="focus_on_click">False</property>
                 <property name="orientation">vertical</property>
                 <property name="size">button</property>
@@ -302,7 +299,7 @@ audio-volume-low-symbolic
 audio-volume-medium-symbolic</property>
                 <child internal-child="plus_button">
                   <object class="GtkButton" id="volumebutton-plus_button3">
-                    <property name="label" translatable="no">+</property>
+                    <property name="label">+</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="relief">none</property>
@@ -310,7 +307,7 @@ audio-volume-medium-symbolic</property>
                 </child>
                 <child internal-child="minus_button">
                   <object class="GtkButton" id="volumebutton-minus_button3">
-                    <property name="label" translatable="no">-</property>
+                    <property name="label">-</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="relief">none</property>

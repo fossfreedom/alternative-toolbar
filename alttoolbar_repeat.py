@@ -63,7 +63,7 @@ class Repeat (GObject.Object):
             # use our custom Popover equivalent for Gtk+3.10 folks
             popover = CustomPopover(toggle_button)
             repeat = RepeatPopContainer(popover, toggle_button)
-            custom.add(repeat)
+            popover.add(repeat)
 
         toggle_button.connect("toggled", self._on_toggle, popover, repeat)
         repeat.connect('repeat-type-changed', self._on_repeat_type_changed)
@@ -84,7 +84,7 @@ class Repeat (GObject.Object):
 
     def _set_toggle_tooltip(self, repeat):
         print (self.toggle_button.get_tooltip_text())
-        if self.toggle_button.get_tooltip_text() != "":
+        if self.toggle_button.get_has_tooltip():
             if repeat.get_repeat_type() == RepeatPopContainer.ALL_SONGS:
                 print ("all songs")
                 self.toggle_button.set_tooltip_text(_("Repeat all tracks"))
@@ -174,6 +174,10 @@ class RepeatPopContainer(Gtk.ButtonBox):
         toggle1.connect('leave-notify-event', self._on_popover_mouse_over)
         toggle1.connect('enter-notify-event', self._on_popover_mouse_over)
         toggle1.connect('toggled', self._on_popover_button_toggled)
+
+        if parent_button.get_has_tooltip():
+            toggle1.set_tooltip_text(_("Repeat all tracks"))
+
         self._repeat_button = toggle1
         self.add(toggle1)
         self.child_set_property(toggle1, "non-homogeneous", True)
@@ -190,6 +194,9 @@ class RepeatPopContainer(Gtk.ButtonBox):
         image2.set_from_gicon(icon2, icon_size)
         image2.props.margin = 5
         toggle2.set_image(image2)
+
+        if parent_button.get_has_tooltip():
+            toggle2.set_tooltip_text(_("Repeat the current track"))
 
         self._repeat_song_image = Gtk.Image()
         self._repeat_song_image.set_from_gicon(icon2, icon_size)
@@ -300,8 +307,9 @@ class CustomPopover(Gtk.Window):
 
     def add(self, widget):
         self._frame = Gtk.Frame()
-        super(CustomPopover, self).add(self._frame)
         self._frame.add(widget)
+
+        super(CustomPopover, self).add(self._frame)
         self._frame.show_all()
 
     # Popoverwindow co ordinates without off-screen correction:
@@ -329,7 +337,6 @@ class CustomPopover(Gtk.Window):
     #   y = Window's origin y + Toggle Button's relative y + Toggle Button's height
 
     def _on_show(self, widget):
-
         rect = self._parent_button.get_allocation()
         main_window = self._parent_button.get_toplevel()
         [val, win_x, win_y] = main_window.get_window().get_origin()
@@ -355,10 +362,17 @@ class CustomPopover(Gtk.Window):
         delta_y = screen_h - (y + rect.height)
         if delta_x < 0:
             corrected_x += delta_x
+            print ("at x")
         if corrected_x < 0:
             corrected_x = 0
-        if delta_y < 0:
+
+        button_rect = self._parent_button.get_allocation()
+        window_width, window_height = self._parent_button.get_toplevel().get_size()
+        #print (y, button_rect.y, button_rect.height, )
+
+        if delta_y < 0 or ((window_height - (button_rect.y + (button_rect.height * 2))) < 0):
             corrected_y = y - rect.height - self._parent_button.get_allocation().height
+            print ("at y")
         if corrected_y < 0:
             corrected_y = 0
         return [corrected_x, corrected_y]
