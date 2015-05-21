@@ -26,6 +26,8 @@ from gi.repository import GLib
 from gi.repository import Gio
 from alttoolbar_rb3compat import gtk_version
 from alttoolbar_preferences import GSetting
+from alttoolbar_preferences import CoverLocale
+
 
 class Repeat (GObject.Object):
 
@@ -83,7 +85,9 @@ class Repeat (GObject.Object):
         print ("on toggle", self.repeat_song)
 
     def _set_toggle_tooltip(self, repeat):
-        print (self.toggle_button.get_tooltip_text())
+        # locale stuff
+        cl = CoverLocale()
+        cl.switch_locale(cl.Locale.LOCALE_DOMAIN)
         if self.toggle_button.get_has_tooltip():
             if repeat.get_repeat_type() == RepeatPopContainer.ALL_SONGS:
                 print ("all songs")
@@ -175,6 +179,10 @@ class RepeatPopContainer(Gtk.ButtonBox):
         toggle1.connect('enter-notify-event', self._on_popover_mouse_over)
         toggle1.connect('toggled', self._on_popover_button_toggled)
 
+        # locale stuff
+        cl = CoverLocale()
+        cl.switch_locale(cl.Locale.LOCALE_DOMAIN)
+        
         if parent_button.get_has_tooltip():
             toggle1.set_tooltip_text(_("Repeat all tracks"))
 
