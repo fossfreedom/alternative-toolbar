@@ -1,4 +1,4 @@
-# Turkish translation for alternative-toolbar
+# Chinese (Simplified) translation for alternative-toolbar
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the alternative-toolbar package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-22 13:08+0100\n"
-"PO-Revision-Date: 2015-05-10 17:23+0000\n"
-"Last-Translator: Utku Birkan <utku.birkan@gmail.com>\n"
-"Language-Team: Turkish <tr@li.org>\n"
-"Language: tr\n"
+"PO-Revision-Date: 2015-05-22 16:19+0000\n"
+"Last-Translator: Xiaoxing Ye <Unknown>\n"
+"Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,33 +20,35 @@ msgstr ""
 
 #: tmp/altlibrary.ui.h:1 alttoolbar_type.py:923
 msgid "Songs"
-msgstr "Şarkılar"
+msgstr "歌曲"
 
 #: tmp/altlibrary.ui.h:2 alttoolbar_type.py:928
 msgid "Categories"
-msgstr "Kategoriler"
+msgstr "类别"
 
 #: tmp/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
-msgstr "Değişikliklerin etkisini göstermesi için oynatıcıyı yeniden başlatın."
+msgstr "重新启动播放器来应用设置。"
 
 #: tmp/altpreferences.ui.h:2
 msgid "Toolbar:"
-msgstr "Araç çubuğu:"
+msgstr "工具栏:"
 
 #: tmp/altpreferences.ui.h:3
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
-msgstr "En iyi Elementary ya da Gnome benzeri masaüstü ortamlarında çalışır."
+msgstr ""
+"适用于类似 Gnome 和\n"
+"Elementary 等桌面环境。"
 
 #: tmp/altpreferences.ui.h:5
 msgid "Modern"
-msgstr "Modern"
+msgstr "现代"
 
 #: tmp/altpreferences.ui.h:6
 msgid "Use compact controls"
-msgstr "Kompakt kontrolleri kullan"
+msgstr ""
 
 #: tmp/altpreferences.ui.h:7
 msgid ""
@@ -57,11 +59,11 @@ msgstr ""
 
 #: tmp/altpreferences.ui.h:9
 msgid "Show:"
-msgstr "Göster:"
+msgstr "显示:"
 
 #: tmp/altpreferences.ui.h:10
 msgid "Album/genre/year for playing song"
-msgstr "Çalan şarkı için albüm/tarz/yıl"
+msgstr ""
 
 #: tmp/altpreferences.ui.h:11
 msgid ""
@@ -69,48 +71,44 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
-"Sarkı-sanatçı-albüm yerine albüm/tarz/yıl'ı görüntüle. Sarkı-sanatçı-"
-"albüm'ün pencere başlığı olarak görüntülendiği masaüstü ortamları için ideal"
 
 #: tmp/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
-msgstr "Oynatma kontrolleri için ipuçları"
+msgstr ""
 
 #: tmp/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
-msgstr "Oynatma kontrolleri için ipuçlarını göster ya da gizle"
+msgstr ""
 
 #: tmp/altpreferences.ui.h:14
 msgid "Volume control"
-msgstr "Ses denetimi"
+msgstr "音量控制"
 
 #: tmp/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
-msgstr "Ses denetimini göster ya da gizle"
+msgstr ""
 
 #: tmp/altpreferences.ui.h:16
 msgid "Playback controls"
-msgstr "Oynatma kontrolleri"
+msgstr ""
 
 #: tmp/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
-msgstr "Oynatma kontrollerini oynatıcı başlangıcında göster ya da gizle"
+msgstr ""
 
 #: tmp/altpreferences.ui.h:18
 msgid "Use:"
-msgstr "Kullan:"
+msgstr "使用:"
 
 #: tmp/altpreferences.ui.h:19
 msgid "Inline song/artist label"
-msgstr "Satır içi sarkı/sanatçı etiketi"
+msgstr ""
 
 #: tmp/altpreferences.ui.h:20
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
-"Şarkı ve Sanatçı etiketlerini ilerleme çubuğundan önce göster. Seçili "
-"değilse, etiketler ilerleme çubuğunun üzerinde gösterilir."
 
 #: tmp/altpreferences.ui.h:21
 msgid "Compact progress slider"

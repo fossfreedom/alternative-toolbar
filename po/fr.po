@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-22 13:08+0100\n"
-"PO-Revision-Date: 2015-05-18 21:36+0000\n"
-"Last-Translator: Jean-Marc <Unknown>\n"
+"PO-Revision-Date: 2015-05-22 18:18+0000\n"
+"Last-Translator: Éfrit <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-05-19 22:44+0000\n"
-"X-Generator: Launchpad (build 17508)\n"
+"X-Launchpad-Export-Date: 2015-05-22 20:52+0000\n"
+"X-Generator: Launchpad (build 17514)\n"
 
 #: tmp/altlibrary.ui.h:1 alttoolbar_type.py:923
 msgid "Songs"
@@ -118,7 +118,7 @@ msgstr ""
 
 #: tmp/altpreferences.ui.h:21
 msgid "Compact progress slider"
-msgstr "Barre de progression compacte"
+msgstr "Curseur de progression compact"
 
 #: tmp/altpreferences.ui.h:22
 msgid ""
@@ -199,11 +199,11 @@ msgstr "Afficher ou masquer les commandes de lecture de la barre d’outils"
 
 #: alternative-toolbar.py:218
 msgid "Show Source Toolbar"
-msgstr ""
+msgstr "Afficher la barre d’outils des sources"
 
 #: alternative-toolbar.py:221
 msgid "Show or hide the source toolbar"
-msgstr ""
+msgstr "Afficher ou masquer la barre d’outils des sources"
 
 #. define .plugin text strings used for translation
 #: alternative-toolbar.py:479 alttoolbar_plugins.py:364
@@ -242,7 +242,7 @@ msgstr "Récemment ajoutées"
 
 #: alttoolbar_controller.py:592
 msgid "Recently Played"
-msgstr ""
+msgstr "Récemment lues"
 
 #: alttoolbar_controller.py:624
 msgid "Podcasts"
@@ -286,11 +286,11 @@ msgstr "Redémarrer"
 
 #: alttoolbar_sidebar.py:76
 msgid "Local collection"
-msgstr ""
+msgstr "Collection locale"
 
 #: alttoolbar_sidebar.py:77
 msgid "Online sources"
-msgstr ""
+msgstr "Sources en ligne"
 
 #: alttoolbar_sidebar.py:78
 msgid "Other sources"
@@ -305,6 +305,5 @@ msgid "Browse"
 msgstr "Parcourir"
 
 #: alttoolbar_repeat.py:94 alttoolbar_repeat.py:187
-#, fuzzy
 msgid "Repeat all tracks"
-msgstr "Répéter la piste courante"
+msgstr ""
