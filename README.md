@@ -1,4 +1,4 @@
-alternative-toolbar (v0.11.1)
+alternative-toolbar (v0.11)
 ==================
 
 Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact Toolbar which can be hidden
@@ -13,11 +13,11 @@ Replace the current standard toolbar:
 
 with either a compact toolbar:
 
-![pic](http://i.imgur.com/90krK80.png)
+![pic](http://i.imgur.com/qGEkD4X.png)
 
 or with the new Gnome-style client-side decoration:
 
-![pic](http://i.imgur.com/yFUdGxn.png)
+![pic](http://i.imgur.com/Q5o9FaE.png)
 
  - The compact or standard toolbar can also be toggled on or off
  - Volume Control can be switched off for all toolbars
@@ -29,7 +29,7 @@ or with the new Gnome-style client-side decoration:
 
 The plugin preferences allows you to define which toolbars are used:
 
-![pic](http://i.imgur.com/ozOUtSM.png)
+![pic](http://i.imgur.com/xWCyz3R.png)
 
 To install the plugin:
 
