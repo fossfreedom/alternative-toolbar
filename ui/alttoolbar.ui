@@ -233,7 +233,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="tooltip_text" translatable="yes">Repeat the current track</property>
-                <property name="margin_right">3</property>
+                <property name="margin_right">5</property>
                 <property name="always_show_image">True</property>
                 <child>
                   <object class="GtkImage" id="repeat image">
@@ -279,7 +279,7 @@
     <child>
       <object class="GtkToolItem" id="end item">
         <property name="can_focus">False</property>
-        <property name="margin_left">3</property>
+        <property name="margin_left">5</property>
         <property name="margin_right">9</property>
         <child>
           <object class="GtkBox" id="end box">
