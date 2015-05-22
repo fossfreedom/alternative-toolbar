@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-10 18:16+0100\n"
+"POT-Creation-Date: 2015-05-22 13:08+0100\n"
 "PO-Revision-Date: 2015-05-12 15:49+0000\n"
 "Last-Translator: zmni <Unknown>\n"
 "Language-Team: Indonesian <id@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "X-Launchpad-Export-Date: 2015-05-19 22:44+0000\n"
 "X-Generator: Launchpad (build 17508)\n"
 
-#: tmp/altlibrary.ui.h:1 alttoolbar_type.py:905
+#: tmp/altlibrary.ui.h:1 alttoolbar_type.py:923
 msgid "Songs"
 msgstr "Lagu"
 
-#: tmp/altlibrary.ui.h:2 alttoolbar_type.py:911
+#: tmp/altlibrary.ui.h:2 alttoolbar_type.py:928
 msgid "Categories"
 msgstr "Kategori"
 
@@ -171,7 +171,7 @@ msgstr "Lanjut atau jeda pemutaran"
 msgid "Play the next track"
 msgstr "Putar trek selanjutnya"
 
-#: tmp/alttoolbar.ui.h:4
+#: tmp/alttoolbar.ui.h:4 alttoolbar_repeat.py:96 alttoolbar_repeat.py:207
 msgid "Repeat the current track"
 msgstr "Ulangi trek saat ini"
 
@@ -216,7 +216,7 @@ msgstr "Tampilkan atau sembunyikan batang alat sumber"
 msgid "Alternative Toolbar"
 msgstr "Batang Alat Alternatif"
 
-#: alternative-toolbar.py:480
+#: alternative-toolbar.py:481
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -224,35 +224,35 @@ msgstr ""
 "Ganti batang alat besar Rhythmbox dengan Dekorasi Sisi-Klien atau Batang "
 "Alat Ringkas yang dapat disembunyikan"
 
-#: alttoolbar_controller.py:184
+#: alttoolbar_controller.py:187
 msgid "View All"
 msgstr "Lihat Semua"
 
-#: alttoolbar_controller.py:340
+#: alttoolbar_controller.py:343
 msgid "Import"
 msgstr "Impor"
 
-#: alttoolbar_controller.py:515
+#: alttoolbar_controller.py:520
 msgid "Stations"
 msgstr "Stasiun"
 
-#: alttoolbar_controller.py:540
+#: alttoolbar_controller.py:546
 msgid "Libre.fm"
 msgstr "Libre.fm"
 
-#: alttoolbar_controller.py:579
+#: alttoolbar_controller.py:586
 msgid "My Top Rated"
 msgstr "Pilihan Top"
 
-#: alttoolbar_controller.py:582
+#: alttoolbar_controller.py:589
 msgid "Recently Added"
 msgstr "Baru Saja Ditambahkan"
 
-#: alttoolbar_controller.py:585
+#: alttoolbar_controller.py:592
 msgid "Recently Played"
 msgstr "Baru Saja Diputar"
 
-#: alttoolbar_controller.py:616
+#: alttoolbar_controller.py:624
 msgid "Podcasts"
 msgstr "Podcast"
 
@@ -288,7 +288,7 @@ msgstr "Bantuan"
 msgid "Homepage"
 msgstr "Laman Beranda"
 
-#: alttoolbar_preferences.py:278
+#: alttoolbar_preferences.py:281
 msgid "Restart"
 msgstr "Mulai Ulang"
 
@@ -308,6 +308,11 @@ msgstr "Sumber lainnya"
 msgid "Playlists"
 msgstr "Daftar Putar"
 
-#: alttoolbar_type.py:969
+#: alttoolbar_type.py:986
 msgid "Browse"
 msgstr "Ramban"
+
+#: alttoolbar_repeat.py:94 alttoolbar_repeat.py:187
+#, fuzzy
+msgid "Repeat all tracks"
+msgstr "Ulangi trek saat ini"

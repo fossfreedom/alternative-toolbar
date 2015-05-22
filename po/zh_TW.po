@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-10 18:16+0100\n"
+"POT-Creation-Date: 2015-05-22 13:08+0100\n"
 "PO-Revision-Date: 2015-05-11 13:06+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "X-Launchpad-Export-Date: 2015-05-19 22:44+0000\n"
 "X-Generator: Launchpad (build 17508)\n"
 
-#: tmp/altlibrary.ui.h:1 alttoolbar_type.py:905
+#: tmp/altlibrary.ui.h:1 alttoolbar_type.py:923
 msgid "Songs"
 msgstr "歌曲"
 
-#: tmp/altlibrary.ui.h:2 alttoolbar_type.py:911
+#: tmp/altlibrary.ui.h:2 alttoolbar_type.py:928
 msgid "Categories"
 msgstr "分類"
 
@@ -164,7 +164,7 @@ msgstr "繼續播放或暫停播放"
 msgid "Play the next track"
 msgstr "播放下一首曲目"
 
-#: tmp/alttoolbar.ui.h:4
+#: tmp/alttoolbar.ui.h:4 alttoolbar_repeat.py:96 alttoolbar_repeat.py:207
 msgid "Repeat the current track"
 msgstr "重複播放目前曲目"
 
@@ -209,42 +209,42 @@ msgstr "顯示或隱藏來源工具列"
 msgid "Alternative Toolbar"
 msgstr "替代工具列"
 
-#: alternative-toolbar.py:480
+#: alternative-toolbar.py:481
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr ""
 "使用可隱藏的客戶端裝飾工具列或精簡工具列，來取代 Rhythmbox 的大型工具列"
 
-#: alttoolbar_controller.py:184
+#: alttoolbar_controller.py:187
 msgid "View All"
 msgstr "檢視全部"
 
-#: alttoolbar_controller.py:340
+#: alttoolbar_controller.py:343
 msgid "Import"
 msgstr "匯入"
 
-#: alttoolbar_controller.py:515
+#: alttoolbar_controller.py:520
 msgid "Stations"
 msgstr "電臺"
 
-#: alttoolbar_controller.py:540
+#: alttoolbar_controller.py:546
 msgid "Libre.fm"
 msgstr "Libre.fm"
 
-#: alttoolbar_controller.py:579
+#: alttoolbar_controller.py:586
 msgid "My Top Rated"
 msgstr "我的最高評價"
 
-#: alttoolbar_controller.py:582
+#: alttoolbar_controller.py:589
 msgid "Recently Added"
 msgstr "最近加入"
 
-#: alttoolbar_controller.py:585
+#: alttoolbar_controller.py:592
 msgid "Recently Played"
 msgstr "最近播放"
 
-#: alttoolbar_controller.py:616
+#: alttoolbar_controller.py:624
 msgid "Podcasts"
 msgstr "Podcast"
 
@@ -280,7 +280,7 @@ msgstr "求助"
 msgid "Homepage"
 msgstr "首頁"
 
-#: alttoolbar_preferences.py:278
+#: alttoolbar_preferences.py:281
 msgid "Restart"
 msgstr "重新啟動"
 
@@ -300,6 +300,11 @@ msgstr "其他來源"
 msgid "Playlists"
 msgstr "播放清單"
 
-#: alttoolbar_type.py:969
+#: alttoolbar_type.py:986
 msgid "Browse"
 msgstr "瀏覽"
+
+#: alttoolbar_repeat.py:94 alttoolbar_repeat.py:187
+#, fuzzy
+msgid "Repeat all tracks"
+msgstr "重複播放目前曲目"

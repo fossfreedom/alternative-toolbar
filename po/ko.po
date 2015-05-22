@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-10 18:16+0100\n"
+"POT-Creation-Date: 2015-05-22 13:08+0100\n"
 "PO-Revision-Date: 2015-05-14 09:24+0000\n"
 "Last-Translator: minwook shin <smw0106@naver.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "X-Launchpad-Export-Date: 2015-05-19 22:44+0000\n"
 "X-Generator: Launchpad (build 17508)\n"
 
-#: tmp/altlibrary.ui.h:1 alttoolbar_type.py:905
+#: tmp/altlibrary.ui.h:1 alttoolbar_type.py:923
 msgid "Songs"
 msgstr "노래들"
 
-#: tmp/altlibrary.ui.h:2 alttoolbar_type.py:911
+#: tmp/altlibrary.ui.h:2 alttoolbar_type.py:928
 msgid "Categories"
 msgstr "카테고리"
 
@@ -169,7 +169,7 @@ msgstr "다시 시작 하거나 재생을 일시 정지"
 msgid "Play the next track"
 msgstr "다음 트랙 재생"
 
-#: tmp/alttoolbar.ui.h:4
+#: tmp/alttoolbar.ui.h:4 alttoolbar_repeat.py:96 alttoolbar_repeat.py:207
 msgid "Repeat the current track"
 msgstr "현재 트랙 을 반복"
 
@@ -214,7 +214,7 @@ msgstr "소스 툴바를 보거나 숨기기"
 msgid "Alternative Toolbar"
 msgstr "대체 도구 모음"
 
-#: alternative-toolbar.py:480
+#: alternative-toolbar.py:481
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -222,35 +222,35 @@ msgstr ""
 "클라이언트-측 장식 또는 숨길수있는 소형 도구 모음가 있는 리듬박스 큰 툴바를 "
 "재 배치할수있습니다"
 
-#: alttoolbar_controller.py:184
+#: alttoolbar_controller.py:187
 msgid "View All"
 msgstr "모두 보기"
 
-#: alttoolbar_controller.py:340
+#: alttoolbar_controller.py:343
 msgid "Import"
 msgstr "가져오기"
 
-#: alttoolbar_controller.py:515
+#: alttoolbar_controller.py:520
 msgid "Stations"
 msgstr "역"
 
-#: alttoolbar_controller.py:540
+#: alttoolbar_controller.py:546
 msgid "Libre.fm"
 msgstr "Libre.fm"
 
-#: alttoolbar_controller.py:579
+#: alttoolbar_controller.py:586
 msgid "My Top Rated"
 msgstr "나의 가장 높은 점수순"
 
-#: alttoolbar_controller.py:582
+#: alttoolbar_controller.py:589
 msgid "Recently Added"
 msgstr "최근에 추가됨"
 
-#: alttoolbar_controller.py:585
+#: alttoolbar_controller.py:592
 msgid "Recently Played"
 msgstr "최근 연주된 것"
 
-#: alttoolbar_controller.py:616
+#: alttoolbar_controller.py:624
 msgid "Podcasts"
 msgstr "팟캐스트"
 
@@ -286,7 +286,7 @@ msgstr "도움"
 msgid "Homepage"
 msgstr "홈페이지"
 
-#: alttoolbar_preferences.py:278
+#: alttoolbar_preferences.py:281
 msgid "Restart"
 msgstr "다시 시작"
 
@@ -306,6 +306,11 @@ msgstr "다른 소스"
 msgid "Playlists"
 msgstr "재생목록"
 
-#: alttoolbar_type.py:969
+#: alttoolbar_type.py:986
 msgid "Browse"
 msgstr "찾아보기"
+
+#: alttoolbar_repeat.py:94 alttoolbar_repeat.py:187
+#, fuzzy
+msgid "Repeat all tracks"
+msgstr "현재 트랙 을 반복"

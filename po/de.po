@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-10 18:16+0100\n"
+"POT-Creation-Date: 2015-05-22 13:08+0100\n"
 "PO-Revision-Date: 2015-05-20 20:49+0000\n"
 "Last-Translator: WilloVincent <willovince@openmailbox.org>\n"
 "Language-Team: German <de@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "X-Launchpad-Export-Date: 2015-05-20 21:40+0000\n"
 "X-Generator: Launchpad (build 17508)\n"
 
-#: tmp/altlibrary.ui.h:1 alttoolbar_type.py:905
+#: tmp/altlibrary.ui.h:1 alttoolbar_type.py:923
 msgid "Songs"
 msgstr "Titel"
 
-#: tmp/altlibrary.ui.h:2 alttoolbar_type.py:911
+#: tmp/altlibrary.ui.h:2 alttoolbar_type.py:928
 msgid "Categories"
 msgstr "Kategorien"
 
@@ -170,7 +170,7 @@ msgstr "Wiedergabe pausieren oder fortsetzen"
 msgid "Play the next track"
 msgstr "Nächsten Titel abspielen"
 
-#: tmp/alttoolbar.ui.h:4
+#: tmp/alttoolbar.ui.h:4 alttoolbar_repeat.py:96 alttoolbar_repeat.py:207
 msgid "Repeat the current track"
 msgstr "Aktuellen Titel wiederholen"
 
@@ -215,7 +215,7 @@ msgstr "Leiste mit Wiedergabequellen anzeigen?"
 msgid "Alternative Toolbar"
 msgstr "Alternatives Erscheinungsbild"
 
-#: alternative-toolbar.py:480
+#: alternative-toolbar.py:481
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -224,35 +224,35 @@ msgstr ""
 "Titelleiste (Moderner Stil) oder eine kompakte Werkzeugleiste, welche "
 "ausgeblendet werden kann."
 
-#: alttoolbar_controller.py:184
+#: alttoolbar_controller.py:187
 msgid "View All"
 msgstr "Zeige Alles"
 
-#: alttoolbar_controller.py:340
+#: alttoolbar_controller.py:343
 msgid "Import"
 msgstr "Importieren"
 
-#: alttoolbar_controller.py:515
+#: alttoolbar_controller.py:520
 msgid "Stations"
 msgstr "Sender"
 
-#: alttoolbar_controller.py:540
+#: alttoolbar_controller.py:546
 msgid "Libre.fm"
 msgstr "Libre.fm"
 
-#: alttoolbar_controller.py:579
+#: alttoolbar_controller.py:586
 msgid "My Top Rated"
 msgstr "Beste Bewertung"
 
-#: alttoolbar_controller.py:582
+#: alttoolbar_controller.py:589
 msgid "Recently Added"
 msgstr "Kürzlich hinzugefügt"
 
-#: alttoolbar_controller.py:585
+#: alttoolbar_controller.py:592
 msgid "Recently Played"
 msgstr "Zuletzt wiedergegeben"
 
-#: alttoolbar_controller.py:616
+#: alttoolbar_controller.py:624
 msgid "Podcasts"
 msgstr "Podcasts"
 
@@ -288,7 +288,7 @@ msgstr "Hilfe"
 msgid "Homepage"
 msgstr "Internetseite"
 
-#: alttoolbar_preferences.py:278
+#: alttoolbar_preferences.py:281
 msgid "Restart"
 msgstr "Neustart"
 
@@ -308,6 +308,11 @@ msgstr "Andere Quellen"
 msgid "Playlists"
 msgstr "Wiedergabelisten"
 
-#: alttoolbar_type.py:969
+#: alttoolbar_type.py:986
 msgid "Browse"
 msgstr "Durchsuchen"
+
+#: alttoolbar_repeat.py:94 alttoolbar_repeat.py:187
+#, fuzzy
+msgid "Repeat all tracks"
+msgstr "Aktuellen Titel wiederholen"
