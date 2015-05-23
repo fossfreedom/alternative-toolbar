@@ -79,7 +79,16 @@ class AltToolbarBase(GObject.Object):
         # finally - complete the headerbar setup after the database has fully loaded because
         # rhythmbox has everything initiated at this point.
 
+        self.load_completed = False
         self.shell.props.db.connect('load-complete', self.on_load_complete)
+
+        # fire event anyway - scenario is when plugin is first activated post rhythmbox having started
+        def delayed(*args):
+            if not self.load_completed:
+                self.load_completed = True
+                self.on_load_complete()
+
+        GLib.timeout_add_seconds(3, delayed)
 
     def post_initialise(self):
         '''
@@ -95,7 +104,7 @@ class AltToolbarBase(GObject.Object):
         :return:
         '''
 
-        pass
+        self.load_completed = True
 
     def cleanup(self):
         '''
