@@ -79,16 +79,19 @@ class AltToolbarBase(GObject.Object):
         # finally - complete the headerbar setup after the database has fully loaded because
         # rhythmbox has everything initiated at this point.
 
-        self.load_completed = False
-        self.shell.props.db.connect('load-complete', self.on_load_complete)
+        self.startup_completed = False
+        # self.shell.props.db.connect('load-complete', self.on_load_complete)
 
         # fire event anyway - scenario is when plugin is first activated post rhythmbox having started
         def delayed(*args):
-            if not self.load_completed:
-                self.load_completed = True
-                self.on_load_complete()
+            if self.shell.props.selected_page:
+                self.startup_completed = True
+                self.on_startup()
+                return False
+            else:
+                return True
 
-        GLib.timeout_add_seconds(3, delayed)
+        GLib.timeout_add(100, delayed)
 
     def post_initialise(self):
         '''
@@ -97,14 +100,14 @@ class AltToolbarBase(GObject.Object):
         action = self.plugin.toggle_action_group.get_action('ToggleSourceMediaToolbar')
         action.set_active(self.source_toolbar_visible)
 
-    def on_load_complete(self, *args):
+    def on_startup(self, *args):
         '''
-          call after RB has loaded its music database
+          call after RB has completed its initialisation and selected the first view
         :param args:
         :return:
         '''
 
-        self.load_completed = True
+        self.startup_completed = True
 
     def cleanup(self):
         '''
@@ -383,8 +386,8 @@ class AltToolbarShared(AltToolbarBase):
             self.album_cover_eventbox.connect('leave-notify-event', self._on_cover_popover_mouse_over)
             self.album_cover_eventbox.connect('enter-notify-event', self._on_cover_popover_mouse_over)
 
-    def on_load_complete(self, *args):
-        super(AltToolbarShared, self).on_load_complete(*args)
+    def on_startup(self, *args):
+        super(AltToolbarShared, self).on_startup(*args)
 
         if self.plugin.enhanced_sidebar:
             self.sidebar = AltToolbarSidebar(self, self.rbtree)
@@ -796,8 +799,8 @@ class AltToolbarCompact(AltToolbarShared):
 
         self._setup_compactbar()
 
-    def on_load_complete(self, *args):
-        super(AltToolbarCompact, self).on_load_complete(*args)
+    def on_startup(self, *args):
+        super(AltToolbarCompact, self).on_startup(*args)
 
         self.setup_completed = True
 
@@ -885,9 +888,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
             if keyname == 'f' and self.current_search_button:
                 self.current_search_button.set_active(True)
 
-
-    def on_load_complete(self, *args):
-        super(AltToolbarHeaderBar, self).on_load_complete(*args)
+    def on_startup(self, *args):
+        super(AltToolbarHeaderBar, self).on_startup(*args)
 
         self.library_radiobutton_toggled(None)
         self._set_toolbar_controller()
