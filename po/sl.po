@@ -1,0 +1,313 @@
+# Slovenian translation for alternative-toolbar
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# This file is distributed under the same license as the alternative-toolbar package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: alternative-toolbar\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-22 13:08+0100\n"
+"PO-Revision-Date: 2015-05-23 18:03+0000\n"
+"Last-Translator: Blaž Mežnaršič <blazingeek@gmail.com>\n"
+"Language-Team: Slovenian <sl@li.org>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2015-05-23 21:28+0000\n"
+"X-Generator: Launchpad (build 17514)\n"
+
+#: tmp/altlibrary.ui.h:1 alttoolbar_type.py:923
+msgid "Songs"
+msgstr ""
+
+#: tmp/altlibrary.ui.h:2 alttoolbar_type.py:928
+msgid "Categories"
+msgstr "Kategorije"
+
+#: tmp/altpreferences.ui.h:1
+msgid "Restart the player for the changes to take effect."
+msgstr "Znova zaženi predvajalnik, da bodo spremembe začele veljati."
+
+#: tmp/altpreferences.ui.h:2
+msgid "Toolbar:"
+msgstr "Orodna vrstica"
+
+#: tmp/altpreferences.ui.h:3
+msgid ""
+"Best suitable for desktop\n"
+"environments like Gnome and Elementary."
+msgstr ""
+"Najbolj primerno za namizna \n"
+"okolja, kot sta Gnome in elementary."
+
+#: tmp/altpreferences.ui.h:5
+msgid "Modern"
+msgstr "Moderno"
+
+#: tmp/altpreferences.ui.h:6
+msgid "Use compact controls"
+msgstr "Uporabi kompaktne nadzorne tipke"
+
+#: tmp/altpreferences.ui.h:7
+msgid ""
+"Display the playback controls in the toolbar in visually compact style "
+"instead of the standard rhythmbox style.\n"
+"Always enabled for modern toolbar mode."
+msgstr ""
+"Prikaži nadzorne tipke predvajanja na orodni vrstici v vizualno kompaktnem "
+"stilu namesto standardnega.\n"
+"Vedno omogočeno za način moderne oridne vrstice."
+
+#: tmp/altpreferences.ui.h:9
+msgid "Show:"
+msgstr "Pokaži:"
+
+#: tmp/altpreferences.ui.h:10
+msgid "Album/genre/year for playing song"
+msgstr "Album/žanr/leto za predvajanje skladbe"
+
+#: tmp/altpreferences.ui.h:11
+msgid ""
+"Display album/genre/year instead of song-artist-album.  Useful for those "
+"desktop-environments where song-artist-album is already displayed in the "
+"window title."
+msgstr ""
+"Prikaži album/žanr/leto namesto pesem-umetnik-album. Uporabno za tista "
+"namizna okolja, kjer so pesem-umetnik-album že prikazani v naslovu okna."
+
+#: tmp/altpreferences.ui.h:12
+msgid "Tooltips for the playback controls"
+msgstr "Orodni namigi za nadzorne tipke predvajanja"
+
+#: tmp/altpreferences.ui.h:13
+msgid "Show or hide the tooltips for the playback controls."
+msgstr "Prikaži ali skrij orodne namige za nadzorne tipke predvajanja."
+
+#: tmp/altpreferences.ui.h:14
+msgid "Volume control"
+msgstr "Nadzor glasnosti"
+
+#: tmp/altpreferences.ui.h:15
+msgid "Show or hide the volume control."
+msgstr "Prikaži ali skrij nadzor glasnosti."
+
+#: tmp/altpreferences.ui.h:16
+msgid "Playback controls"
+msgstr "Nadzor predvajanja"
+
+#: tmp/altpreferences.ui.h:17
+msgid "Show or hide the playing controls on player startup."
+msgstr "Prikaži ali skrij nadzorne tipke predvajanja ob zagonu predvajalnika."
+
+#: tmp/altpreferences.ui.h:18
+msgid "Use:"
+msgstr "Uporabi:"
+
+#: tmp/altpreferences.ui.h:19
+msgid "Inline song/artist label"
+msgstr "Znotrajvrstična pesem/umetnik oznaka"
+
+#: tmp/altpreferences.ui.h:20
+msgid ""
+"Display Song and Artist labels before the progress slider.  If not checked, "
+"they are displayed above the progress slider."
+msgstr ""
+"Prikaži Pesem in Umetnik oznake pred drsnikom za prikaz napredka. Če ni "
+"obkljukano, so prikazane nad drsnikom."
+
+#: tmp/altpreferences.ui.h:21
+msgid "Compact progress slider"
+msgstr "Kompakten drsnik napredka"
+
+#: tmp/altpreferences.ui.h:22
+msgid ""
+"Display and use a compact track progress slider - useful where the default "
+"theme progress slider is visually too large."
+msgstr ""
+"Prikaži in uporabi kompakten drsnik napredka  skladbe - uporabno, kjer je  "
+"privzeta tema drsnika napredka vizualno prevelika."
+
+#: tmp/altpreferences.ui.h:23
+msgid "Enhanced sidebar"
+msgstr "Izboljšana stranska vrstica"
+
+#: tmp/altpreferences.ui.h:24
+msgid ""
+"Show or hide redesigned sidebar for the player. It features improved "
+"symbolic icons, better sources organisation and ability to expand and "
+"collapse categories."
+msgstr ""
+"Prikaži ali skrij preoblikovano stransko vrstico za predvajalnik. Nudi "
+"izboljšane simbolne ikone, boljšo organizacijo virov in sposobnost za "
+"razširitev in strnitev kategorij."
+
+#: tmp/altpreferences.ui.h:25
+msgid "Enhanced plugins dialog"
+msgstr "Izboljšano pogovorno okno vstavkov"
+
+#: tmp/altpreferences.ui.h:26
+msgid ""
+"Show or hide redesigned plugins dialog. It features switches instead of "
+"checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
+"based desktop environments."
+msgstr ""
+"Prikaži ali skrij preoblikovano pogovorno okno vstavkov. Nudi stikala "
+"namesto označnih polj in znotrajvrstično orodno vrstico s simbolnimi "
+"ikonami. Najbolje deluje z namiznimi okolji, ki temeljijo na GNOME."
+
+#: tmp/alttoolbar.ui.h:1
+msgid "Play the previous track"
+msgstr "Predvajaj predhodno skladbo"
+
+#: tmp/alttoolbar.ui.h:2
+msgid "Resume or pause the playback"
+msgstr "Nadaljuj ali ustavi predvajanje"
+
+#: tmp/alttoolbar.ui.h:3
+msgid "Play the next track"
+msgstr "Predvajaj naslednjo skladbo"
+
+#: tmp/alttoolbar.ui.h:4 alttoolbar_repeat.py:96 alttoolbar_repeat.py:207
+msgid "Repeat the current track"
+msgstr "Ponovno predvajaj trenutno skladbo"
+
+#: tmp/alttoolbar.ui.h:5
+msgid "Play the tracks in random order"
+msgstr ""
+
+#: alternative-toolbar.py:199
+msgid "Seek Backward"
+msgstr ""
+
+#: alternative-toolbar.py:201
+msgid "Seek backward, in current track, by 5 seconds."
+msgstr ""
+
+#: alternative-toolbar.py:203
+msgid "Seek Forward"
+msgstr ""
+
+#: alternative-toolbar.py:205
+msgid "Seek forward, in current track, by 10 seconds."
+msgstr ""
+
+#: alternative-toolbar.py:212
+msgid "Show Play-Controls Toolbar"
+msgstr ""
+
+#: alternative-toolbar.py:215
+msgid "Show or hide the play-controls toolbar"
+msgstr ""
+
+#: alternative-toolbar.py:218
+msgid "Show Source Toolbar"
+msgstr ""
+
+#: alternative-toolbar.py:221
+msgid "Show or hide the source toolbar"
+msgstr ""
+
+#. define .plugin text strings used for translation
+#: alternative-toolbar.py:479 alttoolbar_plugins.py:364
+msgid "Alternative Toolbar"
+msgstr ""
+
+#: alternative-toolbar.py:481
+msgid ""
+"Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
+"Toolbar which can be hidden"
+msgstr ""
+
+#: alttoolbar_controller.py:187
+msgid "View All"
+msgstr ""
+
+#: alttoolbar_controller.py:343
+msgid "Import"
+msgstr ""
+
+#: alttoolbar_controller.py:520
+msgid "Stations"
+msgstr ""
+
+#: alttoolbar_controller.py:546
+msgid "Libre.fm"
+msgstr ""
+
+#: alttoolbar_controller.py:586
+msgid "My Top Rated"
+msgstr ""
+
+#: alttoolbar_controller.py:589
+msgid "Recently Added"
+msgstr ""
+
+#: alttoolbar_controller.py:592
+msgid "Recently Played"
+msgstr ""
+
+#: alttoolbar_controller.py:624
+msgid "Podcasts"
+msgstr ""
+
+#: alttoolbar_plugins.py:115
+msgid "The plugin cannot be enabled"
+msgstr ""
+
+#: alttoolbar_plugins.py:231
+msgid "Configure Plugins"
+msgstr ""
+
+#: alttoolbar_plugins.py:312
+msgid "About this plugin"
+msgstr ""
+
+#: alttoolbar_plugins.py:344
+msgid "Version: "
+msgstr ""
+
+#: alttoolbar_plugins.py:369
+msgid "Developer:"
+msgstr ""
+
+#: alttoolbar_plugins.py:379
+msgid "Designer:"
+msgstr ""
+
+#: alttoolbar_plugins.py:400
+msgid "Help"
+msgstr ""
+
+#: alttoolbar_plugins.py:408
+msgid "Homepage"
+msgstr ""
+
+#: alttoolbar_preferences.py:281
+msgid "Restart"
+msgstr ""
+
+#: alttoolbar_sidebar.py:76
+msgid "Local collection"
+msgstr ""
+
+#: alttoolbar_sidebar.py:77
+msgid "Online sources"
+msgstr ""
+
+#: alttoolbar_sidebar.py:78
+msgid "Other sources"
+msgstr ""
+
+#: alttoolbar_sidebar.py:79
+msgid "Playlists"
+msgstr ""
+
+#: alttoolbar_type.py:986
+msgid "Browse"
+msgstr ""
+
+#: alttoolbar_repeat.py:94 alttoolbar_repeat.py:187
+msgid "Repeat all tracks"
+msgstr ""
