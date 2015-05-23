@@ -43,7 +43,6 @@ from alttoolbar_sidebar import AltToolbarSidebar
 from alttoolbar_widget import SmallProgressBar
 from alttoolbar_widget import SmallScale
 from alttoolbar_repeat import Repeat
-
 import rb
 
 
@@ -480,6 +479,8 @@ class AltToolbarShared(AltToolbarBase):
                 self._popover_inprogress = 1
             else:
                 self._popover_inprogress = 2
+
+            self._popover_inprogress_count = 0
             print ("enter")
         else:
             print ("exit")
@@ -489,6 +490,10 @@ class AltToolbarShared(AltToolbarBase):
 
         def delayed(*args):
             if self._popover_inprogress == 3:
+                self._popover_inprogress_count += 1
+                if self._popover_inprogress_count < 5:
+                    return True
+
                 self.cover_popover.hide()
                 self._popover_inprogress = 0
                 return False
@@ -498,7 +503,7 @@ class AltToolbarShared(AltToolbarBase):
         if self._popover_inprogress == 1:
             print ("addding timeout")
             self._popover_inprogress = 2
-            GLib.timeout_add(500, delayed)
+            GLib.timeout_add(100, delayed)
 
     def show_slider(self, visibility):
         self.song_box.set_visible(visibility)
