@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-22 13:08+0100\n"
-"PO-Revision-Date: 2015-05-13 00:31+0000\n"
-"Last-Translator: Yuri Henrique <yurihenriq848@gmail.com>\n"
+"PO-Revision-Date: 2015-05-24 12:02+0000\n"
+"Last-Translator: Marcelo Sanches Cavassani <marceloscavassani@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-05-22 20:52+0000\n"
+"X-Launchpad-Export-Date: 2015-05-24 16:12+0000\n"
 "X-Generator: Launchpad (build 17514)\n"
 
 #: tmp/altlibrary.ui.h:1 alttoolbar_type.py:923
@@ -120,13 +120,15 @@ msgstr ""
 
 #: tmp/altpreferences.ui.h:21
 msgid "Compact progress slider"
-msgstr ""
+msgstr "Barra de progresso compacta"
 
 #: tmp/altpreferences.ui.h:22
 msgid ""
 "Display and use a compact track progress slider - useful where the default "
 "theme progress slider is visually too large."
 msgstr ""
+"Mostrar e usar  a barra de progresso compacta - útil quando o tema padrão da "
+"barra de progresso é visualmente muito  grande."
 
 #: tmp/altpreferences.ui.h:23
 msgid "Enhanced sidebar"
@@ -164,11 +166,11 @@ msgstr "Reproduzir a próxima faixa"
 
 #: tmp/alttoolbar.ui.h:4 alttoolbar_repeat.py:96 alttoolbar_repeat.py:207
 msgid "Repeat the current track"
-msgstr ""
+msgstr "Repetir a  faixa atual"
 
 #: tmp/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
-msgstr ""
+msgstr "Tocar as faixas em ordem aleatória"
 
 #: alternative-toolbar.py:199
 msgid "Seek Backward"
@@ -215,11 +217,11 @@ msgstr ""
 
 #: alttoolbar_controller.py:187
 msgid "View All"
-msgstr ""
+msgstr "Mostrar Tudo"
 
 #: alttoolbar_controller.py:343
 msgid "Import"
-msgstr ""
+msgstr "Importar"
 
 #: alttoolbar_controller.py:520
 msgid "Stations"
@@ -227,31 +229,31 @@ msgstr "Estações"
 
 #: alttoolbar_controller.py:546
 msgid "Libre.fm"
-msgstr ""
+msgstr "Libre.fm"
 
 #: alttoolbar_controller.py:586
 msgid "My Top Rated"
-msgstr ""
+msgstr "Minhas Preferidas"
 
 #: alttoolbar_controller.py:589
 msgid "Recently Added"
-msgstr ""
+msgstr "Adicionadas Recentemente"
 
 #: alttoolbar_controller.py:592
 msgid "Recently Played"
-msgstr ""
+msgstr "Reproduzidas Recentemente"
 
 #: alttoolbar_controller.py:624
 msgid "Podcasts"
-msgstr ""
+msgstr "Podcasts"
 
 #: alttoolbar_plugins.py:115
 msgid "The plugin cannot be enabled"
-msgstr ""
+msgstr "O plugin não pode ser ativado"
 
 #: alttoolbar_plugins.py:231
 msgid "Configure Plugins"
-msgstr ""
+msgstr "Configurar plugins"
 
 #: alttoolbar_plugins.py:312
 msgid "About this plugin"
@@ -279,11 +281,11 @@ msgstr "Página inicial"
 
 #: alttoolbar_preferences.py:281
 msgid "Restart"
-msgstr ""
+msgstr "Reinicie"
 
 #: alttoolbar_sidebar.py:76
 msgid "Local collection"
-msgstr ""
+msgstr "Coleção Local"
 
 #: alttoolbar_sidebar.py:77
 msgid "Online sources"
