@@ -39,15 +39,15 @@
 
 Replace the current standard toolbar:
 
-![pic](http://i.imgur.com/PBFaxuv.png)
+![pic](http://i.imgur.com/9FjnAd5.png)
 
 with either a compact toolbar:
 
-![pic](http://i.imgur.com/qGEkD4X.png)
+![pic](http://i.imgur.com/5XqQKcG.png)
 
 or with the new Gnome-style client-side decoration:
 
-![pic](http://i.imgur.com/Q5o9FaE.png)
+![pic](http://i.imgur.com/rMkxjxw.png)
 
  - The compact or standard toolbar can also be toggled on or off
  - Volume Control can be switched off for all toolbars
@@ -59,7 +59,9 @@ or with the new Gnome-style client-side decoration:
 
 The plugin preferences allows you to define which toolbars are used:
 
-![pic](http://i.imgur.com/xWCyz3R.png)
+<p align="center">
+    <img alt="Plugin" src="http://i.imgur.com/4Qy4fxQ.png" />
+</p>
 
 To install the plugin:
 
