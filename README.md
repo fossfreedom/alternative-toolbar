@@ -1,11 +1,41 @@
-alternative-toolbar (v0.11)
-==================
-
-Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact Toolbar which can be hidden
-
- - fossfreedom <foss.freedom@gmail.com>, website - https://github.com/fossfreedom
-
-[![Flattr Button](http://api.flattr.com/button/button-compact-static-100x17.png "Flattr This!")](http://flattr.com/thing/1811704/ "fossfreedom")  [![paypaldonate](https://www.paypalobjects.com/en_GB/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KBV682WJ3BDGL)
+<table width="100%">
+	<tr>
+		<th align="left" width="60%">
+			alternative-toolbar
+		</th>
+		<th width="10%">
+			Version
+		</th>
+		<th align="right" width="30%">
+			Support
+		</th>
+	</tr>
+	<tr>
+	    <td width="60%" rowspan="3">
+	        Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact toolbar which can be hidden.
+	    </td>
+		<td align="center" width="10%">
+			v0.11
+		</td>
+		<td align="right" width="30%">
+		    <a href="http://flattr.com/thing/1811704/" title="fossfreedom">
+		        <img alt="Flattr This!" src="http://api.flattr.com/button/button-compact-static-100x17.png" />
+		    </a>
+		    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KBV682WJ3BDGL" title="PayPal Donate">
+		        <img alt="PayPal Donate" src="https://www.paypalobjects.com/en_GB/i/btn/btn_donate_SM.gif" />
+		    </a>
+		</td>
+	</tr>
+	<tr>
+	    <td><b>Email</b></td>
+	    <td><a href="mailto:foss.freedom@gmail.com">foss.freedom@gmail.com</a></td>
+	</tr>
+	<tr>
+	    <td><b>Website</b></td>
+	    <td><a href="https://github.com/fossfreedom">https://github.com/fossfreedom</a></td>
+		</td>
+	</tr>
+</table>
 
 Replace the current standard toolbar:
 
