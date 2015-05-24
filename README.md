@@ -68,12 +68,12 @@ The plugin preferences allows you to define which toolbars are used:
 ## Install
 To install the plugin:
 
-<pre>
+```bash
 cd ~/Downloads
 git clone https://github.com/fossfreedom/alternative-toolbar.git
 cd alternative-toolbar
 ./install.sh
-</pre>
+```
 
 Then enable the plugin in the plugins window.
 
@@ -84,10 +84,10 @@ Then enable the plugin in the plugins window.
  
 To uninstall the plugin:
 
-<pre>
+```bash
 cd alternative-toolbar
 ./install.sh --uninstall
-</pre>
+```
 
 ## Contribute
 
