@@ -103,12 +103,12 @@ Remember to set your preferred language and then just submit your translation.
 
 ## Credits
 
-Contributors:
+Thank you to:
 
  - [me4oslav](https://github.com/me4oslav) - design inspiration for the header-bar vision
  - our Translators: Launchpad Translation team
  
-Credits:
+As well as:
 
  - [sergioad](https://github.com/sergioad) - for the initial translation (spanish) used for testing translations
  - Thanks to the [rhythmbox-seek](https://github.com/cgarvey/rhythmbox-seek) project for the track-seeking code.
