@@ -49,6 +49,8 @@ or with the new Gnome-style client-side decoration:
 
 ![pic](http://i.imgur.com/rMkxjxw.png)
 
+
+## Features
  - The compact or standard toolbar can also be toggled on or off
  - Volume Control can be switched off for all toolbars
  - Source Toolbars can be toggled - CTRL+T keyboard shortcut
@@ -63,6 +65,7 @@ The plugin preferences allows you to define which toolbars are used:
     <img alt="Plugin" src="http://i.imgur.com/4Qy4fxQ.png" />
 </p>
 
+## Install
 To install the plugin:
 
 <pre>
@@ -86,7 +89,7 @@ cd alternative-toolbar
 ./install.sh --uninstall
 </pre>
 
-<hr/>
+## Contribute
 
 **Please help out with translating**
 
@@ -98,7 +101,7 @@ Don't worry - it is easier that you think. Just visit:
 
 Remember to set your preferred language and then just submit your translation.
 
--------
+## Credits
 
 Contributors:
 
