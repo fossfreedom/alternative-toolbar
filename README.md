@@ -1,4 +1,4 @@
-alternative-toolbar (v0.11)
+alternative-toolbar (v0.11.1)
 ==================
 
 Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact Toolbar which can be hidden
