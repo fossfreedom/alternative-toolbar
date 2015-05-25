@@ -22,8 +22,11 @@ from gi.repository import PeasGtk
 from gi.repository import Gio
 from gi.repository import Pango
 from gi.repository import GLib
-
+import gettext
 import webbrowser
+import re
+
+from alttoolbar_preferences import CoverLocale
 
 
 class PluginListRow(Gtk.Box):
@@ -160,6 +163,17 @@ class PluginDialog(Gtk.Dialog):
                 self._items[plugin.get_module_name()] = row
                 listbox.add(row)
 
+        # locale stuff
+        cl = CoverLocale()
+        cl.switch_locale(cl.Locale.RB)
+
+        def extract_text(str):
+            # remove _ and (_A) type expressions
+            translation = gettext.gettext(str)
+            translation = re.sub('\(..\)', '', translation, flags=re.DOTALL)
+            translation = translation.replace('_', '')
+            return translation
+
         toolbar = Gtk.Toolbar.new()
         context = toolbar.get_style_context()
         context.add_class(Gtk.STYLE_CLASS_INLINE_TOOLBAR)
@@ -171,6 +185,7 @@ class PluginDialog(Gtk.Dialog):
         image = Gtk.Image()
         image.props.margin = 3
         btn.add(image)
+        btn.set_tooltip_text(extract_text("_Preferences"))
         image.set_from_gicon(icon, Gtk.IconSize.BUTTON)
         box = Gtk.Box()
         box.pack_start(btn, False, False, 0)
@@ -190,6 +205,7 @@ class PluginDialog(Gtk.Dialog):
         image = Gtk.Image()
         image.props.margin = 3
         btn.add(image)
+        btn.set_tooltip_text(extract_text("_About"))
         image.set_from_gicon(icon, Gtk.IconSize.BUTTON)
         minitoolbar_box.add(btn)
         minitoolbar_box.child_set_property(btn, "non-homogeneous", True)
@@ -201,6 +217,7 @@ class PluginDialog(Gtk.Dialog):
         image = Gtk.Image()
         image.props.margin = 3
         btn.add(image)
+        btn.set_tooltip_text(extract_text("_Help"))
         image.set_from_gicon(icon, Gtk.IconSize.BUTTON)
         minitoolbar_box.add(btn)
         minitoolbar_box.child_set_property(btn, "non-homogeneous", True)
