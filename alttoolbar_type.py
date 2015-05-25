@@ -332,9 +332,9 @@ class AltToolbarShared(AltToolbarBase):
 
     def post_initialise(self):
         super(AltToolbarShared, self).post_initialise()
+        self.volume_button.props.value = self.shell.props.shell_player.props.volume
         self.volume_button.bind_property("value", self.shell.props.shell_player, "volume",
                                          Gio.SettingsBindFlags.DEFAULT)
-        self.volume_button.props.value = self.shell.props.shell_player.props.volume
         self.volume_button.set_visible(self.plugin.volume_control)
         self.volume_button.set_relief(Gtk.ReliefStyle.NORMAL)
         child = self.volume_button.get_child()
