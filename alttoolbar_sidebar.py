@@ -22,6 +22,7 @@ from gi.repository import GLib
 from gi.repository import Pango
 from gi.repository import RB
 from gi.repository import Gio
+from gi.repository import Gdk
 
 from alttoolbar_controller import AltControllerCategory
 from alttoolbar_preferences import GSetting
@@ -146,11 +147,79 @@ class AltToolbarSidebar(Gtk.TreeView):
         self.shell.props.display_page_tree.connect('selected', self._display_page_tree_selected)
         self.shell.props.shell_player.connect('playing-song-changed', self._on_playing_song_changed)
 
+        # drag drop
+        from gi.repository import Gdk
+
+        self.enable_model_drag_dest([], Gdk.DragAction.COPY)
+        self.drag_dest_add_uri_targets()
+        self.connect('drag-drop', self.on_drag_drop)
+        self.connect('drag-data-received',
+                     self.on_drag_data_received)
+
     def cleanup(self):
         model = self.shell.props.display_page_model
         model.disconnect(self._cpi)
         model.disconnect(self._crd)
         model.disconnect(self._crc)
+
+    def on_drag_drop(self, widget, context, x, y, time):
+        '''
+        Callback called when a drag operation finishes over the treeview
+        It decides if the dropped item can be processed.
+        '''
+        print ("on_drag_drop")
+        # stop the propagation of the signal (deactivates superclass callback)
+        widget.stop_emission_by_name('drag-drop')
+
+        target = self.drag_dest_find_target(context, None)
+        widget.drag_get_data(context, target, time)
+
+        return True
+
+    def on_drag_data_received(self, widget, drag_context, x, y, data, info,
+                              time):
+        '''
+        Callback called when the drag source has prepared the data (pixbuf)
+        for us to use.
+        '''
+        print ("on_drag_data_received")
+        # stop the propagation of the signal (deactivates superclass callback)
+        widget.stop_emission_by_name('drag-data-received')
+
+        # get the album and the info and ask the loader to update the cover
+        path = False
+
+        try:
+            path, pos = widget.get_dest_row_at_pos(x, y)
+        except:
+            pass
+
+        result = False
+        if path:
+            dest_source = self.treestore_filter[path][1]
+
+            if not dest_source:
+                result = False
+            elif dest_source.can_paste():
+                result = True
+
+        if result:
+            # can drop here
+            drag_context.finish(True, False, time)
+
+            dest_query_model = dest_source.props.query_model
+
+            uris = data.get_uris()
+
+            for uri in uris:
+
+                entry = self.shell.props.db.entry_lookup_by_location(uri)
+                if entry:
+                    dest_query_model.add_entry(entry, -1)
+        else:
+            # cannot drop here
+            Gdk.drag_status(drag_context, 0, time)
+
 
     def _on_playing_song_changed(self, *args):
         '''
