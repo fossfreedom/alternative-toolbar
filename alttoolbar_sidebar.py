@@ -43,6 +43,9 @@ class AltToolbarSidebar(Gtk.TreeView):
         self.plugin = toolbar.plugin
         self.rbtree = rbtree
 
+        self._drag_dest_source = None
+        self._drag_motion_counter = -1
+
         # locale stuff
         cl = CoverLocale()
         cl.switch_locale(cl.Locale.LOCALE_DOMAIN)
@@ -155,6 +158,7 @@ class AltToolbarSidebar(Gtk.TreeView):
         self.connect('drag-drop', self.on_drag_drop)
         self.connect('drag-data-received',
                      self.on_drag_data_received)
+        self.connect('drag-motion', self.on_drag_motion)
 
     def cleanup(self):
         model = self.shell.props.display_page_model
@@ -174,19 +178,11 @@ class AltToolbarSidebar(Gtk.TreeView):
         target = self.drag_dest_find_target(context, None)
         widget.drag_get_data(context, target, time)
 
+        self._drag_dest_source = None
+
         return True
 
-    def on_drag_data_received(self, widget, drag_context, x, y, data, info,
-                              time):
-        '''
-        Callback called when the drag source has prepared the data (pixbuf)
-        for us to use.
-        '''
-        print ("on_drag_data_received")
-        # stop the propagation of the signal (deactivates superclass callback)
-        widget.stop_emission_by_name('drag-data-received')
-
-        # get the album and the info and ask the loader to update the cover
+    def on_drag_motion(self, widget, drag_context, x, y, time):
         path = False
 
         try:
@@ -203,22 +199,61 @@ class AltToolbarSidebar(Gtk.TreeView):
             elif dest_source.can_paste():
                 result = True
 
+            if dest_source and result:
+                if dest_source != self._drag_dest_source:
+                    if self._drag_motion_counter != -1:
+                        self._drag_motion_counter = 0
+                    self._drag_dest_source = dest_source
+
+                def delayed(*args):
+                    if self._drag_motion_counter < 2 and self._drag_dest_source:
+                        self._drag_motion_counter += 1
+                        return True
+
+                    if self._drag_dest_source and self._drag_motion_counter >= 2:
+                        if self.shell.props.display_page_tree:
+                            self.shell.props.display_page_tree.select(self._drag_dest_source)
+                            self.rbtree.expand_all()
+
+                    self._drag_motion_counter = -1
+                    return False
+
+                if self._drag_motion_counter == -1:
+                    self._drag_motion_counter = 0
+                    GLib.timeout_add_seconds(1, delayed)
+
         if result:
-            # can drop here
-            drag_context.finish(True, False, time)
-
-            dest_query_model = dest_source.props.query_model
-
-            uris = data.get_uris()
-
-            for uri in uris:
-
-                entry = self.shell.props.db.entry_lookup_by_location(uri)
-                if entry:
-                    dest_query_model.add_entry(entry, -1)
+            Gdk.drag_status(drag_context, Gdk.DragAction.COPY, time)
         else:
-            # cannot drop here
             Gdk.drag_status(drag_context, 0, time)
+            self._drag_dest_source = None
+
+        return True
+
+    def on_drag_data_received(self, widget, drag_context, x, y, data, info,
+                              time):
+        '''
+        Callback called when the drag source has prepared the data (pixbuf)
+        for us to use.
+        '''
+        print ("on_drag_data_received")
+        # stop the propagation of the signal (deactivates superclass callback)
+        widget.stop_emission_by_name('drag-data-received')
+
+        path, pos = widget.get_dest_row_at_pos(x, y)
+        dest_source = self.treestore_filter[path][1]
+
+        drag_context.finish(True, False, time)
+
+        dest_query_model = dest_source.props.query_model
+
+        uris = data.get_uris()
+
+        for uri in uris:
+
+            entry = self.shell.props.db.entry_lookup_by_location(uri)
+            if entry:
+                dest_query_model.add_entry(entry, -1)
 
 
     def _on_playing_song_changed(self, *args):
