@@ -232,7 +232,7 @@ class AltToolbarSidebar(Gtk.TreeView):
             Gdk.drag_status(drag_context, 0, time)
             self._drag_dest_source = None
 
-        return True
+        return not result
 
     def on_drag_data_received(self, widget, drag_context, x, y, data, info,
                               time):
