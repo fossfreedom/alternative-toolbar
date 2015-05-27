@@ -79,6 +79,8 @@ The plugin preferences allows you to define which toolbars are used:
 | `ALT + Right Arrow` | Seek forward (fast-forward) through a track. |
 | `ALT + Left Arrrow` | Seek backward through a track.               |
 
+## Install
+**Git**
 ```bash
 cd ~/Downloads
 git clone https://github.com/fossfreedom/alternative-toolbar.git
@@ -86,22 +88,35 @@ cd alternative-toolbar
 ./install.sh
 ```
 
-Then enable the plugin in the plugins window.
+Then enable the plugin in the plugins window:
+<p align="center">
+    <img alt="Enable plugin" src="http://i.imgur.com/UUzyfhH.png" />
+</p>
 
- - From the menu use View - Show Play-Controls Toolbar
- - From the menu use View - Show Source and Media Toolbars
- - To seek forward (fast-forward) through a track - Alt+Right Cursor key
- - To seek backward through a track - Alt+Left Cursor key
+You might also need to enable the player controls & source menu, this can be done from the menu:
+
+ - Menu ->
+   - View -> 
+     - Show Play-Controls Toolbar
+     - Show Source and Media Toolbars
  
-To uninstall the plugin:
+**Ubuntu PPA**
 
+If you are using Ubuntu you can install alternative-toolbar via a [PPA](https://launchpad.net/~fossfreedom/+archive/ubuntu/rhythmbox-plugins).
 ```bash
-cd alternative-toolbar
+deb http://ppa.launchpad.net/fossfreedom/rhythmbox-plugins/ubuntu YOUR_UBUNTU_VERSION_HERE main
+deb-src http://ppa.launchpad.net/fossfreedom/rhythmbox-plugins/ubuntu YOUR_UBUNTU_VERSION_HERE main
+```
+
+**Uninstall**
+
+If installed via Git you need the original code to uninstall the plugin.
+```bash
+cd ~/Downloads/alternative-toolbar
 ./install.sh --uninstall
 ```
 
 ## Contribute
-
 **Please help out with translating**
 
 We need you to help us translate the english text to your native language.
@@ -113,7 +128,6 @@ Don't worry - it is easier that you think. Just visit:
 Remember to set your preferred language and then just submit your translation.
 
 ## Credits
-
 Thank you to:
 
  - [me4oslav](https://github.com/me4oslav) - design inspiration for the header-bar vision
