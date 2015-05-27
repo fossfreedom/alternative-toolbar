@@ -67,8 +67,17 @@ The plugin preferences allows you to define which toolbars are used:
     <img alt="Plugin" src="http://i.imgur.com/4Qy4fxQ.png" />
 </p>
 
-## Install
-To install the plugin:
+## Keyboard shortcuts
+| Key                 | Action                                       |
+|---------------------|----------------------------------------------|
+| `CTRL + T`          | Toggled source toolbar.                      |
+| `CTRL + F`          | Toggle search bar.                           |
+| `CTRL + P`          | Start/Stop current track.                    |
+| `CTRL + R`          | Open repeat menu.                            |
+| `CTRL + K`          | Toggle play queue.                           |
+| `CTRL + A/?`        | Select all songs in playlist.                |
+| `ALT + Right Arrow` | Seek forward (fast-forward) through a track. |
+| `ALT + Left Arrrow` | Seek backward through a track.               |
 
 ```bash
 cd ~/Downloads
