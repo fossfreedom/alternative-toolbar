@@ -194,11 +194,15 @@ class AltToolbarSidebar(Gtk.TreeView):
         if path:
             dest_source = self.treestore_filter[path][1]
 
-            if not dest_source:
+            try:
+                # note - some sources dont have a can_paste method so need to trap this case
+                if not dest_source:
+                    result = False
+                elif dest_source.can_paste():
+                    result = True
+            except:
                 result = False
-            elif dest_source.can_paste():
-                result = True
-
+                
             if dest_source and result:
                 if dest_source != self._drag_dest_source:
                     if self._drag_motion_counter != -1:
@@ -245,17 +249,17 @@ class AltToolbarSidebar(Gtk.TreeView):
 
         drag_context.finish(True, False, time)
 
-        dest_query_model = dest_source.props.query_model
-
         uris = data.get_uris()
 
+        entries = []
         for uri in uris:
-
             entry = self.shell.props.db.entry_lookup_by_location(uri)
             if entry:
-                dest_query_model.add_entry(entry, -1)
+                entries.append(entry)
+                
+        dest_source.paste(entries)
 
-
+        
     def _on_playing_song_changed(self, *args):
         '''
           signal when a playing song changes - need to invoke a tree-refresh to ensure the user can see which source
