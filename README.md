@@ -51,13 +51,15 @@ or with the new Gnome-style client-side decoration:
 
 
 ## Features
- - The compact or standard toolbar can also be toggled on or off
- - Volume Control can be switched off for all toolbars
- - Source Toolbars can be toggled - CTRL+T keyboard shortcut
+ - Toggle compact or standard toolbar on or off
+ - Volume Control can be switched on or off for all toolbars
+ - Source Toolbars can be toggled (`CTRL + T`)
+ - Seek forward (fast-forward) through a track (`ALT + Right Arrow`)
+ - Seek backward through a track (`ALT + Left Arrow`)
  - Redesigned sidebar
  - Redesigned plugin window, about box and plugin preferences window
  - Repeat button can now switch between repeat tracks and repeat-one-song mode
- - Plugin translated into 18 languages and locales
+ - Plugin translated completely into [13 languages and locales (10 more on the way)](https://translations.launchpad.net/alternative-toolbar)
 
 The plugin preferences allows you to define which toolbars are used:
 
