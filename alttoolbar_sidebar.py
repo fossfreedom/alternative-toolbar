@@ -191,6 +191,15 @@ class AltToolbarSidebar(Gtk.TreeView):
             pass
 
         result = False
+        
+        if path and (pos == Gtk.TreeViewDropPosition.BEFORE or pos == Gtk.TreeViewDropPosition.AFTER):
+            if pos == Gtk.TreeViewDropPosition.BEFORE:
+                widget.set_drag_dest_row(None, Gtk.TreeViewDropPosition.INTO_OR_BEFORE)
+            else:
+                widget.set_drag_dest_row(None, Gtk.TreeViewDropPosition.INTO_OR_AFTER)
+            #Gdk.drag_status(drag_context, 0, time)
+            path = None
+            
         if path:
             dest_source = self.treestore_filter[path][1]
 
