@@ -1,61 +1,127 @@
-alternative-toolbar (v0.11.1)
-==================
-
-Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact Toolbar which can be hidden
-
- - fossfreedom <foss.freedom@gmail.com>, website - https://github.com/fossfreedom
-
-[![Flattr Button](http://api.flattr.com/button/button-compact-static-100x17.png "Flattr This!")](http://flattr.com/thing/1811704/ "fossfreedom")  [![paypaldonate](https://www.paypalobjects.com/en_GB/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KBV682WJ3BDGL)
+<table width="100%">
+	<tr>
+		<th align="left" width="60%">
+			alternative-toolbar
+		</th>
+		<th width="10%">
+			Version
+		</th>
+		<th align="right" width="30%">
+			Support
+		</th>
+	</tr>
+	<tr>
+	    <td width="60%" rowspan="3">
+	        Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact toolbar which can be hidden.
+	    </td>
+		<td align="center" width="10%">
+			v0.11.2
+		</td>
+		<td align="right" width="30%">
+		    <a href="http://flattr.com/thing/1811704/" title="fossfreedom">
+		        <img alt="Flattr This!" src="http://api.flattr.com/button/button-compact-static-100x17.png" />
+		    </a>
+		    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KBV682WJ3BDGL" title="PayPal Donate">
+		        <img alt="PayPal Donate" src="https://www.paypalobjects.com/en_GB/i/btn/btn_donate_SM.gif" />
+		    </a>
+		</td>
+	</tr>
+	<tr>
+	    <td><b>Email</b></td>
+	    <td><a href="mailto:foss.freedom@gmail.com">foss.freedom@gmail.com</a></td>
+	</tr>
+	<tr>
+	    <td><b>Website</b></td>
+	    <td><a href="https://github.com/fossfreedom">https://github.com/fossfreedom</a></td>
+		</td>
+	</tr>
+</table>
 
 Replace the current standard toolbar:
 
-![pic](http://i.imgur.com/PBFaxuv.png)
+![pic](http://i.imgur.com/9FjnAd5.png)
 
 with either a compact toolbar:
 
-![pic](http://i.imgur.com/qGEkD4X.png)
+![pic](http://i.imgur.com/5XqQKcG.png)
 
 or with the new Gnome-style client-side decoration:
 
-![pic](http://i.imgur.com/Q5o9FaE.png)
+![pic](http://i.imgur.com/rMkxjxw.png)
 
- - The compact or standard toolbar can also be toggled on or off
- - Volume Control can be switched off for all toolbars
- - Source Toolbars can be toggled - CTRL+T keyboard shortcut
+
+## Features
+ - Toggle compact or standard toolbar on or off
+ - Volume Control can be switched on or off for all toolbars
+ - Source Toolbars can be toggled (`CTRL + T`)
+ - Seek forward (fast-forward) through a track (`ALT + Right Arrow`)
+ - Seek backward through a track (`ALT + Left Arrow`)
  - Redesigned sidebar
  - Redesigned plugin window, about box and plugin preferences window
  - Repeat button can now switch between repeat tracks and repeat-one-song mode
- - Plugin translated into 18 languages and locales
+ - Plugin translated completely into [11 languages and locales (12 more on the way)](https://translations.launchpad.net/alternative-toolbar)
 
 The plugin preferences allows you to define which toolbars are used:
 
-![pic](http://i.imgur.com/xWCyz3R.png)
+<p align="center">
+    <img alt="Plugin" src="http://i.imgur.com/4Qy4fxQ.png" />
+</p>
 
-To install the plugin:
+## Keyboard shortcuts
+| Key                 | Action                                       |
+|---------------------|----------------------------------------------|
+| `CTRL + T`          | Toggled source toolbar.                      |
+| `CTRL + F`          | Toggle search bar.                           |
+| `CTRL + P`          | Start/Stop current track.                    |
+| `CTRL + R`          | Open repeat menu.                            |
+| `CTRL + K`          | Toggle play queue.                           |
+| `CTRL + A/?`        | Select all songs in playlist.                |
+| `ALT + Right Arrow` | Seek forward (fast-forward) through a track. |
+| `ALT + Left Arrrow` | Seek backward through a track.               |
 
-<pre>
+## Install
+**Git**
+```bash
 cd ~/Downloads
 git clone https://github.com/fossfreedom/alternative-toolbar.git
 cd alternative-toolbar
 ./install.sh
-</pre>
+```
 
-Then enable the plugin in the plugins window.
+Then enable the plugin in the plugins window:
+<p align="center">
+    <img alt="Enable plugin" src="http://i.imgur.com/UUzyfhH.png" />
+</p>
 
- - From the menu use View - Show Play-Controls Toolbar
- - From the menu use View - Show Source and Media Toolbars
- - To seek forward (fast-forward) through a track - Alt+Right Cursor key
- - To seek backward through a track - Alt+Left Cursor key
+You might also need to enable the player controls & source menu, this can be done from the menu:
+
+ - Menu ->
+   - View -> 
+     - Show Play-Controls Toolbar
+     - Show Source and Media Toolbars
  
-To uninstall the plugin:
+**Ubuntu PPA**
 
-<pre>
-cd alternative-toolbar
+If you are using Ubuntu you can install alternative-toolbar via a [PPA](https://launchpad.net/~fossfreedom/+archive/ubuntu/rhythmbox-plugins).
+```bash
+sudo add-apt-repository ppa:fossfreedom/rhythmbox-plugins
+sudo apt-get update
+sudo apt-get install rhythmbox-plugins-alternative-toolbar
+```
+
+**Arch AUR**
+
+If you are using Arch you can install alternative-toolbar via the [rhythmbox-plugin-alternative-toolbar-git](https://aur.archlinux.org/packages/rhythmbox-plugin-alternative-toolbar-git/) package
+
+**Uninstall**
+
+If installed via Git you need the original code to uninstall the plugin.
+```bash
+cd ~/Downloads/alternative-toolbar
 ./install.sh --uninstall
-</pre>
+```
 
-<hr/>
-
+## Contribute
 **Please help out with translating**
 
 We need you to help us translate the english text to your native language.
@@ -66,14 +132,14 @@ Don't worry - it is easier that you think. Just visit:
 
 Remember to set your preferred language and then just submit your translation.
 
--------
-
-Contributors:
+## Credits
+Thank you to:
 
  - [me4oslav](https://github.com/me4oslav) - design inspiration for the header-bar vision
  - our Translators: Launchpad Translation team
+ - [Julian Richen](https://github.com/julianrichen) - revamped README
  
-Credits:
+As well as:
 
  - [sergioad](https://github.com/sergioad) - for the initial translation (spanish) used for testing translations
  - Thanks to the [rhythmbox-seek](https://github.com/cgarvey/rhythmbox-seek) project for the track-seeking code.
