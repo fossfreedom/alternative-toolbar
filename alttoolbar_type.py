@@ -29,6 +29,7 @@ from gi.repository import Pango
 from alttoolbar_rb3compat import gtk_version
 from alttoolbar_controller import AltGenericController
 from alttoolbar_controller import AltCoverArtBrowserController
+from alttoolbar_controller import AltCoverArtPlaySourceController
 from alttoolbar_controller import AltMusicLibraryController
 from alttoolbar_controller import AltSoundCloudController
 from alttoolbar_controller import AltQueueController
@@ -275,6 +276,7 @@ class AltToolbarShared(AltToolbarBase):
         self.add_controller(AltMusicLibraryController(self))
         self.add_controller(AltSoundCloudController(self))
         self.add_controller(AltCoverArtBrowserController(self))
+        self.add_controller(AltCoverArtPlaySourceController(self))
         self.add_controller(AltQueueController(self))
         self.add_controller(AltStandardOnlineController(self))
         self.add_controller(AltStandardLocalController(self))

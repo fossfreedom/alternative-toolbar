@@ -55,40 +55,6 @@ class AltControllerBase(GObject.Object):
 
         return AltControllerCategory.OTHER
 
-    def _get_pixbuf(self, filename):
-        filename = rb.find_plugin_file(self.header.plugin, filename)
-        what, width, height = Gtk.icon_size_lookup(Gtk.IconSize.BUTTON)
-
-        self._pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(filename, 128, 128)
-
-        if self._pixbuf.get_width() != width or self._pixbuf.get_height() != height:
-            self._pixbuf = pixbuf.scale_simple(16, 16,
-                                               GdkPixbuf.InterpType.BILINEAR)
-
-        return self._pixbuf
-
-    def get_icon_pixbuf(self, source):
-        '''
-          return the pixbuf for the source
-        :param plugin
-        :param source:
-        :return:
-        '''
-        self._pixbuf = None
-        if source.props.icon:
-            try:
-                names = source.props.icon.props.names
-
-                default = Gtk.IconTheme.get_default()
-                info = default.choose_icon(names, 16, 0)
-                style_context = source.get_style_context()
-                self._pixbuf, symbol = info.load_symbolic_for_context(style_context)
-            except:
-                filename = source.props.icon.get_file().get_path()
-                return self._get_pixbuf(filename)
-
-        return self._pixbuf
-
     def get_gicon(self, source):
         '''
           return the source icon
@@ -394,7 +360,7 @@ class AltSoundCloudController(AltGenericController):
 
 class AltCoverArtBrowserController(AltGenericController):
     '''
-    sound-cloud controller
+    CoverArtBrowser controller
     '''
     __gtype_name = 'AltCoverArtBrowserController'
 
@@ -417,13 +383,11 @@ class AltCoverArtBrowserController(AltGenericController):
         return AltControllerCategory.LOCAL
 
     def get_toolbar(self, source):
-        if self._has_toolbar:
-            return self._has_toolbar
+        if not self._has_toolbar:
+            search_box = self.find(source, 'toolbar', 'by_id')
+            self._has_toolbar = search_box
 
-        search_box = self.find(source, 'toolbar', 'by_id')
-
-        self._has_toolbar = search_box
-        return search_box
+        return self._has_toolbar
 
     def moveto_searchbar(self, toolbar, widget, searchbar):
         '''
@@ -434,6 +398,7 @@ class AltCoverArtBrowserController(AltGenericController):
         parent_grid = toolbar.get_parent()
         parent_grid.remove(toolbar)
         searchbar.add(toolbar)
+        searchbar.show_all()
 
         self.header.register_moved_control(child=toolbar, old_parent=parent_grid, new_parent=searchbar)
 
@@ -446,6 +411,37 @@ class AltCoverArtBrowserController(AltGenericController):
         entry = self.find(entrysearch, 'GtkEntry', 'by_name')
 
         return entrysearch, entry
+
+class AltCoverArtPlaySourceController(AltGenericController):
+    '''
+    CoverArtPlaySource controller
+    '''
+    __gtype_name = 'AltCoverArtPlaySourceController'
+
+    def __init__(self, header):
+        '''
+        Initialises the object.
+        '''
+        super(AltCoverArtPlaySourceController, self).__init__(header)
+
+        self._has_toolbar = None
+
+    def valid_source(self, source):
+        '''
+          override
+        '''
+
+        return "CoverArtPlaySource" in type(source).__name__
+
+    def get_category(self):
+        return AltControllerCategory.LOCAL
+
+    def get_toolbar(self, source):
+        if not self._has_toolbar:
+            self._has_toolbar = self.find(source, 'RBButtonBar', 'by_name')
+
+        print ("############", self._has_toolbar)
+        return self._has_toolbar
 
 
 class AltQueueController(AltGenericController):
