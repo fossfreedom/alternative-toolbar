@@ -277,6 +277,7 @@ class AltGenericController(AltControllerBase):
             search_button = self.end_controls[source]['search_button']
             self.header.current_search_button = search_button
 
+            self.header.searchbar.show_all()
             self.header.searchbar.set_visible(search_button.get_active())
 
             self.header.end_box.add(search_button)
