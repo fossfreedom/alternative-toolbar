@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-22 13:08+0100\n"
-"PO-Revision-Date: 2015-05-12 15:49+0000\n"
+"PO-Revision-Date: 2015-06-06 04:48+0000\n"
 "Last-Translator: zmni <Unknown>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-05-26 16:04+0000\n"
-"X-Generator: Launchpad (build 17514)\n"
+"X-Launchpad-Export-Date: 2015-06-06 11:48+0000\n"
+"X-Generator: Launchpad (build 17540)\n"
 
 #: tmp/altlibrary.ui.h:1 alttoolbar_type.py:923
 msgid "Songs"
@@ -28,11 +28,11 @@ msgstr "Kategori"
 
 #: tmp/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
-msgstr "Mulai ulang pemutar agar perubahan terdampak"
+msgstr "Mulai ulang pemutar agar perubahan terdampak."
 
 #: tmp/altpreferences.ui.h:2
 msgid "Toolbar:"
-msgstr "Bilah Alat"
+msgstr "Bilah Alat:"
 
 #: tmp/altpreferences.ui.h:3
 msgid ""
@@ -40,7 +40,7 @@ msgid ""
 "environments like Gnome and Elementary."
 msgstr ""
 "Paling cocok untuk lingkungan\n"
-"desktop seperti Gnome dan Elementary."
+"destop seperti Gnome dan Elementary."
 
 #: tmp/altpreferences.ui.h:5
 msgid "Modern"
@@ -62,7 +62,7 @@ msgstr ""
 
 #: tmp/altpreferences.ui.h:9
 msgid "Show:"
-msgstr "Tampilkan"
+msgstr "Tampilkan:"
 
 #: tmp/altpreferences.ui.h:10
 msgid "Album/genre/year for playing song"
@@ -74,9 +74,9 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
-"Tampilkan album/jenis musik/tahun ketimbang lagu-jenis musik-tahun. Sangat "
-"beguna untuk beberapa lingkungan destop yang lagu-jenis musik-tahun sudah "
-"ditampilkan di judul jendela."
+"Tampilkan album/jenis musik/tahun ketimbang lagu-jenis musik-tahun. Berguna "
+"untuk lingkungan destop yang lagu-jenis musik-tahun sudah ditampilkan di "
+"judul jendela."
 
 #: tmp/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
@@ -105,7 +105,7 @@ msgstr ""
 
 #: tmp/altpreferences.ui.h:18
 msgid "Use:"
-msgstr "Gunakan"
+msgstr "Gunakan:"
 
 #: tmp/altpreferences.ui.h:19
 msgid "Inline song/artist label"
@@ -117,7 +117,7 @@ msgid ""
 "they are displayed above the progress slider."
 msgstr ""
 "Tampilkan label Lagu dan Artis sebelum penyusur laju. Jika tidak dicentang, "
-"mereka ditampilkan di atas penyusur laju."
+"label ditampilkan di atas penyusur laju."
 
 #: tmp/altpreferences.ui.h:21
 msgid "Compact progress slider"
@@ -128,8 +128,8 @@ msgid ""
 "Display and use a compact track progress slider - useful where the default "
 "theme progress slider is visually too large."
 msgstr ""
-"Tampilkan dan gunakan penyusur laju trek ringkas - sangat berguna dengan "
-"tema bawaan penyusur laju yang secara visual terlalu besar."
+"Tampilkan dan gunakan penyusur laju trek ringkas - berguna untuk tema bawaan "
+"penyusur laju yang secara visual terlalu besar."
 
 #: tmp/altpreferences.ui.h:23
 msgid "Enhanced sidebar"
@@ -147,7 +147,7 @@ msgstr ""
 
 #: tmp/altpreferences.ui.h:25
 msgid "Enhanced plugins dialog"
-msgstr "Dialog plugin dipertingkat"
+msgstr "Dialog pengaya dipertingkat"
 
 #: tmp/altpreferences.ui.h:26
 msgid ""
@@ -155,7 +155,7 @@ msgid ""
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
 "based desktop environments."
 msgstr ""
-"Tampilkan atau sembunyikan dialog plugin yang didesain ulang. Dengan fitur "
+"Tampilkan atau sembunyikan dialog pengaya yang didesain ulang. Dengan fitur "
 "sakelar ketimbang kotak centang dan batang alat sebaris dengan ikon "
 "simbolik. Sangat cocok dengan lingkungan destop berbasis Gnome."
 
@@ -286,7 +286,7 @@ msgstr "Bantuan"
 
 #: alttoolbar_plugins.py:408
 msgid "Homepage"
-msgstr "Laman Beranda"
+msgstr "Halaman Beranda"
 
 #: alttoolbar_preferences.py:281
 msgid "Restart"
@@ -294,15 +294,15 @@ msgstr "Mulai Ulang"
 
 #: alttoolbar_sidebar.py:76
 msgid "Local collection"
-msgstr "Koleksi lokal"
+msgstr "Koleksi Lokal"
 
 #: alttoolbar_sidebar.py:77
 msgid "Online sources"
-msgstr "Sumber daring"
+msgstr "Sumber Daring"
 
 #: alttoolbar_sidebar.py:78
 msgid "Other sources"
-msgstr "Sumber lainnya"
+msgstr "Sumber Lainnya"
 
 #: alttoolbar_sidebar.py:79
 msgid "Playlists"
@@ -314,4 +314,4 @@ msgstr "Ramban"
 
 #: alttoolbar_repeat.py:94 alttoolbar_repeat.py:187
 msgid "Repeat all tracks"
-msgstr ""
+msgstr "Ulangi semua trek"
