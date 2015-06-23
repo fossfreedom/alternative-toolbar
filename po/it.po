@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-22 13:08+0100\n"
-"PO-Revision-Date: 2015-05-11 12:51+0000\n"
+"PO-Revision-Date: 2015-06-23 17:32+0000\n"
 "Last-Translator: Claudio Arseni <claudio.arseni@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-05-26 16:04+0000\n"
-"X-Generator: Launchpad (build 17514)\n"
+"X-Launchpad-Export-Date: 2015-06-23 22:32+0000\n"
+"X-Generator: Launchpad (build 17572)\n"
 
 #: tmp/altlibrary.ui.h:1 alttoolbar_type.py:923
 msgid "Songs"
@@ -72,27 +72,28 @@ msgstr ""
 
 #: tmp/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
-msgstr ""
+msgstr "Suggerimenti per i controlli di riproduzione"
 
 #: tmp/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
-msgstr ""
+msgstr "Mostra o nasconde i suggerimenti per i controlli di riproduzione."
 
 #: tmp/altpreferences.ui.h:14
 msgid "Volume control"
-msgstr ""
+msgstr "Controllo del volume"
 
 #: tmp/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
-msgstr ""
+msgstr "Mostra o nasconde il controllo del volume."
 
 #: tmp/altpreferences.ui.h:16
 msgid "Playback controls"
-msgstr ""
+msgstr "Controlli di riproduzione"
 
 #: tmp/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
 msgstr ""
+"Mostra o nasconde i controlli di riproduzione all'avvio del riproduttore."
 
 #: tmp/altpreferences.ui.h:18
 msgid "Use:"
@@ -100,7 +101,7 @@ msgstr "Uso:"
 
 #: tmp/altpreferences.ui.h:19
 msgid "Inline song/artist label"
-msgstr ""
+msgstr "Etichetta brano/artista in linea"
 
 #: tmp/altpreferences.ui.h:20
 msgid ""
@@ -120,7 +121,7 @@ msgstr ""
 
 #: tmp/altpreferences.ui.h:23
 msgid "Enhanced sidebar"
-msgstr ""
+msgstr "Barra laterale migliorata"
 
 #: tmp/altpreferences.ui.h:24
 msgid ""
@@ -131,7 +132,7 @@ msgstr ""
 
 #: tmp/altpreferences.ui.h:25
 msgid "Enhanced plugins dialog"
-msgstr ""
+msgstr "Dialogo dei plugin migliorato"
 
 #: tmp/altpreferences.ui.h:26
 msgid ""
@@ -142,23 +143,23 @@ msgstr ""
 
 #: tmp/alttoolbar.ui.h:1
 msgid "Play the previous track"
-msgstr ""
+msgstr "Riproduce la traccia precedente"
 
 #: tmp/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr ""
+msgstr "Riprende o mette in pausa la riproduzione"
 
 #: tmp/alttoolbar.ui.h:3
 msgid "Play the next track"
-msgstr ""
+msgstr "Riproduce la traccia successiva"
 
 #: tmp/alttoolbar.ui.h:4 alttoolbar_repeat.py:96 alttoolbar_repeat.py:207
 msgid "Repeat the current track"
-msgstr ""
+msgstr "Ripete la traccia corrente"
 
 #: tmp/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
-msgstr ""
+msgstr "Riproduce le tracce in ordine casuale"
 
 #: alternative-toolbar.py:199
 msgid "Seek Backward"
@@ -178,11 +179,12 @@ msgstr ""
 
 #: alternative-toolbar.py:212
 msgid "Show Play-Controls Toolbar"
-msgstr ""
+msgstr "Mostrare i controlli di riproduzione nella barra degli strumenti"
 
 #: alternative-toolbar.py:215
 msgid "Show or hide the play-controls toolbar"
 msgstr ""
+"Mostra o nasconde i controlli di riproduzione nella barra degli strumenti"
 
 #: alternative-toolbar.py:218
 msgid "Show Source Toolbar"
@@ -195,7 +197,7 @@ msgstr ""
 #. define .plugin text strings used for translation
 #: alternative-toolbar.py:479 alttoolbar_plugins.py:364
 msgid "Alternative Toolbar"
-msgstr ""
+msgstr "Barra degli strumenti alternativa"
 
 #: alternative-toolbar.py:481
 msgid ""
@@ -225,7 +227,7 @@ msgstr "Miglior giudizio"
 
 #: alttoolbar_controller.py:589
 msgid "Recently Added"
-msgstr ""
+msgstr "Aggiunti di recente"
 
 #: alttoolbar_controller.py:592
 msgid "Recently Played"
@@ -245,7 +247,7 @@ msgstr "Configura plugin"
 
 #: alttoolbar_plugins.py:312
 msgid "About this plugin"
-msgstr ""
+msgstr "Informazioni sul plugin"
 
 #: alttoolbar_plugins.py:344
 msgid "Version: "
@@ -273,24 +275,24 @@ msgstr "Riavvia"
 
 #: alttoolbar_sidebar.py:76
 msgid "Local collection"
-msgstr ""
+msgstr "Collezione locale"
 
 #: alttoolbar_sidebar.py:77
 msgid "Online sources"
-msgstr ""
+msgstr "Risorse online"
 
 #: alttoolbar_sidebar.py:78
 msgid "Other sources"
-msgstr ""
+msgstr "Altre risorse"
 
 #: alttoolbar_sidebar.py:79
 msgid "Playlists"
-msgstr ""
+msgstr "Playlist"
 
 #: alttoolbar_type.py:986
 msgid "Browse"
-msgstr ""
+msgstr "Sfoglia"
 
 #: alttoolbar_repeat.py:94 alttoolbar_repeat.py:187
 msgid "Repeat all tracks"
-msgstr ""
+msgstr "Ripete tutte le tracce"
