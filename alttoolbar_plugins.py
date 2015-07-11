@@ -29,7 +29,7 @@ import re
 from alttoolbar_preferences import CoverLocale
 
 
-class PluginListRow(Gtk.Box):
+class PluginListRow(Gtk.ListBoxRow):
     def __init__(self, plugin, switch_callback):
         super(PluginListRow, self).__init__()
 
@@ -71,15 +71,13 @@ class PluginListRow(Gtk.Box):
         box.pack_start(label1, True, False, 0)
         box.pack_start(label2, True, False, 1)
 
-        # box1 = Gtk.Box()
-        #box1.set_orientation(Gtk.Orientation.VERTICAL)
-        #box1.pack_end(Gtk.Label(""), False, False, 0)
-        #box1.pack_end(switch, False, False, 1)
-        #box1.pack_end(Gtk.Label(""), False, False, 2)
+        outerbox = Gtk.Box()
+        outerbox.set_orientation(Gtk.Orientation.HORIZONTAL)
+        outerbox.pack_start(Gtk.Label("  "), False, False, 0)
+        outerbox.pack_start(box, False, False, 1)
+        outerbox.pack_end(switch, False, False, 3)
 
-        self.pack_start(Gtk.Label("  "), False, False, 0)
-        self.pack_start(box, False, False, 1)
-        self.pack_end(switch, False, False, 3)
+        self.add(outerbox)
 
         if not sensitive:
             self.add_error()
@@ -268,12 +266,10 @@ class PluginDialog(Gtk.Dialog):
             self._items[module_name].refresh()
 
     def _listbox_sort(self, row1, row2, *args):
-        return row1.get_child().plugin.get_name().lower() > row2.get_child().plugin.get_name().lower()
+        return row1.plugin.get_name().lower() > row2.plugin.get_name().lower()
 
     def _switch_callback(self, switch, plugin):
         value = switch.get_active()
-        print (switch)
-        print (plugin)
 
         if value and not plugin.is_loaded():
             self._peas.load_plugin(plugin)
@@ -281,9 +277,13 @@ class PluginDialog(Gtk.Dialog):
         if not value and plugin.is_loaded():
             self._peas.unload_plugin(plugin)
 
+        row = switch.get_parent().get_parent()
+        self._listbox.select_row(row)
+        self._listbox_row_selected(_, row)
+
     def _get_preference_widget(self, row):
         try:
-            ext = self._peas.create_extension(row.get_child().plugin, PeasGtk.Configurable, None)
+            ext = self._peas.create_extension(row.plugin, PeasGtk.Configurable, None)
             widget = ext.create_configure_widget()
             return widget
         except:
@@ -301,7 +301,7 @@ class PluginDialog(Gtk.Dialog):
 
             self._preferences_button.set_sensitive(has_preference)
 
-            help_link = row.get_child().plugin.get_help_uri()
+            help_link = row.plugin.get_help_uri()
 
             if help_link:
                 self._help_button.set_sensitive(True)
@@ -310,7 +310,7 @@ class PluginDialog(Gtk.Dialog):
 
     def _help_button_clicked(self, *args):
         row = self._listbox.get_selected_row()
-        help_link = row.get_child().plugin.get_help_uri()
+        help_link = row.plugin.get_help_uri()
 
         webbrowser.open(help_link)
 
@@ -324,8 +324,8 @@ class PluginDialog(Gtk.Dialog):
 
         row = self._listbox.get_selected_row()
 
-        title = row.get_child().plugin.get_name()
-        version = row.get_child().plugin.get_version()
+        title = row.plugin.get_name()
+        version = row.plugin.get_version()
         dlg.props.title = _("About this plugin")
 
         area = dlg.get_content_area()
@@ -333,11 +333,11 @@ class PluginDialog(Gtk.Dialog):
         widget = Gtk.Box()
         widget.set_orientation(Gtk.Orientation.VERTICAL)
 
-        website = row.get_child().plugin.get_website()
-        copyright = row.get_child().plugin.get_copyright()
-        description = row.get_child().plugin.get_description()
-        authors = row.get_child().plugin.get_authors()
-        help = row.get_child().plugin.get_help_uri()
+        website = row.plugin.get_website()
+        copyright = row.plugin.get_copyright()
+        description = row.plugin.get_description()
+        authors = row.plugin.get_authors()
+        help = row.plugin.get_help_uri()
 
         pos = 0
 
@@ -464,7 +464,7 @@ class PluginDialog(Gtk.Dialog):
             dlg = Gtk.Dialog(flags=Gtk.DialogFlags.MODAL)
             dlg.add_button(Gtk.STOCK_CLOSE, Gtk.ResponseType.CLOSE)
 
-        dlg.props.title = row.get_child().plugin.get_name()
+        dlg.props.title = row.plugin.get_name()
         area = dlg.get_content_area()
         area.add(widget)
         dlg.set_resizable(False)
