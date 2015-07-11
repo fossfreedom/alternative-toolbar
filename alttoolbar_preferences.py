@@ -63,7 +63,8 @@ class GSetting:
                 EXPANDERS='expanders',
                 SHOW_TOOLTIPS='show-tooltips',
                 ENHANCED_PLUGINS='enhanced-plugins',
-                REPEAT_TYPE='repeat-type'
+                REPEAT_TYPE='repeat-type',
+                SOURCE_TOOLBAR='show-source-toolbar'
             )
 
             self.setting = {}

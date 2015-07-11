@@ -467,7 +467,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         '''
         action = self.toggle_action_group.get_action('ToggleSourceMediaToolbar')
 
-        self.toolbar_type.toggle_source_toolbar()
+        self.toolbar_type.source_toolbar_visibility(action.get_active())
 
     def _translation_helper(self):
         '''

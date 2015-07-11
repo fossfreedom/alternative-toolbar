@@ -62,5 +62,10 @@
             <summary>Repeat Button Type</summary>
             <description>Icon and functionality for the repeat toggle-button</description>
         </key>
+        <key type="b" name="show-source-toolbar">
+            <default>true</default>
+            <summary>show source toolbar</summary>
+            <description>Show or hide source toolbar</description>
+        </key>
     </schema>
 </schemalist>

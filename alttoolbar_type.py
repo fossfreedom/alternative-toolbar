@@ -44,6 +44,7 @@ from alttoolbar_sidebar import AltToolbarSidebar
 from alttoolbar_widget import SmallProgressBar
 from alttoolbar_widget import SmallScale
 from alttoolbar_repeat import Repeat
+from alttoolbar_preferences import GSetting
 import rb
 
 
@@ -54,6 +55,7 @@ class AltToolbarBase(GObject.Object):
 
     setup_completed = GObject.property(type=bool,
                                        default=False)  # if changed to true then setup_completed observers called back
+    source_toolbar_visible = GObject.property(type=bool, default=True)
 
     def __init__(self):
         '''
@@ -61,7 +63,11 @@ class AltToolbarBase(GObject.Object):
         '''
         super(AltToolbarBase, self).__init__()
 
-        self.source_toolbar_visible = True
+        gs = GSetting()
+        plugin_settings = gs.get_setting(gs.Path.PLUGIN)
+        plugin_settings.bind(gs.PluginKey.SOURCE_TOOLBAR, self, 'source_toolbar_visible',
+                                  Gio.SettingsBindFlags.DEFAULT)
+
         self._async_functions = []  # array of functions to callback once the toolbar has been setup
         self.connect('notify::setup-completed', self._on_setup_completed)
 
@@ -109,6 +115,7 @@ class AltToolbarBase(GObject.Object):
         '''
 
         self.startup_completed = True
+        self.reset_toolbar(self.shell.props.selected_page)
 
     def cleanup(self):
         '''
@@ -165,18 +172,20 @@ class AltToolbarBase(GObject.Object):
            whenever a source changes this resets the toolbar to reflect the changed source
            :param page - RBDisplayPage
         '''
+        print ("reset toolbar")
         if not page:
+            print ("no page")
             return
 
         toolbar = self.find(page, 'RBSourceToolbar', 'by_name')
 
         if toolbar:
             print("found")
-            toolbar.set_visible(not self.source_toolbar_visible)
+            toolbar.set_visible(self.source_toolbar_visible)
         else:
             print("not found")
 
-        self.plugin.emit('toolbar-visibility', not self.source_toolbar_visible)
+        self.plugin.emit('toolbar-visibility', self.source_toolbar_visible)
 
     def setup_completed_async(self, async_function):
         '''
@@ -201,11 +210,13 @@ class AltToolbarBase(GObject.Object):
             for callback_func in self._async_functions:
                 callback_func()
 
-    def toggle_source_toolbar(self):
+    def source_toolbar_visibility(self, visibility):
         '''
            called to toggle the source toolbar
         '''
-        self.source_toolbar_visible = not self.source_toolbar_visible
+        print ("source_bar_visibility")
+
+        self.source_toolbar_visible = visibility #not self.source_toolbar_visible
         self.plugin.on_page_change(self.shell.props.display_page_tree, self.shell.props.selected_page)
 
 
