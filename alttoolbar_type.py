@@ -904,7 +904,15 @@ class AltToolbarHeaderBar(AltToolbarShared):
     def on_startup(self, *args):
         super(AltToolbarHeaderBar, self).on_startup(*args)
 
+        if self.shell.props.selected_page.props.show_browser:
+            self.library_browser_radiobutton.set_active(True)
+
         self.library_radiobutton_toggled(None)
+
+        self.library_browser_radiobutton.connect('toggled', self.library_radiobutton_toggled)
+        self.library_song_radiobutton.connect('toggled', self.library_radiobutton_toggled)
+
+
         self._set_toolbar_controller()
 
         self.setup_completed = True
@@ -960,8 +968,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
     def library_radiobutton_toggled(self, toggle_button):
         print("library_radiobutton_toggled")
-        if not hasattr(self, 'library_song_radiobutton'):
-            return  # kludge = fix this later
+        if not self.setup_completed:
+            return
 
         if toggle_button:
             self.emit('song-category-clicked', self.library_song_radiobutton.get_active())
@@ -974,6 +982,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
         val = True
         if self.library_song_radiobutton.get_active():
+            print ("song active")
             val = False
 
         self.shell.props.selected_page.props.show_browser = val
@@ -1025,9 +1034,6 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
         view_name = "Categories"
         self.library_browser_radiobutton.set_label(view_name)
-
-        self.library_browser_radiobutton.connect('toggled', self.library_radiobutton_toggled)
-        self.library_song_radiobutton.connect('toggled', self.library_radiobutton_toggled)
 
         default = Gtk.Settings.get_default()
         self.headerbar = Gtk.HeaderBar.new()
