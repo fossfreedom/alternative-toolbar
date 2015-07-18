@@ -285,6 +285,8 @@ class PluginDialog(Gtk.Dialog):
         try:
             ext = self._peas.create_extension(row.plugin, PeasGtk.Configurable, None)
             widget = ext.create_configure_widget()
+            cl = CoverLocale()
+            cl.switch_locale(cl.Locale.RB)
             return widget
         except:
             pass
