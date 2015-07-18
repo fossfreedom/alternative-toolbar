@@ -134,6 +134,9 @@ class AltToolbarSidebar(Gtk.TreeView):
         self.set_expander_column(column)
         self.show_all()
         self.set_can_focus(True)
+        
+        cl = CoverLocale()
+        cl.switch_locale(cl.Locale.RB)
 
     def _connect_signals(self):
         # display_page_model signals to keep the sidebar model in sync

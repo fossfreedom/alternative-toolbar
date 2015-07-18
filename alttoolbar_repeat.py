@@ -94,7 +94,8 @@ class Repeat (GObject.Object):
                 self.toggle_button.set_tooltip_text(_("Repeat all tracks"))
             else:
                 self.toggle_button.set_tooltip_text(_("Repeat the current track"))
-
+        cl = CoverLocale()
+        cl.switch_locale(cl.Locale.RB)
 
     def _on_repeat_type_changed(self, repeat, repeat_type):
         if self.toggle_button.get_active():

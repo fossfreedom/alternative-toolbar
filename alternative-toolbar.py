@@ -168,6 +168,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         # allow other plugins access to this toolbar
         self.shell.alternative_toolbar = self
+        
+        cl.switch_locale(cl.Locale.RB)
 
     def _display_plugins(self, *args):
         ''' 
