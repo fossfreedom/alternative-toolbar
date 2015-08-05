@@ -146,7 +146,7 @@ msgstr ""
 
 #: tmp/alttoolbar.ui.h:1
 msgid "Play the previous track"
-msgstr ""
+msgstr "Önceki parçayı çal"
 
 #: tmp/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
@@ -154,11 +154,11 @@ msgstr ""
 
 #: tmp/alttoolbar.ui.h:3
 msgid "Play the next track"
-msgstr ""
+msgstr "Sonraki parçayı çal"
 
 #: tmp/alttoolbar.ui.h:4 alttoolbar_repeat.py:96 alttoolbar_repeat.py:207
 msgid "Repeat the current track"
-msgstr ""
+msgstr "Çalan parçayı tekrarla"
 
 #: tmp/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
@@ -199,7 +199,7 @@ msgstr ""
 #. define .plugin text strings used for translation
 #: alternative-toolbar.py:479 alttoolbar_plugins.py:364
 msgid "Alternative Toolbar"
-msgstr ""
+msgstr "Alternative Toolbar"
 
 #: alternative-toolbar.py:481
 msgid ""
@@ -213,15 +213,15 @@ msgstr ""
 
 #: alttoolbar_controller.py:343
 msgid "Import"
-msgstr ""
+msgstr "İçeri aktar"
 
 #: alttoolbar_controller.py:520
 msgid "Stations"
-msgstr ""
+msgstr "İstasyonlar"
 
 #: alttoolbar_controller.py:546
 msgid "Libre.fm"
-msgstr ""
+msgstr "Libre.fm"
 
 #: alttoolbar_controller.py:586
 msgid "My Top Rated"
@@ -245,35 +245,35 @@ msgstr ""
 
 #: alttoolbar_plugins.py:231
 msgid "Configure Plugins"
-msgstr ""
+msgstr "Eklenti Ayarları"
 
 #: alttoolbar_plugins.py:312
 msgid "About this plugin"
-msgstr ""
+msgstr "Eklenti hakkında"
 
 #: alttoolbar_plugins.py:344
 msgid "Version: "
-msgstr ""
+msgstr "Sürüm:"
 
 #: alttoolbar_plugins.py:369
 msgid "Developer:"
-msgstr ""
+msgstr "Geliştirici:"
 
 #: alttoolbar_plugins.py:379
 msgid "Designer:"
-msgstr ""
+msgstr "Tasarımcı:"
 
 #: alttoolbar_plugins.py:400
 msgid "Help"
-msgstr ""
+msgstr "Yardım"
 
 #: alttoolbar_plugins.py:408
 msgid "Homepage"
-msgstr ""
+msgstr "Anasayfa"
 
 #: alttoolbar_preferences.py:281
 msgid "Restart"
-msgstr ""
+msgstr "Yeniden başlat"
 
 #: alttoolbar_sidebar.py:76
 msgid "Local collection"
@@ -289,12 +289,12 @@ msgstr ""
 
 #: alttoolbar_sidebar.py:79
 msgid "Playlists"
-msgstr ""
+msgstr "Oynatma Listesi"
 
 #: alttoolbar_type.py:986
 msgid "Browse"
-msgstr ""
+msgstr "Tarayıcı"
 
 #: alttoolbar_repeat.py:94 alttoolbar_repeat.py:187
 msgid "Repeat all tracks"
-msgstr ""
+msgstr "Tüm parçaları tekrarla"
