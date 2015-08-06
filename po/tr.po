@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-22 13:08+0100\n"
 "PO-Revision-Date: 2015-05-10 17:23+0000\n"
-"Last-Translator: Utku Birkan <utku.birkan@gmail.com>\n"
+"Last-Translator: Utku Birkan <utku.birkan@gmail.com>\n and golelcintolga@gmail.com"
 "Language-Team: Turkish <tr@li.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -114,7 +114,7 @@ msgstr ""
 
 #: tmp/altpreferences.ui.h:21
 msgid "Compact progress slider"
-msgstr ""
+msgstr "Kompakt ilerleme göstergesi"
 
 #: tmp/altpreferences.ui.h:22
 msgid ""
@@ -124,7 +124,7 @@ msgstr ""
 
 #: tmp/altpreferences.ui.h:23
 msgid "Enhanced sidebar"
-msgstr ""
+msgstr "Yeniden tasarlanan kenar çubuğu"
 
 #: tmp/altpreferences.ui.h:24
 msgid ""
@@ -135,7 +135,7 @@ msgstr ""
 
 #: tmp/altpreferences.ui.h:25
 msgid "Enhanced plugins dialog"
-msgstr ""
+msgstr "Yeniden tasarlanan eklenti yönetimi"
 
 #: tmp/altpreferences.ui.h:26
 msgid ""
@@ -146,43 +146,43 @@ msgstr ""
 
 #: tmp/alttoolbar.ui.h:1
 msgid "Play the previous track"
-msgstr ""
+msgstr "Önceki parçayı çal"
 
 #: tmp/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr ""
+msgstr "Çalmayı duraklat veya devam et"
 
 #: tmp/alttoolbar.ui.h:3
 msgid "Play the next track"
-msgstr ""
+msgstr "Sonraki parçayı çal"
 
 #: tmp/alttoolbar.ui.h:4 alttoolbar_repeat.py:96 alttoolbar_repeat.py:207
 msgid "Repeat the current track"
-msgstr ""
+msgstr "Çalan parçayı tekrarla"
 
 #: tmp/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
-msgstr ""
+msgstr "Parçalar karışık bir şekilde çalacak"
 
 #: alternative-toolbar.py:199
 msgid "Seek Backward"
-msgstr ""
+msgstr "Geri Sar"
 
 #: alternative-toolbar.py:201
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr ""
+msgstr "Geçerli parçayı 5 saniye geriye sarın."
 
 #: alternative-toolbar.py:203
 msgid "Seek Forward"
-msgstr ""
+msgstr "İleri Sar"
 
 #: alternative-toolbar.py:205
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr ""
+msgstr "Geçerli parçayı 10 saniye ileri sarın."
 
 #: alternative-toolbar.py:212
 msgid "Show Play-Controls Toolbar"
-msgstr ""
+msgstr "Oynatım Konrollerini Göster"
 
 #: alternative-toolbar.py:215
 msgid "Show or hide the play-controls toolbar"
@@ -194,12 +194,12 @@ msgstr ""
 
 #: alternative-toolbar.py:221
 msgid "Show or hide the source toolbar"
-msgstr ""
+msgstr "Kaynak araç çubuğunu göster veya gizle"
 
 #. define .plugin text strings used for translation
 #: alternative-toolbar.py:479 alttoolbar_plugins.py:364
 msgid "Alternative Toolbar"
-msgstr ""
+msgstr "Alternatif Araç çubuğu"
 
 #: alternative-toolbar.py:481
 msgid ""
@@ -209,92 +209,92 @@ msgstr ""
 
 #: alttoolbar_controller.py:187
 msgid "View All"
-msgstr ""
+msgstr "Tümünü Göster"
 
 #: alttoolbar_controller.py:343
 msgid "Import"
-msgstr ""
+msgstr "İçeri aktar"
 
 #: alttoolbar_controller.py:520
 msgid "Stations"
-msgstr ""
+msgstr "İstasyonlar"
 
 #: alttoolbar_controller.py:546
 msgid "Libre.fm"
-msgstr ""
+msgstr "Libre.fm"
 
 #: alttoolbar_controller.py:586
 msgid "My Top Rated"
-msgstr ""
+msgstr "En Beğenilenler"
 
 #: alttoolbar_controller.py:589
 msgid "Recently Added"
-msgstr ""
+msgstr "Son Eklenen"
 
 #: alttoolbar_controller.py:592
 msgid "Recently Played"
-msgstr ""
+msgstr "Son Çalınan"
 
 #: alttoolbar_controller.py:624
 msgid "Podcasts"
-msgstr ""
+msgstr "Podcasts"
 
 #: alttoolbar_plugins.py:115
 msgid "The plugin cannot be enabled"
-msgstr ""
+msgstr "Bu eklenti etkinleştirilemez"
 
 #: alttoolbar_plugins.py:231
 msgid "Configure Plugins"
-msgstr ""
+msgstr "Eklenti Ayarları"
 
 #: alttoolbar_plugins.py:312
 msgid "About this plugin"
-msgstr ""
+msgstr "Eklenti hakkında"
 
 #: alttoolbar_plugins.py:344
 msgid "Version: "
-msgstr ""
+msgstr "Sürüm:"
 
 #: alttoolbar_plugins.py:369
 msgid "Developer:"
-msgstr ""
+msgstr "Geliştirici:"
 
 #: alttoolbar_plugins.py:379
 msgid "Designer:"
-msgstr ""
+msgstr "Tasarımcı:"
 
 #: alttoolbar_plugins.py:400
 msgid "Help"
-msgstr ""
+msgstr "Yardım"
 
 #: alttoolbar_plugins.py:408
 msgid "Homepage"
-msgstr ""
+msgstr "Anasayfa"
 
 #: alttoolbar_preferences.py:281
 msgid "Restart"
-msgstr ""
+msgstr "Yeniden başlat"
 
 #: alttoolbar_sidebar.py:76
 msgid "Local collection"
-msgstr ""
+msgstr "Yerel Koleksiyon"
 
 #: alttoolbar_sidebar.py:77
 msgid "Online sources"
-msgstr ""
+msgstr "Çevrimiçi kaynaklar"
 
 #: alttoolbar_sidebar.py:78
 msgid "Other sources"
-msgstr ""
+msgstr "Diğer kaynaklar"
 
 #: alttoolbar_sidebar.py:79
 msgid "Playlists"
-msgstr ""
+msgstr "Oynatma Listesi"
 
 #: alttoolbar_type.py:986
 msgid "Browse"
-msgstr ""
+msgstr "Tarayıcı"
 
 #: alttoolbar_repeat.py:94 alttoolbar_repeat.py:187
 msgid "Repeat all tracks"
-msgstr ""
+msgstr "Tüm parçaları tekrarla"
