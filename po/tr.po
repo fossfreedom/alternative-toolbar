@@ -170,7 +170,7 @@ msgstr "Geri Sar"
 
 #: alternative-toolbar.py:201
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr "Geçerli parçayı 5 sanite geriye sarın."
+msgstr "Geçerli parçayı 5 saniye geriye sarın."
 
 #: alternative-toolbar.py:203
 msgid "Seek Forward"
