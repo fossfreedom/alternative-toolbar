@@ -297,6 +297,11 @@ class AltToolbarShared(AltToolbarBase):
         self.add_controller(AltErrorsController(self))
         self.add_controller(AltPodcastController(self))
 
+        # support RTL
+        image = self.play_button.get_child()
+        icon_name = self.request_playback_icon()
+        image.set_from_icon_name(icon_name, image.props.icon_size)
+
         # now move current RBDisplayPageTree to listview stack
         display_tree = self.shell.props.display_page_tree
         self.display_tree_parent = display_tree.get_parent()
@@ -721,6 +726,13 @@ class AltToolbarShared(AltToolbarBase):
         self.small_bar.show_all()
         self.inline_box.set_visible(False)
 
+    def request_playback_icon(self):
+        icon_name = "media-playback-start-symbolic"
+        if gtk_version() < 3.12:
+            if self.play_button.get_direction() == Gtk.TextDirection.RTL:
+                icon_name = "media-playback-start-rtl-symbolic"
+
+        return icon_name
 
     def play_control_change(self, player, playing):
         image = self.play_button.get_child()
@@ -731,7 +743,7 @@ class AltToolbarShared(AltToolbarBase):
                 icon_name = "media-playback-stop-symbolic"
 
         else:
-            icon_name = "media-playback-start-symbolic"
+            icon_name = self.request_playback_icon()
 
         image.set_from_icon_name(icon_name, image.props.icon_size)
 
