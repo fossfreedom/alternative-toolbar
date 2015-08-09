@@ -298,9 +298,12 @@ class AltToolbarShared(AltToolbarBase):
         self.add_controller(AltPodcastController(self))
 
         # support RTL
-        image = self.play_button.get_child()
-        icon_name = self.request_playback_icon()
-        image.set_from_icon_name(icon_name, image.props.icon_size)
+        for control, icon_name in [(self.prev_button, 'media-skip-backward-symbolic'),
+                                   (self.play_button, 'media-playback-start-symbolic'),
+                                   (self.next_button, 'media-skip-forward-symbolic')]:
+            image = control.get_child()
+            icon_name = self.request_rtl_icon(control, icon_name)
+            image.set_from_icon_name(icon_name, image.props.icon_size)
 
         # now move current RBDisplayPageTree to listview stack
         display_tree = self.shell.props.display_page_tree
@@ -726,11 +729,14 @@ class AltToolbarShared(AltToolbarBase):
         self.small_bar.show_all()
         self.inline_box.set_visible(False)
 
-    def request_playback_icon(self):
-        icon_name = "media-playback-start-symbolic"
+    def request_rtl_icon(self, control, icon_name):
+
         if gtk_version() < 3.12:
-            if self.play_button.get_direction() == Gtk.TextDirection.RTL:
-                icon_name = "media-playback-start-rtl-symbolic"
+            if control.get_direction() == Gtk.TextDirection.RTL:
+                rtl_name = {"media-playback-start-symbolic":"media-playback-start-rtl-symbolic",
+                            "media-skip-forward-symbolic":"media-skip-forward-rtl-symbolic",
+                            "media-skip-backward-symbolic":"media-skip-backward-rtl-symbolic"}
+                icon_name = rtl_name[icon_name]
 
         return icon_name
 
@@ -743,7 +749,7 @@ class AltToolbarShared(AltToolbarBase):
                 icon_name = "media-playback-stop-symbolic"
 
         else:
-            icon_name = self.request_playback_icon()
+            icon_name = self.request_rtl_icon(self.play_button, "media-playback-start-symbolic")
 
         image.set_from_icon_name(icon_name, image.props.icon_size)
 

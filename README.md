@@ -15,7 +15,7 @@
 	        Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact toolbar which can be hidden.
 	    </td>
 		<td align="center" width="10%">
-			v0.13.0
+			v0.13.1
 		</td>
 		<td align="right" width="30%">
 		    <a href="http://flattr.com/thing/1811704/" title="fossfreedom">
