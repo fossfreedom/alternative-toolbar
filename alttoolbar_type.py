@@ -40,6 +40,7 @@ from alttoolbar_controller import AltErrorsController
 from alttoolbar_controller import AltPodcastController
 from alttoolbar_controller import AltStandardOnlineController
 from alttoolbar_controller import AltStandardLocalController
+from alttoolbar_controller import AltAndroidController
 from alttoolbar_sidebar import AltToolbarSidebar
 from alttoolbar_widget import SmallProgressBar
 from alttoolbar_widget import SmallScale
@@ -296,6 +297,7 @@ class AltToolbarShared(AltToolbarBase):
         self.add_controller(AltPlaylistController(self))
         self.add_controller(AltErrorsController(self))
         self.add_controller(AltPodcastController(self))
+        self.add_controller(AltAndroidController(self))
 
         # support RTL
         for control, icon_name in [(self.prev_button, 'media-skip-backward-symbolic'),
