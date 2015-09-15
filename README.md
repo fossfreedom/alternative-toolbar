@@ -113,6 +113,19 @@ sudo apt-get install rhythmbox-plugins-alternative-toolbar
 
 If you are using Arch you can install alternative-toolbar via the [rhythmbox-plugin-alternative-toolbar-git](https://aur.archlinux.org/packages/rhythmbox-plugin-alternative-toolbar-git/) package
 
+**Gentoo ebuild**
+
+If you are using Gentoo you can install alternative-toolbar by adding the ebuild located in `gentoo/x11-plugins/alternative-toolbar` to your local overlay (`/usr/local/portage`).
+
+Use
+
+```
+$ ebuild alternative-toolbar-9999.ebuild digest
+$ emerge alternative-toolbar
+```
+
+to install.
+
 **Uninstall**
 
 If installed via Git you need the original code to uninstall the plugin.
