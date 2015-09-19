@@ -33,14 +33,14 @@ class AltControllerCategory(object):
 
 
 class AltControllerBase(GObject.Object):
-    '''
+    """
     base controller
-    '''
+    """
 
     def __init__(self, header):
-        '''
+        """
         Initialises the object.
-        '''
+        """
         self.header = header
         self.find = self.header.find  # convenience function
 
@@ -49,18 +49,18 @@ class AltControllerBase(GObject.Object):
         super(AltControllerBase, self).__init__()
 
     def get_category(self):
-        ''' 
+        """
            return the category type for the source
-        '''
+        """
 
         return AltControllerCategory.OTHER
 
     def get_gicon(self, source):
-        '''
+        """
           return the source icon
         :param source:
         :return:
-        '''
+        """
 
         if source.props.icon:
             return source.props.icon
@@ -68,35 +68,35 @@ class AltControllerBase(GObject.Object):
         return None
 
     def valid_source(self, source):
-        '''
+        """
           returns bool if the given source is applicable to the controller
-        '''
+        """
 
         return False
 
     def update_controls(self, source):
-        '''
+        """
            update the button controls on the header
-        '''
+        """
 
         pass
 
     def remove_controls(self, container):
-        '''
+        """
           remove any controls that are contained in a container
-        '''
+        """
         for child in container.get_children():
             container.remove(child)
 
     def hide_controls(self, source):
-        '''
+        """
           hide controls for a given controller
-        '''
+        """
 
         pass
 
     def get_search_entry(self, toolbar_container):
-        '''
+        """
           find the GtkEntry field corresponding to the search entry
           
           returns 1. the GtkWidget containing the GtkEntry 
@@ -104,43 +104,43 @@ class AltControllerBase(GObject.Object):
                   
           returns None if nothing found
           
-        '''
+        """
 
         return None
 
     def get_toolbar(self, source):
-        '''
+        """
           return GtkWidget corresponding to the toolbar within the source
                  None if no toolbar
-        '''
+        """
 
         return None
 
     def moveto_searchbar(self, toolbar, widget, searchbar):
-        '''
+        """
           move from toolbar the widget and add to the searchbar
-        '''
+        """
 
         pass
 
     def set_library_labels(self):
-        '''
+        """
           set the centre library song-category button label
-        '''
+        """
 
         self.header.set_library_labels()
 
 
 class AltGenericController(AltControllerBase):
-    '''
+    """
     generic controller for the headerbar (only)
-    '''
+    """
     __gtype_name = 'AltGenericController'
 
     def __init__(self, header):
-        '''
+        """
         Initialises the object.
-        '''
+        """
         super(AltGenericController, self).__init__(header)
 
         self.centre_controls = {}
@@ -165,7 +165,7 @@ class AltGenericController(AltControllerBase):
 
     def get_search_entry(self, container):
         if container == None:
-            print ("no container to search")
+            print("no container to search")
             return None, None
         search = self.find(container, 'RBSearchEntry', 'by_name')
 
@@ -183,11 +183,10 @@ class AltGenericController(AltControllerBase):
 
         searchbar.add(search)
 
-
     def update_controls(self, source):
-        '''
+        """
            update the button controls on the header
-        '''
+        """
 
         val, browser_button = self.header.is_browser_view(source)
         if not val:
@@ -217,7 +216,7 @@ class AltGenericController(AltControllerBase):
 
             self.remove_controls(self.header.end_box)
 
-            print (toolbar)  # should be the RBSourceToolbar
+            print(toolbar)  # should be the RBSourceToolbar
             search, entry = self.get_search_entry(toolbar)
             if not search:
                 return
@@ -232,7 +231,7 @@ class AltGenericController(AltControllerBase):
             # to-do this - find the first child and physically move this into the
             # second position in a box - the first position being the searchbar
             children = source.get_children()
-            print (children)
+            print(children)
             first = children[0]  # We assume the first container in a source is a GtkNotebook
             box = Gtk.Box()
             box.set_orientation(Gtk.Orientation.VERTICAL)
@@ -286,21 +285,21 @@ class AltGenericController(AltControllerBase):
 
 
 class AltMusicLibraryController(AltGenericController):
-    '''
+    """
     music library controller
-    '''
+    """
     __gtype_name = 'AltMusicLibraryController'
 
     def __init__(self, header):
-        '''
+        """
         Initialises the object.
-        '''
+        """
         super(AltMusicLibraryController, self).__init__(header)
 
     def valid_source(self, source):
-        '''
+        """
           override
-        '''
+        """
 
         return "LibrarySource" in type(source).__name__
 
@@ -314,23 +313,23 @@ class AltMusicLibraryController(AltGenericController):
 
 
 class AltSoundCloudController(AltGenericController):
-    '''
+    """
     sound-cloud controller
-    '''
+    """
     __gtype_name = 'AltSoundCloudController'
 
     def __init__(self, header):
-        '''
+        """
         Initialises the object.
-        '''
+        """
         super(AltSoundCloudController, self).__init__(header)
 
         self._has_toolbar = None
 
     def valid_source(self, source):
-        '''
+        """
           override
-        '''
+        """
 
         return "SoundCloud" in type(source).__name__
 
@@ -347,10 +346,10 @@ class AltSoundCloudController(AltGenericController):
         return search_box
 
     def moveto_searchbar(self, toolbar, widget, searchbar):
-        '''
+        """
           override - here we want to actually remove the toolbar from the source
           so get the parent
-        '''
+        """
 
         parent_grid = toolbar.get_parent()
         parent_grid.remove(toolbar)
@@ -360,23 +359,23 @@ class AltSoundCloudController(AltGenericController):
 
 
 class AltCoverArtBrowserController(AltGenericController):
-    '''
+    """
     CoverArtBrowser controller
-    '''
+    """
     __gtype_name = 'AltCoverArtBrowserController'
 
     def __init__(self, header):
-        '''
+        """
         Initialises the object.
-        '''
+        """
         super(AltCoverArtBrowserController, self).__init__(header)
 
         self._has_toolbar = None
 
     def valid_source(self, source):
-        '''
+        """
           override
-        '''
+        """
 
         return "CoverArtBrowser" in type(source).__name__
 
@@ -391,10 +390,10 @@ class AltCoverArtBrowserController(AltGenericController):
         return self._has_toolbar
 
     def moveto_searchbar(self, toolbar, widget, searchbar):
-        '''
+        """
           override - here we want to actually remove the toolbar from the source
           so get the parent
-        '''
+        """
 
         parent_grid = toolbar.get_parent()
         parent_grid.remove(toolbar)
@@ -404,33 +403,34 @@ class AltCoverArtBrowserController(AltGenericController):
         self.header.register_moved_control(child=toolbar, old_parent=parent_grid, new_parent=searchbar)
 
     def get_search_entry(self, toolbar):
-        '''
+        """
           override - use the GtkEntry in the coverartbrowser
-        '''
+        """
 
         entrysearch = self.find(toolbar, 'entry_search_alignment', 'by_id')
         entry = self.find(entrysearch, 'GtkEntry', 'by_name')
 
         return entrysearch, entry
 
+
 class AltCoverArtPlaySourceController(AltGenericController):
-    '''
+    """
     CoverArtPlaySource controller
-    '''
+    """
     __gtype_name = 'AltCoverArtPlaySourceController'
 
     def __init__(self, header):
-        '''
+        """
         Initialises the object.
-        '''
+        """
         super(AltCoverArtPlaySourceController, self).__init__(header)
 
         self._has_toolbar = None
 
     def valid_source(self, source):
-        '''
+        """
           override
-        '''
+        """
 
         return "CoverArtPlaySource" in type(source).__name__
 
@@ -441,20 +441,20 @@ class AltCoverArtPlaySourceController(AltGenericController):
         if not self._has_toolbar:
             self._has_toolbar = self.find(source, 'RBButtonBar', 'by_name')
 
-        print ("############", self._has_toolbar)
+        print("############", self._has_toolbar)
         return self._has_toolbar
 
 
 class AltQueueController(AltGenericController):
-    '''
+    """
     RB QueueSource controller
-    '''
+    """
     __gtype_name = 'AltQueueController'
 
     def __init__(self, header):
-        '''
+        """
         Initialises the object.
-        '''
+        """
         super(AltQueueController, self).__init__(header)
 
         self._gicon = Gio.ThemedIcon(name='audio-x-queue-symbolic')
@@ -467,15 +467,15 @@ class AltQueueController(AltGenericController):
 
 
 class AltErrorsController(AltGenericController):
-    '''
+    """
     RB ErrorsSource controller
-    '''
+    """
     __gtype_name = 'AltErrorsController'
 
     def __init__(self, header):
-        '''
+        """
         Initialises the object.
-        '''
+        """
         super(AltErrorsController, self).__init__(header)
 
         self._gicon = Gio.ThemedIcon(name='dialog-error-symbolic')
@@ -491,15 +491,15 @@ class AltErrorsController(AltGenericController):
 
 
 class AltRadioController(AltGenericController):
-    '''
+    """
     RB RadioSource controller
-    '''
+    """
     __gtype_name = 'AltRadioController'
 
     def __init__(self, header):
-        '''
+        """
         Initialises the object.
-        '''
+        """
         super(AltRadioController, self).__init__(header)
 
         self._gicon = Gio.ThemedIcon(name='audio-radio-symbolic')
@@ -518,15 +518,15 @@ class AltRadioController(AltGenericController):
 
 
 class AltLastFMController(AltGenericController):
-    '''
+    """
     RB LastFMSource controller
-    '''
+    """
     __gtype_name = 'AltLastFMController'
 
     def __init__(self, header):
-        '''
+        """
         Initialises the object.
-        '''
+        """
         super(AltLastFMController, self).__init__(header)
 
         self._libre_gicon = Gio.ThemedIcon(name='librefm-symbolic')
@@ -550,15 +550,15 @@ class AltLastFMController(AltGenericController):
 
 
 class AltPlaylistController(AltGenericController):
-    '''
+    """
     playlist controller
-    '''
+    """
     __gtype_name = 'AltPlaylistController'
 
     def __init__(self, header):
-        '''
+        """
         Initialises the object.
-        '''
+        """
         super(AltPlaylistController, self).__init__(header)
 
         self._static_gicon = Gio.ThemedIcon(name='audio-x-playlist-symbolic')
@@ -568,18 +568,17 @@ class AltPlaylistController(AltGenericController):
         self._recentlyadded_gicon = Gio.ThemedIcon(name='audio-x-playlist-recently-added-symbolic')
         self._recentlyplayed_gicon = Gio.ThemedIcon(name='audio-x-playlist-recently-played-symbolic')
 
-
     def valid_source(self, source):
-        '''
+        """
           override
-        '''
+        """
         return "PlaylistSource" in type(source).__name__
 
     def get_gicon(self, source):
         # locale stuff
         cl = CoverLocale()
         cl.switch_locale(cl.Locale.RB)
-        print (source.props.name)
+        print(source.props.name)
         if source.props.name == _('My Top Rated') or source.props.name == 'My Top Rated':
             return self._toprated_gicon
 
@@ -599,15 +598,15 @@ class AltPlaylistController(AltGenericController):
 
 
 class AltPodcastController(AltGenericController):
-    '''
+    """
     podcast controller
-    '''
+    """
     __gtype_name = 'AltPodcastController'
 
     def valid_source(self, source):
-        '''
+        """
           override
-        '''
+        """
         return 'RBPodcastMainSource' in type(source).__name__
 
     def get_category(self):
@@ -622,15 +621,15 @@ class AltPodcastController(AltGenericController):
 
 
 class AltStandardOnlineController(AltGenericController):
-    '''
+    """
       standard controller where we dont need specific customisation
-    '''
+    """
     __gtype_name = 'AltStandardOnlineController'
 
     def __init__(self, header):
-        '''
+        """
         Initialises the object.
-        '''
+        """
         super(AltStandardOnlineController, self).__init__(header)
 
         self._source_types = ['MagnatuneSource',
@@ -639,7 +638,7 @@ class AltStandardOnlineController(AltGenericController):
 
     def valid_source(self, source):
 
-        print (type(source).__name__)
+        print(type(source).__name__)
         for source_type in self._source_types:
             if source_type in type(source).__name__:
                 return True
@@ -651,15 +650,15 @@ class AltStandardOnlineController(AltGenericController):
 
 
 class AltStandardLocalController(AltGenericController):
-    '''
+    """
       standard controller where we dont need specific customisation
-    '''
+    """
     __gtype_name = 'AltStandardLocalController'
 
     def __init__(self, header):
-        '''
+        """
         Initialises the object.
-        '''
+        """
         super(AltStandardLocalController, self).__init__(header)
 
         self._source_types = ['RBMtpSource',
@@ -667,7 +666,7 @@ class AltStandardLocalController(AltGenericController):
 
     def valid_source(self, source):
 
-        print (type(source).__name__)
+        print(type(source).__name__)
         for source_type in self._source_types:
             if source_type in type(source).__name__:
                 return True

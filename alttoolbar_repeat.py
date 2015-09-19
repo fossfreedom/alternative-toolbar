@@ -32,11 +32,11 @@ from alttoolbar_preferences import CoverLocale
 class Repeat (GObject.Object):
 
     def __init__(self, shell, toggle_button):
-        '''
+        """
 
         :param toggle_button:  button that controls the repeat functions
         :return:
-        '''
+        """
         GObject.Object.__init__(self)
 
         self.repeat_song = False # use this to start the repeat-one-song capability (if True)

@@ -107,7 +107,7 @@ class SmallProgressBar(Gtk.DrawingArea):
         if ( self.button_time + 100 < event.time ):
             self.button_time = event.time
             self.emit("control", fraction)
-        '''
+        """
                     <child>
                       <object class="alternative-toolbar+SmallProgressBar" id="song progress">
                         <property name="height-request">5</property>
@@ -121,7 +121,7 @@ class SmallProgressBar(Gtk.DrawingArea):
                       </packing>
                     </child>
                     
-        '''
+        """
 
 
 class SmallScale(Gtk.Scale):

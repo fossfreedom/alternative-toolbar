@@ -33,9 +33,9 @@ class AltToolbarSidebar(Gtk.TreeView):
     expanders = GObject.property(type=str, default='{1:True}')
 
     def __init__(self, toolbar, rbtree):
-        '''
+        """
         Initialises the object.
-        '''
+        """
         super(AltToolbarSidebar, self).__init__()
 
         self.shell = toolbar.shell
@@ -170,10 +170,10 @@ class AltToolbarSidebar(Gtk.TreeView):
         model.disconnect(self._crc)
 
     def on_drag_drop(self, widget, context, x, y, time):
-        '''
+        """
         Callback called when a drag operation finishes over the treeview
         It decides if the dropped item can be processed.
-        '''
+        """
         print ("on_drag_drop")
         # stop the propagation of the signal (deactivates superclass callback)
         widget.stop_emission_by_name('drag-drop')
@@ -248,10 +248,10 @@ class AltToolbarSidebar(Gtk.TreeView):
 
     def on_drag_data_received(self, widget, drag_context, x, y, data, info,
                               time):
-        '''
+        """
         Callback called when the drag source has prepared the data (pixbuf)
         for us to use.
-        '''
+        """
         print ("on_drag_data_received")
         # stop the propagation of the signal (deactivates superclass callback)
         widget.stop_emission_by_name('drag-data-received')
@@ -273,11 +273,11 @@ class AltToolbarSidebar(Gtk.TreeView):
 
         
     def _on_playing_song_changed(self, *args):
-        '''
+        """
           signal when a playing song changes - need to invoke a tree-refresh to ensure the user can see which source
         :param args:
         :return:
-        '''
+        """
         print ("playing song changed")
         if hasattr(self.plugin, "db"):  # curious crash when exiting - lets not send the queue_draw in this case
             print ("queuing")
@@ -382,11 +382,11 @@ class AltToolbarSidebar(Gtk.TreeView):
         self.rbtree.expand_all()
 
     def edit_playlist(self, leaf_iter):
-        '''
+        """
            edit the playlist
         :param leaf_iter: treestore iter
         :return:
-        '''
+        """
         print ("edit_playlist")
         self.text_renderer.props.editable = True
         path = self.treestore.get_path(leaf_iter)
@@ -401,12 +401,12 @@ class AltToolbarSidebar(Gtk.TreeView):
 
 
     def _model_page_deleted(self, model, path):
-        '''
+        """
           signal from the displaytreemodel - we dont actually know what is deleted ... just that something has been
         :param model:
         :param path:
         :return:
-        '''
+        """
 
         # first do a reverse lookup so that we can search quicker later
         # dict of sources in the sidebar model with their treeiter
@@ -449,9 +449,9 @@ class AltToolbarSidebar(Gtk.TreeView):
         self._refresh_headers()
 
     def _row_click(self, widget, event):
-        '''
+        """
         event called when clicking on a row
-        '''
+        """
         print('_row_click')
 
         try:
@@ -488,12 +488,12 @@ class AltToolbarSidebar(Gtk.TreeView):
         GLib.timeout_add_seconds(1, delayed)
 
     def _display_page_tree_selected(self, display_page_tree, page):
-        '''
+        """
         signal from when a page is selected in the display-page-tree - we need to sync with our tree
         :param display_page_tree:
         :param page:
         :return:
-        '''
+        """
 
         if self._user_clicked:
             self._user_clicked = False

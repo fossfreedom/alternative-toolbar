@@ -64,10 +64,10 @@ seek_forward_time = 10
 
 
 class AltToolbarPlugin(GObject.Object, Peas.Activatable):
-    '''
+    """
     Main class of the plugin. Manages the activation and deactivation of the
     plugin.
-    '''
+    """
     __gtype_name = 'AltToolbarPlugin'
     object = GObject.property(type=GObject.Object)
     display_page_tree_visible = GObject.property(type=bool, default=False)
@@ -82,19 +82,19 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
     }
 
     def __init__(self):
-        '''
+        """
         Initialises the plugin object.
-        '''
+        """
         GObject.Object.__init__(self)
         self.appshell = None
         self.sh_psc = self.sh_op = self.sh_pc = None
 
     def do_activate(self):
-        '''
+        """
         Called by Rhythmbox when the plugin is activated. It creates the
         plugin's source and connects signals to manage the plugin's
         preferences.
-        '''
+        """
 
         self.shell = self.object
         self.db = self.shell.props.db
@@ -172,9 +172,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         cl.switch_locale(cl.Locale.RB)
 
     def _display_plugins(self, *args):
-        ''' 
+        """
           display our implementation of the LibPeas Plugin window
-        '''
+        """
 
         has_headerbar = isinstance(self.toolbar_type, AltToolbarHeaderBar)
 
@@ -193,9 +193,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         dlg.destroy()
 
     def _add_menu_options(self):
-        '''
+        """
           add the various menu options to the application
-        '''
+        """
         self.seek_action_group = ActionGroup(self.shell, 'AltToolbarPluginSeekActions')
         self.seek_action_group.add_action(func=self.on_skip_backward,
                                           action_name='SeekBackward', label=_("Seek Backward"),
@@ -226,16 +226,16 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.appshell.add_app_menuitems(view_menu_ui, 'AltToolbarPluginActions', 'view')
 
     def _connect_properties(self):
-        '''
+        """
           bind plugin properties to various gsettings that we dynamically interact with
-        '''
+        """
         self.plugin_settings.bind(self.gs.PluginKey.PLAYING_LABEL, self, 'playing_label',
                                   Gio.SettingsBindFlags.GET)
 
     def _connect_signals(self):
-        '''
+        """
           connect to various rhythmbox signals that the toolbars need
-        '''
+        """
         self.sh_display_page_tree = self.shell.props.display_page_tree.connect(
             "selected", self.on_page_change
         )
@@ -266,9 +266,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
 
     def _sh_on_song_property_changed(self, sp, uri, property, old, new):
-        '''
+        """
            shell-player "playing-song-property-changed" signal handler
-        '''
+        """
         if sp.get_playing() and property in ('artist',
                                              'album',
                                              'title',
@@ -279,15 +279,15 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.toolbar_type.display_song(entry)
 
     def _sh_on_playing_change(self, player, playing):
-        '''
+        """
            shell-player "playing-change" signal handler
-        '''
+        """
         self.toolbar_type.play_control_change(player, playing)
 
     def _sh_on_song_change(self, player, entry):
-        '''
+        """
            shell-player "playing-song-changed" signal handler
-        '''
+        """
         if ( entry is not None ):
             self.song_duration = entry.get_ulong(RB.RhythmDBPropType.DURATION)
         else:
@@ -296,9 +296,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.toolbar_type.display_song(entry)
 
     def _sh_on_playing(self, player, second):
-        '''
+        """
            shell-player "elapsed-changed" signal handler
-        '''
+        """
         if not hasattr(self.toolbar_type, 'song_progress'):
             return
 
@@ -333,9 +333,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.toolbar_type.total_time_label.set_markup(label)
 
     def on_skip_backward(self, *args):
-        '''
+        """
            keyboard seek backwards signal handler
-        '''
+        """
         sp = self.object.props.shell_player
         if ( sp.get_playing()[1] ):
             seek_time = sp.get_playing_time()[1] - seek_backward_time
@@ -346,9 +346,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             sp.set_playing_time(seek_time)
 
     def on_skip_forward(self, *args):
-        '''
+        """
            keyboard seek forwards signal handler
-        '''
+        """
         sp = self.object.props.shell_player
         if ( sp.get_playing()[1] ):
             seek_time = sp.get_playing_time()[1] + seek_forward_time
@@ -359,27 +359,27 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                 sp.set_playing_time(seek_time)
 
     def show_song_position_slider_settings_changed(self, *args):
-        '''
+        """
            rhythmbox show-slider signal handler
-        '''
+        """
         self.toolbar_type.show_slider(self.show_song_position_slider)
 
     def show_album_art_settings_changed(self, *args):
-        '''
+        """
            rhythmbox show-album-art signal handler
-        '''
+        """
         self.toolbar_type.show_cover(self.show_album_art)
 
     def on_page_change(self, display_page_tree, page):
-        '''
+        """
            sources display-tree signal handler
-        '''
+        """
         print("page changed", page)
         self.toolbar_type.reset_toolbar(page)
 
     @staticmethod
     def find(node, search_id, search_type, button_label=None):
-        '''
+        """
         find various GTK Widgets
         :param node: node is the starting container to find from
         :param search_id: search_id is the GtkWidget type string or GtkWidget name
@@ -388,7 +388,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                             "by_id" to search by the GtkWidget (glade name) e.g. box_1
         :param button_label: button_label to find specific buttons where we cannot use by_id
         :return:N/A
-        '''
+        """
         # Couldn't find better way to find widgets than loop through them
         # print("by_name %s by_id %s" % (node.get_name(), Gtk.Buildable.get_name(node)))
 
@@ -422,10 +422,10 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         return None
 
     def do_deactivate(self):
-        '''
+        """
         Called by Rhythmbox when the plugin is deactivated. It makes sure to
         free all the resources used by the plugin.
-        '''
+        """
         del self.db
 
         if self.sh_op:
@@ -448,34 +448,34 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
 
     def toggle_visibility(self, action, param=None, data=None):
-        '''
+        """
         Display or Hide PlayControls signal handler
         :param action:
         :param param:
         :param data:
         :return:
-        '''
+        """
         action = self.toggle_action_group.get_action('ToggleToolbar')
 
         self.toolbar_type.set_visible(action.get_active())
 
     def toggle_sourcemedia_visibility(self, action, param=None, data=None):
-        '''
+        """
         Display or Hide the source toolbar
         :param action:
         :param param:
         :param data:
         :return:
-        '''
+        """
         action = self.toggle_action_group.get_action('ToggleSourceMediaToolbar')
 
         self.toolbar_type.source_toolbar_visibility(action.get_active())
 
     def _translation_helper(self):
-        '''
+        """
         a method just to help out with translation strings
         it is not meant to be called by itself
-        '''
+        """
 
         # define .plugin text strings used for translation
         plugin = _('Alternative Toolbar')

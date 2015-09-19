@@ -49,18 +49,18 @@ import rb
 
 
 class AltToolbarBase(GObject.Object):
-    '''
+    """
     base for all toolbar types - never instantiated by itself
-    '''
+    """
 
     setup_completed = GObject.property(type=bool,
                                        default=False)  # if changed to true then setup_completed observers called back
     source_toolbar_visible = GObject.property(type=bool, default=True)
 
     def __init__(self):
-        '''
+        """
         Initialises the object.
-        '''
+        """
         super(AltToolbarBase, self).__init__()
 
         gs = GSetting()
@@ -72,11 +72,11 @@ class AltToolbarBase(GObject.Object):
         self.connect('notify::setup-completed', self._on_setup_completed)
 
     def initialise(self, plugin):
-        '''
+        """
           one off initialisation call
 
           :param plugin is the plugin reference
-        '''
+        """
 
         self.plugin = plugin
         self.shell = plugin.shell
@@ -101,77 +101,77 @@ class AltToolbarBase(GObject.Object):
         GLib.timeout_add(100, delayed)
 
     def post_initialise(self):
-        '''
+        """
           one off post initialisation call
-        '''
+        """
         action = self.plugin.toggle_action_group.get_action('ToggleSourceMediaToolbar')
         action.set_active(self.source_toolbar_visible)
 
     def on_startup(self, *args):
-        '''
+        """
           call after RB has completed its initialisation and selected the first view
         :param args:
         :return:
-        '''
+        """
 
         self.startup_completed = True
         self.reset_toolbar(self.shell.props.selected_page)
 
     def cleanup(self):
-        '''
+        """
           initiate a toolbar cleanup of resources and changes made to rhythmbox
         :return:
-        '''
+        """
 
         self.purge_builder_content()
 
     def set_visible(self, visible):
-        '''
+        """
            change the visibility of the toolbar
            :param bool
-        '''
+        """
         pass
 
     def show_cover(self, visible):
-        '''
+        """
            change the visibility of the toolbar coverart
            :param bool
-        '''
+        """
         pass
 
     def display_song(self, visible):
-        '''
+        """
            change the visibility of the song label on the toolbar
            :param bool
-        '''
+        """
         pass
 
     def play_control_change(self, player, playing):
-        '''
+        """
            control the display of various play-controls
            :param player is the shell-player
            :param playing bool as to whether a track is being played
-        '''
+        """
         pass
 
     def purge_builder_content(self):
-        '''
+        """
            one off cleanup routine called when the plugin in deactivated
-        '''
+        """
         pass
 
     def show_slider(self, visible):
-        '''
+        """
            show or hide the slider (progress bar)
            :param visible is a bool
-        '''
+        """
         pass
 
     def reset_toolbar(self, page):
-        '''
+        """
            whenever a source changes this resets the toolbar to reflect the changed source
            :param page - RBDisplayPage
-        '''
+        """
         print ("reset toolbar")
         if not page:
             print ("no page")
@@ -188,12 +188,12 @@ class AltToolbarBase(GObject.Object):
         self.plugin.emit('toolbar-visibility', self.source_toolbar_visible)
 
     def setup_completed_async(self, async_function):
-        '''
+        """
           toolbars will callback once the setup has completed
 
         :param async_function: function callback
         :return:
-        '''
+        """
 
         if self.setup_completed:
             async_function()
@@ -201,19 +201,19 @@ class AltToolbarBase(GObject.Object):
             self._async_functions.append(async_function)
 
     def _on_setup_completed(self, *args):
-        '''
+        """
           one-off callback anybody who has registered to be notified when a toolbar has been completely setup
         :param args:
         :return:
-        '''
+        """
         if self.setup_completed:
             for callback_func in self._async_functions:
                 callback_func()
 
     def source_toolbar_visibility(self, visibility):
-        '''
+        """
            called to toggle the source toolbar
-        '''
+        """
         print ("source_bar_visibility")
 
         self.source_toolbar_visible = visibility #not self.source_toolbar_visible
@@ -221,15 +221,15 @@ class AltToolbarBase(GObject.Object):
 
 
 class AltToolbarStandard(AltToolbarBase):
-    '''
+    """
     standard RB toolbar
-    '''
+    """
     __gtype_name = 'AltToolbarStandard'
 
     def __init__(self):
-        '''
+        """
         Initialises the object.
-        '''
+        """
         super(AltToolbarStandard, self).__init__()
 
     def post_initialise(self):
@@ -248,14 +248,14 @@ class AltToolbarStandard(AltToolbarBase):
 
 
 class AltToolbarShared(AltToolbarBase):
-    '''
+    """
     shared components for the compact and headerbar toolbar types
-    '''
+    """
 
     def __init__(self):
-        '''
+        """
         Initialises the object.
-        '''
+        """
         super(AltToolbarShared, self).__init__()
 
         # Prepare Album Art Displaying
@@ -420,7 +420,7 @@ class AltToolbarShared(AltToolbarBase):
             # self.shell.add_widget(self.rbtree, RB.ShellUILocation.SIDEBAR, expand=True, fill=True)
 
     def register_moved_control(self, child, old_parent, new_parent=None):
-        '''
+        """
            convenience function to save the GTK child & parents when they are moved.
            we use this info to cleanup when quitting RB - we need to move stuff back because
            otherwise there are random crashes due to memory deallocation issues
@@ -429,16 +429,16 @@ class AltToolbarShared(AltToolbarBase):
         :param old_parent: original GTK container that the child was moved from
         :param new_parent: new GTK container that the child was added to (may just have removed without moving)
         :return:
-        '''
+        """
 
         # store as a tuple: child, new-parent, old-parent
         self._moved_controls.append((child, new_parent, old_parent))
 
     def cleanup(self):
-        '''
+        """
           extend
         :return:
-        '''
+        """
 
         super(AltToolbarShared, self).cleanup()
 
@@ -467,18 +467,18 @@ class AltToolbarShared(AltToolbarBase):
                 old_parent.add(child)
 
     def add_controller(self, controller):
-        '''
+        """
           register a new controller
-        '''
+        """
         if not controller in self._controllers:
             self._controllers[controller] = controller
 
     def is_controlled(self, source):
-        ''' 
+        """
           determine if the source has a controller
           return bool, controller
              if no specific controller (False) then the generic controller returned
-        '''
+        """
 
         if source in self._controllers:
             return True, self._controllers[source]
@@ -649,10 +649,10 @@ class AltToolbarShared(AltToolbarBase):
 
 
     def _combined_progress_label(self, entry):
-        '''
+        """
            utility function to calculate the label to be used when a progress bar has the label above it
            :param RBEntry
-        '''
+        """
 
         if ( entry is None ):
             self.song_button_label.set_label("")
@@ -700,9 +700,9 @@ class AltToolbarShared(AltToolbarBase):
         return True
 
     def display_song_album_art_callback(self, *args):  # key, filename, data, entry):
-        '''
+        """
           RBExtDB signal callback to display the album-art
-        '''
+        """
         # rhythmbox 3.2 breaks the API - need to find the parameter with the pixbuf
         data = None
         for data in args:
@@ -814,15 +814,15 @@ class AltToolbarShared(AltToolbarBase):
 
 
 class AltToolbarCompact(AltToolbarShared):
-    '''
+    """
     compact RB toolbar
-    '''
+    """
     __gtype_name = 'AltToolbarCompact'
 
     def __init__(self):
-        '''
+        """
         Initialises the object.
-        '''
+        """
         super(AltToolbarCompact, self).__init__()
 
     def initialise(self, plugin):
@@ -868,9 +868,9 @@ class AltToolbarCompact(AltToolbarShared):
 
 
 class AltToolbarHeaderBar(AltToolbarShared):
-    '''
+    """
     headerbar RB toolbar
-    '''
+    """
     __gtype_name = 'AltToolbarHeaderBar'
 
     __gsignals__ = {
@@ -880,9 +880,9 @@ class AltToolbarHeaderBar(AltToolbarShared):
     # song-category-clicked signal emitted when song-categoy buttons clicked - param True if Song clicked
 
     def __init__(self):
-        '''
+        """
         Initialises the object.
-        '''
+        """
         super(AltToolbarHeaderBar, self).__init__()
 
         self.sources = {}
@@ -906,9 +906,9 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
 
     def add_always_visible_source(self, source):
-        '''
+        """
            remember which sources always have the song-category buttons enabled
-        '''
+        """
         self._always_visible_sources[source] = source
 
     def _on_key_press(self, widget, event):
@@ -936,9 +936,9 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self.setup_completed = True
 
     def _setup_playbar(self):
-        '''
+        """
           setup the play controls at the bottom part of the application
-        '''
+        """
 
         box = self.find(self.shell.props.window,
                         'GtkBox', 'by_name')
@@ -1006,9 +1006,9 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self.shell.props.selected_page.props.show_browser = val
 
     def has_button_with_label(self, source, label):
-        '''
+        """
            returns bool, button where the button has a given label
-        '''
+        """
         if not source:
             return False, None
 
@@ -1034,10 +1034,10 @@ class AltToolbarHeaderBar(AltToolbarShared):
         return False, None
 
     def is_browser_view(self, source):
-        '''
+        """
            returns bool, browser-button where this is a browser-view
            i.e. assume if there is a browser button this makes it a browser-view
-        '''
+        """
 
         return self.has_button_with_label(source, _("Browse"))
 
