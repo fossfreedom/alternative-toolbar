@@ -15,7 +15,7 @@
 	        Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact toolbar which can be hidden.
 	    </td>
 		<td align="center" width="10%">
-			v0.13.1
+			v0.13.2
 		</td>
 		<td align="right" width="30%">
 		    <a href="http://flattr.com/thing/1811704/" title="fossfreedom">
@@ -112,6 +112,19 @@ sudo apt-get install rhythmbox-plugins-alternative-toolbar
 **Arch AUR**
 
 If you are using Arch you can install alternative-toolbar via the [rhythmbox-plugin-alternative-toolbar-git](https://aur.archlinux.org/packages/rhythmbox-plugin-alternative-toolbar-git/) package
+
+**Gentoo ebuild**
+
+If you are using Gentoo you can install alternative-toolbar by adding the ebuild located in `gentoo/x11-plugins/alternative-toolbar` to your local overlay (`/usr/local/portage`).
+
+Use
+
+```
+$ ebuild alternative-toolbar-9999.ebuild digest
+$ emerge alternative-toolbar
+```
+
+to install.
 
 **Uninstall**
 

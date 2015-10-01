@@ -675,3 +675,20 @@ class AltStandardLocalController(AltGenericController):
 
     def get_category(self):
         return AltControllerCategory.LOCAL
+        
+        
+class AltAndroidController(AltGenericController):
+    '''
+    android controller
+    '''
+    __gtype_name = 'AltAndroidController'
+
+    def valid_source(self, source):
+        '''
+          override
+        '''
+        return 'RBAndroidSource' in type(source).__name__
+
+    def get_category(self):
+        return AltControllerCategory.LOCAL
+        
