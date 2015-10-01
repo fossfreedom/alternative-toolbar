@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-22 13:08+0100\n"
-"PO-Revision-Date: 2015-05-25 17:07+0000\n"
-"Last-Translator: Angelo Moshopoulos <1123alberto@gmail.com>\n"
+"PO-Revision-Date: 2015-10-01 15:06+0000\n"
+"Last-Translator: Panos Lyrakis <panoskatws@gmail.com>\n"
 "Language-Team: Greek <el@li.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-05-26 16:04+0000\n"
-"X-Generator: Launchpad (build 17514)\n"
+"X-Launchpad-Export-Date: 2015-10-01 18:32+0000\n"
+"X-Generator: Launchpad (build 17783)\n"
 
 #: tmp/altlibrary.ui.h:1 alttoolbar_type.py:923
 msgid "Songs"
@@ -28,11 +28,11 @@ msgstr "Κατηγορίες"
 
 #: tmp/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
-msgstr ""
+msgstr "Κάντε επανεκκίνηση στον player για να ισχύσουν οι αλλαγές."
 
 #: tmp/altpreferences.ui.h:2
 msgid "Toolbar:"
-msgstr ""
+msgstr "Γραμμή εργαλείων"
 
 #: tmp/altpreferences.ui.h:3
 msgid ""
@@ -42,7 +42,7 @@ msgstr ""
 
 #: tmp/altpreferences.ui.h:5
 msgid "Modern"
-msgstr ""
+msgstr "Μοντέρνο"
 
 #: tmp/altpreferences.ui.h:6
 msgid "Use compact controls"
@@ -57,11 +57,11 @@ msgstr ""
 
 #: tmp/altpreferences.ui.h:9
 msgid "Show:"
-msgstr ""
+msgstr "Προβολή:"
 
 #: tmp/altpreferences.ui.h:10
 msgid "Album/genre/year for playing song"
-msgstr ""
+msgstr "Άλμπουμ / Είδος / έτος για το τραγούδι που αναπαράγεται"
 
 #: tmp/altpreferences.ui.h:11
 msgid ""
@@ -69,6 +69,9 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
+"Εμφάνιση Άλμπουμ / Είδος / έτος, αντί του τραγουδιού-καλλιτέχνη-άλμπουμ. "
+"Χρήσιμο για γραφικά περιβάλλοντα όπου το τραγούδι-καλλιτέχνης-άλμπουμ "
+"εμφανίζεται ήδη στον τίτλο του παραθύρου."
 
 #: tmp/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
@@ -76,47 +79,52 @@ msgstr ""
 
 #: tmp/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
-msgstr ""
+msgstr "Εμφάνιση ή απόκρυψη των tooltips στα χειριστήρια αναπαραγωγής."
 
 #: tmp/altpreferences.ui.h:14
 msgid "Volume control"
-msgstr ""
+msgstr "Χειριστήριο έντασης"
 
 #: tmp/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
-msgstr ""
+msgstr "Εμφάνιση ή απόκρυψη του χειριστηρίου έντασης"
 
 #: tmp/altpreferences.ui.h:16
 msgid "Playback controls"
-msgstr ""
+msgstr "Χειριστήρια αναπαραγωγής"
 
 #: tmp/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
-msgstr ""
+msgstr "Εμφάνιση ή απόκρυψη των χειριστηρίων αναπαραγωγής κατά την εκκίνηση"
 
 #: tmp/altpreferences.ui.h:18
 msgid "Use:"
-msgstr ""
+msgstr "Χρήση:"
 
 #: tmp/altpreferences.ui.h:19
 msgid "Inline song/artist label"
-msgstr ""
+msgstr "Ενσωμάτωση ετικέτας τραγούδι/καλλιτέχνης"
 
 #: tmp/altpreferences.ui.h:20
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
+"Εμφάνιση ετικέτας Τραγούδι και Καλλιτέχνης πριν τον ολισθητήρα προόδου "
+"(progress slider). Στην περίπτωση που δεν ενεργοποιήσετε αυτή την επιλογή, "
+"οι ετικέτες θα εμφανίζονται πάνω από τον ολισθητήρα."
 
 #: tmp/altpreferences.ui.h:21
 msgid "Compact progress slider"
-msgstr ""
+msgstr "Διακριτικός ολισθητήρας προόδου"
 
 #: tmp/altpreferences.ui.h:22
 msgid ""
 "Display and use a compact track progress slider - useful where the default "
 "theme progress slider is visually too large."
 msgstr ""
+"Εμφανίστε και χρησιμοποιήστε έναν πιο διακριτικό ολισθητήρα προόδου. "
+"Κατάλληλο όταν το προκαθορισμένο θέμα του ολισθητήρα είναι μεγάλο οπτικά."
 
 #: tmp/altpreferences.ui.h:23
 msgid "Enhanced sidebar"
@@ -128,10 +136,13 @@ msgid ""
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
+"Εμφανίστε ή αποκρύψτε ένα επανασχεδιασμένο sidebar ( πλαϊνή γραμμή "
+"εργαλείων ) στον player. Διαθέτει βελτιωμένα εικονίδια, καλλήτερη οργάνωση "
+"πηγών καθώς και δυνατότητα να αναπτύξετε και να συμπτύξετε κατηγορίες."
 
 #: tmp/altpreferences.ui.h:25
 msgid "Enhanced plugins dialog"
-msgstr ""
+msgstr "Ενισχυμένα πρόσθετα διαλόγου"
 
 #: tmp/altpreferences.ui.h:26
 msgid ""
@@ -139,63 +150,68 @@ msgid ""
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
 "based desktop environments."
 msgstr ""
+"Εμφανίστε ή αποκρύψτε τον επανασχεδιασμένο διάλογο προσθέτων. Τα κουτάκια "
+"επιλογής έχουν αντικατασταθεί με διακόπτες και διαθέτει ενσωματομένη γραμμή "
+"εργαλείων με εικονίδια. Λειτουργεί καλύτερα σε γραφικά περιβάλλοντα "
+"βασισμένα στο Gnome."
 
 #: tmp/alttoolbar.ui.h:1
 msgid "Play the previous track"
-msgstr ""
+msgstr "Αναπαραγωγή προηγούμενου κομματιού"
 
 #: tmp/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr ""
+msgstr "Συνέχιση ή παύση της αναπαραγωγής"
 
 #: tmp/alttoolbar.ui.h:3
 msgid "Play the next track"
-msgstr ""
+msgstr "Αναπαραγωγή επόμενου κομματιού"
 
 #: tmp/alttoolbar.ui.h:4 alttoolbar_repeat.py:96 alttoolbar_repeat.py:207
 msgid "Repeat the current track"
-msgstr ""
+msgstr "Επανάληψη του τρέχοντος κομματιού"
 
 #: tmp/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
-msgstr ""
+msgstr "Αναπαραγωγή των κομματιών με τυχαία σειρά"
 
 #: alternative-toolbar.py:199
 msgid "Seek Backward"
-msgstr ""
+msgstr "Αναζήτηση πίσω"
 
 #: alternative-toolbar.py:201
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr ""
+msgstr "Αναζήτηση προς τα πίσω, στο τρέχον κομμάτι, ανά 5 δευτ/τα."
 
 #: alternative-toolbar.py:203
 msgid "Seek Forward"
-msgstr ""
+msgstr "Αναζήτηση μπροστά"
 
 #: alternative-toolbar.py:205
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr ""
+msgstr "Αναζήτηση προς τα εμρπός, στο τρέχον καμμάτι, ανά 10 δευτ/τα."
 
 #: alternative-toolbar.py:212
 msgid "Show Play-Controls Toolbar"
-msgstr ""
+msgstr "Εμφάνιση γραμμής εργαλείων με τα χειριστήρια αναπαραγωγής"
 
 #: alternative-toolbar.py:215
 msgid "Show or hide the play-controls toolbar"
 msgstr ""
+"Εμφάνιση ή απόκρυψη της γραμμής εργαλείων με τα χειριστήρια αναπαραγωγής"
 
 #: alternative-toolbar.py:218
 msgid "Show Source Toolbar"
-msgstr ""
+msgstr "Εμφάνιση εργαλείων προέλευσης"
 
 #: alternative-toolbar.py:221
 msgid "Show or hide the source toolbar"
-msgstr ""
+msgstr "Εμφάνιση ή απόκρυψη εργαλείων σχετικά με την προέλευση των κομματιών"
 
 #. define .plugin text strings used for translation
 #: alternative-toolbar.py:479 alttoolbar_plugins.py:364
 msgid "Alternative Toolbar"
-msgstr ""
+msgstr "εναλλακτική γραμμή εργαλείων"
 
 #: alternative-toolbar.py:481
 msgid ""
@@ -205,92 +221,92 @@ msgstr ""
 
 #: alttoolbar_controller.py:187
 msgid "View All"
-msgstr ""
+msgstr "Προβολή όλων"
 
 #: alttoolbar_controller.py:343
 msgid "Import"
-msgstr ""
+msgstr "Εισαγωγή"
 
 #: alttoolbar_controller.py:520
 msgid "Stations"
-msgstr ""
+msgstr "Σταθμοί"
 
 #: alttoolbar_controller.py:546
 msgid "Libre.fm"
-msgstr ""
+msgstr "Libre.fm"
 
 #: alttoolbar_controller.py:586
 msgid "My Top Rated"
-msgstr ""
+msgstr "Κορυφαία βαθμολογημένα από μένα"
 
 #: alttoolbar_controller.py:589
 msgid "Recently Added"
-msgstr ""
+msgstr "Προστέθηκαν πρόσφατα"
 
 #: alttoolbar_controller.py:592
 msgid "Recently Played"
-msgstr ""
+msgstr "Πρόσφατες αναπαραγωγές"
 
 #: alttoolbar_controller.py:624
 msgid "Podcasts"
-msgstr ""
+msgstr "Φορητές εκπομπές (Podcasts)"
 
 #: alttoolbar_plugins.py:115
 msgid "The plugin cannot be enabled"
-msgstr ""
+msgstr "Το πρόσθετο δεν μπορεί να ενεργοποιηθεί"
 
 #: alttoolbar_plugins.py:231
 msgid "Configure Plugins"
-msgstr ""
+msgstr "Ρύθμιση προσθέτων"
 
 #: alttoolbar_plugins.py:312
 msgid "About this plugin"
-msgstr ""
+msgstr "Σχετικά με αυτό το πρόσθετο"
 
 #: alttoolbar_plugins.py:344
 msgid "Version: "
-msgstr ""
+msgstr "Έκδοση: "
 
 #: alttoolbar_plugins.py:369
 msgid "Developer:"
-msgstr ""
+msgstr "Δημιουργός:"
 
 #: alttoolbar_plugins.py:379
 msgid "Designer:"
-msgstr ""
+msgstr "Σχεδιαστής:"
 
 #: alttoolbar_plugins.py:400
 msgid "Help"
-msgstr ""
+msgstr "Βοήθεια"
 
 #: alttoolbar_plugins.py:408
 msgid "Homepage"
-msgstr ""
+msgstr "Ιστοσελίδα"
 
 #: alttoolbar_preferences.py:281
 msgid "Restart"
-msgstr ""
+msgstr "Επανεκκίνηση"
 
 #: alttoolbar_sidebar.py:76
 msgid "Local collection"
-msgstr ""
+msgstr "Τοπική συλλογή"
 
 #: alttoolbar_sidebar.py:77
 msgid "Online sources"
-msgstr ""
+msgstr "Πηγές από το διαδίκτυο"
 
 #: alttoolbar_sidebar.py:78
 msgid "Other sources"
-msgstr ""
+msgstr "Άλλες πηγές"
 
 #: alttoolbar_sidebar.py:79
 msgid "Playlists"
-msgstr ""
+msgstr "Λίστες αναπαραγωγής"
 
 #: alttoolbar_type.py:986
 msgid "Browse"
-msgstr ""
+msgstr "Πλοήγηση"
 
 #: alttoolbar_repeat.py:94 alttoolbar_repeat.py:187
 msgid "Repeat all tracks"
-msgstr ""
+msgstr "Επανάληψη όλων των κομματιών"
