@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-22 13:08+0100\n"
-"PO-Revision-Date: 2015-07-03 11:03+0000\n"
+"PO-Revision-Date: 2015-10-11 19:00+0000\n"
 "Last-Translator: Rockworld <sumoisrock@gmail.com>\n"
 "Language-Team: Thai <th@li.org>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-15 21:48+0000\n"
-"X-Generator: Launchpad (build 17628)\n"
+"X-Launchpad-Export-Date: 2015-10-12 09:20+0000\n"
+"X-Generator: Launchpad (build 17802)\n"
 
 #: tmp/altlibrary.ui.h:1 alttoolbar_type.py:923
 msgid "Songs"
@@ -84,7 +84,7 @@ msgstr ""
 
 #: tmp/altpreferences.ui.h:14
 msgid "Volume control"
-msgstr ""
+msgstr "ตัวควบคุมระดับเสียง"
 
 #: tmp/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
@@ -100,7 +100,7 @@ msgstr ""
 
 #: tmp/altpreferences.ui.h:18
 msgid "Use:"
-msgstr ""
+msgstr "การใช้งาน:"
 
 #: tmp/altpreferences.ui.h:19
 msgid "Inline song/artist label"
@@ -146,60 +146,60 @@ msgstr ""
 
 #: tmp/alttoolbar.ui.h:1
 msgid "Play the previous track"
-msgstr ""
+msgstr "เล่นเพลงก่อนหน้า"
 
 #: tmp/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr ""
+msgstr "พักการเล่น หรือเล่นต่อ"
 
 #: tmp/alttoolbar.ui.h:3
 msgid "Play the next track"
-msgstr ""
+msgstr "เล่นเพลงต่อไป"
 
 #: tmp/alttoolbar.ui.h:4 alttoolbar_repeat.py:96 alttoolbar_repeat.py:207
 msgid "Repeat the current track"
-msgstr ""
+msgstr "เล่นเพลงนี้ซ้ำ"
 
 #: tmp/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
-msgstr ""
+msgstr "สุ่มเล่นเพลง"
 
 #: alternative-toolbar.py:199
 msgid "Seek Backward"
-msgstr ""
+msgstr "ค้นหาย้อนหลัง"
 
 #: alternative-toolbar.py:201
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr ""
+msgstr "ค้นหาย้อนหลัง ในเพลงนี้ 5 วินาที"
 
 #: alternative-toolbar.py:203
 msgid "Seek Forward"
-msgstr ""
+msgstr "ค้นหาไปข้างหน้า"
 
 #: alternative-toolbar.py:205
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr ""
+msgstr "ค้นหาไปข้างหน้า ในเพลงนี้ 10 วินาที"
 
 #: alternative-toolbar.py:212
 msgid "Show Play-Controls Toolbar"
-msgstr ""
+msgstr "แสดงแถบเครื่องมือควบคุมการเล่น"
 
 #: alternative-toolbar.py:215
 msgid "Show or hide the play-controls toolbar"
-msgstr ""
+msgstr "แสดงหรือซ่อนแถบเครื่องมือควบคุมการเล่น"
 
 #: alternative-toolbar.py:218
 msgid "Show Source Toolbar"
-msgstr ""
+msgstr "แสดงแถบเครื่องมือแหล่งข้อมูล"
 
 #: alternative-toolbar.py:221
 msgid "Show or hide the source toolbar"
-msgstr ""
+msgstr "แสดงหรือซ่อนแถบเครื่องมือแหล่งข้อมูล"
 
 #. define .plugin text strings used for translation
 #: alternative-toolbar.py:479 alttoolbar_plugins.py:364
 msgid "Alternative Toolbar"
-msgstr ""
+msgstr "แถบเครื่องมืออื่น ๆ"
 
 #: alternative-toolbar.py:481
 msgid ""
@@ -209,11 +209,11 @@ msgstr ""
 
 #: alttoolbar_controller.py:187
 msgid "View All"
-msgstr ""
+msgstr "แสดงทั้งหมด"
 
 #: alttoolbar_controller.py:343
 msgid "Import"
-msgstr ""
+msgstr "นำเข้า"
 
 #: alttoolbar_controller.py:520
 msgid "Stations"
@@ -221,23 +221,23 @@ msgstr ""
 
 #: alttoolbar_controller.py:546
 msgid "Libre.fm"
-msgstr ""
+msgstr "Libre.fm"
 
 #: alttoolbar_controller.py:586
 msgid "My Top Rated"
-msgstr ""
+msgstr "คะแนนสูงสุด"
 
 #: alttoolbar_controller.py:589
 msgid "Recently Added"
-msgstr ""
+msgstr "เพิ่มล่าสุด"
 
 #: alttoolbar_controller.py:592
 msgid "Recently Played"
-msgstr ""
+msgstr "เล่นล่าสุด"
 
 #: alttoolbar_controller.py:624
 msgid "Podcasts"
-msgstr ""
+msgstr "พอดคาสต์"
 
 #: alttoolbar_plugins.py:115
 msgid "The plugin cannot be enabled"
@@ -245,7 +245,7 @@ msgstr ""
 
 #: alttoolbar_plugins.py:231
 msgid "Configure Plugins"
-msgstr ""
+msgstr "ตั้งค่าปลั๊กอิน"
 
 #: alttoolbar_plugins.py:312
 msgid "About this plugin"
@@ -253,11 +253,11 @@ msgstr ""
 
 #: alttoolbar_plugins.py:344
 msgid "Version: "
-msgstr ""
+msgstr "รุ่น: "
 
 #: alttoolbar_plugins.py:369
 msgid "Developer:"
-msgstr ""
+msgstr "นักพัฒนา:"
 
 #: alttoolbar_plugins.py:379
 msgid "Designer:"
@@ -265,15 +265,15 @@ msgstr ""
 
 #: alttoolbar_plugins.py:400
 msgid "Help"
-msgstr ""
+msgstr "วิธีใช้"
 
 #: alttoolbar_plugins.py:408
 msgid "Homepage"
-msgstr ""
+msgstr "โฮมเพจ"
 
 #: alttoolbar_preferences.py:281
 msgid "Restart"
-msgstr ""
+msgstr "เริ่มใหม่"
 
 #: alttoolbar_sidebar.py:76
 msgid "Local collection"
