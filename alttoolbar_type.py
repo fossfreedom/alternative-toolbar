@@ -844,6 +844,25 @@ class AltToolbarCompact(AltToolbarShared):
         action = self.plugin.toggle_action_group.get_action('ToggleToolbar')
 
         self.small_bar.get_style_context().add_class(Gtk.STYLE_CLASS_PRIMARY_TOOLBAR)
+        
+        # add settings menu depending if there is no applications menu available
+        #appshell = ApplicationShell(self.shell)
+        menu = self.shell.props.application.get_menubar()
+        
+        if not menu:
+            menu_button = Gtk.MenuButton.new()
+            if gtk_version() >= 3.14:
+                symbol = "open-menu-symbolic"
+                menu_button.set_margin_start(3)
+            else:
+                symbol = "emblem-system-symbolic"
+                menu_button.set_margin_left(3)
+
+            image = Gtk.Image.new_from_icon_name(symbol, Gtk.IconSize.SMALL_TOOLBAR)
+            menu_button.add(image)
+            menu = self.shell.props.application.get_shared_menu('app-menu')
+            menu_button.set_menu_model(menu)
+            self.end_box.add(menu_button)
 
         if not self.plugin.start_hidden:
             self.shell.add_widget(self.small_bar,
@@ -853,7 +872,7 @@ class AltToolbarCompact(AltToolbarShared):
             print("not hidden but compact")
         else:
             action.set_active(False)
-
+            
         self.plugin.rb_toolbar.hide()
 
     def set_visible(self, visible):
