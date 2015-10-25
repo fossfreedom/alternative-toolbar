@@ -78,6 +78,7 @@ class PluginListRow(Gtk.ListBoxRow):
         outerbox.pack_end(switch, False, False, 3)
 
         self.add(outerbox)
+        self.outerbox = outerbox
 
         if not sensitive:
             self.add_error()
@@ -114,7 +115,7 @@ class PluginListRow(Gtk.ListBoxRow):
         error_image.show_all()
         error_image.set_has_tooltip(True)
         error_image.set_tooltip_text(_('The plugin cannot be enabled'))
-        self.pack_end(error_image, False, False, 4)
+        self.outerbox.pack_end(error_image, False, False, 4)
         self.set_sensitive(False)
 
     def refresh(self, *args):
