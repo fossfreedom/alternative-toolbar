@@ -1,12 +1,6 @@
-rhythmbox-plugin-alternative-toolbar (0.14.0-1~debian) unstable; urgency=medium
+rhythmbox-plugin-alternative-toolbar (0.14.0.1-1) unstable; urgency=medium
 
   * initial Debian package
-
- -- fossfreedom <foss.freedom@gmail.com>  Mon, 02 Nov 2015 21:20:43 +0000
-
-rhythmbox-plugin-alternative-toolbar (0.14.0-1) trusty; urgency=medium
-
-  * upstream release
 
  -- fossfreedom <foss.freedom@gmail.com>  Mon, 02 Nov 2015 21:20:43 +0000
 

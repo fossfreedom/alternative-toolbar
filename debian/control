@@ -3,7 +3,7 @@ Section: misc
 Priority: extra
 Maintainer: fossfreedom <foss.freedom@gmail.com>
 Build-Depends: debhelper (>= 8.0.0)
-Standards-Version: 3.9.5
+Standards-Version: 3.9.6
 Homepage: https://github.com/fossfreedom/alternative-toolbar
 Vcs-Browser: https://github.com/fossfreedom/alternative-toolbar.git
 
