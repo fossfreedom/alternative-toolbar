@@ -1,0 +1,196 @@
+rhythmbox-plugin-alternative-toolbar (0.14.0-1~debian) unstable; urgency=medium
+
+  * initial Debian package
+
+ -- fossfreedom <foss.freedom@gmail.com>  Mon, 02 Nov 2015 21:20:43 +0000
+
+rhythmbox-plugin-alternative-toolbar (0.14.0-1) trusty; urgency=medium
+
+  * upstream release
+
+ -- fossfreedom <foss.freedom@gmail.com>  Mon, 02 Nov 2015 21:20:43 +0000
+
+rhythmbox-plugin-alternative-toolbar (0.13.4-1) trusty; urgency=medium
+
+  * new translations
+  * bug fix for plugins window
+
+ -- fossfreedom <foss.freedom@gmail.com>  Sun, 25 Oct 2015 14:11:29 +0000
+
+rhythmbox-plugin-alternative-toolbar (0.13.3-1) trusty; urgency=medium
+
+  * el translation
+  * latest upstream
+
+ -- fossfreedom <foss.freedom@gmail.com>  Thu, 01 Oct 2015 19:54:56 +0100
+
+rhythmbox-plugin-alternative-toolbar (0.13.2-1) trusty; urgency=medium
+
+  * android plugin support
+  * latest translations
+
+ -- fossfreedom <foss.freedom@gmail.com>  Sat, 05 Sep 2015 00:35:31 +0100
+
+rhythmbox-plugin-alternative-toolbar (0.13.0-1) trusty; urgency=medium
+
+  * RTL support
+  * latest translations
+
+ -- fossfreedom <foss.freedom@gmail.com>  Sat, 08 Aug 2015 19:25:55 +0100
+
+rhythmbox-plugin-alternative-toolbar (0.12.2-1) trusty; urgency=medium
+
+  * upstream bug fixes and changed locales
+
+ -- fossfreedom <foss.freedom@gmail.com>  Sat, 18 Jul 2015 19:13:15 +0100
+
+rhythmbox-plugin-alternative-toolbar (0.12.0-1) trusty; urgency=medium
+
+  * new upstream release
+
+ -- fossfreedom <foss.freedom@gmail.com>  Mon, 13 Jul 2015 19:56:18 +0100
+
+rhythmbox-plugin-alternative-toolbar (0.11.6-1) trusty; urgency=medium
+
+  * translation and bug fixes
+
+ -- fossfreedom <foss.freedom@gmail.com>  Tue, 23 Jun 2015 23:36:51 +0100
+
+rhythmbox-plugin-alternative-toolbar (0.11.3-1) trusty; urgency=medium
+
+  * bug fix for coverart-browser
+
+ -- fossfreedom <foss.freedom@gmail.com>  Fri, 29 May 2015 23:37:28 +0100
+
+rhythmbox-plugin-alternative-toolbar (0.11.2-1) trusty; urgency=medium
+
+  * bug fixes - drag and drop support and translations
+
+ -- fossfreedom <foss.freedom@gmail.com>  Thu, 28 May 2015 10:34:43 +0100
+
+rhythmbox-plugin-alternative-toolbar (0.11.1-1) trusty; urgency=medium
+
+  * bug fixes and latest translations
+
+ -- fossfreedom <foss.freedom@gmail.com>  Mon, 25 May 2015 22:06:20 +0100
+
+rhythmbox-plugin-alternative-toolbar (0.11.0-1) trusty; urgency=medium
+
+  * upstream release with latest translations
+
+ -- fossfreedom <foss.freedom@gmail.com>  Sat, 23 May 2015 23:12:09 +0100
+
+rhythmbox-plugin-alternative-toolbar (0.10.1-1) trusty; urgency=medium
+
+  * upstream release including several languages
+
+ -- fossfreedom <foss.freedom@gmail.com>  Wed, 13 May 2015 20:29:48 +0100
+
+rhythmbox-plugin-alternative-toolbar (0.10.0-1) trusty; urgency=medium
+
+  * new upstream release
+
+ -- fossfreedom <foss.freedom@gmail.com>  Sun, 10 May 2015 20:41:28 +0100
+
+rhythmbox-plugin-alternative-toolbar (0.9.0-1) trusty; urgency=medium
+
+  * new upstream release
+
+ -- fossfreedom <foss.freedom@gmail.com>  Sun, 03 May 2015 19:21:20 +0100
+
+rhythmbox-plugin-alternative-toolbar (0.8.2-1) trusty; urgency=medium
+
+  * new upstream release
+
+ -- fossfreedom <foss.freedom@gmail.com>  Mon, 27 Apr 2015 23:04:50 +0100
+
+rhythmbox-plugin-alternative-toolbar (0.8.1-1) trusty; urgency=medium
+
+  * new upstream release
+
+ -- fossfreedom <foss.freedom@gmail.com>  Sun, 26 Apr 2015 10:34:36 +0100
+
+rhythmbox-plugin-alternative-toolbar (0.7.1-1) trusty; urgency=medium
+
+  * upstream bug-fixes galore
+
+ -- fossfreedom <foss.freedom@gmail.com>  Fri, 10 Apr 2015 19:18:05 +0100
+
+rhythmbox-plugin-alternative-toolbar (0.7.0-1) trusty; urgency=medium
+
+  * new upstream release
+
+ -- fossfreedom <foss.freedom@gmail.com>  Mon, 06 Apr 2015 10:48:09 +0100
+
+rhythmbox-plugin-alternative-toolbar (0.6.1-1) trusty; urgency=medium
+
+  * use open-menu-symbolic as per Gnome guidelines
+
+ -- fossfreedom <foss.freedom@gmail.com>  Sun, 01 Mar 2015 21:46:52 +0000
+
+rhythmbox-plugin-alternative-toolbar (0.6.0-1) trusty; urgency=medium
+
+  * upstream release - recognise stream labels
+
+ -- fossfreedom <foss.freedom@gmail.com>  Wed, 25 Feb 2015 22:37:36 +0000
+
+rhythmbox-plugin-alternative-toolbar (0.5.0-1) trusty; urgency=medium
+
+  * upstream release - seek capability
+
+ -- fossfreedom <foss.freedom@gmail.com>  Thu, 19 Feb 2015 20:22:07 +0000
+
+rhythmbox-plugin-alternative-toolbar (0.4.2-1) trusty; urgency=medium
+
+  * fixes for upcoming RB3.2
+
+ -- fossfreedom <foss.freedom@gmail.com>  Thu, 12 Feb 2015 22:07:17 +0000
+
+rhythmbox-plugin-alternative-toolbar (0.4.1-1) trusty; urgency=medium
+
+  * symbolic volume icon and other minor fixes
+
+ -- fossfreedom <foss.freedom@gmail.com>  Thu, 22 Jan 2015 23:51:11 +0000
+
+rhythmbox-plugin-alternative-toolbar (0.4.0-1) trusty; urgency=medium
+
+  * new upstream release
+
+ -- fossfreedom <foss.freedom@gmail.com>  Tue, 20 Jan 2015 00:18:10 +0000
+
+rhythmbox-plugin-alternative-toolbar (0.3.0-1) trusty; urgency=medium
+
+  * new upstream release
+
+ -- fossfreedom <foss.freedom@gmail.com>  Sun, 11 Jan 2015 17:32:39 +0000
+
+rhythmbox-plugin-alternative-toolbar (0.2.0-1ubuntu1) trusty; urgency=medium
+
+  * use correct ui folder for installation
+
+ -- fossfreedom <foss.freedom@gmail.com>  Mon, 29 Dec 2014 09:37:45 +0000
+
+rhythmbox-plugin-alternative-toolbar (0.2.0-1) trusty; urgency=medium
+
+  * rebuild with point version number
+
+ -- fossfreedom <foss.freedom@gmail.com>  Mon, 29 Dec 2014 00:29:31 +0000
+
+rhythmbox-plugin-alternative-toolbar (0.2-1ubuntu1) trusty; urgency=medium
+
+  * remove obsolete files
+
+ -- fossfreedom <foss.freedom@gmail.com>  Mon, 29 Dec 2014 00:12:51 +0000
+
+rhythmbox-plugin-alternative-toolbar (0.2-1) trusty; urgency=medium
+
+  * new upstream release
+
+ -- fossfreedom <foss.freedom@gmail.com>  Sun, 28 Dec 2014 23:51:37 +0000
+
+rhythmbox-plugin-alternative-toolbar (0.1-1) trusty; urgency=low
+
+  * Initial release 
+  * 
+
+ -- fossfreedom <foss.freedom@gmail.com>  Mon, 22 Dec 2014 18:25:27 +0100
