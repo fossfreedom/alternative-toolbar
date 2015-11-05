@@ -1,6 +1,6 @@
 # -*- Mode: python; coding: utf-8; tab-width: 4; indent-tabs-mode: nil; -*-
 #
-# Copyright (C) 2014 - fossfreedom
+# Copyright (C) 2015 - fossfreedom
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,16 +18,17 @@
 
 # define plugin
 
-from gi.repository import Gtk
-from gi.repository import GObject
-from gi.repository import PeasGtk
-from gi.repository import Gio
-from gi.repository import RB
 import sys
 import os
 import shutil
 import locale
 import gettext
+
+from gi.repository import Gtk
+from gi.repository import GObject
+from gi.repository import PeasGtk
+from gi.repository import Gio
+from gi.repository import RB
 
 import rb
 
@@ -189,7 +190,6 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
     __gtype_name__ = 'AlternativeToolbarPreferences'
     object = GObject.property(type=GObject.Object)
 
-
     def __init__(self):
         """
         Initialises the preferences, getting an instance of the settings saved
@@ -218,42 +218,54 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         # bind the toggles to the settings
         start_hidden = builder.get_object('start_hidden_checkbox')
 
-        start_hidden.set_active(not self.plugin_settings[self.gs.PluginKey.START_HIDDEN])
+        start_hidden.set_active(
+            not self.plugin_settings[self.gs.PluginKey.START_HIDDEN])
         start_hidden.connect('toggled', self._start_hidden_checkbox_toggled)
 
         self._show_compact = builder.get_object('show_compact_checkbox')
         self.plugin_settings.bind(self.gs.PluginKey.SHOW_COMPACT,
-                                  self._show_compact, 'active', Gio.SettingsBindFlags.DEFAULT)
+                                  self._show_compact, 'active',
+                                  Gio.SettingsBindFlags.DEFAULT)
 
-        self._show_compact.connect('toggled', self._show_compact_checkbox_toggled)
+        self._show_compact.connect('toggled',
+                                   self._show_compact_checkbox_toggled)
 
         self._playing_label = builder.get_object('playing_label_checkbox')
         self.plugin_settings.bind(self.gs.PluginKey.PLAYING_LABEL,
-                                  self._playing_label, 'active', Gio.SettingsBindFlags.DEFAULT)
+                                  self._playing_label, 'active',
+                                  Gio.SettingsBindFlags.DEFAULT)
 
         self._inline_label = builder.get_object('inline_label_checkbox')
         self.plugin_settings.bind(self.gs.PluginKey.INLINE_LABEL,
-                                  self._inline_label, 'active', Gio.SettingsBindFlags.DEFAULT)
+                                  self._inline_label, 'active',
+                                  Gio.SettingsBindFlags.DEFAULT)
 
         volume_control = builder.get_object('volume_control_checkbox')
         self.plugin_settings.bind(self.gs.PluginKey.VOLUME_CONTROL,
-                                  volume_control, 'active', Gio.SettingsBindFlags.DEFAULT)
+                                  volume_control, 'active',
+                                  Gio.SettingsBindFlags.DEFAULT)
 
         self._compact_control = builder.get_object('compact_checkbox')
         self.plugin_settings.bind(self.gs.PluginKey.COMPACT_PROGRESSBAR,
-                                  self._compact_control, 'active', Gio.SettingsBindFlags.DEFAULT)
+                                  self._compact_control, 'active',
+                                  Gio.SettingsBindFlags.DEFAULT)
 
-        self._enhanced_sidebar = builder.get_object('enhanced_sidebar_checkbox')
+        self._enhanced_sidebar = builder.get_object(
+            'enhanced_sidebar_checkbox')
         self.plugin_settings.bind(self.gs.PluginKey.ENHANCED_SIDEBAR,
-                                  self._enhanced_sidebar, 'active', Gio.SettingsBindFlags.DEFAULT)
+                                  self._enhanced_sidebar, 'active',
+                                  Gio.SettingsBindFlags.DEFAULT)
 
         self._show_tooltips = builder.get_object('tooltips_checkbox')
         self.plugin_settings.bind(self.gs.PluginKey.SHOW_TOOLTIPS,
-                                  self._show_tooltips, 'active', Gio.SettingsBindFlags.DEFAULT)
+                                  self._show_tooltips, 'active',
+                                  Gio.SettingsBindFlags.DEFAULT)
 
-        self._enhanced_plugins = builder.get_object('enhanced_plugins_checkbox')
+        self._enhanced_plugins = \
+            builder.get_object('enhanced_plugins_checkbox')
         self.plugin_settings.bind(self.gs.PluginKey.ENHANCED_PLUGINS,
-                                  self._enhanced_plugins, 'active', Gio.SettingsBindFlags.DEFAULT)
+                                  self._enhanced_plugins, 'active',
+                                  Gio.SettingsBindFlags.DEFAULT)
 
         modern_switch = builder.get_object('modern_switch')
         # modern_switch.connect('state-set', self._modern_switch_state)
@@ -264,7 +276,8 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         display_type = self.plugin_settings[self.gs.PluginKey.DISPLAY_TYPE]
 
         if display_type == 0:
-            if (not default.props.gtk_shell_shows_app_menu) or default.props.gtk_shell_shows_menubar:
+            if (not default.props.gtk_shell_shows_app_menu) or \
+                    default.props.gtk_shell_shows_menubar:
                 modern_switch.set_active(False)
             else:
                 modern_switch.set_active(True)
@@ -280,7 +293,7 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
 
         infobar = builder.get_object('infobar')
         button = infobar.add_button(_("Restart"), 1)
-        #restart_button = builder.get_object('restart_button')
+        # restart_button = builder.get_object('restart_button')
         button.connect('clicked', self._restart_button_clicked)
 
         self._first_run = False
@@ -292,7 +305,8 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         os.execl(exepath, exepath, *sys.argv)
 
     def _start_hidden_checkbox_toggled(self, toggle_button):
-        self.plugin_settings[self.gs.PluginKey.START_HIDDEN] = not toggle_button.get_active()
+        self.plugin_settings[self.gs.PluginKey.START_HIDDEN] = \
+            not toggle_button.get_active()
 
     def _show_compact_checkbox_toggled(self, toggle_button):
         enabled = toggle_button.get_active()

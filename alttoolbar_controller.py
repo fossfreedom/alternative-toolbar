@@ -18,11 +18,9 @@
 
 from gi.repository import GObject
 from gi.repository import Gtk
-from gi.repository import GdkPixbuf
 from gi.repository import Gio
 
 from alttoolbar_preferences import CoverLocale
-import rb
 
 
 class AltControllerCategory(object):
@@ -98,12 +96,9 @@ class AltControllerBase(GObject.Object):
     def get_search_entry(self, toolbar_container):
         """
           find the GtkEntry field corresponding to the search entry
-          
           returns 1. the GtkWidget containing the GtkEntry 
-                  2. the GtkEntry 
-                  
+                  2. the GtkEntry
           returns None if nothing found
-          
         """
 
         return None
@@ -150,7 +145,8 @@ class AltGenericController(AltControllerBase):
         return AltControllerCategory.LOCAL
 
     def hide_controls(self, source):
-        val, view_button = self.header.has_button_with_label(source, _('View All'))
+        val, view_button = self.header.has_button_with_label(source,
+                                                             _('View All'))
 
         if val:
             view_button.set_visible(False)
@@ -164,7 +160,7 @@ class AltGenericController(AltControllerBase):
         return toolbar
 
     def get_search_entry(self, container):
-        if container == None:
+        if container is None:
             print("no container to search")
             return None, None
         search = self.find(container, 'RBSearchEntry', 'by_name')
@@ -210,7 +206,8 @@ class AltGenericController(AltControllerBase):
         self.hide_controls(toolbar)
 
         if source not in self.end_controls:
-            # this is the first time for the source so extract the RBSearchEntry
+            # this is the first time for the source so extract the
+            # RBSearchEntry
             print("first time around")
             controls = {}
 
@@ -228,21 +225,27 @@ class AltGenericController(AltControllerBase):
             self.header.searchbar = Gtk.SearchBar.new()
 
             # we need to add this to the top of the source window
-            # to-do this - find the first child and physically move this into the
-            # second position in a box - the first position being the searchbar
+            # to-do this - find the first child and physically move this into
+            # the second position in a box - the first position being the
+            # searchbar
             children = source.get_children()
             print(children)
-            first = children[0]  # We assume the first container in a source is a GtkNotebook
+            # We assume the first container in a source is a GtkNotebook
+            first = children[0]
             box = Gtk.Box()
             box.set_orientation(Gtk.Orientation.VERTICAL)
             box.pack_start(self.header.searchbar, False, True, 0)
             box.show_all()
-            Gtk.Container.remove(source, first)  # so remove the notebook from the source
+            # so remove the notebook from the source
+            Gtk.Container.remove(source, first)
             box.pack_start(first, True, True, 1)  # add the notebook to a box
 
-            source.add(box)  # then add the box back to the source - i.e. we added another parent
+            source.add(box)  # then add the box back to the source -
+            # i.e. we added another parent
 
-            self.header.register_moved_control(child=first, old_parent=source, new_parent=box)
+            self.header.register_moved_control(child=first,
+                                               old_parent=source,
+                                               new_parent=box)
 
             self.moveto_searchbar(toolbar, search, self.header.searchbar)
             self.header.searchbar.connect_entry(entry)
@@ -250,7 +253,9 @@ class AltGenericController(AltControllerBase):
             self.header.searchbar.set_visible(False)
 
             search_button = Gtk.ToggleButton.new()
-            image = Gtk.Image.new_from_icon_name("preferences-system-search-symbolic", Gtk.IconSize.SMALL_TOOLBAR)
+            sym = "preferences-system-search-symbolic"
+            image = \
+                Gtk.Image.new_from_icon_name(sym, Gtk.IconSize.SMALL_TOOLBAR)
             search_button.add(image)
 
             self.header.end_box.add(search_button)
@@ -306,7 +311,8 @@ class AltMusicLibraryController(AltGenericController):
     def hide_controls(self, source):
         super(AltMusicLibraryController, self).hide_controls(source)
 
-        val, import_button = self.header.has_button_with_label(source, _('Import'))
+        val, import_button = self.header.has_button_with_label(source,
+                                                               _('Import'))
 
         if val:
             import_button.set_visible(False)
@@ -347,15 +353,17 @@ class AltSoundCloudController(AltGenericController):
 
     def moveto_searchbar(self, toolbar, widget, searchbar):
         """
-          override - here we want to actually remove the toolbar from the source
-          so get the parent
+          override - here we want to actually remove the toolbar from the
+          source so get the parent
         """
 
         parent_grid = toolbar.get_parent()
         parent_grid.remove(toolbar)
         searchbar.add(toolbar)
 
-        self.header.register_moved_control(child=toolbar, old_parent=parent_grid, new_parent=searchbar)
+        self.header.register_moved_control(child=toolbar,
+                                           old_parent=parent_grid,
+                                           new_parent=searchbar)
 
 
 class AltCoverArtBrowserController(AltGenericController):
@@ -391,8 +399,8 @@ class AltCoverArtBrowserController(AltGenericController):
 
     def moveto_searchbar(self, toolbar, widget, searchbar):
         """
-          override - here we want to actually remove the toolbar from the source
-          so get the parent
+          override - here we want to actually remove the toolbar from the
+          source so get the parent
         """
 
         parent_grid = toolbar.get_parent()
@@ -400,7 +408,9 @@ class AltCoverArtBrowserController(AltGenericController):
         searchbar.add(toolbar)
         searchbar.show_all()
 
-        self.header.register_moved_control(child=toolbar, old_parent=parent_grid, new_parent=searchbar)
+        self.header.register_moved_control(child=toolbar,
+                                           old_parent=parent_grid,
+                                           new_parent=searchbar)
 
     def get_search_entry(self, toolbar):
         """
@@ -561,12 +571,16 @@ class AltPlaylistController(AltGenericController):
         """
         super(AltPlaylistController, self).__init__(header)
 
-        self._static_gicon = Gio.ThemedIcon(name='audio-x-playlist-symbolic')
-        self._auto_gicon = Gio.ThemedIcon(name='audio-x-playlist-automatic-symbolic')
+        self._static_gicon = \
+            Gio.ThemedIcon(name='audio-x-playlist-symbolic')
+        self._auto_gicon = \
+            Gio.ThemedIcon(name='audio-x-playlist-automatic-symbolic')
 
         self._toprated_gicon = Gio.ThemedIcon(name='starred-symbolic')
-        self._recentlyadded_gicon = Gio.ThemedIcon(name='audio-x-playlist-recently-added-symbolic')
-        self._recentlyplayed_gicon = Gio.ThemedIcon(name='audio-x-playlist-recently-played-symbolic')
+        self._recentlyadded_gicon = \
+            Gio.ThemedIcon(name='audio-x-playlist-recently-added-symbolic')
+        self._recentlyplayed_gicon = \
+            Gio.ThemedIcon(name='audio-x-playlist-recently-played-symbolic')
 
     def valid_source(self, source):
         """
@@ -579,13 +593,16 @@ class AltPlaylistController(AltGenericController):
         cl = CoverLocale()
         cl.switch_locale(cl.Locale.RB)
         print(source.props.name)
-        if source.props.name == _('My Top Rated') or source.props.name == 'My Top Rated':
+        if source.props.name == _('My Top Rated') \
+                or source.props.name == 'My Top Rated':
             return self._toprated_gicon
 
-        if source.props.name == _('Recently Added') or source.props.name == 'Recently Added':
+        if source.props.name == _('Recently Added') \
+                or source.props.name == 'Recently Added':
             return self._recentlyadded_gicon
 
-        if source.props.name == _('Recently Played') or source.props.name == 'Recently Played':
+        if source.props.name == _('Recently Played') \
+                or source.props.name == 'Recently Played':
             return self._recentlyplayed_gicon
 
         if "StaticPlaylistSource" in type(source).__name__:
@@ -675,8 +692,8 @@ class AltStandardLocalController(AltGenericController):
 
     def get_category(self):
         return AltControllerCategory.LOCAL
-        
-        
+
+
 class AltAndroidController(AltGenericController):
     '''
     android controller
@@ -691,4 +708,3 @@ class AltAndroidController(AltGenericController):
 
     def get_category(self):
         return AltControllerCategory.LOCAL
-        

@@ -19,18 +19,17 @@
 #    GNU General Public License for more details.
 
 from gi.repository import GObject
-from gi.repository import GObject
 from gi.repository import Gtk
 from gi.repository import Gdk
 from gi.repository import GLib
 from gi.repository import Gio
+
 from alttoolbar_rb3compat import gtk_version
 from alttoolbar_preferences import GSetting
 from alttoolbar_preferences import CoverLocale
 
 
-class Repeat (GObject.Object):
-
+class Repeat(GObject.Object):
     def __init__(self, shell, toggle_button):
         """
 
@@ -39,7 +38,8 @@ class Repeat (GObject.Object):
         """
         GObject.Object.__init__(self)
 
-        self.repeat_song = False # use this to start the repeat-one-song capability (if True)
+        # use this to start the repeat-one-song capability (if True)
+        self.repeat_song = False
         self.shell = shell
         self.toggle_button = toggle_button
 
@@ -75,14 +75,15 @@ class Repeat (GObject.Object):
     def _on_toggle(self, toggle, popover, repeat):
         if toggle.get_active():
             popover.show_all()
-            self.repeat_song = repeat.get_repeat_type() == RepeatPopContainer.ONE_SONG
+            self.repeat_song = \
+                repeat.get_repeat_type() == RepeatPopContainer.ONE_SONG
         else:
             popover.hide()
             self.repeat_song = False
 
         self._set_toggle_tooltip(repeat)
 
-        print ("on toggle", self.repeat_song)
+        print("on toggle", self.repeat_song)
 
     def _set_toggle_tooltip(self, repeat):
         # locale stuff
@@ -90,10 +91,10 @@ class Repeat (GObject.Object):
         cl.switch_locale(cl.Locale.LOCALE_DOMAIN)
         if self.toggle_button.get_has_tooltip():
             if repeat.get_repeat_type() == RepeatPopContainer.ALL_SONGS:
-                print ("all songs")
-                self.toggle_button.set_tooltip_text(_("Repeat all tracks"))
+                message = _("Repeat all tracks")
             else:
-                self.toggle_button.set_tooltip_text(_("Repeat the current track"))
+                message = _("Repeat the current track")
+            self.toggle_button.set_tooltip_text(message)
         cl = CoverLocale()
         cl.switch_locale(cl.Locale.RB)
 
@@ -108,7 +109,7 @@ class Repeat (GObject.Object):
 
         self._set_toggle_tooltip(repeat)
 
-        print ("repeat type changed", self.repeat_song)
+        print("repeat type changed", self.repeat_song)
 
     # Looks like there is a bug on gstreamer player and a seg fault
     # happens as soon as the 'eos' callback is called.
@@ -116,15 +117,16 @@ class Repeat (GObject.Object):
     # As soon it gets fixed or a code-based workaround gets available,
     # this method in conjunction with on_song_change will be used as
     # the way to control the song repetition. Meanwhile, on_elapsed_change
-    # will be the hacky solution
+    # will be the chosen solution
     def on_gst_player_eos(self, gst_player, stream_data, early=0):
         # EOS signal means that the song changed because the song is over.
         # ie. the user did not explicitly change the song.
-        # https://developer.gnome.org/rhythmbox/unstable/RBPlayer.html#RBPlayer-eos
+        # https://developer.gnome.org/rhythmbox/
+        #                         unstable/RBPlayer.html#RBPlayer-eos
         if self.repeat_song:
             self.one_song_state = self.one_song_state_eos
 
-    # This is a hacky old method to 'repeat' the current song as soon as it
+    # This is a old method to 'repeat' the current song as soon as it
     # reaches the last second. Will be the used until the bug mentioned on the
     # comments above gets fixed.
     def on_song_change(self, player, time):
@@ -132,7 +134,7 @@ class Repeat (GObject.Object):
             self.one_song_state = self.one_song_state_normal
             player.do_previous()
 
-    # This is a hacky old method to 'repeat' the current song as soon as it
+    # This is a old method to 'repeat' the current song as soon as it
     # reaches the last second. Will be the used until the bug mentioned on the
     # comments above gets fixed.
     # This might be improved keeping a instance variable with the duration and
@@ -148,8 +150,8 @@ class Repeat (GObject.Object):
                 if time >= duration - 2:
                     player.set_playing_time(0)
 
-class RepeatPopContainer(Gtk.ButtonBox):
 
+class RepeatPopContainer(Gtk.ButtonBox):
     __gsignals__ = {
         "repeat-type-changed": (GObject.SIGNAL_RUN_LAST, None, (int,))
     }
@@ -159,7 +161,7 @@ class RepeatPopContainer(Gtk.ButtonBox):
     ALL_SONGS = 2
 
     def __init__(self, parent_container, parent_button, *args, **kwargs):
-        super (RepeatPopContainer, self).__init__(*args, **kwargs)
+        super(RepeatPopContainer, self).__init__(*args, **kwargs)
 
         self.set_orientation(Gtk.Orientation.HORIZONTAL)
         self.set_layout(Gtk.ButtonBoxStyle.START)
@@ -171,7 +173,8 @@ class RepeatPopContainer(Gtk.ButtonBox):
 
         toggle1 = Gtk.RadioButton.new(None)
         toggle1.set_mode(False)
-        icon = Gio.ThemedIcon.new_with_default_fallbacks('media-playlist-repeat-symbolic')
+        fallback = 'media-playlist-repeat-symbolic'
+        icon = Gio.ThemedIcon.new_with_default_fallbacks(fallback)
         image = Gtk.Image()
         image.set_from_gicon(icon, icon_size)
         image.props.margin = 5
@@ -183,7 +186,7 @@ class RepeatPopContainer(Gtk.ButtonBox):
         # locale stuff
         cl = CoverLocale()
         cl.switch_locale(cl.Locale.LOCALE_DOMAIN)
-        
+
         if parent_button.get_has_tooltip():
             toggle1.set_tooltip_text(_("Repeat all tracks"))
 
@@ -198,7 +201,8 @@ class RepeatPopContainer(Gtk.ButtonBox):
 
         toggle2 = Gtk.RadioButton.new_from_widget(toggle1)
         toggle2.set_mode(False)
-        icon2 = Gio.ThemedIcon.new_with_default_fallbacks('media-playlist-repeat-song-symbolic')
+        sym = 'media-playlist-repeat-song-symbolic'
+        icon2 = Gio.ThemedIcon.new_with_default_fallbacks(sym)
         image2 = Gtk.Image()
         image2.set_from_gicon(icon2, icon_size)
         image2.props.margin = 5
@@ -220,12 +224,15 @@ class RepeatPopContainer(Gtk.ButtonBox):
         self.child_set_property(toggle2, "non-homogeneous", True)
 
         self._popover_inprogress = 0
-        parent_container.connect('leave-notify-event', self._on_popover_mouse_over)
-        parent_container.connect('enter-notify-event', self._on_popover_mouse_over)
-        parent_button.connect('leave-notify-event', self._on_popover_mouse_over)
-        parent_button.connect('enter-notify-event', self._on_popover_mouse_over)
+        parent_container.connect('leave-notify-event',
+                                 self._on_popover_mouse_over)
+        parent_container.connect('enter-notify-event',
+                                 self._on_popover_mouse_over)
+        parent_button.connect('leave-notify-event',
+                              self._on_popover_mouse_over)
+        parent_button.connect('enter-notify-event',
+                              self._on_popover_mouse_over)
 
-        gicon_name = image.props.gicon
         parent_button.set_image(self._repeat_image)
 
         self._parent_container = parent_container
@@ -242,16 +249,18 @@ class RepeatPopContainer(Gtk.ButtonBox):
             self._repeat_song_button.set_active(True)
 
     def _on_popover_button_toggled(self, button, *args):
-        print ("popover toggle")
+        print("popover toggle")
         if button.get_active():
             if button == self._repeat_button:
                 self._parent_button.set_image(self._repeat_image)
                 self.emit('repeat-type-changed', RepeatPopContainer.ALL_SONGS)
-                self.plugin_settings[self.gs.PluginKey.REPEAT_TYPE] = RepeatPopContainer.ALL_SONGS
+                self.plugin_settings[self.gs.PluginKey.REPEAT_TYPE] = \
+                    RepeatPopContainer.ALL_SONGS
             else:
                 self._parent_button.set_image(self._repeat_song_image)
                 self.emit('repeat-type-changed', RepeatPopContainer.ONE_SONG)
-                self.plugin_settings[self.gs.PluginKey.REPEAT_TYPE] = RepeatPopContainer.ONE_SONG
+                self.plugin_settings[self.gs.PluginKey.REPEAT_TYPE] = \
+                    RepeatPopContainer.ONE_SONG
 
     def get_repeat_type(self):
         repeat_type = RepeatPopContainer.ALL_SONGS
@@ -260,24 +269,23 @@ class RepeatPopContainer(Gtk.ButtonBox):
 
         return repeat_type
 
-
     def _on_popover_mouse_over(self, widget, eventcrossing):
         if eventcrossing.type == Gdk.EventType.ENTER_NOTIFY:
             if self._popover_inprogress == 0:
                 self._popover_inprogress = 1
-                print ("enter1")
+                print("enter1")
             else:
                 self._popover_inprogress = 2
-                print ("enter2")
+                print("enter2")
             self._popover_inprogress_count = 0
 
             if type(widget) is Gtk.ToggleButton:
-                print ("here")
+                print("here")
                 if widget.get_active():
-                    print (self._parent_container)
+                    print(self._parent_container)
                     self._parent_container.show_all()
         else:
-            print ("exit")
+            print("exit")
             self._popover_inprogress = 3
 
         def delayed(*args):
@@ -289,20 +297,21 @@ class RepeatPopContainer(Gtk.ButtonBox):
 
                 self._parent_container.hide()
                 self._popover_inprogress = 0
-                print ("exit timeout")
+                print("exit timeout")
                 return False
             else:
                 return True
 
         if self._popover_inprogress == 1:
-            print ("adding timeout")
+            print("adding timeout")
             self._popover_inprogress = 2
             GLib.timeout_add(100, delayed)
 
-class CustomPopover(Gtk.Window):
 
+class CustomPopover(Gtk.Window):
     def __init__(self, parent_button, *args, **kwargs):
-        super(CustomPopover, self).__init__(type=Gtk.WindowType.POPUP, *args, **kwargs)
+        super(CustomPopover, self).__init__(type=Gtk.WindowType.POPUP, *args,
+                                            **kwargs)
 
         self.set_decorated(False)
         self.set_resizable(False)
@@ -312,7 +321,6 @@ class CustomPopover(Gtk.Window):
         self.connect_after('show', self._on_show)
         # Track movements of the window to move calendar window as well
         self.connect("configure-event", self.on_window_config)
-
 
     def add(self, widget):
         self._frame = Gtk.Frame()
@@ -343,7 +351,8 @@ class CustomPopover(Gtk.Window):
     #          ---------------------------------
     #   Popover Window's screen coordinates:
     #   x = Window's origin x + Toggle Button's relative x
-    #   y = Window's origin y + Toggle Button's relative y + Toggle Button's height
+    #   y = Window's origin y + Toggle Button's relative y + Toggle Button's
+    #       height
 
     def _on_show(self, widget):
         rect = self._parent_button.get_allocation()
@@ -355,10 +364,13 @@ class CustomPopover(Gtk.Window):
         [x, y] = self.apply_screen_coord_correction(cal_x, cal_y)
         self.move(x, y)
 
-    # This function "tries" to correct calendar window position so that it is not obscured when
+    # This function "tries" to correct calendar window position so that it is
+    # not obscured when
     # a portion of main window is off-screen.
-    # Known bug: If the main window is partially off-screen before Calendar window
-    # has been realized then get_allocation() will return rect of 1x1 in which case
+    # Known bug: If the main window is partially off-screen before Calendar
+    # window
+    # has been realized then get_allocation() will return rect of 1x1 in which
+    # case
     # the calculations will fail & correction will not be applied
     def apply_screen_coord_correction(self, x, y):
         corrected_y = y
@@ -371,26 +383,29 @@ class CustomPopover(Gtk.Window):
         delta_y = screen_h - (y + rect.height)
         if delta_x < 0:
             corrected_x += delta_x
-            print ("at x")
+            print("at x")
         if corrected_x < 0:
             corrected_x = 0
 
         button_rect = self._parent_button.get_allocation()
-        window_width, window_height = self._parent_button.get_toplevel().get_size()
-        #print (y, button_rect.y, button_rect.height, )
+        window_width, window_height = \
+            self._parent_button.get_toplevel().get_size()
+        # print (y, button_rect.y, button_rect.height, )
 
-        if delta_y < 0 or ((window_height - (button_rect.y + (button_rect.height * 2))) < 0):
-            corrected_y = y - rect.height - self._parent_button.get_allocation().height
-            print ("at y")
+        calc = (window_height - (button_rect.y + (button_rect.height * 2)))
+        if delta_y < 0 or (calc < 0):
+            btn_hgt = self._parent_button.get_allocation().height
+            corrected_y = y - rect.height - btn_hgt
+            print("at y")
         if corrected_y < 0:
             corrected_y = 0
         return [corrected_x, corrected_y]
 
-    # "configure-event" callback of main window, try to move calendar window along with main window.
+    # "configure-event" callback of main window, try to move calendar window
+    # along with main window.
     def on_window_config(self, widget, event):
         # Maybe better way to find the visiblilty
         if self.get_mapped():
-
             rect = self._parent_button.get_allocation()
             main_window = self._parent_button.get_toplevel()
             [val, win_x, win_y] = main_window.get_window().get_origin()

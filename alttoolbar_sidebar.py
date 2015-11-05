@@ -94,13 +94,14 @@ class AltToolbarSidebar(Gtk.TreeView):
             # tidy up syncing by connecting signals
             self._connect_signals()
 
-            # now expand or collapse each expander that we have saved from a previous session
+            # now expand or collapse each expander that we have saved from a
+            # previous session
             expanders = eval(self.expanders)
 
-            print (expanders)
-            print (self.expanders)
+            print(expanders)
+            print(self.expanders)
             for category in expanders:
-                print (category)
+                print(category)
                 path = self.treestore.get_path(self._category[category])
 
                 if path and expanders[category]:
@@ -134,24 +135,29 @@ class AltToolbarSidebar(Gtk.TreeView):
         self.set_expander_column(column)
         self.show_all()
         self.set_can_focus(True)
-        
+
         cl = CoverLocale()
         cl.switch_locale(cl.Locale.RB)
 
     def _connect_signals(self):
         # display_page_model signals to keep the sidebar model in sync
         model = self.shell.props.display_page_model
-        # model.props.child_model.connect('row-inserted', self._model_page_inserted)
-        #model.connect('row-inserted', self._model_page_inserted)
+        # model.props.child_model.connect('row-inserted',
+        # self._model_page_inserted)
+        # model.connect('row-inserted', self._model_page_inserted)
         self._cpi = model.connect('page-inserted', self._model_page_inserted)
         self._crd = model.connect('row-deleted', self._model_page_deleted)
         self._crc = model.connect('row-changed', self._model_page_changed)
 
-        # when we click on the sidebar - need to keep the display_page_tree in sync
+        # when we click on the sidebar -
+        # need to keep the display_page_tree in sync
         self.connect('button-press-event', self._row_click)
         # and visa versa
-        self.shell.props.display_page_tree.connect('selected', self._display_page_tree_selected)
-        self.shell.props.shell_player.connect('playing-song-changed', self._on_playing_song_changed)
+        tree = self.shell.props.display_page_tree
+        tree.connect('selected',
+                     self._display_page_tree_selected)
+        self.shell.props.shell_player.connect('playing-song-changed',
+                                              self._on_playing_song_changed)
 
         # drag drop
         from gi.repository import Gdk
@@ -174,7 +180,7 @@ class AltToolbarSidebar(Gtk.TreeView):
         Callback called when a drag operation finishes over the treeview
         It decides if the dropped item can be processed.
         """
-        print ("on_drag_drop")
+        print("on_drag_drop")
         # stop the propagation of the signal (deactivates superclass callback)
         widget.stop_emission_by_name('drag-drop')
 
@@ -194,27 +200,31 @@ class AltToolbarSidebar(Gtk.TreeView):
             pass
 
         result = False
-        
-        if path and (pos == Gtk.TreeViewDropPosition.BEFORE or pos == Gtk.TreeViewDropPosition.AFTER):
+
+        if path and (pos == Gtk.TreeViewDropPosition.BEFORE
+                     or pos == Gtk.TreeViewDropPosition.AFTER):
             if pos == Gtk.TreeViewDropPosition.BEFORE:
-                widget.set_drag_dest_row(None, Gtk.TreeViewDropPosition.INTO_OR_BEFORE)
+                drop_pos = Gtk.TreeViewDropPosition.INTO_OR_BEFORE
             else:
-                widget.set_drag_dest_row(None, Gtk.TreeViewDropPosition.INTO_OR_AFTER)
-            #Gdk.drag_status(drag_context, 0, time)
+                drop_pos = Gtk.TreeViewDropPosition.INTO_OR_AFTER
+
+            widget.set_drag_dest_row(None, drop_pos)
+            # Gdk.drag_status(drag_context, 0, time)
             path = None
-            
+
         if path:
             dest_source = self.treestore_filter[path][1]
 
             try:
-                # note - some sources dont have a can_paste method so need to trap this case
+                # note - some sources dont have a can_paste method so need to
+                # trap this case
                 if not dest_source:
                     result = False
                 elif dest_source.can_paste():
                     result = True
             except:
                 result = False
-                
+
             if dest_source and result:
                 if dest_source != self._drag_dest_source:
                     if self._drag_motion_counter != -1:
@@ -222,13 +232,16 @@ class AltToolbarSidebar(Gtk.TreeView):
                     self._drag_dest_source = dest_source
 
                 def delayed(*args):
-                    if self._drag_motion_counter < 2 and self._drag_dest_source:
+                    if self._drag_motion_counter < 2 and \
+                            self._drag_dest_source:
                         self._drag_motion_counter += 1
                         return True
 
-                    if self._drag_dest_source and self._drag_motion_counter >= 2:
-                        if self.shell.props.display_page_tree:
-                            self.shell.props.display_page_tree.select(self._drag_dest_source)
+                    if self._drag_dest_source \
+                            and self._drag_motion_counter >= 2:
+                        tree = self.shell.props.display_page_tree
+                        if tree:
+                            tree.select(self._drag_dest_source)
                             self.rbtree.expand_all()
 
                     self._drag_motion_counter = -1
@@ -252,7 +265,7 @@ class AltToolbarSidebar(Gtk.TreeView):
         Callback called when the drag source has prepared the data (pixbuf)
         for us to use.
         """
-        print ("on_drag_data_received")
+        print("on_drag_data_received")
         # stop the propagation of the signal (deactivates superclass callback)
         widget.stop_emission_by_name('drag-data-received')
 
@@ -268,33 +281,34 @@ class AltToolbarSidebar(Gtk.TreeView):
             entry = self.shell.props.db.entry_lookup_by_location(uri)
             if entry:
                 entries.append(entry)
-                
+
         dest_source.paste(entries)
 
-        
     def _on_playing_song_changed(self, *args):
         """
-          signal when a playing song changes - need to invoke a tree-refresh to ensure the user can see which source
+          signal when a playing song changes - need to invoke a tree-refresh
+          to ensure the user can see which source
         :param args:
         :return:
         """
-        print ("playing song changed")
-        if hasattr(self.plugin, "db"):  # curious crash when exiting - lets not send the queue_draw in this case
-            print ("queuing")
+        print("playing song changed")
+        if hasattr(self.plugin, "db"):  # curious crash when exiting - lets not
+            # send the queue_draw in this case
+            print("queuing")
             self.queue_draw()
 
     def on_renderertext_edited(self, renderer, path, new_text):
-        print ("edited")
+        print("edited")
 
-        print (path)
-        print (new_text)
+        print(path)
+        print(new_text)
 
         self.treestore_filter[path][1].props.name = new_text
 
     def _traverse_rows(self, store, treeiter, new_parent_iter, depth):
-        while treeiter != None:
-            print (depth, store[treeiter][1])
-            print (depth, store[treeiter][1].props.name)
+        while treeiter is not None:
+            print(depth, store[treeiter][1])
+            print(depth, store[treeiter][1].props.name)
             if isinstance(store[treeiter][1], RB.DisplayPageGroup):
                 if store.iter_has_child(treeiter):
                     childiter = store.iter_children(treeiter)
@@ -318,24 +332,24 @@ class AltToolbarSidebar(Gtk.TreeView):
             treeiter = store.iter_next(treeiter)
 
     def _model_page_changed(self, model, path, page_iter):
-        print (model[page_iter][1].props.name)
-        print (path)
+        print(model[page_iter][1].props.name)
+        print(path)
 
     def _model_page_inserted(self, model, page, page_iter):
-        print (page)
-        print (page_iter)
+        print(page)
+        print(page_iter)
 
         parent_iter = model.iter_parent(page_iter)
 
-        print (parent_iter)
+        print(parent_iter)
 
         def find_lookup_rows(store, treeiter, page):
-            while treeiter != None:
+            while treeiter is not None:
 
                 found_page = store[treeiter][1]
-                print (found_page)
-                if found_page != None and found_page == page:
-                    print ("found %s" % found_page.props.name)
+                print(found_page)
+                if found_page is not None and found_page == page:
+                    print("found %s" % found_page.props.name)
                     return treeiter
 
                 if store.iter_has_child(treeiter):
@@ -347,7 +361,7 @@ class AltToolbarSidebar(Gtk.TreeView):
 
                 treeiter = store.iter_next(treeiter)
 
-            print ("nothing found")
+            print("nothing found")
             return None
 
         # first check if we've already got the page in the model
@@ -355,18 +369,22 @@ class AltToolbarSidebar(Gtk.TreeView):
         if find_lookup_rows(self.treestore, rootiter, page):
             return
 
-        if (parent_iter and isinstance(model[parent_iter][1], RB.DisplayPageGroup)) or not parent_iter:
-            # the parent of the inserted row is a top-level item in the display-page-model
-            print ("top level")
+        if (parent_iter and isinstance(model[parent_iter][1],
+                                       RB.DisplayPageGroup)) or \
+                not parent_iter:
+            # the parent of the inserted row is a top-level item in the
+            # display-page-model
+            print("top level")
             category_iter = self._get_category_iter(page)
             leaf_iter = self.treestore.append(category_iter)
         else:
-            # the parent is another source so we need to find the iter in our model to hang it off
-            print ("child level")
+            # the parent is another source so we need to find the iter in our
+            # model to hang it off
+            print("child level")
             searchpage = model[parent_iter][1]
-            print ("####", searchpage)
+            print("####", searchpage)
             leaf_iter = find_lookup_rows(self.treestore, rootiter, searchpage)
-            print ("##2", leaf_iter)
+            print("##2", leaf_iter)
             leaf_iter = self.treestore.append(leaf_iter)
 
         self.treestore[leaf_iter][1] = page
@@ -376,7 +394,8 @@ class AltToolbarSidebar(Gtk.TreeView):
         self._refresh_headers()
 
         if "PlaylistSource" in type(page).__name__:
-            # a playlist of somesort has been added - so lets put the user into edit mode
+            # a playlist of somesort has been added - so lets put the user into
+            # edit mode
             self.edit_playlist(leaf_iter)
 
         self.rbtree.expand_all()
@@ -387,22 +406,23 @@ class AltToolbarSidebar(Gtk.TreeView):
         :param leaf_iter: treestore iter
         :return:
         """
-        print ("edit_playlist")
+        print("edit_playlist")
         self.text_renderer.props.editable = True
         path = self.treestore.get_path(leaf_iter)
         path = self.treestore_filter.convert_child_path_to_path(path)
-        print (path)
+        print(path)
         self.grab_focus()
 
         def delayed(*args):
-            self.set_cursor_on_cell(path, self.tree_column, self.text_renderer, True)
+            self.set_cursor_on_cell(path,
+                                    self.tree_column, self.text_renderer, True)
 
         GLib.timeout_add_seconds(1, delayed, None)
 
-
     def _model_page_deleted(self, model, path):
         """
-          signal from the displaytreemodel - we dont actually know what is deleted ... just that something has been
+          signal from the displaytreemodel - we dont actually know what is
+          deleted ... just that something has been
         :param model:
         :param path:
         :return:
@@ -414,11 +434,11 @@ class AltToolbarSidebar(Gtk.TreeView):
         rootiter = self.treestore.get_iter_first()
 
         def find_lookup_rows(store, treeiter):
-            while treeiter != None:
+            while treeiter is not None:
                 # if store[treeiter][0] == "":
                 #    lookup[store[treeiter][1]] = treeiter
 
-                if store[treeiter][1] != None:
+                if store[treeiter][1] is not None:
                     lookup[store[treeiter][1]] = treeiter
 
                 if store.iter_has_child(treeiter):
@@ -428,9 +448,10 @@ class AltToolbarSidebar(Gtk.TreeView):
 
         find_lookup_rows(self.treestore, rootiter)
 
-        # next iterate through the displaytreemodel - where we have a matching source, delete it from our lookup
+        # next iterate through the displaytreemodel - where we have a matching
+        # source, delete it from our lookup
         def find_rows(store, treeiter):
-            while treeiter != None:
+            while treeiter is not None:
                 if store[treeiter][1] in lookup:
                     del lookup[store[treeiter][1]]
 
@@ -442,7 +463,8 @@ class AltToolbarSidebar(Gtk.TreeView):
         rootiter = model.get_iter_first()
         find_rows(model, rootiter)
 
-        # from what is left is the stuff to remove from our treeview (treestore)
+        # from what is left is the stuff to remove from our treeview
+        # (treestore)
         for source in lookup:
             self.treestore.remove(lookup[source])
 
@@ -455,13 +477,14 @@ class AltToolbarSidebar(Gtk.TreeView):
         print('_row_click')
 
         try:
-            treepath, treecolumn, cellx, celly = widget.get_path_at_pos(event.x, event.y)
+            treepath, treecolumn, cellx, celly = \
+                widget.get_path_at_pos(event.x, event.y)
         except:
-            print ("exit")
+            print("exit")
             return
 
         active_object = self.treestore_filter[treepath][1]
-        print (active_object)
+        print(active_object)
 
         if active_object:
             # we have a source
@@ -469,7 +492,8 @@ class AltToolbarSidebar(Gtk.TreeView):
             self.shell.props.display_page_tree.select(active_object)
             self.rbtree.expand_all()
             if self._last_click_source == active_object:
-                self.text_renderer.props.editable = "PlaylistSource" in type(active_object).__name__
+                self.text_renderer.props.editable = \
+                    "PlaylistSource" in type(active_object).__name__
             else:
                 self.text_renderer.props.editable = False
                 self._last_click_source = active_object
@@ -483,13 +507,14 @@ class AltToolbarSidebar(Gtk.TreeView):
                     cat_vals[category] = self.row_expanded(path)
 
             self.expanders = str(cat_vals)
-            print (self.expanders)
+            print(self.expanders)
 
         GLib.timeout_add_seconds(1, delayed)
 
     def _display_page_tree_selected(self, display_page_tree, page):
         """
-        signal from when a page is selected in the display-page-tree - we need to sync with our tree
+        signal from when a page is selected in the display-page-tree -
+        we need to sync with our tree
         :param display_page_tree:
         :param page:
         :return:
@@ -505,11 +530,11 @@ class AltToolbarSidebar(Gtk.TreeView):
         rootiter = self.treestore_filter.get_iter_first()
 
         def find_lookup_rows(store, treeiter):
-            while treeiter != None:
+            while treeiter is not None:
 
-                if store[treeiter][1] != None:
+                if store[treeiter][1] is not None:
                     lookup[store[treeiter][1]] = treeiter
-                    print (store[treeiter][1].props.name)
+                    print(store[treeiter][1].props.name)
 
                 if store.iter_has_child(treeiter):
                     childiter = store.iter_children(treeiter)
@@ -525,14 +550,15 @@ class AltToolbarSidebar(Gtk.TreeView):
 
     def _set_text(self, column, renderer, model, treeiter, arg):
         source = model[treeiter][1]
-        if source == None:
+        if source is None:
             renderer.props.weight = Pango.Weight.BOLD
             renderer.props.text = model[treeiter][0]
             renderer.props.visible = model[treeiter][2]
         else:
             renderer.props.visible = True
             player = self.shell.props.shell_player
-            playing = player.get_playing and player.get_playing_source() == source
+            playing = \
+                player.get_playing and player.get_playing_source() == source
             renderer.props.text = source.props.name
             if playing:
                 renderer.props.weight = Pango.Weight.BOLD
@@ -554,14 +580,15 @@ class AltToolbarSidebar(Gtk.TreeView):
     def _refresh_headers(self):
         treeiter = self.treestore.get_iter_first()
 
-        while treeiter != None:
-            self.treestore[treeiter][2] = self.treestore.iter_has_child(treeiter)
+        while treeiter is not None:
+            self.treestore[treeiter][2] = \
+                self.treestore.iter_has_child(treeiter)
 
             treeiter = self.treestore.iter_next(treeiter)
 
     def _set_pixbuf(self, column, renderer, model, treeiter, arg):
         source = model[treeiter][1]
-        if source == None:
+        if source is None:
             renderer.props.pixbuf = None
         else:
             ret_bool, controller = self.toolbar.is_controlled(source)
@@ -571,9 +598,11 @@ class AltToolbarSidebar(Gtk.TreeView):
 
         path = model.get_path(treeiter)
         if path.get_depth() == 2:
-            renderer.props.visible = True  # must be a child so show the pixbuf renderer
+            renderer.props.visible = True  # must be a child so show the
+            # pixbuf renderer
         else:
-            renderer.props.visible = False  # headers or children of child dont have pixbuf's so no renderer to display
+            renderer.props.visible = False  # headers or children of child
+            # dont have pixbuf's so no renderer to display
 
         renderer.props.xpad = 3
 

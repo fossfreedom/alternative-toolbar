@@ -17,6 +17,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301  USA.
 
 from datetime import datetime, date
+
 from gi.repository import Gtk
 from gi.repository import GObject
 from gi.repository import RB
@@ -55,7 +56,9 @@ class AltToolbarBase(GObject.Object):
     """
 
     setup_completed = GObject.property(type=bool,
-                                       default=False)  # if changed to true then setup_completed observers called back
+                                       default=False)
+    # if changed to true then
+    # setup_completed observers called back
     source_toolbar_visible = GObject.property(type=bool, default=True)
 
     def __init__(self):
@@ -66,10 +69,12 @@ class AltToolbarBase(GObject.Object):
 
         gs = GSetting()
         plugin_settings = gs.get_setting(gs.Path.PLUGIN)
-        plugin_settings.bind(gs.PluginKey.SOURCE_TOOLBAR, self, 'source_toolbar_visible',
-                                  Gio.SettingsBindFlags.DEFAULT)
+        plugin_settings.bind(gs.PluginKey.SOURCE_TOOLBAR, self,
+                             'source_toolbar_visible',
+                             Gio.SettingsBindFlags.DEFAULT)
 
-        self._async_functions = []  # array of functions to callback once the toolbar has been setup
+        self._async_functions = []  # array of functions to callback once the
+        # toolbar has been setup
         self.connect('notify::setup-completed', self._on_setup_completed)
 
     def initialise(self, plugin):
@@ -84,13 +89,15 @@ class AltToolbarBase(GObject.Object):
 
         self.find = plugin.find
 
-        # finally - complete the headerbar setup after the database has fully loaded because
+        # finally - complete the headerbar setup after the database has fully
+        # loaded because
         # rhythmbox has everything initiated at this point.
 
         self.startup_completed = False
         # self.shell.props.db.connect('load-complete', self.on_load_complete)
 
-        # fire event anyway - scenario is when plugin is first activated post rhythmbox having started
+        # fire event anyway - scenario is when plugin is first activated post
+        # rhythmbox having started
         def delayed(*args):
             if self.shell.props.selected_page:
                 self.startup_completed = True
@@ -105,12 +112,14 @@ class AltToolbarBase(GObject.Object):
         """
           one off post initialisation call
         """
-        action = self.plugin.toggle_action_group.get_action('ToggleSourceMediaToolbar')
+        tool_action = 'ToggleSourceMediaToolbar'
+        action = self.plugin.toggle_action_group.get_action(tool_action)
         action.set_active(self.source_toolbar_visible)
 
     def on_startup(self, *args):
         """
-          call after RB has completed its initialisation and selected the first view
+          call after RB has completed its initialisation and selected the first
+          view
         :param args:
         :return:
         """
@@ -170,12 +179,13 @@ class AltToolbarBase(GObject.Object):
 
     def reset_toolbar(self, page):
         """
-           whenever a source changes this resets the toolbar to reflect the changed source
+           whenever a source changes this resets the toolbar to reflect the
+           changed source
            :param page - RBDisplayPage
         """
-        print ("reset toolbar")
+        print("reset toolbar")
         if not page:
-            print ("no page")
+            print("no page")
             return
 
         toolbar = self.find(page, 'RBSourceToolbar', 'by_name')
@@ -203,7 +213,8 @@ class AltToolbarBase(GObject.Object):
 
     def _on_setup_completed(self, *args):
         """
-          one-off callback anybody who has registered to be notified when a toolbar has been completely setup
+          one-off callback anybody who has registered to be notified when a
+          toolbar has been completely setup
         :param args:
         :return:
         """
@@ -215,10 +226,12 @@ class AltToolbarBase(GObject.Object):
         """
            called to toggle the source toolbar
         """
-        print ("source_bar_visibility")
+        print("source_bar_visibility")
 
-        self.source_toolbar_visible = visibility #not self.source_toolbar_visible
-        self.plugin.on_page_change(self.shell.props.display_page_tree, self.shell.props.selected_page)
+        self.source_toolbar_visible = visibility
+        # not self.source_toolbar_visible
+        self.plugin.on_page_change(self.shell.props.display_page_tree,
+                                   self.shell.props.selected_page)
 
 
 class AltToolbarStandard(AltToolbarBase):
@@ -234,7 +247,8 @@ class AltToolbarStandard(AltToolbarBase):
         super(AltToolbarStandard, self).__init__()
 
     def post_initialise(self):
-        self.volume_button = self.find(self.plugin.rb_toolbar, 'GtkVolumeButton', 'by_id')
+        self.volume_button = self.find(self.plugin.rb_toolbar,
+                                       'GtkVolumeButton', 'by_id')
         self.volume_button.set_visible(self.plugin.volume_control)
 
         action = self.plugin.toggle_action_group.get_action('ToggleToolbar')
@@ -281,10 +295,10 @@ class AltToolbarShared(AltToolbarBase):
         self.connect_builder_content(builder)
 
         self._controllers['generic'] = AltGenericController(self)
-        # every potential source should have its own controller - we use this to
-        # categorise the source and provide specific capability for inherited classes
-        # where a controller is not specified then a generic controller is used
-        # i.e. use add_controller method to add a controller
+        # every potential source should have its own controller - we use this
+        # to categorise the source and provide specific capability for
+        # inherited classes where a controller is not specified then a generic
+        # controller is used i.e. use add_controller method to add a controller
         self.add_controller(AltMusicLibraryController(self))
         self.add_controller(AltSoundCloudController(self))
         self.add_controller(AltCoverArtBrowserController(self))
@@ -300,9 +314,10 @@ class AltToolbarShared(AltToolbarBase):
         self.add_controller(AltAndroidController(self))
 
         # support RTL
-        for control, icon_name in [(self.prev_button, 'media-skip-backward-symbolic'),
-                                   (self.play_button, 'media-playback-start-symbolic'),
-                                   (self.next_button, 'media-skip-forward-symbolic')]:
+        for control, icon_name in \
+                [(self.prev_button, 'media-skip-backward-symbolic'),
+                 (self.play_button, 'media-playback-start-symbolic'),
+                 (self.next_button, 'media-skip-forward-symbolic')]:
             image = control.get_child()
             icon_name = self.request_rtl_icon(control, icon_name)
             image.set_from_icon_name(icon_name, image.props.icon_size)
@@ -312,7 +327,8 @@ class AltToolbarShared(AltToolbarBase):
         self.display_tree_parent = display_tree.get_parent()
         self.display_tree_parent.remove(display_tree)
         self.stack = Gtk.Stack()
-        self.stack.set_transition_type(Gtk.StackTransitionType.SLIDE_LEFT_RIGHT)
+        tran_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT
+        self.stack.set_transition_type(tran_type)
         self.stack.set_transition_duration(1000)
 
         image_name = 'view-list-symbolic'
@@ -326,25 +342,25 @@ class AltToolbarShared(AltToolbarBase):
 
         self.display_tree_parent.pack1(self.stack, True, True)
 
-        #if 1==2: #self.plugin.enhanced_sidebar:
+        # if 1==2: #self.plugin.enhanced_sidebar:
         toolbar = self.find(display_tree, 'GtkToolbar', 'by_name')
-        #context = toolbar.get_style_context()
-        #context.add_class('toolbar')
+        # context = toolbar.get_style_context()
+        # context.add_class('toolbar')
         box = self.find(toolbar, 'GtkBox', 'by_name')
-        #box.props.margin_top = 2
-        #box.props.margin_bottom = 0
-        #box.props.margin_left = 5
+        # box.props.margin_top = 2
+        # box.props.margin_bottom = 0
+        # box.props.margin_left = 5
         context = box.get_style_context()
         context.add_class('linked')
-        #parent = box.get_parent()
-        #parent.remove(box)
-        #parent_toolbar = toolbar.get_parent()
-        #parent_toolbar.remove(toolbar)
-        #display_tree.attach(box, 0, 10, 1 ,1 )
+        # parent = box.get_parent()
+        # parent.remove(box)
+        # parent_toolbar = toolbar.get_parent()
+        # parent_toolbar.remove(toolbar)
+        # display_tree.attach(box, 0, 10, 1 ,1 )
 
         # child, new-parent, old-parent
-        #self._moved_controls.append((box, display_tree, parent))
-        #self._moved_controls.append((toolbar, None, parent_toolbar))
+        # self._moved_controls.append((box, display_tree, parent))
+        # self._moved_controls.append((toolbar, None, parent_toolbar))
 
         # find the actual GtkTreeView in the RBDisplayTree and remove it
         self.rbtree = self.find(display_tree, 'GtkTreeView', 'by_name')
@@ -355,8 +371,11 @@ class AltToolbarShared(AltToolbarBase):
 
     def post_initialise(self):
         super(AltToolbarShared, self).post_initialise()
-        self.volume_button.props.value = self.shell.props.shell_player.props.volume
-        self.volume_button.bind_property("value", self.shell.props.shell_player, "volume",
+        self.volume_button.props.value = \
+            self.shell.props.shell_player.props.volume
+        self.volume_button.bind_property("value",
+                                         self.shell.props.shell_player,
+                                         "volume",
                                          Gio.SettingsBindFlags.DEFAULT)
         self.volume_button.set_visible(self.plugin.volume_control)
         self.volume_button.set_relief(Gtk.ReliefStyle.NORMAL)
@@ -393,7 +412,8 @@ class AltToolbarShared(AltToolbarBase):
                 if not a.get_sensitive():
                     a.set_detailed_action_name("app." + b)
 
-        # The Play-Repeat button is subject to the plugins Repeat All/one song capability
+        # The Play-Repeat button is subject to the plugins Repeat All/one song
+        # capability
         self._repeat = Repeat(self.shell, self.repeat_toggle)
 
         if gtk_version() >= 3.12:
@@ -403,11 +423,17 @@ class AltToolbarShared(AltToolbarBase):
 
             self._popover_inprogress = 0
             self.cover_popover.set_modal(False)
-            self.cover_popover.connect('leave-notify-event', self._on_cover_popover_mouse_over)
-            self.cover_popover.connect('enter-notify-event', self._on_cover_popover_mouse_over)
-            # detect when mouse moves out of the cover image (it has a parent eventbox)
-            self.album_cover_eventbox.connect('leave-notify-event', self._on_cover_popover_mouse_over)
-            self.album_cover_eventbox.connect('enter-notify-event', self._on_cover_popover_mouse_over)
+            self.cover_popover.connect('leave-notify-event',
+                                       self._on_cover_popover_mouse_over)
+            self.cover_popover.connect('enter-notify-event',
+                                       self._on_cover_popover_mouse_over)
+            # detect when mouse moves out of the cover image
+            # (it has a parent eventbox)
+            box = self.album_cover_eventbox
+            box.connect('leave-notify-event',
+                        self._on_cover_popover_mouse_over)
+            box.connect('enter-notify-event',
+                        self._on_cover_popover_mouse_over)
 
     def on_startup(self, *args):
         super(AltToolbarShared, self).on_startup(*args)
@@ -419,17 +445,21 @@ class AltToolbarShared(AltToolbarBase):
         else:
             self.rbtreeparent.add(self.rbtree)
 
-            # self.shell.add_widget(self.rbtree, RB.ShellUILocation.SIDEBAR, expand=True, fill=True)
+            # self.shell.add_widget(self.rbtree, RB.ShellUILocation.SIDEBAR,
+            # expand=True, fill=True)
 
     def register_moved_control(self, child, old_parent, new_parent=None):
         """
-           convenience function to save the GTK child & parents when they are moved.
-           we use this info to cleanup when quitting RB - we need to move stuff back because
+           convenience function to save the GTK child & parents when they are
+           moved.
+           we use this info to cleanup when quitting RB - we need to move
+           stuff back because
            otherwise there are random crashes due to memory deallocation issues
 
         :param child: GTK Widget
         :param old_parent: original GTK container that the child was moved from
-        :param new_parent: new GTK container that the child was added to (may just have removed without moving)
+        :param new_parent: new GTK container that the child was added to (may
+        just have removed without moving)
         :return:
         """
 
@@ -453,19 +483,19 @@ class AltToolbarShared(AltToolbarBase):
             self.rbtreeparent.remove(self.sidebar)  # remove our sidebar
             self.rbtreeparent.add(self.rbtree)  # add the original GtkTree view
 
-        print ("####")
+        print("####")
         # child, new-parent, old-parent
         for child, new_parent, old_parent in reversed(self._moved_controls):
             if new_parent:
                 new_parent.remove(child)
-            print (child)
-            print (new_parent)
-            print (old_parent)
+            print(child)
+            print(new_parent)
+            print(old_parent)
             if isinstance(old_parent, Gtk.Grid):
-                print ("attaching to grid")
+                print("attaching to grid")
                 old_parent.attach(child, 0, 0, 1, 1)
             else:
-                print ("adding to parent")
+                print("adding to parent")
                 old_parent.add(child)
 
     def add_controller(self, controller):
@@ -479,7 +509,8 @@ class AltToolbarShared(AltToolbarBase):
         """
           determine if the source has a controller
           return bool, controller
-             if no specific controller (False) then the generic controller returned
+             if no specific controller (False) then the generic controller
+             returned
         """
 
         if source in self._controllers:
@@ -493,17 +524,17 @@ class AltToolbarShared(AltToolbarBase):
         return False, self._controllers['generic']
 
     def show_cover_tooltip(self, tooltip):
-        if ( self.cover_pixbuf is not None ):
+        if (self.cover_pixbuf is not None):
+            scale = self.cover_pixbuf.scale_simple(300, 300,
+                                                   GdkPixbuf.InterpType.HYPER)
             if gtk_version() >= 3.12:
                 if self.cover_popover.get_visible():
                     return False
                 image = self.cover_popover.get_child()
-                image.set_from_pixbuf(self.cover_pixbuf.scale_simple(300, 300,
-                                                                     GdkPixbuf.InterpType.HYPER))
+                image.set_from_pixbuf(scale)
                 self.cover_popover.show_all()
             else:
-                tooltip.set_icon(self.cover_pixbuf.scale_simple(300, 300,
-                                                                GdkPixbuf.InterpType.HYPER))
+                tooltip.set_icon(scale)
             return True
         else:
             return False
@@ -516,9 +547,9 @@ class AltToolbarShared(AltToolbarBase):
                 self._popover_inprogress = 2
 
             self._popover_inprogress_count = 0
-            print ("enter")
+            print("enter")
         else:
-            print ("exit")
+            print("exit")
             self._popover_inprogress = 3
 
         # print (eventcrossing.type)
@@ -536,7 +567,7 @@ class AltToolbarShared(AltToolbarBase):
                 return True
 
         if self._popover_inprogress == 1:
-            print ("addding timeout")
+            print("addding timeout")
             self._popover_inprogress = 2
             GLib.timeout_add(100, delayed)
 
@@ -562,15 +593,20 @@ class AltToolbarShared(AltToolbarBase):
 
     def _inline_progress_label(self, entry):
 
-        if ( entry is None ):
+        if (entry is None):
             # self.song_button_label.set_text("")
             self.inline_box.set_visible(False)
             return False
 
         self.inline_box.set_visible(True)
 
-        stream_title = self.shell.props.db.entry_request_extra_metadata(entry, RB.RHYTHMDB_PROP_STREAM_SONG_TITLE)
-        stream_artist = self.shell.props.db.entry_request_extra_metadata(entry, RB.RHYTHMDB_PROP_STREAM_SONG_ARTIST)
+        db = self.shell.props.db
+        stream_title = \
+            db.entry_request_extra_metadata(entry,
+                                            RB.RHYTHMDB_PROP_STREAM_SONG_TITLE)
+        stream_artist = \
+            db.entry_request_extra_metadata(entry,
+                                            RB.RHYTHMDB_PROP_STREAM_SONG_ARTIST)
 
         def set_labels(title, artist):
             for child in self.inline_box:
@@ -581,9 +617,9 @@ class AltToolbarShared(AltToolbarBase):
             self.song_title.set_ellipsize(Pango.EllipsizeMode.END)
             self.song_title.show()
             self.inline_box.pack_start(self.song_title, False, True, 0)
-            print (artist)
+            print(artist)
             if artist != "" or artist:
-                print ("adding artist")
+                print("adding artist")
                 self.song_artist = Gtk.Label()
                 self.song_artist.set_markup(artist)
                 self.song_artist.set_ellipsize(Pango.EllipsizeMode.END)
@@ -591,7 +627,7 @@ class AltToolbarShared(AltToolbarBase):
                 self.inline_box.pack_start(self.song_artist, False, True, 1)
 
         if stream_title:
-            print ("stream_title")
+            print("stream_title")
             if stream_artist:
                 artist_markup = "<small>{artist}</small>".format(
                     artist=GLib.markup_escape_text(stream_artist))
@@ -607,14 +643,16 @@ class AltToolbarShared(AltToolbarBase):
 
         album = entry.get_string(RB.RhythmDBPropType.ALBUM)
         if not album or album == "":
-            print ("album")
+            print("album")
             title_markup = "<b>{title}</b>".format(
-                title=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.TITLE)))
+                title=GLib.markup_escape_text(
+                    entry.get_string(RB.RhythmDBPropType.TITLE)))
 
             artist = entry.get_string(RB.RhythmDBPropType.ARTIST)
             if artist and artist != "":
                 artist_markup = "<small>{artist}</small>".format(
-                    artist=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ARTIST)))
+                    artist=GLib.markup_escape_text(
+                        entry.get_string(RB.RhythmDBPropType.ARTIST)))
             else:
                 artist_markup = ""
 
@@ -623,7 +661,7 @@ class AltToolbarShared(AltToolbarBase):
             return True
 
         if self.plugin.playing_label:
-            print ("playing_label")
+            print("playing_label")
             year = entry.get_ulong(RB.RhythmDBPropType.DATE)
             if year == 0:
                 year = date.today().year
@@ -631,37 +669,46 @@ class AltToolbarShared(AltToolbarBase):
                 year = datetime.fromordinal(year).year
 
             title_markup = "<b>{album}</b>".format(
-                album=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ALBUM)))
+                album=GLib.markup_escape_text(
+                    entry.get_string(RB.RhythmDBPropType.ALBUM)))
             artist_markup = "<small>{genre} - {year}</small>".format(
-                genre=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.GENRE)),
+                genre=GLib.markup_escape_text(
+                    entry.get_string(RB.RhythmDBPropType.GENRE)),
                 year=GLib.markup_escape_text(str(year)))
 
             set_labels(title_markup, artist_markup)
         else:
-            print ("not playing_label")
+            print("not playing_label")
             title_markup = "<b>{title}</b>".format(
-                title=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.TITLE)))
+                title=GLib.markup_escape_text(
+                    entry.get_string(RB.RhythmDBPropType.TITLE)))
 
             artist_markup = "<small>{artist}</small>".format(
-                artist=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ARTIST)))
+                artist=GLib.markup_escape_text(
+                    entry.get_string(RB.RhythmDBPropType.ARTIST)))
 
             set_labels(title_markup, artist_markup)
 
         return True
 
-
     def _combined_progress_label(self, entry):
         """
-           utility function to calculate the label to be used when a progress bar has the label above it
+           utility function to calculate the label to be used when a progress
+           bar has the label above it
            :param RBEntry
         """
 
-        if ( entry is None ):
+        if (entry is None):
             self.song_button_label.set_label("")
             return False
 
-        stream_title = self.shell.props.db.entry_request_extra_metadata(entry, RB.RHYTHMDB_PROP_STREAM_SONG_TITLE)
-        stream_artist = self.shell.props.db.entry_request_extra_metadata(entry, RB.RHYTHMDB_PROP_STREAM_SONG_ARTIST)
+        db = self.shell.props.db
+        stream_title = \
+            db.entry_request_extra_metadata(entry,
+                                            RB.RHYTHMDB_PROP_STREAM_SONG_TITLE)
+        stream_artist = \
+            db.entry_request_extra_metadata(entry,
+                                            RB.RHYTHMDB_PROP_STREAM_SONG_ARTIST)
 
         if stream_title:
             if stream_artist:
@@ -676,8 +723,10 @@ class AltToolbarShared(AltToolbarBase):
 
         album = entry.get_string(RB.RhythmDBPropType.ALBUM)
         if not album or album == "":
-            self.song_button_label.set_markup("<small><b>{title}</b></small>".format(
-                title=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.TITLE))))
+            self.song_button_label.set_markup(
+                "<small><b>{title}</b></small>".format(
+                    title=GLib.markup_escape_text(
+                        entry.get_string(RB.RhythmDBPropType.TITLE))))
             return True
 
         if self.plugin.playing_label:
@@ -689,32 +738,40 @@ class AltToolbarShared(AltToolbarBase):
 
             self.song_button_label.set_markup(
                 "<small>{album} - {genre} - {year}</small>".format(
-                    album=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ALBUM)),
-                    genre=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.GENRE)),
+                    album=GLib.markup_escape_text(
+                        entry.get_string(RB.RhythmDBPropType.ALBUM)),
+                    genre=GLib.markup_escape_text(
+                        entry.get_string(RB.RhythmDBPropType.GENRE)),
                     year=GLib.markup_escape_text(str(year))))
         else:
             self.song_button_label.set_markup(
                 "<small><b>{title}</b> {album} - {artist}</small>".format(
-                    title=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.TITLE)),
-                    album=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ALBUM)),
-                    artist=GLib.markup_escape_text(entry.get_string(RB.RhythmDBPropType.ARTIST))))
+                    title=GLib.markup_escape_text(
+                        entry.get_string(RB.RhythmDBPropType.TITLE)),
+                    album=GLib.markup_escape_text(
+                        entry.get_string(RB.RhythmDBPropType.ALBUM)),
+                    artist=GLib.markup_escape_text(
+                        entry.get_string(RB.RhythmDBPropType.ARTIST))))
 
         return True
 
-    def display_song_album_art_callback(self, *args):  # key, filename, data, entry):
+    def display_song_album_art_callback(self, *args):
+        # key, filename, data, entry):
         """
           RBExtDB signal callback to display the album-art
         """
-        # rhythmbox 3.2 breaks the API - need to find the parameter with the pixbuf
+        # rhythmbox 3.2 breaks the API - need to find the parameter with the
+        # pixbuf
         data = None
         for data in args:
             if isinstance(data, GdkPixbuf.Pixbuf):
                 break
 
-        if ( ( data is not None ) and ( isinstance(data, GdkPixbuf.Pixbuf) ) ):
+        if ((data is not None) and (isinstance(data, GdkPixbuf.Pixbuf))):
             self.cover_pixbuf = data
-            scale_cover = self.cover_pixbuf.scale_simple(34, 34,
-                                                         GdkPixbuf.InterpType.HYPER)
+            scale_cover = \
+                self.cover_pixbuf.scale_simple(34, 34,
+                                               GdkPixbuf.InterpType.HYPER)
 
             self.album_cover.set_from_pixbuf(scale_cover)
         else:
@@ -722,7 +779,6 @@ class AltToolbarShared(AltToolbarBase):
             self.album_cover.clear()
 
         self.album_cover.trigger_tooltip_query()
-
 
     def show_cover(self, visibility):
         self.album_cover.set_visible(self.plugin.show_album_art)
@@ -732,15 +788,20 @@ class AltToolbarShared(AltToolbarBase):
         self.inline_box.set_visible(False)
 
     def request_rtl_icon(self, control, icon_name):
+        rtl_name = {}
+        rtl_name["media-playback-start-symbolic"] = \
+            "media-playback-start-rtl-symbolic"
+        rtl_name["media-skip-forward-symbolic"] = \
+            "media-skip-forward-rtl-symbolic"
+        rtl_name["media-skip-backward-symbolic"] = \
+            "media-skip-backward-rtl-symbolic"
 
+        name = icon_name
         if gtk_version() < 3.12:
             if control.get_direction() == Gtk.TextDirection.RTL:
-                rtl_name = {"media-playback-start-symbolic":"media-playback-start-rtl-symbolic",
-                            "media-skip-forward-symbolic":"media-skip-forward-rtl-symbolic",
-                            "media-skip-backward-symbolic":"media-skip-backward-rtl-symbolic"}
-                icon_name = rtl_name[icon_name]
+                name = rtl_name[icon_name]
 
-        return icon_name
+        return name
 
     def play_control_change(self, player, playing):
         image = self.play_button.get_child()
@@ -751,18 +812,19 @@ class AltToolbarShared(AltToolbarBase):
                 icon_name = "media-playback-stop-symbolic"
 
         else:
-            icon_name = self.request_rtl_icon(self.play_button, "media-playback-start-symbolic")
+            icon_name = self.request_rtl_icon(self.play_button,
+                                              "media-playback-start-symbolic")
 
         image.set_from_icon_name(icon_name, image.props.icon_size)
 
     # Builder related utility functions... ####################################
 
     def load_builder_content(self, builder):
-        if ( not hasattr(self, "__builder_obj_names") ):
+        if (not hasattr(self, "__builder_obj_names")):
             self.__builder_obj_names = list()
 
         for obj in builder.get_objects():
-            if ( isinstance(obj, Gtk.Buildable) ):
+            if (isinstance(obj, Gtk.Buildable)):
                 name = Gtk.Buildable.get_name(obj).replace(' ', '_')
                 self.__dict__[name] = obj
                 self.__builder_obj_names.append(name)
@@ -786,7 +848,7 @@ class AltToolbarShared(AltToolbarBase):
 
         h_name_internal = "_sh_" + handler_name.replace(" ", "_")
 
-        if ( hasattr(target, h_name_internal) ):
+        if (hasattr(target, h_name_internal)):
             handler = getattr(target, h_name_internal)
         else:
             handler = eval(handler_name)
@@ -796,20 +858,22 @@ class AltToolbarShared(AltToolbarBase):
     def purge_builder_content(self):
         for name in self.__builder_obj_names:
             o = self.__dict__[name]
-            if ( isinstance(o, Gtk.Widget) ):
+            if (isinstance(o, Gtk.Widget)):
                 o.destroy()
             del self.__dict__[name]
 
         del self.__builder_obj_names
 
-    # Signal Handlers ##########################################################
+    # Signal Handlers
+    # ##########################################################
 
     def _sh_progress_control(self, progress, fraction):
         # if not hasattr(self, 'song_duration'):
         #    return
 
-        if ( self.plugin.song_duration != 0 ):
-            self.shell.props.shell_player.set_playing_time(self.plugin.song_duration * fraction)
+        if (self.plugin.song_duration != 0):
+            player = self.shell.props.shell_player
+            player.set_playing_time(self.plugin.song_duration * fraction)
 
     def _sh_bigger_cover(self, cover, x, y, key, tooltip):
         return self.show_cover_tooltip(tooltip)
@@ -843,12 +907,14 @@ class AltToolbarCompact(AltToolbarShared):
 
         action = self.plugin.toggle_action_group.get_action('ToggleToolbar')
 
-        self.small_bar.get_style_context().add_class(Gtk.STYLE_CLASS_PRIMARY_TOOLBAR)
-        
-        # add settings menu depending if there is no applications menu available
-        #appshell = ApplicationShell(self.shell)
+        self.small_bar.get_style_context().add_class(
+            Gtk.STYLE_CLASS_PRIMARY_TOOLBAR)
+
+        # add settings menu depending if there is no applications menu
+        # available
+        # appshell = ApplicationShell(self.shell)
         menu = self.shell.props.application.get_menubar()
-        
+
         if not menu:
             menu_button = Gtk.MenuButton.new()
             if gtk_version() >= 3.14:
@@ -858,7 +924,8 @@ class AltToolbarCompact(AltToolbarShared):
                 symbol = "emblem-system-symbolic"
                 menu_button.set_margin_left(3)
 
-            image = Gtk.Image.new_from_icon_name(symbol, Gtk.IconSize.SMALL_TOOLBAR)
+            image = Gtk.Image.new_from_icon_name(symbol,
+                                                 Gtk.IconSize.SMALL_TOOLBAR)
             menu_button.add(image)
             menu = self.shell.props.application.get_shared_menu('app-menu')
             menu_button.set_menu_model(menu)
@@ -866,20 +933,22 @@ class AltToolbarCompact(AltToolbarShared):
 
         if not self.plugin.start_hidden:
             self.shell.add_widget(self.small_bar,
-                                  RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
+                                  RB.ShellUILocation.MAIN_TOP, expand=False,
+                                  fill=False)
             self.show_small_bar()
             action.set_active(True)
             print("not hidden but compact")
         else:
             action.set_active(False)
-            
+
         self.plugin.rb_toolbar.hide()
 
     def set_visible(self, visible):
         if visible:
             print("show_compact")
             self.shell.add_widget(self.small_bar,
-                                  RB.ShellUILocation.MAIN_TOP, expand=False, fill=False)
+                                  RB.ShellUILocation.MAIN_TOP, expand=False,
+                                  fill=False)
             self.show_small_bar()
             self.volume_button.set_visible(self.plugin.volume_control)
         else:
@@ -898,7 +967,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
         'song-category-clicked': (GObject.SIGNAL_RUN_LAST, None, (bool,))
     }
 
-    # song-category-clicked signal emitted when song-categoy buttons clicked - param True if Song clicked
+    # song-category-clicked signal emitted when song-categoy buttons clicked -
+    # param True if Song clicked
 
     def __init__(self):
         """
@@ -909,10 +979,10 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self.sources = {}
         self.searchbar = None
 
-        self.source_toolbar_visible = False  # override - for headerbars source toolbar is not visible
+        self.source_toolbar_visible = False  # override - for headerbars source
+        # toolbar is not visible
 
         self._always_visible_sources = {}
-
 
     def initialise(self, plugin):
         super(AltToolbarHeaderBar, self).initialise(plugin)
@@ -924,7 +994,6 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
         # hook the key-press for the application window
         self.shell.props.window.connect("key-press-event", self._on_key_press)
-
 
     def add_always_visible_source(self, source):
         """
@@ -948,9 +1017,10 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
         self.library_radiobutton_toggled(None)
 
-        self.library_browser_radiobutton.connect('toggled', self.library_radiobutton_toggled)
-        self.library_song_radiobutton.connect('toggled', self.library_radiobutton_toggled)
-
+        self.library_browser_radiobutton.connect('toggled',
+                                                 self.library_radiobutton_toggled)
+        self.library_song_radiobutton.connect('toggled',
+                                              self.library_radiobutton_toggled)
 
         self._set_toolbar_controller()
 
@@ -976,7 +1046,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self.show_small_bar()
 
         # hide status bar
-        action = self.plugin.appshell.lookup_action('', 'statusbar-visible', 'win')
+        action = self.plugin.appshell.lookup_action('', 'statusbar-visible',
+                                                    'win')
         action.set_active(True)
 
     def search_button_toggled(self, search_button):
@@ -984,7 +1055,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
         print(search_button.get_active())
 
         def delay_hide(*args):
-            # we use a delay to allow the searchbar minimise effect to be visible
+            # we use a delay to allow the searchbar minimise effect to be
+            # visible
             self.searchbar.set_visible(False)
 
         if search_button.get_active():
@@ -1011,7 +1083,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
             return
 
         if toggle_button:
-            self.emit('song-category-clicked', self.library_song_radiobutton.get_active())
+            self.emit('song-category-clicked',
+                      self.library_song_radiobutton.get_active())
 
         self._resize_source(self.shell.props.selected_page)
 
@@ -1021,7 +1094,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
         val = True
         if self.library_song_radiobutton.get_active():
-            print ("song active")
+            print("song active")
             val = False
 
         self.shell.props.selected_page.props.show_browser = val
@@ -1057,7 +1130,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
     def is_browser_view(self, source):
         """
            returns bool, browser-button where this is a browser-view
-           i.e. assume if there is a browser button this makes it a browser-view
+           i.e. assume if there is a browser button this makes it a
+           browser-view
         """
 
         return self.has_button_with_label(source, _("Browse"))
@@ -1078,20 +1152,25 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self.headerbar = Gtk.HeaderBar.new()
         self.headerbar.set_show_close_button(True)
 
-        self.main_window.set_titlebar(self.headerbar)  # this is needed for gnome-shell to replace the decoration
+        self.main_window.set_titlebar(self.headerbar)
+        # this is needed for gnome-shell to replace the decoration
         self.main_window.set_show_menubar(False)
         self.plugin.rb_toolbar.hide()
 
-        self.start_box = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)  # left side box
+        self.start_box = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
+        # left side box
         self.headerbar.pack_start(self.start_box)
 
         self.headerbar.set_custom_title(self.library_box)
 
-        self._end_box_controls = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)  # right side box
-        self.end_box = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)  # any source defined controls
+        self._end_box_controls = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
+        # right side box
+        self.end_box = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
+        # any source defined controls
         self._end_box_controls.add(self.end_box)
 
-        if (not default.props.gtk_shell_shows_app_menu) or default.props.gtk_shell_shows_menubar:
+        if (not default.props.gtk_shell_shows_app_menu) or \
+                default.props.gtk_shell_shows_menubar:
 
             # for environments that dont support app-menus
             menu_button = Gtk.MenuButton.new()
@@ -1103,7 +1182,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
                 symbol = "emblem-system-symbolic"
                 menu_button.set_margin_left(3)
 
-            image = Gtk.Image.new_from_icon_name(symbol, Gtk.IconSize.SMALL_TOOLBAR)
+            image = Gtk.Image.new_from_icon_name(symbol,
+                                                 Gtk.IconSize.SMALL_TOOLBAR)
             menu_button.add(image)
             menu = self.shell.props.application.get_shared_menu('app-menu')
             menu_button.set_menu_model(menu)
@@ -1123,7 +1203,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
     def _resize_source(self, page):
         if page:
             child = self.find(page, 'GtkGrid', "by_name")
-            if child and child.props.margin_top == 6:  # hard-coded test for sources where grid is this value
+            # hard-coded test for sources where grid is this value
+            if child and child.props.margin_top == 6:
                 child.props.margin_top = 0
 
     def reset_toolbar(self, page):
@@ -1145,7 +1226,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
             return
 
         if not self.shell.props.selected_page in self.sources:
-            ret_bool, controller = self.is_controlled(self.shell.props.selected_page)
+            ret_bool, controller = \
+                self.is_controlled(self.shell.props.selected_page)
             self.sources[self.shell.props.selected_page] = controller
 
         current_controller = self.sources[self.shell.props.selected_page]

@@ -16,15 +16,16 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301  USA.
 
+import gettext
+import webbrowser
+import re
+
 from gi.repository import Gtk
 from gi.repository import Peas
 from gi.repository import PeasGtk
 from gi.repository import Gio
 from gi.repository import Pango
 from gi.repository import GLib
-import gettext
-import webbrowser
-import re
 
 from alttoolbar_preferences import CoverLocale
 
@@ -85,7 +86,6 @@ class PluginListRow(Gtk.ListBoxRow):
 
         switch.connect('notify::active', self._switch_changed)
 
-
     def _display_tooltip(self, label, x, y, mode, tooltip):
         if label.get_layout().is_ellipsized():
             tooltip.set_text(label.get_text())
@@ -99,8 +99,8 @@ class PluginListRow(Gtk.ListBoxRow):
         self._refresh = True
 
         def delay(*args):
-            print ("switch_changed")
-            print (switch.get_active())
+            print("switch_changed")
+            print(switch.get_active())
             self._switch_callback(switch, self.plugin)
 
             self._refresh = False
@@ -261,7 +261,7 @@ class PluginDialog(Gtk.Dialog):
 
     def _on_load_unload_plugin(self, engine, plugin):
         module_name = plugin.get_module_name()
-        print (module_name)
+        print(module_name)
 
         if module_name in self._items:
             self._items[module_name].refresh()
@@ -284,7 +284,9 @@ class PluginDialog(Gtk.Dialog):
 
     def _get_preference_widget(self, row):
         try:
-            ext = self._peas.create_extension(row.plugin, PeasGtk.Configurable, None)
+            ext = self._peas.create_extension(row.plugin,
+                                              PeasGtk.Configurable,
+                                              None)
             widget = ext.create_configure_widget()
             cl = CoverLocale()
             cl.switch_locale(cl.Locale.RB)
@@ -339,7 +341,7 @@ class PluginDialog(Gtk.Dialog):
         website = row.plugin.get_website()
         copyright = row.plugin.get_copyright()
         description = row.plugin.get_description()
-        authors = row.plugin.get_authors()
+        # authors = row.plugin.get_authors()
         help = row.plugin.get_help_uri()
 
         pos = 0
@@ -393,7 +395,9 @@ class PluginDialog(Gtk.Dialog):
 
             link = Gtk.Label()
             link.props.halign = Gtk.Align.START
-            link.set_markup(" <a href=\"https://github.com/fossfreedom\">David Mohammed</a>")
+            m = " <a href=\"https://github.com/fossfreedom\">David " \
+                "Mohammed</a>"
+            link.set_markup(m)
             grid.attach(link, 1, 0, 1, 1)
 
             label = Gtk.Label(_("Designer:"))
@@ -403,7 +407,9 @@ class PluginDialog(Gtk.Dialog):
 
             link = Gtk.Label()
             link.props.halign = Gtk.Align.START
-            link.set_markup(" <a href=\"https://github.com/me4oslav\">Georgi Karavasilev</a>")
+            m = " <a href=\"https://github.com/me4oslav\">Georgi " \
+                "Karavasilev</a>"
+            link.set_markup(m)
             grid.attach(link, 1, 1, 1, 1)
 
             widget.pack_start(grid, False, False, pos)

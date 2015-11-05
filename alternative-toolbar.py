@@ -1,6 +1,6 @@
 # -*- Mode: python; coding: utf-8; tab-width: 4; indent-tabs-mode: nil; -*-
 #
-# Copyright (C) 2014 - fossfreedom
+# Copyright (C) 2015 - fossfreedom
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -36,13 +36,13 @@ from alttoolbar_preferences import CoverLocale
 from alttoolbar_plugins import PluginDialog
 import rb
 
-
 view_menu_ui = """
 <ui>
   <menubar name="MenuBar">
     <menu name="ViewMenu" action="View">
         <menuitem name="Show Toolbar" action="ToggleToolbar" />
-        <menuitem name="Show Source Toolbar" action="ToggleSourceMediaToolbar" />
+        <menuitem name="Show Source Toolbar"
+        action="ToggleSourceMediaToolbar" />
     </menu>
   </menubar>
 </ui>
@@ -110,7 +110,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         cl = CoverLocale()
         cl.switch_locale(cl.Locale.LOCALE_DOMAIN)
 
-        # for custom icons ensure we start looking in the plugin img folder as a fallback
+        # for custom icons ensure we start looking in the plugin img folder
+        # as a fallback
         theme = Gtk.IconTheme.get_default()
         theme.append_search_path(rb.find_plugin_file(self, 'img'))
 
@@ -123,14 +124,22 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.plugin_settings = self.gs.get_setting(self.gs.Path.PLUGIN)
 
         display_type = self.plugin_settings[self.gs.PluginKey.DISPLAY_TYPE]
-        self.volume_control = self.plugin_settings[self.gs.PluginKey.VOLUME_CONTROL]
-        self.show_compact_toolbar = self.plugin_settings[self.gs.PluginKey.SHOW_COMPACT]
-        self.start_hidden = self.plugin_settings[self.gs.PluginKey.START_HIDDEN]
-        self.inline_label = self.plugin_settings[self.gs.PluginKey.INLINE_LABEL]
-        self.compact_progressbar = self.plugin_settings[self.gs.PluginKey.COMPACT_PROGRESSBAR]
-        self.enhanced_sidebar = self.plugin_settings[self.gs.PluginKey.ENHANCED_SIDEBAR]
-        self.show_tooltips = self.plugin_settings[self.gs.PluginKey.SHOW_TOOLTIPS]
-        self.enhanced_plugins = self.plugin_settings[self.gs.PluginKey.ENHANCED_PLUGINS]
+        self.volume_control = self.plugin_settings[
+            self.gs.PluginKey.VOLUME_CONTROL]
+        self.show_compact_toolbar = self.plugin_settings[
+            self.gs.PluginKey.SHOW_COMPACT]
+        self.start_hidden = self.plugin_settings[
+            self.gs.PluginKey.START_HIDDEN]
+        self.inline_label = self.plugin_settings[
+            self.gs.PluginKey.INLINE_LABEL]
+        self.compact_progressbar = self.plugin_settings[
+            self.gs.PluginKey.COMPACT_PROGRESSBAR]
+        self.enhanced_sidebar = self.plugin_settings[
+            self.gs.PluginKey.ENHANCED_SIDEBAR]
+        self.show_tooltips = self.plugin_settings[
+            self.gs.PluginKey.SHOW_TOOLTIPS]
+        self.enhanced_plugins = self.plugin_settings[
+            self.gs.PluginKey.ENHANCED_PLUGINS]
 
         # Add the various application view menus
         self.appshell = ApplicationShell(self.shell)
@@ -140,7 +149,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         default = Gtk.Settings.get_default()
 
         if display_type == 0:
-            if (not default.props.gtk_shell_shows_app_menu) or default.props.gtk_shell_shows_menubar:
+            if (
+                    not default.props.gtk_shell_shows_app_menu) or \
+                    default.props.gtk_shell_shows_menubar:
                 display_type = 2
             else:
                 display_type = 1
@@ -168,7 +179,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         # allow other plugins access to this toolbar
         self.shell.alternative_toolbar = self
-        
+
         cl.switch_locale(cl.Locale.RB)
 
     def _display_plugins(self, *args):
@@ -183,11 +194,12 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         dlg = PluginDialog(self.shell.props.window, has_headerbar)
         response = 0
-        dlg.set_default_size(self._plugin_dialog_width, self._plugin_dialog_height)
+        dlg.set_default_size(self._plugin_dialog_width,
+                             self._plugin_dialog_height)
 
         while response >= 0:
             response = dlg.run()
-            print (response)
+            print(response)
 
         self._plugin_dialog_width, self._plugin_dialog_height = dlg.get_size()
         dlg.destroy()
@@ -196,40 +208,58 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         """
           add the various menu options to the application
         """
-        self.seek_action_group = ActionGroup(self.shell, 'AltToolbarPluginSeekActions')
+        self.seek_action_group = ActionGroup(self.shell,
+                                             'AltToolbarPluginSeekActions')
         self.seek_action_group.add_action(func=self.on_skip_backward,
-                                          action_name='SeekBackward', label=_("Seek Backward"),
+                                          action_name='SeekBackward',
+                                          label=_("Seek Backward"),
                                           action_type='app', accel="<Alt>Left",
-                                          tooltip=_("Seek backward, in current track, by 5 seconds."))
+                                          tooltip=_(
+                                              "Seek backward, in current "
+                                              "track, by 5 seconds."))
         self.seek_action_group.add_action(func=self.on_skip_forward,
-                                          action_name='SeekForward', label=_("Seek Forward"),
-                                          action_type='app', accel="<Alt>Right",
-                                          tooltip=_("Seek forward, in current track, by 10 seconds."))
+                                          action_name='SeekForward',
+                                          label=_("Seek Forward"),
+                                          action_type='app',
+                                          accel="<Alt>Right",
+                                          tooltip=_(
+                                              "Seek forward, in current "
+                                              "track, by 10 seconds."))
 
         self.appshell.insert_action_group(self.seek_action_group)
-        self.appshell.add_app_menuitems(view_seek_menu_ui, 'AltToolbarPluginSeekActions', 'view')
+        self.appshell.add_app_menuitems(view_seek_menu_ui,
+                                        'AltToolbarPluginSeekActions', 'view')
 
-        self.toggle_action_group = ActionGroup(self.shell, 'AltToolbarPluginActions')
+        self.toggle_action_group = ActionGroup(self.shell,
+                                               'AltToolbarPluginActions')
         self.toggle_action_group.add_action(func=self.toggle_visibility,
-                                            action_name='ToggleToolbar', label=_("Show Play-Controls Toolbar"),
+                                            action_name='ToggleToolbar',
+                                            label=_(
+                                                "Show Play-Controls Toolbar"),
                                             action_state=ActionGroup.TOGGLE,
                                             action_type='app',
-                                            tooltip=_("Show or hide the play-controls toolbar"))
-        self.toggle_action_group.add_action(func=self.toggle_sourcemedia_visibility,
-                                            action_name='ToggleSourceMediaToolbar',
-                                            label=_("Show Source Toolbar"),
-                                            action_state=ActionGroup.TOGGLE,
-                                            action_type='app', accel="<Ctrl>t",
-                                            tooltip=_("Show or hide the source toolbar"))
+                                            tooltip=_(
+                                                "Show or hide the "
+                                                "play-controls toolbar"))
+        self.toggle_action_group.add_action(
+            func=self.toggle_sourcemedia_visibility,
+            action_name='ToggleSourceMediaToolbar',
+            label=_("Show Source Toolbar"),
+            action_state=ActionGroup.TOGGLE,
+            action_type='app', accel="<Ctrl>t",
+            tooltip=_("Show or hide the source toolbar"))
 
         self.appshell.insert_action_group(self.toggle_action_group)
-        self.appshell.add_app_menuitems(view_menu_ui, 'AltToolbarPluginActions', 'view')
+        self.appshell.add_app_menuitems(view_menu_ui,
+                                        'AltToolbarPluginActions', 'view')
 
     def _connect_properties(self):
         """
-          bind plugin properties to various gsettings that we dynamically interact with
+          bind plugin properties to various gsettings that we dynamically
+          interact with
         """
-        self.plugin_settings.bind(self.gs.PluginKey.PLAYING_LABEL, self, 'playing_label',
+        self.plugin_settings.bind(self.gs.PluginKey.PLAYING_LABEL, self,
+                                  'playing_label',
                                   Gio.SettingsBindFlags.GET)
 
     def _connect_signals(self):
@@ -249,32 +279,36 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.sh_pc = self.shell_player.connect("playing-changed",
                                                self._sh_on_playing_change)
 
-        self.sh_pspc = self.shell_player.connect("playing-song-property-changed",
-                                                 self._sh_on_song_property_changed)
+        self.sh_pspc = self.shell_player.connect(
+            "playing-song-property-changed",
+            self._sh_on_song_property_changed)
 
         self.rb_settings = Gio.Settings.new('org.gnome.rhythmbox')
 
         self.rb_settings.bind('show-album-art', self, 'show_album_art',
                               Gio.SettingsBindFlags.GET)
-        self.connect('notify::show-album-art', self.show_album_art_settings_changed)
+        self.connect('notify::show-album-art',
+                     self.show_album_art_settings_changed)
         self.show_album_art_settings_changed(None)
 
-        self.rb_settings.bind('show-song-position-slider', self, 'show_song_position_slider',
+        self.rb_settings.bind('show-song-position-slider', self,
+                              'show_song_position_slider',
                               Gio.SettingsBindFlags.GET)
-        self.connect('notify::show-song-position-slider', self.show_song_position_slider_settings_changed)
+        self.connect('notify::show-song-position-slider',
+                     self.show_song_position_slider_settings_changed)
         self.show_song_position_slider_settings_changed(None)
-
 
     def _sh_on_song_property_changed(self, sp, uri, property, old, new):
         """
            shell-player "playing-song-property-changed" signal handler
         """
-        if sp.get_playing() and property in ('artist',
-                                             'album',
-                                             'title',
-                                             RB.RHYTHMDB_PROP_STREAM_SONG_ARTIST,
-                                             RB.RHYTHMDB_PROP_STREAM_SONG_ALBUM,
-                                             RB.RHYTHMDB_PROP_STREAM_SONG_TITLE):
+        if sp.get_playing() and property in \
+                ('artist',
+                 'album',
+                 'title',
+                 RB.RHYTHMDB_PROP_STREAM_SONG_ARTIST,
+                 RB.RHYTHMDB_PROP_STREAM_SONG_ALBUM,
+                 RB.RHYTHMDB_PROP_STREAM_SONG_TITLE):
             entry = sp.get_playing_entry()
             self.toolbar_type.display_song(entry)
 
@@ -288,7 +322,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         """
            shell-player "playing-song-changed" signal handler
         """
-        if ( entry is not None ):
+        if (entry is not None):
             self.song_duration = entry.get_ulong(RB.RhythmDBPropType.DURATION)
         else:
             self.song_duration = 0
@@ -302,8 +336,9 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         if not hasattr(self.toolbar_type, 'song_progress'):
             return
 
-        if ( self.song_duration != 0 ):
-            self.toolbar_type.song_progress.progress = float(second) / self.song_duration
+        if (self.song_duration != 0):
+            self.toolbar_type.song_progress.progress = float(
+                second) / self.song_duration
 
             print(self.toolbar_type.song_progress.progress)
 
@@ -321,15 +356,13 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             th, tm = divmod(tm, 60)
 
             if th == 0:
-                label = "<small>{time} / {ttime}</small>".format(time="%02d:%02d" % (m, s),
-                                                                 ttime="%02d:%02d" % (tm, ts))
-                # tlabel = "<small>{time}</small>".format(time="%02d:%02d" % (tm, ts))
+                label = "<small>{time} / {ttime}</small>".format(
+                    time="%02d:%02d" % (m, s),
+                    ttime="%02d:%02d" % (tm, ts))
             else:
-                label = "<small>{time}</small>".format(time="%d:%02d:%02d" % (h, m, s))
-                tlabel = "<small>{time} / {ttime}</small>".format(time="%d:%02d:%02d" % (h, m, s),
-                                                                  ttime="%d:%02d:%02d" % (th, tm, ts))
+                label = "<small>{time}</small>".format(
+                    time="%d:%02d:%02d" % (h, m, s))
 
-            # self.toolbar_type.current_time_label.set_markup(label)
             self.toolbar_type.total_time_label.set_markup(label)
 
     def on_skip_backward(self, *args):
@@ -337,10 +370,11 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
            keyboard seek backwards signal handler
         """
         sp = self.object.props.shell_player
-        if ( sp.get_playing()[1] ):
+        if (sp.get_playing()[1]):
             seek_time = sp.get_playing_time()[1] - seek_backward_time
             print(seek_time)
-            if ( seek_time < 0 ): seek_time = 0
+            if (seek_time < 0):
+                seek_time = 0
 
             print(seek_time)
             sp.set_playing_time(seek_time)
@@ -350,11 +384,12 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
            keyboard seek forwards signal handler
         """
         sp = self.object.props.shell_player
-        if ( sp.get_playing()[1] ):
+        if (sp.get_playing()[1]):
             seek_time = sp.get_playing_time()[1] + seek_forward_time
             song_duration = sp.get_playing_song_duration()
-            if ( song_duration > 0 ):  # sanity check
-                if ( seek_time > song_duration ): seek_time = song_duration
+            if (song_duration > 0):  # sanity check
+                if (seek_time > song_duration):
+                    seek_time = song_duration
 
                 sp.set_playing_time(seek_time)
 
@@ -382,15 +417,20 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         """
         find various GTK Widgets
         :param node: node is the starting container to find from
-        :param search_id: search_id is the GtkWidget type string or GtkWidget name
+        :param search_id: search_id is the GtkWidget type string or
+        GtkWidget name
         :param search_type: search_type is the type of search
-                            "by_name" to search by the type of GtkWidget e.g. GtkButton
-                            "by_id" to search by the GtkWidget (glade name) e.g. box_1
-        :param button_label: button_label to find specific buttons where we cannot use by_id
+                            "by_name" to search by the type of GtkWidget
+                            e.g. GtkButton
+                            "by_id" to search by the GtkWidget (glade name)
+                            e.g. box_1
+        :param button_label: button_label to find specific buttons where we
+        cannot use by_id
         :return:N/A
         """
         # Couldn't find better way to find widgets than loop through them
-        # print("by_name %s by_id %s" % (node.get_name(), Gtk.Buildable.get_name(node)))
+        # print("by_name %s by_id %s" % (node.get_name(),
+        # Gtk.Buildable.get_name(node)))
 
         def extract_label(button):
             label = button.get_label()
@@ -406,16 +446,21 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         if isinstance(node, Gtk.Buildable):
             if search_type == 'by_id':
                 if Gtk.Buildable.get_name(node) == search_id:
-                    if button_label == None or ('Button' in node.get_name() and extract_label(node) == button_label):
+                    if button_label is None or \
+                            ('Button' in node.get_name()
+                             and extract_label(node) == button_label):
                         return node
             elif search_type == 'by_name':
                 if node.get_name() == search_id:
-                    if button_label == None or ('Button' in node.get_name() and extract_label(node) == button_label):
+                    if button_label is None or \
+                            ('Button' in node.get_name()
+                             and extract_label(node) == button_label):
                         return node
 
         if isinstance(node, Gtk.Container):
             for child in node.get_children():
-                ret = AltToolbarPlugin.find(child, search_id, search_type, button_label)
+                ret = AltToolbarPlugin.find(child, search_id, search_type,
+                                            button_label)
                 if ret:
                     return ret
 
@@ -434,7 +479,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.shell_player.disconnect(self.sh_pc)
             self.shell_player.disconnect(self.sh_pspc)
             # self.disconnect(self.sh_display_page)
-            self.shell.props.display_page_tree.disconnect(self.sh_display_page_tree)
+            self.shell.props.display_page_tree.disconnect(
+                self.sh_display_page_tree)
             del self.shell_player
 
         if self.appshell:
@@ -445,7 +491,6 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.toolbar_type.cleanup()
 
         del self.shell
-
 
     def toggle_visibility(self, action, param=None, data=None):
         """
@@ -467,7 +512,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         :param data:
         :return:
         """
-        action = self.toggle_action_group.get_action('ToggleSourceMediaToolbar')
+        action = self.toggle_action_group.get_action(
+            'ToggleSourceMediaToolbar')
 
         self.toolbar_type.source_toolbar_visibility(action.get_active())
 
@@ -479,8 +525,12 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         # define .plugin text strings used for translation
         plugin = _('Alternative Toolbar')
+        plugin += "dummy"
         desc = _(
-            'Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact Toolbar which can be hidden')
+            'Replace the Rhythmbox large toolbar with a Client-Side '
+            'Decorated or Compact Toolbar which can be hidden')
 
+        desc += "dummy"
         # stop PyCharm removing the Preference import on optimisation
         pref = Preferences()
+        return pref

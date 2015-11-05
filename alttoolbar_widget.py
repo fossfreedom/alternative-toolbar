@@ -23,8 +23,9 @@ from gi.repository import Gdk
 from gi.repository import GObject
 
 
-# ###############################################################################
-# Custom Widgets ###############################################################     
+# #############################################################################
+# Custom Widgets
+# ##############################################################
 
 class SmallProgressBar(Gtk.DrawingArea):
     __gsignals__ = {
@@ -58,7 +59,8 @@ class SmallProgressBar(Gtk.DrawingArea):
     def do_draw(self, cc):
         alloc = self.get_allocation()
         sc = self.get_style_context()
-        fgc = sc.get_background_color(Gtk.StateFlags.SELECTED)  # self.get_state_flags() )
+        fgc = sc.get_background_color(Gtk.StateFlags.SELECTED)
+        # self.get_state_flags() )
         bgc = sc.get_color(Gtk.StateFlags.NORMAL)  # self.get_state_flags() )
 
         cc.set_source_rgba(bgc.red, bgc.green, bgc.blue, bgc.alpha)
@@ -85,7 +87,7 @@ class SmallProgressBar(Gtk.DrawingArea):
             cc.fill()
 
     def do_motion_notify_event(self, event):
-        if ( self.button_pressed ):
+        if (self.button_pressed):
             self.control_by_event(event)
             return True
         else:
@@ -104,24 +106,9 @@ class SmallProgressBar(Gtk.DrawingArea):
     def control_by_event(self, event):
         allocw = self.get_allocated_width()
         fraction = event.x / allocw
-        if ( self.button_time + 100 < event.time ):
+        if (self.button_time + 100 < event.time):
             self.button_time = event.time
             self.emit("control", fraction)
-        """
-                    <child>
-                      <object class="alternative-toolbar+SmallProgressBar" id="song progress">
-                        <property name="height-request">5</property>
-                        <property name="margin-bottom">2</property>
-                        <signal name="control" handler="progress_control"/>
-                      </object>
-                      <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
-                        <property name="position">1</property>
-                      </packing>
-                    </child>
-                    
-        """
 
 
 class SmallScale(Gtk.Scale):
@@ -158,7 +145,7 @@ class SmallScale(Gtk.Scale):
         self.set_value(value)
 
     def _motion_notify_event(self, widget, event):
-        if ( self.button_pressed ):
+        if (self.button_pressed):
             self.control_by_event(event)
             return True
         else:
@@ -175,7 +162,7 @@ class SmallScale(Gtk.Scale):
         return False
 
     def control_by_event(self, event):
-        if ( self.button_time + 100 < event.time ):
+        if (self.button_time + 100 < event.time):
             allocw = self.get_allocated_width()
             fraction = event.x / allocw
             self.button_time = event.time
