@@ -115,9 +115,19 @@ If you are using Arch you can install alternative-toolbar via the [rhythmbox-plu
 
 **Gentoo ebuild**
 
-If you are using Gentoo you can install alternative-toolbar by adding the ebuild located in `gentoo/x11-plugins/alternative-toolbar` to your local overlay (`/usr/local/portage`).
+If you are using Gentoo you can install alternative-toolbar by adding the ebuild located in the gentoo branch `gentoo/x11-plugins/alternative-toolbar` to your local overlay (`/usr/local/portage`).
 
-Use
+i.e. 
+
+```
+git clone https://github.com/fossfreedom/alternative-toolbar -b gentoo
+
+add the ebuild
+
+git checkout master
+```
+
+Use the following to ebuild
 
 ```
 $ ebuild alternative-toolbar-9999.ebuild digest
