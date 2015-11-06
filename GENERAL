@@ -1,9 +1,0 @@
-# general dev stuff
-
-to create readme.html install the markdown package then
-
-markdown README.md > readme.html
-
-when testing with pyflakes ensure you run first
-
-export PYFLAKES_BUILTINS="_"
