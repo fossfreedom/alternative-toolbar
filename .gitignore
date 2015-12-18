@@ -29,3 +29,21 @@ pip-log.txt
 
 img/usericons/popups.xml
 *~
+
+
+aclocal.m4
+autom4te.cache/
+compile
+configure
+install-sh
+missing
+Makefile
+Makefile.in
+config.*
+po/Makefile*
+po/POTFILES
+po/stamp-it
+m4/intltool.m4
+alternative-toolbar.plugin
+po/.intltool-merge-cache
+*.gschema.valid

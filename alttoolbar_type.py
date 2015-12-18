@@ -286,7 +286,7 @@ class AltToolbarShared(AltToolbarBase):
     def initialise(self, plugin):
         super(AltToolbarShared, self).initialise(plugin)
 
-        ui = rb.find_plugin_file(plugin, 'ui/alttoolbar.ui')
+        ui = rb.find_plugin_file(plugin, 'ui/alttoolbar.glade')
 
         builder = Gtk.Builder()
         builder.add_from_file(ui)
@@ -1140,7 +1140,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
         # define the main buttons for the headerbar
         builder = Gtk.Builder()
-        ui = rb.find_plugin_file(self.plugin, 'ui/altlibrary.ui')
+        ui = rb.find_plugin_file(self.plugin, 'ui/altlibrary.glade')
         builder.add_from_file(ui)
 
         self.load_builder_content(builder)
