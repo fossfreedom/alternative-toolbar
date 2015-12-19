@@ -5,6 +5,7 @@
 
 rb_plugin_libdir = $(libdir)/rhythmbox/plugins/alternative-toolbar
 
+SUBDIRS = po
 
 CLEANFILES = \
 	alternative-toolbar.plugin \
@@ -12,7 +13,7 @@ CLEANFILES = \
 	./po/Makefile \
 	./po/POTFILES \
 	./po/Makefile.in \
-	./po/stamp-it
+	./po/stamp-it 
 
 DISTCLEANFILES = \
 	alternative-toolbar.plugin \
@@ -20,7 +21,7 @@ DISTCLEANFILES = \
 	./po/Makefile \
 	./po/POTFILES \
 	./po/Makefile.in \
-	./po/stamp-it
+	./po/stamp-it 
 
 PLUGIN_FILES = \
 	alttoolbar_type.py \
@@ -44,9 +45,9 @@ IMAGE_FILES = \
 	$(top_srcdir)/img/librefm-symbolic.svg
 
 UI_FILES = \
-	$(top_srcdir)/ui/altlibrary.glade \
-	$(top_srcdir)/ui/altpreferences.glade \
-	$(top_srcdir)/ui/alttoolbar.glade
+	$(top_srcdir)/ui/altlibrary.ui \
+	$(top_srcdir)/ui/altpreferences.ui \
+	$(top_srcdir)/ui/alttoolbar.ui
 
 EXTRA_DIST = \
 	$(PLUGIN_FILES) \

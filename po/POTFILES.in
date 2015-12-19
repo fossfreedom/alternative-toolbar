@@ -3,4 +3,7 @@ alttoolbar_controller.py
 alttoolbar_preferences.py
 alttoolbar_sidebar.py
 alttoolbar_type.py
-ui/altpreferences.glade
+[type: gettext/glade]ui/altpreferences.ui
+[type: gettext/glade]ui/altlibrary.ui
+[type: gettext/glade]ui/alttoolbar.ui
+

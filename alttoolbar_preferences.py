@@ -212,7 +212,7 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         builder = Gtk.Builder()
         builder.set_translation_domain(cl.Locale.LOCALE_DOMAIN)
         builder.add_from_file(rb.find_plugin_file(self,
-                                                  'ui/altpreferences.glade'))
+                                                  'ui/altpreferences.ui'))
         builder.connect_signals(self)
 
         # bind the toggles to the settings
