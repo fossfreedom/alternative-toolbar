@@ -171,6 +171,7 @@ Thank you to:
  - [me4oslav](https://github.com/me4oslav) - design inspiration for the header-bar vision
  - our Translators: Launchpad Translation team
  - [Julian Richen](https://github.com/julianrichen) - revamped README
+ - [Ikey Doherty](https://github.com/ikeydoherty) - AutoTools installer
  
 As well as:
 
