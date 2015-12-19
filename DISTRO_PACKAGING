@@ -1,0 +1,14 @@
+Use 'make distcheck' to create a tar.xz version of a version
+
+Alternatively (and preferably) use the Git Releases for the latest stable version.
+
+By default, the plugin needs user manual enablement to work.
+
+When packaging for a distro, add a patch to the .plugin.in file to include the section
+
+"
+
+[RB]
+InitiallyEnabled=true
+"
+

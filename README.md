@@ -91,7 +91,14 @@ make
 sudo make install
 ```
 
-Then enable the plugin in the plugins window:
+This will install a system-wide installation.  If you have a previous locally installed
+version of the plugin, remove it:
+
+```
+rm -rf ~/.local/share/rhythmbox/plugins/alternative-toolbar
+```
+
+Enable the plugin in the plugins window:
 <p align="center">
     <img alt="Enable plugin" src="http://i.imgur.com/UUzyfhH.png" />
 </p>
