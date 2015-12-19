@@ -83,9 +83,12 @@ The plugin preferences allows you to define which toolbars are used:
 **Git**
 ```bash
 cd ~/Downloads
+sudo apt-get install intltool git
 git clone https://github.com/fossfreedom/alternative-toolbar.git
 cd alternative-toolbar
-./install.sh
+./autogen.sh --prefix=/usr
+make
+sudo make install
 ```
 
 Then enable the plugin in the plugins window:
@@ -141,7 +144,7 @@ to install.
 If installed via Git you need the original code to uninstall the plugin.
 ```bash
 cd ~/Downloads/alternative-toolbar
-./install.sh --uninstall
+sudo make uninstall
 ```
 
 ## Contribute
