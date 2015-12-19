@@ -1,3 +1,10 @@
+rhythmbox-plugin-alternative-toolbar (0.15.0-1) unstable; urgency=medium
+
+  * New upstream release. (Closes: #808415)
+  * Autotools build mechanism
+
+ -- fossfreedom <foss.freedom@gmail.com>  Sat, 19 Dec 2015 21:20:43 +0000
+ 
 rhythmbox-plugin-alternative-toolbar (0.14.1-1) unstable; urgency=medium
 
   * Initial release. (Closes: #804192)
