@@ -13,7 +13,9 @@ CLEANFILES = \
 	./po/Makefile \
 	./po/POTFILES \
 	./po/Makefile.in \
-	./po/stamp-it 
+	./po/Makefile.in.in \
+	./po/stamp-it \
+	./m4/intltool.m4
 
 DISTCLEANFILES = \
 	alternative-toolbar.plugin \
@@ -21,7 +23,9 @@ DISTCLEANFILES = \
 	./po/Makefile \
 	./po/POTFILES \
 	./po/Makefile.in \
-	./po/stamp-it 
+	./po/Makefile.in.in \
+	./po/stamp-it \
+	./m4/intltool.m4
 
 PLUGIN_FILES = \
 	alttoolbar_type.py \

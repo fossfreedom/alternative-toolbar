@@ -15,7 +15,7 @@
             Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact toolbar which can be hidden.
         </td>
         <td align="center" width="10%">
-            v0.14.1
+            v0.15.0
         </td>
         <td align="right" width="30%">
             <a href="http://flattr.com/thing/1811704/" title="fossfreedom">
@@ -87,12 +87,22 @@
 <p><strong>Git</strong>
 <code>bash
 cd ~/Downloads
+sudo apt-get install intltool git
 git clone https://github.com/fossfreedom/alternative-toolbar.git
 cd alternative-toolbar
-./install.sh
+./autogen.sh --prefix=/usr
+make
+sudo make install
 </code></p>
 
-<p>Then enable the plugin in the plugins window:</p>
+<p>This will install a system-wide installation.  If you have a previous locally installed
+version of the plugin, remove it:</p>
+
+<p><code>
+rm -rf ~/.local/share/rhythmbox/plugins/alternative-toolbar
+</code></p>
+
+<p>Enable the plugin in the plugins window:</p>
 
 <p align="center">
     <img alt="Enable plugin" src="http://i.imgur.com/UUzyfhH.png" />
@@ -126,9 +136,19 @@ sudo apt-get install rhythmbox-plugins-alternative-toolbar
 
 <p><strong>Gentoo ebuild</strong></p>
 
-<p>If you are using Gentoo you can install alternative-toolbar by adding the ebuild located in <code>gentoo/x11-plugins/alternative-toolbar</code> to your local overlay (<code>/usr/local/portage</code>).</p>
+<p>If you are using Gentoo you can install alternative-toolbar by adding the ebuild located in the gentoo branch <code>gentoo/x11-plugins/alternative-toolbar</code> to your local overlay (<code>/usr/local/portage</code>).</p>
 
-<p>Use</p>
+<p>i.e. </p>
+
+<p>```
+git clone https://github.com/fossfreedom/alternative-toolbar -b gentoo</p>
+
+<p>add the ebuild</p>
+
+<p>git checkout master
+```</p>
+
+<p>Use the following to ebuild</p>
 
 <p><code>
 $ ebuild alternative-toolbar-9999.ebuild digest
@@ -142,7 +162,7 @@ $ emerge alternative-toolbar
 <p>If installed via Git you need the original code to uninstall the plugin.
 <code>bash
 cd ~/Downloads/alternative-toolbar
-./install.sh --uninstall
+sudo make uninstall
 </code></p>
 
 <h2>Contribute</h2>
@@ -167,6 +187,7 @@ cd ~/Downloads/alternative-toolbar
 <li><a href="https://github.com/me4oslav">me4oslav</a> - design inspiration for the header-bar vision</li>
 <li>our Translators: Launchpad Translation team</li>
 <li><a href="https://github.com/julianrichen">Julian Richen</a> - revamped README</li>
+<li><a href="https://github.com/ikeydoherty">Ikey Doherty</a> - AutoTools installer</li>
 </ul>
 
 <p>As well as:</p>
