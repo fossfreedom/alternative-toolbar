@@ -47,6 +47,8 @@ from alttoolbar_widget import SmallProgressBar
 from alttoolbar_widget import SmallScale
 from alttoolbar_repeat import Repeat
 from alttoolbar_preferences import GSetting
+from alttoolbar_preferences import CoverLocale
+
 import rb
 
 
@@ -288,7 +290,9 @@ class AltToolbarShared(AltToolbarBase):
 
         ui = rb.find_plugin_file(plugin, 'ui/alttoolbar.ui')
 
+        cl = CoverLocale()
         builder = Gtk.Builder()
+        builder.set_translation_domain(cl.Locale.LOCALE_DOMAIN)
         builder.add_from_file(ui)
 
         self.load_builder_content(builder)
@@ -371,12 +375,15 @@ class AltToolbarShared(AltToolbarBase):
 
     def post_initialise(self):
         super(AltToolbarShared, self).post_initialise()
+        cl = CoverLocale()
+        cl.switch_locale(cl.Locale.LOCALE_DOMAIN)
         self.volume_button.props.value = \
             self.shell.props.shell_player.props.volume
         self.volume_button.bind_property("value",
                                          self.shell.props.shell_player,
                                          "volume",
                                          Gio.SettingsBindFlags.DEFAULT)
+        
         self.volume_button.set_visible(self.plugin.volume_control)
         self.volume_button.set_relief(Gtk.ReliefStyle.NORMAL)
         child = self.volume_button.get_child()
@@ -434,6 +441,8 @@ class AltToolbarShared(AltToolbarBase):
                         self._on_cover_popover_mouse_over)
             box.connect('enter-notify-event',
                         self._on_cover_popover_mouse_over)
+                        
+        cl.switch_locale(cl.Locale.RB)
 
     def on_startup(self, *args):
         super(AltToolbarShared, self).on_startup(*args)
@@ -1067,6 +1076,9 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self.searchbar.set_search_mode(search_button.get_active())
 
     def set_library_labels(self, song_label=None, category_label=None):
+        # locale stuff
+        cl = CoverLocale()
+        cl.switch_locale(cl.Locale.LOCALE_DOMAIN)
         if not song_label:
             self.library_song_radiobutton.set_label(_('Songs'))
         else:
@@ -1076,11 +1088,15 @@ class AltToolbarHeaderBar(AltToolbarShared):
             self.library_browser_radiobutton.set_label(_('Categories'))
         else:
             self.library_browser_radiobutton.set_label(category_label)
+            
+        cl.switch_locale(cl.Locale.RB)
 
     def library_radiobutton_toggled(self, toggle_button):
         print("library_radiobutton_toggled")
         if not self.setup_completed:
             return
+
+        self.set_library_labels()
 
         if toggle_button:
             self.emit('song-category-clicked',
@@ -1138,14 +1154,16 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
     def _setup_headerbar(self):
 
+        cl = CoverLocale()
         # define the main buttons for the headerbar
         builder = Gtk.Builder()
         ui = rb.find_plugin_file(self.plugin, 'ui/altlibrary.ui')
+        builder.set_translation_domain(cl.Locale.LOCALE_DOMAIN)
         builder.add_from_file(ui)
 
         self.load_builder_content(builder)
 
-        view_name = "Categories"
+        view_name = _("Categories")
         self.library_browser_radiobutton.set_label(view_name)
 
         default = Gtk.Settings.get_default()
@@ -1191,6 +1209,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
         self.headerbar.pack_end(self._end_box_controls)
         self.headerbar.show_all()
+        
+        self.set_library_labels()
 
         action = self.plugin.toggle_action_group.get_action('ToggleToolbar')
         if not self.plugin.start_hidden:

@@ -28,6 +28,8 @@ from alttoolbar_controller import AltControllerCategory
 from alttoolbar_preferences import GSetting
 from alttoolbar_preferences import CoverLocale
 
+import gettext
+
 
 class AltToolbarSidebar(Gtk.TreeView):
     expanders = GObject.property(type=str, default='{1:True}')
@@ -559,7 +561,12 @@ class AltToolbarSidebar(Gtk.TreeView):
             player = self.shell.props.shell_player
             playing = \
                 player.get_playing and player.get_playing_source() == source
-            renderer.props.text = source.props.name
+                
+            cl = CoverLocale()
+            cl.switch_locale(cl.Locale.LOCALE_DOMAIN)
+            translation = gettext.gettext(source.props.name)
+            cl.switch_locale(cl.Locale.RB)
+            renderer.props.text = translation
             if playing:
                 renderer.props.weight = Pango.Weight.BOLD
             else:
