@@ -1,0 +1,32 @@
+Description: <short description, required>
+ <long description that can span multiple lines, optional>
+Author: <name and email of author, optional>
+Origin: <upstream|backport|vendor|other>, <URL, required except if Author is present>
+Bug: <URL to the upstream bug report if any, implies patch has been forwarded, optional>
+Bug-<Vendor>: <URL to the vendor bug report if any, optional>
+Forwarded: <URL|no|not-needed, useless if you have a Bug field, optional>
+Applied-Upstream: <version|URL|commit, identifies patches merged upstream, optional>
+Reviewed-by: <name and email of a reviewer, optional>
+Last-Update: <YYYY-MM-DD, last update of the meta-information, optional>
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+Index: rhythmbox-plugin-alternative-toolbar-0.15.0/Makefile.am
+===================================================================
+--- rhythmbox-plugin-alternative-toolbar-0.15.0.orig/Makefile.am	2015-12-21 13:11:50.312010742 +0000
++++ rhythmbox-plugin-alternative-toolbar-0.15.0/Makefile.am	2015-12-21 13:36:14.849855359 +0000
+@@ -59,13 +59,11 @@
+ 	$(IMAGE_FILES) \
+ 	$(UI_FILES) \
+ 	$(top_srcdir)/po/Makefile.in.in \
+-	schema/org.gnome.rhythmbox.plugins.alternative_toolbar.gschema.xml \
+-	LICENSE
++	schema/org.gnome.rhythmbox.plugins.alternative_toolbar.gschema.xml 
+ 
+ rb_plugin_lib_DATA = \
+ 	$(PLUGIN_FILES) \
+-	alternative-toolbar.plugin \
+-	LICENSE
++	alternative-toolbar.plugin 
+ 
+ 
+ rb_plugin_imgdir = $(datadir)/rhythmbox/plugins/alternative-toolbar/img

@@ -10,7 +10,6 @@ Build-Depends: cdbs (>= 0.4.90~),
                gobject-introspection (>= 0.10.0),
                intltool (>= 0.35.0),
                python-gi-dev (>= 3.0),
-               python3-dev (>= 3.2.3),
                gir1.2-rb-3.0,
                gir1.2-glib-2.0,
                gir1.2-gtk-3.0,
@@ -23,14 +22,14 @@ Vcs-Browser: https://github.com/fossfreedom/alternative-toolbar.git
 
 Package: rhythmbox-plugin-alternative-toolbar
 Architecture: all
-Depends: ${misc:Depends}, rhythmbox
+Depends: ${misc:Depends}, python3-gi, python3, rhythmbox
 Description: Enhanced play controls and interface for Rhythmbox
  This plugin provides a visual new graphical interface to Rhythmbox.
  New play-controls are provided and dynamical change either by user
  choice or when using a different desktop-environment. 
  .
- A Gnome-Shell based headerbar interface is available which integrates 
- Rhythmbox with other new Gnome based applications.
+ A GNOME-Shell based headerbar interface is available which integrates 
+ Rhythmbox with other new GNOME based applications.
  .
  For non-headerbar compatible desktops, compact playcontrols toolbar is
  used which gives Rhythmbox a sleek new interface.
@@ -39,7 +38,7 @@ Description: Enhanced play controls and interface for Rhythmbox
  through music tracks as well as repeat-one track.
  .
  The sidebar has been given a visual reworking with new icons and 
- interface that integrates Rhythmbox with other Gnome applications
+ interface that integrates Rhythmbox with other GNOME applications
  .
  The plugins window has been revamped to give a consistent look with
  the latest GTK-3 based applications.
