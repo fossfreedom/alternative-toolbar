@@ -1,13 +1,8 @@
-Description: <short description, required>
- <long description that can span multiple lines, optional>
-Author: <name and email of author, optional>
-Origin: <upstream|backport|vendor|other>, <URL, required except if Author is present>
-Bug: <URL to the upstream bug report if any, implies patch has been forwarded, optional>
-Bug-<Vendor>: <URL to the vendor bug report if any, optional>
-Forwarded: <URL|no|not-needed, useless if you have a Bug field, optional>
-Applied-Upstream: <version|URL|commit, identifies patches merged upstream, optional>
-Reviewed-by: <name and email of a reviewer, optional>
-Last-Update: <YYYY-MM-DD, last update of the meta-information, optional>
+Description: remove LICENSE from automake
+ upstream contains LICENSE in Makefile.am which fails when
+ automake is run during Debian build
+Author: fossfreedom <foss.freedom@gmail.com>
+Origin: other, N/A
 ---
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 Index: rhythmbox-plugin-alternative-toolbar-0.15.0/Makefile.am

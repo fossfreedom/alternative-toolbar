@@ -1,3 +1,10 @@
+Description: remove LICENSE
+ upstream contains LICENSE which causes lintian error
+ during Debian build
+Author: fossfreedom <foss.freedom@gmail.com>
+Origin: other, N/A
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 Index: rhythmbox-plugin-alternative-toolbar-0.15.0/LICENSE
 ===================================================================
 --- rhythmbox-plugin-alternative-toolbar-0.15.0.orig/LICENSE	2015-12-21 13:11:50.308010742 +0000

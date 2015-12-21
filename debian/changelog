@@ -3,6 +3,8 @@ rhythmbox-plugin-alternative-toolbar (0.15.0-1) unstable; urgency=medium
   * New upstream release. (Closes: #808415)
   * Autotools build mechanism
   * Patch to remove LICENSE since already included in COPYRIGHT
+  * remove unneeded build-depends packages
+  * remove unneeded pythonx.y-dev packages in control.in
 
  -- fossfreedom <foss.freedom@gmail.com>  Sat, 19 Dec 2015 21:20:43 +0000
  
