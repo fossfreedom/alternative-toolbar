@@ -6,7 +6,7 @@ EAPI=5
 
 EGIT_REPO_URI="https://github.com/fossfreedom/alternative-toolbar.git"
 
-inherit eutils git-r3
+inherit eutils git-r3 autotools
 
 DESCRIPTION="Replaces the large Rhythmbox toolbar with a client-side decorated or compact toolbar which can be hidden."
 HOMEPAGE="https://github.com/fossfreedom/alternative-toolbar"
@@ -24,6 +24,10 @@ DEPEND="${RDEPEND}
 
 src_unpack() {
 	git-r3_src_unpack
+}
+
+src_prepare() {
+	eautoreconf
 }
 
 pkg_postinst() {
