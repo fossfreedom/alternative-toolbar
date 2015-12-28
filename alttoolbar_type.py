@@ -17,6 +17,9 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301  USA.
 
 from datetime import datetime, date
+from xml.etree.ElementTree import SubElement
+import xml.etree.ElementTree as ET
+import os
 
 from gi.repository import Gtk
 from gi.repository import GObject
@@ -69,6 +72,43 @@ class AltToolbarBase(GObject.Object):
         """
         super(AltToolbarBase, self).__init__()
 
+        # remember details about when an entryview has been processed
+        self._process_entryview = {}
+        folder = RB.user_cache_dir() + "/alternate-toolbar"
+
+        if not os.path.exists(folder):
+            os.makedirs(folder)
+
+        self._entryview_filename = folder + "/entryview_db.xml"
+
+        self.is_closing = False
+
+        db_version = "1"
+        try:
+            # if the db has not been deleted or is screwed up or is an older
+            #  version than expected then
+            # assume via the except we are starting from a clean db
+            self._entryview_tree = ET.parse(self._entryview_filename)
+            self._entryview_root = self._entryview_tree.getroot()
+
+            db = self._entryview_root.find("database")
+            if db.text != db_version:
+                raise ValueError("wrong database version")
+
+        except:
+            text = """
+                <root>
+                   <pages>
+                   </pages>
+                </root>
+                """
+
+            self._entryview_root = ET.fromstring(text)
+            db = SubElement(self._entryview_root, "database")
+            db.text = db_version
+            self._entryview_tree = ET.ElementTree(self._entryview_root)
+
+        # bind the source-toolbar gsettings
         gs = GSetting()
         plugin_settings = gs.get_setting(gs.Path.PLUGIN)
         plugin_settings.bind(gs.PluginKey.SOURCE_TOOLBAR, self,
@@ -128,12 +168,16 @@ class AltToolbarBase(GObject.Object):
 
         self.startup_completed = True
         self.reset_toolbar(self.shell.props.selected_page)
+        self.reset_entryview(self.shell.props.selected_page)
 
     def cleanup(self):
         """
           initiate a toolbar cleanup of resources and changes made to rhythmbox
         :return:
         """
+
+        for page in self._process_entryview:
+            self.disconnect(self._process_entryview[page])
 
         self.purge_builder_content()
 
@@ -178,6 +222,166 @@ class AltToolbarBase(GObject.Object):
            :param visible is a bool
         """
         pass
+
+
+    def reset_entryview(self, page):
+        """
+           whenever a source changes this resets the source entryview to
+           reflect the changed source
+           :param page - RBDisplayPage
+        """
+        print("reset entryview")
+        if not page:
+            print("no page")
+            return
+
+        entryview = page.get_entry_view()
+
+        if not entryview:
+            print ("no entry view")
+            return
+
+        treeview = entryview.get_child()
+
+        def move_col(*args):
+            cols = treeview.get_columns()
+
+            treeview.set_reorderable(True)
+
+            current_cols = []
+            base_col = None
+            base_col_found = False
+
+            for col in cols:
+                title = col.props.title
+                if title is not None and title.strip() != "":
+                    if not base_col_found:
+                        base_col = cols[cols.index(col) - 1]
+                        base_col_found = True
+
+                    print (title)
+                    col.set_reorderable(True)
+                    current_cols.append(col)
+
+            if page in self._process_entryview:
+                # disconnect previous signal handler if have been connected
+                # before otherwise we'll trigger stuff when moving columns
+                treeview.disconnect(self._process_entryview[page])
+
+            # now move columns around depending upon saved values
+            lookup = "pages/page[@name='" + self._safe_string(type(
+                page).__name__)+"']"
+            element = self._entryview_root.find(lookup)
+
+            if element is not None:
+                # we've got something remembered to lets move cols around
+                remembered_col_titles = eval(element.text)
+
+                remembered_cols = []
+
+                for title in remembered_col_titles:
+                    for col in current_cols:
+                        if col.props.title == title:
+                            remembered_cols.append(col)
+                            break
+
+
+                for i in range(len(remembered_cols)):
+                    for col in current_cols:
+                        if col.props.title == remembered_cols[i].props.title:
+                            if current_cols.index(col) != i:
+                                print (i, col.props.title)
+
+                                if i == 0:
+                                    treeview.move_column_after(col, base_col)
+                                else:
+                                    pos = i - 1
+
+                                    treeview.move_column_after(col,
+                                                           remembered_cols[
+                                                               pos])
+                                break
+
+            # now connect new signal handler
+            id = treeview.connect('columns-changed',
+                              self._entryview_column_changed, page)
+            self._process_entryview[page] = id
+
+        # add a short delay otherwise RB will move after us nulling our
+        # achievement
+        Gdk.threads_add_timeout(GLib.PRIORITY_DEFAULT_IDLE, 10,
+                                        move_col)
+
+    def _safe_string(self, s):
+            return ''.join([i for i in s if i.isalpha()])
+
+    def _entryview_column_changed(self, treeview, page):
+        if self.is_closing:
+            # set by the window delete-event on alternative-toolbar
+            # we basically don't want to process column-changed signals
+            # when closing because these are fired by RB during the entry-view
+            # cleanup & columns being deleted
+            return
+
+        print ("entryview column changed")
+        print (page)
+
+
+        def quoted_string(array):
+            return ','.join("'{0}'".format(x) for x in array)
+
+        lookup = "pages/page[@name='" + self._safe_string(type(
+            page).__name__)+"']"
+        node = self._entryview_root.find(lookup)
+
+        if node is None:
+            print ("new node")
+            pages = self._entryview_root.find("pages")
+            node = SubElement(pages, 'page')
+            node.set("name", self._safe_string(type(page).__name__))
+
+        arr = []
+        cols = treeview.get_columns()
+
+        for col in cols:
+            if col.props.title is not None and col.props.title !="":
+                arr.append(col.props.title)
+
+        if len(arr) < 2:
+            # nothing to do so quit before writing
+            return
+
+        output = quoted_string(arr)
+        print (output)
+
+        node.text=output
+
+        self._indent_xml(self._entryview_root)
+        self._entryview_tree.write(self._entryview_filename, xml_declaration=True)
+
+    def _indent_xml(self, elem, level=0, more_sibs=False):
+        i = "\n"
+        if level:
+            i += (level-1) * '  '
+        num_kids = len(elem)
+        if num_kids:
+            if not elem.text or not elem.text.strip():
+                elem.text = i + "  "
+                if level:
+                    elem.text += '  '
+            count = 0
+            for kid in elem:
+                self._indent_xml(kid, level+1, count < num_kids - 1)
+                count += 1
+            if not elem.tail or not elem.tail.strip():
+                elem.tail = i
+                if more_sibs:
+                    elem.tail += '  '
+        else:
+            if level and (not elem.tail or not elem.tail.strip()):
+                elem.tail = i
+                if more_sibs:
+                    elem.tail += '  '
 
     def reset_toolbar(self, page):
         """

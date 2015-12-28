@@ -15,7 +15,7 @@
 	        Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact toolbar which can be hidden.
 	    </td>
 		<td align="center" width="10%">
-			v0.15.0
+			v0.16.0
 		</td>
 		<td align="right" width="30%">
 		    <a href="http://flattr.com/thing/1811704/" title="fossfreedom">
@@ -51,6 +51,7 @@ or with the new Gnome-style client-side decoration:
 
 
 ## Features
+ - Move columns via Drag-and-Drop or column headers
  - Toggle compact or standard toolbar on or off
  - Volume Control can be switched on or off for all toolbars
  - Source Toolbars can be toggled (`CTRL + T`)
@@ -79,8 +80,39 @@ The plugin preferences allows you to define which toolbars are used:
 | `ALT + Right Arrow` | Seek forward (fast-forward) through a track. |
 | `ALT + Left Arrrow` | Seek backward through a track.               |
 
-## Install
-**Git**
+After installation enable the plugin in the plugins window:
+<p align="center">
+    <img alt="Enable plugin" src="http://i.imgur.com/UUzyfhH.png" />
+</p>
+
+If you need to enable the player controls & source menu, this can be done from the menu:
+
+ - Menu ->
+   - View ->
+     - Show Play-Controls Toolbar
+     - Show Source and Media Toolbars
+
+## Installation
+**Latest Stable Release via source code compilation**
+Navigate to the archive and grab the newest .tar.gz from https://github.com/fossfreedom/alternative-toolbar/releases
+```bash
+cd ~/Downloads
+sudo apt-get install intltool
+tar -zxvf alternative-toolbar*.tar.gz
+cd alternative-toolbar*
+./autogen.sh --prefix=/usr
+make
+sudo make install
+```
+
+This will install a system-wide installation.  If you have a previous locally installed
+version of the plugin, remove it:
+
+```
+rm -rf ~/.local/share/rhythmbox/plugins/alternative-toolbar
+```
+
+**Install Latest Development Release via Git**
 ```bash
 cd ~/Downloads
 sudo apt-get install intltool git
@@ -98,19 +130,7 @@ version of the plugin, remove it:
 rm -rf ~/.local/share/rhythmbox/plugins/alternative-toolbar
 ```
 
-Enable the plugin in the plugins window:
-<p align="center">
-    <img alt="Enable plugin" src="http://i.imgur.com/UUzyfhH.png" />
-</p>
-
-If you need to enable the player controls & source menu, this can be done from the menu:
-
- - Menu ->
-   - View -> 
-     - Show Play-Controls Toolbar
-     - Show Source and Media Toolbars
- 
-**Ubuntu PPA**
+**Ubuntu PPA - latest stable release**
 
 If you are using Ubuntu you can install alternative-toolbar via a [PPA](https://launchpad.net/~fossfreedom/+archive/ubuntu/rhythmbox-plugins).
 ```bash
@@ -119,7 +139,7 @@ sudo apt-get update
 sudo apt-get install rhythmbox-plugins-alternative-toolbar
 ```
 
-**Arch AUR**
+**Arch AUR - latest development release**
 
 If you are using Arch you can install alternative-toolbar via the [rhythmbox-plugin-alternative-toolbar-git](https://aur.archlinux.org/packages/rhythmbox-plugin-alternative-toolbar-git/) package
 
@@ -144,13 +164,11 @@ $ ebuild alternative-toolbar-9999.ebuild digest
 $ emerge alternative-toolbar
 ```
 
-to install.
-
-**Uninstall**
+##To uninstall.
 
 If installed via Git you need the original code to uninstall the plugin.
 ```bash
-cd ~/Downloads/alternative-toolbar
+cd ~/Downloads/alternative-toolbar*
 sudo make uninstall
 ```
 

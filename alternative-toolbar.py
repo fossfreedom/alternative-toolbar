@@ -23,6 +23,8 @@ from gi.repository import GObject
 from gi.repository import Peas
 from gi.repository import RB
 from gi.repository import Gio
+from gi.repository import GLib
+from gi.repository import Gdk
 
 from alttoolbar_rb3compat import ActionGroup
 from alttoolbar_rb3compat import ApplicationShell
@@ -298,6 +300,12 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                      self.show_song_position_slider_settings_changed)
         self.show_song_position_slider_settings_changed(None)
 
+        window = self.object.get_property("window")
+        window.connect('delete-event', self._on_window_delete)
+
+    def _on_window_delete(self, *args):
+        self.toolbar_type.is_closing = True
+
     def _sh_on_song_property_changed(self, sp, uri, property, old, new):
         """
            shell-player "playing-song-property-changed" signal handler
@@ -411,6 +419,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         """
         print("page changed", page)
         self.toolbar_type.reset_toolbar(page)
+        self.toolbar_type.reset_entryview(page)
 
     @staticmethod
     def find(node, search_id, search_type, button_label=None):
