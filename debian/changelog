@@ -5,8 +5,9 @@ rhythmbox-plugin-alternative-toolbar (0.15.0-1) unstable; urgency=medium
   * Patch to remove LICENSE since already included in COPYRIGHT
   * remove unneeded build-depends packages
   * remove unneeded pythonx.y-dev packages in control.in
+  * add signed debian/watch
 
- -- fossfreedom <foss.freedom@gmail.com>  Sat, 19 Dec 2015 21:20:43 +0000
+ -- fossfreedom <foss.freedom@gmail.com>  Mon, 28 Dec 2015 19:20:43 +0000
  
 rhythmbox-plugin-alternative-toolbar (0.14.1-1) unstable; urgency=medium
 
