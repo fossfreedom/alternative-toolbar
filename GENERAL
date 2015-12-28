@@ -7,3 +7,9 @@ markdown README.md > readme.html
 when testing with pyflakes ensure you run first
 
 export PYFLAKES_BUILTINS="_"
+
+when making a stable release, create a ChangeLog via 
+
+make dist
+
+cleanup a make dist is make distclean

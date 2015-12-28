@@ -18,6 +18,7 @@ CLEANFILES = \
 	./m4/intltool.m4
 
 DISTCLEANFILES = \
+    ChangeLog \
 	alternative-toolbar.plugin \
 	./po/.intltool-merge-cache \
 	./po/Makefile \
@@ -80,3 +81,21 @@ gsettings_SCHEMAS = \
 	schema/org.gnome.rhythmbox.plugins.alternative_toolbar.gschema.xml
 
 @GSETTINGS_RULES@
+
+CHANGELOG_START = v0.14.0
+
+ChangeLog:
+	@echo Creating $@
+	@if test -d "$(srcdir)/.git"; then \
+	  (GIT_DIR=$(top_srcdir)/.git ./missing --run git log $(CHANGELOG_START).. --stat) > $@.tmp \
+	  && mv -f $@.tmp $@ \
+	  || ($(RM) $@.tmp; \
+	      echo Failed to generate ChangeLog.  Your ChangeLog may be outdated >&2; \
+	      (test -f $@ || echo git-log is required to generate this file >> $@)); \
+	else \
+	  test -f $@ || \
+	  (echo A git checkout and git-log is required to generate ChangeLog >&2 && \
+	  echo A git checkout and git-log is required to generate this file >> $@); \
+	fi
+
+.PHONY: ChangeLog
