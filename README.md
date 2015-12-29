@@ -51,7 +51,7 @@ or with the new Gnome-style client-side decoration:
 
 
 ## Features
- - Move columns via Drag-and-Drop or column headers
+ - Move columns via Drag-and-Drop using a views' column headers
  - Toggle compact or standard toolbar on or off
  - Volume Control can be switched on or off for all toolbars
  - Source Toolbars can be toggled (`CTRL + T`)
@@ -136,7 +136,7 @@ If you are using Ubuntu you can install alternative-toolbar via a [PPA](https://
 ```bash
 sudo add-apt-repository ppa:fossfreedom/rhythmbox-plugins
 sudo apt-get update
-sudo apt-get install rhythmbox-plugins-alternative-toolbar
+sudo apt-get install rhythmbox-plugin-alternative-toolbar
 ```
 
 **Arch AUR - latest development release**
