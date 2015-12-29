@@ -1,3 +1,7 @@
 version=3
-opts=pgpsigurlmangle=s/$/.asc/,filenamemangle=s/.+\/v?(\d\S*)\.tar\.gz/alternative-toolbar-$1\.tar\.gz/ \
+opts=filenamemangle=s/.+\/v?(\d\S*)\.tar\.gz/alternative-toolbar-$1\.tar\.gz/,\
+pgpsigurlmangle=s/github.com/raw.githubusercontent.com/;\
+s/archive/debian/;\
+s/([^\/]+)\.tar\.gz/$1\.tar\.gz/;\
+s/$/.asc/ \
  https://github.com/fossfreedom/alternative-toolbar/tags .*/v?(\d\S*)\.tar\.gz
