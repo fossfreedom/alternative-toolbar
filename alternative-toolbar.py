@@ -325,6 +325,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
            shell-player "playing-change" signal handler
         """
         self.toolbar_type.play_control_change(player, playing)
+        self.toolbar_type.enable_slider(playing)
 
     def _sh_on_song_change(self, player, entry):
         """
