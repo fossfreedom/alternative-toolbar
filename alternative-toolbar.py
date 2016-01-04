@@ -370,8 +370,13 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             else:
                 label = "<small>{time}</small>".format(
                     time="%d:%02d:%02d" % (h, m, s))
-
-            self.toolbar_type.total_time_label.set_markup(label)
+                    
+            self.toolbar_type.enable_slider(True)
+        else:
+            label = ""
+            self.toolbar_type.enable_slider(False)
+            
+        self.toolbar_type.total_time_label.set_markup(label)
 
     def on_skip_backward(self, *args):
         """
