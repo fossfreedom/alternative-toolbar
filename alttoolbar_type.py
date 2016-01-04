@@ -222,6 +222,13 @@ class AltToolbarBase(GObject.Object):
            :param visible is a bool
         """
         pass
+    
+    def enable_slider(self, toggle):
+        """
+           enable or disable the slider (progress bar)
+           :param toggle is a bool
+        """
+        pass
 
 
     def reset_entryview(self, page):
@@ -786,6 +793,9 @@ class AltToolbarShared(AltToolbarBase):
 
     def show_slider(self, visibility):
         self.song_box.set_visible(visibility)
+        
+    def enable_slider(self, toggle):
+        self.song_box.set_sensitive(toggle)
 
     def display_song(self, entry):
         self.entry = entry
