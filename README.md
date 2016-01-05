@@ -196,3 +196,4 @@ As well as:
  - [sergioad](https://github.com/sergioad) - for the initial translation (spanish) used for testing translations
  - Thanks to the [rhythmbox-seek](https://github.com/cgarvey/rhythmbox-seek) project for the track-seeking code.
  - Thanks to the [repeat-one-song](https://launchpad.net/repeat-one-song) project for the repeat-one-song code
+ - [gipawu](https://github.com/gipawu) - improved progress slider code
