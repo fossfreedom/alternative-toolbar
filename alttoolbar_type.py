@@ -797,7 +797,7 @@ class AltToolbarShared(AltToolbarBase):
         self.song_box.set_visible(visibility)
         
     def enable_slider(self, toggle):
-        self.song_box.set_sensitive(toggle)
+        self.song_progress.set_sensitive(toggle)
 
     def display_song(self, entry):
         self.entry = entry
