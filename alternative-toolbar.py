@@ -325,7 +325,12 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
            shell-player "playing-change" signal handler
         """
         self.toolbar_type.play_control_change(player, playing)
-        self.toolbar_type.enable_slider(playing)
+        if (self.song_duration != 0):
+            self.toolbar_type.enable_slider(True)
+        else:
+            self.toolbar_type.enable_slider(False)
+            label = ""
+            self.toolbar_type.total_time_label.set_markup(label)
 
     def _sh_on_song_change(self, player, entry):
         """
@@ -371,13 +376,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             else:
                 label = "<small>{time}</small>".format(
                     time="%d:%02d:%02d" % (h, m, s))
-                    
-            self.toolbar_type.enable_slider(True)
-        else:
-            label = ""
-            self.toolbar_type.enable_slider(False)
-            
-        self.toolbar_type.total_time_label.set_markup(label)
+
+            self.toolbar_type.total_time_label.set_markup(label)
 
     def on_skip_backward(self, *args):
         """
