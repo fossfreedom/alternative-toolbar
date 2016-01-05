@@ -609,6 +609,8 @@ class AltToolbarShared(AltToolbarBase):
         else:
             self.song_progress = SmallScale()
 
+        self.song_progress.set_sensitive(False)
+
         self.song_progress.connect('control', self._sh_progress_control)
         self.song_progress.show_all()
         self.song_progress_box.pack_start(self.song_progress, False, True, 1)
