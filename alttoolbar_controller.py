@@ -490,8 +490,14 @@ class AltErrorsController(AltGenericController):
 
         self._gicon = Gio.ThemedIcon(name='dialog-error-symbolic')
 
+        self._source_types = ["RBImportErrorsSource",
+                              "RBMissingFilesSource"]
+
     def valid_source(self, source):
-        return "RBImportErrorsSource" in type(source).__name__
+        print(type(source).__name__)
+        for source_type in self._source_types:
+            if source_type in type(source).__name__:
+                return True
 
     def get_category(self):
         return AltControllerCategory.LOCAL
@@ -678,8 +684,7 @@ class AltStandardLocalController(AltGenericController):
         """
         super(AltStandardLocalController, self).__init__(header)
 
-        self._source_types = ['RBMtpSource',
-                              'RBMissingFilesSource']
+        self._source_types = ['RBMtpSource']
 
     def valid_source(self, source):
 

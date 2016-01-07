@@ -144,9 +144,6 @@ class AltToolbarSidebar(Gtk.TreeView):
     def _connect_signals(self):
         # display_page_model signals to keep the sidebar model in sync
         model = self.shell.props.display_page_model
-        # model.props.child_model.connect('row-inserted',
-        # self._model_page_inserted)
-        # model.connect('row-inserted', self._model_page_inserted)
         self._cpi = model.connect('page-inserted', self._model_page_inserted)
         self._crd = model.connect('row-deleted', self._model_page_deleted)
         self._crc = model.connect('row-changed', self._model_page_changed)
@@ -156,14 +153,14 @@ class AltToolbarSidebar(Gtk.TreeView):
         self.connect('button-press-event', self._row_click)
         # and visa versa
         tree = self.shell.props.display_page_tree
+        tree.props.model.connect('row-inserted', self._tree_inserted)
+
         tree.connect('selected',
                      self._display_page_tree_selected)
         self.shell.props.shell_player.connect('playing-song-changed',
                                               self._on_playing_song_changed)
 
         # drag drop
-        from gi.repository import Gdk
-
         self.enable_model_drag_dest([], Gdk.DragAction.COPY)
         self.drag_dest_add_uri_targets()
         self.connect('drag-drop', self.on_drag_drop)
@@ -309,8 +306,8 @@ class AltToolbarSidebar(Gtk.TreeView):
 
     def _traverse_rows(self, store, treeiter, new_parent_iter, depth):
         while treeiter is not None:
-            print(depth, store[treeiter][1])
-            print(depth, store[treeiter][1].props.name)
+            #print(depth, store[treeiter][1])
+            #print(depth, store[treeiter][1].props.name)
             if isinstance(store[treeiter][1], RB.DisplayPageGroup):
                 if store.iter_has_child(treeiter):
                     childiter = store.iter_children(treeiter)
@@ -336,13 +333,20 @@ class AltToolbarSidebar(Gtk.TreeView):
     def _model_page_changed(self, model, path, page_iter):
         print(model[page_iter][1].props.name)
         print(path)
+        #self._model_page_inserted(model, path, page_iter)
+
+    def _tree_inserted(self, model, path, page_iter):
+        print (path)
+        print (page_iter)
+        print (model[path][1].props.name)
+        print (model[path][1])
+        self._model_page_inserted(model, model[path][1], page_iter)
+
 
     def _model_page_inserted(self, model, page, page_iter):
         print(page)
         print(page_iter)
-
         parent_iter = model.iter_parent(page_iter)
-
         print(parent_iter)
 
         def find_lookup_rows(store, treeiter, page):
@@ -351,7 +355,7 @@ class AltToolbarSidebar(Gtk.TreeView):
                 found_page = store[treeiter][1]
                 print(found_page)
                 if found_page is not None and found_page == page:
-                    print("found %s" % found_page.props.name)
+                    #print("found %s" % found_page.props.name)
                     return treeiter
 
                 if store.iter_has_child(treeiter):
@@ -376,17 +380,17 @@ class AltToolbarSidebar(Gtk.TreeView):
                 not parent_iter:
             # the parent of the inserted row is a top-level item in the
             # display-page-model
-            print("top level")
+            #print("top level")
             category_iter = self._get_category_iter(page)
             leaf_iter = self.treestore.append(category_iter)
         else:
             # the parent is another source so we need to find the iter in our
             # model to hang it off
-            print("child level")
+            #print("child level")
             searchpage = model[parent_iter][1]
-            print("####", searchpage)
+            #print("####", searchpage)
             leaf_iter = find_lookup_rows(self.treestore, rootiter, searchpage)
-            print("##2", leaf_iter)
+            #print("##2", leaf_iter)
             leaf_iter = self.treestore.append(leaf_iter)
 
         self.treestore[leaf_iter][1] = page
