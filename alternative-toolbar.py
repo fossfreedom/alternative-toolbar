@@ -549,3 +549,13 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         # stop PyCharm removing the Preference import on optimisation
         pref = Preferences()
         return pref
+
+    def get_toolbar(self, callback):
+        """
+        a method to return the toolbar itself
+        :param callback: function callback - func(AT.ToolbarCallback)
+        passed
+        :return:
+        """
+
+        self.toolbar_type.setup_completed_async(callback)

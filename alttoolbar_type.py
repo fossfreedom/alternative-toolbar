@@ -54,6 +54,20 @@ from alttoolbar_preferences import CoverLocale
 
 import rb
 
+class AT(object):
+    @staticmethod
+    def ToolbarRequestCallback(toolbar_type, box=None):
+        """
+        Callback method to obtain the type of toolbar together with the
+        Gtk.Box where new UI elements can be added
+
+        :param toolbar_type: AltToolbarBase derived object
+        :param box: Gtk.Box or None if the toolbar does not have a UI where
+        new objects can be added
+        :return:
+        """
+
+        return toolbar_type, box
 
 class AltToolbarBase(GObject.Object):
     """
@@ -149,6 +163,14 @@ class AltToolbarBase(GObject.Object):
                 return True
 
         GLib.timeout_add(100, delayed)
+
+    def get_custom_box(self):
+        """
+
+        :return: Gtk.Box
+        """
+
+        return None
 
     def post_initialise(self):
         """
@@ -420,7 +442,8 @@ class AltToolbarBase(GObject.Object):
         """
 
         if self.setup_completed:
-            async_function()
+            async_function(AT.ToolbarRequestCallback(self,
+                                                   self.get_custom_box()))
         else:
             self._async_functions.append(async_function)
 
@@ -433,7 +456,8 @@ class AltToolbarBase(GObject.Object):
         """
         if self.setup_completed:
             for callback_func in self._async_functions:
-                callback_func()
+                callback_func(AT.ToolbarRequestCallback(self,
+                                                   self.get_custom_box()))
 
     def source_toolbar_visibility(self, visibility):
         """
@@ -1168,6 +1192,9 @@ class AltToolbarCompact(AltToolbarShared):
 
         self.plugin.rb_toolbar.hide()
 
+    def get_custom_box(self):
+        return self.end_box
+
     def set_visible(self, visible):
         if visible:
             print("show_compact")
@@ -1367,6 +1394,9 @@ class AltToolbarHeaderBar(AltToolbarShared):
         """
 
         return self.has_button_with_label(source, _("Browse"))
+
+    def get_custom_box(self):
+        return self.start_box
 
     def _setup_headerbar(self):
 
