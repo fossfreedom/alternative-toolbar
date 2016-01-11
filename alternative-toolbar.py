@@ -300,12 +300,6 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                      self.show_song_position_slider_settings_changed)
         self.show_song_position_slider_settings_changed(None)
 
-        window = self.object.get_property("window")
-        window.connect('delete-event', self._on_window_delete)
-
-    def _on_window_delete(self, *args):
-        self.toolbar_type.is_closing = True
-
     def _sh_on_song_property_changed(self, sp, uri, property, old, new):
         """
            shell-player "playing-song-property-changed" signal handler

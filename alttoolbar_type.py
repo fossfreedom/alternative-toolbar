@@ -95,7 +95,7 @@ class AltToolbarBase(GObject.Object):
 
         self._entryview_filename = folder + "/entryview_db.xml"
 
-        self.is_closing = False
+        self._save_cols_loop = 0
 
         db_version = "1"
         try:
@@ -345,16 +345,39 @@ class AltToolbarBase(GObject.Object):
             return ''.join([i for i in s if i.isalpha()])
 
     def _entryview_column_changed(self, treeview, page):
-        if self.is_closing:
-            # set by the window delete-event on alternative-toolbar
-            # we basically don't want to process column-changed signals
-            # when closing because these are fired by RB during the entry-view
-            # cleanup & columns being deleted
-            return
+        # we basically don't want to process column-changed signals
+        # when closing because these are fired by RB during the entry-view
+        # cleanup & columns being deleted
+        # so we hack around this by looping for .5 secs before saving...
+        # if we don't finish looping we assume that RB is closing and thus
+        # dont really want to save ... yes a bit of a hack but its the best
+        # we can do since RB doesnt have a close signal ... and just waiting
+        # on the windows close event doesnt work because File-Quit cleans up
+        # before actually closing.
 
+
+        def _save_cols(*args):
+            self._save_cols_loop += 1
+
+            if self._save_cols_loop <= 6:
+                return True
+
+            self._save_cols_loop = 0
+            self._save_entryview_cols(treeview, page)
+            return False
+
+        if self._save_cols_loop == 0:
+            self._save_cols_loop = 1
+
+            Gdk.threads_add_timeout(GLib.PRIORITY_DEFAULT_IDLE, 100,
+                                    _save_cols)
+
+        else:
+            self._save_cols_loop = 1
+
+    def _save_entryview_cols(self, treeview, page):
         print ("entryview column changed")
         print (page)
-
 
         def quoted_string(array):
             return ','.join("'{0}'".format(x) for x in array)
