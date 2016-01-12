@@ -1,14 +1,14 @@
 #!/usr/bin/make -f
 
-include /usr/share/cdbs/1/rules/autoreconf.mk
-include /usr/share/cdbs/1/rules/debhelper.mk
-include /usr/share/cdbs/1/rules/utils.mk
-include /usr/share/cdbs/1/class/gnome.mk
-include /usr/share/gnome-pkg-tools/1/rules/uploaders.mk
-include /usr/share/gnome-pkg-tools/1/rules/gnome-version.mk
--include /usr/share/gnome-pkg-tools/1/rules/gnome-get-source.mk
+%:
+	dh $@ --parallel --with autoreconf,python3
 
-DEB_DH_AUTORECONF_ARGS := --as-needed ./autogen.sh
+override_dh_autoreconf:
+	dh_autoreconf -- ./autogen.sh
 
-# List any files which are not installed
-common-binary-post-install-arch:: list-missing
+override_dh_auto_configure:
+	dh_auto_configure -- --libdir="\$${exec_prefix}/lib"
+
+override_dh_auto_install:
+	dh_auto_install
+	find debian -name LICENSE -delete
