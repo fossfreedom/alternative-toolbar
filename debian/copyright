@@ -3,7 +3,11 @@ Upstream-Name: alternative-toolbar
 Source: https://github.com/fossfreedom/alternative-toolbar
 
 Files: *
-Copyright: 2015 fossfreedom <foss.freedom@gmail.com>
+Copyright: 2015 David Mohammed <foss.freedom@gmail.com>
+License: GPL-3+
+
+Files: po/*.po
+Copyright: 2015 Rosetta Contributors and Canonical Ltd 2015
 License: GPL-3+
 
 License: GPL-3+
