@@ -23,8 +23,6 @@ from gi.repository import GObject
 from gi.repository import Peas
 from gi.repository import RB
 from gi.repository import Gio
-from gi.repository import GLib
-from gi.repository import Gdk
 
 from alttoolbar_rb3compat import ActionGroup
 from alttoolbar_rb3compat import ApplicationShell

@@ -13,3 +13,19 @@ when making a stable release, create a ChangeLog via
 make dist
 
 cleanup a make dist is make distclean
+
+####
+
+Before uploading test with the following:
+
+grep -riE 'fixme|todo|hack|xxx' .
+suspicious-source
+pyflakes .
+pyflakes3 .
+pep8 --ignore W191 .
+find -type f \( -iname '*.po' -o -iname '*.pot' \) -exec msgfmt --check --check-compatibility --check-accelerators --output-file=/dev/null {} \;
+
+
+from the built and installed package:
+
+adequate rhythbox-plugin-alternative-toolbar
