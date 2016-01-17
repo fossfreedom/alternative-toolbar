@@ -15,6 +15,7 @@ Build-Depends: debhelper (>= 9),
                intltool (>= 0.35.0),
                libglib2.0-dev,
                pkg-config,
+               python3-gi,
                python3
 Standards-Version: 3.9.6
 Homepage: https://github.com/fossfreedom/alternative-toolbar
