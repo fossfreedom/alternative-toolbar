@@ -1,4 +1,4 @@
-AC_INIT([alternative-toolbar], 0.16.0, [foss.freedom@gmail.com],
+AC_INIT([alternative-toolbar], 0.16.2, [foss.freedom@gmail.com],
 [alternative-toolbar], [https://github.com/fossfreedom/alternative-toolbar])
 AM_INIT_AUTOMAKE([-Wno-portability no-dist-gzip dist-xz foreign subdir-objects])
 AC_PREFIX_DEFAULT(/usr/local)

@@ -298,12 +298,6 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                      self.show_song_position_slider_settings_changed)
         self.show_song_position_slider_settings_changed(None)
 
-        window = self.object.get_property("window")
-        window.connect('delete-event', self._on_window_delete)
-
-    def _on_window_delete(self, *args):
-        self.toolbar_type.is_closing = True
-
     def _sh_on_song_property_changed(self, sp, uri, property, old, new):
         """
            shell-player "playing-song-property-changed" signal handler
@@ -323,6 +317,12 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
            shell-player "playing-change" signal handler
         """
         self.toolbar_type.play_control_change(player, playing)
+        if (self.song_duration != 0):
+            self.toolbar_type.enable_slider(True)
+        else:
+            self.toolbar_type.enable_slider(False)
+            label = ""
+            self.toolbar_type.total_time_label.set_markup(label)
 
     def _sh_on_song_change(self, player, entry):
         """
@@ -541,3 +541,13 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         # stop PyCharm removing the Preference import on optimisation
         pref = Preferences()
         return pref
+
+    def get_toolbar(self, callback):
+        """
+        a method to return the toolbar itself
+        :param callback: function callback - func(AT.ToolbarCallback)
+        passed
+        :return:
+        """
+
+        self.toolbar_type.setup_completed_async(callback)

@@ -15,7 +15,7 @@
 	        Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact toolbar which can be hidden.
 	    </td>
 		<td align="center" width="10%">
-			v0.16.0
+			v0.16.2
 		</td>
 		<td align="right" width="30%">
 		    <a href="http://flattr.com/thing/1811704/" title="fossfreedom">
@@ -196,3 +196,4 @@ As well as:
  - [sergioad](https://github.com/sergioad) - for the initial translation (spanish) used for testing translations
  - Thanks to the [rhythmbox-seek](https://github.com/cgarvey/rhythmbox-seek) project for the track-seeking code.
  - Thanks to the [repeat-one-song](https://launchpad.net/repeat-one-song) project for the repeat-one-song code
+ - [gipawu](https://github.com/gipawu) - improved progress slider code

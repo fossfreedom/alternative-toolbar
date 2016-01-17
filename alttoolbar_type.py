@@ -54,6 +54,20 @@ from alttoolbar_preferences import CoverLocale
 
 import rb
 
+class AT(object):
+    @staticmethod
+    def ToolbarRequestCallback(toolbar_type, box=None):
+        """
+        Callback method to obtain the type of toolbar together with the
+        Gtk.Box where new UI elements can be added
+
+        :param toolbar_type: AltToolbarBase derived object
+        :param box: Gtk.Box or None if the toolbar does not have a UI where
+        new objects can be added
+        :return:
+        """
+
+        return toolbar_type, box
 
 class AltToolbarBase(GObject.Object):
     """
@@ -81,7 +95,7 @@ class AltToolbarBase(GObject.Object):
 
         self._entryview_filename = folder + "/entryview_db.xml"
 
-        self.is_closing = False
+        self._save_cols_loop = 0
 
         db_version = "1"
         try:
@@ -149,6 +163,14 @@ class AltToolbarBase(GObject.Object):
                 return True
 
         GLib.timeout_add(100, delayed)
+
+    def get_custom_box(self):
+        """
+
+        :return: Gtk.Box
+        """
+
+        return None
 
     def post_initialise(self):
         """
@@ -220,6 +242,13 @@ class AltToolbarBase(GObject.Object):
         """
            show or hide the slider (progress bar)
            :param visible is a bool
+        """
+        pass
+    
+    def enable_slider(self, toggle):
+        """
+           enable or disable the slider (progress bar)
+           :param toggle is a bool
         """
         pass
 
@@ -316,16 +345,39 @@ class AltToolbarBase(GObject.Object):
             return ''.join([i for i in s if i.isalpha()])
 
     def _entryview_column_changed(self, treeview, page):
-        if self.is_closing:
-            # set by the window delete-event on alternative-toolbar
-            # we basically don't want to process column-changed signals
-            # when closing because these are fired by RB during the entry-view
-            # cleanup & columns being deleted
-            return
+        # we basically don't want to process column-changed signals
+        # when closing because these are fired by RB during the entry-view
+        # cleanup & columns being deleted
+        # so we hack around this by looping for .5 secs before saving...
+        # if we don't finish looping we assume that RB is closing and thus
+        # dont really want to save ... yes a bit of a hack but its the best
+        # we can do since RB doesnt have a close signal ... and just waiting
+        # on the windows close event doesnt work because File-Quit cleans up
+        # before actually closing.
 
+
+        def _save_cols(*args):
+            self._save_cols_loop += 1
+
+            if self._save_cols_loop <= 6:
+                return True
+
+            self._save_cols_loop = 0
+            self._save_entryview_cols(treeview, page)
+            return False
+
+        if self._save_cols_loop == 0:
+            self._save_cols_loop = 1
+
+            Gdk.threads_add_timeout(GLib.PRIORITY_DEFAULT_IDLE, 100,
+                                    _save_cols)
+
+        else:
+            self._save_cols_loop = 1
+
+    def _save_entryview_cols(self, treeview, page):
         print ("entryview column changed")
         print (page)
-
 
         def quoted_string(array):
             return ','.join("'{0}'".format(x) for x in array)
@@ -413,7 +465,8 @@ class AltToolbarBase(GObject.Object):
         """
 
         if self.setup_completed:
-            async_function()
+            async_function(AT.ToolbarRequestCallback(self,
+                                                   self.get_custom_box()))
         else:
             self._async_functions.append(async_function)
 
@@ -426,7 +479,8 @@ class AltToolbarBase(GObject.Object):
         """
         if self.setup_completed:
             for callback_func in self._async_functions:
-                callback_func()
+                callback_func(AT.ToolbarRequestCallback(self,
+                                                   self.get_custom_box()))
 
     def source_toolbar_visibility(self, visibility):
         """
@@ -601,6 +655,8 @@ class AltToolbarShared(AltToolbarBase):
             self.song_progress = SmallProgressBar()
         else:
             self.song_progress = SmallScale()
+
+        self.song_progress.set_sensitive(False)
 
         self.song_progress.connect('control', self._sh_progress_control)
         self.song_progress.show_all()
@@ -786,6 +842,9 @@ class AltToolbarShared(AltToolbarBase):
 
     def show_slider(self, visibility):
         self.song_box.set_visible(visibility)
+        
+    def enable_slider(self, toggle):
+        self.song_progress.set_sensitive(toggle)
 
     def display_song(self, entry):
         self.entry = entry
@@ -1156,6 +1215,9 @@ class AltToolbarCompact(AltToolbarShared):
 
         self.plugin.rb_toolbar.hide()
 
+    def get_custom_box(self):
+        return self.end_box
+
     def set_visible(self, visible):
         if visible:
             print("show_compact")
@@ -1355,6 +1417,9 @@ class AltToolbarHeaderBar(AltToolbarShared):
         """
 
         return self.has_button_with_label(source, _("Browse"))
+
+    def get_custom_box(self):
+        return self.start_box
 
     def _setup_headerbar(self):
 
