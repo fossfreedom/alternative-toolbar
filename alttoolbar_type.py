@@ -16,43 +16,43 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301  USA.
 
+import os
+import xml.etree.ElementTree as ET
 from datetime import datetime, date
 from xml.etree.ElementTree import SubElement
-import xml.etree.ElementTree as ET
-import os
 
-from gi.repository import Gtk
-from gi.repository import GObject
-from gi.repository import RB
+import rb
 from gi.repository import GLib
+from gi.repository import GObject
+from gi.repository import Gdk
 from gi.repository import GdkPixbuf
 from gi.repository import Gio
-from gi.repository import Gdk
+from gi.repository import Gtk
 from gi.repository import Pango
+from gi.repository import RB
 
-from alttoolbar_rb3compat import gtk_version
-from alttoolbar_controller import AltGenericController
+from alttoolbar_controller import AltAndroidController
 from alttoolbar_controller import AltCoverArtBrowserController
 from alttoolbar_controller import AltCoverArtPlaySourceController
+from alttoolbar_controller import AltErrorsController
+from alttoolbar_controller import AltGenericController
+from alttoolbar_controller import AltLastFMController
 from alttoolbar_controller import AltMusicLibraryController
-from alttoolbar_controller import AltSoundCloudController
+from alttoolbar_controller import AltPlaylistController
+from alttoolbar_controller import AltPodcastController
 from alttoolbar_controller import AltQueueController
 from alttoolbar_controller import AltRadioController
-from alttoolbar_controller import AltLastFMController
-from alttoolbar_controller import AltPlaylistController
-from alttoolbar_controller import AltErrorsController
-from alttoolbar_controller import AltPodcastController
-from alttoolbar_controller import AltStandardOnlineController
+from alttoolbar_controller import AltSoundCloudController
 from alttoolbar_controller import AltStandardLocalController
-from alttoolbar_controller import AltAndroidController
+from alttoolbar_controller import AltStandardOnlineController
+from alttoolbar_preferences import CoverLocale
+from alttoolbar_preferences import GSetting
+from alttoolbar_rb3compat import gtk_version
+from alttoolbar_repeat import Repeat
 from alttoolbar_sidebar import AltToolbarSidebar
 from alttoolbar_widget import SmallProgressBar
 from alttoolbar_widget import SmallScale
-from alttoolbar_repeat import Repeat
-from alttoolbar_preferences import GSetting
-from alttoolbar_preferences import CoverLocale
 
-import rb
 
 class AT(object):
     @staticmethod
@@ -68,6 +68,7 @@ class AT(object):
         """
 
         return toolbar_type, box
+
 
 class AltToolbarBase(GObject.Object):
     """
@@ -150,6 +151,7 @@ class AltToolbarBase(GObject.Object):
         # rhythmbox has everything initiated at this point.
 
         self.startup_completed = False
+
         # self.shell.props.db.connect('load-complete', self.on_load_complete)
 
         # fire event anyway - scenario is when plugin is first activated post
@@ -244,14 +246,13 @@ class AltToolbarBase(GObject.Object):
            :param visible is a bool
         """
         pass
-    
+
     def enable_slider(self, toggle):
         """
            enable or disable the slider (progress bar)
            :param toggle is a bool
         """
         pass
-
 
     def reset_entryview(self, page):
         """
@@ -267,7 +268,7 @@ class AltToolbarBase(GObject.Object):
         entryview = page.get_entry_view()
 
         if not entryview:
-            print ("no entry view")
+            print("no entry view")
             return
 
         treeview = entryview.get_child()
@@ -288,7 +289,7 @@ class AltToolbarBase(GObject.Object):
                         base_col = cols[cols.index(col) - 1]
                         base_col_found = True
 
-                    print (title)
+                    print(title)
                     col.set_reorderable(True)
                     current_cols.append(col)
 
@@ -299,7 +300,7 @@ class AltToolbarBase(GObject.Object):
 
             # now move columns around depending upon saved values
             lookup = "pages/page[@name='" + self._safe_string(type(
-                page).__name__)+"']"
+                page).__name__) + "']"
             element = self._entryview_root.find(lookup)
 
             if element is not None:
@@ -314,12 +315,11 @@ class AltToolbarBase(GObject.Object):
                             remembered_cols.append(col)
                             break
 
-
                 for i in range(len(remembered_cols)):
                     for col in current_cols:
                         if col.props.title == remembered_cols[i].props.title:
                             if current_cols.index(col) != i:
-                                print (i, col.props.title)
+                                print(i, col.props.title)
 
                                 if i == 0:
                                     treeview.move_column_after(col, base_col)
@@ -327,34 +327,33 @@ class AltToolbarBase(GObject.Object):
                                     pos = i - 1
 
                                     treeview.move_column_after(col,
-                                                           remembered_cols[
-                                                               pos])
+                                                               remembered_cols[
+                                                                   pos])
                                 break
 
             # now connect new signal handler
             id = treeview.connect('columns-changed',
-                              self._entryview_column_changed, page)
+                                  self._entryview_column_changed, page)
             self._process_entryview[page] = id
 
         # add a short delay otherwise RB will move after us nulling our
         # achievement
         Gdk.threads_add_timeout(GLib.PRIORITY_DEFAULT_IDLE, 10,
-                                        move_col)
+                                move_col)
 
     def _safe_string(self, s):
-            return ''.join([i for i in s if i.isalpha()])
+        return ''.join([i for i in s if i.isalpha()])
 
     def _entryview_column_changed(self, treeview, page):
         # we basically don't want to process column-changed signals
         # when closing because these are fired by RB during the entry-view
         # cleanup & columns being deleted
-        # so we hack around this by looping for .5 secs before saving...
+        # so we work around this by looping for .5 secs before saving...
         # if we don't finish looping we assume that RB is closing and thus
-        # dont really want to save ... yes a bit of a hack but its the best
+        # dont really want to save ... yes a bit of a funny but its the best
         # we can do since RB doesnt have a close signal ... and just waiting
         # on the windows close event doesnt work because File-Quit cleans up
         # before actually closing.
-
 
         def _save_cols(*args):
             self._save_cols_loop += 1
@@ -376,18 +375,18 @@ class AltToolbarBase(GObject.Object):
             self._save_cols_loop = 1
 
     def _save_entryview_cols(self, treeview, page):
-        print ("entryview column changed")
-        print (page)
+        print("entryview column changed")
+        print(page)
 
         def quoted_string(array):
             return ','.join("'{0}'".format(x) for x in array)
 
         lookup = "pages/page[@name='" + self._safe_string(type(
-            page).__name__)+"']"
+            page).__name__) + "']"
         node = self._entryview_root.find(lookup)
 
         if node is None:
-            print ("new node")
+            print("new node")
             pages = self._entryview_root.find("pages")
             node = SubElement(pages, 'page')
             node.set("name", self._safe_string(type(page).__name__))
@@ -396,7 +395,7 @@ class AltToolbarBase(GObject.Object):
         cols = treeview.get_columns()
 
         for col in cols:
-            if col.props.title is not None and col.props.title !="":
+            if col.props.title is not None and col.props.title != "":
                 arr.append(col.props.title)
 
         if len(arr) < 2:
@@ -404,17 +403,18 @@ class AltToolbarBase(GObject.Object):
             return
 
         output = quoted_string(arr)
-        print (output)
+        print(output)
 
-        node.text=output
+        node.text = output
 
         self._indent_xml(self._entryview_root)
-        self._entryview_tree.write(self._entryview_filename, xml_declaration=True)
+        self._entryview_tree.write(self._entryview_filename,
+                                   xml_declaration=True)
 
     def _indent_xml(self, elem, level=0, more_sibs=False):
         i = "\n"
         if level:
-            i += (level-1) * '  '
+            i += (level - 1) * '  '
         num_kids = len(elem)
         if num_kids:
             if not elem.text or not elem.text.strip():
@@ -423,7 +423,7 @@ class AltToolbarBase(GObject.Object):
                     elem.text += '  '
             count = 0
             for kid in elem:
-                self._indent_xml(kid, level+1, count < num_kids - 1)
+                self._indent_xml(kid, level + 1, count < num_kids - 1)
                 count += 1
             if not elem.tail or not elem.tail.strip():
                 elem.tail = i
@@ -466,7 +466,7 @@ class AltToolbarBase(GObject.Object):
 
         if self.setup_completed:
             async_function(AT.ToolbarRequestCallback(self,
-                                                   self.get_custom_box()))
+                                                     self.get_custom_box()))
         else:
             self._async_functions.append(async_function)
 
@@ -480,7 +480,7 @@ class AltToolbarBase(GObject.Object):
         if self.setup_completed:
             for callback_func in self._async_functions:
                 callback_func(AT.ToolbarRequestCallback(self,
-                                                   self.get_custom_box()))
+                                                        self.get_custom_box()))
 
     def source_toolbar_visibility(self, visibility):
         """
@@ -641,7 +641,7 @@ class AltToolbarShared(AltToolbarBase):
                                          self.shell.props.shell_player,
                                          "volume",
                                          Gio.SettingsBindFlags.DEFAULT)
-        
+
         self.volume_button.set_visible(self.plugin.volume_control)
         self.volume_button.set_relief(Gtk.ReliefStyle.NORMAL)
         child = self.volume_button.get_child()
@@ -701,7 +701,7 @@ class AltToolbarShared(AltToolbarBase):
                         self._on_cover_popover_mouse_over)
             box.connect('enter-notify-event',
                         self._on_cover_popover_mouse_over)
-                        
+
         cl.switch_locale(cl.Locale.RB)
 
     def on_startup(self, *args):
@@ -842,7 +842,7 @@ class AltToolbarShared(AltToolbarBase):
 
     def show_slider(self, visibility):
         self.song_box.set_visible(visibility)
-        
+
     def enable_slider(self, toggle):
         self.song_progress.set_sensitive(toggle)
 
@@ -1354,7 +1354,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
             self.library_browser_radiobutton.set_label(_('Categories'))
         else:
             self.library_browser_radiobutton.set_label(category_label)
-            
+
         cl.switch_locale(cl.Locale.RB)
 
     def library_radiobutton_toggled(self, toggle_button):
@@ -1478,7 +1478,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
         self.headerbar.pack_end(self._end_box_controls)
         self.headerbar.show_all()
-        
+
         self.set_library_labels()
 
         action = self.plugin.toggle_action_group.get_action('ToggleToolbar')

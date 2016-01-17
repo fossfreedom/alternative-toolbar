@@ -18,15 +18,15 @@
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
 
-from gi.repository import GObject
-from gi.repository import Gtk
-from gi.repository import Gdk
 from gi.repository import GLib
+from gi.repository import GObject
+from gi.repository import Gdk
 from gi.repository import Gio
+from gi.repository import Gtk
 
-from alttoolbar_rb3compat import gtk_version
-from alttoolbar_preferences import GSetting
 from alttoolbar_preferences import CoverLocale
+from alttoolbar_preferences import GSetting
+from alttoolbar_rb3compat import gtk_version
 
 
 class Repeat(GObject.Object):

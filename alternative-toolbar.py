@@ -18,23 +18,23 @@
 
 # define plugin
 
-from gi.repository import Gtk
+import rb
 from gi.repository import GObject
+from gi.repository import Gio
+from gi.repository import Gtk
 from gi.repository import Peas
 from gi.repository import RB
-from gi.repository import Gio
 
+from alttoolbar_plugins import PluginDialog
+from alttoolbar_preferences import CoverLocale
+from alttoolbar_preferences import GSetting
+from alttoolbar_preferences import Preferences
 from alttoolbar_rb3compat import ActionGroup
 from alttoolbar_rb3compat import ApplicationShell
 from alttoolbar_rb3compat import gtk_version
-from alttoolbar_type import AltToolbarStandard
 from alttoolbar_type import AltToolbarCompact
 from alttoolbar_type import AltToolbarHeaderBar
-from alttoolbar_preferences import Preferences
-from alttoolbar_preferences import GSetting
-from alttoolbar_preferences import CoverLocale
-from alttoolbar_plugins import PluginDialog
-import rb
+from alttoolbar_type import AltToolbarStandard
 
 view_menu_ui = """
 <ui>
@@ -435,6 +435,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         cannot use by_id
         :return:N/A
         """
+
         # Couldn't find better way to find widgets than loop through them
         # print("by_name %s by_id %s" % (node.get_name(),
         # Gtk.Buildable.get_name(node)))

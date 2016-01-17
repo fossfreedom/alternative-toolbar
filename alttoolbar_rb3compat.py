@@ -24,13 +24,12 @@
 import sys
 import xml.etree.ElementTree as ET
 
-from gi.repository import Gtk
-from gi.repository import Gio
+import rb
 from gi.repository import GLib
 from gi.repository import GObject
+from gi.repository import Gio
+from gi.repository import Gtk
 from gi.repository import RB
-
-import rb
 
 
 def gtk_version():
@@ -93,7 +92,6 @@ if PYVER >= 3:
 
     def unicode(a, b):
         return (a, b)
-
 else:
     import httplib
 

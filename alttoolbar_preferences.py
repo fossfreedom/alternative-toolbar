@@ -18,19 +18,18 @@
 
 # define plugin
 
-import sys
+import gettext
+import locale
 import os
 import shutil
-import locale
-import gettext
-
-from gi.repository import Gtk
-from gi.repository import GObject
-from gi.repository import PeasGtk
-from gi.repository import Gio
-from gi.repository import RB
+import sys
 
 import rb
+from gi.repository import GObject
+from gi.repository import Gio
+from gi.repository import Gtk
+from gi.repository import PeasGtk
+from gi.repository import RB
 
 
 class GSetting:
@@ -43,6 +42,7 @@ class GSetting:
 
     class __impl:
         """ Implementation of the singleton interface """
+
         # below public variables and methods that can be called for GSetting
         def __init__(self):
             """
@@ -128,6 +128,7 @@ class CoverLocale:
 
     class __impl:
         """ Implementation of the singleton interface """
+
         # below public variables and methods that can be called for CoverLocale
         def __init__(self):
             """

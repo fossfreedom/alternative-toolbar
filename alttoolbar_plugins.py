@@ -17,15 +17,15 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301  USA.
 
 import gettext
-import webbrowser
 import re
+import webbrowser
 
+from gi.repository import GLib
+from gi.repository import Gio
 from gi.repository import Gtk
+from gi.repository import Pango
 from gi.repository import Peas
 from gi.repository import PeasGtk
-from gi.repository import Gio
-from gi.repository import Pango
-from gi.repository import GLib
 
 from alttoolbar_preferences import CoverLocale
 

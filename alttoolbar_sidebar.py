@@ -16,19 +16,19 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301  USA.
 
-from gi.repository import Gtk
-from gi.repository import GObject
+import gettext
+
 from gi.repository import GLib
+from gi.repository import GObject
+from gi.repository import Gdk
+from gi.repository import Gio
+from gi.repository import Gtk
 from gi.repository import Pango
 from gi.repository import RB
-from gi.repository import Gio
-from gi.repository import Gdk
 
 from alttoolbar_controller import AltControllerCategory
-from alttoolbar_preferences import GSetting
 from alttoolbar_preferences import CoverLocale
-
-import gettext
+from alttoolbar_preferences import GSetting
 
 
 class AltToolbarSidebar(Gtk.TreeView):
@@ -306,8 +306,8 @@ class AltToolbarSidebar(Gtk.TreeView):
 
     def _traverse_rows(self, store, treeiter, new_parent_iter, depth):
         while treeiter is not None:
-            #print(depth, store[treeiter][1])
-            #print(depth, store[treeiter][1].props.name)
+            # print(depth, store[treeiter][1])
+            # print(depth, store[treeiter][1].props.name)
             if isinstance(store[treeiter][1], RB.DisplayPageGroup):
                 if store.iter_has_child(treeiter):
                     childiter = store.iter_children(treeiter)
@@ -333,15 +333,14 @@ class AltToolbarSidebar(Gtk.TreeView):
     def _model_page_changed(self, model, path, page_iter):
         print(model[page_iter][1].props.name)
         print(path)
-        #self._model_page_inserted(model, path, page_iter)
+        # self._model_page_inserted(model, path, page_iter)
 
     def _tree_inserted(self, model, path, page_iter):
-        print (path)
-        print (page_iter)
-        print (model[path][1].props.name)
-        print (model[path][1])
+        print(path)
+        print(page_iter)
+        print(model[path][1].props.name)
+        print(model[path][1])
         self._model_page_inserted(model, model[path][1], page_iter)
-
 
     def _model_page_inserted(self, model, page, page_iter):
         print(page)
@@ -355,7 +354,7 @@ class AltToolbarSidebar(Gtk.TreeView):
                 found_page = store[treeiter][1]
                 print(found_page)
                 if found_page is not None and found_page == page:
-                    #print("found %s" % found_page.props.name)
+                    # print("found %s" % found_page.props.name)
                     return treeiter
 
                 if store.iter_has_child(treeiter):
@@ -380,17 +379,17 @@ class AltToolbarSidebar(Gtk.TreeView):
                 not parent_iter:
             # the parent of the inserted row is a top-level item in the
             # display-page-model
-            #print("top level")
+            # print("top level")
             category_iter = self._get_category_iter(page)
             leaf_iter = self.treestore.append(category_iter)
         else:
             # the parent is another source so we need to find the iter in our
             # model to hang it off
-            #print("child level")
+            # print("child level")
             searchpage = model[parent_iter][1]
-            #print("####", searchpage)
+            # print("####", searchpage)
             leaf_iter = find_lookup_rows(self.treestore, rootiter, searchpage)
-            #print("##2", leaf_iter)
+            # print("##2", leaf_iter)
             leaf_iter = self.treestore.append(leaf_iter)
 
         self.treestore[leaf_iter][1] = page
@@ -565,7 +564,7 @@ class AltToolbarSidebar(Gtk.TreeView):
             player = self.shell.props.shell_player
             playing = \
                 player.get_playing and player.get_playing_source() == source
-                
+
             cl = CoverLocale()
             cl.switch_locale(cl.Locale.LOCALE_DOMAIN)
             translation = gettext.gettext(source.props.name)
