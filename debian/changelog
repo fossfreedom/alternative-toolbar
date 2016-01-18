@@ -1,3 +1,19 @@
+rhythmbox-plugin-alternative-toolbar (0.16.3-1) unstable; urgency=medium
+
+  * New upstream release. (Closes: #811263)
+    - Drag-drop of column headers (github issue 67)
+    - slider greyed out on start (github issue 69)
+    - Translations displayed correctly (github issue 64)
+    - add Git ChangeLog (v0.15.0 to v0.16.3)
+  * Packaging changes:
+    - byte-compilation on install to speed up plugin load
+    - python3-gi build-dependency to resolve build failure on some 
+      Debian derivatives
+    - build dependency versions updated to target Jessie and similar 
+      Debian derivatives
+
+ -- David Mohammed <foss.freedom@gmail.com>  Sun, 17 Jan 2016 11:06:18 +0000
+
 rhythmbox-plugin-alternative-toolbar (0.15.0-1) unstable; urgency=low
 
   * Initial release. (Closes: #804192)

@@ -1,20 +1,20 @@
 Source: rhythmbox-plugin-alternative-toolbar
 Section: misc
 Priority: optional
-Maintainer: fossfreedom <foss.freedom@gmail.com>
+Maintainer: David Mohammed <foss.freedom@gmail.com>
 Build-Depends: debhelper (>= 9),
-               dh-autoreconf,
+               dh-autoreconf (>= 9),
                dh-python (>= 1.20130903),
-               gir1.2-glib-2.0,
+               gir1.2-glib-2.0 (>= 1.40),
                gir1.2-gstreamer-1.0,
                gir1.2-gtk-3.0,
                gir1.2-peas-1.0,
                gir1.2-rb-3.0,
-               gnome-pkg-tools (>= 0.6),
-               gobject-introspection (>= 0.10.0),
-               intltool (>= 0.35.0),
-               libglib2.0-dev,
-               pkg-config,
+               gnome-pkg-tools (>= 0.19),
+               gobject-introspection (>= 1.40),
+               intltool (>= 0.50),
+               libglib2.0-dev (>= 2.40),
+               pkg-config (>= 0.26),
                python3-gi,
                python3
 Standards-Version: 3.9.6
@@ -23,7 +23,7 @@ Vcs-Browser: https://github.com/fossfreedom/alternative-toolbar.git
 
 Package: rhythmbox-plugin-alternative-toolbar
 Architecture: all
-Depends: python3, python3-gi, rhythmbox, ${misc:Depends}
+Depends: python3, python3-gi, rhythmbox (>= 3.0), ${misc:Depends}
 Description: Enhanced play controls and interface for Rhythmbox
  This plugin provides a visual new graphical interface to Rhythmbox.
  New play-controls are provided and dynamical change either by user
