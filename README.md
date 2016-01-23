@@ -15,7 +15,7 @@
 	        Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact toolbar which can be hidden.
 	    </td>
 		<td align="center" width="10%">
-			v0.16.3
+			v0.17.0 - Development
 		</td>
 		<td align="right" width="30%">
 		    <a href="http://flattr.com/thing/1811704/" title="fossfreedom">
@@ -51,6 +51,7 @@ or with the new Gnome-style client-side decoration:
 
 
 ## Features
+ - Set and remember the column size (0.17.0 needs testing)
  - Move columns via Drag-and-Drop using a views' column headers
  - Toggle compact or standard toolbar on or off
  - Volume Control can be switched on or off for all toolbars

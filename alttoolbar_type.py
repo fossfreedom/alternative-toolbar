@@ -201,7 +201,9 @@ class AltToolbarBase(GObject.Object):
         """
 
         for page in self._process_entryview:
-            self.disconnect(self._process_entryview[page])
+            self.disconnect(self._process_entryview[page]['size'])
+            self.disconnect(self._process_entryview[page]['changed'])
+
 
         self.purge_builder_content()
 
@@ -296,11 +298,12 @@ class AltToolbarBase(GObject.Object):
             if page in self._process_entryview:
                 # disconnect previous signal handler if have been connected
                 # before otherwise we'll trigger stuff when moving columns
-                treeview.disconnect(self._process_entryview[page])
+                treeview.disconnect(self._process_entryview[page]['changed'])
+                treeview.disconnect(self._process_entryview[page]['size'])
 
             # now move columns around depending upon saved values
-            lookup = "pages/page[@name='" + self._safe_string(type(
-                page).__name__) + "']"
+            safe_name = self._safe_string(type(page).__name__)
+            lookup = "pages/page[@name='" + safe_name + "']"
             element = self._entryview_root.find(lookup)
 
             if element is not None:
@@ -331,18 +334,41 @@ class AltToolbarBase(GObject.Object):
                                                                    pos])
                                 break
 
+                # now reset column widths
+                for col in current_cols:
+                    safe_col_name = self._safe_string(col.props.title)
+
+                    lookup = "pages/" + safe_name + "[@column='" + \
+                             safe_col_name + "']"
+                    col_node = self._entryview_root.find(lookup)
+
+                    if col_node is not None:
+                        col.set_fixed_width(int(col_node.get("width")))
+                        # col.set_min_width(int(col_node.get("width")))
+                        # col.set_max_width(-1)
+                        # col.set_min_width(-1)
+
             # now connect new signal handler
-            id = treeview.connect('columns-changed',
-                                  self._entryview_column_changed, page)
-            self._process_entryview[page] = id
+            ids = {}
+            ids['changed'] = treeview.connect('columns-changed',
+                                              self._entryview_column_changed, page)
+
+            ids['size'] = treeview.connect('size-allocate',
+                                           self._entryview_size_allocate, page)
+
+            self._process_entryview[page] = ids
 
         # add a short delay otherwise RB will move after us nulling our
         # achievement
         Gdk.threads_add_timeout(GLib.PRIORITY_DEFAULT_IDLE, 10,
                                 move_col)
 
+
     def _safe_string(self, s):
         return ''.join([i for i in s if i.isalpha()])
+
+    def _entryview_size_allocate(self, treeview, allocation, page):
+        self._entryview_column_changed(treeview, page)
 
     def _entryview_column_changed(self, treeview, page):
         # we basically don't want to process column-changed signals
@@ -381,15 +407,16 @@ class AltToolbarBase(GObject.Object):
         def quoted_string(array):
             return ','.join("'{0}'".format(x) for x in array)
 
-        lookup = "pages/page[@name='" + self._safe_string(type(
-            page).__name__) + "']"
+        safe_name = self._safe_string(type(page).__name__)
+        lookup = "pages/page[@name='" + safe_name + "']"
         node = self._entryview_root.find(lookup)
+
+        pages = self._entryview_root.find("pages")
 
         if node is None:
             print("new node")
-            pages = self._entryview_root.find("pages")
             node = SubElement(pages, 'page')
-            node.set("name", self._safe_string(type(page).__name__))
+            node.set("name", safe_name)
 
         arr = []
         cols = treeview.get_columns()
@@ -397,6 +424,18 @@ class AltToolbarBase(GObject.Object):
         for col in cols:
             if col.props.title is not None and col.props.title != "":
                 arr.append(col.props.title)
+                # print (col.get_width())
+                safe_col_name = self._safe_string(col.props.title)
+                lookup = "pages/" + safe_name + "[@column='" + safe_col_name \
+                         + "']"
+                col_node = self._entryview_root.find(lookup)
+
+                if col_node is None:
+                    col_node = SubElement(pages, safe_name)
+                    col_node.set("column", safe_col_name)
+
+                col_node.set("width", str(col.get_width()))
+
 
         if len(arr) < 2:
             # nothing to do so quit before writing
