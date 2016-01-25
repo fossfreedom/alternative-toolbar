@@ -1316,12 +1316,14 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self._always_visible_sources[source] = source
 
     def _on_key_press(self, widget, event):
+        self.searchbar.handle_event(event)
         keyname = Gdk.keyval_name(event.keyval)
         if keyname == 'Escape' and self.current_search_button:
             self.current_search_button.set_active(False)
         if event.state and Gdk.ModifierType.CONTROL_MASK:
             if keyname == 'f' and self.current_search_button:
-                self.current_search_button.set_active(True)
+                self.current_search_button.set_active(
+                        not self.current_search_button.get_active())
 
     def on_startup(self, *args):
         super(AltToolbarHeaderBar, self).on_startup(*args)
