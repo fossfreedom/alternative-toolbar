@@ -140,6 +140,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.gs.PluginKey.SHOW_TOOLTIPS]
         self.enhanced_plugins = self.plugin_settings[
             self.gs.PluginKey.ENHANCED_PLUGINS]
+        self.horiz_categories = self.plugin_settings[
+            self.gs.PluginKey.HORIZ_CATEGORIES]
 
         # Add the various application view menus
         self.appshell = ApplicationShell(self.shell)
@@ -416,6 +418,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
            sources display-tree signal handler
         """
         print("page changed", page)
+        self.toolbar_type.reset_categories_pos(page)
         self.toolbar_type.reset_toolbar(page)
         self.toolbar_type.reset_entryview(page)
 

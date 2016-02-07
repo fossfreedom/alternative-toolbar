@@ -65,7 +65,8 @@ class GSetting:
                 SHOW_TOOLTIPS='show-tooltips',
                 ENHANCED_PLUGINS='enhanced-plugins',
                 REPEAT_TYPE='repeat-type',
-                SOURCE_TOOLBAR='show-source-toolbar'
+                SOURCE_TOOLBAR='show-source-toolbar',
+                HORIZ_CATEGORIES='horiz-categories'
             )
 
             self.setting = {}
@@ -297,9 +298,30 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         # restart_button = builder.get_object('restart_button')
         button.connect('clicked', self._restart_button_clicked)
 
+        self._hcategory_radiobutton = builder.get_object('hcategory_radiobutton')
+        self._vcategory_radiobutton = builder.get_object('vcategory_radiobutton')
+
+        category = self.plugin_settings[self.gs.PluginKey.HORIZ_CATEGORIES]
+        if category:
+            self._vcategory_radiobutton.set_active(True)
+        else:
+            self._hcategory_radiobutton.set_active(True)
+
+        self._hcategory_radiobutton.connect('toggled', self._category_radiobutton)
+        self._vcategory_radiobutton.connect('toggled', self._category_radiobutton)
+
         self._first_run = False
 
         return builder.get_object('preferences_box')
+
+    def _category_radiobutton(self, button):
+        if button.get_active():
+            if button == self._hcategory_radiobutton:
+                value = False
+            else:
+                value = True
+
+            self.plugin_settings[self.gs.PluginKey.HORIZ_CATEGORIES] = value
 
     def _restart_button_clicked(self, *args):
         exepath = shutil.which('rhythmbox')

@@ -51,6 +51,7 @@ or with the new Gnome-style client-side decoration:
 
 
 ## Features
+ - Display Browse Categories horizontally or vertically (0.17.0 needs testing)
  - Set and remember the column size (0.17.0 needs testing)
  - Move columns via Drag-and-Drop using a views' column headers
  - Toggle compact or standard toolbar on or off

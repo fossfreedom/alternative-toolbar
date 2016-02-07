@@ -191,6 +191,7 @@ class AltToolbarBase(GObject.Object):
         """
 
         self.startup_completed = True
+        self.reset_categories_pos(self.shell.props.selected_page)
         self.reset_toolbar(self.shell.props.selected_page)
         self.reset_entryview(self.shell.props.selected_page)
 
@@ -255,6 +256,41 @@ class AltToolbarBase(GObject.Object):
            :param toggle is a bool
         """
         pass
+
+
+    def reset_categories_pos(self, page):
+        """
+           whenever a source changes this resets the source categories position
+           reflect the changed source
+           :param page - RBDisplayPage
+        """
+        print("reset categories position")
+        if not page:
+            print("no page")
+            return
+
+        if not hasattr(page.props, 'show_browser'):
+            print ("no browser")
+            return
+
+        if not self.plugin.horiz_categories:
+            print ("not horizontal")
+            return
+
+        propertyview = self.find(page, 'RBPropertyView', 'by_name')
+
+        parent = propertyview.get_parent()
+
+        if isinstance(parent, Gtk.Paned):
+            print ("paned")
+            parent.set_orientation(Gtk.Orientation.HORIZONTAL)
+        else:
+            print ("not paned")
+            pane = parent.get_parent()
+            print (pane)
+            parent.set_orientation(Gtk.Orientation.VERTICAL)
+            pane.set_orientation(Gtk.Orientation.HORIZONTAL)
+
 
     def reset_entryview(self, page):
         """
