@@ -371,18 +371,15 @@ class AltToolbarBase(GObject.Object):
                                 break
 
                 # now reset column widths
-                for col in current_cols:
-                    safe_col_name = self._safe_string(col.props.title)
+                #for col in current_cols:
+                #    safe_col_name = self._safe_string(col.props.title)
 
-                    lookup = "pages/" + safe_name + "[@column='" + \
-                             safe_col_name + "']"
-                    col_node = self._entryview_root.find(lookup)
+                #    lookup = "pages/" + safe_name + "[@column='" + \
+                #             safe_col_name + "']"
+                #    col_node = self._entryview_root.find(lookup)
 
-                    if col_node is not None:
-                        col.set_fixed_width(int(col_node.get("width")))
-                        # col.set_min_width(int(col_node.get("width")))
-                        # col.set_max_width(-1)
-                        # col.set_min_width(-1)
+                #    if col_node is not None:
+                #        col.set_fixed_width(int(col_node.get("width")))
 
             # now connect new signal handler
             ids = {}
