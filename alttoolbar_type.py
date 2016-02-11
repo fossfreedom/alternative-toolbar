@@ -1413,7 +1413,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
         else:
             GLib.timeout_add(350, delay_hide)
 
-        self.searchbar.set_search_mode(search_button.get_active())
+        self.searchbar.set_search_mode(True)
 
     def set_library_labels(self, song_label=None, category_label=None):
         # locale stuff
