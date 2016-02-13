@@ -61,6 +61,9 @@ or with the new Gnome-style client-side decoration:
  - Redesigned sidebar
  - Redesigned plugin window, about box and plugin preferences window
  - Repeat button can now switch between repeat tracks and repeat-one-song mode
+ - Force display of the app-menu (compact/headerbar)
+   `gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar 
+  app-menu-display true`
  - Plugin translated completely into [9 languages and locales (17 more on the
   way)](https://translations.launchpad.net/alternative-toolbar)
 

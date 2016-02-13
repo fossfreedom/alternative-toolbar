@@ -1259,7 +1259,7 @@ class AltToolbarCompact(AltToolbarShared):
         # appshell = ApplicationShell(self.shell)
         menu = self.shell.props.application.get_menubar()
 
-        if not menu:
+        if not menu or self.plugin.app_menu:
             menu_button = Gtk.MenuButton.new()
             if gtk_version() >= 3.14:
                 symbol = "open-menu-symbolic"
@@ -1531,7 +1531,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self._end_box_controls.add(self.end_box)
 
         if (not default.props.gtk_shell_shows_app_menu) or \
-                default.props.gtk_shell_shows_menubar:
+                default.props.gtk_shell_shows_menubar or self.plugin.app_menu:
 
             # for environments that dont support app-menus
             menu_button = Gtk.MenuButton.new()

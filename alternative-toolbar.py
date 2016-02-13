@@ -142,6 +142,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.gs.PluginKey.ENHANCED_PLUGINS]
         self.horiz_categories = self.plugin_settings[
             self.gs.PluginKey.HORIZ_CATEGORIES]
+        self.app_menu = self.plugin_settings[
+            self.gs.PluginKey.APP_MENU]
 
         # Add the various application view menus
         self.appshell = ApplicationShell(self.shell)

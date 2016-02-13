@@ -66,7 +66,8 @@ class GSetting:
                 ENHANCED_PLUGINS='enhanced-plugins',
                 REPEAT_TYPE='repeat-type',
                 SOURCE_TOOLBAR='show-source-toolbar',
-                HORIZ_CATEGORIES='horiz-categories'
+                HORIZ_CATEGORIES='horiz-categories',
+                APP_MENU='app-menu-display'
             )
 
             self.setting = {}

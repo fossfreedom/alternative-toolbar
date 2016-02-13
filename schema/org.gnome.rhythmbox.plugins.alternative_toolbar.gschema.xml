@@ -72,5 +72,12 @@
             <summary>show categories in a horizontal position</summary>
             <description>show categories in a horizontal position</description>
         </key>
+        <key type="b" name="app-menu-display">
+            <default>false</default>
+            <summary>display application menu button</summary>
+            <description>force the app-menu button to be
+                displayed
+            </description>
+        </key>
     </schema>
 </schemalist>
