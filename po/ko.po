@@ -6,35 +6,134 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-22 13:08+0100\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2016-02-11 21:06+0000\n"
 "PO-Revision-Date: 2015-05-23 03:51+0000\n"
-"Last-Translator: minwook shin <smw0106@naver.com>\n"
+"Last-Translator: minwook shin <Unknown>\n"
 "Language-Team: Korean <ko@li.org>\n"
-"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-15 21:48+0000\n"
-"X-Generator: Launchpad (build 17628)\n"
+"X-Launchpad-Export-Date: 2016-02-12 20:28+0000\n"
+"X-Generator: Launchpad (build 17925)\n"
 
-#: tmp/altlibrary.ui.h:1 alttoolbar_type.py:923
+#: ../alternative-toolbar.py:217
+msgid "Seek Backward"
+msgstr "되감기"
+
+#: ../alternative-toolbar.py:220
+msgid "Seek backward, in current track, by 5 seconds."
+msgstr "5초로 , 현재 트랙 에서 뒤로 탐색 ."
+
+#: ../alternative-toolbar.py:224
+msgid "Seek Forward"
+msgstr "빨리감기"
+
+#: ../alternative-toolbar.py:228
+msgid "Seek forward, in current track, by 10 seconds."
+msgstr "10초로 , 현재 트랙에서 앞으로 탐색."
+
+#: ../alternative-toolbar.py:240
+msgid "Show Play-Controls Toolbar"
+msgstr "재생-제어 툴바 보기"
+
+#: ../alternative-toolbar.py:244
+msgid "Show or hide the play-controls toolbar"
+msgstr "재생-제어 툴바를 보거나 숨기기"
+
+#: ../alternative-toolbar.py:249
+msgid "Show Source Toolbar"
+msgstr "소스 툴바 보기"
+
+#: ../alternative-toolbar.py:252
+msgid "Show or hide the source toolbar"
+msgstr "소스 툴바를 보거나 숨기기"
+
+#. define .plugin text strings used for translation
+#: ../alternative-toolbar.py:538
+msgid "Alternative Toolbar"
+msgstr "대체 도구 모음"
+
+#: ../alternative-toolbar.py:541
+msgid ""
+"Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
+"Toolbar which can be hidden"
+msgstr "클라이언트-측 장식 또는 숨길수있는 소형 도구 모음가 있는 리듬박스 큰 툴바를 재 배치할수있습니다"
+
+#: ../alttoolbar_controller.py:149
+msgid "View All"
+msgstr "모두 보기"
+
+#: ../alttoolbar_controller.py:315
+msgid "Import"
+msgstr "가져오기"
+
+#: ../alttoolbar_controller.py:533
+msgid "Stations"
+msgstr "역"
+
+#: ../alttoolbar_controller.py:559
+msgid "Libre.fm"
+msgstr "Libre.fm"
+
+#: ../alttoolbar_controller.py:602
+msgid "My Top Rated"
+msgstr "나의 가장 높은 점수순"
+
+#: ../alttoolbar_controller.py:606
+msgid "Recently Added"
+msgstr "최근에 추가됨"
+
+#: ../alttoolbar_controller.py:610
+msgid "Recently Played"
+msgstr "최근 연주된 것"
+
+#: ../alttoolbar_controller.py:643
+msgid "Podcasts"
+msgstr "팟캐스트"
+
+#: ../alttoolbar_preferences.py:297
+msgid "Restart"
+msgstr "다시 시작"
+
+#: ../alttoolbar_sidebar.py:82
+msgid "Local collection"
+msgstr "로컬 컬랙션"
+
+#: ../alttoolbar_sidebar.py:83
+msgid "Online sources"
+msgstr "온라인 소스"
+
+#: ../alttoolbar_sidebar.py:84
+msgid "Other sources"
+msgstr "다른 소스"
+
+#: ../alttoolbar_sidebar.py:85
+msgid "Playlists"
+msgstr "재생목록"
+
+#: ../alttoolbar_type.py:1423 ../ui/altlibrary.ui.h:1
 msgid "Songs"
 msgstr "노래들"
 
-#: tmp/altlibrary.ui.h:2 alttoolbar_type.py:928
+#: ../alttoolbar_type.py:1428 ../alttoolbar_type.py:1509
+#: ../ui/altpreferences.ui.h:27 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "카테고리"
 
-#: tmp/altpreferences.ui.h:1
+#: ../alttoolbar_type.py:1493
+msgid "Browse"
+msgstr "찾아보기"
+
+#: ../ui/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
 msgstr "변경 사항을 적용하려면 플레이어를 다시 시작합니다."
 
-#: tmp/altpreferences.ui.h:2
+#: ../ui/altpreferences.ui.h:2
 msgid "Toolbar:"
 msgstr "툴바"
 
-#: tmp/altpreferences.ui.h:3
+#: ../ui/altpreferences.ui.h:3
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
@@ -42,274 +141,137 @@ msgstr ""
 "데스크탑으로 가장 적당함\n"
 "그놈과 엘리멘터리랑 비슷한 환경"
 
-#: tmp/altpreferences.ui.h:5
+#: ../ui/altpreferences.ui.h:5
 msgid "Modern"
 msgstr "모던"
 
-#: tmp/altpreferences.ui.h:6
+#: ../ui/altpreferences.ui.h:6
 msgid "Use compact controls"
 msgstr "맞춤 제어 사용"
 
-#: tmp/altpreferences.ui.h:7
+#: ../ui/altpreferences.ui.h:7
 msgid ""
 "Display the playback controls in the toolbar in visually compact style "
 "instead of the standard rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 msgstr ""
-"시각적으로 맞추는 스타일 대신에 표준 리듬 박스 스타일 의 도구 모음에서 재생 "
-"컨트롤을 넓히다 .\n"
+"시각적으로 맞추는 스타일 대신에 표준 리듬 박스 스타일 의 도구 모음에서 재생 컨트롤을 넓히다 .\n"
 "항상 현대적인 도구 모음 모드를 사용할 수 있습니다 ."
 
-#: tmp/altpreferences.ui.h:9
+#: ../ui/altpreferences.ui.h:9
 msgid "Show:"
 msgstr "보기:"
 
-#: tmp/altpreferences.ui.h:10
+#: ../ui/altpreferences.ui.h:10
 msgid "Album/genre/year for playing song"
 msgstr "재생중인 노래의 앨범/장르/년도"
 
-#: tmp/altpreferences.ui.h:11
+#: ../ui/altpreferences.ui.h:11
 msgid ""
 "Display album/genre/year instead of song-artist-album.  Useful for those "
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
-"앨범 / 장르 / 년 대신 노래 아티스트 앨범을 보입니다. 데스크탑 환경에 유용하"
-"게 노래-아티스트-앨범이 창 제목 에 표시됩니다."
+"앨범 / 장르 / 년 대신 노래 아티스트 앨범을 보입니다. 데스크탑 환경에 유용하게 노래-아티스트-앨범이 창 제목 에 표시됩니다."
 
-#: tmp/altpreferences.ui.h:12
+#: ../ui/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
 msgstr "재상 제어를 위한 툴팁"
 
-#: tmp/altpreferences.ui.h:13
+#: ../ui/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
 msgstr "재생 제어에 대한 설명 을 보이거나 숨기기."
 
-#: tmp/altpreferences.ui.h:14
+#: ../ui/altpreferences.ui.h:14
 msgid "Volume control"
 msgstr "볼륨 조절"
 
-#: tmp/altpreferences.ui.h:15
+#: ../ui/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
 msgstr "볼륨 조절을 보이거나 숨기기"
 
-#: tmp/altpreferences.ui.h:16
+#: ../ui/altpreferences.ui.h:16
 msgid "Playback controls"
 msgstr "재생목록 제어"
 
-#: tmp/altpreferences.ui.h:17
+#: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
 msgstr "플레이어 시작시 재생 컨트롤을 보이거나 숨기기"
 
-#: tmp/altpreferences.ui.h:18
+#: ../ui/altpreferences.ui.h:18
 msgid "Use:"
 msgstr "사용:"
 
-#: tmp/altpreferences.ui.h:19
+#: ../ui/altpreferences.ui.h:19
 msgid "Inline song/artist label"
 msgstr "인라인 노래 / 아티스트 레이블"
 
-#: tmp/altpreferences.ui.h:20
+#: ../ui/altpreferences.ui.h:20
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
-msgstr ""
-"진행 슬라이더 전에 노래와 아티스트 라벨을 표시합니다 . 선택하지 않은 경우 , "
-"진행 슬라이더 위에 표시됩니다 ."
+msgstr "진행 슬라이더 전에 노래와 아티스트 라벨을 표시합니다 . 선택하지 않은 경우 , 진행 슬라이더 위에 표시됩니다 ."
 
-#: tmp/altpreferences.ui.h:21
+#: ../ui/altpreferences.ui.h:21
 msgid "Compact progress slider"
 msgstr "맞춤 진행 슬라이더"
 
-#: tmp/altpreferences.ui.h:22
+#: ../ui/altpreferences.ui.h:22
 msgid ""
 "Display and use a compact track progress slider - useful where the default "
 "theme progress slider is visually too large."
-msgstr ""
-"표시와 소형 트랙 진행 슬라이더를 사용 - 기본 테마 진행 슬라이더가 시각적으로 "
-"너무 큰 경우 유용합니다 ."
+msgstr "표시와 소형 트랙 진행 슬라이더를 사용 - 기본 테마 진행 슬라이더가 시각적으로 너무 큰 경우 유용합니다 ."
 
-#: tmp/altpreferences.ui.h:23
+#: ../ui/altpreferences.ui.h:23
 msgid "Enhanced sidebar"
 msgstr "향상된 사이드 바"
 
-#: tmp/altpreferences.ui.h:24
+#: ../ui/altpreferences.ui.h:24
 msgid ""
 "Show or hide redesigned sidebar for the player. It features improved "
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
-"플레이어에 대한 재 설계된 기사를 보이거나 숨길 수 있습니다. 그것은 상징적인 "
-"아이콘, 더 나은 소스 조직과 확장 범주를 축소 할 수있는  향상 기능을 제공합니"
-"다."
+"플레이어에 대한 재 설계된 기사를 보이거나 숨길 수 있습니다. 그것은 상징적인 아이콘, 더 나은 소스 조직과 확장 범주를 축소 할 수있는 "
+" 향상 기능을 제공합니다."
 
-#: tmp/altpreferences.ui.h:25
+#: ../ui/altpreferences.ui.h:25
 msgid "Enhanced plugins dialog"
 msgstr "강화 된 플러그인 다이얼로그"
 
-#: tmp/altpreferences.ui.h:26
+#: ../ui/altpreferences.ui.h:26
 msgid ""
 "Show or hide redesigned plugins dialog. It features switches instead of "
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
 "based desktop environments."
 msgstr ""
-"재 설계 플러그인 대화 상자를 보이거나 숨깁니다. 그것은 상징적인 아이콘 스위"
-"치 대신 체크 박스와 인라인 도구 모음을 제공합니다. 그놈 기반 데스크탑 환경과 "
-"가장 잘 작동합니다."
+"재 설계 플러그인 대화 상자를 보이거나 숨깁니다. 그것은 상징적인 아이콘 스위치 대신 체크 박스와 인라인 도구 모음을 제공합니다. 그놈 "
+"기반 데스크탑 환경과 가장 잘 작동합니다."
 
-#: tmp/alttoolbar.ui.h:1
+#: ../ui/altpreferences.ui.h:28
+msgid "Horizontal"
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:29
+msgid "Vertical"
+msgstr ""
+
+#: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"
 msgstr "이전 트랙 재생"
 
-#: tmp/alttoolbar.ui.h:2
+#: ../ui/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
 msgstr "다시 시작 하거나 재생을 일시 정지"
 
-#: tmp/alttoolbar.ui.h:3
+#: ../ui/alttoolbar.ui.h:3
 msgid "Play the next track"
 msgstr "다음 트랙 재생"
 
-#: tmp/alttoolbar.ui.h:4 alttoolbar_repeat.py:96 alttoolbar_repeat.py:207
+#: ../ui/alttoolbar.ui.h:4
 msgid "Repeat the current track"
 msgstr "현재 트랙 을 반복"
 
-#: tmp/alttoolbar.ui.h:5
+#: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
 msgstr "임의의 순서로트랙을 재생"
-
-#: alternative-toolbar.py:199
-msgid "Seek Backward"
-msgstr "되감기"
-
-#: alternative-toolbar.py:201
-msgid "Seek backward, in current track, by 5 seconds."
-msgstr "5초로 , 현재 트랙 에서 뒤로 탐색 ."
-
-#: alternative-toolbar.py:203
-msgid "Seek Forward"
-msgstr "빨리감기"
-
-#: alternative-toolbar.py:205
-msgid "Seek forward, in current track, by 10 seconds."
-msgstr "10초로 , 현재 트랙에서 앞으로 탐색."
-
-#: alternative-toolbar.py:212
-msgid "Show Play-Controls Toolbar"
-msgstr "재생-제어 툴바 보기"
-
-#: alternative-toolbar.py:215
-msgid "Show or hide the play-controls toolbar"
-msgstr "재생-제어 툴바를 보거나 숨기기"
-
-#: alternative-toolbar.py:218
-msgid "Show Source Toolbar"
-msgstr "소스 툴바 보기"
-
-#: alternative-toolbar.py:221
-msgid "Show or hide the source toolbar"
-msgstr "소스 툴바를 보거나 숨기기"
-
-#. define .plugin text strings used for translation
-#: alternative-toolbar.py:479 alttoolbar_plugins.py:364
-msgid "Alternative Toolbar"
-msgstr "대체 도구 모음"
-
-#: alternative-toolbar.py:481
-msgid ""
-"Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
-"Toolbar which can be hidden"
-msgstr ""
-"클라이언트-측 장식 또는 숨길수있는 소형 도구 모음가 있는 리듬박스 큰 툴바를 "
-"재 배치할수있습니다"
-
-#: alttoolbar_controller.py:187
-msgid "View All"
-msgstr "모두 보기"
-
-#: alttoolbar_controller.py:343
-msgid "Import"
-msgstr "가져오기"
-
-#: alttoolbar_controller.py:520
-msgid "Stations"
-msgstr "역"
-
-#: alttoolbar_controller.py:546
-msgid "Libre.fm"
-msgstr "Libre.fm"
-
-#: alttoolbar_controller.py:586
-msgid "My Top Rated"
-msgstr "나의 가장 높은 점수순"
-
-#: alttoolbar_controller.py:589
-msgid "Recently Added"
-msgstr "최근에 추가됨"
-
-#: alttoolbar_controller.py:592
-msgid "Recently Played"
-msgstr "최근 연주된 것"
-
-#: alttoolbar_controller.py:624
-msgid "Podcasts"
-msgstr "팟캐스트"
-
-#: alttoolbar_plugins.py:115
-msgid "The plugin cannot be enabled"
-msgstr "플러그인이 활성화되지못함"
-
-#: alttoolbar_plugins.py:231
-msgid "Configure Plugins"
-msgstr "플러그인 설정"
-
-#: alttoolbar_plugins.py:312
-msgid "About this plugin"
-msgstr "이 플러그인의 정보"
-
-#: alttoolbar_plugins.py:344
-msgid "Version: "
-msgstr "버전: "
-
-#: alttoolbar_plugins.py:369
-msgid "Developer:"
-msgstr "개발자 :"
-
-#: alttoolbar_plugins.py:379
-msgid "Designer:"
-msgstr "디자이너:"
-
-#: alttoolbar_plugins.py:400
-msgid "Help"
-msgstr "도움"
-
-#: alttoolbar_plugins.py:408
-msgid "Homepage"
-msgstr "홈페이지"
-
-#: alttoolbar_preferences.py:281
-msgid "Restart"
-msgstr "다시 시작"
-
-#: alttoolbar_sidebar.py:76
-msgid "Local collection"
-msgstr "로컬 컬랙션"
-
-#: alttoolbar_sidebar.py:77
-msgid "Online sources"
-msgstr "온라인 소스"
-
-#: alttoolbar_sidebar.py:78
-msgid "Other sources"
-msgstr "다른 소스"
-
-#: alttoolbar_sidebar.py:79
-msgid "Playlists"
-msgstr "재생목록"
-
-#: alttoolbar_type.py:986
-msgid "Browse"
-msgstr "찾아보기"
-
-#: alttoolbar_repeat.py:94 alttoolbar_repeat.py:187
-msgid "Repeat all tracks"
-msgstr "모든 트랙 다시듣기"

@@ -1,6 +1,6 @@
 # -*- Mode: python; coding: utf-8; tab-width: 4; indent-tabs-mode: nil; -*-
 #
-# Copyright (C) 2015 - fossfreedom
+# Copyright (C) 2015 - 2016 David Mohammed
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -298,8 +298,10 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         # restart_button = builder.get_object('restart_button')
         button.connect('clicked', self._restart_button_clicked)
 
-        self._hcategory_radiobutton = builder.get_object('hcategory_radiobutton')
-        self._vcategory_radiobutton = builder.get_object('vcategory_radiobutton')
+        self._hcategory_radiobutton = builder.get_object(
+            'hcategory_radiobutton')
+        self._vcategory_radiobutton = builder.get_object(
+            'vcategory_radiobutton')
 
         category = self.plugin_settings[self.gs.PluginKey.HORIZ_CATEGORIES]
         if category:
@@ -307,8 +309,10 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         else:
             self._hcategory_radiobutton.set_active(True)
 
-        self._hcategory_radiobutton.connect('toggled', self._category_radiobutton)
-        self._vcategory_radiobutton.connect('toggled', self._category_radiobutton)
+        self._hcategory_radiobutton.connect('toggled',
+                                            self._category_radiobutton)
+        self._vcategory_radiobutton.connect('toggled',
+                                            self._category_radiobutton)
 
         self._first_run = False
 

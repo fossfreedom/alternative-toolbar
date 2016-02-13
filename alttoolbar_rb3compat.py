@@ -5,7 +5,7 @@
 # PLUGIN - https://github.com/fossfreedom/coverart-browser
 # PLEASE SUBMIT CHANGES BACK TO HELP EXPAND THIS API
 #
-# Copyright (C) 2012-2015 - fossfreedom
+# Copyright (C) 2012-2016 - David Mohammed
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -87,6 +87,7 @@ else:
 
 if PYVER >= 3:
     import http.client
+
     # pyflakes doesnt like python2 unicode so lets give it something
     # to chew on
 

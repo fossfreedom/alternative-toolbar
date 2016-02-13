@@ -7,34 +7,136 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-22 13:08+0100\n"
-"PO-Revision-Date: 2015-05-22 12:39+0000\n"
-"Last-Translator: Oscar Fabian Prieto Gonzalez <Unknown>\n"
+"POT-Creation-Date: 2016-02-11 21:06+0000\n"
+"PO-Revision-Date: 2016-02-11 21:50+0000\n"
+"Last-Translator: VPablo <villumar@gmail.com>\n"
 "Language-Team: none\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-15 21:48+0000\n"
-"X-Generator: Launchpad (build 17628)\n"
+"X-Launchpad-Export-Date: 2016-02-12 20:28+0000\n"
+"X-Generator: Launchpad (build 17925)\n"
+"Language: es\n"
 
-#: tmp/altlibrary.ui.h:1 alttoolbar_type.py:923
+#: ../alternative-toolbar.py:217
+msgid "Seek Backward"
+msgstr "Buscar hacia atrás"
+
+#: ../alternative-toolbar.py:220
+msgid "Seek backward, in current track, by 5 seconds."
+msgstr "Busque hacia atrás, en la pista actual, por 5 segundos."
+
+#: ../alternative-toolbar.py:224
+msgid "Seek Forward"
+msgstr "Buscar hacia delante"
+
+#: ../alternative-toolbar.py:228
+msgid "Seek forward, in current track, by 10 seconds."
+msgstr "Busque hacia adelante, en la pista actual, por 10 segundos."
+
+#: ../alternative-toolbar.py:240
+msgid "Show Play-Controls Toolbar"
+msgstr "Mostrar la barra de Herramientas Reproducir-controles"
+
+#: ../alternative-toolbar.py:244
+msgid "Show or hide the play-controls toolbar"
+msgstr "Muestra u oculta la barra de Herramientas Reproducir-controles"
+
+#: ../alternative-toolbar.py:249
+msgid "Show Source Toolbar"
+msgstr "Muestra la Barra de Herramientas fuente"
+
+#: ../alternative-toolbar.py:252
+msgid "Show or hide the source toolbar"
+msgstr "Mostrar u ocultar la barra de herramientas de fuente"
+
+#. define .plugin text strings used for translation
+#: ../alternative-toolbar.py:538
+msgid "Alternative Toolbar"
+msgstr "Barra de herramientas alternativa"
+
+#: ../alternative-toolbar.py:541
+msgid ""
+"Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
+"Toolbar which can be hidden"
+msgstr ""
+"Remplazar la gran barra de herramientas de Rhythmbox por una barra de "
+"herramientas compacta que puede ser escondida"
+
+#: ../alttoolbar_controller.py:149
+msgid "View All"
+msgstr "Ver todas"
+
+#: ../alttoolbar_controller.py:315
+msgid "Import"
+msgstr "Importar"
+
+#: ../alttoolbar_controller.py:533
+msgid "Stations"
+msgstr "Estaciones"
+
+#: ../alttoolbar_controller.py:559
+msgid "Libre.fm"
+msgstr "Libre.fm"
+
+#: ../alttoolbar_controller.py:602
+msgid "My Top Rated"
+msgstr "Mejores calificados"
+
+#: ../alttoolbar_controller.py:606
+msgid "Recently Added"
+msgstr "Añadidas recientemente"
+
+#: ../alttoolbar_controller.py:610
+msgid "Recently Played"
+msgstr "Reproducidas recientemente"
+
+#: ../alttoolbar_controller.py:643
+msgid "Podcasts"
+msgstr "Podcasts"
+
+#: ../alttoolbar_preferences.py:297
+msgid "Restart"
+msgstr "Reinicar"
+
+#: ../alttoolbar_sidebar.py:82
+msgid "Local collection"
+msgstr "Colección local"
+
+#: ../alttoolbar_sidebar.py:83
+msgid "Online sources"
+msgstr "Fuentes en línea"
+
+#: ../alttoolbar_sidebar.py:84
+msgid "Other sources"
+msgstr "Otras fuentes"
+
+#: ../alttoolbar_sidebar.py:85
+msgid "Playlists"
+msgstr "Listas de reproducción"
+
+#: ../alttoolbar_type.py:1423 ../ui/altlibrary.ui.h:1
 msgid "Songs"
 msgstr "Canciones"
 
-#: tmp/altlibrary.ui.h:2 alttoolbar_type.py:928
+#: ../alttoolbar_type.py:1428 ../alttoolbar_type.py:1509
+#: ../ui/altpreferences.ui.h:27 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "Categorías"
 
-#: tmp/altpreferences.ui.h:1
+#: ../alttoolbar_type.py:1493
+msgid "Browse"
+msgstr "Navegar"
+
+#: ../ui/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
 msgstr "Reinicie el reproductor para que los cambios tengan efecto"
 
-#: tmp/altpreferences.ui.h:2
+#: ../ui/altpreferences.ui.h:2
 msgid "Toolbar:"
 msgstr "Barra de herramientas:"
 
-#: tmp/altpreferences.ui.h:3
+#: ../ui/altpreferences.ui.h:3
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
@@ -42,15 +144,15 @@ msgstr ""
 "Mas adecuado para entornos de\n"
 "escritorio como GNOME o elementary."
 
-#: tmp/altpreferences.ui.h:5
+#: ../ui/altpreferences.ui.h:5
 msgid "Modern"
 msgstr "Moderna"
 
-#: tmp/altpreferences.ui.h:6
+#: ../ui/altpreferences.ui.h:6
 msgid "Use compact controls"
 msgstr "Usar controles compactos"
 
-#: tmp/altpreferences.ui.h:7
+#: ../ui/altpreferences.ui.h:7
 msgid ""
 "Display the playback controls in the toolbar in visually compact style "
 "instead of the standard rhythmbox style.\n"
@@ -60,15 +162,15 @@ msgstr ""
 "estilo visual compacta en lugar del estilo Rhythmbox estándar.\n"
 "Siempre activada para el modo de barra de herramientas moderno."
 
-#: tmp/altpreferences.ui.h:9
+#: ../ui/altpreferences.ui.h:9
 msgid "Show:"
 msgstr "Mostrar:"
 
-#: tmp/altpreferences.ui.h:10
+#: ../ui/altpreferences.ui.h:10
 msgid "Album/genre/year for playing song"
 msgstr "Álbum/género/año para la canción en reproducción"
 
-#: tmp/altpreferences.ui.h:11
+#: ../ui/altpreferences.ui.h:11
 msgid ""
 "Display album/genre/year instead of song-artist-album.  Useful for those "
 "desktop-environments where song-artist-album is already displayed in the "
@@ -78,39 +180,39 @@ msgstr ""
 "aquellos entornos donde desktop-canción-artista-álbum ya está representada "
 "en el título de la ventana."
 
-#: tmp/altpreferences.ui.h:12
+#: ../ui/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
 msgstr "Consejos en los controles de reproducción"
 
-#: tmp/altpreferences.ui.h:13
+#: ../ui/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
 msgstr "Mostrar o ocultar los cosejos para los controles de reproducción."
 
-#: tmp/altpreferences.ui.h:14
+#: ../ui/altpreferences.ui.h:14
 msgid "Volume control"
 msgstr "Control de volumen"
 
-#: tmp/altpreferences.ui.h:15
+#: ../ui/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
 msgstr "Mostrar o ocultar el control de volumen."
 
-#: tmp/altpreferences.ui.h:16
+#: ../ui/altpreferences.ui.h:16
 msgid "Playback controls"
 msgstr "Controles de reproducción"
 
-#: tmp/altpreferences.ui.h:17
+#: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
 msgstr "Mostrar u ocultar los controles de juego en el arranque reproductor."
 
-#: tmp/altpreferences.ui.h:18
+#: ../ui/altpreferences.ui.h:18
 msgid "Use:"
 msgstr "Usar:"
 
-#: tmp/altpreferences.ui.h:19
+#: ../ui/altpreferences.ui.h:19
 msgid "Inline song/artist label"
 msgstr "canción en linea/ etiqueta del artista"
 
-#: tmp/altpreferences.ui.h:20
+#: ../ui/altpreferences.ui.h:20
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
@@ -119,11 +221,11 @@ msgstr ""
 "progreso. Si no está activada, se muestran por encima de la barra de "
 "progreso."
 
-#: tmp/altpreferences.ui.h:21
+#: ../ui/altpreferences.ui.h:21
 msgid "Compact progress slider"
 msgstr "Deslizador de progreso compacto"
 
-#: tmp/altpreferences.ui.h:22
+#: ../ui/altpreferences.ui.h:22
 msgid ""
 "Display and use a compact track progress slider - useful where the default "
 "theme progress slider is visually too large."
@@ -131,11 +233,11 @@ msgstr ""
 "Muestra y usa un control deslizante del progreso de pista - útil cuando el "
 "el control deslizante de progreso es visualmente demasiado grande."
 
-#: tmp/altpreferences.ui.h:23
+#: ../ui/altpreferences.ui.h:23
 msgid "Enhanced sidebar"
 msgstr "Barra lateral mejorada"
 
-#: tmp/altpreferences.ui.h:24
+#: ../ui/altpreferences.ui.h:24
 msgid ""
 "Show or hide redesigned sidebar for the player. It features improved "
 "symbolic icons, better sources organisation and ability to expand and "
@@ -145,11 +247,11 @@ msgstr ""
 "iconos simbólicos mejorados, una mejor organización de fuentes y la "
 "capacidad de expandir y contraer categorías."
 
-#: tmp/altpreferences.ui.h:25
+#: ../ui/altpreferences.ui.h:25
 msgid "Enhanced plugins dialog"
 msgstr "Diálogo de complementos mejorado"
 
-#: tmp/altpreferences.ui.h:26
+#: ../ui/altpreferences.ui.h:26
 msgid ""
 "Show or hide redesigned plugins dialog. It features switches instead of "
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
@@ -160,159 +262,30 @@ msgstr ""
 "iconos simbólicos. Funciona mejor con los entornos de escritorio basados en "
 "Gnome."
 
-#: tmp/alttoolbar.ui.h:1
+#: ../ui/altpreferences.ui.h:28
+msgid "Horizontal"
+msgstr "Horizontal"
+
+#: ../ui/altpreferences.ui.h:29
+msgid "Vertical"
+msgstr "Vertical"
+
+#: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"
 msgstr "Reproducir la pista anterior"
 
-#: tmp/alttoolbar.ui.h:2
+#: ../ui/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
 msgstr "Continuar o pausar la reproducción"
 
-#: tmp/alttoolbar.ui.h:3
+#: ../ui/alttoolbar.ui.h:3
 msgid "Play the next track"
 msgstr "Reproducir la pista siguiente"
 
-#: tmp/alttoolbar.ui.h:4 alttoolbar_repeat.py:96 alttoolbar_repeat.py:207
+#: ../ui/alttoolbar.ui.h:4
 msgid "Repeat the current track"
 msgstr "Repetir la pista actual"
 
-#: tmp/alttoolbar.ui.h:5
+#: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
 msgstr "Reproducir las pistas en orden aleatorio"
-
-#: alternative-toolbar.py:199
-msgid "Seek Backward"
-msgstr "Buscar hacia atrás"
-
-#: alternative-toolbar.py:201
-msgid "Seek backward, in current track, by 5 seconds."
-msgstr "Busque hacia atrás, en la pista actual, por 5 segundos."
-
-#: alternative-toolbar.py:203
-msgid "Seek Forward"
-msgstr "Buscar hacia delante"
-
-#: alternative-toolbar.py:205
-msgid "Seek forward, in current track, by 10 seconds."
-msgstr "Busque hacia adelante, en la pista actual, por 10 segundos."
-
-#: alternative-toolbar.py:212
-msgid "Show Play-Controls Toolbar"
-msgstr "Mostrar la barra de Herramientas Reproducir-controles"
-
-#: alternative-toolbar.py:215
-msgid "Show or hide the play-controls toolbar"
-msgstr "Muestra u oculta la barra de Herramientas Reproducir-controles"
-
-#: alternative-toolbar.py:218
-msgid "Show Source Toolbar"
-msgstr "Muestra la Barra de Herramientas fuente"
-
-#: alternative-toolbar.py:221
-msgid "Show or hide the source toolbar"
-msgstr "Mostrar u ocultar la barra de herramientas de fuente"
-
-#. define .plugin text strings used for translation
-#: alternative-toolbar.py:479 alttoolbar_plugins.py:364
-msgid "Alternative Toolbar"
-msgstr "Barra de herramientas alternativa"
-
-#: alternative-toolbar.py:481
-msgid ""
-"Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
-"Toolbar which can be hidden"
-msgstr ""
-"Remplazar la gran barra de herramientas de Rhythmbox por una barra de "
-"herramientas compacta que puede ser escondida"
-
-#: alttoolbar_controller.py:187
-msgid "View All"
-msgstr "Ver todas"
-
-#: alttoolbar_controller.py:343
-msgid "Import"
-msgstr "Importar"
-
-#: alttoolbar_controller.py:520
-msgid "Stations"
-msgstr "Estaciones"
-
-#: alttoolbar_controller.py:546
-msgid "Libre.fm"
-msgstr "Libre.fm"
-
-#: alttoolbar_controller.py:586
-msgid "My Top Rated"
-msgstr "Mejores calificados"
-
-#: alttoolbar_controller.py:589
-msgid "Recently Added"
-msgstr "Añadidas recientemente"
-
-#: alttoolbar_controller.py:592
-msgid "Recently Played"
-msgstr "Reproducidas recientemente"
-
-#: alttoolbar_controller.py:624
-msgid "Podcasts"
-msgstr "Podcasts"
-
-#: alttoolbar_plugins.py:115
-msgid "The plugin cannot be enabled"
-msgstr "No se puede activar el complemento"
-
-#: alttoolbar_plugins.py:231
-msgid "Configure Plugins"
-msgstr "Configurar los complementos"
-
-#: alttoolbar_plugins.py:312
-msgid "About this plugin"
-msgstr "Acerca de este complemento"
-
-#: alttoolbar_plugins.py:344
-msgid "Version: "
-msgstr "Versión: "
-
-#: alttoolbar_plugins.py:369
-msgid "Developer:"
-msgstr "Desarrollador:"
-
-#: alttoolbar_plugins.py:379
-msgid "Designer:"
-msgstr "Diseñador:"
-
-#: alttoolbar_plugins.py:400
-msgid "Help"
-msgstr "Ayuda"
-
-#: alttoolbar_plugins.py:408
-msgid "Homepage"
-msgstr "Página de inicio"
-
-#: alttoolbar_preferences.py:281
-msgid "Restart"
-msgstr "Reinicar"
-
-#: alttoolbar_sidebar.py:76
-msgid "Local collection"
-msgstr "Colección local"
-
-#: alttoolbar_sidebar.py:77
-msgid "Online sources"
-msgstr "Fuentes en línea"
-
-#: alttoolbar_sidebar.py:78
-msgid "Other sources"
-msgstr "Otras fuentes"
-
-#: alttoolbar_sidebar.py:79
-msgid "Playlists"
-msgstr "Listas de reproducción"
-
-#: alttoolbar_type.py:986
-msgid "Browse"
-msgstr "Navegar"
-
-#: alttoolbar_repeat.py:94 alttoolbar_repeat.py:187
-msgid "Repeat all tracks"
-msgstr "Repetir todas las pistas"

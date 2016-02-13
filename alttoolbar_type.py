@@ -1,6 +1,6 @@
 # -*- Mode: python; coding: utf-8; tab-width: 4; indent-tabs-mode: nil; -*-
 #
-# Copyright (C) 2015 - fossfreedom
+# Copyright (C) 2015 - 2016 David Mohammed
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -205,7 +205,6 @@ class AltToolbarBase(GObject.Object):
             self.disconnect(self._process_entryview[page]['size'])
             self.disconnect(self._process_entryview[page]['changed'])
 
-
         self.purge_builder_content()
 
     def set_visible(self, visible):
@@ -257,7 +256,6 @@ class AltToolbarBase(GObject.Object):
         """
         pass
 
-
     def reset_categories_pos(self, page):
         """
            whenever a source changes this resets the source categories position
@@ -270,11 +268,11 @@ class AltToolbarBase(GObject.Object):
             return
 
         if not hasattr(page.props, 'show_browser'):
-            print ("no browser")
+            print("no browser")
             return
 
         if not self.plugin.horiz_categories:
-            print ("not horizontal")
+            print("not horizontal")
             return
 
         propertyview = self.find(page, 'RBPropertyView', 'by_name')
@@ -282,15 +280,14 @@ class AltToolbarBase(GObject.Object):
         parent = propertyview.get_parent()
 
         if isinstance(parent, Gtk.Paned):
-            print ("paned")
+            print("paned")
             parent.set_orientation(Gtk.Orientation.HORIZONTAL)
         else:
-            print ("not paned")
+            print("not paned")
             pane = parent.get_parent()
-            print (pane)
+            print(pane)
             parent.set_orientation(Gtk.Orientation.VERTICAL)
             pane.set_orientation(Gtk.Orientation.HORIZONTAL)
-
 
     def reset_entryview(self, page):
         """
@@ -370,21 +367,26 @@ class AltToolbarBase(GObject.Object):
                                                                    pos])
                                 break
 
-                # now reset column widths
-                #for col in current_cols:
-                #    safe_col_name = self._safe_string(col.props.title)
+                                # now reset column widths
+                                # for col in current_cols:
+                                #    safe_col_name = self._safe_string(
+                                # col.props.title)
 
-                #    lookup = "pages/" + safe_name + "[@column='" + \
-                #             safe_col_name + "']"
-                #    col_node = self._entryview_root.find(lookup)
+                                #    lookup = "pages/" + safe_name + "[
+                                # @column='" + \
+                                #             safe_col_name + "']"
+                                #    col_node = self._entryview_root.find(
+                                # lookup)
 
-                #    if col_node is not None:
-                #        col.set_fixed_width(int(col_node.get("width")))
+                                #    if col_node is not None:
+                                #        col.set_fixed_width(int(
+                                # col_node.get("width")))
 
             # now connect new signal handler
             ids = {}
             ids['changed'] = treeview.connect('columns-changed',
-                                              self._entryview_column_changed, page)
+                                              self._entryview_column_changed,
+                                              page)
 
             ids['size'] = treeview.connect('size-allocate',
                                            self._entryview_size_allocate, page)
@@ -395,7 +397,6 @@ class AltToolbarBase(GObject.Object):
         # achievement
         Gdk.threads_add_timeout(GLib.PRIORITY_DEFAULT_IDLE, 10,
                                 move_col)
-
 
     def _safe_string(self, s):
         return ''.join([i for i in s if i.isalpha()])
@@ -468,7 +469,6 @@ class AltToolbarBase(GObject.Object):
                     col_node.set("column", safe_col_name)
 
                 col_node.set("width", str(col.get_width()))
-
 
         if len(arr) < 2:
             # nothing to do so quit before writing
@@ -1356,7 +1356,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
         if event.state and Gdk.ModifierType.CONTROL_MASK:
             if keyname == 'f' and self.current_search_button:
                 self.current_search_button.set_active(
-                        not self.current_search_button.get_active())
+                    not self.current_search_button.get_active())
 
     def on_startup(self, *args):
         super(AltToolbarHeaderBar, self).on_startup(*args)
