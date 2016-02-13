@@ -1,0 +1,269 @@
+# Swedish translation for alternative-toolbar
+# Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
+# This file is distributed under the same license as the alternative-toolbar package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: alternative-toolbar\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2016-02-11 21:06+0000\n"
+"PO-Revision-Date: 2016-02-13 00:05+0000\n"
+"Last-Translator: Kristoffer Grundström "
+"<kristoffer.grundstrom1983@gmail.com>\n"
+"Language-Team: Swedish <sv@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2016-02-13 23:32+0000\n"
+"X-Generator: Launchpad (build 17925)\n"
+
+#: ../alternative-toolbar.py:217
+msgid "Seek Backward"
+msgstr "Sök bakåt"
+
+#: ../alternative-toolbar.py:220
+msgid "Seek backward, in current track, by 5 seconds."
+msgstr ""
+
+#: ../alternative-toolbar.py:224
+msgid "Seek Forward"
+msgstr "Sök framåt"
+
+#: ../alternative-toolbar.py:228
+msgid "Seek forward, in current track, by 10 seconds."
+msgstr ""
+
+#: ../alternative-toolbar.py:240
+msgid "Show Play-Controls Toolbar"
+msgstr ""
+
+#: ../alternative-toolbar.py:244
+msgid "Show or hide the play-controls toolbar"
+msgstr ""
+
+#: ../alternative-toolbar.py:249
+msgid "Show Source Toolbar"
+msgstr ""
+
+#: ../alternative-toolbar.py:252
+msgid "Show or hide the source toolbar"
+msgstr "Visa eller göm källans verktygsfält"
+
+#. define .plugin text strings used for translation
+#: ../alternative-toolbar.py:538
+msgid "Alternative Toolbar"
+msgstr ""
+
+#: ../alternative-toolbar.py:541
+msgid ""
+"Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
+"Toolbar which can be hidden"
+msgstr ""
+
+#: ../alttoolbar_controller.py:149
+msgid "View All"
+msgstr "Visa alla"
+
+#: ../alttoolbar_controller.py:315
+msgid "Import"
+msgstr "Importera"
+
+#: ../alttoolbar_controller.py:533
+msgid "Stations"
+msgstr "Stationer"
+
+#: ../alttoolbar_controller.py:559
+msgid "Libre.fm"
+msgstr "Libre.fm"
+
+#: ../alttoolbar_controller.py:602
+msgid "My Top Rated"
+msgstr "Mina högst rankade"
+
+#: ../alttoolbar_controller.py:606
+msgid "Recently Added"
+msgstr "Senast tillagda"
+
+#: ../alttoolbar_controller.py:610
+msgid "Recently Played"
+msgstr "Senast spelade"
+
+#: ../alttoolbar_controller.py:643
+msgid "Podcasts"
+msgstr "Poddsändningar"
+
+#: ../alttoolbar_preferences.py:297
+msgid "Restart"
+msgstr "Starta om"
+
+#: ../alttoolbar_sidebar.py:82
+msgid "Local collection"
+msgstr ""
+
+#: ../alttoolbar_sidebar.py:83
+msgid "Online sources"
+msgstr ""
+
+#: ../alttoolbar_sidebar.py:84
+msgid "Other sources"
+msgstr ""
+
+#: ../alttoolbar_sidebar.py:85
+msgid "Playlists"
+msgstr "Spellistor"
+
+#: ../alttoolbar_type.py:1423 ../ui/altlibrary.ui.h:1
+msgid "Songs"
+msgstr "Låtar"
+
+#: ../alttoolbar_type.py:1428 ../alttoolbar_type.py:1509
+#: ../ui/altpreferences.ui.h:27 ../ui/altlibrary.ui.h:2
+msgid "Categories"
+msgstr "Kategorier"
+
+#: ../alttoolbar_type.py:1493
+msgid "Browse"
+msgstr "Bläddra"
+
+#: ../ui/altpreferences.ui.h:1
+msgid "Restart the player for the changes to take effect."
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:2
+msgid "Toolbar:"
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:3
+msgid ""
+"Best suitable for desktop\n"
+"environments like Gnome and Elementary."
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:5
+msgid "Modern"
+msgstr "Modern"
+
+#: ../ui/altpreferences.ui.h:6
+msgid "Use compact controls"
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:7
+msgid ""
+"Display the playback controls in the toolbar in visually compact style "
+"instead of the standard rhythmbox style.\n"
+"Always enabled for modern toolbar mode."
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:9
+msgid "Show:"
+msgstr "Visa:"
+
+#: ../ui/altpreferences.ui.h:10
+msgid "Album/genre/year for playing song"
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:11
+msgid ""
+"Display album/genre/year instead of song-artist-album.  Useful for those "
+"desktop-environments where song-artist-album is already displayed in the "
+"window title."
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:12
+msgid "Tooltips for the playback controls"
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:13
+msgid "Show or hide the tooltips for the playback controls."
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:14
+msgid "Volume control"
+msgstr "Volymkontroll"
+
+#: ../ui/altpreferences.ui.h:15
+msgid "Show or hide the volume control."
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:16
+msgid "Playback controls"
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:17
+msgid "Show or hide the playing controls on player startup."
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:18
+msgid "Use:"
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:19
+msgid "Inline song/artist label"
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:20
+msgid ""
+"Display Song and Artist labels before the progress slider.  If not checked, "
+"they are displayed above the progress slider."
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:21
+msgid "Compact progress slider"
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:22
+msgid ""
+"Display and use a compact track progress slider - useful where the default "
+"theme progress slider is visually too large."
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:23
+msgid "Enhanced sidebar"
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:24
+msgid ""
+"Show or hide redesigned sidebar for the player. It features improved "
+"symbolic icons, better sources organisation and ability to expand and "
+"collapse categories."
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:25
+msgid "Enhanced plugins dialog"
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:26
+msgid ""
+"Show or hide redesigned plugins dialog. It features switches instead of "
+"checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
+"based desktop environments."
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:28
+msgid "Horizontal"
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:29
+msgid "Vertical"
+msgstr ""
+
+#: ../ui/alttoolbar.ui.h:1
+msgid "Play the previous track"
+msgstr ""
+
+#: ../ui/alttoolbar.ui.h:2
+msgid "Resume or pause the playback"
+msgstr ""
+
+#: ../ui/alttoolbar.ui.h:3
+msgid "Play the next track"
+msgstr ""
+
+#: ../ui/alttoolbar.ui.h:4
+msgid "Repeat the current track"
+msgstr ""
+
+#: ../ui/alttoolbar.ui.h:5
+msgid "Play the tracks in random order"
+msgstr ""
