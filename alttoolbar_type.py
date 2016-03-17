@@ -277,6 +277,9 @@ class AltToolbarBase(GObject.Object):
 
         propertyview = self.find(page, 'RBPropertyView', 'by_name')
 
+        if propertyview is None:
+            return
+            
         parent = propertyview.get_parent()
 
         if isinstance(parent, Gtk.Paned):
