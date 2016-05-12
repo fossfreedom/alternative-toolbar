@@ -199,7 +199,6 @@ class AltToolbarBase(GObject.Object):
             settings = Gtk.Settings.get_default()
             settings.set_property('gtk-application-prefer-dark-theme', True)
 
-
     def cleanup(self):
         """
           initiate a toolbar cleanup of resources and changes made to rhythmbox
@@ -284,7 +283,7 @@ class AltToolbarBase(GObject.Object):
 
         if propertyview is None:
             return
-            
+
         parent = propertyview.get_parent()
 
         if isinstance(parent, Gtk.Paned):
@@ -1539,7 +1538,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self._end_box_controls.add(self.end_box)
 
         if ((not default.props.gtk_shell_shows_app_menu) or \
-                default.props.gtk_shell_shows_menubar or self.plugin.app_menu) and os.environ["XDG_CURRENT_DESKTOP"].find("GNOME") == -1:
+                    default.props.gtk_shell_shows_menubar or self.plugin.app_menu) and os.environ[
+            "XDG_CURRENT_DESKTOP"].find("GNOME") == -1:
 
             # for environments that dont support app-menus
             menu_button = Gtk.MenuButton.new()

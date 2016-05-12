@@ -88,6 +88,7 @@ else:
 if PYVER >= 3:
     import http.client
 
+
     # pyflakes doesnt like python2 unicode so lets give it something
     # to chew on
 

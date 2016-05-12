@@ -144,7 +144,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.gs.PluginKey.HORIZ_CATEGORIES]
         self.app_menu = self.plugin_settings[
             self.gs.PluginKey.APP_MENU]
-        self.prefer_dark_theme = self.plugin_settings[ self.gs.PluginKey.DARK_THEME]
+        self.prefer_dark_theme = self.plugin_settings[self.gs.PluginKey.DARK_THEME]
 
         # Add the various application view menus
         self.appshell = ApplicationShell(self.shell)
