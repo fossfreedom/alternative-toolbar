@@ -1538,8 +1538,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
         # any source defined controls
         self._end_box_controls.add(self.end_box)
 
-        if (not default.props.gtk_shell_shows_app_menu) or \
-                default.props.gtk_shell_shows_menubar or self.plugin.app_menu:
+        if ((not default.props.gtk_shell_shows_app_menu) or \
+                default.props.gtk_shell_shows_menubar or self.plugin.app_menu) and os.environ["XDG_CURRENT_DESKTOP"].find("GNOME") == -1:
 
             # for environments that dont support app-menus
             menu_button = Gtk.MenuButton.new()
@@ -1557,6 +1557,10 @@ class AltToolbarHeaderBar(AltToolbarShared):
             menu = self.shell.props.application.get_shared_menu('app-menu')
             menu_button.set_menu_model(menu)
             self._end_box_controls.add(menu_button)
+        else:
+            menu = self.shell.props.application.get_shared_menu('app-menu')
+            app = self.shell.props.application
+            app.set_app_menu(menu)
 
         self.headerbar.pack_end(self._end_box_controls)
         self.headerbar.show_all()
