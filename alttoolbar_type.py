@@ -195,6 +195,11 @@ class AltToolbarBase(GObject.Object):
         self.reset_toolbar(self.shell.props.selected_page)
         self.reset_entryview(self.shell.props.selected_page)
 
+        if self.plugin.prefer_dark_theme:
+            settings = Gtk.Settings.get_default()
+            settings.set_property('gtk-application-prefer-dark-theme', True)
+
+
     def cleanup(self):
         """
           initiate a toolbar cleanup of resources and changes made to rhythmbox

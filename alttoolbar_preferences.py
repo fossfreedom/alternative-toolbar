@@ -67,7 +67,8 @@ class GSetting:
                 REPEAT_TYPE='repeat-type',
                 SOURCE_TOOLBAR='show-source-toolbar',
                 HORIZ_CATEGORIES='horiz-categories',
-                APP_MENU='app-menu-display'
+                APP_MENU='app-menu-display',
+                DARK_THEME='dark-theme'
             )
 
             self.setting = {}
@@ -268,6 +269,12 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
             builder.get_object('enhanced_plugins_checkbox')
         self.plugin_settings.bind(self.gs.PluginKey.ENHANCED_PLUGINS,
                                   self._enhanced_plugins, 'active',
+                                  Gio.SettingsBindFlags.DEFAULT)
+
+        self._dark_theme = \
+            builder.get_object('dark_theme_checkbox')
+        self.plugin_settings.bind(self.gs.PluginKey.DARK_THEME,
+                                  self._dark_theme, 'active',
                                   Gio.SettingsBindFlags.DEFAULT)
 
         modern_switch = builder.get_object('modern_switch')

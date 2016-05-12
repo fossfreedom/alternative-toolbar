@@ -79,5 +79,11 @@
                 displayed
             </description>
         </key>
+        <key type="b" name="dark-theme">
+            <default>false</default>
+            <summary>prefer dark theme</summary>
+            <description>prefer to use a dark-theme rather than the current theme
+            </description>
+        </key>
     </schema>
 </schemalist>
