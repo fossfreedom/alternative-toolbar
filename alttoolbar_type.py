@@ -850,7 +850,7 @@ class AltToolbarShared(AltToolbarBase):
         """
           register a new controller
         """
-        if not controller in self._controllers:
+        if controller not in self._controllers:
             self._controllers[controller] = controller
 
     def is_controlled(self, source):
@@ -1181,7 +1181,7 @@ class AltToolbarShared(AltToolbarBase):
                 self.__builder_obj_names.append(name)
 
                 if not self.plugin.show_tooltips and obj.get_has_tooltip():
-                    if not name in self._tooltip_exceptions:
+                    if name not in self._tooltip_exceptions:
                         obj.set_has_tooltip(False)
 
     def connect_builder_content(self, builder):
@@ -1537,10 +1537,10 @@ class AltToolbarHeaderBar(AltToolbarShared):
         # any source defined controls
         self._end_box_controls.add(self.end_box)
 
-        if ((not default.props.gtk_shell_shows_app_menu) or \
-                    default.props.gtk_shell_shows_menubar or self.plugin.app_menu) and os.environ[
-            "XDG_CURRENT_DESKTOP"].find("GNOME") == -1:
-
+        if (not default.props.gtk_shell_shows_app_menu or
+                default.props.gtk_shell_shows_menubar or
+                self.plugin.app_menu) and \
+                        os.environ["XDG_CURRENT_DESKTOP"].find("GNOME") == -1:
             # for environments that dont support app-menus
             menu_button = Gtk.MenuButton.new()
             # menu_button.set_relief(Gtk.ReliefStyle.NONE)
@@ -1600,7 +1600,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
         if not ret_generic_bool:
             return
 
-        if not self.shell.props.selected_page in self.sources:
+        if self.shell.props.selected_page not in self.sources:
             ret_bool, controller = \
                 self.is_controlled(self.shell.props.selected_page)
             self.sources[self.shell.props.selected_page] = controller

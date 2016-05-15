@@ -88,7 +88,6 @@ else:
 if PYVER >= 3:
     import http.client
 
-
     # pyflakes doesnt like python2 unicode so lets give it something
     # to chew on
 
@@ -235,7 +234,7 @@ class Menu(GObject.Object):
             action.associate_menuitem(item)
             item.set_label(label)
 
-            if not section_name in self._rbmenu_items:
+            if section_name not in self._rbmenu_items:
                 self._rbmenu_items[section_name] = []
             self._rbmenu_items[section_name].append(label)
 
@@ -283,7 +282,7 @@ class Menu(GObject.Object):
         menu items (for RB2.99+ only)
         """
         if is_rb3(self.shell):
-            if not section_name in self._rbmenu_items:
+            if section_name not in self._rbmenu_items:
                 return
 
             app = self.shell.props.application
