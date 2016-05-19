@@ -1,3 +1,15 @@
+rhythmbox-plugin-alternative-toolbar (0.17.1-1) unstable; urgency=medium
+
+  * New upstream release. (Closes: #824708)
+    - Option for dark theme
+    - Display Browse Categories horizontally or vertically
+    - Display app-menu correctly in budgie-desktop
+    - Updated translations from Launchpad.net
+    - correctly toggle search button via CTRL+F
+    - option to force the display of the app-menu if required
+
+ -- David Mohammed <foss.freedom@gmail.com>  Wed, 18 May 2016 21:59:51 +0100
+
 rhythmbox-plugin-alternative-toolbar (0.16.3-1) unstable; urgency=medium
 
   * New upstream release. (Closes: #811263)

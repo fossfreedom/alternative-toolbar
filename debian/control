@@ -17,7 +17,7 @@ Build-Depends: debhelper (>= 9),
                pkg-config (>= 0.26),
                python3-gi,
                python3
-Standards-Version: 3.9.6
+Standards-Version: 3.9.8
 Homepage: https://github.com/fossfreedom/alternative-toolbar
 Vcs-Browser: https://github.com/fossfreedom/alternative-toolbar.git
 
