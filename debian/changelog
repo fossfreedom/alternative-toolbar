@@ -1,3 +1,15 @@
+rhythmbox-plugin-alternative-toolbar (0.17.2-1) unstable; urgency=medium
+
+  * New upstream release
+    - Fix for RB 3.4
+    - New pl translation
+  * Packaging Changes
+    - New maintainer email address
+    - updated copyright year for Rosetta translations
+    - added missing Vcs-Git to point to github debian branch
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Sun, 28 Aug 2016 20:23:47 +0100
+
 rhythmbox-plugin-alternative-toolbar (0.17.1-1) unstable; urgency=medium
 
   * New upstream release. (Closes: #824708)
