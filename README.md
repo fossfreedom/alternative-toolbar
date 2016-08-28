@@ -28,7 +28,7 @@
 	</tr>
 	<tr>
 	    <td><b>Email</b></td>
-	    <td><a href="mailto:foss.freedom@gmail.com">foss.freedom@gmail.com</a></td>
+	    <td><a href="mailto:fossfreedom@ubuntu.com">fossfreedom@ubuntu.com</a></td>
 	</tr>
 	<tr>
 	    <td><b>Website</b></td>
