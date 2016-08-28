@@ -541,8 +541,7 @@ class ActionGroup(object):
                 self.actiongroup.add_action(action)
 
             if accel:
-                app.add_accelerator(accel, action_type + "." + action_name,
-                                    None)
+                app.set_accels_for_action(action_type + "." + action_name, [accel])
         else:
             if 'stock_id' in args:
                 stock_id = args['stock_id']
