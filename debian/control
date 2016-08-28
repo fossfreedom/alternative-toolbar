@@ -4,17 +4,17 @@ Priority: optional
 Maintainer: David Mohammed <fossfreedom@ubuntu.com>
 Build-Depends: debhelper (>= 9),
                dh-autoreconf (>= 9),
-               dh-python (>= 1.20130903),
+               dh-python (>= 1.20141111-2),
                gir1.2-glib-2.0 (>= 1.40),
                gir1.2-gstreamer-1.0,
                gir1.2-gtk-3.0,
                gir1.2-peas-1.0,
                gir1.2-rb-3.0,
-               gnome-pkg-tools (>= 0.19),
+               gnome-pkg-tools (>= 0.19.4),
                gobject-introspection (>= 1.40),
-               intltool (>= 0.50),
+               intltool,
                libglib2.0-dev (>= 2.40),
-               pkg-config (>= 0.26),
+               pkg-config (>= 0.28-1+b1),
                python3-gi,
                python3
 Standards-Version: 3.9.8

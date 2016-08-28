@@ -4,9 +4,10 @@ rhythmbox-plugin-alternative-toolbar (0.17.2-1) unstable; urgency=medium
     - Fix for RB 3.4
     - New pl translation
   * Packaging Changes
-    - New maintainer email address
+    - Updated maintainer email address
     - updated copyright year for Rosetta translations
     - added missing Vcs-Git to point to github debian branch
+    - updated with relevant recommendations from cme check dpkg
 
  -- David Mohammed <fossfreedom@ubuntu.com>  Sun, 28 Aug 2016 20:23:47 +0100
 
