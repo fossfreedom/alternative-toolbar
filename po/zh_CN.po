@@ -7,110 +7,110 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-12 19:34+0100\n"
-"PO-Revision-Date: 2015-05-22 16:19+0000\n"
-"Last-Translator: Xiaoxing Ye <Unknown>\n"
+"POT-Creation-Date: 2016-08-28 16:41+0000\n"
+"PO-Revision-Date: 2016-09-25 18:11+0000\n"
+"Last-Translator: 张海 <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-15 21:08+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-09-26 06:00+0000\n"
+"X-Generator: Launchpad (build 18204)\n"
 
 #: ../alternative-toolbar.py:220
 msgid "Seek Backward"
-msgstr ""
+msgstr "快退"
 
 #: ../alternative-toolbar.py:223
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr ""
+msgstr "在当前曲目快退 5 秒"
 
 #: ../alternative-toolbar.py:227
 msgid "Seek Forward"
-msgstr ""
+msgstr "快进"
 
 #: ../alternative-toolbar.py:231
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr ""
+msgstr "在当前曲目快进 10 秒"
 
 #: ../alternative-toolbar.py:243
 msgid "Show Play-Controls Toolbar"
-msgstr ""
+msgstr "显示播放控制工具栏"
 
 #: ../alternative-toolbar.py:247
 msgid "Show or hide the play-controls toolbar"
-msgstr ""
+msgstr "显示或隐藏播放控制工具栏"
 
 #: ../alternative-toolbar.py:252
 msgid "Show Source Toolbar"
-msgstr ""
+msgstr "显示源工具栏"
 
 #: ../alternative-toolbar.py:255
 msgid "Show or hide the source toolbar"
-msgstr ""
+msgstr "显示或隐藏源工具栏"
 
 #. define .plugin text strings used for translation
 #: ../alternative-toolbar.py:541
 msgid "Alternative Toolbar"
-msgstr ""
+msgstr "替代工具栏"
 
 #: ../alternative-toolbar.py:544
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
-msgstr ""
+msgstr "将 Rhythmbox 的大工具栏替换为客户端精美或紧凑的可隐藏工具栏"
 
 #: ../alttoolbar_controller.py:149
 msgid "View All"
-msgstr ""
+msgstr "查看全部"
 
 #: ../alttoolbar_controller.py:315
 msgid "Import"
-msgstr ""
+msgstr "导入"
 
 #: ../alttoolbar_controller.py:533
 msgid "Stations"
-msgstr ""
+msgstr "电台"
 
 #: ../alttoolbar_controller.py:559
 msgid "Libre.fm"
-msgstr ""
+msgstr "Libre.fm"
 
 #: ../alttoolbar_controller.py:602
 msgid "My Top Rated"
-msgstr ""
+msgstr "评级最高"
 
 #: ../alttoolbar_controller.py:606
 msgid "Recently Added"
-msgstr ""
+msgstr "最近添加"
 
 #: ../alttoolbar_controller.py:610
 msgid "Recently Played"
-msgstr ""
+msgstr "最近播放"
 
 #: ../alttoolbar_controller.py:643
 msgid "Podcasts"
-msgstr ""
+msgstr "播客"
 
 #: ../alttoolbar_preferences.py:305
 msgid "Restart"
-msgstr ""
+msgstr "重新启动"
 
 #: ../alttoolbar_sidebar.py:82
 msgid "Local collection"
-msgstr ""
+msgstr "本地收藏"
 
 #: ../alttoolbar_sidebar.py:83
 msgid "Online sources"
-msgstr ""
+msgstr "在线源"
 
 #: ../alttoolbar_sidebar.py:84
 msgid "Other sources"
-msgstr ""
+msgstr "其他源"
 
 #: ../alttoolbar_sidebar.py:85
 msgid "Playlists"
-msgstr ""
+msgstr "播放列表"
 
 #: ../alttoolbar_type.py:1430 ../ui/altlibrary.ui.h:1
 msgid "Songs"
@@ -123,15 +123,15 @@ msgstr "类别"
 
 #: ../alttoolbar_type.py:1500
 msgid "Browse"
-msgstr ""
+msgstr "浏览"
 
 #: ../ui/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
-msgstr "重新启动播放器来应用设置。"
+msgstr "重新启动播放器以应用设置。"
 
 #: ../ui/altpreferences.ui.h:2
 msgid "Toolbar:"
-msgstr "工具栏:"
+msgstr "工具栏："
 
 #: ../ui/altpreferences.ui.h:3
 msgid ""
@@ -147,7 +147,7 @@ msgstr "现代"
 
 #: ../ui/altpreferences.ui.h:6
 msgid "Use compact controls"
-msgstr ""
+msgstr "使用紧凑控件"
 
 #: ../ui/altpreferences.ui.h:7
 msgid ""
@@ -155,29 +155,31 @@ msgid ""
 "instead of the standard rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 msgstr ""
+"在工具栏中以视觉上紧凑的样式而非 Rhythmbox 标准样式显示播放控件。\n"
+"在现代工具栏模式中总是启用。"
 
 #: ../ui/altpreferences.ui.h:9
 msgid "Show:"
-msgstr "显示:"
+msgstr "显示："
 
 #: ../ui/altpreferences.ui.h:10
 msgid "Album/genre/year for playing song"
-msgstr ""
+msgstr "正在播放歌曲的专辑/流派/年份"
 
 #: ../ui/altpreferences.ui.h:11
 msgid ""
 "Display album/genre/year instead of song-artist-album.  Useful for those "
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
-msgstr ""
+msgstr "显示专辑/流派/年份而非歌曲-艺人-专辑。适用于已将歌曲-艺人-专辑显示在窗口标题中的桌面环境。"
 
 #: ../ui/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
-msgstr ""
+msgstr "为播放控件显示工具提示"
 
 #: ../ui/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
-msgstr ""
+msgstr "显示或隐藏播放控件的工具提示。"
 
 #: ../ui/altpreferences.ui.h:14
 msgid "Volume control"
@@ -185,90 +187,90 @@ msgstr "音量控制"
 
 #: ../ui/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
-msgstr ""
+msgstr "显示或隐藏音量控制。"
 
 #: ../ui/altpreferences.ui.h:16
 msgid "Playback controls"
-msgstr ""
+msgstr "播放控件"
 
 #: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
-msgstr ""
+msgstr "在播放器启动时显示或隐藏播放控件"
 
 #: ../ui/altpreferences.ui.h:18
 msgid "Use:"
-msgstr "使用:"
+msgstr "使用："
 
 #: ../ui/altpreferences.ui.h:19
 msgid "Inline song/artist label"
-msgstr ""
+msgstr "在行内显示歌曲/艺人信息"
 
 #: ../ui/altpreferences.ui.h:20
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
-msgstr ""
+msgstr "在进度条前显示歌曲和艺人信息。如果未启用，它们将会在进度条上方显示。"
 
 #: ../ui/altpreferences.ui.h:21
 msgid "Compact progress slider"
-msgstr ""
+msgstr "紧凑进度条"
 
 #: ../ui/altpreferences.ui.h:22
 msgid ""
 "Display and use a compact track progress slider - useful where the default "
 "theme progress slider is visually too large."
-msgstr ""
+msgstr "显示并使用紧凑的曲目进度条——在默认主题的进度条过大时适用。"
 
 #: ../ui/altpreferences.ui.h:23
 msgid "Enhanced sidebar"
-msgstr ""
+msgstr "增强的边栏"
 
 #: ../ui/altpreferences.ui.h:24
 msgid ""
 "Show or hide redesigned sidebar for the player. It features improved "
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
-msgstr ""
+msgstr "显示或隐藏重新设计的播放器边栏。它拥有改进的符号图标、更好的源组织和展开/收起类别的能力。"
 
 #: ../ui/altpreferences.ui.h:25
 msgid "Enhanced plugins dialog"
-msgstr ""
+msgstr "增前的插件对话框"
 
 #: ../ui/altpreferences.ui.h:26
 msgid ""
 "Show or hide redesigned plugins dialog. It features switches instead of "
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
 "based desktop environments."
-msgstr ""
+msgstr "显示或隐藏重新设计的插件对话框。它使用开关而非复选框，并且拥有带符号图标的行内工具栏。在基于 GNOME 的桌面环境上效果最佳。"
 
 #: ../ui/altpreferences.ui.h:27
 msgid "Dark theme if available"
-msgstr ""
+msgstr "使用深色主题（如果可用）"
 
 #: ../ui/altpreferences.ui.h:29
 msgid "Horizontal"
-msgstr ""
+msgstr "水平"
 
 #: ../ui/altpreferences.ui.h:30
 msgid "Vertical"
-msgstr ""
+msgstr "竖直"
 
 #: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"
-msgstr ""
+msgstr "播放上一曲目"
 
 #: ../ui/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr ""
+msgstr "恢复或暂停播放"
 
 #: ../ui/alttoolbar.ui.h:3
 msgid "Play the next track"
-msgstr ""
+msgstr "播放下一曲目"
 
 #: ../ui/alttoolbar.ui.h:4
 msgid "Repeat the current track"
-msgstr ""
+msgstr "重复当前曲目"
 
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
-msgstr ""
+msgstr "随机播放曲目"
