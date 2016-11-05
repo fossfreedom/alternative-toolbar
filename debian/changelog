@@ -1,3 +1,13 @@
+rhythmbox-plugin-alternative-toolbar (0.17.3-1) unstable; urgency=medium
+
+  * New upstream release.
+    - latest zh_CN translation
+  * Packaging Changes.
+    - debian/prerm and debian/postrm are shell scripts so start 
+      with #!/bin/sh (Closes: #843278)
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Sat, 05 Nov 2016 20:05:33 +0100
+
 rhythmbox-plugin-alternative-toolbar (0.17.2-1) unstable; urgency=medium
 
   * New upstream release
