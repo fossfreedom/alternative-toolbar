@@ -1,3 +1,33 @@
+commit bc804c9012a4ed33e91df2533842687fc0dd7d84
+Author: fossfreedom <foss.freedom@gmail.com>
+Date:   Sat Nov 5 20:55:56 2016 +0000
+
+    v0.17.3 updates
+
+ README.md                     | 2 +-
+ alternative-toolbar.plugin.in | 2 +-
+ configure.ac                  | 2 +-
+ readme.html                   | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+commit f40a5d2bfd2e7c8a623f64dd8e886feebe540ba1
+Author: fossfreedom <foss.freedom@gmail.com>
+Date:   Mon Sep 26 07:39:08 2016 +0100
+
+    latest zh_CN translation
+
+ po/zh_CN.po | 116 +++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 59 insertions(+), 57 deletions(-)
+
+commit 3fe2958a75bd0ce8f9e3fe3422de191541ab204e
+Author: fossfreedom <foss.freedom@gmail.com>
+Date:   Sun Aug 28 16:39:40 2016 +0100
+
+    add v0.17.2 changelog
+
+ ChangeLog | 449 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 444 insertions(+), 5 deletions(-)
+
 commit afe807c46459e85449ba421310a4378c93417764
 Author: fossfreedom <foss.freedom@gmail.com>
 Date:   Sun Aug 28 16:30:14 2016 +0100
