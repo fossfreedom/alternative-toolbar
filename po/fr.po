@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-12 19:34+0100\n"
-"PO-Revision-Date: 2016-02-11 19:51+0000\n"
+"POT-Creation-Date: 2016-11-06 01:37+0000\n"
+"PO-Revision-Date: 2017-02-21 17:24+0000\n"
 "Last-Translator: Éfrit <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-15 21:08+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2017-03-01 12:24+0000\n"
+"X-Generator: Launchpad (build 18329)\n"
 
 #: ../alternative-toolbar.py:220
 msgid "Seek Backward"
@@ -149,7 +149,7 @@ msgstr "Moderne"
 
 #: ../ui/altpreferences.ui.h:6
 msgid "Use compact controls"
-msgstr "Utiliser des contôles compacts"
+msgstr "Utiliser des contrôles compacts"
 
 #: ../ui/altpreferences.ui.h:7
 msgid ""
@@ -201,8 +201,7 @@ msgstr "Commandes de lecture"
 
 #: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
-msgstr ""
-"Afficher ou masquer les commandes de lecture au lancement du lecteur."
+msgstr "Afficher ou masquer les commandes de lecture au démarrage."
 
 #: ../ui/altpreferences.ui.h:18
 msgid "Use:"
@@ -229,7 +228,7 @@ msgid ""
 "Display and use a compact track progress slider - useful where the default "
 "theme progress slider is visually too large."
 msgstr ""
-"Afficher et utiliser un curseur progressif compact de pistes — utile là où "
+"Afficher et utiliser un curseur progressif compact de pistes — utile là où "
 "le curseur progressif du thème par défaut est visuellement trop large."
 
 #: ../ui/altpreferences.ui.h:23
@@ -263,7 +262,7 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:27
 msgid "Dark theme if available"
-msgstr ""
+msgstr "Thème sombre si disponible"
 
 #: ../ui/altpreferences.ui.h:29
 msgid "Horizontal"
