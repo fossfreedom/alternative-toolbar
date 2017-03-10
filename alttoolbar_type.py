@@ -307,10 +307,14 @@ class AltToolbarBase(GObject.Object):
             print("no page")
             return
 
-        entryview = page.get_entry_view()
+        try:
+            entryview = page.get_entry_view()
 
-        if not entryview:
-            print("no entry view")
+            if not entryview:
+                print("no entry view")
+                return
+        except:
+            # some pages dont have the method to call!
             return
 
         treeview = entryview.get_child()
