@@ -1597,6 +1597,9 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
         ret, controller = self.is_controlled(page)
         controller.set_library_labels()
+        if controller.toolbar_visibility() != None:
+            toolbar = controller.get_toolbar(page)
+            toolbar.set_visible(controller.toolbar_visibility())
 
     def _set_toolbar_controller(self):
 

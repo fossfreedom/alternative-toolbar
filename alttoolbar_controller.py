@@ -53,6 +53,14 @@ class AltControllerBase(GObject.Object):
 
         return AltControllerCategory.OTHER
 
+    def toolbar_visibility(self):
+        """
+            return the toolbar visibility
+              by default None which means user controlled
+        """
+
+        return None
+
     def get_gicon(self, source):
         """
           return the source icon
@@ -96,7 +104,7 @@ class AltControllerBase(GObject.Object):
     def get_search_entry(self, toolbar_container):
         """
           find the GtkEntry field corresponding to the search entry
-          returns 1. the GtkWidget containing the GtkEntry 
+          returns 1. the GtkWidget containing the GtkEntry
                   2. the GtkEntry
           returns None if nothing found
         """
@@ -532,6 +540,9 @@ class AltRadioController(AltGenericController):
     def set_library_labels(self):
         self.header.set_library_labels(song_label=_('Stations'))
 
+    def toolbar_visibility(self):
+        return True # radio source the source toolbar is always shown
+
 
 class AltLastFMController(AltGenericController):
     """
@@ -641,6 +652,9 @@ class AltPodcastController(AltGenericController):
         cl.switch_locale(cl.Locale.LOCALE_DOMAIN)
 
         self.header.set_library_labels(song_label=_('Podcasts'))
+
+    def toolbar_visibility(self):
+        return True # podcast source the source toolbar is always shown
 
 
 class AltStandardOnlineController(AltGenericController):
