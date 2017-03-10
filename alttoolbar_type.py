@@ -318,7 +318,7 @@ class AltToolbarBase(GObject.Object):
         def move_col(*args):
             cols = treeview.get_columns()
 
-            treeview.set_reorderable(True)
+            #treeview.set_reorderable(True)
 
             current_cols = []
             base_col = None
