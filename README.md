@@ -170,7 +170,7 @@ $ ebuild alternative-toolbar-9999.ebuild digest
 $ emerge alternative-toolbar
 ```
 
-##To uninstall.
+## To uninstall.
 
 If installed via Git you need the original code to uninstall the plugin.
 ```bash
