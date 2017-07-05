@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-11-06 01:37+0000\n"
+"POT-Creation-Date: 2017-04-18 09:11+0000\n"
 "PO-Revision-Date: 2017-02-28 01:41+0000\n"
-"Last-Translator: shin minwook <Unknown>\n"
+"Last-Translator: minwook shin <Unknown>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-03-01 12:24+0000\n"
-"X-Generator: Launchpad (build 18329)\n"
+"X-Launchpad-Export-Date: 2017-07-04 16:00+0000\n"
+"X-Generator: Launchpad (build 18419)\n"
 
 #: ../alternative-toolbar.py:220
 msgid "Seek Backward"
@@ -50,45 +50,45 @@ msgid "Show or hide the source toolbar"
 msgstr "소스 툴바를 보거나 숨기기"
 
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:541
+#: ../alternative-toolbar.py:542
 msgid "Alternative Toolbar"
 msgstr "대체 도구 모음"
 
-#: ../alternative-toolbar.py:544
+#: ../alternative-toolbar.py:545
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr "클라이언트-측 장식 또는 숨길수있는 소형 도구 모음가 있는 리듬박스 큰 툴바를 재 배치할수있습니다"
 
-#: ../alttoolbar_controller.py:149
+#: ../alttoolbar_controller.py:157
 msgid "View All"
 msgstr "모두 보기"
 
-#: ../alttoolbar_controller.py:315
+#: ../alttoolbar_controller.py:323
 msgid "Import"
 msgstr "가져오기"
 
-#: ../alttoolbar_controller.py:533
+#: ../alttoolbar_controller.py:541
 msgid "Stations"
 msgstr "역"
 
-#: ../alttoolbar_controller.py:559
+#: ../alttoolbar_controller.py:570
 msgid "Libre.fm"
 msgstr "Libre.fm"
 
-#: ../alttoolbar_controller.py:602
+#: ../alttoolbar_controller.py:613
 msgid "My Top Rated"
 msgstr "나의 가장 높은 점수순"
 
-#: ../alttoolbar_controller.py:606
+#: ../alttoolbar_controller.py:617
 msgid "Recently Added"
 msgstr "최근에 추가됨"
 
-#: ../alttoolbar_controller.py:610
+#: ../alttoolbar_controller.py:621
 msgid "Recently Played"
 msgstr "최근 연주된 것"
 
-#: ../alttoolbar_controller.py:643
+#: ../alttoolbar_controller.py:654
 msgid "Podcasts"
 msgstr "팟캐스트"
 
@@ -112,16 +112,16 @@ msgstr "다른 소스"
 msgid "Playlists"
 msgstr "재생목록"
 
-#: ../alttoolbar_type.py:1430 ../ui/altlibrary.ui.h:1
+#: ../alttoolbar_type.py:1434 ../ui/altlibrary.ui.h:1
 msgid "Songs"
 msgstr "노래들"
 
-#: ../alttoolbar_type.py:1435 ../alttoolbar_type.py:1516
+#: ../alttoolbar_type.py:1439 ../alttoolbar_type.py:1520
 #: ../ui/altpreferences.ui.h:28 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "카테고리"
 
-#: ../alttoolbar_type.py:1500
+#: ../alttoolbar_type.py:1504
 msgid "Browse"
 msgstr "찾아보기"
 

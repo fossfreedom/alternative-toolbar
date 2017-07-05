@@ -7,88 +7,89 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-11-06 01:37+0000\n"
-"PO-Revision-Date: 2015-11-05 12:38+0000\n"
-"Last-Translator: BALLOON a.k.a. Fu-sen. (Keiichi SHIGA) <Unknown>\n"
+"POT-Creation-Date: 2017-04-18 09:11+0000\n"
+"PO-Revision-Date: 2017-07-04 09:32+0000\n"
+"Last-Translator: Shinichirou Yamada "
+"<yamada_strong_yamada_nice_64bit@yahoo.co.jp>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-03-01 12:24+0000\n"
-"X-Generator: Launchpad (build 18329)\n"
+"X-Launchpad-Export-Date: 2017-07-04 16:00+0000\n"
+"X-Generator: Launchpad (build 18419)\n"
 
 #: ../alternative-toolbar.py:220
 msgid "Seek Backward"
-msgstr "後方検索"
+msgstr "少し前に戻る"
 
 #: ../alternative-toolbar.py:223
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr ""
+msgstr "現在のトラックを5秒戻る"
 
 #: ../alternative-toolbar.py:227
 msgid "Seek Forward"
-msgstr "前方検索"
+msgstr "少し先に進む"
 
 #: ../alternative-toolbar.py:231
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr ""
+msgstr "現在のトラックを10秒進む"
 
 #: ../alternative-toolbar.py:243
 msgid "Show Play-Controls Toolbar"
-msgstr "再生コントロールツールバーの表示"
+msgstr "再生コントロールツールバーを表示"
 
 #: ../alternative-toolbar.py:247
 msgid "Show or hide the play-controls toolbar"
-msgstr "再生コントロールツールバーの表示・非表示"
+msgstr "再生コントロールツールバーの表示/非表示"
 
 #: ../alternative-toolbar.py:252
 msgid "Show Source Toolbar"
-msgstr "ソースツールバーの表示"
+msgstr "ソースツールバーを表示"
 
 #: ../alternative-toolbar.py:255
 msgid "Show or hide the source toolbar"
-msgstr "ソールツールバーの表示・非表示"
+msgstr "ソースツールバーの表示/非表示"
 
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:541
+#: ../alternative-toolbar.py:542
 msgid "Alternative Toolbar"
 msgstr ""
 
-#: ../alternative-toolbar.py:544
+#: ../alternative-toolbar.py:545
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
-msgstr ""
+msgstr "Rhythmboxの大きなツールバーを、非表示にできるコンパクトなツールバーに置き換えます"
 
-#: ../alttoolbar_controller.py:149
+#: ../alttoolbar_controller.py:157
 msgid "View All"
 msgstr "すべて表示"
 
-#: ../alttoolbar_controller.py:315
+#: ../alttoolbar_controller.py:323
 msgid "Import"
 msgstr "インポート"
 
-#: ../alttoolbar_controller.py:533
+#: ../alttoolbar_controller.py:541
 msgid "Stations"
-msgstr "ステーション"
+msgstr ""
 
-#: ../alttoolbar_controller.py:559
+#: ../alttoolbar_controller.py:570
 msgid "Libre.fm"
 msgstr "Libre.fm"
 
-#: ../alttoolbar_controller.py:602
+#: ../alttoolbar_controller.py:613
 msgid "My Top Rated"
-msgstr "高評価したもの"
+msgstr "お気に入り"
 
-#: ../alttoolbar_controller.py:606
+#: ../alttoolbar_controller.py:617
 msgid "Recently Added"
 msgstr "最近追加したもの"
 
-#: ../alttoolbar_controller.py:610
+#: ../alttoolbar_controller.py:621
 msgid "Recently Played"
 msgstr "最近再生したもの"
 
-#: ../alttoolbar_controller.py:643
+#: ../alttoolbar_controller.py:654
 msgid "Podcasts"
 msgstr "Podcast"
 
@@ -106,28 +107,28 @@ msgstr "オンラインソース"
 
 #: ../alttoolbar_sidebar.py:84
 msgid "Other sources"
-msgstr "他のソース"
+msgstr "その他のソース"
 
 #: ../alttoolbar_sidebar.py:85
 msgid "Playlists"
 msgstr "プレイリスト"
 
-#: ../alttoolbar_type.py:1430 ../ui/altlibrary.ui.h:1
+#: ../alttoolbar_type.py:1434 ../ui/altlibrary.ui.h:1
 msgid "Songs"
 msgstr "曲"
 
-#: ../alttoolbar_type.py:1435 ../alttoolbar_type.py:1516
+#: ../alttoolbar_type.py:1439 ../alttoolbar_type.py:1520
 #: ../ui/altpreferences.ui.h:28 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "カテゴリー"
 
-#: ../alttoolbar_type.py:1500
+#: ../alttoolbar_type.py:1504
 msgid "Browse"
-msgstr "参照"
+msgstr ""
 
 #: ../ui/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
-msgstr "変更を反映するためプレーヤーを再起動してください"
+msgstr "変更を有効にするにはプレイヤーを再起動してください"
 
 #: ../ui/altpreferences.ui.h:2
 msgid "Toolbar:"
@@ -138,6 +139,8 @@ msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
 msgstr ""
+"GNOMEやElementaryのような\n"
+"デスクトップ環境に最適です。"
 
 #: ../ui/altpreferences.ui.h:5
 msgid "Modern"
@@ -145,7 +148,7 @@ msgstr "モダン"
 
 #: ../ui/altpreferences.ui.h:6
 msgid "Use compact controls"
-msgstr "小さな操作部を使用"
+msgstr "コンパクトなコントロールを使用"
 
 #: ../ui/altpreferences.ui.h:7
 msgid ""
@@ -153,6 +156,8 @@ msgid ""
 "instead of the standard rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 msgstr ""
+"標準のRhythmboxスタイルの代わりに、視覚的にコンパクトなスタイルで、ツールバーに再生コントロールを表示します。\n"
+"モダンツールバーモードでは常に有効になります。"
 
 #: ../ui/altpreferences.ui.h:9
 msgid "Show:"
@@ -160,7 +165,7 @@ msgstr "表示:"
 
 #: ../ui/altpreferences.ui.h:10
 msgid "Album/genre/year for playing song"
-msgstr ""
+msgstr "再生中の曲のアルバム/ジャンル/制作年"
 
 #: ../ui/altpreferences.ui.h:11
 msgid ""
@@ -168,14 +173,16 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
+"曲/アーティスト/アルバムの代わりに、アルバム/ジャンル/制作年を表示します。ウィンドウのタイトルバーに、曲/アーティスト/アルバムが表示されるデスクトッ"
+"プ環境において有用です。"
 
 #: ../ui/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
-msgstr ""
+msgstr "再生コントロールのツールチップ"
 
 #: ../ui/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
-msgstr ""
+msgstr "再生コントロールのツールチップの表示/非表示"
 
 #: ../ui/altpreferences.ui.h:14
 msgid "Volume control"
@@ -183,15 +190,15 @@ msgstr "音量コントロール"
 
 #: ../ui/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
-msgstr "音量コントロールの表示・非表示"
+msgstr "音量コントロールの表示/非表示"
 
 #: ../ui/altpreferences.ui.h:16
 msgid "Playback controls"
-msgstr "プレイバックコントロール"
+msgstr "再生コントロール"
 
 #: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
-msgstr ""
+msgstr "プレイヤー起動時の再生コントロールの表示/非表示"
 
 #: ../ui/altpreferences.ui.h:18
 msgid "Use:"
@@ -199,27 +206,30 @@ msgstr "使用:"
 
 #: ../ui/altpreferences.ui.h:19
 msgid "Inline song/artist label"
-msgstr ""
+msgstr "曲ラベル/アーティストラベルのインライン表示"
 
 #: ../ui/altpreferences.ui.h:20
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
+"再生位置の調整スライダーの前に、曲とアーティストのラベルを表示します。チェックされていない場合は、再生位置の調整スライダーの上に表示されます。"
 
 #: ../ui/altpreferences.ui.h:21
 msgid "Compact progress slider"
-msgstr ""
+msgstr "コンパクトな再生位置の調整スライダー"
 
 #: ../ui/altpreferences.ui.h:22
 msgid ""
 "Display and use a compact track progress slider - useful where the default "
 "theme progress slider is visually too large."
 msgstr ""
+"コンパクトな、トラックの再生位置の調整スライダーを表示して使用します。デフォルトのテーマの再生位置の調整スライダーが、視覚的に大きすぎる場合において有用で"
+"す。"
 
 #: ../ui/altpreferences.ui.h:23
 msgid "Enhanced sidebar"
-msgstr ""
+msgstr "機能が強化されたサイドバー"
 
 #: ../ui/altpreferences.ui.h:24
 msgid ""
@@ -230,7 +240,7 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:25
 msgid "Enhanced plugins dialog"
-msgstr ""
+msgstr "機能が強化されたプラグインダイアログ"
 
 #: ../ui/altpreferences.ui.h:26
 msgid ""
@@ -241,15 +251,15 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:27
 msgid "Dark theme if available"
-msgstr ""
+msgstr "ダークテーマ(利用可能な場合)"
 
 #: ../ui/altpreferences.ui.h:29
 msgid "Horizontal"
-msgstr ""
+msgstr "横"
 
 #: ../ui/altpreferences.ui.h:30
 msgid "Vertical"
-msgstr ""
+msgstr "縦"
 
 #: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"
@@ -257,7 +267,7 @@ msgstr "前のトラックを再生"
 
 #: ../ui/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr ""
+msgstr "再生を再開/一時停止"
 
 #: ../ui/alttoolbar.ui.h:3
 msgid "Play the next track"
@@ -269,4 +279,4 @@ msgstr "現在のトラックをリピート"
 
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
-msgstr "ランダム順序でトラック再生"
+msgstr "トラックをランダム再生"
