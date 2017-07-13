@@ -1,6 +1,6 @@
 # -*- Mode: python; coding: utf-8; tab-width: 4; indent-tabs-mode: nil; -*-
 #
-# Copyright (C) 2015 - 2016 - David Mohammed
+# Copyright (C) 2015 - 2017 - David Mohammed
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
