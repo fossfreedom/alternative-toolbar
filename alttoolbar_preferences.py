@@ -28,6 +28,7 @@ import rb
 from gi.repository import GObject
 from gi.repository import Gio
 from gi.repository import Gtk
+gi.require_version('PeasGtk', '1.0')
 from gi.repository import PeasGtk
 from gi.repository import RB
 
