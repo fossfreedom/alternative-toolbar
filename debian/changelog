@@ -1,3 +1,17 @@
+rhythmbox-plugin-alternative-toolbar (0.17.4-0ubuntu1) zesty; urgency=medium
+
+  * New upstream release
+    - latest translations
+    - show source toolbar for radio and podcasts
+    - allow playqueue reordering of songs
+  * Packaging Changes.
+    - debian/control standards-version changed to 4.0.0
+      debhelper changed to 10 and removed the now unnecessary
+      dh_autoreconf build dependency
+    - debian/copyright - extend copyright year
+
+ -- dad <dad@localhost.localdomain>  Thu, 13 Jul 2017 23:25:25 +0100
+
 rhythmbox-plugin-alternative-toolbar (0.17.3-1) unstable; urgency=medium
 
   * New upstream release.
