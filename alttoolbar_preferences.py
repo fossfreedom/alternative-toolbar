@@ -25,6 +25,7 @@ import shutil
 import sys
 
 import rb
+import gi
 from gi.repository import GObject
 from gi.repository import Gio
 from gi.repository import Gtk
