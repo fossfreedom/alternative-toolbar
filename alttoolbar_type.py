@@ -1544,7 +1544,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
         if (not default.props.gtk_shell_shows_app_menu or
                 default.props.gtk_shell_shows_menubar or
                 self.plugin.app_menu) and \
-                        os.environ["XDG_CURRENT_DESKTOP"].find("GNOME") == -1:
+                        os.environ.get("XDG_CURRENT_DESKTOP","DESKTOP_NOT_SET").find("GNOME") == -1:
             # for environments that dont support app-menus
             menu_button = Gtk.MenuButton.new()
             # menu_button.set_relief(Gtk.ReliefStyle.NONE)
