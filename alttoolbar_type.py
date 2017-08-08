@@ -1447,7 +1447,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
         if not self.setup_completed:
             return
 
-        self.set_library_labels()
+        controlled, current_controller = self.is_controlled(self.shell.props.selected_page)
+        current_controller.set_library_labels()
 
         if toggle_button:
             self.emit('song-category-clicked',
@@ -1569,7 +1570,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self.headerbar.pack_end(self._end_box_controls)
         self.headerbar.show_all()
 
-        self.set_library_labels()
+        controlled, current_controller = self.is_controlled(self.shell.props.selected_page)
+        current_controller.set_library_labels()
 
         action = self.plugin.toggle_action_group.get_action('ToggleToolbar')
         if not self.plugin.start_hidden:
