@@ -1,3 +1,266 @@
+commit fd78de8991e56acc3c617d948dc4e190622dc6e8
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Wed Aug 9 21:51:03 2017 +0100
+
+    minor pep8
+
+ alternative-toolbar.py | 3 ++-
+ alttoolbar_type.py     | 7 ++++---
+ 2 files changed, 6 insertions(+), 4 deletions(-)
+
+commit 1844b2c14bd99b77ef5393acd8b8563d7c952344
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Wed Aug 9 21:36:50 2017 +0100
+
+    0.17.4 label
+
+ README.md                     | 2 +-
+ alternative-toolbar.plugin.in | 4 ++--
+ configure.ac                  | 2 +-
+ readme.html                   | 2 +-
+ 4 files changed, 5 insertions(+), 5 deletions(-)
+
+commit 2973c8d54456b583d5b34d73f845f06acc01c48e
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Wed Aug 9 21:32:44 2017 +0100
+
+    remove unnecessary LICENSE from built package
+
+ Makefile.am | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+commit 36d4aaed153d57162bd71178dd503615ca3af364
+Author: fossfreedom <foss.freedom@gmail.com>
+Date:   Tue Aug 8 20:19:58 2017 +0100
+
+    much larger searchbar #94
+
+ alttoolbar_controller.py | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit cc6514969db8e9147f4d6990ed364232fbfe473a
+Author: fossfreedom <foss.freedom@gmail.com>
+Date:   Tue Aug 8 20:00:19 2017 +0100
+
+    permissions for ja.po
+
+ po/ja.po | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 2ca7a98aaeea96e739f2b4b2d26b6e9aee4f5ea2
+Author: fossfreedom <foss.freedom@gmail.com>
+Date:   Tue Aug 8 19:59:07 2017 +0100
+
+    latest ja translation
+
+ po/ja.po | 32 ++++++++++++++++----------------
+ 1 file changed, 16 insertions(+), 16 deletions(-)
+
+commit c67a739b96986df9b5019650de02b9b00e1d9d60
+Author: fossfreedom <foss.freedom@gmail.com>
+Date:   Tue Aug 8 19:29:13 2017 +0100
+
+    set category labels whenever the source changes #87
+
+ alttoolbar_type.py | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+commit fedb632f799356f411ff9ac654031e5a536d702c
+Author: fossfreedom <foss.freedom@gmail.com>
+Date:   Tue Aug 8 18:58:48 2017 +0100
+
+    resolve breakage if XDG_CURRENT_DESKTOP is not set #102
+
+ alttoolbar_type.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit a8aafe45861ffa61bb0f78bbb70b7427dcdb4208
+Merge: 49989f4 1daae58
+Author: David Mohammed <fossfreedom@users.noreply.github.com>
+Date:   Fri Jul 14 05:39:50 2017 +0100
+
+    Merge pull request #103 from knight-corvi/master
+    
+    Add gi module before using gi.require_version
+
+commit 1daae5835723bdb83f3a51c50dec5d4c2097d80a
+Author: Joaquin Mendez <joaquin8mendez@gmail.com>
+Date:   Thu Jul 13 17:43:14 2017 -0700
+
+    Add gi module before using gi.require_version
+    
+    Rhythmbox fails to load the plugin if the gi module is not imported.
+
+ alternative-toolbar.py    | 1 +
+ alttoolbar_preferences.py | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 49989f434522ec5ea69048fab3a8c9c7d920e1ed
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Thu Jul 13 23:56:45 2017 +0100
+
+    some cleanup
+
+ alternative-toolbar.py    | 1 +
+ alttoolbar_preferences.py | 1 +
+ alttoolbar_type.py        | 2 +-
+ 3 files changed, 3 insertions(+), 1 deletion(-)
+
+commit 0dbac7d02f4fd8b9daefeca44a0229613a6b0233
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Thu Jul 13 23:44:17 2017 +0100
+
+    update copyright year
+
+ alternative-toolbar.py    | 2 +-
+ alttoolbar_controller.py  | 2 +-
+ alttoolbar_plugins.py     | 2 +-
+ alttoolbar_preferences.py | 2 +-
+ alttoolbar_rb3compat.py   | 2 +-
+ alttoolbar_repeat.py      | 2 +-
+ alttoolbar_sidebar.py     | 2 +-
+ alttoolbar_type.py        | 2 +-
+ alttoolbar_widget.py      | 2 +-
+ 9 files changed, 9 insertions(+), 9 deletions(-)
+
+commit 574922e83343a0fffda04dc0a22c8217e7e892b6
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Wed Jul 5 16:38:01 2017 +0100
+
+    latest translations
+
+ po/af.po       |  32 ++++++++---------
+ po/bg.po       |  32 ++++++++---------
+ po/ca.po       |  32 ++++++++---------
+ po/de.po       |  32 ++++++++---------
+ po/el.po       |  32 ++++++++---------
+ po/en_AU.po    |  32 ++++++++---------
+ po/en_GB.po    |  32 ++++++++---------
+ po/en_US.po    |  32 ++++++++---------
+ po/eo.po       |  34 +++++++++---------
+ po/es.po       |  32 ++++++++---------
+ po/fi.po       |  32 ++++++++---------
+ po/fr.po       |  32 ++++++++---------
+ po/id.po       |  32 ++++++++---------
+ po/it.po       |  32 ++++++++---------
+ po/ja.po       | 106 +++++++++++++++++++++++++++++++--------------------------
+ po/ko.po       |  34 +++++++++---------
+ po/ms.po       |  32 ++++++++---------
+ po/pl.po       |  32 ++++++++---------
+ po/pt.po       |  32 ++++++++---------
+ po/pt_BR.po    |  32 ++++++++---------
+ po/ru.po       |  32 ++++++++---------
+ po/sl.po       |  32 ++++++++---------
+ po/sr.po       |  32 ++++++++---------
+ po/sr@latin.po |  32 ++++++++---------
+ po/sv.po       |  32 ++++++++---------
+ po/th.po       |  32 ++++++++---------
+ po/uk.po       |  32 ++++++++---------
+ po/zh_CN.po    |  32 ++++++++---------
+ po/zh_TW.po    |  32 ++++++++---------
+ 29 files changed, 508 insertions(+), 498 deletions(-)
+
+commit f597247e16d80457a3af37943ef0b5c969411b28
+Merge: 2e22f7e 497c0bb
+Author: David Mohammed <fossfreedom@users.noreply.github.com>
+Date:   Tue Apr 18 09:48:19 2017 +0100
+
+    Merge pull request #101 from bryant1410/master
+    
+    Fix broken headings in Markdown files
+
+commit 497c0bbf8534daf5321a88394d8aac973386da71
+Author: Santiago Castro <santi.1410@hotmail.com>
+Date:   Tue Apr 18 03:09:29 2017 -0300
+
+    Fix broken Markdown headings
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 2e22f7ec11e5f6be6304cee24f7b868d471118fa
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Fri Mar 10 16:32:16 2017 +0000
+
+    source toolbar should always be visible of podcasts and radio
+
+ alttoolbar_controller.py | 16 +++++++++++++++-
+ alttoolbar_type.py       |  3 +++
+ 2 files changed, 18 insertions(+), 1 deletion(-)
+
+commit d1ece552fbc331de9054c9817816f9ee507fb4f8
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Fri Mar 10 12:46:15 2017 +0000
+
+    code check for pages with no entry-view method #95
+
+ alttoolbar_type.py | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+commit 4c13fae703822bef072a1de76cc66f5b1e291ab8
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Fri Mar 10 12:34:32 2017 +0000
+
+    only columns need to be reorderable #86
+
+ alttoolbar_type.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit bb05abbba8de7b7ae359aef92f8b1a7c9fb60d47
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Fri Mar 10 12:18:01 2017 +0000
+
+    fix no obj error when using standard toolbars
+
+ alternative-toolbar.py | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+commit 9f4323352f3f501fe281c6ac2eefed32e915d648
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Wed Mar 1 12:33:59 2017 +0000
+
+    latest launchpad translations
+
+ po/af.po       |   6 +-
+ po/bg.po       |   6 +-
+ po/ca.po       |   6 +-
+ po/de.po       |  12 +--
+ po/el.po       |   6 +-
+ po/en_AU.po    |   6 +-
+ po/en_GB.po    |   6 +-
+ po/en_US.po    |   6 +-
+ po/eo.po       |   6 +-
+ po/es.po       |   6 +-
+ po/fi.po       |   6 +-
+ po/fr.po       |  17 ++--
+ po/id.po       |   6 +-
+ po/it.po       |   6 +-
+ po/ja.po       |   6 +-
+ po/ko.po       |  16 ++--
+ po/ms.po       |   6 +-
+ po/pl.po       |   6 +-
+ po/pt.po       |   6 +-
+ po/pt_BR.po    |   6 +-
+ po/ru.po       |   6 +-
+ po/sl.po       |   6 +-
+ po/sr.po       | 290 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sr@latin.po | 290 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sv.po       |   9 +-
+ po/th.po       |   6 +-
+ po/uk.po       |   6 +-
+ po/zh_CN.po    |   6 +-
+ po/zh_TW.po    |   6 +-
+ 29 files changed, 675 insertions(+), 97 deletions(-)
+
+commit 9089bda44fbb5936e4251bf97710d79e2ae43eff
+Author: fossfreedom <foss.freedom@gmail.com>
+Date:   Sat Nov 5 20:59:41 2016 +0000
+
+    update ChangeLog
+
+ ChangeLog | 30 ++++++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
+
 commit bc804c9012a4ed33e91df2533842687fc0dd7d84
 Author: fossfreedom <foss.freedom@gmail.com>
 Date:   Sat Nov 5 20:55:56 2016 +0000
@@ -587,22 +850,19 @@ Date:   Sat Dec 19 10:37:14 2015 +0000
 
     rework #63 to keep rhythmbox convention of ui files, build translation files, update version, revised gitignore
 
- .gitignore                 |   1 +
- Makefile.am                |  11 +-
- README.md                  |   2 +-
- TRANSLATE_README           |  37 +----
- alttoolbar_preferences.py  |   2 +-
- alttoolbar_type.py         |   4 +-
- configure.ac               |   2 +-
- po/POTFILES.in             |   5 +-
- po/alternative-toolbar.pot | 295 -------------------------------------
- ui/altlibrary.glade        |  55 -------
- ui/altlibrary.ui           |  55 +++++++
- ui/altpreferences.glade    | 358 ---------------------------------------------
- ui/altpreferences.ui       | 358 +++++++++++++++++++++++++++++++++++++++++++++
- ui/alttoolbar.glade        | 332 -----------------------------------------
- ui/alttoolbar.ui           | 332 +++++++++++++++++++++++++++++++++++++++++
- 15 files changed, 765 insertions(+), 1084 deletions(-)
+ .gitignore                                     |   1 +
+ Makefile.am                                    |  11 +-
+ README.md                                      |   2 +-
+ TRANSLATE_README                               |  37 +---
+ alttoolbar_preferences.py                      |   2 +-
+ alttoolbar_type.py                             |   4 +-
+ configure.ac                                   |   2 +-
+ po/POTFILES.in                                 |   5 +-
+ po/alternative-toolbar.pot                     | 295 -------------------------
+ ui/{altlibrary.glade => altlibrary.ui}         |   0
+ ui/{altpreferences.glade => altpreferences.ui} |   0
+ ui/{alttoolbar.glade => alttoolbar.ui}         |   0
+ 12 files changed, 20 insertions(+), 339 deletions(-)
 
 commit c8ca45cf99f923c0e6daf1a332e74f1b93bde75e
 Merge: e49a9c1 371942f
@@ -619,32 +879,28 @@ Date:   Fri Dec 18 17:43:44 2015 +0000
     
     Signed-off-by: Ikey Doherty <ikey@solus-project.com>
 
- .gitignore                   |  18 +++
- Makefile                     |  24 ---
- Makefile.am                  |  77 ++++++++++
- alternative-toolbar.plugin   |  48 ------
- alttoolbar_preferences.py    |   2 +-
- alttoolbar_type.py           |   4 +-
- autogen.sh                   |  24 +++
- configure.ac                 |  42 +++++
- install.sh                   |  80 ----------
- m4/python-gi.m4              |  12 ++
- po/LINGUAS                   |  25 +++
- po/POTFILES.in               |   6 +
- po/POTFILES.skip             |   8 +
- po/create_all_po.sh          |   8 -
- po/files_to_be_translated    |   3 -
- po/install_all.sh            |   8 -
- po/lang.sh                   |  15 --
- po/py_files_to_be_translated |   8 -
- po/update_all_po.sh          |  11 --
- ui/altlibrary.glade          |  55 +++++++
- ui/altlibrary.ui             |  55 -------
- ui/altpreferences.glade      | 358 +++++++++++++++++++++++++++++++++++++++++++
- ui/altpreferences.ui         | 358 -------------------------------------------
- ui/alttoolbar.glade          | 332 +++++++++++++++++++++++++++++++++++++++
- ui/alttoolbar.ui             | 332 ---------------------------------------
- 25 files changed, 960 insertions(+), 953 deletions(-)
+ .gitignore                                      | 18 ++++++
+ Makefile                                        | 24 --------
+ Makefile.am                                     | 77 ++++++++++++++++++++++++
+ alternative-toolbar.plugin                      | 48 ---------------
+ alttoolbar_preferences.py                       |  2 +-
+ alttoolbar_type.py                              |  4 +-
+ autogen.sh                                      | 24 ++++++++
+ configure.ac                                    | 42 +++++++++++++
+ install.sh                                      | 80 -------------------------
+ m4/python-gi.m4                                 | 12 ++++
+ po/LINGUAS                                      | 25 ++++++++
+ po/POTFILES.in                                  |  6 ++
+ po/{py_files_to_be_translated => POTFILES.skip} |  0
+ po/create_all_po.sh                             |  8 ---
+ po/files_to_be_translated                       |  3 -
+ po/install_all.sh                               |  8 ---
+ po/lang.sh                                      | 15 -----
+ po/update_all_po.sh                             | 11 ----
+ ui/{altlibrary.ui => altlibrary.glade}          |  0
+ ui/{altpreferences.ui => altpreferences.glade}  |  0
+ ui/{alttoolbar.ui => alttoolbar.glade}          |  0
+ 21 files changed, 207 insertions(+), 200 deletions(-)
 
 commit e49a9c12130ff66949374b3880c6dd8df77f1de4
 Author: fossfreedom <foss.freedom@gmail.com>
