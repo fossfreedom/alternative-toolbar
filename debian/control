@@ -23,7 +23,10 @@ Vcs-Git: https://github.com/fossfreedom/alternative-toolbar -b debian
 
 Package: rhythmbox-plugin-alternative-toolbar
 Architecture: all
-Depends: python3, python3-gi, rhythmbox (>= 3.0), ${misc:Depends}
+Depends: ${misc:Depends},
+         ${python3:Depends},
+         python3-gi,
+         rhythmbox (>= 3.0)
 Description: Enhanced play controls and interface for Rhythmbox
  This plugin provides a visual new graphical interface to Rhythmbox.
  New play-controls are provided and dynamical change either by user

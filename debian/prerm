@@ -1,7 +1,0 @@
-#!/bin/sh
-set -e
-#DEBHELPER#
-
-rm -rf /usr/lib/rhythmbox/plugins/alternative-toolbar/__pycache__ > /dev/null 2>&1
-
-exit 0

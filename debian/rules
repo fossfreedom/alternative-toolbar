@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 
 %:
-	dh $@ --parallel --with autoreconf,python3
+	dh $@ --parallel --with python3
 
 override_dh_autoreconf:
 	dh_autoreconf -- ./autogen.sh
@@ -9,6 +9,5 @@ override_dh_autoreconf:
 override_dh_auto_configure:
 	dh_auto_configure -- --libdir="\$${exec_prefix}/lib"
 
-override_dh_auto_install:
-	dh_auto_install
-	find debian -name LICENSE -delete
+override_dh_python3:
+	dh_python3 /usr/lib/rhythmbox
