@@ -1545,7 +1545,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
         if (not default.props.gtk_shell_shows_app_menu or
                 default.props.gtk_shell_shows_menubar or
                 self.plugin.app_menu) and \
-                        os.environ.get("XDG_CURRENT_DESKTOP","DESKTOP_NOT_SET").find("GNOME") == -1:
+                    os.environ.get("XDG_CURRENT_DESKTOP","DESKTOP_NOT_SET").find("GNOME") == -1:
             # for environments that dont support app-menus
             menu_button = Gtk.MenuButton.new()
             # menu_button.set_relief(Gtk.ReliefStyle.NONE)
@@ -1570,7 +1570,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self.headerbar.pack_end(self._end_box_controls)
         self.headerbar.show_all()
 
-        controlled, current_controller = self.is_controlled(self.shell.props.selected_page)
+        controlled, current_controller = \
+            self.is_controlled(self.shell.props.selected_page)
         current_controller.set_library_labels()
 
         action = self.plugin.toggle_action_group.get_action('ToggleToolbar')
@@ -1599,7 +1600,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
         ret, controller = self.is_controlled(page)
         controller.set_library_labels()
-        if controller.toolbar_visibility() != None:
+        if controller.toolbar_visibility() is not None:
             toolbar = controller.get_toolbar(page)
             toolbar.set_visible(controller.toolbar_visibility())
 
