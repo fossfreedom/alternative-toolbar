@@ -65,9 +65,7 @@ EXTRA_DIST = \
 
 rb_plugin_lib_DATA = \
 	$(PLUGIN_FILES) \
-	alternative-toolbar.plugin \
-	LICENSE
-
+	alternative-toolbar.plugin
 
 rb_plugin_imgdir = $(datadir)/rhythmbox/plugins/alternative-toolbar/img
 rb_plugin_img_DATA = \
