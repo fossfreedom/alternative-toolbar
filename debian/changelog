@@ -1,11 +1,10 @@
-rhythmbox-plugin-alternative-toolbar (0.17.4-0ubuntu1) zesty; urgency=medium
+rhythmbox-plugin-alternative-toolbar (0.17.4-1) unstable; urgency=medium
 
   * New upstream release
     - latest translations
     - show source toolbar for radio and podcasts
     - allow playqueue reordering of songs
     - fix display of header category labels
-    - enlarge searchbar entry field for headerbar mode
     - cope with environments that don't set XDG_CURRENT_DESKTOP
   * Packaging Changes.
     - debian/control standards-version changed to 4.0.0
