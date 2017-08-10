@@ -256,7 +256,7 @@ class AltGenericController(AltControllerBase):
                                                new_parent=box)
 
             self.moveto_searchbar(toolbar, search, self.header.searchbar)
-            search.set_size_request(100, -1)
+            entry.set_size_request(300, -1)
 
             self.header.searchbar.connect_entry(entry)
             # self.header.searchbar.show_all()
