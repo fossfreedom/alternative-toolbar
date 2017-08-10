@@ -352,13 +352,13 @@ class AltToolbarBase(GObject.Object):
 
             if element is not None:
                 # we've got something remembered to lets move cols around
-                remembered_col_titles = eval(element.text)
-
+                remembered_col_titles = element.text.split(',')
                 remembered_cols = []
 
                 for title in remembered_col_titles:
+                    compare = title[1:-1]
                     for col in current_cols:
-                        if col.props.title == title:
+                        if col.props.title == compare:
                             remembered_cols.append(col)
                             break
 
