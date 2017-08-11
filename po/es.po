@@ -5,17 +5,17 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-18 09:11+0000\n"
-"PO-Revision-Date: 2016-05-12 19:53+0000\n"
-"Last-Translator: VPablo <villumar@gmail.com>\n"
+"PO-Revision-Date: 2017-08-10 23:44-0500\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2017-07-04 16:01+0000\n"
-"X-Generator: Launchpad (build 18419)\n"
+"X-Generator: Poedit 2.0.3\n"
 "Language: es\n"
 
 #: ../alternative-toolbar.py:220
@@ -36,19 +36,19 @@ msgstr "Busque hacia adelante, en la pista actual, por 10 segundos."
 
 #: ../alternative-toolbar.py:243
 msgid "Show Play-Controls Toolbar"
-msgstr "Mostrar la barra de Herramientas Reproducir-controles"
+msgstr "Mostrar la barra de controles de reproducción"
 
 #: ../alternative-toolbar.py:247
 msgid "Show or hide the play-controls toolbar"
-msgstr "Muestra u oculta la barra de Herramientas Reproducir-controles"
+msgstr "Muestra u oculta la barra de controles de reproducción"
 
 #: ../alternative-toolbar.py:252
 msgid "Show Source Toolbar"
-msgstr "Muestra la Barra de Herramientas fuente"
+msgstr "Mostrar la barra de fuentes"
 
 #: ../alternative-toolbar.py:255
 msgid "Show or hide the source toolbar"
-msgstr "Mostrar u ocultar la barra de herramientas de fuente"
+msgstr "Muestra u oculta la barra de fuentes"
 
 #. define .plugin text strings used for translation
 #: ../alternative-toolbar.py:542
@@ -60,12 +60,12 @@ msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr ""
-"Remplazar la gran barra de herramientas de Rhythmbox por una barra de "
-"herramientas compacta que puede ser escondida"
+"Reemplaza la enorme barra de herramientas de Rhythmbox por una decoración de "
+"lado cliente o una barra compacta ocultable"
 
 #: ../alttoolbar_controller.py:157
 msgid "View All"
-msgstr "Ver todas"
+msgstr "Ver todo"
 
 #: ../alttoolbar_controller.py:323
 msgid "Import"
@@ -81,7 +81,7 @@ msgstr "Libre.fm"
 
 #: ../alttoolbar_controller.py:613
 msgid "My Top Rated"
-msgstr "Mejores calificados"
+msgstr "Mis favoritas"
 
 #: ../alttoolbar_controller.py:617
 msgid "Recently Added"
@@ -97,7 +97,7 @@ msgstr "Podcasts"
 
 #: ../alttoolbar_preferences.py:305
 msgid "Restart"
-msgstr "Reinicar"
+msgstr "Reiniciar"
 
 #: ../alttoolbar_sidebar.py:82
 msgid "Local collection"
@@ -130,7 +130,7 @@ msgstr "Navegar"
 
 #: ../ui/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
-msgstr "Reinicie el reproductor para que los cambios tengan efecto"
+msgstr "Reinicie el reproductor para que los cambios surtan efecto."
 
 #: ../ui/altpreferences.ui.h:2
 msgid "Toolbar:"
@@ -141,8 +141,8 @@ msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
 msgstr ""
-"Mas adecuado para entornos de\n"
-"escritorio como GNOME o elementary."
+"Más adecuada para entornos de\n"
+"escritorio como Gnome o elementary."
 
 #: ../ui/altpreferences.ui.h:5
 msgid "Modern"
@@ -158,9 +158,9 @@ msgid ""
 "instead of the standard rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 msgstr ""
-"Mostrar los controles de reproducción en la barra de herramientas en el "
-"estilo visual compacta en lugar del estilo Rhythmbox estándar.\n"
-"Siempre activada para el modo de barra de herramientas moderno."
+"Mostrar los controles de reproducción en la barra de herramientas de manera "
+"compacta en lugar del estilo estándar de Rhythmbox.\n"
+"Siempre activada en el modo de barra de herramientas moderno."
 
 #: ../ui/altpreferences.ui.h:9
 msgid "Show:"
@@ -168,7 +168,7 @@ msgstr "Mostrar:"
 
 #: ../ui/altpreferences.ui.h:10
 msgid "Album/genre/year for playing song"
-msgstr "Álbum/género/año para la canción en reproducción"
+msgstr "Álbum/género/año de la canción en reproducción"
 
 #: ../ui/altpreferences.ui.h:11
 msgid ""
@@ -176,17 +176,18 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
-"Mostrar álbum/genero/año en vez de la canción-artista-álbum. Útil para "
-"aquellos entornos donde desktop-canción-artista-álbum ya está representada "
-"en el título de la ventana."
+"Mostrar álbum/género/año en vez de canción/artista/álbum. Útil para aquellos "
+"entornos donde ya aparece canción/artista/álbum en el título de la ventana."
 
 #: ../ui/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
-msgstr "Consejos en los controles de reproducción"
+msgstr "Descripciones emergentes en los controles de reproducción"
 
 #: ../ui/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
-msgstr "Mostrar o ocultar los cosejos para los controles de reproducción."
+msgstr ""
+"Activar o desactivar las descripciones emergentes en los controles de "
+"reproducción."
 
 #: ../ui/altpreferences.ui.h:14
 msgid "Volume control"
@@ -194,7 +195,7 @@ msgstr "Control de volumen"
 
 #: ../ui/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
-msgstr "Mostrar o ocultar el control de volumen."
+msgstr "Mostrar u ocultar el control de volumen."
 
 #: ../ui/altpreferences.ui.h:16
 msgid "Playback controls"
@@ -202,36 +203,37 @@ msgstr "Controles de reproducción"
 
 #: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
-msgstr "Mostrar u ocultar los controles de juego en el arranque reproductor."
+msgstr ""
+"Mostrar u ocultar los controles de reproducción al iniciar el reproductor."
 
 #: ../ui/altpreferences.ui.h:18
 msgid "Use:"
-msgstr "Usar:"
+msgstr "Utilizar:"
 
 #: ../ui/altpreferences.ui.h:19
 msgid "Inline song/artist label"
-msgstr "canción en linea/ etiqueta del artista"
+msgstr "Canción y artista en una sola fila"
 
 #: ../ui/altpreferences.ui.h:20
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
-"Mostrar etiquetas canción y el artista antes de que el control deslizante de "
-"progreso. Si no está activada, se muestran por encima de la barra de "
-"progreso."
+"Mostrar la canción y el artista antes del control de progreso. Si no se "
+"activa, estos aparecen encima del control de progreso."
 
 #: ../ui/altpreferences.ui.h:21
 msgid "Compact progress slider"
-msgstr "Deslizador de progreso compacto"
+msgstr "Control de progreso compacto"
 
 #: ../ui/altpreferences.ui.h:22
 msgid ""
 "Display and use a compact track progress slider - useful where the default "
 "theme progress slider is visually too large."
 msgstr ""
-"Muestra y usa un control deslizante del progreso de pista - útil cuando el "
-"el control deslizante de progreso es visualmente demasiado grande."
+"Activar y utilizar un control deslizante compacto del progreso de pista. "
+"Útil si le parece que el control de progreso predeterminado es demasiado "
+"grande visualmente."
 
 #: ../ui/altpreferences.ui.h:23
 msgid "Enhanced sidebar"
@@ -243,13 +245,13 @@ msgid ""
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
-"Mostrar u ocultar la barra lateral re diseñada para el reproductor. Ofrece "
-"iconos simbólicos mejorados, una mejor organización de fuentes y la "
-"capacidad de expandir y contraer categorías."
+"Activar o desactivar la barra lateral rediseñada. Ofrece iconos "
+"monocromáticos mejorados, una mejor organización de fuentes y la capacidad "
+"de expandir y contraer categorías."
 
 #: ../ui/altpreferences.ui.h:25
 msgid "Enhanced plugins dialog"
-msgstr "Diálogo de complementos mejorado"
+msgstr "Cuadro de diálogo Complementos mejorado"
 
 #: ../ui/altpreferences.ui.h:26
 msgid ""
@@ -257,10 +259,10 @@ msgid ""
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
 "based desktop environments."
 msgstr ""
-"Mostrar u oculta los plugin de dialogo rediseñado. Ofrece interruptores en "
-"vez de casillas de verificación y la barra de herramientas en línea con "
-"iconos simbólicos. Funciona mejor con los entornos de escritorio basados en "
-"Gnome."
+"Activar o desactivar el cuadro de diálogo Complementos rediseñado. Ofrece "
+"interruptores en vez de casillas de verificación y una barra de herramientas "
+"sencilla con iconos monocromáticos. Funciona mejor con los entornos de "
+"escritorio basados en Gnome."
 
 #: ../ui/altpreferences.ui.h:27
 msgid "Dark theme if available"
@@ -280,7 +282,7 @@ msgstr "Reproducir la pista anterior"
 
 #: ../ui/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr "Continuar o pausar la reproducción"
+msgstr "Reanudar o pausar la reproducción"
 
 #: ../ui/alttoolbar.ui.h:3
 msgid "Play the next track"
