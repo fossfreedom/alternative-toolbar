@@ -121,7 +121,7 @@ rm -rf ~/.local/share/rhythmbox/plugins/alternative-toolbar
 **Install Latest Development Release via Git**
 ```bash
 cd ~/Downloads
-sudo apt-get install intltool git
+sudo apt-get install intltool git gir1.2-glib-2.0 gir1.2-gstreamer-1.0 gir1.2-gtk-3.0 gir1.2-peas-1.0 gir1.2-rb-3.0 gnome-pkg-tools gobject-introspection libglib2.0-dev pkg-config python3-gi python3
 git clone https://github.com/fossfreedom/alternative-toolbar.git
 cd alternative-toolbar
 ./autogen.sh --prefix=/usr
