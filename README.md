@@ -103,7 +103,7 @@ If you need to enable the player controls & source menu, this can be done from t
 Navigate to the archive and grab the newest .tar.gz from https://github.com/fossfreedom/alternative-toolbar/releases
 ```bash
 cd ~/Downloads
-sudo apt-get install intltool
+sudo apt-get install intltool git gir1.2-glib-2.0 gir1.2-gstreamer-1.0 gir1.2-gtk-3.0 gir1.2-peas-1.0 gir1.2-rb-3.0 gnome-pkg-tools gobject-introspection libglib2.0-dev pkg-config python3-gi python3
 tar -zxvf alternative-toolbar*.tar.gz
 cd alternative-toolbar*
 ./autogen.sh --prefix=/usr
