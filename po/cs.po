@@ -1,0 +1,276 @@
+# Czech translation for alternative-toolbar
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# This file is distributed under the same license as the alternative-toolbar package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: alternative-toolbar\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2017-08-11 21:26+0000\n"
+"PO-Revision-Date: 2017-08-27 13:54+0000\n"
+"Last-Translator: AsciiWolf <mail@asciiwolf.com>\n"
+"Language-Team: Czech <cs@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2017-08-27 19:40+0000\n"
+"X-Generator: Launchpad (build 18446)\n"
+
+#: ../alternative-toolbar.py:223
+msgid "Seek Backward"
+msgstr "Přetáčet vzad"
+
+#: ../alternative-toolbar.py:226
+msgid "Seek backward, in current track, by 5 seconds."
+msgstr ""
+
+#: ../alternative-toolbar.py:230
+msgid "Seek Forward"
+msgstr "Přetáčet vpřed"
+
+#: ../alternative-toolbar.py:234
+msgid "Seek forward, in current track, by 10 seconds."
+msgstr ""
+
+#: ../alternative-toolbar.py:246
+msgid "Show Play-Controls Toolbar"
+msgstr "Zobrazit nástrojovou lištu přehrávání-ovládání"
+
+#: ../alternative-toolbar.py:250
+msgid "Show or hide the play-controls toolbar"
+msgstr ""
+
+#: ../alternative-toolbar.py:255
+msgid "Show Source Toolbar"
+msgstr "Zobrazit nástrojovou lištu zdroje"
+
+#: ../alternative-toolbar.py:258
+msgid "Show or hide the source toolbar"
+msgstr ""
+
+#. define .plugin text strings used for translation
+#: ../alternative-toolbar.py:545
+msgid "Alternative Toolbar"
+msgstr ""
+
+#: ../alternative-toolbar.py:548
+msgid ""
+"Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
+"Toolbar which can be hidden"
+msgstr ""
+"Nahradí velkou nástrojovou lištu Rhythmboxu na straně klienta dekorovanou "
+"nebo kompaktní nástrojovou lištou, která může být skryta"
+
+#: ../alttoolbar_controller.py:157
+msgid "View All"
+msgstr "Zobrazit vše"
+
+#: ../alttoolbar_controller.py:325
+msgid "Import"
+msgstr "Importovat"
+
+#: ../alttoolbar_controller.py:543
+msgid "Stations"
+msgstr "Stanice"
+
+#: ../alttoolbar_controller.py:572
+msgid "Libre.fm"
+msgstr "Libre.fm"
+
+#: ../alttoolbar_controller.py:615
+msgid "My Top Rated"
+msgstr "Moje nejlépe hodnocené"
+
+#: ../alttoolbar_controller.py:619
+msgid "Recently Added"
+msgstr "Nedávno přidané"
+
+#: ../alttoolbar_controller.py:623
+msgid "Recently Played"
+msgstr "Nedávno hrané"
+
+#: ../alttoolbar_controller.py:656
+msgid "Podcasts"
+msgstr "Podcasty"
+
+#: ../alttoolbar_preferences.py:307
+msgid "Restart"
+msgstr "Restartovat"
+
+#: ../alttoolbar_sidebar.py:82
+msgid "Local collection"
+msgstr "Místní sbírka"
+
+#: ../alttoolbar_sidebar.py:83
+msgid "Online sources"
+msgstr "Online zdroje"
+
+#: ../alttoolbar_sidebar.py:84
+msgid "Other sources"
+msgstr "Jiné zdroje"
+
+#: ../alttoolbar_sidebar.py:85
+msgid "Playlists"
+msgstr "Seznamy skladeb"
+
+#: ../alttoolbar_type.py:1434 ../ui/altlibrary.ui.h:1
+msgid "Songs"
+msgstr "Skladby"
+
+#: ../alttoolbar_type.py:1439 ../alttoolbar_type.py:1521
+#: ../ui/altpreferences.ui.h:28 ../ui/altlibrary.ui.h:2
+msgid "Categories"
+msgstr "Kategorie"
+
+#: ../alttoolbar_type.py:1505
+msgid "Browse"
+msgstr "Procházet"
+
+#: ../ui/altpreferences.ui.h:1
+msgid "Restart the player for the changes to take effect."
+msgstr "Pro aplikování změn restartujte přehrávač."
+
+#: ../ui/altpreferences.ui.h:2
+msgid "Toolbar:"
+msgstr "Nástrojová lišta:"
+
+#: ../ui/altpreferences.ui.h:3
+msgid ""
+"Best suitable for desktop\n"
+"environments like Gnome and Elementary."
+msgstr ""
+"Nejvhodnější pro pracovní\n"
+"prostředí typu Gnome a Elementary."
+
+#: ../ui/altpreferences.ui.h:5
+msgid "Modern"
+msgstr "Moderní"
+
+#: ../ui/altpreferences.ui.h:6
+msgid "Use compact controls"
+msgstr "Použít kompaktní ovládání"
+
+#: ../ui/altpreferences.ui.h:7
+msgid ""
+"Display the playback controls in the toolbar in visually compact style "
+"instead of the standard rhythmbox style.\n"
+"Always enabled for modern toolbar mode."
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:9
+msgid "Show:"
+msgstr "Zobrazit:"
+
+#: ../ui/altpreferences.ui.h:10
+msgid "Album/genre/year for playing song"
+msgstr "Album/žánr/rok pro hranou skladbu"
+
+#: ../ui/altpreferences.ui.h:11
+msgid ""
+"Display album/genre/year instead of song-artist-album.  Useful for those "
+"desktop-environments where song-artist-album is already displayed in the "
+"window title."
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:12
+msgid "Tooltips for the playback controls"
+msgstr "Tipy pro ovládací prvky přehrávače"
+
+#: ../ui/altpreferences.ui.h:13
+msgid "Show or hide the tooltips for the playback controls."
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:14
+msgid "Volume control"
+msgstr "Ovládání hlasitosti"
+
+#: ../ui/altpreferences.ui.h:15
+msgid "Show or hide the volume control."
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:16
+msgid "Playback controls"
+msgstr "Ovládací prvky přehrávače"
+
+#: ../ui/altpreferences.ui.h:17
+msgid "Show or hide the playing controls on player startup."
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:18
+msgid "Use:"
+msgstr "Použití:"
+
+#: ../ui/altpreferences.ui.h:19
+msgid "Inline song/artist label"
+msgstr "Vložený štítek skladby/umělce"
+
+#: ../ui/altpreferences.ui.h:20
+msgid ""
+"Display Song and Artist labels before the progress slider.  If not checked, "
+"they are displayed above the progress slider."
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:21
+msgid "Compact progress slider"
+msgstr "Kompaktní posuvník průběhu"
+
+#: ../ui/altpreferences.ui.h:22
+msgid ""
+"Display and use a compact track progress slider - useful where the default "
+"theme progress slider is visually too large."
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:23
+msgid "Enhanced sidebar"
+msgstr "Rozšířený boční panel"
+
+#: ../ui/altpreferences.ui.h:24
+msgid ""
+"Show or hide redesigned sidebar for the player. It features improved "
+"symbolic icons, better sources organisation and ability to expand and "
+"collapse categories."
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:25
+msgid "Enhanced plugins dialog"
+msgstr "Rozšířený dialog zásuvných modulů"
+
+#: ../ui/altpreferences.ui.h:26
+msgid ""
+"Show or hide redesigned plugins dialog. It features switches instead of "
+"checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
+"based desktop environments."
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:27
+msgid "Dark theme if available"
+msgstr "Tmavé téma, pokud je k dispozici"
+
+#: ../ui/altpreferences.ui.h:29
+msgid "Horizontal"
+msgstr "Vodorovně"
+
+#: ../ui/altpreferences.ui.h:30
+msgid "Vertical"
+msgstr "Svisle"
+
+#: ../ui/alttoolbar.ui.h:1
+msgid "Play the previous track"
+msgstr "Přehrát předchozí skladbu"
+
+#: ../ui/alttoolbar.ui.h:2
+msgid "Resume or pause the playback"
+msgstr "Obnovit nebo pozastavit přehrávání"
+
+#: ../ui/alttoolbar.ui.h:3
+msgid "Play the next track"
+msgstr "Přehrát následující skladbu"
+
+#: ../ui/alttoolbar.ui.h:4
+msgid "Repeat the current track"
+msgstr "Znovu přehrát nynější skladbu"
+
+#: ../ui/alttoolbar.ui.h:5
+msgid "Play the tracks in random order"
+msgstr "Přehrát skladby v náhodném pořadí"

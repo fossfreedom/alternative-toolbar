@@ -65,7 +65,7 @@ or with the new Gnome-style client-side decoration:
  - Force display of the app-menu (compact/headerbar)
    `gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar 
   app-menu-display true`
- - Plugin translated completely into [9 languages and locales (18 more on the
+ - Plugin translated completely into [14 languages and locales (18 more on the
   way)](https://translations.launchpad.net/alternative-toolbar)
 
 The plugin preferences allows you to define which toolbars are used:
