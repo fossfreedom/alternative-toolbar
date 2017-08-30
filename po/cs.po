@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-08-11 21:26+0000\n"
-"PO-Revision-Date: 2017-08-27 13:54+0000\n"
+"POT-Creation-Date: 2017-08-27 22:06+0000\n"
+"PO-Revision-Date: 2017-08-29 20:42+0000\n"
 "Last-Translator: AsciiWolf <mail@asciiwolf.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-08-27 19:40+0000\n"
+"X-Launchpad-Export-Date: 2017-08-30 09:48+0000\n"
 "X-Generator: Launchpad (build 18446)\n"
 
 #: ../alternative-toolbar.py:223
@@ -23,7 +23,7 @@ msgstr "Přetáčet vzad"
 
 #: ../alternative-toolbar.py:226
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr ""
+msgstr "Přetáčet zpět v nynější skladbě o 5 sekund."
 
 #: ../alternative-toolbar.py:230
 msgid "Seek Forward"
@@ -31,36 +31,36 @@ msgstr "Přetáčet vpřed"
 
 #: ../alternative-toolbar.py:234
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr ""
+msgstr "Přetáčet vpřed v nynější skladbě o 10 sekund."
 
 #: ../alternative-toolbar.py:246
 msgid "Show Play-Controls Toolbar"
-msgstr "Zobrazit nástrojovou lištu přehrávání-ovládání"
+msgstr "Zobrazit panel nástrojů ovládání přehrávače"
 
 #: ../alternative-toolbar.py:250
 msgid "Show or hide the play-controls toolbar"
-msgstr ""
+msgstr "Zobrazit nebo skrýt panel nástrojů ovládání přehrávání"
 
 #: ../alternative-toolbar.py:255
 msgid "Show Source Toolbar"
-msgstr "Zobrazit nástrojovou lištu zdroje"
+msgstr "Zobrazit panel nástrojů zdroje"
 
 #: ../alternative-toolbar.py:258
 msgid "Show or hide the source toolbar"
-msgstr ""
+msgstr "Zobrazit nebo skrýt panel nástrojů zdroje"
 
 #. define .plugin text strings used for translation
 #: ../alternative-toolbar.py:545
 msgid "Alternative Toolbar"
-msgstr ""
+msgstr "Alternative Toolbar"
 
 #: ../alternative-toolbar.py:548
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr ""
-"Nahradí velkou nástrojovou lištu Rhythmboxu na straně klienta dekorovanou "
-"nebo kompaktní nástrojovou lištou, která může být skryta"
+"Nahradí velký panel nástrojů Rhythmboxu na straně klienta dekorovaným nebo "
+"kompaktním panelem nástrojů, který může být skryt"
 
 #: ../alttoolbar_controller.py:157
 msgid "View All"
@@ -133,7 +133,7 @@ msgstr "Pro aplikování změn restartujte přehrávač."
 
 #: ../ui/altpreferences.ui.h:2
 msgid "Toolbar:"
-msgstr "Nástrojová lišta:"
+msgstr "Panel nástrojů:"
 
 #: ../ui/altpreferences.ui.h:3
 msgid ""
@@ -157,6 +157,9 @@ msgid ""
 "instead of the standard rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 msgstr ""
+"Zobrazit ovládání přehrávání v panelu nástrojů ve vizuálně kompaktním stylu "
+"namísto standardního rhythmbox stylu.\n"
+"Vždy povoleno pro moderní mód panelu nástrojů."
 
 #: ../ui/altpreferences.ui.h:9
 msgid "Show:"
@@ -172,6 +175,8 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
+"Zobrazit album/žánr/rok namísto skladba-umělec-album. Užitečné pro pracovní "
+"prostředí, kde je skladba-umělec-album již zobrazeno v názvu okna."
 
 #: ../ui/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
@@ -179,7 +184,7 @@ msgstr "Tipy pro ovládací prvky přehrávače"
 
 #: ../ui/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
-msgstr ""
+msgstr "Zobrazit nebo skrýt tipy pro ovládání přehrávání."
 
 #: ../ui/altpreferences.ui.h:14
 msgid "Volume control"
@@ -187,7 +192,7 @@ msgstr "Ovládání hlasitosti"
 
 #: ../ui/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
-msgstr ""
+msgstr "Zobrazit nebo skrýt ovládání přehrávání."
 
 #: ../ui/altpreferences.ui.h:16
 msgid "Playback controls"
@@ -195,7 +200,7 @@ msgstr "Ovládací prvky přehrávače"
 
 #: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
-msgstr ""
+msgstr "Zobrazit nebo skrýt ovládání přehrávání při startu přehrávače."
 
 #: ../ui/altpreferences.ui.h:18
 msgid "Use:"
@@ -210,6 +215,8 @@ msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
+"Zobrazit štítky skladby a umělce před posuvníkem průběhu. Pokud není "
+"zvoleno, jsou zobrazeny nad posuvníkem průběhu."
 
 #: ../ui/altpreferences.ui.h:21
 msgid "Compact progress slider"
@@ -220,6 +227,8 @@ msgid ""
 "Display and use a compact track progress slider - useful where the default "
 "theme progress slider is visually too large."
 msgstr ""
+"Zobrazit a použít kompaktní posuvník průběhu stopy - užitečné tam, kde je "
+"výchozí posuvník průběhu z tématu příliš velký."
 
 #: ../ui/altpreferences.ui.h:23
 msgid "Enhanced sidebar"
@@ -231,6 +240,9 @@ msgid ""
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
+"Zobrazit nebo skrýt přepracovaný boční panel pro přehrávač. Obsahuje "
+"vylepšené symbolické ikony, lepší organizování zdrojů a možnost rozbalit a "
+"sbalit kategorie."
 
 #: ../ui/altpreferences.ui.h:25
 msgid "Enhanced plugins dialog"
@@ -242,6 +254,9 @@ msgid ""
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
 "based desktop environments."
 msgstr ""
+"Zobrazit nebo skrýt přepracovaný dialog zásuvných modulů. Obsahuje přepínače "
+"namísto zaškrtávacího pole a vložený panel nástrojů se symbolickými ikonami. "
+"Nejlépe funguje s pracovními prostředími založenými na Gnome."
 
 #: ../ui/altpreferences.ui.h:27
 msgid "Dark theme if available"
