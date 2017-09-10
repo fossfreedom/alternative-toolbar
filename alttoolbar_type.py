@@ -1542,30 +1542,34 @@ class AltToolbarHeaderBar(AltToolbarShared):
         # any source defined controls
         self._end_box_controls.add(self.end_box)
 
-        if (not default.props.gtk_shell_shows_app_menu or
-                default.props.gtk_shell_shows_menubar or
-                self.plugin.app_menu) and \
-                    os.environ.get("XDG_CURRENT_DESKTOP","DESKTOP_NOT_SET").find("GNOME") == -1:
-            # for environments that dont support app-menus
-            menu_button = Gtk.MenuButton.new()
-            # menu_button.set_relief(Gtk.ReliefStyle.NONE)
-            if gtk_version() >= 3.14:
-                symbol = "open-menu-symbolic"
-                menu_button.set_margin_start(3)
-            else:
-                symbol = "emblem-system-symbolic"
-                menu_button.set_margin_left(3)
+        # GNOME design upstream is that main appmenu options should be
+        # within reach of the headerbar with the traditional
+        # appmenu reduced to the occasionally used options
+        # We will reduce the appmenu to just Help, About and Quit option
 
-            image = Gtk.Image.new_from_icon_name(symbol,
-                                                 Gtk.IconSize.SMALL_TOOLBAR)
-            menu_button.add(image)
-            menu = self.shell.props.application.get_shared_menu('app-menu')
-            menu_button.set_menu_model(menu)
-            self._end_box_controls.add(menu_button)
+        menu_button = Gtk.MenuButton.new()
+        if gtk_version() >= 3.14:
+            symbol = "open-menu-symbolic"
+            menu_button.set_margin_start(3)
         else:
-            menu = self.shell.props.application.get_shared_menu('app-menu')
-            app = self.shell.props.application
-            app.set_app_menu(menu)
+            symbol = "emblem-system-symbolic"
+            menu_button.set_margin_left(3)
+
+        image = Gtk.Image.new_from_icon_name(symbol,
+                                             Gtk.IconSize.SMALL_TOOLBAR)
+        menu_button.add(image)
+        menu = self.shell.props.application.get_shared_menu('app-menu')
+        menu_button.set_menu_model(menu)
+        self._end_box_controls.add(menu_button)
+        menu.remove(3) # help about quit
+
+        cl.switch_locale(cl.Locale.RB)
+        appmenu = Gio.Menu.new()
+        appmenu.append(_("_Help"), "app.help")
+        appmenu.append(_("_About"), "app.about")
+        appmenu.append(_("_Quit"), "app.quit")
+        app = self.shell.props.application
+        app.set_app_menu(appmenu)
 
         self.headerbar.pack_end(self._end_box_controls)
         self.headerbar.show_all()
