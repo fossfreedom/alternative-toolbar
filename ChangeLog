@@ -1,3 +1,149 @@
+commit be100104fb062c18d00df72292763b9bb23ac756
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Wed Sep 13 21:02:03 2017 +0100
+
+    update readme.html
+
+ readme.html | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit 98c118656bfd882fad4a84ce31a855b7832ba022
+Merge: aee82ab 17198ea
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Wed Sep 13 21:00:02 2017 +0100
+
+    Merge branch 'master' of https://github.com/fossfreedom/alternative-toolbar
+
+commit aee82ab2d548acb54ab4207821e18d3dee1b04a5
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Wed Sep 13 20:59:40 2017 +0100
+
+    bump version
+
+ README.md                     | 2 +-
+ alternative-toolbar.plugin.in | 2 +-
+ configure.ac                  | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 17198eabe4edb9f038b3332e72c602958ea03c93
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Wed Sep 13 20:42:58 2017 +0100
+
+    ensure blank source names are not attempted to be translated #110
+
+ alttoolbar_sidebar.py | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
+
+commit 3608790ed35f06f879beec045dd18b0323f0fb5e
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Sep 10 09:49:54 2017 +0100
+
+    separate appmenu - hamburger now always visible #108
+
+ alttoolbar_type.py | 50 +++++++++++++++++++++++++++-----------------------
+ 1 file changed, 27 insertions(+), 23 deletions(-)
+
+commit 5dd29bc7da1b4e5baccbb96742bbea0a8c6c3b7b
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Wed Aug 30 11:00:36 2017 +0100
+
+    add missing LINGUAS and latest cs translation
+
+ po/LINGUAS |  2 ++
+ po/cs.po   | 47 +++++++++++++++++++++++++++++++----------------
+ 2 files changed, 33 insertions(+), 16 deletions(-)
+
+commit 893968f2cf3f534a61fa2053dd70d620f2abaebd
+Merge: ff92aa7 86bf583
+Author: David Mohammed <fossfreedom@users.noreply.github.com>
+Date:   Wed Aug 30 10:46:28 2017 +0100
+
+    Merge pull request #109 from AsciiWolf/patch-1
+    
+    Update LINGUAS to include the Czech translation
+
+commit 86bf58372250913620b6c9c01f8a4ce7986b244f
+Author: AsciiWolf <mail@asciiwolf.com>
+Date:   Wed Aug 30 10:46:49 2017 +0200
+
+    update LINGUAS to include the Czech translation
+
+ po/LINGUAS | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit ff92aa7cce77137831d2951790b71f37a2d202fb
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Aug 27 20:45:11 2017 +0100
+
+    add new cs translations - update translation count in README
+
+ README.md |   2 +-
+ po/cs.po  | 276 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 277 insertions(+), 1 deletion(-)
+
+commit 3774e6f80ef71de9ecd6d22750c38b7a92f69b71
+Author: David Mohammed <fossfreedom@users.noreply.github.com>
+Date:   Fri Aug 11 14:13:58 2017 +0100
+
+    Update README.md
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 73ba978234a3221849c4ccd3f4db51076dde953e
+Author: David Mohammed <fossfreedom@users.noreply.github.com>
+Date:   Fri Aug 11 14:10:36 2017 +0100
+
+    add debian build dependencies #107
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit d25dc417bd02998c4972c28d0950207729a6f24e
+Merge: ac62cde 79ef729
+Author: David Mohammed <fossfreedom@users.noreply.github.com>
+Date:   Fri Aug 11 07:46:10 2017 +0100
+
+    Merge pull request #106 from fitojb/master
+    
+    Update Spanish translation
+
+commit 79ef729346db9061dade47d2110edbefbade0595
+Author: Adolfo Jayme Barrientos <fitojb@ubuntu.com>
+Date:   Thu Aug 10 23:45:18 2017 -0500
+
+    Update Spanish translation
+
+ po/es.po | 90 +++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 46 insertions(+), 44 deletions(-)
+
+commit ac62cde68b99cfc95e9e4b863894fc747c55096c
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Thu Aug 10 22:18:35 2017 +0100
+
+    enlarge search entry #94
+
+ alttoolbar_controller.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 2b332519b6e7316655c8179e1b2f633482ae4b83
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Thu Aug 10 21:24:50 2017 +0100
+
+    correctly handle translated titles #105
+
+ alttoolbar_type.py | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit 9128c3d5bad991b715a64e908e810021cb1d5c55
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Wed Aug 9 21:56:36 2017 +0100
+
+    changelog changes
+
+ ChangeLog | 340 ++++++++++++++++++++++++++++++++++++++++++++++++++++++--------
+ 1 file changed, 298 insertions(+), 42 deletions(-)
+
 commit fd78de8991e56acc3c617d948dc4e190622dc6e8
 Author: David Mohammed <fossfreedom@ubuntu.com>
 Date:   Wed Aug 9 21:51:03 2017 +0100
