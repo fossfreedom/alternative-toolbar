@@ -1,3 +1,13 @@
+rhythmbox-plugin-alternative-toolbar (0.17.5-1) unstable; urgency=medium
+
+  * New upstream release
+    - latest translations
+    - display hamburger menu by default for modern toolbar
+    - fix display of blank source names in the sidebar
+    - fix display of column names in french locale
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Wed, 13 Sep 2017 21:17:00 +0100
+
 rhythmbox-plugin-alternative-toolbar (0.17.4-1) unstable; urgency=medium
 
   * New upstream release
