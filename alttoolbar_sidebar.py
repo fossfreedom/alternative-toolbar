@@ -558,6 +558,7 @@ class AltToolbarSidebar(Gtk.TreeView):
         if source is None:
             renderer.props.weight = Pango.Weight.BOLD
             renderer.props.text = model[treeiter][0]
+            print (renderer.props.text)
             renderer.props.visible = model[treeiter][2]
         else:
             renderer.props.visible = True
@@ -565,11 +566,14 @@ class AltToolbarSidebar(Gtk.TreeView):
             playing = \
                 player.get_playing and player.get_playing_source() == source
 
-            cl = CoverLocale()
-            cl.switch_locale(cl.Locale.LOCALE_DOMAIN)
-            translation = gettext.gettext(source.props.name)
-            cl.switch_locale(cl.Locale.RB)
-            renderer.props.text = translation
+            if (source.props.name):
+                cl = CoverLocale()
+                cl.switch_locale(cl.Locale.LOCALE_DOMAIN)
+                translation = gettext.gettext(source.props.name)
+                cl.switch_locale(cl.Locale.RB)
+                renderer.props.text = translation
+            else:
+                renderer.props.text = ""
             if playing:
                 renderer.props.weight = Pango.Weight.BOLD
             else:
