@@ -500,8 +500,7 @@ class AltErrorsController(AltGenericController):
 
         self._gicon = Gio.ThemedIcon(name='dialog-error-symbolic')
 
-        self._source_types = ["RBImportErrorsSource",
-                              "RBMissingFilesSource"]
+        self._source_types = ["RBMissingFilesSource"]
 
     def valid_source(self, source):
         print(type(source).__name__)
