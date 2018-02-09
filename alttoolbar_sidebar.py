@@ -343,8 +343,8 @@ class AltToolbarSidebar(Gtk.TreeView):
         self._model_page_inserted(model, model[path][1], page_iter)
 
     def _model_page_inserted(self, model, page, page_iter):
-        if page and "RBImportErrorsSource" in type(page).__name__:
-            return # we don't display Import Errors anymore.
+        if page and page.props.hidden_when_empty:
+            return # we don't display sources that are marked as empty
         print(page)
         print(page_iter)
         parent_iter = model.iter_parent(page_iter)
