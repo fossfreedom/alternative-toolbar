@@ -1,76 +1,81 @@
-# Swedish translation for alternative-toolbar
-# Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
+# Slovak translation for alternative-toolbar
+# Copyright (c) 2017 Rosetta Contributors and Canonical Ltd 2017
 # This file is distributed under the same license as the alternative-toolbar package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+# Dušan Kazik <prescott66@gmail.com>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-10-01 20:59+0100\n"
-"PO-Revision-Date: 2016-02-13 00:05+0000\n"
-"Last-Translator: Kristoffer Grundström <hamnisdude@gmail.com>\n"
-"Language-Team: Swedish <sv@li.org>\n"
+"PO-Revision-Date: 2017-11-27 21:27+0000\n"
+"Last-Translator: Dusan Kazik <prescott66@gmail.com>\n"
+"Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2018-02-09 15:32+0000\n"
 "X-Generator: Launchpad (build 18544)\n"
+"Language: sk\n"
 
 #: ../alternative-toolbar.py:223
 msgid "Seek Backward"
-msgstr "Sök bakåt"
+msgstr "Presunúť dozadu"
 
 #: ../alternative-toolbar.py:226
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr ""
+msgstr "Presunie dozadu v aktuálnej skladbe o 5 sekúnd."
 
 #: ../alternative-toolbar.py:230
 msgid "Seek Forward"
-msgstr "Sök framåt"
+msgstr "Presunúť dopredu"
 
 #: ../alternative-toolbar.py:234
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr ""
+msgstr "Presunie dopredu v aktuálnej skladbe o 10 sekúnd."
 
 #: ../alternative-toolbar.py:246
 msgid "Show Play-Controls Toolbar"
-msgstr ""
+msgstr "Zobraziť panel nástrojov s ovládacími prvkami prehrávania"
 
 #: ../alternative-toolbar.py:250
 msgid "Show or hide the play-controls toolbar"
 msgstr ""
+"Zobrazí alebo skryje panel nástrojov s ovládacími prvkami prehrávania"
 
 #: ../alternative-toolbar.py:255
 msgid "Show Source Toolbar"
-msgstr ""
+msgstr "Zobraziť zdrojový panel nástrojov"
 
 #: ../alternative-toolbar.py:258
 msgid "Show or hide the source toolbar"
-msgstr "Visa eller göm källans verktygsfält"
+msgstr "Zobrazí alebo skryje zdrojový panel nástrojov"
 
 #. define .plugin text strings used for translation
 #: ../alternative-toolbar.py:545
 msgid "Alternative Toolbar"
-msgstr ""
+msgstr "Alternatívny panel nástrojov"
 
 #: ../alternative-toolbar.py:548
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr ""
+"Nahrádza veľký panel nástrojov prehrávača Rhythmbox s panelom nástrojov "
+"dekorovaným na strane klienta alebo kompaktným panelom nástrojov, ktorý môže "
+"byť skrytý"
 
 #: ../alttoolbar_controller.py:157
 msgid "View All"
-msgstr "Visa alla"
+msgstr "Zobraziť všetko"
 
 #: ../alttoolbar_controller.py:325
 msgid "Import"
-msgstr "Importera"
+msgstr "Importovať"
 
 #: ../alttoolbar_controller.py:543
 msgid "Stations"
-msgstr "Stationer"
+msgstr "Stanice"
 
 #: ../alttoolbar_controller.py:572
 msgid "Libre.fm"
@@ -78,95 +83,97 @@ msgstr "Libre.fm"
 
 #: ../alttoolbar_controller.py:615
 msgid "My Top Rated"
-msgstr "Mina högst rankade"
+msgstr "Moje najlepšie hodnotené"
 
 #: ../alttoolbar_controller.py:619
 msgid "Recently Added"
-msgstr "Senast tillagda"
+msgstr "Nedávno pridané"
 
 #: ../alttoolbar_controller.py:623
 msgid "Recently Played"
-msgstr "Senast spelade"
+msgstr "Nedávno prehrávané"
 
 #: ../alttoolbar_controller.py:656
 msgid "Podcasts"
-msgstr "Poddsändningar"
+msgstr "Podcasty"
 
 #: ../alttoolbar_preferences.py:307
 msgid "Restart"
-msgstr "Starta om"
+msgstr "Reštartovať"
 
 #: ../alttoolbar_sidebar.py:82
 msgid "Local collection"
-msgstr ""
+msgstr "Miestna zbierka"
 
 #: ../alttoolbar_sidebar.py:83
 msgid "Online sources"
-msgstr ""
+msgstr "Internetové zdroje"
 
 #: ../alttoolbar_sidebar.py:84
 msgid "Other sources"
-msgstr ""
+msgstr "Ostatné zdroje"
 
 #: ../alttoolbar_sidebar.py:85
 msgid "Playlists"
-msgstr "Spellistor"
+msgstr "Zoznamy skladieb"
 
 #: ../alttoolbar_type.py:1434 ../ui/altlibrary.ui.h:1
 msgid "Songs"
-msgstr "Låtar"
+msgstr "Skladby"
 
 #: ../alttoolbar_type.py:1439 ../alttoolbar_type.py:1521
 #: ../ui/altpreferences.ui.h:28 ../ui/altlibrary.ui.h:2
 msgid "Categories"
-msgstr "Kategorier"
+msgstr "Kategórie"
 
 #: ../alttoolbar_type.py:1505
 msgid "Browse"
-msgstr "Bläddra"
+msgstr "Prehliadať"
 
 #: ../alttoolbar_type.py:1568
 msgid "_Help"
-msgstr ""
+msgstr "_Pomocník"
 
 #: ../alttoolbar_type.py:1569
 msgid "_About"
-msgstr ""
+msgstr "_O aplikácii"
 
 #: ../alttoolbar_type.py:1570
 msgid "_Quit"
-msgstr ""
+msgstr "U_končiť"
 
 #: ../alttoolbar_repeat.py:94 ../alttoolbar_repeat.py:191
 msgid "Repeat all tracks"
-msgstr ""
+msgstr "Zopakuje všetky skladby"
 
 #: ../alttoolbar_repeat.py:96 ../alttoolbar_repeat.py:212
 #: ../ui/alttoolbar.ui.h:4
 msgid "Repeat the current track"
-msgstr ""
+msgstr "Zopakuje aktuálnu skladbu"
 
 #: ../ui/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
-msgstr ""
+msgstr "Na uplatnenie zmien reštartujte prehrávač."
 
 #: ../ui/altpreferences.ui.h:2
 msgid "Toolbar:"
-msgstr ""
+msgstr "Panel nástrojov:"
 
 #: ../ui/altpreferences.ui.h:3
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
 msgstr ""
+"Najvhodnejšie pre pracovné\n"
+"prostredia ako je Gnome alebo Elementary."
 
 #: ../ui/altpreferences.ui.h:5
 msgid "Modern"
-msgstr "Modern"
+msgstr "Moderný"
 
 #: ../ui/altpreferences.ui.h:6
 msgid "Use compact controls"
-msgstr ""
+msgstr "Použiť kompaktné ovládacie prvky"
 
 #: ../ui/altpreferences.ui.h:7
 msgid ""
@@ -174,14 +181,17 @@ msgid ""
 "instead of the standard rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 msgstr ""
+"Zobrazí ovládacie prvky prehrávania v paneli nástrojov vo vizuálne "
+"kompaktnom štýle namiesto bežného štýlu prehrávača Rhythmbox.\n"
+"Voľba je vždy povolená pre režim moderného panela nástrojov."
 
 #: ../ui/altpreferences.ui.h:9
 msgid "Show:"
-msgstr "Visa:"
+msgstr "Zobraziť:"
 
 #: ../ui/altpreferences.ui.h:10
 msgid "Album/genre/year for playing song"
-msgstr ""
+msgstr "Album/žáner/rok pre hranú skladbu"
 
 #: ../ui/altpreferences.ui.h:11
 msgid ""
@@ -189,58 +199,67 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
+"Zobrazí album/žáner/rok namiesto formátu skladba-interpret-album. Užitočná "
+"voľba pre tie pracovné prostredia, ktoré už zobrazujú informácie vo formáte "
+"skladba-interpret-album v záhlaví okna."
 
 #: ../ui/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
-msgstr ""
+msgstr "Bublinové tipy pre ovládacie prvky prehrávania"
 
 #: ../ui/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
-msgstr ""
+msgstr "Zobrazí alebo skryje bublinové tipy pre ovládacie prvky prehrávania."
 
 #: ../ui/altpreferences.ui.h:14
 msgid "Volume control"
-msgstr "Volymkontroll"
+msgstr "Ovládanie hlasitosti"
 
 #: ../ui/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
-msgstr ""
+msgstr "Zobrazí alebo skryje ovládanie hlasitosti."
 
 #: ../ui/altpreferences.ui.h:16
 msgid "Playback controls"
-msgstr ""
+msgstr "Ovládacie prvky prehrávania"
 
 #: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
 msgstr ""
+"Zobrazí alebo skryje ovládacie prvky prehrávania po spustení prehrávača."
 
 #: ../ui/altpreferences.ui.h:18
 msgid "Use:"
-msgstr ""
+msgstr "Použiť:"
 
 #: ../ui/altpreferences.ui.h:19
 msgid "Inline song/artist label"
-msgstr ""
+msgstr "Vložená menovka skladba/interpret"
 
 #: ../ui/altpreferences.ui.h:20
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
+"Zobrazí menovky so skladbou a interpretom pred posuvníkom priebehu. Ak voľba "
+"nie je vybraná, menovky sú zobrazené nad posuvníkom priebehu."
 
 #: ../ui/altpreferences.ui.h:21
 msgid "Compact progress slider"
-msgstr ""
+msgstr "Kompaktný posuvník priebehu"
 
 #: ../ui/altpreferences.ui.h:22
 msgid ""
 "Display and use a compact track progress slider - useful where the default "
 "theme progress slider is visually too large."
 msgstr ""
+"Zobrazí a použije kompaktný posuvník priebehu skladby - užitočné v "
+"prípadoch, keď je posuvník priebehu s predvolenou témou vizuálne príliš "
+"veľký."
 
 #: ../ui/altpreferences.ui.h:23
 msgid "Enhanced sidebar"
-msgstr ""
+msgstr "Rozšírený bočný panel"
 
 #: ../ui/altpreferences.ui.h:24
 msgid ""
@@ -248,10 +267,13 @@ msgid ""
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
+"Zobrazí alebo skryje prepracovaný bočný panel prehrávača. Obsahuje vylepšené "
+"symbolické ikony, lepšiu organizáciu zdrojov a možnosť rozbaliť a zbaliť "
+"kategórie."
 
 #: ../ui/altpreferences.ui.h:25
 msgid "Enhanced plugins dialog"
-msgstr ""
+msgstr "Rozšírené dialógové okno so zásuvnými modulmi"
 
 #: ../ui/altpreferences.ui.h:26
 msgid ""
@@ -259,31 +281,35 @@ msgid ""
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
 "based desktop environments."
 msgstr ""
+"Zobrazí alebo skryje prepracované dialógové okno so zásuvnými modulmi. "
+"Obsahuje prepínače namiesto zaškrtávacích polí a vložený panel nástrojov so "
+"symbolickými ikonami. Najlepšie spolupracuje s pracovnými prostrediami "
+"založenými na prostredí Gnome."
 
 #: ../ui/altpreferences.ui.h:27
 msgid "Dark theme if available"
-msgstr ""
+msgstr "Tmavá téma ak je dostupná"
 
 #: ../ui/altpreferences.ui.h:29
 msgid "Horizontal"
-msgstr ""
+msgstr "Vodorovne"
 
 #: ../ui/altpreferences.ui.h:30
 msgid "Vertical"
-msgstr ""
+msgstr "Zvislo"
 
 #: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"
-msgstr ""
+msgstr "Prehrá predchádzajúcu skladbu"
 
 #: ../ui/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr ""
+msgstr "Pokračuje alebo pozastaví prehrávanie"
 
 #: ../ui/alttoolbar.ui.h:3
 msgid "Play the next track"
-msgstr ""
+msgstr "Prehrá nasledujúcu skladbu"
 
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
-msgstr ""
+msgstr "Prehrá skladby v náhodnom poradí"

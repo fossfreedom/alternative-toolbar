@@ -7,54 +7,54 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-04-18 09:11+0000\n"
+"POT-Creation-Date: 2017-10-01 20:59+0100\n"
 "PO-Revision-Date: 2017-02-21 20:51+0000\n"
 "Last-Translator: Leipero <lei.pero@gmail.com>\n"
 "Language-Team: Serbian Latin <sr@latin@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-07-04 16:00+0000\n"
-"X-Generator: Launchpad (build 18419)\n"
+"X-Launchpad-Export-Date: 2018-02-09 15:32+0000\n"
+"X-Generator: Launchpad (build 18544)\n"
 
-#: ../alternative-toolbar.py:220
+#: ../alternative-toolbar.py:223
 msgid "Seek Backward"
 msgstr "Idi Unazad"
 
-#: ../alternative-toolbar.py:223
+#: ../alternative-toolbar.py:226
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr "Idi unazad, u trenutnoj numeri, za 5 sekundi"
 
-#: ../alternative-toolbar.py:227
+#: ../alternative-toolbar.py:230
 msgid "Seek Forward"
 msgstr "Idi Unapred"
 
-#: ../alternative-toolbar.py:231
+#: ../alternative-toolbar.py:234
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr "Idi unapred, u trenutnoj numeri, za 10 sekundi"
 
-#: ../alternative-toolbar.py:243
+#: ../alternative-toolbar.py:246
 msgid "Show Play-Controls Toolbar"
 msgstr "Prikaži Traku Alata Kontrolа-Puštanja"
 
-#: ../alternative-toolbar.py:247
+#: ../alternative-toolbar.py:250
 msgid "Show or hide the play-controls toolbar"
 msgstr "Prikaži ili sakrij alatnu traku kontrolа-puštanja"
 
-#: ../alternative-toolbar.py:252
+#: ../alternative-toolbar.py:255
 msgid "Show Source Toolbar"
 msgstr "Prikaži Alatnu Traku Izvora"
 
-#: ../alternative-toolbar.py:255
+#: ../alternative-toolbar.py:258
 msgid "Show or hide the source toolbar"
 msgstr "Prikaži ili sakrij alatnu traku izvora"
 
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:542
+#: ../alternative-toolbar.py:545
 msgid "Alternative Toolbar"
 msgstr "Alternativna Traka Alata"
 
-#: ../alternative-toolbar.py:545
+#: ../alternative-toolbar.py:548
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -66,35 +66,35 @@ msgstr ""
 msgid "View All"
 msgstr "Prikaži Sve"
 
-#: ../alttoolbar_controller.py:323
+#: ../alttoolbar_controller.py:325
 msgid "Import"
 msgstr "Uvezi"
 
-#: ../alttoolbar_controller.py:541
+#: ../alttoolbar_controller.py:543
 msgid "Stations"
 msgstr "Stanice"
 
-#: ../alttoolbar_controller.py:570
+#: ../alttoolbar_controller.py:572
 msgid "Libre.fm"
 msgstr "Libre.fm"
 
-#: ../alttoolbar_controller.py:613
+#: ../alttoolbar_controller.py:615
 msgid "My Top Rated"
 msgstr "Najbolje Ocenjene"
 
-#: ../alttoolbar_controller.py:617
+#: ../alttoolbar_controller.py:619
 msgid "Recently Added"
 msgstr "Nedavno Dodate"
 
-#: ../alttoolbar_controller.py:621
+#: ../alttoolbar_controller.py:623
 msgid "Recently Played"
 msgstr "Nedavno Puštane"
 
-#: ../alttoolbar_controller.py:654
+#: ../alttoolbar_controller.py:656
 msgid "Podcasts"
 msgstr "Podemisije"
 
-#: ../alttoolbar_preferences.py:305
+#: ../alttoolbar_preferences.py:307
 msgid "Restart"
 msgstr "Pokreni Ponovo"
 
@@ -118,14 +118,35 @@ msgstr "Liste Numera"
 msgid "Songs"
 msgstr "Pesme"
 
-#: ../alttoolbar_type.py:1439 ../alttoolbar_type.py:1520
+#: ../alttoolbar_type.py:1439 ../alttoolbar_type.py:1521
 #: ../ui/altpreferences.ui.h:28 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "Kategorije"
 
-#: ../alttoolbar_type.py:1504
+#: ../alttoolbar_type.py:1505
 msgid "Browse"
 msgstr "Razgledaj"
+
+#: ../alttoolbar_type.py:1568
+msgid "_Help"
+msgstr ""
+
+#: ../alttoolbar_type.py:1569
+msgid "_About"
+msgstr ""
+
+#: ../alttoolbar_type.py:1570
+msgid "_Quit"
+msgstr ""
+
+#: ../alttoolbar_repeat.py:94 ../alttoolbar_repeat.py:191
+msgid "Repeat all tracks"
+msgstr ""
+
+#: ../alttoolbar_repeat.py:96 ../alttoolbar_repeat.py:212
+#: ../ui/alttoolbar.ui.h:4
+msgid "Repeat the current track"
+msgstr "Ponavljaj trenutnu numeru"
 
 #: ../ui/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
@@ -280,10 +301,6 @@ msgstr "Nastavi ili pauziraj reprodukciju"
 #: ../ui/alttoolbar.ui.h:3
 msgid "Play the next track"
 msgstr "Pusti sledeću numeru"
-
-#: ../ui/alttoolbar.ui.h:4
-msgid "Repeat the current track"
-msgstr "Ponavljaj trenutnu numeru"
 
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"

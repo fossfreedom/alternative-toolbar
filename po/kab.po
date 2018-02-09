@@ -1,16 +1,16 @@
-# Swedish translation for alternative-toolbar
-# Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
+# Kabyle translation for alternative-toolbar
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the alternative-toolbar package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-10-01 20:59+0100\n"
-"PO-Revision-Date: 2016-02-13 00:05+0000\n"
-"Last-Translator: Kristoffer Grundström <hamnisdude@gmail.com>\n"
-"Language-Team: Swedish <sv@li.org>\n"
+"PO-Revision-Date: 2015-05-27 15:51+0000\n"
+"Last-Translator: Belkacem Mohammed <belkacem77@gmail.com>\n"
+"Language-Team: Kabyle <kab@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../alternative-toolbar.py:223
 msgid "Seek Backward"
-msgstr "Sök bakåt"
+msgstr ""
 
 #: ../alternative-toolbar.py:226
 msgid "Seek backward, in current track, by 5 seconds."
@@ -27,7 +27,7 @@ msgstr ""
 
 #: ../alternative-toolbar.py:230
 msgid "Seek Forward"
-msgstr "Sök framåt"
+msgstr ""
 
 #: ../alternative-toolbar.py:234
 msgid "Seek forward, in current track, by 10 seconds."
@@ -47,7 +47,7 @@ msgstr ""
 
 #: ../alternative-toolbar.py:258
 msgid "Show or hide the source toolbar"
-msgstr "Visa eller göm källans verktygsfält"
+msgstr ""
 
 #. define .plugin text strings used for translation
 #: ../alternative-toolbar.py:545
@@ -62,39 +62,39 @@ msgstr ""
 
 #: ../alttoolbar_controller.py:157
 msgid "View All"
-msgstr "Visa alla"
+msgstr ""
 
 #: ../alttoolbar_controller.py:325
 msgid "Import"
-msgstr "Importera"
+msgstr ""
 
 #: ../alttoolbar_controller.py:543
 msgid "Stations"
-msgstr "Stationer"
+msgstr ""
 
 #: ../alttoolbar_controller.py:572
 msgid "Libre.fm"
-msgstr "Libre.fm"
+msgstr ""
 
 #: ../alttoolbar_controller.py:615
 msgid "My Top Rated"
-msgstr "Mina högst rankade"
+msgstr ""
 
 #: ../alttoolbar_controller.py:619
 msgid "Recently Added"
-msgstr "Senast tillagda"
+msgstr ""
 
 #: ../alttoolbar_controller.py:623
 msgid "Recently Played"
-msgstr "Senast spelade"
+msgstr ""
 
 #: ../alttoolbar_controller.py:656
 msgid "Podcasts"
-msgstr "Poddsändningar"
+msgstr ""
 
 #: ../alttoolbar_preferences.py:307
 msgid "Restart"
-msgstr "Starta om"
+msgstr ""
 
 #: ../alttoolbar_sidebar.py:82
 msgid "Local collection"
@@ -110,20 +110,20 @@ msgstr ""
 
 #: ../alttoolbar_sidebar.py:85
 msgid "Playlists"
-msgstr "Spellistor"
+msgstr ""
 
 #: ../alttoolbar_type.py:1434 ../ui/altlibrary.ui.h:1
 msgid "Songs"
-msgstr "Låtar"
+msgstr ""
 
 #: ../alttoolbar_type.py:1439 ../alttoolbar_type.py:1521
 #: ../ui/altpreferences.ui.h:28 ../ui/altlibrary.ui.h:2
 msgid "Categories"
-msgstr "Kategorier"
+msgstr "Taggayin"
 
 #: ../alttoolbar_type.py:1505
 msgid "Browse"
-msgstr "Bläddra"
+msgstr ""
 
 #: ../alttoolbar_type.py:1568
 msgid "_Help"
@@ -152,7 +152,7 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:2
 msgid "Toolbar:"
-msgstr ""
+msgstr "Tafeggagt n ifecka:"
 
 #: ../ui/altpreferences.ui.h:3
 msgid ""
@@ -162,7 +162,7 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:5
 msgid "Modern"
-msgstr "Modern"
+msgstr "Atrar"
 
 #: ../ui/altpreferences.ui.h:6
 msgid "Use compact controls"
@@ -177,7 +177,7 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:9
 msgid "Show:"
-msgstr "Visa:"
+msgstr "Sken:"
 
 #: ../ui/altpreferences.ui.h:10
 msgid "Album/genre/year for playing song"
@@ -200,7 +200,7 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:14
 msgid "Volume control"
-msgstr "Volymkontroll"
+msgstr ""
 
 #: ../ui/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
@@ -216,7 +216,7 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:18
 msgid "Use:"
-msgstr ""
+msgstr "Seqdec:"
 
 #: ../ui/altpreferences.ui.h:19
 msgid "Inline song/artist label"

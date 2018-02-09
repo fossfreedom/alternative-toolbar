@@ -7,19 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-08-27 22:06+0000\n"
-"PO-Revision-Date: 2017-08-29 20:42+0000\n"
+"POT-Creation-Date: 2017-10-01 20:59+0100\n"
+"PO-Revision-Date: 2017-11-12 16:08+0000\n"
 "Last-Translator: AsciiWolf <mail@asciiwolf.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-08-30 09:48+0000\n"
-"X-Generator: Launchpad (build 18446)\n"
+"X-Launchpad-Export-Date: 2018-02-09 15:32+0000\n"
+"X-Generator: Launchpad (build 18544)\n"
 
 #: ../alternative-toolbar.py:223
 msgid "Seek Backward"
-msgstr "Přetáčet vzad"
+msgstr "Přetočit zpět"
 
 #: ../alternative-toolbar.py:226
 msgid "Seek backward, in current track, by 5 seconds."
@@ -27,7 +27,7 @@ msgstr "Přetáčet zpět v nynější skladbě o 5 sekund."
 
 #: ../alternative-toolbar.py:230
 msgid "Seek Forward"
-msgstr "Přetáčet vpřed"
+msgstr "Přetočit vpřed"
 
 #: ../alternative-toolbar.py:234
 msgid "Seek forward, in current track, by 10 seconds."
@@ -126,6 +126,27 @@ msgstr "Kategorie"
 #: ../alttoolbar_type.py:1505
 msgid "Browse"
 msgstr "Procházet"
+
+#: ../alttoolbar_type.py:1568
+msgid "_Help"
+msgstr "_Nápověda"
+
+#: ../alttoolbar_type.py:1569
+msgid "_About"
+msgstr "O _aplikaci"
+
+#: ../alttoolbar_type.py:1570
+msgid "_Quit"
+msgstr "U_končit"
+
+#: ../alttoolbar_repeat.py:94 ../alttoolbar_repeat.py:191
+msgid "Repeat all tracks"
+msgstr "Opakovat všechny skladby"
+
+#: ../alttoolbar_repeat.py:96 ../alttoolbar_repeat.py:212
+#: ../ui/alttoolbar.ui.h:4
+msgid "Repeat the current track"
+msgstr "Opakovat nynější skladbu"
 
 #: ../ui/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
@@ -232,7 +253,7 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:23
 msgid "Enhanced sidebar"
-msgstr "Rozšířený boční panel"
+msgstr "Rozšířený postranní panel"
 
 #: ../ui/altpreferences.ui.h:24
 msgid ""
@@ -240,7 +261,7 @@ msgid ""
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
-"Zobrazit nebo skrýt přepracovaný boční panel pro přehrávač. Obsahuje "
+"Zobrazit nebo skrýt přepracovaný postranní panel pro přehrávač. Obsahuje "
 "vylepšené symbolické ikony, lepší organizování zdrojů a možnost rozbalit a "
 "sbalit kategorie."
 
@@ -281,10 +302,6 @@ msgstr "Obnovit nebo pozastavit přehrávání"
 #: ../ui/alttoolbar.ui.h:3
 msgid "Play the next track"
 msgstr "Přehrát následující skladbu"
-
-#: ../ui/alttoolbar.ui.h:4
-msgid "Repeat the current track"
-msgstr "Znovu přehrát nynější skladbu"
 
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
