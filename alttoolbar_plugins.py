@@ -200,7 +200,7 @@ class PluginDialog(Gtk.Dialog):
         minitoolbar_box.set_layout(Gtk.ButtonBoxStyle.START)
 
         btn = Gtk.Button()
-        icon = Gio.ThemedIcon(name="dialog-information-symbolic")
+        icon = Gio.ThemedIcon(name="preferences-system-details-symbolic")
         image = Gtk.Image()
         image.props.margin = 3
         btn.add(image)
@@ -212,7 +212,7 @@ class PluginDialog(Gtk.Dialog):
         self._info_button = btn
 
         btn = Gtk.Button()
-        icon = Gio.ThemedIcon(name="help-browser-symbolic")
+        icon = Gio.ThemedIcon(name="help-contents-symbolic")
         image = Gtk.Image()
         image.props.margin = 3
         btn.add(image)
