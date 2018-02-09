@@ -146,7 +146,7 @@ class AltToolbarSidebar(Gtk.TreeView):
         model = self.shell.props.display_page_model
         self._cpi = model.connect('page-inserted', self._model_page_inserted)
         self._crd = model.connect('row-deleted', self._model_page_deleted)
-        self._crc = model.connect('row-changed', self._model_page_changed)
+        #self._crc = model.connect('row-changed', self._model_page_changed)
 
         # when we click on the sidebar -
         # need to keep the display_page_tree in sync
@@ -172,7 +172,7 @@ class AltToolbarSidebar(Gtk.TreeView):
         model = self.shell.props.display_page_model
         model.disconnect(self._cpi)
         model.disconnect(self._crd)
-        model.disconnect(self._crc)
+        #model.disconnect(self._crc)
 
     def on_drag_drop(self, widget, context, x, y, time):
         """
@@ -330,10 +330,10 @@ class AltToolbarSidebar(Gtk.TreeView):
                 self._traverse_rows(store, childiter, leaf_iter, depth + 1)
             treeiter = store.iter_next(treeiter)
 
-    def _model_page_changed(self, model, path, page_iter):
-        print(model[page_iter][1].props.name)
-        print(path)
-        # self._model_page_inserted(model, path, page_iter)
+    #def _model_page_changed(self, model, path, page_iter):
+    #    print(model[page_iter][1].props.name)
+    #    print(path)
+    #    # self._model_page_inserted(model, path, page_iter)
 
     def _tree_inserted(self, model, path, page_iter):
         print(path)
@@ -556,6 +556,11 @@ class AltToolbarSidebar(Gtk.TreeView):
             self.set_cursor(path)
 
     def _set_text(self, column, renderer, model, treeiter, arg):
+        if treeiter is None:
+            return
+        if model is None:
+            return
+
         source = model[treeiter][1]
         if source is None:
             renderer.props.weight = Pango.Weight.BOLD
