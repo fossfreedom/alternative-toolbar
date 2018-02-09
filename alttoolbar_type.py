@@ -1433,12 +1433,12 @@ class AltToolbarHeaderBar(AltToolbarShared):
         if not song_label:
             self.library_song_radiobutton.set_label(_('Songs'))
         else:
-            self.library_song_radiobutton.set_label(song_label)
+            self.library_song_radiobutton.set_label(cl.get_translation(song_label))
 
         if not category_label:
             self.library_browser_radiobutton.set_label(_('Categories'))
         else:
-            self.library_browser_radiobutton.set_label(category_label)
+            self.library_browser_radiobutton.set_label(cl.get_translation(category_label))
 
         cl.switch_locale(cl.Locale.RB)
 

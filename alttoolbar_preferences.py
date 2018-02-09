@@ -169,6 +169,12 @@ class CoverLocale:
             """
             return type('Enum', (), enums)
 
+        def get_translation(self, value):
+            """
+            return the translated version of the string
+            """
+            return gettext.gettext(value)
+
     def __init__(self):
         """ Create singleton instance """
         # Check whether we already have an instance
