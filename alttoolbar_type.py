@@ -1542,6 +1542,18 @@ class AltToolbarHeaderBar(AltToolbarShared):
         # any source defined controls
         self._end_box_controls.add(self.end_box)
 
+        # add a source toggle button
+        source_button = Gtk.ToggleButton.new()
+        source_button.set_action_name("app.ToggleSourceMediaToolbar")
+
+        symbol = "view-more-horizontal-symbolic"
+        source_button.set_margin_left(3)
+
+        image = Gtk.Image.new_from_icon_name(symbol,
+                                             Gtk.IconSize.SMALL_TOOLBAR)
+        source_button.add(image)
+        self._end_box_controls.add(source_button)
+
         # GNOME design upstream is that main appmenu options should be
         # within reach of the headerbar with the traditional
         # appmenu reduced to the occasionally used options
