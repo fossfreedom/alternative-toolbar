@@ -2,11 +2,11 @@ rhythmbox-plugin-alternative-toolbar (0.18.0-1) unstable; urgency=medium
 
   * New upstream release
     - Latest Translations
-    - Headerbar button to toggle a source toolbar
-    - Fixes for crashes with a german locale
-    - Add appdata metadata
+    - Headerbar button to toggle a source toolbar (LP: #1733438)
+    - Fixes for crashes with a german locale 
+    - Add appdata metadata (LP: #1725457)
     - Fix for crash when connecting and selecting a blank error source
-      when connecting a phone
+      when connecting a phone (LP: #1723129)
     - More logical help and about icons in the plugin window
     - Translate Category heading
     - Translate repeat button tooltip
