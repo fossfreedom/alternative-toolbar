@@ -6,7 +6,7 @@
 #
 #
 # reworked for alternative-toolbar
-# Author: fossfreedom (2015-2017)
+# Author: fossfreedom (2015-2018)
 #
 # This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
