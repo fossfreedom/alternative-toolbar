@@ -19,6 +19,7 @@ rhythmbox-plugin-alternative-toolbar (0.18.0-1) unstable; urgency=medium
       check-all-the-things
     - debian/upstream/metadata - fix warnings and errors from running
       check-all-the-things
+    - debian/upstream - move and rename signing-key
 
  -- David Mohammed <fossfreedom@ubuntu.com>  Sun, 11 Feb 2018 20:26:47 +0000
 
