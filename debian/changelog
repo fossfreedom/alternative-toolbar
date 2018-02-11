@@ -15,6 +15,10 @@ rhythmbox-plugin-alternative-toolbar (0.18.0-1) unstable; urgency=medium
     - debian/copyright - 2018 year change
     - debian/control - bump Standards-Version to 4.1.3 (no changes required)
     - debian/copyright - Add GPL-2+ copyright for debian/* files
+    - debian/copyright - Fix year issues from running
+      check-all-the-things
+    - debian/upstream/metadata - fix warnings and errors from running
+      check-all-the-things
 
  -- David Mohammed <fossfreedom@ubuntu.com>  Sun, 11 Feb 2018 20:26:47 +0000
 
