@@ -1,3 +1,172 @@
+commit 336f92355e3bf99f633e27051636db53fff877fe
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Feb 11 15:03:36 2018 +0000
+
+    Bump version
+
+ README.md                     | 2 +-
+ alternative-toolbar.plugin.in | 4 ++--
+ configure.ac                  | 2 +-
+ 3 files changed, 4 insertions(+), 4 deletions(-)
+
+commit a5b53d8a3f6bddb116b15358ad1e5deecf881ed1
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Feb 11 14:58:15 2018 +0000
+
+    Install appdata to the correct system file location
+
+ Makefile.am                                                    | 10 +++++++++-
+ ... org.gnome.Rhythmbox.Plugin.AlternativeToolbar.appdata.xml} |  6 ++++++
+ 2 files changed, 15 insertions(+), 1 deletion(-)
+
+commit e5bb7817910cad418adeddeff495521499685255
+Merge: f9275d7 ca74921
+Author: David Mohammed <fossfreedom@users.noreply.github.com>
+Date:   Sun Feb 11 13:41:16 2018 +0000
+
+    Merge pull request #117 from yotamN/master
+    
+    Added a metainfo file
+
+commit f9275d7c130e95dde40f48dc897f52a06dc8d027
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sat Feb 10 13:56:11 2018 +0000
+
+    Add a toggle source toolbar button to headerbar to make this more discoverable
+
+ alttoolbar_type.py | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+commit 429485656b4f45f7f57e60f95805db44fa26c07b
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Fri Feb 9 23:17:15 2018 +0000
+
+    Check visibility of sources before adding #112
+
+ alttoolbar_sidebar.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit d2bd08f62e584800543bc35fa07309e574ca7d88
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Fri Feb 9 17:03:22 2018 +0000
+
+    Change for more logical help/about symbolic icons #90
+
+ alttoolbar_plugins.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit ce8769585153b2e8f3853bbb723a9ecfe408b461
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Fri Feb 9 16:40:09 2018 +0000
+
+    Don't add sources that are marked as empty #112
+
+ alttoolbar_controller.py | 3 ++-
+ alttoolbar_sidebar.py    | 4 ++--
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+
+commit bf96af41e9f0974a460514434fe61dc3c81a39a0
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Fri Feb 9 16:04:40 2018 +0000
+
+    Ensure headerbar titles are translated #114
+
+ alttoolbar_preferences.py | 6 ++++++
+ alttoolbar_type.py        | 4 ++--
+ 2 files changed, 8 insertions(+), 2 deletions(-)
+
+commit bea057be66672a0eab33ab75c71cdc92cd3b3a44
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Fri Feb 9 15:41:33 2018 +0000
+
+    Latest translations
+
+ po/af.po       |  71 ++++++++-----
+ po/bg.po       |  71 ++++++++-----
+ po/ca.po       |  71 ++++++++-----
+ po/cs.po       |  41 +++++---
+ po/da.po       | 305 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/de.po       |  75 ++++++++------
+ po/el.po       |  71 ++++++++-----
+ po/en_AU.po    |  71 ++++++++-----
+ po/en_GB.po    |  75 ++++++++------
+ po/en_US.po    |  71 ++++++++-----
+ po/eo.po       |  71 ++++++++-----
+ po/es.po       |  81 +++++++++------
+ po/fi.po       |  71 ++++++++-----
+ po/fr.po       |  71 ++++++++-----
+ po/id.po       |  71 ++++++++-----
+ po/it.po       |  71 ++++++++-----
+ po/ja.po       |  75 ++++++++------
+ po/kab.po      | 289 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ko.po       |  71 ++++++++-----
+ po/ms.po       |  71 ++++++++-----
+ po/pl.po       |  71 ++++++++-----
+ po/pt.po       |  71 ++++++++-----
+ po/pt_BR.po    |  71 ++++++++-----
+ po/ru.po       |  71 ++++++++-----
+ po/sk.po       | 315 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sl.po       |  71 ++++++++-----
+ po/sr.po       |  71 ++++++++-----
+ po/sr@latin.po |  71 ++++++++-----
+ po/sv.po       |  71 ++++++++-----
+ po/th.po       |  71 ++++++++-----
+ po/uk.po       |  71 ++++++++-----
+ po/zh_CN.po    |  71 ++++++++-----
+ po/zh_TW.po    |  71 ++++++++-----
+ 33 files changed, 2225 insertions(+), 806 deletions(-)
+
+commit f320cb9548dd60869c0b874b6f158727622f8f99
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Fri Feb 9 15:25:32 2018 +0000
+
+    Add checks for invalid set_text situations - hopefully fixes a few crashes
+
+ alttoolbar_sidebar.py | 17 +++++++++++------
+ 1 file changed, 11 insertions(+), 6 deletions(-)
+
+commit ca74921bf4b967a83203afde4f86596fb95d56f3
+Author: Yotam Nachum <yotamnachum1@gmail.com>
+Date:   Thu Dec 28 16:07:40 2017 +0200
+
+    Added a metainfo tag
+
+ metainfo/.metainfo.xml | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+commit e2ddd1fc06631ffc090f5ba4cb6e79aa137553ab
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Thu Oct 12 22:03:27 2017 +0000
+
+    Hide RBImportErrorsSource #112
+    Rhythmbox no longer displays an import errors source; this
+    was originally displayed when errors were detected from media
+    player imports.
+    We similarly have to hard-code this non-display of this source
+
+ alttoolbar_controller.py | 3 +--
+ alttoolbar_sidebar.py    | 2 ++
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+commit 2b1de62aba70693e0d1a34c12ebeebbff20a4c79
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Oct 1 21:03:32 2017 +0100
+
+    regen pot to get repeat strings #111
+
+ po/POTFILES.in             |  1 +
+ po/alternative-toolbar.pot | 71 ++++++++++++++++++++++++++++------------------
+ 2 files changed, 45 insertions(+), 27 deletions(-)
+
+commit f89a42f44ac202450f3349ae3823a12c507737a3
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Tue Sep 12 23:48:15 2017 +0100
+
+    add changelog
+
+ ChangeLog | 146 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 146 insertions(+)
+
 commit be100104fb062c18d00df72292763b9bb23ac756
 Author: David Mohammed <fossfreedom@ubuntu.com>
 Date:   Wed Sep 13 21:02:03 2017 +0100
