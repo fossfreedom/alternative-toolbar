@@ -49,6 +49,9 @@ IMAGE_FILES = \
 	$(top_srcdir)/img/lastfm-symbolic.svg \
 	$(top_srcdir)/img/librefm-symbolic.svg
 
+METAINFO_FILES = \
+	$(top_srcdir)/metainfo/org.gnome.Rhythmbox.Plugin.AlternativeToolbar.appdata.xml
+
 UI_FILES = \
 	$(top_srcdir)/ui/altlibrary.ui \
 	$(top_srcdir)/ui/altpreferences.ui \
@@ -61,7 +64,8 @@ EXTRA_DIST = \
 	$(UI_FILES) \
 	$(top_srcdir)/po/Makefile.in.in \
 	schema/org.gnome.rhythmbox.plugins.alternative_toolbar.gschema.xml \
-	LICENSE
+	LICENSE \
+	$(METAINFO_FILES)
 
 rb_plugin_lib_DATA = \
 	$(PLUGIN_FILES) \
@@ -77,6 +81,10 @@ rb_plugin_ui_DATA = \
 
 gsettings_SCHEMAS = \
 	schema/org.gnome.rhythmbox.plugins.alternative_toolbar.gschema.xml
+	
+rb_plugin_metainfodir = $(datadir)/metainfo
+rb_plugin_metainfo_DATA = \
+	$(METAINFO_FILES)
 
 @GSETTINGS_RULES@
 

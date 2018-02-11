@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2018 David Mohammed <fossfreedom@ubuntu.com> -->
 <component type="addon">
   <id>rhythmbox-alternative-toolbar</id>
   <extends>rhythmbox.desktop</extends>
@@ -9,4 +10,9 @@
   <url type="translate">https://translations.launchpad.net/alternative-toolbar</url>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0</project_license>
+  <screenshots>
+	<screenshot type="default">
+		<image>http://i.imgur.com/rMkxjxw.png</image>
+	</screenshot>
+  </screenshots>
 </component>
