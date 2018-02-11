@@ -1,3 +1,29 @@
+commit a92912f4572cdffc1fef91c1a4e563ff017ddccd
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Feb 11 15:19:07 2018 +0000
+
+    Bump copyright year
+
+ alternative-toolbar.py    | 2 +-
+ alttoolbar_controller.py  | 2 +-
+ alttoolbar_plugins.py     | 2 +-
+ alttoolbar_preferences.py | 2 +-
+ alttoolbar_rb3compat.py   | 2 +-
+ alttoolbar_repeat.py      | 2 +-
+ alttoolbar_sidebar.py     | 2 +-
+ alttoolbar_type.py        | 2 +-
+ alttoolbar_widget.py      | 2 +-
+ 9 files changed, 9 insertions(+), 9 deletions(-)
+
+commit 0a96f70a75a7f6f4e624b8ad4a10b0d8e76aa1dc
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Feb 11 15:10:11 2018 +0000
+
+    Update ChangeLog
+
+ ChangeLog | 169 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 169 insertions(+)
+
 commit 336f92355e3bf99f633e27051636db53fff877fe
 Author: David Mohammed <fossfreedom@ubuntu.com>
 Date:   Sun Feb 11 15:03:36 2018 +0000
