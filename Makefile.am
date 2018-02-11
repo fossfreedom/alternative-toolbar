@@ -50,7 +50,7 @@ IMAGE_FILES = \
 	$(top_srcdir)/img/librefm-symbolic.svg
 
 METAINFO_FILES = \
-	$(top_srcdir)/metainfo/org.gnome.Rhythmbox.Plugin.AlternativeToolbar.appdata.xml
+	$(top_srcdir)/metainfo/org.gnome.rhythmbox.rhythmbox-alternative-toolbar.addon.appdata.xml
 
 UI_FILES = \
 	$(top_srcdir)/ui/altlibrary.ui \
