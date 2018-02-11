@@ -7,7 +7,9 @@ Copyright: 2015-2018 David Mohammed <fossfreedom@ubuntu.com>
 License: GPL-3+
 
 Files: debian/*
-Copyright: 2018 David Mohammed <fossfreedom@ubuntu.com>
+Copyright: 2016-2018 David Mohammed <fossfreedom@ubuntu.com>
+ 2015-2017 David Mohammed <foss.freedom@gmail.com>
+ 2015-2016 fossfreedom <foss.freedom@gmail.com>
 License: GPL-2+
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -41,7 +43,7 @@ License: GPL-3+
  GNU General Public License for more details.
  .
  You should have received a copy of the GNU General Public License
- along with this program. If not, see <http://www.gnu.org/licenses/>
+ along with this program. If not, see <https://www.gnu.org/licenses/>
  .
  On Debian systems, the complete text of the GNU General
  Public License version 3 can be found in "/usr/share/common-licenses/GPL-3".
