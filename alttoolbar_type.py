@@ -1547,7 +1547,10 @@ class AltToolbarHeaderBar(AltToolbarShared):
         source_button.set_action_name("app.ToggleSourceMediaToolbar")
 
         symbol = "view-more-horizontal-symbolic"
-        source_button.set_margin_left(3)
+        if gtk_version() >= 3.14:
+            source_button.set_margin_start(6)
+        else:
+            source_button.set_margin_left(6)
 
         image = Gtk.Image.new_from_icon_name(symbol,
                                              Gtk.IconSize.SMALL_TOOLBAR)
@@ -1562,10 +1565,10 @@ class AltToolbarHeaderBar(AltToolbarShared):
         menu_button = Gtk.MenuButton.new()
         if gtk_version() >= 3.14:
             symbol = "open-menu-symbolic"
-            menu_button.set_margin_start(3)
+            menu_button.set_margin_start(6)
         else:
             symbol = "emblem-system-symbolic"
-            menu_button.set_margin_left(3)
+            menu_button.set_margin_left(6)
 
         image = Gtk.Image.new_from_icon_name(symbol,
                                              Gtk.IconSize.SMALL_TOOLBAR)
