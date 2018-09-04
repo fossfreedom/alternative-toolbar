@@ -4,19 +4,18 @@
 # E-mail: edumucelli@gmail.com or eduardom@dcc.ufmg.br
 # Version: 0.4 (Unstable) for Rhythmbox 3.0.1 or later
 #
-#
 # reworked for alternative-toolbar
 # Author: David Mohammed 2015-2018 <fossfreedom@ubuntu.com>
 #
 # This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
 
 # This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 
 from gi.repository import GLib
 from gi.repository import GObject
@@ -30,44 +29,49 @@ from alttoolbar_rb3compat import gtk_version
 
 
 class Repeat(GObject.Object):
+    """
+    Object handling song repeating, with an additional feature of
+    repeating one song, one song only.
+    """
+
+    SONG_CHANGED_MANUAL = 0
+    SONG_CHANGED_EOS = 1
+
     def __init__(self, shell, toggle_button):
         """
-
-        :param toggle_button:  button that controls the repeat functions
-        :return:
+        :param shell: the plugin object
+        :param toggle_button: button that controls the repeat functions
         """
         GObject.Object.__init__(self)
 
         # use this to start the repeat-one-song capability (if True)
         self.repeat_song = False
-        self.shell = shell
         self.toggle_button = toggle_button
+        self.song_changed = self.SONG_CHANGED_MANUAL
 
-        # self.one_song_stprint ("adjoining")
-        ate_normal, self.one_song_state_eos = range(2)
-        # self.one_song_state = self.one_song_state_normal
+        player = shell.props.shell_player
+        # EOS signal means that the song changed because the song is over.
+        # ie. the user did not manually change the song.
+        # https://developer.gnome.org/rhythmbox/unstable/RBPlayer.html#RBPlayer-eos
+        player.props.player.connect('eos', self.on_gst_player_eos)
+        player.connect('playing-song-changed', self.on_song_change)
+        # This hack is no longer needed when the above signal handlers
+        # work. For more details, refer to the comments above the
+        # definition of method on_elapsed_change.
+        # player.connect('elapsed-changed', self.on_elapsed_change)
 
-        player = self.shell.props.shell_player
-        # Please refer to the comments above to understand why those
-        # two callbacks are not being used currently, Rhytmbox 2.99.1
-        # player.connect('playing-song-changed', self.on_song_change)
-        # player.props.player.connect('eos', self.on_gst_player_eos)
-        player.connect('elapsed-changed', self.on_elapsed_change)
-
-        if gtk_version() >= 3.12:
+        try:
             popover = Gtk.Popover.new(toggle_button)
-
-            repeat = RepeatPopContainer(popover, toggle_button)
-            popover.add(repeat)
-            popover.set_modal(False)
-
-        else:
+        except AttributeError:
             # use our custom Popover equivalent for Gtk+3.10 folks
             popover = CustomPopover(toggle_button)
+        else:
+            popover.set_modal(False)
+        finally:
             repeat = RepeatPopContainer(popover, toggle_button)
             popover.add(repeat)
 
-        toggle_button.connect("toggled", self._on_toggle, popover, repeat)
+        toggle_button.connect('toggled', self._on_toggle, popover, repeat)
         repeat.connect('repeat-type-changed', self._on_repeat_type_changed)
 
         self._on_repeat_type_changed(repeat, repeat.get_repeat_type())
@@ -111,42 +115,42 @@ class Repeat(GObject.Object):
 
         print("repeat type changed", self.repeat_song)
 
-    # Looks like there is a bug on gstreamer player and a seg fault
-    # happens as soon as the 'eos' callback is called.
-    # https://bugs.launchpad.net/ubuntu/+source/rhythmbox/+bug/1239218
-    # As soon it gets fixed or a code-based workaround gets available,
-    # this method in conjunction with on_song_change will be used as
-    # the way to control the song repetition. Meanwhile, on_elapsed_change
-    # will be the chosen solution
     def on_gst_player_eos(self, gst_player, stream_data, early=0):
-        # EOS signal means that the song changed because the song is over.
-        # ie. the user did not explicitly change the song.
-        # https://developer.gnome.org/rhythmbox/
-        #                         unstable/RBPlayer.html#RBPlayer-eos
+        """
+        Set song_changed to SONG_CHANGED_EOS so that on_song_change will
+        know to repeat the song.
+        """
         if self.repeat_song:
-            self.one_song_state = self.one_song_state_eos
+            self.song_changed = self.SONG_CHANGED_EOS
 
-    # This is a old method to 'repeat' the current song as soon as it
-    # reaches the last second. Will be the used until the bug mentioned on the
-    # comments above gets fixed.
     def on_song_change(self, player, time):
-        if self.one_song_state == self.one_song_state_eos:
-            self.one_song_state = self.one_song_state_normal
+        """
+        Repeat song that has just been played
+        (when called on song change signal).
+        """
+        if self.song_changed == self.SONG_CHANGED_EOS:
+            self.song_changed = self.SONG_CHANGED_MANUAL
             player.do_previous()
 
-    # This is a old method to 'repeat' the current song as soon as it
-    # reaches the last second. Will be the used until the bug mentioned on the
-    # comments above gets fixed.
-    # This might be improved keeping a instance variable with the duration and
-    # updating it on_song_change. Therefore, it would not be
-    # necessary to query the duration every time
+    # Since seg faults no longer seem to happen when the 'eos' callback
+    # is called with GStreamer 1.0, on_gst_player_eos in conjunction
+    # with on_song_change are used instead of this method to control the
+    # song repetition. The related to GStreamer is described at
+    # https://bugs.launchpad.net/ubuntu/+source/rhythmbox/+bug/1239218
     def on_elapsed_change(self, player, time):
+        """
+        This is a old method to 'repeat' the current song as soon as
+        it reaches the last seconds.
+        """
         if self.repeat_song:
+            # This might be improved by keeping a instance variable with
+            # the duration and updating it on_song_change in order to
+            # avoid querying the duration on every call.
             duration = player.get_playing_song_duration()
             if duration > 0:
                 # Repeat on the last two seconds of the song. Previously the
                 # last second was used but RB now seems to use the last second
-                # to prepare things for the next song of the list
+                # to prepare things for the next song of the list.
                 if time >= duration - 2:
                     player.set_playing_time(0)
 
