@@ -134,8 +134,6 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.gs.PluginKey.START_HIDDEN]
         self.inline_label = self.plugin_settings[
             self.gs.PluginKey.INLINE_LABEL]
-        self.compact_progressbar = self.plugin_settings[
-            self.gs.PluginKey.COMPACT_PROGRESSBAR]
         self.enhanced_sidebar = self.plugin_settings[
             self.gs.PluginKey.ENHANCED_SIDEBAR]
         self.show_tooltips = self.plugin_settings[
@@ -322,7 +320,7 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
     def _sh_on_playing_change(self, player, playing):
         """
-           shell-player "playing-change" signal handler
+        Shell-player 'playing-change' signal handler.
         """
         self.toolbar_type.play_control_change(player, playing)
         if (self.song_duration != 0):
@@ -335,50 +333,43 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
     def _sh_on_song_change(self, player, entry):
         """
-           shell-player "playing-song-changed" signal handler
+        Shell-player 'playing-song-changed' signal handler.
         """
         if (entry is not None):
             self.song_duration = entry.get_ulong(RB.RhythmDBPropType.DURATION)
         else:
             self.song_duration = 0
 
+        if hasattr(self.toolbar_type, 'song_progress'):
+            self.toolbar_type.song_progress.adjustment.set_upper(
+                self.song_duration or 1)
         self.toolbar_type.display_song(entry)
 
-    def _sh_on_playing(self, player, second):
+    def _sh_on_playing(self, player, seconds):
         """
-           shell-player "elapsed-changed" signal handler
+        Shell-player 'elapsed-changed' signal handler.
         """
-        if not hasattr(self.toolbar_type, 'song_progress'):
+        if self.song_duration == 0: return
+        try:
+            slider = self.toolbar_type.song_progress
+        except AttributeError:
             return
+        with slider.handler_block(slider.changed_callback_id):
+            slider.adjustment.set_value(seconds)
 
-        if (self.song_duration != 0):
-            self.toolbar_type.song_progress.progress = float(
-                second) / self.song_duration
+        minutes, seconds = divmod(seconds, 60)
+        hours, minutes = divmod(minutes, 60)
+        total_minutes, total_seconds = divmod(self.song_duration, 60)
+        total_hours, total_minutes = divmod(total_minutes, 60)
 
-            print(self.toolbar_type.song_progress.progress)
-
-            try:
-                valid, time = player.get_playing_time()
-                if not valid or time == 0:
-                    return
-            except:
-                return
-
-            m, s = divmod(time, 60)
-            h, m = divmod(m, 60)
-
-            tm, ts = divmod(self.song_duration, 60)
-            th, tm = divmod(tm, 60)
-
-            if th == 0:
-                label = "<small>{time} / {ttime}</small>".format(
-                    time="%02d:%02d" % (m, s),
-                    ttime="%02d:%02d" % (tm, ts))
-            else:
-                label = "<small>{time}</small>".format(
-                    time="%d:%02d:%02d" % (h, m, s))
-
-            self.toolbar_type.total_time_label.set_markup(label)
+        if total_hours:
+            label = "<small>{}:{:02}:{:02} / {}:{:02}:{:02}</small>".format(
+                hours, minutes, seconds,
+                total_hours, total_minutes, total_seconds)
+        else:
+            label = "<small>{:02}:{:02} / {:02}:{:02}</small>".format(
+                minutes, seconds, total_minutes, total_seconds)
+        self.toolbar_type.total_time_label.set_markup(label)
 
     def on_skip_backward(self, *args):
         """

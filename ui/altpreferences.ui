@@ -284,22 +284,6 @@ Always enabled for modern toolbar mode.</property>
           </packing>
         </child>
         <child>
-          <object class="GtkCheckButton" id="compact_checkbox">
-            <property name="label" translatable="yes">Compact progress slider</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">False</property>
-            <property name="tooltip_text" translatable="yes">Display and use a compact track progress slider - useful where the default theme progress slider is visually too large.</property>
-            <property name="xalign">0</property>
-            <property name="draw_indicator">True</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">2</property>
-          </packing>
-        </child>
-        <child>
           <object class="GtkCheckButton" id="enhanced_sidebar_checkbox">
             <property name="label" translatable="yes">Enhanced sidebar</property>
             <property name="visible">True</property>
