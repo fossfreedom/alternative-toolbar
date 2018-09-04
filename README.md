@@ -196,6 +196,7 @@ Thank you to:
  - our Translators: Launchpad Translation team
  - [Julian Richen](https://github.com/julianrichen) - revamped README
  - [Ikey Doherty](https://github.com/ikeydoherty) - AutoTools installer
+ - [McSinyx](https://github.com/McSinyx) - Better repeat song code - #127
  
 As well as:
 
