@@ -50,8 +50,7 @@ from alttoolbar_preferences import GSetting
 from alttoolbar_rb3compat import gtk_version
 from alttoolbar_repeat import Repeat
 from alttoolbar_sidebar import AltToolbarSidebar
-from alttoolbar_widget import SmallProgressBar
-from alttoolbar_widget import SmallScale
+from alttoolbar_widget import Slider
 
 
 class AT(object):
@@ -734,15 +733,7 @@ class AltToolbarShared(AltToolbarBase):
         if self.plugin.inline_label:
             self.song_box.remove(self.song_button_label)
 
-        if self.plugin.compact_progressbar:
-            self.song_progress = SmallProgressBar()
-        else:
-            self.song_progress = SmallScale()
-
-        self.song_progress.set_sensitive(False)
-
-        self.song_progress.connect('control', self._sh_progress_control)
-        self.song_progress.show_all()
+        self.song_progress = Slider(self.shell.props.shell_player)
         self.song_progress_box.pack_start(self.song_progress, False, True, 1)
 
         # Bring Builtin Actions to plugin
@@ -1220,16 +1211,6 @@ class AltToolbarShared(AltToolbarBase):
         del self.__builder_obj_names
 
     # Signal Handlers
-    # ##########################################################
-
-    def _sh_progress_control(self, progress, fraction):
-        # if not hasattr(self, 'song_duration'):
-        #    return
-
-        if (self.plugin.song_duration != 0):
-            player = self.shell.props.shell_player
-            player.set_playing_time(self.plugin.song_duration * fraction)
-
     def _sh_bigger_cover(self, cover, x, y, key, tooltip):
         return self.show_cover_tooltip(tooltip)
 
