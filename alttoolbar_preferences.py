@@ -61,7 +61,6 @@ class GSetting:
                 PLAYING_LABEL='playing-label',
                 VOLUME_CONTROL='volume-control',
                 INLINE_LABEL='inline-label',
-                COMPACT_PROGRESSBAR='compact-progressbar',
                 ENHANCED_SIDEBAR='enhanced-sidebar',
                 EXPANDERS='expanders',
                 SHOW_TOOLTIPS='show-tooltips',
@@ -257,11 +256,6 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
                                   volume_control, 'active',
                                   Gio.SettingsBindFlags.DEFAULT)
 
-        self._compact_control = builder.get_object('compact_checkbox')
-        self.plugin_settings.bind(self.gs.PluginKey.COMPACT_PROGRESSBAR,
-                                  self._compact_control, 'active',
-                                  Gio.SettingsBindFlags.DEFAULT)
-
         self._enhanced_sidebar = builder.get_object(
             'enhanced_sidebar_checkbox')
         self.plugin_settings.bind(self.gs.PluginKey.ENHANCED_SIDEBAR,
@@ -357,7 +351,6 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         self._show_tooltips.set_sensitive(enabled)
         self._inline_label.set_sensitive(enabled)
         self._playing_label.set_sensitive(enabled)
-        self._compact_control.set_sensitive(enabled)
 
     def _modern_switch_state(self, switch, param):
         state = switch.get_active()

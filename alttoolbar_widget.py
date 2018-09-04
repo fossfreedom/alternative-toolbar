@@ -1,6 +1,8 @@
 # -*- Mode: python; coding: utf-8; tab-width: 4; indent-tabs-mode: nil; -*-
 #
+# alttoolbar_widget.py - custom widgets
 # Copyright (C) 2015 - 2018 David Mohammed <fossfreedom@ubuntu.com>
+# Copyright (C) 2018 Nguyễn Gia Phong <vn.mcsinyx@gmail.com>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,154 +18,64 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301  USA.
 
-import math
+from math import pi
 
 from gi.repository import GObject
 from gi.repository import Gdk
 from gi.repository import Gtk
 
 
-# #############################################################################
-# Custom Widgets
-# ##############################################################
-
-class SmallProgressBar(Gtk.DrawingArea):
-    __gsignals__ = {
-        "control": (GObject.SIGNAL_RUN_LAST, None, (float,))
-    }
-
-    @GObject.Property
-    def progress(self):
-        return self.__progress__
-
-    @progress.setter
-    def progress(self, value):
-        self.__progress__ = value
-        self.queue_draw()
-
-    def __init__(self):
-        super(SmallProgressBar, self).__init__()
-        print("############")
-        self.add_events(Gdk.EventMask.POINTER_MOTION_MASK |
-                        Gdk.EventMask.BUTTON_PRESS_MASK |
-                        Gdk.EventMask.BUTTON_RELEASE_MASK)
-        self.button_pressed = False
-        self.button_time = 0
-        self.__progress__ = 0
-
-        self.set_hexpand(True)
-        self.props.height_request = 5
-        self.props.margin_bottom = 2
-        self.set_size_request(250, -1)
-
-    def do_draw(self, cc):
-        alloc = self.get_allocation()
-        sc = self.get_style_context()
-        fgc = sc.get_background_color(Gtk.StateFlags.SELECTED)
-        # self.get_state_flags() )
-        bgc = sc.get_color(Gtk.StateFlags.NORMAL)  # self.get_state_flags() )
-
-        cc.set_source_rgba(bgc.red, bgc.green, bgc.blue, bgc.alpha)
-
-        print(alloc.height)
-        offset = int(alloc.height / 2)
-        print(offset)
-        cc.rectangle(0, offset, alloc.width, 2)
-        cc.fill()
-
-        cc.set_source_rgba(fgc.red, fgc.green, fgc.blue, fgc.alpha)
-        cc.rectangle(0, offset, alloc.width * self.progress, 2)
-        cc.fill()
-
-        if self.progress != 0:
-            cc.set_line_width(1)
-            cc.set_source_rgba(bgc.red, bgc.green, bgc.blue, bgc.alpha)
-
-            cc.translate((alloc.width * self.progress), offset + 1)
-            print(self.progress)
-            cc.arc(0, 0, 4, 0, 2 * math.pi)
-            cc.stroke_preserve()
-
-            cc.fill()
-
-    def do_motion_notify_event(self, event):
-        if (self.button_pressed):
-            self.control_by_event(event)
-            return True
-        else:
-            return False
-
-    def do_button_press_event(self, event):
-        self.button_pressed = True
-        self.control_by_event(event)
-        return True
-
-    def do_button_release_event(self, event):
-        self.button_pressed = False
-        self.control_by_event(event)
-        return True
-
-    def control_by_event(self, event):
-        allocw = self.get_allocated_width()
-        fraction = event.x / allocw
-        if (self.button_time + 100 < event.time):
-            self.button_time = event.time
-            self.emit("control", fraction)
-
-
-class SmallScale(Gtk.Scale):
-    __gsignals__ = {
-        'control': (GObject.SIGNAL_RUN_LAST, None, (float,))
-    }
-
-    def __init__(self):
-        super(SmallScale, self).__init__()
-        self.__progress__ = 0
-
+class Slider(Gtk.Scale):
+    """Wrapper around Gtk.Scale to handle signals from user and
+    Rhythmbox itself.
+    """
+    def __init__(self, shell_player):
+        super().__init__()
         self.set_orientation(Gtk.Orientation.HORIZONTAL)
-        self._adjustment = Gtk.Adjustment(0, 0, 1, 0.01, 0.1, 0)
-        self.set_adjustment(self._adjustment)
+        self.adjustment = Gtk.Adjustment(0, 0, 10, 1, 10, 0)
+        self.set_adjustment(self.adjustment)
         self.set_hexpand(True)
         self.set_draw_value(False)
+        self.set_sensitive(False)
 
-        self.button_pressed = False
-        self.button_time = 0
+        self.shell_player = shell_player
+        self.dragging = self.drag_moved = False
 
-        self.connect('button-press-event', self._button_press_event)
-        self.connect('button-release-event', self._button_release_event)
-        self.connect('motion-notify-event', self._motion_notify_event)
+        self.connect('button-press-event', slider_press_callback)
+        self.connect('motion-notify-event', slider_moved_callback)
+        self.connect('button-release-event', slider_release_callback)
+        self.connect('focus-out-event', slider_release_callback)
+        self.changed_callback_id = self.connect('value-changed',
+                                                slider_changed_callback)
 
-        self.set_size_request(250, -1)
+        self.set_size_request(150, -1)
+        self.show_all()
 
-    @GObject.Property
-    def progress(self):
-        return self.__progress__
+    def apply_position(self):
+        """Sync slider elapsed time with Rhythmbox."""
+        self.shell_player.set_playing_time(self.adjustment.get_value())
 
-    @progress.setter
-    def progress(self, value):
-        self.__progress__ = value
-        self.set_value(value)
+def slider_press_callback(slider, event):
+    """Handle 'button-press-event' signals."""
+    slider.dragging = True
+    slider.drag_moved = False
+    return False
 
-    def _motion_notify_event(self, widget, event):
-        if (self.button_pressed):
-            self.control_by_event(event)
-            return True
-        else:
-            return False
+def slider_moved_callback(slider, event):
+    """Handle 'motion-notify-event' signals."""
+    if not slider.dragging: return False
+    slider.drag_moved = True
+    slider.apply_position()
+    return False
 
-    def _button_press_event(self, widget, event):
-        self.button_pressed = True
-        self.control_by_event(event)
-        return False
+def slider_release_callback(slider, event):
+    """Handle 'button-release-event' and 'focus-out-event' signals."""
+    if not slider.dragging: return False
+    if slider.drag_moved: slider.apply_position()
+    slider.dragging = slider.drag_moved = False
+    return False
 
-    def _button_release_event(self, widget, event):
-        self.button_pressed = False
-        self.control_by_event(event)
-        return False
-
-    def control_by_event(self, event):
-        if (self.button_time + 100 < event.time):
-            allocw = self.get_allocated_width()
-            fraction = event.x / allocw
-            self.button_time = event.time
-            self.emit("control", fraction)
+def slider_changed_callback(slider):
+    """Handle 'value-changed-event' signals."""
+    if slider.dragging: slider.drag_moved = True
+    slider.apply_position()
