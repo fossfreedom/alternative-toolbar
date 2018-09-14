@@ -77,5 +77,4 @@ def slider_release_callback(slider, event):
 
 def slider_changed_callback(slider):
     """Handle 'value-changed-event' signals."""
-    if slider.dragging: slider.drag_moved = True
     slider.apply_position()
