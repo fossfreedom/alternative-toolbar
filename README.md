@@ -51,6 +51,7 @@ or with the new Gnome-style client-side decoration:
 
 
 ## Features
+
  - Option to prefer dark-themes
  - Display Browse Categories horizontally or vertically
  - Move columns via Drag-and-Drop using a views' column headers
@@ -63,18 +64,17 @@ or with the new Gnome-style client-side decoration:
  - Redesigned plugin window, about box and plugin preferences window
  - Repeat button can now switch between repeat tracks and repeat-one-song mode
  - Force display of the app-menu (compact/headerbar)
-   `gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar 
+   `gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar
   app-menu-display true`
  - Plugin translated completely into [14 languages and locales (18 more on the
   way)](https://translations.launchpad.net/alternative-toolbar)
 
 The plugin preferences allows you to define which toolbars are used:
 
-<p align="center">
-    <img alt="Plugin" src="http://i.imgur.com/4Qy4fxQ.png" />
-</p>
+![Plugin](http://i.imgur.com/4Qy4fxQ.png")
 
 ## Keyboard shortcuts
+
 | Key                 | Action                                       |
 |---------------------|----------------------------------------------|
 | `CTRL + T`          | Toggled source toolbar.                      |
@@ -87,9 +87,8 @@ The plugin preferences allows you to define which toolbars are used:
 | `ALT + Left Arrrow` | Seek backward through a track.               |
 
 After installation enable the plugin in the plugins window:
-<p align="center">
-    <img alt="Enable plugin" src="http://i.imgur.com/UUzyfhH.png" />
-</p>
+
+![Enable plugin](http://i.imgur.com/UUzyfhH.png)
 
 If you need to enable the player controls & source menu, this can be done from the menu:
 
@@ -99,8 +98,12 @@ If you need to enable the player controls & source menu, this can be done from t
      - Show Source and Media Toolbars
 
 ## Installation
-**Latest Stable Release via source code compilation**
-Navigate to the archive and grab the newest .tar.gz from https://github.com/fossfreedom/alternative-toolbar/releases
+
+### Latest Stable Release via source code compilation
+
+Navigate to the archive and grab the newest .tar.gz from
+https://github.com/fossfreedom/alternative-toolbar/releases
+
 ```bash
 cd ~/Downloads
 sudo apt-get install intltool git gir1.2-glib-2.0 gir1.2-gstreamer-1.0 gir1.2-gtk-3.0 gir1.2-peas-1.0 gir1.2-rb-3.0 gnome-pkg-tools gobject-introspection libglib2.0-dev pkg-config python3-gi python3
@@ -114,11 +117,12 @@ sudo make install
 This will install a system-wide installation.  If you have a previous locally installed
 version of the plugin, remove it:
 
-```
+```bash
 rm -rf ~/.local/share/rhythmbox/plugins/alternative-toolbar
 ```
 
-**Install Latest Development Release via Git**
+### Latest Development Release via Git
+
 ```bash
 cd ~/Downloads
 sudo apt-get install intltool git gir1.2-glib-2.0 gir1.2-gstreamer-1.0 gir1.2-gtk-3.0 gir1.2-peas-1.0 gir1.2-rb-3.0 gnome-pkg-tools gobject-introspection libglib2.0-dev pkg-config python3-gi python3
@@ -136,41 +140,42 @@ version of the plugin, remove it:
 rm -rf ~/.local/share/rhythmbox/plugins/alternative-toolbar
 ```
 
-**Ubuntu PPA - latest stable release**
+### Ubuntu PPA - latest stable release
 
-If you are using Ubuntu you can install alternative-toolbar via a [PPA](https://launchpad.net/~fossfreedom/+archive/ubuntu/rhythmbox-plugins).
+If you are using Ubuntu you can install alternative-toolbar via a
+[PPA](https://launchpad.net/~fossfreedom/+archive/ubuntu/rhythmbox-plugins).
+
 ```bash
 sudo add-apt-repository ppa:fossfreedom/rhythmbox-plugins
 sudo apt-get update
 sudo apt-get install rhythmbox-plugin-alternative-toolbar
 ```
 
-**Arch AUR - latest development release**
+### Arch AUR - latest development release
 
-If you are using Arch you can install alternative-toolbar via the [rhythmbox-plugin-alternative-toolbar-git](https://aur.archlinux.org/packages/rhythmbox-plugin-alternative-toolbar-git/) package
+If you are using Arch you can install alternative-toolbar via the
+[rhythmbox-plugin-alternative-toolbar-git](https://aur.archlinux.org/packages/rhythmbox-plugin-alternative-toolbar-git/) package.
 
-**Gentoo ebuild**
+### Gentoo ebuild
 
-If you are using Gentoo you can install alternative-toolbar by adding the ebuild located in the gentoo branch `gentoo/x11-plugins/alternative-toolbar` to your local overlay (`/usr/local/portage`).
+If you are using Gentoo you can install alternative-toolbar by adding the ebuild
+located in the gentoo branch `gentoo/x11-plugins/alternative-toolbar`
+to your local overlay (`/usr/local/portage`), i.e.
 
-i.e. 
-
-```
+```bash
 git clone https://github.com/fossfreedom/alternative-toolbar -b gentoo
-
 add the ebuild
-
 git checkout master
 ```
 
 Use the following to ebuild
 
-```
-$ ebuild alternative-toolbar-9999.ebuild digest
-$ emerge alternative-toolbar
+```bash
+ebuild alternative-toolbar-9999.ebuild digest
+emerge alternative-toolbar
 ```
 
-## To uninstall.
+## Uninstallation
 
 If installed via Git you need the original code to uninstall the plugin.
 ```bash
@@ -179,6 +184,7 @@ sudo make uninstall
 ```
 
 ## Contribute
+
 **Please help out with translating**
 
 We need you to help us translate the english text to your native language.
@@ -190,6 +196,7 @@ Don't worry - it is easier that you think. Just visit:
 Remember to set your preferred language and then just submit your translation.
 
 ## Credits
+
 Thank you to:
 
  - [me4oslav](https://github.com/me4oslav) - design inspiration for the header-bar vision
@@ -197,7 +204,7 @@ Thank you to:
  - [Julian Richen](https://github.com/julianrichen) - revamped README
  - [Ikey Doherty](https://github.com/ikeydoherty) - AutoTools installer
  - [McSinyx](https://github.com/McSinyx) - Better repeat song code - #127 and slider - #128
- 
+
 As well as:
 
  - [sergioad](https://github.com/sergioad) - for the initial translation (spanish) used for testing translations
