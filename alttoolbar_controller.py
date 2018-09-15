@@ -16,11 +16,10 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301  USA.
 
+from alttoolbar_preferences import CoverLocale
 from gi.repository import GObject
 from gi.repository import Gio
 from gi.repository import Gtk
-
-from alttoolbar_preferences import CoverLocale
 
 
 class AltControllerCategory(object):
@@ -543,7 +542,7 @@ class AltRadioController(AltGenericController):
         self.header.set_library_labels(song_label=_('Stations'))
 
     def toolbar_visibility(self):
-        return True # radio source the source toolbar is always shown
+        return True  # radio source the source toolbar is always shown
 
 
 class AltLastFMController(AltGenericController):
@@ -656,7 +655,7 @@ class AltPodcastController(AltGenericController):
         self.header.set_library_labels(song_label=_('Podcasts'))
 
     def toolbar_visibility(self):
-        return True # podcast source the source toolbar is always shown
+        return True  # podcast source the source toolbar is always shown
 
 
 class AltStandardOnlineController(AltGenericController):

@@ -18,6 +18,9 @@
 
 import gettext
 
+from alttoolbar_controller import AltControllerCategory
+from alttoolbar_preferences import CoverLocale
+from alttoolbar_preferences import GSetting
 from gi.repository import GLib
 from gi.repository import GObject
 from gi.repository import Gdk
@@ -25,10 +28,6 @@ from gi.repository import Gio
 from gi.repository import Gtk
 from gi.repository import Pango
 from gi.repository import RB
-
-from alttoolbar_controller import AltControllerCategory
-from alttoolbar_preferences import CoverLocale
-from alttoolbar_preferences import GSetting
 
 
 class AltToolbarSidebar(Gtk.TreeView):
@@ -146,7 +145,7 @@ class AltToolbarSidebar(Gtk.TreeView):
         model = self.shell.props.display_page_model
         self._cpi = model.connect('page-inserted', self._model_page_inserted)
         self._crd = model.connect('row-deleted', self._model_page_deleted)
-        #self._crc = model.connect('row-changed', self._model_page_changed)
+        # self._crc = model.connect('row-changed', self._model_page_changed)
 
         # when we click on the sidebar -
         # need to keep the display_page_tree in sync
@@ -172,7 +171,7 @@ class AltToolbarSidebar(Gtk.TreeView):
         model = self.shell.props.display_page_model
         model.disconnect(self._cpi)
         model.disconnect(self._crd)
-        #model.disconnect(self._crc)
+        # model.disconnect(self._crc)
 
     def on_drag_drop(self, widget, context, x, y, time):
         """
@@ -200,8 +199,8 @@ class AltToolbarSidebar(Gtk.TreeView):
 
         result = False
 
-        if path and (pos == Gtk.TreeViewDropPosition.BEFORE
-                     or pos == Gtk.TreeViewDropPosition.AFTER):
+        if path and (
+                pos == Gtk.TreeViewDropPosition.BEFORE or pos == Gtk.TreeViewDropPosition.AFTER):
             if pos == Gtk.TreeViewDropPosition.BEFORE:
                 drop_pos = Gtk.TreeViewDropPosition.INTO_OR_BEFORE
             else:
@@ -330,7 +329,7 @@ class AltToolbarSidebar(Gtk.TreeView):
                 self._traverse_rows(store, childiter, leaf_iter, depth + 1)
             treeiter = store.iter_next(treeiter)
 
-    #def _model_page_changed(self, model, path, page_iter):
+    # def _model_page_changed(self, model, path, page_iter):
     #    print(model[page_iter][1].props.name)
     #    print(path)
     #    # self._model_page_inserted(model, path, page_iter)
@@ -344,7 +343,7 @@ class AltToolbarSidebar(Gtk.TreeView):
 
     def _model_page_inserted(self, model, page, page_iter):
         if page and not page.props.visibility:
-            return # we don't display sources that are marked as hidden
+            return  # we don't display sources that are marked as hidden
         print(page)
         print(page_iter)
         parent_iter = model.iter_parent(page_iter)
@@ -565,7 +564,7 @@ class AltToolbarSidebar(Gtk.TreeView):
         if source is None:
             renderer.props.weight = Pango.Weight.BOLD
             renderer.props.text = model[treeiter][0]
-            print (renderer.props.text)
+            print(renderer.props.text)
             renderer.props.visible = model[treeiter][2]
         else:
             renderer.props.visible = True
