@@ -15,7 +15,7 @@
             Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact toolbar which can be hidden.
         </td>
         <td align="center" width="10%">
-            v0.17.5
+            v0.18.1
         </td>
         <td align="right" width="30%">
             <a href="http://flattr.com/thing/1811704/" title="fossfreedom">
@@ -64,7 +64,7 @@
 <li>Redesigned plugin window, about box and plugin preferences window</li>
 <li>Repeat button can now switch between repeat tracks and repeat-one-song mode</li>
 <li>Force display of the app-menu (compact/headerbar)
-<code>gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar 
+<code>gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar
 app-menu-display true</code></li>
 <li>Plugin translated completely into <a href="https://translations.launchpad.net/alternative-toolbar">14 languages and locales (18 more on the
 way)</a></li>
@@ -72,9 +72,7 @@ way)</a></li>
 
 <p>The plugin preferences allows you to define which toolbars are used:</p>
 
-<p align="center">
-    <img alt="Plugin" src="http://i.imgur.com/4Qy4fxQ.png" />
-</p>
+<p><img src="http://i.imgur.com/4Qy4fxQ.png"" alt="Plugin" title="" /></p>
 
 <h2>Keyboard shortcuts</h2>
 
@@ -91,9 +89,7 @@ way)</a></li>
 
 <p>After installation enable the plugin in the plugins window:</p>
 
-<p align="center">
-    <img alt="Enable plugin" src="http://i.imgur.com/UUzyfhH.png" />
-</p>
+<p><img src="http://i.imgur.com/UUzyfhH.png" alt="Enable plugin" title="" /></p>
 
 <p>If you need to enable the player controls &amp; source menu, this can be done from the menu:</p>
 
@@ -110,9 +106,12 @@ way)</a></li>
 
 <h2>Installation</h2>
 
-<p><strong>Latest Stable Release via source code compilation</strong>
-Navigate to the archive and grab the newest .tar.gz from https://github.com/fossfreedom/alternative-toolbar/releases
-<code>bash
+<h3>Latest Stable Release via source code compilation</h3>
+
+<p>Navigate to the archive and grab the newest .tar.gz from
+https://github.com/fossfreedom/alternative-toolbar/releases</p>
+
+<p><code>bash
 cd ~/Downloads
 sudo apt-get install intltool git gir1.2-glib-2.0 gir1.2-gstreamer-1.0 gir1.2-gtk-3.0 gir1.2-peas-1.0 gir1.2-rb-3.0 gnome-pkg-tools gobject-introspection libglib2.0-dev pkg-config python3-gi python3
 tar -zxvf alternative-toolbar*.tar.gz
@@ -125,12 +124,13 @@ sudo make install
 <p>This will install a system-wide installation.  If you have a previous locally installed
 version of the plugin, remove it:</p>
 
-<p><code>
+<p><code>bash
 rm -rf ~/.local/share/rhythmbox/plugins/alternative-toolbar
 </code></p>
 
-<p><strong>Install Latest Development Release via Git</strong>
-<code>bash
+<h3>Latest Development Release via Git</h3>
+
+<p><code>bash
 cd ~/Downloads
 sudo apt-get install intltool git gir1.2-glib-2.0 gir1.2-gstreamer-1.0 gir1.2-gtk-3.0 gir1.2-peas-1.0 gir1.2-rb-3.0 gnome-pkg-tools gobject-introspection libglib2.0-dev pkg-config python3-gi python3
 git clone https://github.com/fossfreedom/alternative-toolbar.git
@@ -147,41 +147,42 @@ version of the plugin, remove it:</p>
 rm -rf ~/.local/share/rhythmbox/plugins/alternative-toolbar
 </code></p>
 
-<p><strong>Ubuntu PPA - latest stable release</strong></p>
+<h3>Ubuntu PPA - latest stable release</h3>
 
-<p>If you are using Ubuntu you can install alternative-toolbar via a <a href="https://launchpad.net/~fossfreedom/+archive/ubuntu/rhythmbox-plugins">PPA</a>.
-<code>bash
+<p>If you are using Ubuntu you can install alternative-toolbar via a
+<a href="https://launchpad.net/~fossfreedom/+archive/ubuntu/rhythmbox-plugins">PPA</a>.</p>
+
+<p><code>bash
 sudo add-apt-repository ppa:fossfreedom/rhythmbox-plugins
 sudo apt-get update
 sudo apt-get install rhythmbox-plugin-alternative-toolbar
 </code></p>
 
-<p><strong>Arch AUR - latest development release</strong></p>
+<h3>Arch AUR - latest development release</h3>
 
-<p>If you are using Arch you can install alternative-toolbar via the <a href="https://aur.archlinux.org/packages/rhythmbox-plugin-alternative-toolbar-git/">rhythmbox-plugin-alternative-toolbar-git</a> package</p>
+<p>If you are using Arch you can install alternative-toolbar via the
+<a href="https://aur.archlinux.org/packages/rhythmbox-plugin-alternative-toolbar-git/">rhythmbox-plugin-alternative-toolbar-git</a> package.</p>
 
-<p><strong>Gentoo ebuild</strong></p>
+<h3>Gentoo ebuild</h3>
 
-<p>If you are using Gentoo you can install alternative-toolbar by adding the ebuild located in the gentoo branch <code>gentoo/x11-plugins/alternative-toolbar</code> to your local overlay (<code>/usr/local/portage</code>).</p>
+<p>If you are using Gentoo you can install alternative-toolbar by adding the ebuild
+located in the gentoo branch <code>gentoo/x11-plugins/alternative-toolbar</code>
+to your local overlay (<code>/usr/local/portage</code>), i.e.</p>
 
-<p>i.e. </p>
-
-<p>```
-git clone https://github.com/fossfreedom/alternative-toolbar -b gentoo</p>
-
-<p>add the ebuild</p>
-
-<p>git checkout master
-```</p>
+<p><code>bash
+git clone https://github.com/fossfreedom/alternative-toolbar -b gentoo
+add the ebuild
+git checkout master
+</code></p>
 
 <p>Use the following to ebuild</p>
 
-<p><code>
-$ ebuild alternative-toolbar-9999.ebuild digest
-$ emerge alternative-toolbar
+<p><code>bash
+ebuild alternative-toolbar-9999.ebuild digest
+emerge alternative-toolbar
 </code></p>
 
-<h2>To uninstall.</h2>
+<h2>Uninstallation</h2>
 
 <p>If installed via Git you need the original code to uninstall the plugin.
 <code>bash
@@ -212,6 +213,7 @@ sudo make uninstall
 <li>our Translators: Launchpad Translation team</li>
 <li><a href="https://github.com/julianrichen">Julian Richen</a> - revamped README</li>
 <li><a href="https://github.com/ikeydoherty">Ikey Doherty</a> - AutoTools installer</li>
+<li><a href="https://github.com/McSinyx">McSinyx</a> - Better repeat song code - #127 and slider - #128</li>
 </ul>
 
 <p>As well as:</p>
