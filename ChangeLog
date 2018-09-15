@@ -1,3 +1,238 @@
+commit 5518f8d1e1ac04438e5cc4fe47efbbdc7e6319c5
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sat Sep 15 10:57:25 2018 +0100
+
+    Regen readme.html
+
+ readme.html | 70 +++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 36 insertions(+), 34 deletions(-)
+
+commit 8b99ef42aacb65340e0527c7660ab16d54816937
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sat Sep 15 10:45:41 2018 +0100
+
+    PEP8 issues
+
+ alternative-toolbar.plugin.in |  2 +-
+ alternative-toolbar.py        | 18 ++++++++++--------
+ alttoolbar_controller.py      |  7 +++----
+ alttoolbar_plugins.py         |  3 +--
+ alttoolbar_preferences.py     |  3 ++-
+ alttoolbar_rb3compat.py       | 11 ++++++-----
+ alttoolbar_repeat.py          |  6 ++----
+ alttoolbar_sidebar.py         | 21 ++++++++++-----------
+ alttoolbar_type.py            | 29 +++++++++++++++--------------
+ alttoolbar_widget.py          | 18 +++++++++++-------
+ 10 files changed, 61 insertions(+), 57 deletions(-)
+
+commit 3f53cb171ede6cd0c4d4aa7d70ed4b6503ffa50b
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sat Sep 15 10:17:19 2018 +0100
+
+    Translation updates
+
+ README.md      |   2 +-
+ configure.ac   |   2 +-
+ po/LINGUAS     |   6 ++
+ po/af.po       |  66 ++++++-------
+ po/bg.po       |  87 +++++++----------
+ po/ca.po       |  78 +++++++--------
+ po/cs.po       |  68 ++++++-------
+ po/da.po       |  68 ++++++-------
+ po/de.po       |  68 ++++++-------
+ po/el.po       |  68 ++++++-------
+ po/en_AU.po    |  68 ++++++-------
+ po/en_GB.po    |  68 ++++++-------
+ po/en_US.po    |  68 ++++++-------
+ po/eo.po       |  66 ++++++-------
+ po/es.po       |  69 ++++++-------
+ po/fi.po       |  76 +++++++--------
+ po/fr.po       |  80 +++++++--------
+ po/gl.po       | 299 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/he.po       | 294 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/hr.po       | 297 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/id.po       |  68 ++++++-------
+ po/it.po       |  80 +++++++--------
+ po/ja.po       |  68 ++++++-------
+ po/kab.po      |  66 ++++++-------
+ po/ko.po       |  66 ++++++-------
+ po/ms.po       |  80 +++++++--------
+ po/pl.po       |  68 ++++++-------
+ po/pt.po       |  68 ++++++-------
+ po/pt_BR.po    |  78 +++++++--------
+ po/ru.po       |  69 ++++++-------
+ po/sk.po       |  69 ++++++-------
+ po/sl.po       |  86 +++++++----------
+ po/sr.po       |  82 +++++++---------
+ po/sr@latin.po |  68 ++++++-------
+ po/sv.po       |  66 ++++++-------
+ po/th.po       |  66 ++++++-------
+ po/uk.po       |  69 ++++++-------
+ po/zh_CN.po    |  66 ++++++-------
+ po/zh_TW.po    |  72 ++++++--------
+ 39 files changed, 1883 insertions(+), 1370 deletions(-)
+
+commit 2eec8622091e18c964a964799ebcbf1125eadbd1
+Merge: cfc6e9c 72bdc5c
+Author: David Mohammed <fossfreedom@users.noreply.github.com>
+Date:   Fri Sep 14 23:05:37 2018 +0100
+
+    Merge pull request #129 from McSinyx/master
+    
+    Fix bug introduced by #128 and clean up README.md
+
+commit 72bdc5c2f59a785b959a71064f29a2534da84fb3
+Author: Nguyễn Gia Phong <vn.mcsinyx@gmail.com>
+Date:   Fri Sep 14 22:07:33 2018 +0700
+
+    Clean up some inconsistancies in README.md
+
+ README.md | 61 ++++++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 34 insertions(+), 27 deletions(-)
+
+commit 0cc9fd0f000bb9ace898663a4a3a43bec329382c
+Author: Nguyễn Gia Phong <vn.mcsinyx@gmail.com>
+Date:   Fri Sep 14 21:55:41 2018 +0700
+
+    Fix buggy click-to-seek
+
+ alttoolbar_widget.py | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit cfc6e9cb2d8e4fcaf151e6a4deb34685ece43d63
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Tue Sep 4 11:36:51 2018 +0100
+
+    Regen translation template
+
+ po/alternative-toolbar.pot | 62 +++++++++++++++++++---------------------------
+ 1 file changed, 26 insertions(+), 36 deletions(-)
+
+commit d245b1fbd8e176dc93ceaf83f6fdce7d64fb8917
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Tue Sep 4 11:25:39 2018 +0100
+
+    Ack - #128
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 4c61f811f40c164bd1e68a0db6c028f174b1ae23
+Merge: 3385317 dc6349d
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Tue Sep 4 11:23:11 2018 +0100
+
+    Merge branch 'McSinyx-fix-127'
+
+commit dc6349d4f34f43fa654030bfb22d7266aba57e35
+Merge: 3385317 c57ec7c
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Tue Sep 4 11:20:18 2018 +0100
+
+    Merge branch 'fix-127' of https://github.com/McSinyx/rhythmbox-alternative-toolbar into McSinyx-fix-127
+
+commit 3385317f6fa58253cdbff0606240ece82a24c22d
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Tue Sep 4 11:13:04 2018 +0100
+
+    Ack for #127
+
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit afa54f33d2bd20f85ea3755cda9ce57d8e3bf22a
+Merge: 1d3e263 fe393b2
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Tue Sep 4 11:09:01 2018 +0100
+
+    Merge branch 'McSinyx-master'
+
+commit c57ec7ca779f45c4fbcca891c26e449b5f9bde97
+Author: Nguyễn Gia Phong <vn.mcsinyx@gmail.com>
+Date:   Tue Sep 4 10:13:27 2018 +0700
+
+    Refactor slider to fix the laggy motion bug
+
+ alternative-toolbar.py    |  63 +++++++--------
+ alttoolbar_preferences.py |   7 --
+ alttoolbar_type.py        |  23 +-----
+ alttoolbar_widget.py      | 196 +++++++++++++---------------------------------
+ ui/altpreferences.ui      |  16 ----
+ 5 files changed, 83 insertions(+), 222 deletions(-)
+
+commit fe393b2beec517d2ddb54c29d7910aaf0cd28ce5
+Author: Nguyễn Gia Phong <vn.mcsinyx@gmail.com>
+Date:   Tue Aug 28 21:25:26 2018 +0700
+
+    Switch back to the more precise repeat one
+
+ alttoolbar_repeat.py | 112 ++++++++++++++++++++++++++-------------------------
+ 1 file changed, 58 insertions(+), 54 deletions(-)
+
+commit 1d3e2631a26c9c92ca3080adc5bdf5b0a5e076c3
+Merge: 1a546d8 fe65e6f
+Author: David Mohammed <fossfreedom@users.noreply.github.com>
+Date:   Wed Mar 14 15:51:50 2018 +0000
+
+    Merge pull request #121 from dyskette/hb-spacing
+    
+    Use default GNOME headerbar spacing value
+
+commit fe65e6f1c3c6e2c72ba8cb60e238df6c8dbb1aeb
+Author: Eddy Castillo <dyskette@gmail.com>
+Date:   Wed Mar 14 09:08:42 2018 -0600
+
+    Use default GNOME headerbar spacing value
+
+ alttoolbar_type.py | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+commit 1a546d85757073bb4a5929375691b3d16be2e573
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Feb 11 22:45:15 2018 +0000
+
+    Fix errors and warnings from check-all-the-things
+
+ alttoolbar_rb3compat.py                                            | 2 +-
+ ...gnome.rhythmbox.rhythmbox-alternative-toolbar.addon.appdata.xml | 7 +++++--
+ 2 files changed, 6 insertions(+), 3 deletions(-)
+
+commit 8bfed7882129ae6e678849c541efd279ba1b18f6
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Feb 11 22:27:15 2018 +0000
+
+    Add email address to copyright
+
+ alternative-toolbar.py    | 2 +-
+ alttoolbar_controller.py  | 2 +-
+ alttoolbar_plugins.py     | 2 +-
+ alttoolbar_preferences.py | 2 +-
+ alttoolbar_rb3compat.py   | 2 +-
+ alttoolbar_repeat.py      | 2 +-
+ alttoolbar_sidebar.py     | 2 +-
+ alttoolbar_type.py        | 2 +-
+ alttoolbar_widget.py      | 2 +-
+ 9 files changed, 9 insertions(+), 9 deletions(-)
+
+commit c76ba997c822e78859bfa279add5d657f5018ed8
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Feb 11 21:07:00 2018 +0000
+
+    Make a valid metainfo file
+
+ Makefile.am                                                        | 2 +-
+ ...nome.rhythmbox.rhythmbox-alternative-toolbar.addon.appdata.xml} | 7 ++++++-
+ 2 files changed, 7 insertions(+), 2 deletions(-)
+
+commit 6624dfddec6949ac4022e625ee1383b80bb06516
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Feb 11 15:20:14 2018 +0000
+
+    Update Changelog again
+
+ ChangeLog | 26 ++++++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
+
 commit a92912f4572cdffc1fef91c1a4e563ff017ddccd
 Author: David Mohammed <fossfreedom@ubuntu.com>
 Date:   Sun Feb 11 15:19:07 2018 +0000
