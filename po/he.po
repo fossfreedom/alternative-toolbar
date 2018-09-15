@@ -1,16 +1,16 @@
-# Greek translation for alternative-toolbar
-# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# Hebrew translation for alternative-toolbar
+# Copyright (c) 2018 Rosetta Contributors and Canonical Ltd 2018
 # This file is distributed under the same license as the alternative-toolbar package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2018-09-04 11:35+0100\n"
-"PO-Revision-Date: 2015-10-01 15:06+0000\n"
-"Last-Translator: Panos Lyrakis <panoskatws@gmail.com>\n"
-"Language-Team: Greek <el@li.org>\n"
+"PO-Revision-Date: 2018-09-04 11:30+0000\n"
+"Last-Translator: Yaron <sh.yaron@gmail.com>\n"
+"Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,59 +19,60 @@ msgstr ""
 
 #: ../alternative-toolbar.py:221
 msgid "Seek Backward"
-msgstr "Αναζήτηση πίσω"
+msgstr "מעבר אחורה"
 
 #: ../alternative-toolbar.py:224
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr "Αναζήτηση προς τα πίσω, στο τρέχον κομμάτι, ανά 5 δευτ/τα."
+msgstr "מעבר אחורה, ברצועה הנוכחית, 5 שניות."
 
 #: ../alternative-toolbar.py:228
 msgid "Seek Forward"
-msgstr "Αναζήτηση μπροστά"
+msgstr "מעבר קדימה"
 
 #: ../alternative-toolbar.py:232
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr "Αναζήτηση προς τα εμρπός, στο τρέχον καμμάτι, ανά 10 δευτ/τα."
+msgstr "מעבר קדימה, ברצועה הנוכחית, 10 שניות."
 
 #: ../alternative-toolbar.py:244
 msgid "Show Play-Controls Toolbar"
-msgstr "Εμφάνιση γραμμής εργαλείων με τα χειριστήρια αναπαραγωγής"
+msgstr "הצגת סרגל כלים פקדי נגינה"
 
 #: ../alternative-toolbar.py:248
 msgid "Show or hide the play-controls toolbar"
-msgstr ""
-"Εμφάνιση ή απόκρυψη της γραμμής εργαλείων με τα χειριστήρια αναπαραγωγής"
+msgstr "הצגה או הסתרה של סרגל כלים פקדי נגינה"
 
 #: ../alternative-toolbar.py:253
 msgid "Show Source Toolbar"
-msgstr "Εμφάνιση εργαλείων προέλευσης"
+msgstr "הצגת סרגל כלי מקור"
 
 #: ../alternative-toolbar.py:256
 msgid "Show or hide the source toolbar"
-msgstr "Εμφάνιση ή απόκρυψη εργαλείων σχετικά με την προέλευση των κομματιών"
+msgstr "הצגה או הסתרה של סרגל כלי המקור"
 
 #. define .plugin text strings used for translation
 #: ../alternative-toolbar.py:536
 msgid "Alternative Toolbar"
-msgstr "εναλλακτική γραμμή εργαλείων"
+msgstr "סרגל כלים חלופי"
 
 #: ../alternative-toolbar.py:539
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr ""
+"החלפת סרגל הכלים הגדול של Rhythmbox עם סרגל כלים מעוצב או מצומצם בצד הלקוח "
+"אותו ניתן להסתיר"
 
 #: ../alttoolbar_controller.py:157
 msgid "View All"
-msgstr "Προβολή όλων"
+msgstr "להציג הכול"
 
 #: ../alttoolbar_controller.py:325
 msgid "Import"
-msgstr "Εισαγωγή"
+msgstr "ייבוא"
 
 #: ../alttoolbar_controller.py:543
 msgid "Stations"
-msgstr "Σταθμοί"
+msgstr "תחנות"
 
 #: ../alttoolbar_controller.py:572
 msgid "Libre.fm"
@@ -79,95 +80,97 @@ msgstr "Libre.fm"
 
 #: ../alttoolbar_controller.py:615
 msgid "My Top Rated"
-msgstr "Κορυφαία βαθμολογημένα από μένα"
+msgstr "המדורגים הכי גבוהים שלי"
 
 #: ../alttoolbar_controller.py:619
 msgid "Recently Added"
-msgstr "Προστέθηκαν πρόσφατα"
+msgstr "נוספו לאחרונה"
 
 #: ../alttoolbar_controller.py:623
 msgid "Recently Played"
-msgstr "Πρόσφατες αναπαραγωγές"
+msgstr "התנגנו לאחרונה"
 
 #: ../alttoolbar_controller.py:656
 msgid "Podcasts"
-msgstr "Φορητές εκπομπές (Podcasts)"
+msgstr "פודקאסטים"
 
 #: ../alttoolbar_preferences.py:307
 msgid "Restart"
-msgstr "Επανεκκίνηση"
+msgstr "הפעלה מחדש"
 
 #: ../alttoolbar_sidebar.py:82
 msgid "Local collection"
-msgstr "Τοπική συλλογή"
+msgstr "אוסף מקומי"
 
 #: ../alttoolbar_sidebar.py:83
 msgid "Online sources"
-msgstr "Πηγές από το διαδίκτυο"
+msgstr "מקורות מקוונים"
 
 #: ../alttoolbar_sidebar.py:84
 msgid "Other sources"
-msgstr "Άλλες πηγές"
+msgstr "מקורות אחרים"
 
 #: ../alttoolbar_sidebar.py:85
 msgid "Playlists"
-msgstr "Λίστες αναπαραγωγής"
+msgstr "רשימות נגינה"
 
 #: ../alttoolbar_type.py:1415 ../ui/altlibrary.ui.h:1
 msgid "Songs"
-msgstr "Τραγούδια"
+msgstr "שירים"
 
 #: ../alttoolbar_type.py:1420 ../alttoolbar_type.py:1502
 #: ../ui/altpreferences.ui.h:26 ../ui/altlibrary.ui.h:2
 msgid "Categories"
-msgstr "Κατηγορίες"
+msgstr "קטגוריות"
 
 #: ../alttoolbar_type.py:1486
 msgid "Browse"
-msgstr "Πλοήγηση"
+msgstr "עיון"
 
 #: ../alttoolbar_type.py:1564
 msgid "_Help"
-msgstr ""
+msgstr "ע_זרה"
 
 #: ../alttoolbar_type.py:1565
 msgid "_About"
-msgstr ""
+msgstr "על _אודות"
 
 #: ../alttoolbar_type.py:1566
 msgid "_Quit"
-msgstr ""
+msgstr "י_ציאה"
 
 #: ../alttoolbar_repeat.py:98 ../alttoolbar_repeat.py:195
 msgid "Repeat all tracks"
-msgstr ""
+msgstr "חזרה על כל הרצועות"
 
 #: ../alttoolbar_repeat.py:100 ../alttoolbar_repeat.py:216
 #: ../ui/alttoolbar.ui.h:4
 msgid "Repeat the current track"
-msgstr "Επανάληψη του τρέχοντος κομματιού"
+msgstr "חזרה על הרצועה הנוכחית"
 
 #: ../ui/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
-msgstr "Κάντε επανεκκίνηση στον player για να ισχύσουν οι αλλαγές."
+msgstr "יש להפעיל את הנגן מחדש כדי שהשינויים ייכנסו לתוקף."
 
 #: ../ui/altpreferences.ui.h:2
 msgid "Toolbar:"
-msgstr "Γραμμή εργαλείων"
+msgstr "סרגל כלים:"
 
 #: ../ui/altpreferences.ui.h:3
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
 msgstr ""
+"מתאים מאוד לסביבות שולחן\n"
+"עבודה כגון Gnome ו־Elementary."
 
 #: ../ui/altpreferences.ui.h:5
 msgid "Modern"
-msgstr "Μοντέρνο"
+msgstr "מודרני"
 
 #: ../ui/altpreferences.ui.h:6
 msgid "Use compact controls"
-msgstr ""
+msgstr "שימוש בפקדים מצומצמים"
 
 #: ../ui/altpreferences.ui.h:7
 msgid ""
@@ -175,14 +178,16 @@ msgid ""
 "instead of the standard rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 msgstr ""
+"הצגת פקדי הנגינה בסרגל הכלים בסגנון מצומצם במקום הסגנון הרגיל של rhythmbox.\n"
+"תמיד פעיל עבור מצב סרגל כלים מודרני."
 
 #: ../ui/altpreferences.ui.h:9
 msgid "Show:"
-msgstr "Προβολή:"
+msgstr "הצגה:"
 
 #: ../ui/altpreferences.ui.h:10
 msgid "Album/genre/year for playing song"
-msgstr "Άλμπουμ / Είδος / έτος για το τραγούδι που αναπαράγεται"
+msgstr "אלבום/סוגה/שנה של השיר המתנגן"
 
 #: ../ui/altpreferences.ui.h:11
 msgid ""
@@ -190,54 +195,52 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
-"Εμφάνιση Άλμπουμ / Είδος / έτος, αντί του τραγουδιού-καλλιτέχνη-άλμπουμ. "
-"Χρήσιμο για γραφικά περιβάλλοντα όπου το τραγούδι-καλλιτέχνης-άλμπουμ "
-"εμφανίζεται ήδη στον τίτλο του παραθύρου."
+"הצגת אלבום/סגנון/שנה במקום שיר-אמן-אלבום. שימושי לסביבות עבודה בהן שיר-אמן-"
+"אלבום כבר מופיע בכותרת החלון."
 
 #: ../ui/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
-msgstr ""
+msgstr "חלוניות עצה לפקדי הנגינה"
 
 #: ../ui/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
-msgstr "Εμφάνιση ή απόκρυψη των tooltips στα χειριστήρια αναπαραγωγής."
+msgstr "הצגה או הסתרה של חלוניות עצה לפקדי הנגינה."
 
 #: ../ui/altpreferences.ui.h:14
 msgid "Volume control"
-msgstr "Χειριστήριο έντασης"
+msgstr "בקרת עצמת שמע"
 
 #: ../ui/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
-msgstr "Εμφάνιση ή απόκρυψη του χειριστηρίου έντασης"
+msgstr "הצגה או הסתרה של בקרת עצמת השמע."
 
 #: ../ui/altpreferences.ui.h:16
 msgid "Playback controls"
-msgstr "Χειριστήρια αναπαραγωγής"
+msgstr "פקדי נגינה"
 
 #: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
-msgstr "Εμφάνιση ή απόκρυψη των χειριστηρίων αναπαραγωγής κατά την εκκίνηση"
+msgstr "הצגה או הסתרה של פקדי הנגינה עם הפעלת הנגן."
 
 #: ../ui/altpreferences.ui.h:18
 msgid "Use:"
-msgstr "Χρήση:"
+msgstr "שימוש:"
 
 #: ../ui/altpreferences.ui.h:19
 msgid "Inline song/artist label"
-msgstr "Ενσωμάτωση ετικέτας τραγούδι/καλλιτέχνης"
+msgstr "תווית שיר/אמן מובנית"
 
 #: ../ui/altpreferences.ui.h:20
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
-"Εμφάνιση ετικέτας Τραγούδι και Καλλιτέχνης πριν τον ολισθητήρα προόδου "
-"(progress slider). Στην περίπτωση που δεν ενεργοποιήσετε αυτή την επιλογή, "
-"οι ετικέτες θα εμφανίζονται πάνω από τον ολισθητήρα."
+"הצגת תוויות שיר ואמן לפני סרגל ההתקדמות. אם אפשרות זו לא מסומנת, הן תוצגנה "
+"מעל סרגל ההתקדמות."
 
 #: ../ui/altpreferences.ui.h:21
 msgid "Enhanced sidebar"
-msgstr ""
+msgstr "סרגל צד מורחב"
 
 #: ../ui/altpreferences.ui.h:22
 msgid ""
@@ -245,13 +248,12 @@ msgid ""
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
-"Εμφανίστε ή αποκρύψτε ένα επανασχεδιασμένο sidebar ( πλαϊνή γραμμή εργαλείων "
-") στον player. Διαθέτει βελτιωμένα εικονίδια, καλλήτερη οργάνωση πηγών καθώς "
-"και δυνατότητα να αναπτύξετε και να συμπτύξετε κατηγορίες."
+"הצגה או הסתרה של סרגל צד שעוצב מחדש עבור הנגן. סרגל הצד מציג סמלים ייצוגיים "
+"משופרים, ארגון טוב יותר של מקורות והיכולת להרחיב ולצמצם קטגוריות."
 
 #: ../ui/altpreferences.ui.h:23
 msgid "Enhanced plugins dialog"
-msgstr "Ενισχυμένα πρόσθετα διαλόγου"
+msgstr "תיבת דו־שיח תוספים מורחבת"
 
 #: ../ui/altpreferences.ui.h:24
 msgid ""
@@ -259,35 +261,34 @@ msgid ""
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
 "based desktop environments."
 msgstr ""
-"Εμφανίστε ή αποκρύψτε τον επανασχεδιασμένο διάλογο προσθέτων. Τα κουτάκια "
-"επιλογής έχουν αντικατασταθεί με διακόπτες και διαθέτει ενσωματομένη γραμμή "
-"εργαλείων με εικονίδια. Λειτουργεί καλύτερα σε γραφικά περιβάλλοντα "
-"βασισμένα στο Gnome."
+"הצגה או הסתרה של חלון תוספים שעוצב מחדש. החלון מציג מתגים במקום תיבות סימון "
+"וסרגל כלים פנימי עם סמלים ייצוגיים. עובד הכי טוב עם סביבות עבודה מבוססות "
+"Gnome."
 
 #: ../ui/altpreferences.ui.h:25
 msgid "Dark theme if available"
-msgstr ""
+msgstr "ערכת עיצוב כהה אם ניתן"
 
 #: ../ui/altpreferences.ui.h:27
 msgid "Horizontal"
-msgstr ""
+msgstr "אופקי"
 
 #: ../ui/altpreferences.ui.h:28
 msgid "Vertical"
-msgstr ""
+msgstr "אנכי"
 
 #: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"
-msgstr "Αναπαραγωγή προηγούμενου κομματιού"
+msgstr "ניגון הרצועה הקודמת"
 
 #: ../ui/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr "Συνέχιση ή παύση της αναπαραγωγής"
+msgstr "להמשיך או להשהות את הנגינה"
 
 #: ../ui/alttoolbar.ui.h:3
 msgid "Play the next track"
-msgstr "Αναπαραγωγή επόμενου κομματιού"
+msgstr "ניגון הרצועה הבאה"
 
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
-msgstr "Αναπαραγωγή των κομματιών με τυχαία σειρά"
+msgstr "ניגון הרצועות בסדר אקראי"
