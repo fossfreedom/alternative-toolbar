@@ -1,7 +1,8 @@
 #!/usr/bin/make -f
+export DH_VERSION = 1
 
 %:
-	dh $@ --parallel --with python3
+	dh $@ --with python3
 
 override_dh_autoreconf:
 	dh_autoreconf -- ./autogen.sh

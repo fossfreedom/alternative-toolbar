@@ -1,3 +1,17 @@
+rhythmbox-plugin-alternative-toolbar (0.18.1-1) unstable; urgency=medium
+
+  * Bug fix and Translation release
+    - Use precise repeat one code rather than the previous estimate method
+    - Fix laggy volume slider
+    - Fix buggy click-to-seek
+    - Use default GNOME Headerbar spacing
+  * Packaging Changes:
+    - control: Bump Standards-Version - rules updated for verbose build
+    - copyright: Refresh to capture revised copyright holders
+    - rules: Removed unnecessary --parallel
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Mon, 17 Sep 2018 20:47:40 +0100
+
 rhythmbox-plugin-alternative-toolbar (0.18.0-1) unstable; urgency=medium
 
   * New upstream release
