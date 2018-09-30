@@ -212,25 +212,24 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
     def _add_menu_options(self):
         """
-          add the various menu options to the application
+        Add various menu options to the application.
         """
         self.seek_action_group = ActionGroup(self.shell,
                                              'AltToolbarPluginSeekActions')
-        self.seek_action_group.add_action(func=self.on_skip_backward,
-                                          action_name='SeekBackward',
-                                          label=_("Seek Backward"),
-                                          action_type='app', accel="<Alt>Left",
-                                          tooltip=_(
-                                              "Seek backward, in current "
-                                              "track, by 5 seconds."))
-        self.seek_action_group.add_action(func=self.on_skip_forward,
-                                          action_name='SeekForward',
-                                          label=_("Seek Forward"),
-                                          action_type='app',
-                                          accel="<Alt>Right",
-                                          tooltip=_(
-                                              "Seek forward, in current "
-                                              "track, by 10 seconds."))
+        self.seek_action_group.add_action(
+            func=self.on_skip_backward,
+            action_name='SeekBackward',
+            label=_("Seek Backward"),
+            action_type='app',
+            accel="<Alt>Left",
+            tooltip=_("Seek backward, in current track, by 5 seconds."))
+        self.seek_action_group.add_action(
+            func=self.on_skip_forward,
+            action_name='SeekForward',
+            label=_("Seek Forward"),
+            action_type='app',
+            accel="<Alt>Right",
+            tooltip=_("Seek forward, in current track, by 10 seconds."))
 
         self.appshell.insert_action_group(self.seek_action_group)
         self.appshell.add_app_menuitems(view_seek_menu_ui,
@@ -238,22 +237,30 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         self.toggle_action_group = ActionGroup(self.shell,
                                                'AltToolbarPluginActions')
-        self.toggle_action_group.add_action(func=self.toggle_visibility,
-                                            action_name='ToggleToolbar',
-                                            label=_(
-                                                "Show Play-Controls Toolbar"),
-                                            action_state=ActionGroup.TOGGLE,
-                                            action_type='app',
-                                            tooltip=_(
-                                                "Show or hide the "
-                                                "play-controls toolbar"))
+        self.toggle_action_group.add_action(
+            func=self.toggle_visibility,
+            action_name='ToggleToolbar',
+            label=_("Show Play-Controls Toolbar"),
+            action_state=ActionGroup.TOGGLE,
+            action_type='app',
+            tooltip=_("Show or hide the play-controls toolbar"))
         self.toggle_action_group.add_action(
             func=self.toggle_sourcemedia_visibility,
             action_name='ToggleSourceMediaToolbar',
             label=_("Show Source Toolbar"),
             action_state=ActionGroup.TOGGLE,
-            action_type='app', accel="<Ctrl>t",
+            action_type='app',
+            accel="<Ctrl>t",
             tooltip=_("Show or hide the source toolbar"))
+        self.toggle_action_group.add_action(
+            func=self.toggle_search_visibility,
+            action_name='ToggleSearchToolbar',
+            label=_("Show Search Toolbar"),
+            action_state=ActionGroup.TOGGLE,
+            action_type='app',
+            accel="<Ctrl>f",
+            tooltip=_("Show or hide the search toolbar"))
+
 
         self.appshell.insert_action_group(self.toggle_action_group)
         self.appshell.add_app_menuitems(view_menu_ui,
@@ -525,6 +532,13 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             'ToggleSourceMediaToolbar')
 
         self.toolbar_type.source_toolbar_visibility(action.get_active())
+
+    def toggle_search_visibility(self, action, param=None, data=None):
+        """
+        Toggle displaying state of the search toolbar.
+        """
+        search_button = self.toolbar_type.current_search_button
+        search_button.set_active(not search_button.get_active())
 
     def _translation_helper(self):
         """

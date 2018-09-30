@@ -1392,20 +1392,12 @@ class AltToolbarHeaderBar(AltToolbarShared):
         action.set_active(True)
 
     def search_button_toggled(self, search_button):
-        print("search_button_toggled")
-        print(search_button.get_active())
-
-        def delay_hide(*args):
-            # we use a delay to allow the searchbar minimise effect to be
-            # visible
-            self.searchbar.set_visible(False)
-
-        if search_button.get_active():
-            self.searchbar.set_visible(True)
-        else:
-            GLib.timeout_add(350, delay_hide)
-
-        self.searchbar.set_search_mode(True)
+        """
+        Handle 'toggled' signals emitted by search_button.
+        """
+        active = search_button.get_active()
+        self.searchbar.set_search_mode(active)
+        self.searchbar.set_visible(active)
 
     def set_library_labels(self, song_label=None, category_label=None):
         # locale stuff
