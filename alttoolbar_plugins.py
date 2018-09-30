@@ -20,14 +20,13 @@ import gettext
 import re
 import webbrowser
 
+from alttoolbar_preferences import CoverLocale
 from gi.repository import GLib
 from gi.repository import Gio
 from gi.repository import Gtk
 from gi.repository import Pango
 from gi.repository import Peas
 from gi.repository import PeasGtk
-
-from alttoolbar_preferences import CoverLocale
 
 
 class PluginListRow(Gtk.ListBoxRow):

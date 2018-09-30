@@ -22,15 +22,6 @@ from datetime import datetime, date
 from xml.etree.ElementTree import SubElement
 
 import rb
-from gi.repository import GLib
-from gi.repository import GObject
-from gi.repository import Gdk
-from gi.repository import GdkPixbuf
-from gi.repository import Gio
-from gi.repository import Gtk
-from gi.repository import Pango
-from gi.repository import RB
-
 from alttoolbar_controller import AltAndroidController
 from alttoolbar_controller import AltCoverArtBrowserController
 from alttoolbar_controller import AltCoverArtPlaySourceController
@@ -51,6 +42,14 @@ from alttoolbar_rb3compat import gtk_version
 from alttoolbar_repeat import Repeat
 from alttoolbar_sidebar import AltToolbarSidebar
 from alttoolbar_widget import Slider
+from gi.repository import GLib
+from gi.repository import GObject
+from gi.repository import Gdk
+from gi.repository import GdkPixbuf
+from gi.repository import Gio
+from gi.repository import Gtk
+from gi.repository import Pango
+from gi.repository import RB
 
 
 class AT(object):
@@ -1406,12 +1405,14 @@ class AltToolbarHeaderBar(AltToolbarShared):
         if not song_label:
             self.library_song_radiobutton.set_label(_('Songs'))
         else:
-            self.library_song_radiobutton.set_label(cl.get_translation(song_label))
+            self.library_song_radiobutton.set_label(
+                cl.get_translation(song_label))
 
         if not category_label:
             self.library_browser_radiobutton.set_label(_('Categories'))
         else:
-            self.library_browser_radiobutton.set_label(cl.get_translation(category_label))
+            self.library_browser_radiobutton.set_label(
+                cl.get_translation(category_label))
 
         cl.switch_locale(cl.Locale.RB)
 
@@ -1420,7 +1421,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
         if not self.setup_completed:
             return
 
-        controlled, current_controller = self.is_controlled(self.shell.props.selected_page)
+        controlled, current_controller = self.is_controlled(
+            self.shell.props.selected_page)
         current_controller.set_library_labels()
 
         if toggle_button:
@@ -1494,7 +1496,6 @@ class AltToolbarHeaderBar(AltToolbarShared):
         view_name = _("Categories")
         self.library_browser_radiobutton.set_label(view_name)
 
-        default = Gtk.Settings.get_default()
         self.headerbar = Gtk.HeaderBar.new()
         self.headerbar.set_show_close_button(True)
 
@@ -1549,7 +1550,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
         menu = self.shell.props.application.get_shared_menu('app-menu')
         menu_button.set_menu_model(menu)
         self._end_box_controls.add(menu_button)
-        menu.remove(3) # help about quit
+        menu.remove(3)  # help about quit
 
         cl.switch_locale(cl.Locale.RB)
         appmenu = Gio.Menu.new()

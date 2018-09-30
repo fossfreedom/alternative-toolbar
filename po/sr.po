@@ -7,54 +7,54 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-10-01 20:59+0100\n"
-"PO-Revision-Date: 2017-02-21 20:51+0000\n"
-"Last-Translator: Leipero <lei.pero@gmail.com>\n"
+"POT-Creation-Date: 2018-09-04 11:35+0100\n"
+"PO-Revision-Date: 2018-09-08 11:34+0000\n"
+"Last-Translator: Данило Шеган <Unknown>\n"
 "Language-Team: Serbian <sr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-02-09 15:32+0000\n"
-"X-Generator: Launchpad (build 18544)\n"
+"X-Launchpad-Export-Date: 2018-09-14 22:09+0000\n"
+"X-Generator: Launchpad (build 18780)\n"
 
-#: ../alternative-toolbar.py:223
+#: ../alternative-toolbar.py:221
 msgid "Seek Backward"
-msgstr "Иди Унназад"
+msgstr "Иди уназад"
 
-#: ../alternative-toolbar.py:226
+#: ../alternative-toolbar.py:224
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr "Иди уназад, у тренутној нумери, за 5 секунди"
 
-#: ../alternative-toolbar.py:230
+#: ../alternative-toolbar.py:228
 msgid "Seek Forward"
 msgstr "Иди Унапред"
 
-#: ../alternative-toolbar.py:234
+#: ../alternative-toolbar.py:232
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr "Иди унапред, у тренутној нумери, за 10 секунди"
 
-#: ../alternative-toolbar.py:246
+#: ../alternative-toolbar.py:244
 msgid "Show Play-Controls Toolbar"
 msgstr "Прикажи Траку Алата Контрола-Пуштања"
 
-#: ../alternative-toolbar.py:250
+#: ../alternative-toolbar.py:248
 msgid "Show or hide the play-controls toolbar"
 msgstr "Прикажи или сакриј алатну траку контрола-пуштања"
 
-#: ../alternative-toolbar.py:255
+#: ../alternative-toolbar.py:253
 msgid "Show Source Toolbar"
 msgstr "Прикажи Алатну Траку Извора"
 
-#: ../alternative-toolbar.py:258
+#: ../alternative-toolbar.py:256
 msgid "Show or hide the source toolbar"
 msgstr "Прикажи или сакриј алатну траку извора"
 
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:545
+#: ../alternative-toolbar.py:536
 msgid "Alternative Toolbar"
 msgstr "Алтернативна Трака Алата"
 
-#: ../alternative-toolbar.py:548
+#: ../alternative-toolbar.py:539
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -114,36 +114,36 @@ msgstr "Други извори"
 msgid "Playlists"
 msgstr "Листе Нумера"
 
-#: ../alttoolbar_type.py:1434 ../ui/altlibrary.ui.h:1
+#: ../alttoolbar_type.py:1415 ../ui/altlibrary.ui.h:1
 msgid "Songs"
 msgstr "Песме"
 
-#: ../alttoolbar_type.py:1439 ../alttoolbar_type.py:1521
-#: ../ui/altpreferences.ui.h:28 ../ui/altlibrary.ui.h:2
+#: ../alttoolbar_type.py:1420 ../alttoolbar_type.py:1502
+#: ../ui/altpreferences.ui.h:26 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "Категорије"
 
-#: ../alttoolbar_type.py:1505
+#: ../alttoolbar_type.py:1486
 msgid "Browse"
 msgstr "Разгледај"
 
-#: ../alttoolbar_type.py:1568
+#: ../alttoolbar_type.py:1564
 msgid "_Help"
-msgstr ""
+msgstr "_Помоћ"
 
-#: ../alttoolbar_type.py:1569
+#: ../alttoolbar_type.py:1565
 msgid "_About"
-msgstr ""
+msgstr "_О програму"
 
-#: ../alttoolbar_type.py:1570
+#: ../alttoolbar_type.py:1566
 msgid "_Quit"
-msgstr ""
+msgstr "_Изађи"
 
-#: ../alttoolbar_repeat.py:94 ../alttoolbar_repeat.py:191
+#: ../alttoolbar_repeat.py:98 ../alttoolbar_repeat.py:195
 msgid "Repeat all tracks"
-msgstr ""
+msgstr "Понови све нумере"
 
-#: ../alttoolbar_repeat.py:96 ../alttoolbar_repeat.py:212
+#: ../alttoolbar_repeat.py:100 ../alttoolbar_repeat.py:216
 #: ../ui/alttoolbar.ui.h:4
 msgid "Repeat the current track"
 msgstr "Понављај тренутну нумеру"
@@ -240,22 +240,10 @@ msgstr ""
 "су приказани изнад клизача."
 
 #: ../ui/altpreferences.ui.h:21
-msgid "Compact progress slider"
-msgstr "Умањен клизач стања"
-
-#: ../ui/altpreferences.ui.h:22
-msgid ""
-"Display and use a compact track progress slider - useful where the default "
-"theme progress slider is visually too large."
-msgstr ""
-"Прикажи и користи умањен клизач стања нумере - корисно када је клизач "
-"подразумеване теме превелик."
-
-#: ../ui/altpreferences.ui.h:23
 msgid "Enhanced sidebar"
 msgstr "Унапређена бочна трака"
 
-#: ../ui/altpreferences.ui.h:24
+#: ../ui/altpreferences.ui.h:22
 msgid ""
 "Show or hide redesigned sidebar for the player. It features improved "
 "symbolic icons, better sources organisation and ability to expand and "
@@ -264,11 +252,11 @@ msgstr ""
 "Прикажи или сакриј унапређену бочну траку програма. Садржи побољшане "
 "иконице, бољи распоред извора и могућност ширења и скупљања категорија."
 
-#: ../ui/altpreferences.ui.h:25
+#: ../ui/altpreferences.ui.h:23
 msgid "Enhanced plugins dialog"
 msgstr "Унапређен дијалог прикључака"
 
-#: ../ui/altpreferences.ui.h:26
+#: ../ui/altpreferences.ui.h:24
 msgid ""
 "Show or hide redesigned plugins dialog. It features switches instead of "
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
@@ -278,15 +266,15 @@ msgstr ""
 "поља за означавање и редне алатне траке са иконицама. Најпогодније за Гном "
 "базирана окружења."
 
-#: ../ui/altpreferences.ui.h:27
+#: ../ui/altpreferences.ui.h:25
 msgid "Dark theme if available"
 msgstr "Тамна тема ако је доступна"
 
-#: ../ui/altpreferences.ui.h:29
+#: ../ui/altpreferences.ui.h:27
 msgid "Horizontal"
 msgstr "Водоравно"
 
-#: ../ui/altpreferences.ui.h:30
+#: ../ui/altpreferences.ui.h:28
 msgid "Vertical"
 msgstr "Усправно"
 

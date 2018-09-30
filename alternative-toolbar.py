@@ -18,11 +18,12 @@
 
 # define plugin
 
-import rb
 import gi
+import rb
 from gi.repository import GObject
 from gi.repository import Gio
 from gi.repository import Gtk
+
 gi.require_version('Peas', '1.0')
 from gi.repository import Peas
 from gi.repository import RB
@@ -356,7 +357,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         """
         Shell-player 'elapsed-changed' signal handler.
         """
-        if self.song_duration == 0: return
+        if self.song_duration == 0:
+            return
         try:
             slider = self.toolbar_type.song_progress
         except AttributeError:
@@ -462,15 +464,15 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         if isinstance(node, Gtk.Buildable):
             if search_type == 'by_id':
                 if Gtk.Buildable.get_name(node) == search_id:
-                    if button_label is None or \
-                            ('Button' in node.get_name()
-                             and extract_label(node) == button_label):
+                    if button_label is None or (
+                            'Button' in node.get_name() and extract_label(
+                            node) == button_label):
                         return node
             elif search_type == 'by_name':
                 if node.get_name() == search_id:
-                    if button_label is None or \
-                            ('Button' in node.get_name()
-                             and extract_label(node) == button_label):
+                    if button_label is None or (
+                            'Button' in node.get_name() and extract_label(
+                            node) == button_label):
                         return node
 
         if isinstance(node, Gtk.Container):

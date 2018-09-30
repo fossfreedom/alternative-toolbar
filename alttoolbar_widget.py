@@ -18,10 +18,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301  USA.
 
-from math import pi
-
-from gi.repository import GObject
-from gi.repository import Gdk
 from gi.repository import Gtk
 
 
@@ -29,6 +25,7 @@ class Slider(Gtk.Scale):
     """Wrapper around Gtk.Scale to handle signals from user and
     Rhythmbox itself.
     """
+
     def __init__(self, shell_player):
         super().__init__()
         self.set_orientation(Gtk.Orientation.HORIZONTAL)
@@ -55,25 +52,32 @@ class Slider(Gtk.Scale):
         """Sync slider elapsed time with Rhythmbox."""
         self.shell_player.set_playing_time(self.adjustment.get_value())
 
+
 def slider_press_callback(slider, event):
     """Handle 'button-press-event' signals."""
     slider.dragging = True
     slider.drag_moved = False
     return False
 
+
 def slider_moved_callback(slider, event):
     """Handle 'motion-notify-event' signals."""
-    if not slider.dragging: return False
+    if not slider.dragging:
+        return False
     slider.drag_moved = True
     slider.apply_position()
     return False
 
+
 def slider_release_callback(slider, event):
     """Handle 'button-release-event' and 'focus-out-event' signals."""
-    if not slider.dragging: return False
-    if slider.drag_moved: slider.apply_position()
+    if not slider.dragging:
+        return False
+    if slider.drag_moved:
+        slider.apply_position()
     slider.dragging = slider.drag_moved = False
     return False
+
 
 def slider_changed_callback(slider):
     """Handle 'value-changed-event' signals."""

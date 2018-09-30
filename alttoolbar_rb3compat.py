@@ -44,7 +44,7 @@ def gtk_version():
 
 def pygobject_version():
     """
-    returns float of the major and minor parts of a pygobject version 
+    returns float of the major and minor parts of a pygobject version
     e.g. version (3, 9, 5) return float(3.9)
     """
     to_number = lambda t: ".".join(str(v) for v in t)
@@ -354,7 +354,7 @@ class Menu(GObject.Object):
     def connect_signals(self, signals):
         """
         connect all signal handlers with their menuitem counterparts
-        :param signals: `dict` key is the name of the menuitem 
+        :param signals: `dict` key is the name of the menuitem
              and value is the function callback when the menu is activated
         """
         if is_rb3(self.shell):
@@ -484,7 +484,7 @@ class ActionGroup(object):
         :param args: dict of arguments - this is passed to the function
         callback
 
-        Notes: 
+        Notes:
         see notes for add_action
         """
         args['accel'] = accel
@@ -499,7 +499,7 @@ class ActionGroup(object):
         :param args: dict of arguments - this is passed to the function
         callback
 
-        Notes: 
+        Notes:
         key value of "label" is the visual menu label to display
         key value of "action_type" is the RB2.99 Gio.Action type
         ("win" or "app") by default it assumes all actions are "win" type
@@ -541,7 +541,8 @@ class ActionGroup(object):
                 self.actiongroup.add_action(action)
 
             if accel:
-                app.set_accels_for_action(action_type + "." + action_name, [accel])
+                app.set_accels_for_action(action_type + "." + action_name,
+                                          [accel])
         else:
             if 'stock_id' in args:
                 stock_id = args['stock_id']

@@ -7,54 +7,54 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-10-01 20:59+0100\n"
-"PO-Revision-Date: 2016-02-12 01:44+0000\n"
+"POT-Creation-Date: 2018-09-04 11:35+0100\n"
+"PO-Revision-Date: 2018-09-05 05:28+0000\n"
 "Last-Translator: abuyop <Unknown>\n"
 "Language-Team: Malay <ms@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-02-09 15:32+0000\n"
-"X-Generator: Launchpad (build 18544)\n"
+"X-Launchpad-Export-Date: 2018-09-14 22:09+0000\n"
+"X-Generator: Launchpad (build 18780)\n"
 
-#: ../alternative-toolbar.py:223
+#: ../alternative-toolbar.py:221
 msgid "Seek Backward"
 msgstr "Jangkau Mengundur"
 
-#: ../alternative-toolbar.py:226
+#: ../alternative-toolbar.py:224
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr "Jangkau mengundur, dalam trek semasa, sebanyak 5 saat."
 
-#: ../alternative-toolbar.py:230
+#: ../alternative-toolbar.py:228
 msgid "Seek Forward"
 msgstr "Jangkau Maju"
 
-#: ../alternative-toolbar.py:234
+#: ../alternative-toolbar.py:232
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr "Jangkau maju, dalam trek semasa, sebanyak 10 saat."
 
-#: ../alternative-toolbar.py:246
+#: ../alternative-toolbar.py:244
 msgid "Show Play-Controls Toolbar"
 msgstr "Tunjuk Palang Alat Kawalan-Main"
 
-#: ../alternative-toolbar.py:250
+#: ../alternative-toolbar.py:248
 msgid "Show or hide the play-controls toolbar"
 msgstr "Tunjuk atau sembunyi palang alat kawalan-main"
 
-#: ../alternative-toolbar.py:255
+#: ../alternative-toolbar.py:253
 msgid "Show Source Toolbar"
 msgstr "Tunjuk Palang Alat Sumber"
 
-#: ../alternative-toolbar.py:258
+#: ../alternative-toolbar.py:256
 msgid "Show or hide the source toolbar"
 msgstr "Tunjuk atau sembunyi palang alat sumber"
 
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:545
+#: ../alternative-toolbar.py:536
 msgid "Alternative Toolbar"
 msgstr "Palang Alat Alternatif"
 
-#: ../alternative-toolbar.py:548
+#: ../alternative-toolbar.py:539
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -114,36 +114,36 @@ msgstr "Sumber lain"
 msgid "Playlists"
 msgstr "Senarai Main"
 
-#: ../alttoolbar_type.py:1434 ../ui/altlibrary.ui.h:1
+#: ../alttoolbar_type.py:1415 ../ui/altlibrary.ui.h:1
 msgid "Songs"
 msgstr "Lagu"
 
-#: ../alttoolbar_type.py:1439 ../alttoolbar_type.py:1521
-#: ../ui/altpreferences.ui.h:28 ../ui/altlibrary.ui.h:2
+#: ../alttoolbar_type.py:1420 ../alttoolbar_type.py:1502
+#: ../ui/altpreferences.ui.h:26 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "Kategori"
 
-#: ../alttoolbar_type.py:1505
+#: ../alttoolbar_type.py:1486
 msgid "Browse"
 msgstr "Layar"
 
-#: ../alttoolbar_type.py:1568
+#: ../alttoolbar_type.py:1564
 msgid "_Help"
-msgstr ""
+msgstr "_Bantuan"
 
-#: ../alttoolbar_type.py:1569
+#: ../alttoolbar_type.py:1565
 msgid "_About"
-msgstr ""
+msgstr "Perih_al"
 
-#: ../alttoolbar_type.py:1570
+#: ../alttoolbar_type.py:1566
 msgid "_Quit"
-msgstr ""
+msgstr "_Keluar"
 
-#: ../alttoolbar_repeat.py:94 ../alttoolbar_repeat.py:191
+#: ../alttoolbar_repeat.py:98 ../alttoolbar_repeat.py:195
 msgid "Repeat all tracks"
-msgstr ""
+msgstr "Ulang semua trek"
 
-#: ../alttoolbar_repeat.py:96 ../alttoolbar_repeat.py:212
+#: ../alttoolbar_repeat.py:100 ../alttoolbar_repeat.py:216
 #: ../ui/alttoolbar.ui.h:4
 msgid "Repeat the current track"
 msgstr "Ulang trek semasa"
@@ -241,22 +241,10 @@ msgstr ""
 "ia dipapar atas pelungsur kemajuan."
 
 #: ../ui/altpreferences.ui.h:21
-msgid "Compact progress slider"
-msgstr "Pelungsur kemajuan padat"
-
-#: ../ui/altpreferences.ui.h:22
-msgid ""
-"Display and use a compact track progress slider - useful where the default "
-"theme progress slider is visually too large."
-msgstr ""
-"Papar dan guna pelungsur kemajuan trek padat - berguna pada pelungsur "
-"kemajuan tema lalai yang mana ia terlalu besar."
-
-#: ../ui/altpreferences.ui.h:23
 msgid "Enhanced sidebar"
 msgstr "Palang sisi dipertingkat"
 
-#: ../ui/altpreferences.ui.h:24
+#: ../ui/altpreferences.ui.h:22
 msgid ""
 "Show or hide redesigned sidebar for the player. It features improved "
 "symbolic icons, better sources organisation and ability to expand and "
@@ -266,11 +254,11 @@ msgstr ""
 "fiturkan ikon simbolik yang diperkemas, organisasi sumber lebih baik dan "
 "keupayaan mengembang dan menguncupkan kategori."
 
-#: ../ui/altpreferences.ui.h:25
+#: ../ui/altpreferences.ui.h:23
 msgid "Enhanced plugins dialog"
 msgstr "Dialog pemalam dipertingkat"
 
-#: ../ui/altpreferences.ui.h:26
+#: ../ui/altpreferences.ui.h:24
 msgid ""
 "Show or hide redesigned plugins dialog. It features switches instead of "
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
@@ -280,15 +268,15 @@ msgstr ""
 "dari kotak tanda dan palang alat dalam-garis dengan ikon simbolik. Berfungsi "
 "dengan baik dalam persekitaran desktop berasaskan Gnome."
 
-#: ../ui/altpreferences.ui.h:27
+#: ../ui/altpreferences.ui.h:25
 msgid "Dark theme if available"
-msgstr ""
+msgstr "Tema gelap jika ada"
 
-#: ../ui/altpreferences.ui.h:29
+#: ../ui/altpreferences.ui.h:27
 msgid "Horizontal"
 msgstr "Mengufuk"
 
-#: ../ui/altpreferences.ui.h:30
+#: ../ui/altpreferences.ui.h:28
 msgid "Vertical"
 msgstr "Menegak"
 
