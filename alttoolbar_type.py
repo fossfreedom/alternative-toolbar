@@ -187,11 +187,13 @@ class AltToolbarBase(GObject.Object):
         :param args:
         :return:
         """
-
         self.startup_completed = True
-        self.reset_categories_pos(self.shell.props.selected_page)
-        self.reset_toolbar(self.shell.props.selected_page)
-        self.reset_entryview(self.shell.props.selected_page)
+        selected_page = self.shell.props.selected_page
+        self.reset_categories_pos(selected_page)
+        self.reset_toolbar(selected_page)
+        self.reset_entryview(selected_page)
+        self.rbsearchentry = self.find(selected_page,
+                                       'RBSearchEntry', 'by_name')
 
         if self.plugin.prefer_dark_theme:
             settings = Gtk.Settings.get_default()
@@ -565,7 +567,7 @@ class AltToolbarBase(GObject.Object):
 
     def source_toolbar_visibility(self, visibility):
         """
-           called to toggle the source toolbar
+        Toggle the source toolbar.
         """
         print("source_bar_visibility")
 
@@ -1330,8 +1332,9 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self._setup_playbar()
         self._setup_headerbar()
 
-        # hook the key-press for the application window
-        self.shell.props.window.connect("key-press-event", self._on_key_press)
+        # This is supposed to hook the key-press for the application window,
+        # but RB consume both ^[ and ^F so it doesn't work.
+        #self.shell.props.window.connect("key-press-event", self._on_key_press)
 
     def add_always_visible_source(self, source):
         """
@@ -1390,13 +1393,13 @@ class AltToolbarHeaderBar(AltToolbarShared):
                                                     'win')
         action.set_active(True)
 
-    def search_button_toggled(self, search_button):
+    def search_button_clicked_callback(self, search_button):
         """
-        Handle 'toggled' signals emitted by search_button.
+        Handle 'clicked' signals emitted by search_button.
         """
-        active = search_button.get_active()
-        self.searchbar.set_search_mode(active)
-        self.searchbar.set_visible(active)
+        self.searchbar.set_search_mode(True)
+        self.searchbar.set_visible(True)
+        self.searchentry.grab_focus()
 
     def set_library_labels(self, song_label=None, category_label=None):
         # locale stuff

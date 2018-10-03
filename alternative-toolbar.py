@@ -220,17 +220,17 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.seek_action_group.add_action(
             func=self.on_skip_backward,
             action_name='SeekBackward',
-            label=_("Seek Backward"),
+            label=_('Seek Backward'),
             action_type='app',
-            accel="<Alt>Left",
-            tooltip=_("Seek backward, in current track, by 5 seconds."))
+            accel='<Alt>Left',
+            tooltip=_('Seek backward, in current track, by 5 seconds.'))
         self.seek_action_group.add_action(
             func=self.on_skip_forward,
             action_name='SeekForward',
-            label=_("Seek Forward"),
+            label=_('Seek Forward'),
             action_type='app',
-            accel="<Alt>Right",
-            tooltip=_("Seek forward, in current track, by 10 seconds."))
+            accel='<Alt>Right',
+            tooltip=_('Seek forward, in current track, by 10 seconds.'))
 
         self.appshell.insert_action_group(self.seek_action_group)
         self.appshell.add_app_menuitems(view_seek_menu_ui,
@@ -241,26 +241,26 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.toggle_action_group.add_action(
             func=self.toggle_visibility,
             action_name='ToggleToolbar',
-            label=_("Show Play-Controls Toolbar"),
+            label=_('Show Play-Controls Toolbar'),
             action_state=ActionGroup.TOGGLE,
             action_type='app',
-            tooltip=_("Show or hide the play-controls toolbar"))
+            tooltip=_('Show or hide the play-controls toolbar'))
         self.toggle_action_group.add_action(
             func=self.toggle_sourcemedia_visibility,
             action_name='ToggleSourceMediaToolbar',
-            label=_("Show Source Toolbar"),
+            label=_('Show Source Toolbar'),
             action_state=ActionGroup.TOGGLE,
             action_type='app',
-            accel="<Ctrl>t",
-            tooltip=_("Show or hide the source toolbar"))
+            accel='<Ctrl>t',
+            tooltip=_('Show or hide the source toolbar'))
         self.toggle_action_group.add_action(
-            func=self.toggle_search_visibility,
+            func=self.show_search_toolbar,
             action_name='ToggleSearchToolbar',
-            label=_("Show Search Toolbar"),
+            label=_('Show Search Toolbar'),
             action_state=ActionGroup.TOGGLE,
             action_type='app',
-            accel="<Ctrl>f",
-            tooltip=_("Show or hide the search toolbar"))
+            accel='<Ctrl>f',
+            tooltip=_('Show and focus on the search toolbar'))
 
 
         self.appshell.insert_action_group(self.toggle_action_group)
@@ -522,25 +522,34 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         self.toolbar_type.set_visible(action.get_active())
 
-    def toggle_sourcemedia_visibility(self, action, param=None, data=None):
+    def toggle_sourcemedia_visibility(self, action, param=None, data=None,
+                                      active=None):
         """
-        Display or Hide the source toolbar
-        :param action:
-        :param param:
-        :param data:
-        :return:
+        Toggle the displaying state of the source toolbar.
+
+        In case active is provided, use that value instead.
         """
         action = self.toggle_action_group.get_action(
             'ToggleSourceMediaToolbar')
+        if active is None:
+            active = action.get_active()
+        else:
+            active = bool(active)
+            action.set_active(active)
+        self.toolbar_type.source_toolbar_visibility(active)
 
-        self.toolbar_type.source_toolbar_visibility(action.get_active())
-
-    def toggle_search_visibility(self, action, param=None, data=None):
+    def show_search_toolbar(self, action, param=None, data=None):
         """
-        Toggle displaying state of the search toolbar.
+        Show the search toolbar when <Ctrl>f is pressed.
         """
-        search_button = self.toolbar_type.current_search_button
-        search_button.set_active(not search_button.get_active())
+        try:
+            searchbar = self.toolbar_type.searchbar
+        except AttributeError:  # SearchEntry doesn't have its own toolbar
+            self.toggle_sourcemedia_visibility(action, active=True)
+            self.toolbar_type.rbsearchentry.grab_focus()
+        else:
+            searchbar.set_search_mode(True)
+            searchbar.set_visible(True)
 
     def _translation_helper(self):
         """
