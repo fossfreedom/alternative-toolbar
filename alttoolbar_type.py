@@ -318,9 +318,11 @@ class AltToolbarBase(GObject.Object):
         try:
             treeview = entryview.get_child()
         except:
-            return
-            # temp fix to enable RB v3.4.3 to at least run at the cost of not
-            # being able to change column positions
+            treeview = self.find(entryview, 'GtkTreeView', 'by_name')
+            # in RB v3.4.3 an RBEntryView doesnt have a child property...
+            # plus the GtkTreeview is now hidden inside two further
+            # containers - so we grab the tree view the hard-way of searching
+            # for the Object Type
 
         def move_col(*args):
             cols = treeview.get_columns()
