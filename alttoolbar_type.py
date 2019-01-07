@@ -1564,15 +1564,15 @@ class AltToolbarHeaderBar(AltToolbarShared):
         menu = self.shell.props.application.get_shared_menu('app-menu')
         menu_button.set_menu_model(menu)
         self._end_box_controls.add(menu_button)
-        menu.remove(3)  # help about quit
+        #menu.remove(3)  # help about quit
 
-        cl.switch_locale(cl.Locale.RB)
-        appmenu = Gio.Menu.new()
-        appmenu.append(_("_Help"), "app.help")
-        appmenu.append(_("_About"), "app.about")
-        appmenu.append(_("_Quit"), "app.quit")
-        app = self.shell.props.application
-        app.set_app_menu(appmenu)
+        #cl.switch_locale(cl.Locale.RB)
+        #appmenu = Gio.Menu.new()
+        #appmenu.append(_("_Help"), "app.help")
+        #appmenu.append(_("_About"), "app.about")
+        #appmenu.append(_("_Quit"), "app.quit")
+        #app = self.shell.props.application
+        #app.set_app_menu(appmenu)
 
         self.headerbar.pack_end(self._end_box_controls)
         self.headerbar.show_all()
