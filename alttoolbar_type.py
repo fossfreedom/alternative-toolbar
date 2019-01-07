@@ -315,7 +315,12 @@ class AltToolbarBase(GObject.Object):
             # some pages dont have the method to call!
             return
 
-        treeview = entryview.get_child()
+        try:
+            treeview = entryview.get_child()
+        except:
+            return
+            # temp fix to enable RB v3.4.3 to at least run at the cost of not
+            # being able to change column positions
 
         def move_col(*args):
             cols = treeview.get_columns()
@@ -1388,7 +1393,8 @@ class AltToolbarHeaderBar(AltToolbarShared):
         # hide status bar
         action = self.plugin.appshell.lookup_action('', 'statusbar-visible',
                                                     'win')
-        action.set_active(True)
+        if action:
+            action.set_active(True)
 
     def search_button_toggled(self, search_button):
         print("search_button_toggled")
