@@ -191,6 +191,21 @@ class AltToolbarBase(GObject.Object):
         self.startup_completed = True
         self.reset_categories_pos(self.shell.props.selected_page)
         self.reset_toolbar(self.shell.props.selected_page)
+        # lets hide the ghastly floating bar in RB 3.4.3
+        cssdata = """
+        .floating-bar {
+            opacity: 0;
+        }
+        """
+        cssprovider = Gtk.CssProvider.new()
+        cssprovider.load_from_data(cssdata.encode())
+        screen = Gdk.Screen.get_default()
+        styleContext = Gtk.StyleContext()
+        styleContext.add_provider_for_screen(
+            self.shell.props.window.props.screen,
+            cssprovider,
+            Gtk.STYLE_PROVIDER_PRIORITY_USER,
+        )
         self.reset_entryview(self.shell.props.selected_page)
 
         if self.plugin.prefer_dark_theme:
