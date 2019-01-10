@@ -5,7 +5,7 @@
 # Version: 0.4 (Unstable) for Rhythmbox 3.0.1 or later
 #
 # reworked for alternative-toolbar
-# Author: David Mohammed 2015-2018 <fossfreedom@ubuntu.com>
+# Author: David Mohammed 2015-2019 <fossfreedom@ubuntu.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

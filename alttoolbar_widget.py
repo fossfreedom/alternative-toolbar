@@ -1,7 +1,7 @@
 # -*- Mode: python; coding: utf-8; tab-width: 4; indent-tabs-mode: nil; -*-
 #
 # alttoolbar_widget.py - custom widgets
-# Copyright (C) 2015 - 2018 David Mohammed <fossfreedom@ubuntu.com>
+# Copyright (C) 2015 - 2019 David Mohammed <fossfreedom@ubuntu.com>
 # Copyright (C) 2018 Nguyễn Gia Phong <vn.mcsinyx@gmail.com>
 #
 # This program is free software; you can redistribute it and/or modify
