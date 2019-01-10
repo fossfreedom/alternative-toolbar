@@ -1,3 +1,16 @@
+rhythmbox-plugin-alternative-toolbar (0.18.2-1) UNRELEASED; urgency=medium
+
+  * Bug fix release
+    - Rhythmbox v3.4.3 compatibility
+    - Remove appmenu as per new GNOME HIG guidelines
+    - Revert to stock sidebar as the default
+  * Packaging Changes:
+    - control: Bump Standards-Version - no changes required
+    - control: Corrected VCS-Browser location
+    - copyright: year changes
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Thu, 10 Jan 2019 09:52:43 +0000
+
 rhythmbox-plugin-alternative-toolbar (0.18.1-1) unstable; urgency=medium
 
   * Bug fix and Translation release
