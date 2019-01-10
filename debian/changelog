@@ -1,4 +1,4 @@
-rhythmbox-plugin-alternative-toolbar (0.18.2-1) UNRELEASED; urgency=medium
+rhythmbox-plugin-alternative-toolbar (0.18.2-1) unstable; urgency=medium
 
   * Bug fix release
     - Rhythmbox v3.4.3 compatibility
