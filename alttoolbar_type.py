@@ -320,6 +320,15 @@ class AltToolbarBase(GObject.Object):
             print("no page")
             return
 
+        # workaround for GTK Crashing issues due to the user locale
+        # non english locales (german for example) cause RB to
+        # seg fault when moving columns - sadly need to disable
+        # column moving capability for non-english locale users :(
+
+        names = GLib.get_language_names()
+        if ("en" not in names[0]):
+            return
+
         try:
             entryview = page.get_entry_view()
 
