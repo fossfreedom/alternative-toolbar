@@ -6,7 +6,8 @@ Depends=rb
 _Name=Alternative Toolbar
 _Description=Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact Toolbar which can be hidden
 Authors=David Mohammed <fossfreedom@ubuntu.com>
-Copyright=© 2016-2018 David Mohammed 
+Copyright=© 2016-2019 David Mohammed
 Website=http://github.com/fossfreedom/alternative-toolbar
 Help=https://github.com/fossfreedom/alternative-toolbar/blob/master/README.md
-Version=0.18.1
+Version=0.18.3
+
