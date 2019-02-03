@@ -1,3 +1,53 @@
+commit 6223f24fd171cb180a4af22455079004919e7525
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Feb 3 23:02:07 2019 +0000
+
+    v0.18.3
+
+ README.md                     | 2 +-
+ alternative-toolbar.plugin.in | 5 +++--
+ configure.ac                  | 2 +-
+ 3 files changed, 5 insertions(+), 4 deletions(-)
+
+commit 342dfcaba95d8241ea212d9a7ce359861d267f7f
+Merge: 79b730a 6dfe1a4
+Author: David Mohammed <fossfreedom@users.noreply.github.com>
+Date:   Sun Feb 3 22:45:34 2019 +0000
+
+    Merge pull request #139 from TeknoMobil/patch-1
+    
+    Update Turkish Language
+
+commit 6dfe1a477dbddd0660c2b275172fe7b4f0b8beb7
+Author: Serdar Sağlam <42881121+TeknoMobil@users.noreply.github.com>
+Date:   Mon Feb 4 01:16:34 2019 +0300
+
+    Update Turkish Language
+    
+    Hi,
+    Update Turkish Language
+
+ po/tr.po | 150 +++++++++++++++++++++++++++++++++++++--------------------------
+ 1 file changed, 88 insertions(+), 62 deletions(-)
+
+commit 79b730af9c1d5636b08c7ffd5620f6ef5279b4bf
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Tue Jan 22 12:30:41 2019 +0000
+
+    Disable column moving for non-english locales #138
+
+ alttoolbar_type.py | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+commit badc59e31fe1abcc0d199c559004418144c06a9f
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Thu Jan 10 10:01:43 2019 +0000
+
+    Update ChangeLog for the release
+
+ ChangeLog | 29 +++++++++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
+
 commit ccf7a37fbc24c71f88b6fd5a17da60f5e1178a79
 Author: David Mohammed <fossfreedom@ubuntu.com>
 Date:   Thu Jan 10 10:00:20 2019 +0000
