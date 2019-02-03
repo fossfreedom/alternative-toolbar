@@ -1,3 +1,11 @@
+rhythmbox-plugin-alternative-toolbar (0.18.3-1) unstable; urgency=medium
+
+  * Bug fix release
+    - Fix crash with german locale (LP: #1812683)
+    - Latest turkish translation
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Sun, 03 Feb 2019 23:17:14 +0000
+
 rhythmbox-plugin-alternative-toolbar (0.18.2-1) unstable; urgency=medium
 
   * Bug fix release
