@@ -174,6 +174,26 @@ Use the following to ebuild
 ebuild alternative-toolbar-9999.ebuild digest
 emerge alternative-toolbar
 ```
+### Fedora Install
+
+Navigate to the archive and grab the newest .tar.gz from
+https://github.com/fossfreedom/alternative-toolbar/releases
+
+```bash
+cd ~/Downloads
+sudo dnf install intltool git gnome-pkg-tools gobject-introspection glib2-devel pkg-config python3-gobject python3
+tar -zxvf alternative-toolbar*.tar.gz
+cd alternative-toolbar*
+./autogen.sh --prefix=/usr
+make
+sudo make install
+```
+This will install a system-wide installation.  If you have a previous locally installed
+version of the plugin, remove it:
+
+```bash
+rm -rf ~/.local/share/rhythmbox/plugins/alternative-toolbar
+```
 
 ## Uninstallation
 
