@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-04 11:35+0100\n"
-"PO-Revision-Date: 2019-02-04 00:51+0300\n"
+"PO-Revision-Date: 2019-02-25 09:45+0300\n"
 "Last-Translator: Serdar Sağlam <teknomobil@yandex.com>\n"
 "Language-Team: \n"
 "Language: tr\n"
@@ -38,11 +38,11 @@ msgstr "Geçerli parçayı 10 saniye ileri sarın."
 
 #: ../alternative-toolbar.py:244
 msgid "Show Play-Controls Toolbar"
-msgstr "Oynatım Konrollerini Göster"
+msgstr "Oynatım Kontrollerini Göster"
 
 #: ../alternative-toolbar.py:248
 msgid "Show or hide the play-controls toolbar"
-msgstr "Oynatma kontrolleri araç çubuğunu göster veya gizle"
+msgstr "Oynatım kontrolleri, araç çubuğunu göster veya gizle"
 
 #: ../alternative-toolbar.py:253
 msgid "Show Source Toolbar"
@@ -55,15 +55,15 @@ msgstr "Kaynak araç çubuğunu göster veya gizle"
 #. define .plugin text strings used for translation
 #: ../alternative-toolbar.py:536
 msgid "Alternative Toolbar"
-msgstr "Alternatif Araç çubuğu"
+msgstr "Alternatif Araç Çubuğu"
 
 #: ../alternative-toolbar.py:539
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr ""
-"Rhythmbox büyük araç çubuğunu, saklanabilecek bir Kullacını Odaklı Tasarım "
-"veya Kompakt Araç Çubuğu ile değiştirin"
+"Rhythmbox büyük araç çubuğunu, çağdaş arayüzlü ve Kullanıcı Odaklı yeniden "
+"tasarlanan Daraltılmış Araç Çubuğu ile değiştirin"
 
 #: ../alttoolbar_controller.py:157
 msgid "View All"
@@ -83,23 +83,23 @@ msgstr "Libre.fm"
 
 #: ../alttoolbar_controller.py:615
 msgid "My Top Rated"
-msgstr "En Beğenilenler"
+msgstr "En İyiler"
 
 #: ../alttoolbar_controller.py:619
 msgid "Recently Added"
-msgstr "Son Eklenen"
+msgstr "Son Eklenenler"
 
 #: ../alttoolbar_controller.py:623
 msgid "Recently Played"
-msgstr "Son Çalınan"
+msgstr "Son Çalınanlar"
 
 #: ../alttoolbar_controller.py:656
 msgid "Podcasts"
-msgstr "Podcasts"
+msgstr "Ortam Akışları"
 
 #: ../alttoolbar_preferences.py:307
 msgid "Restart"
-msgstr "Yeniden başlat"
+msgstr "Yeniden Başlat"
 
 #: ../alttoolbar_sidebar.py:82
 msgid "Local collection"
@@ -107,15 +107,15 @@ msgstr "Yerel Koleksiyon"
 
 #: ../alttoolbar_sidebar.py:83
 msgid "Online sources"
-msgstr "Çevrimiçi kaynaklar"
+msgstr "Çevrimiçi Kaynaklar"
 
 #: ../alttoolbar_sidebar.py:84
 msgid "Other sources"
-msgstr "Diğer kaynaklar"
+msgstr "Diğer Kaynaklar"
 
 #: ../alttoolbar_sidebar.py:85
 msgid "Playlists"
-msgstr "Oynatma Listesi"
+msgstr "Çalma Listesi"
 
 #: ../alttoolbar_type.py:1415 ../ui/altlibrary.ui.h:1
 msgid "Songs"
@@ -128,7 +128,7 @@ msgstr "Kategoriler"
 
 #: ../alttoolbar_type.py:1486
 msgid "Browse"
-msgstr "Tarayıcı"
+msgstr "Gözat"
 
 #: ../alttoolbar_type.py:1564
 msgid "_Help"
@@ -149,29 +149,31 @@ msgstr "Tüm parçaları tekrarla"
 #: ../alttoolbar_repeat.py:100 ../alttoolbar_repeat.py:216
 #: ../ui/alttoolbar.ui.h:4
 msgid "Repeat the current track"
-msgstr "Çalan parçayı tekrarla"
+msgstr "Mevcut parçayı tekrarla"
 
 #: ../ui/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
-msgstr "Değişikliklerin etkisini göstermesi için oynatıcıyı yeniden başlatın."
+msgstr "Değişikliklerin etkili olması için oynatıcıyı yeniden başlatın."
 
 #: ../ui/altpreferences.ui.h:2
 msgid "Toolbar:"
-msgstr "Araç çubuğu:"
+msgstr "Araç Çubuğu:"
 
 #: ../ui/altpreferences.ui.h:3
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
-msgstr "En iyi Elementary ya da Gnome benzeri masaüstü ortamlarında çalışır."
+msgstr ""
+"GNOME ve Elementary gibi\n"
+"masaüstü ortamları için en uygun."
 
 #: ../ui/altpreferences.ui.h:5
 msgid "Modern"
-msgstr "Modern"
+msgstr "Çağdaş"
 
 #: ../ui/altpreferences.ui.h:6
 msgid "Use compact controls"
-msgstr "Kompakt kontrolleri kullan"
+msgstr "Daraltılmış kontrolleri kullan"
 
 #: ../ui/altpreferences.ui.h:7
 msgid ""
@@ -179,9 +181,9 @@ msgid ""
 "instead of the standard rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 msgstr ""
-"Çalma denetimlerini araç çubuğunda, standart ritim kutusu tarzı yerine "
-"görsel olarak kompakt bir tarzda görüntüleyin.\n"
-"Modern araç çubuğu modu için her zaman etkin."
+"Araç çubuğundaki oynatma denetimlerini standart Rhythmbox tarzı yerine "
+"görsel olarak daraltılmış tarzda görüntüleyin.\n"
+"Çağdaş araç çubuğu kipi için her zaman etkindir."
 
 #: ../ui/altpreferences.ui.h:9
 msgid "Show:"
@@ -197,17 +199,17 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
-"Sarkı-sanatçı-albüm yerine albüm/tarz/yıl'ı görüntüle. Sarkı-sanatçı-"
-"albüm'ün pencere başlığı olarak görüntülendiği masaüstü ortamları için "
-"ideal."
+"Gösterimi şarkı-sanatçı-albüm yerine, albüm/tür/yıl olarak değiştirin. "
+"Mevcut şarkı-sanatçı-albüm bunları zaten pencere başlığında görüntüleyen "
+"masaüstü ortamları için kullanışlıdır."
 
 #: ../ui/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
-msgstr "Oynatma kontrolleri için ipuçları"
+msgstr "Oynatım kontrolleri için ipuçları"
 
 #: ../ui/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
-msgstr "Oynatma kontrolleri için ipuçlarını göster ya da gizle."
+msgstr "Oynatım kontrolleri için ipuçlarını göster ya da gizle."
 
 #: ../ui/altpreferences.ui.h:14
 msgid "Volume control"
@@ -219,11 +221,11 @@ msgstr "Ses denetimini göster ya da gizle."
 
 #: ../ui/altpreferences.ui.h:16
 msgid "Playback controls"
-msgstr "Oynatma kontrolleri"
+msgstr "Oynatım kontrolleri"
 
 #: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
-msgstr "Oynatma kontrollerini oynatıcı başlangıcında göster ya da gizle."
+msgstr "Oynatım kontrollerini oynatıcı başlangıcında göster ya da gizle."
 
 #: ../ui/altpreferences.ui.h:18
 msgid "Use:"
@@ -231,19 +233,19 @@ msgstr "Kullan:"
 
 #: ../ui/altpreferences.ui.h:19
 msgid "Inline song/artist label"
-msgstr "Satır içi sarkı/sanatçı etiketi"
+msgstr "Satır içi şarkı/sanatçı etiketi"
 
 #: ../ui/altpreferences.ui.h:20
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
-"Şarkı ve Sanatçı etiketlerini ilerleme çubuğundan önce göster. Seçili "
+"Şarkı ve Sanatçı etiketlerini ilerleme çubuğundan önce gösterir. Seçili "
 "değilse, etiketler ilerleme çubuğunun üzerinde gösterilir."
 
 #: ../ui/altpreferences.ui.h:21
 msgid "Enhanced sidebar"
-msgstr "Geliştirilmiş kenar çubuğu"
+msgstr "Gelişmiş kenar çubuğu"
 
 #: ../ui/altpreferences.ui.h:22
 msgid ""
@@ -251,13 +253,13 @@ msgid ""
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
-"Müzikçalar için yeniden tasarlanmış kenar çubuğunu gösterme veya gizleme. "
+"Oynatıcı için yeniden tasarlanmış kenar çubuğunu göster veya gizle. "
 "Gelişmiş sembolik simgeler, daha iyi kaynak organizasyonu ve kategorileri "
 "genişletme ve daraltma özelliğine sahiptir."
 
 #: ../ui/altpreferences.ui.h:23
 msgid "Enhanced plugins dialog"
-msgstr "Yeniden tasarlanan eklenti yönetimi"
+msgstr "Gelişmiş eklentiler iletişim kutusu"
 
 #: ../ui/altpreferences.ui.h:24
 msgid ""
@@ -267,7 +269,7 @@ msgid ""
 msgstr ""
 "Yeniden tasarlanan eklentiler iletişim kutusunu göster veya gizle. "
 "Sembollerin yerine onay kutuları ve satır içi araç çubuğu yerine anahtarlar "
-"içerir.  Gnome tabanlı masaüstü ortamlarında en iyi şekilde çalışır."
+"içerir.  Gnome tabanlı masaüstü ortamlarda en iyi şekilde çalışır."
 
 #: ../ui/altpreferences.ui.h:25
 msgid "Dark theme if available"
@@ -295,7 +297,7 @@ msgstr "Sonraki parçayı çal"
 
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
-msgstr "Parçalar karışık bir şekilde çalacak"
+msgstr "Parçalar karışık bir şekilde çalınacak"
 
 #~ msgid "Compact progress slider"
 #~ msgstr "Kompakt ilerleme göstergesi"
