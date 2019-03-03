@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-04 11:35+0100\n"
-"PO-Revision-Date: 2017-11-26 05:44+0000\n"
-"Last-Translator: Adolfo Jayme <Unknown>\n"
+"PO-Revision-Date: 2019-02-25 22:24+0000\n"
+"Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-09-14 22:09+0000\n"
-"X-Generator: Launchpad (build 18780)\n"
+"X-Launchpad-Export-Date: 2019-03-03 08:08+0000\n"
+"X-Generator: Launchpad (build 18888)\n"
 "Language: es\n"
 
 #: ../alternative-toolbar.py:221
@@ -93,7 +93,7 @@ msgstr "Reproducidas recientemente"
 
 #: ../alttoolbar_controller.py:656
 msgid "Podcasts"
-msgstr "Podcasts"
+msgstr "Pódcast"
 
 #: ../alttoolbar_preferences.py:307
 msgid "Restart"
@@ -299,3 +299,6 @@ msgstr "Reproducir la pista siguiente"
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
 msgstr "Reproducir las pistas en orden aleatorio"
+
+#~ msgid "Compact progress slider"
+#~ msgstr "Control de progreso compacto"
