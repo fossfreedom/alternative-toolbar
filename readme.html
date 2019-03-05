@@ -15,7 +15,7 @@
             Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact toolbar which can be hidden.
         </td>
         <td align="center" width="10%">
-            v0.18.2
+            v0.18.4
         </td>
         <td align="right" width="30%">
             <a href="http://flattr.com/thing/1811704/" title="fossfreedom">
@@ -180,6 +180,27 @@ git checkout master
 <p><code>bash
 ebuild alternative-toolbar-9999.ebuild digest
 emerge alternative-toolbar
+</code></p>
+
+<h3>Fedora Install</h3>
+
+<p>Navigate to the archive and grab the newest .tar.gz from
+https://github.com/fossfreedom/alternative-toolbar/releases</p>
+
+<p><code>bash
+cd ~/Downloads
+sudo dnf install intltool git gnome-pkg-tools gobject-introspection glib2-devel pkg-config python3-gobject python3
+tar -zxvf alternative-toolbar*.tar.gz
+cd alternative-toolbar*
+./autogen.sh --prefix=/usr
+make
+sudo make install
+</code>
+This will install a system-wide installation.  If you have a previous locally installed
+version of the plugin, remove it:</p>
+
+<p><code>bash
+rm -rf ~/.local/share/rhythmbox/plugins/alternative-toolbar
 </code></p>
 
 <h2>Uninstallation</h2>
