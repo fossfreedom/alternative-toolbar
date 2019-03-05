@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2018 David Mohammed <fossfreedom@ubuntu.com> -->
+<!-- Copyright 2019 David Mohammed <fossfreedom@ubuntu.com> -->
 <component type="addon">
-  <id>org.gnome.rhythmbox.rhythmbox-alternative-toolbar.addon</id>
+  <id>org.gnome.rhythmbox.alternative-toolbar.addon</id>
   <extends>rhythmbox.desktop</extends>
   <name>Alternative Toolbar</name>
   <summary>Enhanced play controls and interface</summary>
