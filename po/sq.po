@@ -1,16 +1,16 @@
-# Finnish translation for alternative-toolbar
-# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
-# This file is distributed under the same license as the alternative-toolbar package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+# Albanian translation for rhythmbox-plugin-alternative-toolbar
+# Copyright (c) 2018 Rosetta Contributors and Canonical Ltd 2018
+# This file is distributed under the same license as the rhythmbox-plugin-alternative-toolbar package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: alternative-toolbar\n"
+"Project-Id-Version: rhythmbox-plugin-alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2018-09-04 11:35+0100\n"
-"PO-Revision-Date: 2018-04-25 09:12+0000\n"
-"Last-Translator: Jiri Grönroos <Unknown>\n"
-"Language-Team: Finnish <fi@li.org>\n"
+"PO-Revision-Date: 2018-04-17 13:07+0000\n"
+"Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
+"Language-Team: Albanian <sq@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,60 +19,58 @@ msgstr ""
 
 #: ../alternative-toolbar.py:221
 msgid "Seek Backward"
-msgstr "Siirry taaksepäin"
+msgstr ""
 
 #: ../alternative-toolbar.py:224
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr "Siirry taaksepäin 10 sekuntia nykyisessä kappaleessa."
+msgstr ""
 
 #: ../alternative-toolbar.py:228
 msgid "Seek Forward"
-msgstr "Siirry eteenpäin"
+msgstr "Kërko Përpara"
 
 #: ../alternative-toolbar.py:232
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr "Siirry eteenpäin 10 sekuntia nykyisessä kappaleessa."
+msgstr ""
 
 #: ../alternative-toolbar.py:244
 msgid "Show Play-Controls Toolbar"
-msgstr "Toistosäädinten työkalupalkki"
+msgstr ""
 
 #: ../alternative-toolbar.py:248
 msgid "Show or hide the play-controls toolbar"
-msgstr "Näytä tai piilota toistosäädinten työkalupalkki"
+msgstr ""
 
 #: ../alternative-toolbar.py:253
 msgid "Show Source Toolbar"
-msgstr "Lähteen työkalupalkki"
+msgstr ""
 
 #: ../alternative-toolbar.py:256
 msgid "Show or hide the source toolbar"
-msgstr "Näytä tai piilota lähdetyökalupalkki"
+msgstr ""
 
 #. define .plugin text strings used for translation
 #: ../alternative-toolbar.py:536
 msgid "Alternative Toolbar"
-msgstr "Vaihtoehtoinen työkalupalkki"
+msgstr "Shirit Mjetesh Alternativ"
 
 #: ../alternative-toolbar.py:539
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr ""
-"Korvaa Rytmilaatikon suuri työkalupalkki kompaktilla, piilotettavalla "
-"työkalupalkilla"
 
 #: ../alttoolbar_controller.py:157
 msgid "View All"
-msgstr "Näytä kaikki"
+msgstr "Shfaqi të Gjitha"
 
 #: ../alttoolbar_controller.py:325
 msgid "Import"
-msgstr "Tuo"
+msgstr "Importo"
 
 #: ../alttoolbar_controller.py:543
 msgid "Stations"
-msgstr "Kanavat"
+msgstr "Stacionet"
 
 #: ../alttoolbar_controller.py:572
 msgid "Libre.fm"
@@ -80,97 +78,95 @@ msgstr "Libre.fm"
 
 #: ../alttoolbar_controller.py:615
 msgid "My Top Rated"
-msgstr "Parhaiten arvostellut"
+msgstr "Më Të Vlerësuarat Nga Unë"
 
 #: ../alttoolbar_controller.py:619
 msgid "Recently Added"
-msgstr "Äskettäin lisätyt"
+msgstr "Të Shtuarat Së Fundmi"
 
 #: ../alttoolbar_controller.py:623
 msgid "Recently Played"
-msgstr "Toistettu äskettäin"
+msgstr "Të Luajturat Së Fundmi"
 
 #: ../alttoolbar_controller.py:656
 msgid "Podcasts"
-msgstr "Podcastit"
+msgstr "Podcaste"
 
 #: ../alttoolbar_preferences.py:307
 msgid "Restart"
-msgstr "Käynnistä uudelleen"
+msgstr "Rindiz"
 
 #: ../alttoolbar_sidebar.py:82
 msgid "Local collection"
-msgstr "Paikallinen kokoelma"
+msgstr "Koleksion lokal"
 
 #: ../alttoolbar_sidebar.py:83
 msgid "Online sources"
-msgstr "Verkkolähteet"
+msgstr "Burimet në internet"
 
 #: ../alttoolbar_sidebar.py:84
 msgid "Other sources"
-msgstr "Muut lähteet"
+msgstr "Burime të tjera"
 
 #: ../alttoolbar_sidebar.py:85
 msgid "Playlists"
-msgstr "Soittolistat"
+msgstr "Luajlista"
 
 #: ../alttoolbar_type.py:1415 ../ui/altlibrary.ui.h:1
 msgid "Songs"
-msgstr "Kappaleet"
+msgstr "Këngët"
 
 #: ../alttoolbar_type.py:1420 ../alttoolbar_type.py:1502
 #: ../ui/altpreferences.ui.h:26 ../ui/altlibrary.ui.h:2
 msgid "Categories"
-msgstr "Luokat"
+msgstr "Kategoritë"
 
 #: ../alttoolbar_type.py:1486
 msgid "Browse"
-msgstr "Selaa"
+msgstr "Shfleto"
 
 #: ../alttoolbar_type.py:1564
 msgid "_Help"
-msgstr "_Ohje"
+msgstr "_Ndihmë"
 
 #: ../alttoolbar_type.py:1565
 msgid "_About"
-msgstr "_Tietoja"
+msgstr "_Rreth"
 
 #: ../alttoolbar_type.py:1566
 msgid "_Quit"
-msgstr "_Lopeta"
+msgstr "_Dil"
 
 #: ../alttoolbar_repeat.py:98 ../alttoolbar_repeat.py:195
 msgid "Repeat all tracks"
-msgstr "Kertaa kaikki kappaleet"
+msgstr "Përsëriti të gjitha këngët"
 
 #: ../alttoolbar_repeat.py:100 ../alttoolbar_repeat.py:216
 #: ../ui/alttoolbar.ui.h:4
 msgid "Repeat the current track"
-msgstr "Kertaa nykyinen kappale"
+msgstr "Përsërit këngën e tanishme"
 
 #: ../ui/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
-msgstr "Käynnistä soitin uudelleen, jotta muutokset tulevat voimaan."
+msgstr "Rindiz luajtësin që ndryshimet të bëhen efektive"
 
 #: ../ui/altpreferences.ui.h:2
 msgid "Toolbar:"
-msgstr "Työkalupalkki:"
+msgstr "Shiriti i Mjeteve:"
 
 #: ../ui/altpreferences.ui.h:3
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
 msgstr ""
-"Sopii parhaiten Gnomen\n"
-"ja Elementaryn tapaisille työpöydille."
 
 #: ../ui/altpreferences.ui.h:5
 msgid "Modern"
-msgstr "Moderni"
+msgstr "Modern"
 
 #: ../ui/altpreferences.ui.h:6
 msgid "Use compact controls"
-msgstr "Käytä kompakteja säätimiä"
+msgstr "Përdor kontrolle kompakte"
 
 #: ../ui/altpreferences.ui.h:7
 msgid ""
@@ -181,11 +177,11 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:9
 msgid "Show:"
-msgstr "Näytä:"
+msgstr "Shfaq:"
 
 #: ../ui/altpreferences.ui.h:10
 msgid "Album/genre/year for playing song"
-msgstr "Albumi/tyyli/vuosi nykyisestä kappaleesta"
+msgstr "Albumi/lloji/viti për luajtojen e këngës"
 
 #: ../ui/altpreferences.ui.h:11
 msgid ""
@@ -196,23 +192,23 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
-msgstr "Työkaluvihjeet toiston säätimille"
+msgstr ""
 
 #: ../ui/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
-msgstr "Näytä tai piilota työkaluvihjeet toiston säätimille."
+msgstr ""
 
 #: ../ui/altpreferences.ui.h:14
 msgid "Volume control"
-msgstr "Äänenvoimakkuuden säätö"
+msgstr "Kontrolli i Volumit"
 
 #: ../ui/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
-msgstr "Näytä tai piilota äänenvoimakkuuden säätö."
+msgstr ""
 
 #: ../ui/altpreferences.ui.h:16
 msgid "Playback controls"
-msgstr "Toiston säätimet"
+msgstr "Kontrollet e luajtjes"
 
 #: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
@@ -220,11 +216,11 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:18
 msgid "Use:"
-msgstr "Käytä:"
+msgstr "Përdor:"
 
 #: ../ui/altpreferences.ui.h:19
 msgid "Inline song/artist label"
-msgstr "Sisennetyt kappale- ja esittäjätiedot"
+msgstr ""
 
 #: ../ui/altpreferences.ui.h:20
 msgid ""
@@ -234,7 +230,7 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:21
 msgid "Enhanced sidebar"
-msgstr "Paranneltu sivupalkki"
+msgstr ""
 
 #: ../ui/altpreferences.ui.h:22
 msgid ""
@@ -245,7 +241,7 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:23
 msgid "Enhanced plugins dialog"
-msgstr "Paranneltu liitännäisikkuna"
+msgstr ""
 
 #: ../ui/altpreferences.ui.h:24
 msgid ""
@@ -256,28 +252,28 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:25
 msgid "Dark theme if available"
-msgstr "Tumma teema jos käytettävissä"
+msgstr ""
 
 #: ../ui/altpreferences.ui.h:27
 msgid "Horizontal"
-msgstr "Vaakasuora"
+msgstr "Horizontale"
 
 #: ../ui/altpreferences.ui.h:28
 msgid "Vertical"
-msgstr "Pystysuora"
+msgstr "Vertikale"
 
 #: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"
-msgstr "Toista edellinen kappale"
+msgstr ""
 
 #: ../ui/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr "Jatka tai keskeytä toisto"
+msgstr ""
 
 #: ../ui/alttoolbar.ui.h:3
 msgid "Play the next track"
-msgstr "Toista seuraava kappale"
+msgstr ""
 
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
-msgstr "Toista kappaleet satunnaisessa järjestyksessä"
+msgstr ""

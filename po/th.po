@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2018-09-04 11:35+0100\n"
-"PO-Revision-Date: 2015-10-11 19:00+0000\n"
+"PO-Revision-Date: 2018-03-18 18:56+0000\n"
 "Last-Translator: Rockworld <sumoisrock@gmail.com>\n"
 "Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-09-14 22:09+0000\n"
-"X-Generator: Launchpad (build 18780)\n"
+"X-Launchpad-Export-Date: 2019-03-05 16:04+0000\n"
+"X-Generator: Launchpad (build 18888)\n"
 
 #: ../alternative-toolbar.py:221
 msgid "Seek Backward"
@@ -59,6 +59,8 @@ msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr ""
+"แทนที่แถบเครื่องมือขนาดใหญ่ของ Rhythmbox "
+"ด้วยแถบเครื่องมือแบบกะทัดรัดหรือที่ผู้ใช้สร้างขึ้นซึ่งสามารถซ่อนได้"
 
 #: ../alttoolbar_controller.py:157
 msgid "View All"
@@ -70,7 +72,7 @@ msgstr "นำเข้า"
 
 #: ../alttoolbar_controller.py:543
 msgid "Stations"
-msgstr ""
+msgstr "สถานี"
 
 #: ../alttoolbar_controller.py:572
 msgid "Libre.fm"
@@ -98,19 +100,19 @@ msgstr "เริ่มใหม่"
 
 #: ../alttoolbar_sidebar.py:82
 msgid "Local collection"
-msgstr ""
+msgstr "คอลเลกชันท้องถิ่น"
 
 #: ../alttoolbar_sidebar.py:83
 msgid "Online sources"
-msgstr ""
+msgstr "แหล่งข้อมูลออนไลน์"
 
 #: ../alttoolbar_sidebar.py:84
 msgid "Other sources"
-msgstr ""
+msgstr "แหล่งข้อมูลอื่น ๆ"
 
 #: ../alttoolbar_sidebar.py:85
 msgid "Playlists"
-msgstr ""
+msgstr "รายการเล่น"
 
 #: ../alttoolbar_type.py:1415 ../ui/altlibrary.ui.h:1
 msgid "Songs"
@@ -123,23 +125,23 @@ msgstr "ประเภท"
 
 #: ../alttoolbar_type.py:1486
 msgid "Browse"
-msgstr ""
+msgstr "เรียกดู"
 
 #: ../alttoolbar_type.py:1564
 msgid "_Help"
-msgstr ""
+msgstr "_วิธีใช้"
 
 #: ../alttoolbar_type.py:1565
 msgid "_About"
-msgstr ""
+msgstr "เ_กี่ยวกับ"
 
 #: ../alttoolbar_type.py:1566
 msgid "_Quit"
-msgstr ""
+msgstr "_ออก"
 
 #: ../alttoolbar_repeat.py:98 ../alttoolbar_repeat.py:195
 msgid "Repeat all tracks"
-msgstr ""
+msgstr "เล่นทุกแทร็กซ้ำ"
 
 #: ../alttoolbar_repeat.py:100 ../alttoolbar_repeat.py:216
 #: ../ui/alttoolbar.ui.h:4
@@ -194,14 +196,17 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
+"แสดงชื่ออัลบั้ม/ประเภท/ปี แทนชื่อเพลง/ศิลปิน/อัลบั้ม "
+"มีประโยชน์สำหรับสภาพแวดล้อมเดสก์ท็อปที่แสดงชื่อเพลง/ศิลปิน/อัลบั้มในชื่อหน้าต"
+"่าง"
 
 #: ../ui/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
-msgstr ""
+msgstr "เคล็ดลับเครื่องมือสำหรับการควบคุมการเล่น"
 
 #: ../ui/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
-msgstr ""
+msgstr "แสดง/ซ่อนเคล็ดลับเครื่องมือสำหรับควบคุมการเล่น"
 
 #: ../ui/altpreferences.ui.h:14
 msgid "Volume control"
@@ -209,15 +214,15 @@ msgstr "ตัวควบคุมระดับเสียง"
 
 #: ../ui/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
-msgstr ""
+msgstr "แสดง/ซ่อนตัวควบคุมระดับเสียง"
 
 #: ../ui/altpreferences.ui.h:16
 msgid "Playback controls"
-msgstr ""
+msgstr "ตัวควบคุมการเล่น"
 
 #: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
-msgstr ""
+msgstr "แสดง/ซ่อนตัวควบคุมการเล่นเมื่อเปิดโปรแกรมเล่น"
 
 #: ../ui/altpreferences.ui.h:18
 msgid "Use:"
@@ -225,17 +230,19 @@ msgstr "การใช้งาน:"
 
 #: ../ui/altpreferences.ui.h:19
 msgid "Inline song/artist label"
-msgstr ""
+msgstr "ป้ายชื่อเพลง/ศิลปินแบบอินไลน์"
 
 #: ../ui/altpreferences.ui.h:20
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
+"แสดงป้ายชื่อเพลงและศิลปินก่อนตัวเลื่อนความคืบหน้า ถ้าไม่ได้ทำเครื่องหมายไว้ "
+"ก็จะแสดงเหนือตัวเลื่อนความคืบหน้า"
 
 #: ../ui/altpreferences.ui.h:21
 msgid "Enhanced sidebar"
-msgstr ""
+msgstr "แถบด้านข้างแบบปรับปรุงใหม่"
 
 #: ../ui/altpreferences.ui.h:22
 msgid ""
@@ -246,7 +253,7 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:23
 msgid "Enhanced plugins dialog"
-msgstr ""
+msgstr "กล่องโต้ตอบปลั๊กอินแบบปรับปรุงใหม่"
 
 #: ../ui/altpreferences.ui.h:24
 msgid ""
@@ -257,15 +264,15 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:25
 msgid "Dark theme if available"
-msgstr ""
+msgstr "ใช้ชุดตกแต่งสีเข้มหากใช้ได้"
 
 #: ../ui/altpreferences.ui.h:27
 msgid "Horizontal"
-msgstr ""
+msgstr "แนวนอน"
 
 #: ../ui/altpreferences.ui.h:28
 msgid "Vertical"
-msgstr ""
+msgstr "แนวตั้ง"
 
 #: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"
