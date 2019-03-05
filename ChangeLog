@@ -1,3 +1,176 @@
+commit ad0e1541eaaad5b1dc7d022c51c3f154d30c0ea2
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Tue Mar 5 16:30:36 2019 +0000
+
+    Version info changes and rename metainfo since too long
+
+ Makefile.am                                                           | 2 +-
+ configure.ac                                                          | 2 +-
+ ....xml => org.gnome.rhythmbox.alternative-toolbar.addon.appdata.xml} | 4 ++--
+ 3 files changed, 4 insertions(+), 4 deletions(-)
+
+commit 86ebed4b7b9f6e75e734db3897b02f4ec56c39a4
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Tue Mar 5 16:23:30 2019 +0000
+
+    Add v0.18.4 release info
+
+ README.md                     |  2 +-
+ alternative-toolbar.plugin.in |  2 +-
+ readme.html                   | 23 ++++++++++++++++++++++-
+ 3 files changed, 24 insertions(+), 3 deletions(-)
+
+commit 428e652cdab72bc9257c916b6e2e2ffa76e2b179
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Tue Mar 5 16:18:14 2019 +0000
+
+    Remove translations that have no or little translations
+
+ po/LINGUAS |   6 --
+ po/bn.po   | 279 -------------------------------------------------------------
+ po/cy.po   | 279 -------------------------------------------------------------
+ po/hu.po   | 279 -------------------------------------------------------------
+ po/kab.po  | 279 -------------------------------------------------------------
+ po/sd.po   | 279 -------------------------------------------------------------
+ po/tg.po   | 279 -------------------------------------------------------------
+ 7 files changed, 1680 deletions(-)
+
+commit cb5a022a10a4669a86e7505235dc1ffcba8bfdef
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Tue Mar 5 16:12:41 2019 +0000
+
+    Latest translations from launchpad - disco
+
+ po/LINGUAS     |  12 +++
+ po/af.po       |   6 +-
+ po/am.po       | 279 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/bg.po       |   6 +-
+ po/bn.po       | 279 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/bs.po       | 295 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ca.po       |   6 +-
+ po/cs.po       |   6 +-
+ po/cy.po       | 279 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/da.po       |  10 +-
+ po/de.po       |   8 +-
+ po/el.po       |  35 ++++---
+ po/en_AU.po    |  16 +--
+ po/en_GB.po    |   8 +-
+ po/eo.po       |   8 +-
+ po/es.po       |   7 +-
+ po/eu.po       | 283 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/fi.po       |  12 ++-
+ po/fr.po       |   6 +-
+ po/gl.po       |   8 +-
+ po/he.po       |   6 +-
+ po/hr.po       |   6 +-
+ po/hu.po       | 279 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/id.po       |  18 ++--
+ po/it.po       |   8 +-
+ po/ja.po       |   6 +-
+ po/kab.po      |   6 +-
+ po/ko.po       |  14 +--
+ po/ku.po       | 279 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/lv.po       | 299 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ms.po       |   6 +-
+ po/oc.po       | 279 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/pl.po       |   8 +-
+ po/pt.po       |   8 +-
+ po/pt_BR.po    |   8 +-
+ po/ru.po       |  22 ++---
+ po/sd.po       | 279 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sk.po       |   6 +-
+ po/sl.po       |   8 +-
+ po/sq.po       | 279 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sr.po       |   8 +-
+ po/sr@latin.po |   6 +-
+ po/sv.po       |  93 ++++++++++--------
+ po/tg.po       | 279 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/th.po       |  55 ++++++-----
+ po/tr.po       |   7 +-
+ po/uk.po       |  22 ++---
+ po/zh_CN.po    |  16 +--
+ po/zh_TW.po    |  22 ++---
+ 49 files changed, 3665 insertions(+), 236 deletions(-)
+
+commit d70d0ef80a65b2586d165fd25382a089a1722b56
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Mar 3 09:16:45 2019 +0000
+
+    Latest translations
+
+ po/es.po | 0
+ po/tr.po | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 55b1c8004972b7ddc237cab7648fa965ea0493b3
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Mar 3 09:16:26 2019 +0000
+
+    Latest translations
+
+ po/es.po | 13 ++++++++-----
+ po/tr.po | 16 ++++++++--------
+ 2 files changed, 16 insertions(+), 13 deletions(-)
+
+commit a5f01c491c593c8d8ffbb69e5edc6ca4e9b796e9
+Merge: 9b71b2c fb7d013
+Author: David Mohammed <fossfreedom@users.noreply.github.com>
+Date:   Mon Feb 25 11:20:05 2019 +0000
+
+    Merge pull request #141 from TeknoMobil/patch-3
+    
+    Update tr.po
+
+commit 9b71b2c5d9f29f39d3161b7db66161342c8b8316
+Merge: 30a2b3d 3c4017f
+Author: David Mohammed <fossfreedom@users.noreply.github.com>
+Date:   Mon Feb 25 08:16:13 2019 +0000
+
+    Merge pull request #140 from TeknoMobil/patch-2
+    
+    Fedora Install
+
+commit fb7d013aa3e52d544e91f9100a559a40fd384427
+Author: Serdar Sağlam <42881121+TeknoMobil@users.noreply.github.com>
+Date:   Mon Feb 25 10:11:08 2019 +0300
+
+    Update tr.po
+    
+    Hi
+    Re-translated according to current practice
+
+ po/tr.po | 78 +++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 40 insertions(+), 38 deletions(-)
+
+commit 3c4017f30980d234876fda01280610d8cadffcd6
+Author: Serdar Sağlam <42881121+TeknoMobil@users.noreply.github.com>
+Date:   Mon Feb 25 10:08:31 2019 +0300
+
+    Fedora Install
+    
+    Hi
+    gir1.2-glib-2.0 gir1.2-gstreamer-1.0 gir1.2-gtk-3.0 gir1.2-peas-1.0 gir1.2-rb-3.0
+    These packages are not available in fedora.
+    Not required, internally available under another name
+    ----------------------------------------------------------------------
+    libglib2.0-dev = glib2-devel
+    python3-gi = python3-gobject
+    -----------------------------------------------------------------------
+    
+    Respects
+
+ README.md | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
+
+commit 30a2b3d1558ec3824ef6676ad05c09ba1d644ce8
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Feb 3 23:03:32 2019 +0000
+
+    Add ChangeLog
+
+ ChangeLog | 50 ++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 50 insertions(+)
+
 commit 6223f24fd171cb180a4af22455079004919e7525
 Author: David Mohammed <fossfreedom@ubuntu.com>
 Date:   Sun Feb 3 23:02:07 2019 +0000
