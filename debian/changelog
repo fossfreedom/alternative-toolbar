@@ -1,3 +1,11 @@
+rhythmbox-plugin-alternative-toolbar (0.18.4-1) UNRELEASED; urgency=medium
+
+  * Translation release
+    - Latest translations from disco branch of Launchpad
+  * metainfo file renamed since too long (>99 chars)
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Tue, 05 Mar 2019 16:36:00 +0000
+
 rhythmbox-plugin-alternative-toolbar (0.18.3-1) unstable; urgency=medium
 
   * Bug fix release
