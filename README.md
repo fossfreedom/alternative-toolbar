@@ -203,6 +203,8 @@ cd ~/Downloads/alternative-toolbar*
 sudo make uninstall
 ```
 
+[![Packaging status](https://repology.org/badge/vertical-allrepos/rhythmbox:alternative-toolbar.svg)](https://repology.org/project/rhythmbox:alternative-toolbar/versions)
+
 ## Contribute
 
 **Please help out with translating**
