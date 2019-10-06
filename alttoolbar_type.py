@@ -781,10 +781,10 @@ class AltToolbarShared(AltToolbarBase):
                 # for others this would actually disable the action
                 # so work around this by testing if the action is disabled
                 # then reset the action
-                a.set_action_target_value(GLib.Variant("b", True))
-                print(a.get_sensitive())
-                if not a.get_sensitive():
-                    a.set_detailed_action_name("app." + b)
+                #a.set_action_target_value(GLib.Variant("b", True))
+                #print(a.get_sensitive())
+                #if not a.get_sensitive():
+                a.set_detailed_action_name("app." + b)
 
         # The Play-Repeat button is subject to the plugins Repeat All/one song
         # capability
