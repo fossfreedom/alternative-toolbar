@@ -1,0 +1,236 @@
+<?xml version="1.0"?>
+<interface>
+  <menu id="menubar">
+    <submenu>
+      <attribute name="label" translatable="yes">_File</attribute>
+      <item>
+        <attribute name="label" translatable="yes">_Add Music</attribute>
+        <attribute name="action">app.library-import</attribute>
+        <attribute name="accel">&lt;Ctrl&gt;O</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Playlist</attribute>
+        <link name="submenu">
+          <section>
+            <item>
+              <attribute name="label" translatable="yes">_New Playlist…</attribute>
+              <attribute name="action">app.playlist-new</attribute>
+              <attribute name="accel">&lt;Ctrl&gt;N</attribute>
+            </item>
+            <item>
+              <attribute name="label" translatable="yes">New _Automatic Playlist…</attribute>
+              <attribute name="action">app.playlist-new-auto</attribute>
+            </item>
+            <item>
+              <attribute name="label" translatable="yes">_Load from File…</attribute>
+              <attribute name="action">app.playlist-load</attribute>
+            </item>
+            <item>
+              <attribute name="label" translatable="yes">_Save to File…</attribute>
+              <attribute name="action">app.playlist-save</attribute>
+              <attribute name="accel">&lt;Ctrl&gt;S</attribute>
+            </item>
+            <item>
+              <attribute name="label" translatable="yes">_Edit…</attribute>
+              <attribute name="action">app.playlist-edit</attribute>
+            </item>
+          </section>
+          <section>
+            <item>
+              <attribute name="label" translatable="yes">_Delete</attribute>
+              <attribute name="action">app.display-page-remove</attribute>
+            </item>
+          </section>
+        </link>
+      </item>
+      <section>
+        <item>
+          <attribute name="label" translatable="yes">Pr_operties</attribute>
+          <attribute name="action">app.clipboard-properties</attribute>
+        </item>
+      </section>
+      <section>
+        <item>
+          <attribute name="label" translatable="yes">_Close</attribute>
+          <attribute name="action">app.quit</attribute>
+          <attribute name="accel">&lt;Ctrl&gt;W</attribute>
+        </item>
+      </section>
+    </submenu>
+    <submenu>
+      <attribute name="label" translatable="yes">_Edit</attribute>
+      <section>
+        <item>
+          <attribute name="label" translatable="yes">Cu_t</attribute>
+          <attribute name="action">app.clipboard-cut</attribute>
+          <attribute name="accel">&lt;Ctrl&gt;X</attribute>
+        </item>
+        <item>
+          <attribute name="label" translatable="yes">_Copy</attribute>
+          <attribute name="action">app.clipboard-copy</attribute>
+          <attribute name="accel">&lt;Ctrl&gt;C</attribute>
+        </item>
+        <item>
+          <attribute name="label" translatable="yes">_Paste</attribute>
+          <attribute name="action">app.clipboard-paste</attribute>
+          <attribute name="accel">&lt;Ctrl&gt;V</attribute>
+        </item>
+      </section>
+      <section>
+        <item>
+          <attribute name="label" translatable="yes">Select _All</attribute>
+          <attribute name="action">app.clipboard-select-all</attribute>
+          <attribute name="accel">&lt;Ctrl&gt;A</attribute>
+        </item>
+        <item>
+          <attribute name="label" translatable="yes">D_eselect All</attribute>
+          <attribute name="action">app.clipboard-select-none</attribute>
+          <attribute name="accel">&lt;Ctrl&gt;&lt;Shift&gt;A</attribute>
+        </item>
+      </section>
+      <section>
+        <item>
+          <attribute name="label" translatable="yes">Add _to Play Queue</attribute>
+          <attribute name="action">app.clipboard-add-to-queue</attribute>
+        </item>
+        <item>
+          <attribute name="label" translatable="yes">Add to _Playlist</attribute>
+          <link name="submenu">
+            <item>
+              <attribute name="label" translatable="yes">_New Playlist</attribute>
+              <attribute name="action">app.playlist-add-to-new</attribute>
+            </item>
+          </link>
+        </item>
+      </section>
+      <section>
+        <item>
+          <attribute name="label" translatable="yes">_Move to Trash</attribute>
+          <attribute name="action">app.clipboard-trash</attribute>
+        </item>
+      </section>
+      <section>
+        <item>
+          <attribute name="label" translatable="yes">Prefere_nces</attribute>
+          <attribute name="action">app.preferences</attribute>
+        </item>
+      </section>
+    </submenu>
+    <submenu>
+      <attribute name="label" translatable="yes">_View</attribute>
+      <section>
+        <item>
+          <attribute name="label" translatable="yes">_Fullscreen</attribute>
+          <attribute name="action">win.party-mode</attribute>
+          <attribute name="accel">F11</attribute>
+        </item>
+      </section>
+      <section>
+        <item>
+          <attribute name="label" translatable="yes">Side _Pane</attribute>
+          <attribute name="action">win.display-page-tree-visible</attribute>
+          <attribute name="accel">F9</attribute>
+        </item>
+        <item>
+          <attribute name="label" translatable="yes">View _Queue as Side Pane</attribute>
+          <attribute name="action">win.queue-as-sidebar</attribute>
+          <attribute name="accel">&lt;Ctrl&gt;K</attribute>
+        </item>
+        <item>
+          <attribute name="label" translatable="yes">S_tatusbar</attribute>
+          <attribute name="action">win.statusbar-visible</attribute>
+        </item>
+        <item>
+          <attribute name="label" translatable="yes">_Song Position Slider</attribute>
+          <attribute name="action">win.show-song-position-slider</attribute>
+        </item>
+        <item>
+          <attribute name="label" translatable="yes">_Album Art</attribute>
+          <attribute name="action">win.show-album-art</attribute>
+        </item>
+      </section>
+      <section>
+        <item>
+          <attribute name="label" translatable="yes">_Jump to Playing Song</attribute>
+          <attribute name="action">win.jump-to-playing</attribute>
+          <attribute name="accel">&lt;Ctrl&gt;J</attribute>
+        </item>
+      </section>
+      <section>
+        <attribute name="rb-plugin-menu-link">view</attribute>
+      </section>
+    </submenu>
+    <submenu>
+      <attribute name="label" translatable="yes">_Control</attribute>
+      <section>
+        <item>
+          <attribute name="label" translatable="yes">_Play</attribute>
+          <attribute name="action">app.play</attribute>
+          <attribute name="accel">&lt;Ctrl&gt;P</attribute>
+        </item>
+      </section>
+      <section>
+        <item>
+          <attribute name="label" translatable="yes">Pre_vious</attribute>
+          <attribute name="action">app.play-previous</attribute>
+          <attribute name="accel">&lt;Ctrl&gt;Left</attribute>
+        </item>
+        <item>
+          <attribute name="label" translatable="yes">_Next</attribute>
+          <attribute name="action">app.play-next</attribute>
+          <attribute name="accel">&lt;Ctrl&gt;Right</attribute>
+        </item>
+      </section>
+      <section>
+        <item>
+          <attribute name="label" translatable="yes">_Increase Volume</attribute>
+          <attribute name="action">app.volume-up</attribute>
+          <attribute name="accel">&lt;Ctrl&gt;Up</attribute>
+        </item>
+        <item>
+          <attribute name="label" translatable="yes">_Decrease Volume</attribute>
+          <attribute name="action">app.volume-down</attribute>
+          <attribute name="accel">&lt;Ctrl&gt;Down</attribute>
+        </item>
+      </section>
+      <section>
+        <item>
+          <attribute name="label" translatable="yes">Sh_uffle</attribute>
+          <attribute name="action">app.play-shuffle</attribute>
+          <attribute name="accel">&lt;Ctrl&gt;U</attribute>
+        </item>
+        <item>
+          <attribute name="label" translatable="yes">_Repeat</attribute>
+          <attribute name="action">app.play-repeat</attribute>
+          <attribute name="accel">&lt;Ctrl&gt;R</attribute>
+        </item>
+      </section>
+    </submenu>
+    <submenu>
+      <attribute name="label" translatable="yes">_Tools</attribute>
+      <section>
+        <attribute name="rb-plugin-menu-link">tools</attribute>
+      </section>
+      <section>
+        <item>
+          <attribute name="label" translatable="yes">Plu_gins…</attribute>
+          <attribute name="action">app.plugins</attribute>
+        </item>
+      </section>
+    </submenu>
+    <submenu>
+      <attribute name="label" translatable="yes">_Help</attribute>
+      <section>
+        <item>
+          <attribute name="label" translatable="yes">_Contents</attribute>
+          <attribute name="action">app.help</attribute>
+          <attribute name="accel">F1</attribute>
+        </item>
+        <item>
+          <attribute name="label" translatable="yes">_About</attribute>
+          <attribute name="action">app.about</attribute>
+        </item>
+      </section>
+    </submenu>
+  </menu>
+</interface>

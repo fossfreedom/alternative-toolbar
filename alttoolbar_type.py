@@ -1265,6 +1265,18 @@ class AltToolbarCompact(AltToolbarShared):
 
         self._setup_compactbar()
 
+        if self.shell.props.application.get_menubar() == None:
+            builder = Gtk.Builder()
+            ui = rb.find_plugin_file(self.plugin, 'ui/altmenubar.ui')
+            cl = CoverLocale()
+            builder.set_translation_domain(cl.Locale.RB)
+            builder.add_from_file(ui)
+            menubar = builder.get_object("menubar")
+            self.shell.props.application.link_shared_menus(menubar)
+            self.shell.props.application.set_menubar(menubar)
+
+            self.load_builder_content(builder)
+
     def on_startup(self, *args):
         super(AltToolbarCompact, self).on_startup(*args)
 

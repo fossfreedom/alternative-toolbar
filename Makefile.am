@@ -55,7 +55,8 @@ METAINFO_FILES = \
 UI_FILES = \
 	$(top_srcdir)/ui/altlibrary.ui \
 	$(top_srcdir)/ui/altpreferences.ui \
-	$(top_srcdir)/ui/alttoolbar.ui
+	$(top_srcdir)/ui/alttoolbar.ui \
+	$(top_srcdir)/ui/altmenubar.ui
 
 EXTRA_DIST = \
 	$(PLUGIN_FILES) \
