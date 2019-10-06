@@ -1,16 +1,16 @@
-# Finnish translation for alternative-toolbar
-# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
-# This file is distributed under the same license as the alternative-toolbar package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+# Silesian translation for rhythmbox-plugin-alternative-toolbar
+# Copyright (c) 2019 Rosetta Contributors and Canonical Ltd 2019
+# This file is distributed under the same license as the rhythmbox-plugin-alternative-toolbar package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: alternative-toolbar\n"
+"Project-Id-Version: rhythmbox-plugin-alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2018-09-04 11:35+0100\n"
-"PO-Revision-Date: 2019-04-03 16:41+0000\n"
-"Last-Translator: Ari Ervasti <ari.ervasti87@gmail.com>\n"
-"Language-Team: Finnish <fi@li.org>\n"
+"PO-Revision-Date: 2019-06-08 22:33+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Silesian <szl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,60 +19,60 @@ msgstr ""
 
 #: ../alternative-toolbar.py:221
 msgid "Seek Backward"
-msgstr "Siirry taaksepäin"
+msgstr "Przeszukej nazod"
 
 #: ../alternative-toolbar.py:224
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr "Siirry taaksepäin 10 sekuntia nykyisessä kappaleessa."
+msgstr "Przechodzi 5 sekund nazod teroźnego nagranio."
 
 #: ../alternative-toolbar.py:228
 msgid "Seek Forward"
-msgstr "Siirry eteenpäin"
+msgstr "Przeszukej dalij"
 
 #: ../alternative-toolbar.py:232
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr "Siirry eteenpäin 10 sekuntia nykyisessä kappaleessa."
+msgstr "Przechodzi 10 sekund dalij teroźnego nagranio."
 
 #: ../alternative-toolbar.py:244
 msgid "Show Play-Controls Toolbar"
-msgstr "Toistosäädinten työkalupalkki"
+msgstr "Posek ôdgrowanio"
 
 #: ../alternative-toolbar.py:248
 msgid "Show or hide the play-controls toolbar"
-msgstr "Näytä tai piilota toistosäädinten työkalupalkki"
+msgstr "Szaltruje pokazowanie poska kōntrole ôdegrowanio"
 
 #: ../alternative-toolbar.py:253
 msgid "Show Source Toolbar"
-msgstr "Lähteen työkalupalkki"
+msgstr "Posek zdrzōdła"
 
 #: ../alternative-toolbar.py:256
 msgid "Show or hide the source toolbar"
-msgstr "Näytä tai piilota lähdetyökalupalkki"
+msgstr "Szaltruje pokazowanie paska zdrzōdła"
 
 #. define .plugin text strings used for translation
 #: ../alternative-toolbar.py:536
 msgid "Alternative Toolbar"
-msgstr "Vaihtoehtoinen työkalupalkki"
+msgstr "Alternatywny posek noczynio"
 
 #: ../alternative-toolbar.py:539
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr ""
-"Korvaa Rytmilaatikon suuri työkalupalkki asiakaspuolen koristelemalla tai "
-"kompaktilla, piilotettavalla työkalupalkilla"
+"Zastympuje srogi posek noczynio programu poskym z ôbrōmowaniym po strōnie "
+"klijynta abo małym poskym, co go idzie skryć."
 
 #: ../alttoolbar_controller.py:157
 msgid "View All"
-msgstr "Näytä kaikki"
+msgstr "Pokoż wszyjske"
 
 #: ../alttoolbar_controller.py:325
 msgid "Import"
-msgstr "Tuo"
+msgstr "Zaimportuj"
 
 #: ../alttoolbar_controller.py:543
 msgid "Stations"
-msgstr "Kanavat"
+msgstr "Stacyje"
 
 #: ../alttoolbar_controller.py:572
 msgid "Libre.fm"
@@ -80,97 +80,97 @@ msgstr "Libre.fm"
 
 #: ../alttoolbar_controller.py:615
 msgid "My Top Rated"
-msgstr "Parhaiten arvostellut"
+msgstr "Nojwyżyj ôcyniōne"
 
 #: ../alttoolbar_controller.py:619
 msgid "Recently Added"
-msgstr "Äskettäin lisätyt"
+msgstr "Ôstatnio przidane"
 
 #: ../alttoolbar_controller.py:623
 msgid "Recently Played"
-msgstr "Toistettu äskettäin"
+msgstr "Ôstatnio grane"
 
 #: ../alttoolbar_controller.py:656
 msgid "Podcasts"
-msgstr "Podcastit"
+msgstr "Podcasty"
 
 #: ../alttoolbar_preferences.py:307
 msgid "Restart"
-msgstr "Käynnistä uudelleen"
+msgstr "Sztartnij zaś"
 
 #: ../alttoolbar_sidebar.py:82
 msgid "Local collection"
-msgstr "Paikallinen kokoelma"
+msgstr "Kolekcyjo lokalno"
 
 #: ../alttoolbar_sidebar.py:83
 msgid "Online sources"
-msgstr "Verkkolähteet"
+msgstr "Zdrzōdła necowe"
 
 #: ../alttoolbar_sidebar.py:84
 msgid "Other sources"
-msgstr "Muut lähteet"
+msgstr "Inksze zdrzōdła"
 
 #: ../alttoolbar_sidebar.py:85
 msgid "Playlists"
-msgstr "Soittolistat"
+msgstr "Listy granio"
 
 #: ../alttoolbar_type.py:1415 ../ui/altlibrary.ui.h:1
 msgid "Songs"
-msgstr "Kappaleet"
+msgstr "Śpiywki"
 
 #: ../alttoolbar_type.py:1420 ../alttoolbar_type.py:1502
 #: ../ui/altpreferences.ui.h:26 ../ui/altlibrary.ui.h:2
 msgid "Categories"
-msgstr "Luokat"
+msgstr "Kategoryje"
 
 #: ../alttoolbar_type.py:1486
 msgid "Browse"
-msgstr "Selaa"
+msgstr "Przeglōndej"
 
 #: ../alttoolbar_type.py:1564
 msgid "_Help"
-msgstr "_Ohje"
+msgstr "Pōmo_c"
 
 #: ../alttoolbar_type.py:1565
 msgid "_About"
-msgstr "_Tietoja"
+msgstr "_Ô programie"
 
 #: ../alttoolbar_type.py:1566
 msgid "_Quit"
-msgstr "_Lopeta"
+msgstr "Za_wrzij"
 
 #: ../alttoolbar_repeat.py:98 ../alttoolbar_repeat.py:195
 msgid "Repeat all tracks"
-msgstr "Kertaa kaikki kappaleet"
+msgstr "Powtōrz wszyjske utwory"
 
 #: ../alttoolbar_repeat.py:100 ../alttoolbar_repeat.py:216
 #: ../ui/alttoolbar.ui.h:4
 msgid "Repeat the current track"
-msgstr "Kertaa nykyinen kappale"
+msgstr "Powtorzo teroźny utwōr"
 
 #: ../ui/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
-msgstr "Käynnistä soitin uudelleen, jotta muutokset tulevat voimaan."
+msgstr "Sztartnij program zaś, coby wkludzić zmiany."
 
 #: ../ui/altpreferences.ui.h:2
 msgid "Toolbar:"
-msgstr "Työkalupalkki:"
+msgstr "Posek noczynio:"
 
 #: ../ui/altpreferences.ui.h:3
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
 msgstr ""
-"Sopii parhaiten Gnomen\n"
-"ja Elementaryn tapaisille työpöydille."
+"Szaltruje widok nojlepij dopasowany do strzodowisk\n"
+"graficznych takich jak GNOME i Elementary."
 
 #: ../ui/altpreferences.ui.h:5
 msgid "Modern"
-msgstr "Moderni"
+msgstr "Moderny"
 
 #: ../ui/altpreferences.ui.h:6
 msgid "Use compact controls"
-msgstr "Käytä kompakteja säätimiä"
+msgstr "Małe knefle"
 
 #: ../ui/altpreferences.ui.h:7
 msgid ""
@@ -178,17 +178,17 @@ msgid ""
 "instead of the standard rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 msgstr ""
-"Näytä toiston säätimet työkalupalkissa visuaalisesti kompaktiin tapaan, "
-"vakio rythmbox–tyylin sijaan.\n"
-"Aina käytössä modernin työkalupalkin tilassa."
+"Pokazuje knefle kōntrole granio na posku noczynio we małym stylu zamiast "
+"ajnfachowym stylu programu.\n"
+"Dycki włōnczōne przi modernym trybie poska noczynio."
 
 #: ../ui/altpreferences.ui.h:9
 msgid "Show:"
-msgstr "Näytä:"
+msgstr "Pokazowanie:"
 
 #: ../ui/altpreferences.ui.h:10
 msgid "Album/genre/year for playing song"
-msgstr "Albumi/tyyli/vuosi nykyisestä kappaleesta"
+msgstr "Album/zorta/rok wydanio granyj śpiywki"
 
 #: ../ui/altpreferences.ui.h:11
 msgid ""
@@ -196,53 +196,51 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
-"Näytä albumi/genre/vuosi, kappale-artisti-albumi–merkinnän sijaan. "
-"Käytännöllinen niissä työpöytäympäristöissä, joissa kappale-artisti-albumi "
-"jo näytetään ikkunan otsikossa."
+"Pokazuje informacyje album/zorta/rok wydanio, przidajne we strzodowiskach "
+"graficznych, kaj śpiywka-artysta-album sōm już pokazowane we tytule ôkna."
 
 #: ../ui/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
-msgstr "Työkaluvihjeet toiston säätimille"
+msgstr "Dorady knefli kōntrole ôdegrowanio"
 
 #: ../ui/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
-msgstr "Näytä tai piilota työkaluvihjeet toiston säätimille."
+msgstr "Szaltruje pokazowanie etyket we doradach knefli kōntrole."
 
 #: ../ui/altpreferences.ui.h:14
 msgid "Volume control"
-msgstr "Äänenvoimakkuuden säätö"
+msgstr "Kōntrola głośności"
 
 #: ../ui/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
-msgstr "Näytä tai piilota äänenvoimakkuuden säätö."
+msgstr "Pokoż abo skryj kōntrola głośności"
 
 #: ../ui/altpreferences.ui.h:16
 msgid "Playback controls"
-msgstr "Toiston säätimet"
+msgstr "Kōntrola ôdegrowanio"
 
 #: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
-msgstr "Näytä tai piilota toiston säätimet soittimen käynnistyessä."
+msgstr "Pokoż abo skryj kōntrola granio po ôtworzyniu ôdgrowocza"
 
 #: ../ui/altpreferences.ui.h:18
 msgid "Use:"
-msgstr "Käytä:"
+msgstr "Użyj:"
 
 #: ../ui/altpreferences.ui.h:19
 msgid "Inline song/artist label"
-msgstr "Sisennetyt kappale- ja esittäjätiedot"
+msgstr "Jednowiyrszowo etyketa śpiywki i artysty"
 
 #: ../ui/altpreferences.ui.h:20
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
-"Näytä kappale ja artisti merkinnät ennen edistymismittari. Jos ei valittuna, "
-"nämä näytetään edistysmittarin yllä."
+"Pokazuje etykety śpiywki i artysty przed poskym postympu zamiast powyżyj"
 
 #: ../ui/altpreferences.ui.h:21
 msgid "Enhanced sidebar"
-msgstr "Paranneltu sivupalkki"
+msgstr "Ulepszōny posek boczny"
 
 #: ../ui/altpreferences.ui.h:22
 msgid ""
@@ -250,13 +248,13 @@ msgid ""
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
-"Näytä tai piilota uudelleen suunniteltu soittimen sivupalkki. Se sisältää "
-"parannellut symboliset kuvakkeet, paremman lähteiden järjestelyn ja "
-"mahdollisuuden laajentaa ja pienentää kategorioita."
+"Szaltruje pokazowanie przeprojektowanego poska bocznego. Ôn mo ulepszōne "
+"ikōny symboliczne, lepsze zôrganizowanie zdrzōdeł i możliwość swijanio i "
+"rozwijanio kategoryji."
 
 #: ../ui/altpreferences.ui.h:23
 msgid "Enhanced plugins dialog"
-msgstr "Paranneltu liitännäisikkuna"
+msgstr "Ulepszōne ôkno przidowkōw"
 
 #: ../ui/altpreferences.ui.h:24
 msgid ""
@@ -264,37 +262,34 @@ msgid ""
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
 "based desktop environments."
 msgstr ""
-"Näytä tai piilota uudelleen suunniteltu liitännäisten valintaikkuna. Se "
-"sisältää kytkimet valintaruutujen sijaan ja linjatyökalupalkin symbolisilla "
-"kuvakkeilla. Toimii parhaiten Gnome–pohjaisten työpöytäympäristöjen kanssa."
+"Pokoż abo skryj przeprojektowane ôkno przidowkōw. Ône mo szaltry zamiast pōl "
+"ôbioru, i posek noczynio z ikōnami symbolicznymi. Nojlepij funguje ze "
+"strzodowiskami graficznymi opartymi ô GNOME."
 
 #: ../ui/altpreferences.ui.h:25
 msgid "Dark theme if available"
-msgstr "Tumma teema jos käytettävissä"
+msgstr "Ciymny tymat, jak je dostympny"
 
 #: ../ui/altpreferences.ui.h:27
 msgid "Horizontal"
-msgstr "Vaakasuora"
+msgstr "Poziōmo"
 
 #: ../ui/altpreferences.ui.h:28
 msgid "Vertical"
-msgstr "Pystytaso"
+msgstr "Piōnowo"
 
 #: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"
-msgstr "Toista edellinen kappale"
+msgstr "Grej piyrwyjszy utwōr"
 
 #: ../ui/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr "Jatka tai keskeytä toisto"
+msgstr "Wznowio abo pauzuje ôdgrowanie"
 
 #: ../ui/alttoolbar.ui.h:3
 msgid "Play the next track"
-msgstr "Toista seuraava kappale"
+msgstr "Grej nastympny utwōr"
 
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
-msgstr "Toista kappaleet satunnaisessa järjestyksessä"
-
-#~ msgid "Compact progress slider"
-#~ msgstr "Kompakti edistymissäädin"
+msgstr "Grej utwory we losowym porzōndku"
