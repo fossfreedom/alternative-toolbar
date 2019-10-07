@@ -174,8 +174,22 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.toolbar_type.initialise(self)
         self.toolbar_type.post_initialise()
 
-        if self.enhanced_plugins:
+        try:
+            process = Gio.Subprocess.new(['rhythmbox', '--version'],
+                Gio.SubprocessFlags.STDOUT_PIPE)
+            passval, buf, err = process.communicate_utf8(None)
+
+            if passval:
+                buf = buf[:-1]
+                ver = buf.split(' ')[1]
+        except:
+            ver = "999.99.99"
+
+        if self.enhanced_plugins and ver <= "3.4.3":
             # redirect plugins action to our implementation
+            # after v3.4.3 plugins has been moved into
+            # preferences so no need to activate our own
+            # implementation
 
             action = Gio.SimpleAction.new('plugins', None)
             action.connect('activate', self._display_plugins)
