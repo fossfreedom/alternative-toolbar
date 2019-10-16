@@ -783,7 +783,6 @@ class AltToolbarShared(AltToolbarBase):
                 #a.set_action_target_value(GLib.Variant("b", True))
                 #print(a.get_sensitive())
                 #if not a.get_sensitive():
-                print (a.get_action_target_value())
                 a.set_detailed_action_name("app." + b)
             a.set_action_name("app." + b)
 
@@ -1568,7 +1567,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self.main_window.set_titlebar(self.headerbar)
         # this is needed for gnome-shell to replace the decoration
         self.main_window.set_show_menubar(False)
-        #self.plugin.rb_toolbar.hide()
+        self.plugin.rb_toolbar.hide()
 
         self.start_box = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
         # left side box
