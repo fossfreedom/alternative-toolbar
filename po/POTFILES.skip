@@ -6,3 +6,4 @@ alttoolbar_sidebar.py
 alttoolbar_type.py
 alttoolbar_widget.py
 alttoolbar_repeat.py
+ui/altmenubar.ui
