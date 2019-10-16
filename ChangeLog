@@ -1,3 +1,168 @@
+commit 7570a99bc85f448d3d9333257661dc953db889a7
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Wed Oct 16 22:44:32 2019 +0100
+
+    Bump release version
+
+ README.md                     | 2 +-
+ alternative-toolbar.plugin.in | 2 +-
+ configure.ac                  | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+commit d4355bb12c03e0774cbf10a6bf1f7141f8e4983e
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Wed Oct 16 22:39:25 2019 +0100
+
+    No need to translate the altmenubar
+
+ po/POTFILES.skip | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 90f05b3e01932d3dcc520401cf5926895f4f53f1
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Wed Oct 16 22:34:06 2019 +0100
+
+    Bump version
+
+ README.md                     | 2 +-
+ alternative-toolbar.plugin.in | 2 +-
+ configure.ac                  | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+commit a4dee1af2205de81ff5be4851b0f67e68824500b
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Wed Oct 16 22:27:55 2019 +0100
+
+    Cleanup shuffle repeat changes
+
+ alttoolbar_type.py | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+commit c0846a703ac47d14982412bbf174176ea420d5a8
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Wed Oct 16 22:26:08 2019 +0100
+
+    Save toolbar type once first start #147
+
+ alternative-toolbar.py | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 6b15c46bbde00eead334bc5d5c2ca10919e08258
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Wed Oct 16 22:03:22 2019 +0100
+
+    Make shuffle repeat work again on 18.04
+
+ alttoolbar_type.py | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+commit 983da7544e6c6f492a9267022dd02239b6927ef6
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Wed Oct 16 21:51:18 2019 +0100
+
+    Simplify the determination for global header to just GNOME sessions closes #147
+
+ alternative-toolbar.py | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
+
+commit 2c29cf208c2b1bb44499a623e996a13d3d5c43d1
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Mon Oct 7 21:55:15 2019 +0100
+
+    Don't show our plugin implementation later than 3.4.3 Closes #146
+
+ alternative-toolbar.py | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
+
+commit 790c4cc0b28f5d90ab28a9cf2c543bff8803f4f8
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Mon Oct 7 19:40:58 2019 +0100
+
+    Stop erroneous warning messages for play and shuffle
+
+ alttoolbar_type.py | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+commit c04f5ba7fa2d0b60a682027592d68e45331e2a7a
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Oct 6 21:40:20 2019 +0100
+
+    Add traditional menu to compact toolbar - Closes #145
+
+ Makefile.am        |   3 +-
+ alttoolbar_type.py |  12 +++
+ ui/altmenubar.ui   | 236 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 250 insertions(+), 1 deletion(-)
+
+commit cfac2839ee71e9d6c491fdfe9461f05d11641357
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Oct 6 13:20:21 2019 +0100
+
+    Latest translations ko
+
+ po/ko.po | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+commit 27e4fda9f2296ad11c2977013bd7ad337bf4cd77
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Oct 6 13:18:23 2019 +0100
+
+    Latest translations
+
+ po/LINGUAS |   1 +
+ po/fi.po   |  33 +++++--
+ po/szl.po  | 295 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 321 insertions(+), 8 deletions(-)
+
+commit a4dd77859f72c41c95dccff1524b613aede92d73
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Oct 6 12:11:42 2019 +0100
+
+    Don't spam the syslog Closes #142
+    The original code was a work-around for old distro's.  Lets
+    assume all users are now on more modern equiv and dont need
+    the workaround
+
+ alttoolbar_type.py | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit d32b5238e079d12b36bb4bfac4ccab3239a87948
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Oct 6 11:59:28 2019 +0100
+
+    Use keybinder to invoke search CTRL+F Closes #130
+
+ alttoolbar_type.py | 32 ++++++++++++++++++++++----------
+ configure.ac       |  3 ++-
+ 2 files changed, 24 insertions(+), 11 deletions(-)
+
+commit 50e01f73bfd9d80b4d18068ee916b2e601c9e13e
+Author: David Mohammed <fossfreedom@users.noreply.github.com>
+Date:   Mon Sep 16 13:28:04 2019 +0100
+
+    Update README.md
+
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 72ab6a446372e8b7fa2acff4697c08b294fb61ab
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Tue Mar 5 19:01:20 2019 +0000
+
+    Correct metainfo copyright
+
+ metainfo/org.gnome.rhythmbox.alternative-toolbar.addon.appdata.xml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit bcb9467db481f7ac806c420335d17dbfd20598c1
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Tue Mar 5 16:31:36 2019 +0000
+
+    Add updated ChangeLog for the release
+
+ ChangeLog | 173 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 173 insertions(+)
+
 commit ad0e1541eaaad5b1dc7d022c51c3f154d30c0ea2
 Author: David Mohammed <fossfreedom@ubuntu.com>
 Date:   Tue Mar 5 16:30:36 2019 +0000
