@@ -160,6 +160,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             else:
                 display_type = 2
 
+            self.plugin_settings[self.gs.PluginKey.DISPLAY_TYPE] = display_type
+
         self.toolbar_type = None
         if display_type == 1:
             self.toolbar_type = AltToolbarHeaderBar()
