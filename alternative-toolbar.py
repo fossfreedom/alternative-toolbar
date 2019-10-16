@@ -20,6 +20,7 @@
 
 import gi
 import rb
+import os
 from gi.repository import GObject
 from gi.repository import Gio
 from gi.repository import Gtk
@@ -153,15 +154,11 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self._add_menu_options()
 
         # Determine what type of toolbar is to be displayed
-        default = Gtk.Settings.get_default()
-
         if display_type == 0:
-            if (
-                    not default.props.gtk_shell_shows_app_menu) or \
-                    default.props.gtk_shell_shows_menubar:
-                display_type = 2
-            else:
+            if 'gnome' in os.environ['XDG_CURRENT_DESKTOP'].lower():
                 display_type = 1
+            else:
+                display_type = 2
 
         self.toolbar_type = None
         if display_type == 1:
