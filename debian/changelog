@@ -1,3 +1,25 @@
+rhythmbox-plugin-alternative-toolbar (0.19.0-2) unstable; urgency=medium
+
+  * Bug-fix
+    - add runtime depends on gir1.2-keybinder-3.0 (Closes: #942490)
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Thu, 17 Oct 2019 10:10:35 +0100
+
+rhythmbox-plugin-alternative-toolbar (0.19.0-1) unstable; urgency=medium
+
+  * New release
+    See ChangeLog
+  * Packaging Changes
+    control: bump StandardsVersion no changes required
+    control: Add gir1.2-keybinder-3.0 as a build-dependency
+    control: debhelper & compat v12
+    watch: look for signed tarball on github assets
+    rules: Remove autogen.sh build since now using preprepared release
+     tarball
+    drop existing patches since incorporated in the new release
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Wed, 16 Oct 2019 22:57:18 +0100
+
 rhythmbox-plugin-alternative-toolbar (0.18.4-1) unstable; urgency=medium
 
   * Translation release

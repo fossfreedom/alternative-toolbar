@@ -2,7 +2,7 @@ Source: rhythmbox-plugin-alternative-toolbar
 Section: misc
 Priority: optional
 Maintainer: David Mohammed <fossfreedom@ubuntu.com>
-Build-Depends: debhelper (>= 11),
+Build-Depends: debhelper (>= 12),
                dh-python (>= 1.20141111-2),
                gir1.2-glib-2.0 (>= 1.40),
                gir1.2-gstreamer-1.0,
@@ -15,8 +15,9 @@ Build-Depends: debhelper (>= 11),
                libglib2.0-dev (>= 2.40),
                pkg-config (>= 0.28-1+b1),
                python3-gi,
+               gir1.2-keybinder-3.0,
                python3
-Standards-Version: 4.3.0
+Standards-Version: 4.4.1
 Homepage: https://github.com/fossfreedom/alternative-toolbar
 Vcs-Browser: https://github.com/fossfreedom/alternative-toolbar/tree/debian
 Vcs-Git: https://github.com/fossfreedom/alternative-toolbar -b debian
@@ -26,6 +27,7 @@ Architecture: all
 Depends: ${misc:Depends},
          ${python3:Depends},
          python3-gi,
+         gir1.2-keybinder-3.0,
          rhythmbox (>= 3.0)
 Description: Enhanced play controls and interface for Rhythmbox
  This plugin provides a visual new graphical interface to Rhythmbox.

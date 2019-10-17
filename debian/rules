@@ -4,9 +4,6 @@ export DH_VERSION = 1
 %:
 	dh $@ --with python3
 
-override_dh_autoreconf:
-	dh_autoreconf -- ./autogen.sh
-
 override_dh_auto_configure:
 	dh_auto_configure -- --libdir="\$${exec_prefix}/lib"
 
