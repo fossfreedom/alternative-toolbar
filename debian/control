@@ -15,7 +15,6 @@ Build-Depends: debhelper (>= 12),
                libglib2.0-dev (>= 2.40),
                pkg-config (>= 0.28-1+b1),
                python3-gi,
-               gir1.2-keybinder-3.0,
                python3
 Standards-Version: 4.4.1
 Homepage: https://github.com/fossfreedom/alternative-toolbar
@@ -27,7 +26,6 @@ Architecture: all
 Depends: ${misc:Depends},
          ${python3:Depends},
          python3-gi,
-         gir1.2-keybinder-3.0,
          rhythmbox (>= 3.0)
 Description: Enhanced play controls and interface for Rhythmbox
  This plugin provides a visual new graphical interface to Rhythmbox.

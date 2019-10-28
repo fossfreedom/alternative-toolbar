@@ -1,3 +1,13 @@
+rhythmbox-plugin-alternative-toolbar (0.19.1-1) unstable; urgency=medium
+
+  * New release
+    See ChangeLog
+  * Packaging Changes
+    control: remove gir1.2-keybinder-3.0 since this is now an optional
+    install
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Mon, 28 Oct 2019 21:36:44 +0000
+
 rhythmbox-plugin-alternative-toolbar (0.19.0-2) unstable; urgency=medium
 
   * Bug-fix
