@@ -50,10 +50,6 @@ from gi.repository import Gio
 from gi.repository import Gtk
 from gi.repository import Pango
 from gi.repository import RB
-import gi
-gi.require_version('Keybinder', '3.0')
-from gi.repository import Keybinder
-
 
 class AT(object):
     @staticmethod
@@ -1394,10 +1390,19 @@ class AltToolbarHeaderBar(AltToolbarShared):
         # hook the key-press for the application window
         self.shell.props.window.connect("key-press-event", self._on_key_press)
 
-        # bind the zoom keyboard shortcuts
-        Keybinder.init()
-        if Keybinder.supported():
-            Keybinder.bind("<Ctrl>f", self._on_search)
+        try:
+            import gi
+            gi.require_version('Keybinder', '3.0')
+            from gi.repository import Keybinder
+
+            # bind the zoom keyboard shortcuts
+            Keybinder.init()
+            if Keybinder.supported():
+                Keybinder.bind("<Ctrl>f", self._on_search)
+        except ValueError:
+            # no need to worry if keybinder is not installed - just
+            # that the toggle does not work
+            return
 
     def add_always_visible_source(self, source):
         """

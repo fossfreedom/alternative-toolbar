@@ -1,4 +1,4 @@
-AC_INIT([alternative-toolbar], 0.19.0, [fossfreedom@ubuntu.com],
+AC_INIT([alternative-toolbar], 0.19.1, [fossfreedom@ubuntu.com],
 [alternative-toolbar], [https://github.com/fossfreedom/alternative-toolbar])
 AM_INIT_AUTOMAKE([-Wno-portability no-dist-gzip dist-xz foreign subdir-objects])
 AC_PREFIX_DEFAULT(/usr/local)
@@ -28,7 +28,7 @@ AC_PYTHON_GI_MODULE(RB, 3.0)
 AC_PYTHON_GI_MODULE(Pango, 1.0)
 AC_PYTHON_GI_MODULE(Peas, 1.0)
 AC_PYTHON_GI_MODULE(PeasGtk, 1.0)
-AC_PYTHON_GI_MODULE(Keybinder, 3.0)
+#AC_PYTHON_GI_MODULE(Keybinder, 3.0)
 AC_OUTPUT
 
 AC_MSG_RESULT([

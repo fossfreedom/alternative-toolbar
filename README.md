@@ -15,7 +15,7 @@
 	        Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact toolbar which can be hidden.
 	    </td>
 		<td align="center" width="10%">
-			v0.19.0
+			v0.19.1
 		</td>
 		<td align="right" width="30%">
 		    <a href="http://flattr.com/thing/1811704/" title="fossfreedom">
@@ -78,7 +78,7 @@ The plugin preferences allows you to define which toolbars are used:
 | Key                 | Action                                       |
 |---------------------|----------------------------------------------|
 | `CTRL + T`          | Toggled source toolbar.                      |
-| `CTRL + F`          | Toggle search bar.                           |
+| `CTRL + F`          | Toggle search bar(1)                         |
 | `CTRL + P`          | Start/Stop current track.                    |
 | `CTRL + R`          | Open repeat menu.                            |
 | `CTRL + K`          | Toggle play queue.                           |
@@ -89,6 +89,8 @@ The plugin preferences allows you to define which toolbars are used:
 After installation enable the plugin in the plugins window:
 
 ![Enable plugin](http://i.imgur.com/UUzyfhH.png)
+
+(1) Toggle requires the gir1.2-keybinder-3.0 package
 
 If you need to enable the player controls & source menu, this can be done from the menu:
 
