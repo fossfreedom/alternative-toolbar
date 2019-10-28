@@ -771,16 +771,18 @@ class AltToolbarShared(AltToolbarBase):
                        (self.next_button, "play-next"),
                        (self.repeat_toggle, "play-repeat"),
                        (self.shuffle_toggle, "play-shuffle")):
+            a.set_action_name("app." + b)
             if b == "play-repeat" or b == "play-shuffle":
                 # for some distros you need to set the target_value
                 # for others this would actually disable the action
                 # so work around this by testing if the action is disabled
                 # then reset the action
-                #a.set_action_target_value(GLib.Variant("b", True))
-                #print(a.get_sensitive())
-                #if not a.get_sensitive():
-                a.set_detailed_action_name("app." + b)
-            a.set_action_name("app." + b)
+                # https://gitlab.gnome.org/GNOME/gtk/issues/939
+                # the above issue is why you see actionhelper mismatch
+                # errors
+                a.set_action_target_value(GLib.Variant("b", True))
+                if not a.get_sensitive():
+                    a.set_detailed_action_name("app." + b)
 
 
         # The Play-Repeat button is subject to the plugins Repeat All/one song
