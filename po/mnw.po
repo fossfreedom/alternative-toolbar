@@ -1,0 +1,298 @@
+# Mon translation for rhythmbox-plugin-alternative-toolbar
+# Copyright (c) 2019 Rosetta Contributors and Canonical Ltd 2019
+# This file is distributed under the same license as the rhythmbox-plugin-alternative-toolbar package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: rhythmbox-plugin-alternative-toolbar\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2018-09-04 11:35+0100\n"
+"PO-Revision-Date: 2019-11-04 06:10+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Mon <mnw@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2019-12-05 12:08+0000\n"
+"X-Generator: Launchpad (build c597c3229eb023b1e626162d5947141bf7befb13)\n"
+
+#: ../alternative-toolbar.py:235
+msgid "Seek Backward"
+msgstr "ၚဳဂၠာဲ လ္ပာ်ကလေၚ်"
+
+#: ../alternative-toolbar.py:238
+msgid "Seek backward, in current track, by 5 seconds."
+msgstr "ၚဳဂၠာဲ လ္ပာ်ကလေၚ်, ပုဒ်ဒွက်ပြဟ်ဟ်ဏံ,  ဒံၚ် ၅ သက္က"
+
+#: ../alternative-toolbar.py:242
+msgid "Seek Forward"
+msgstr "ၚဳဂၠာဲ လ္ပာ်ဂတ"
+
+#: ../alternative-toolbar.py:246
+msgid "Seek forward, in current track, by 10 seconds."
+msgstr "ၚဳဂၠာဲ လ္ပာ်ဂတ, ပုဒ်ဒွက်ပြဟ်ဟ်ဏံ,  အကြာ ၁၀ သက္က"
+
+#: ../alternative-toolbar.py:258
+msgid "Show Play-Controls Toolbar"
+msgstr "ထ္မံက်ပတိတ် ကပေါတ် ပံက်ထိၚ်တအ်"
+
+#: ../alternative-toolbar.py:262
+msgid "Show or hide the play-controls toolbar"
+msgstr "ထ္မံက်/ပၞုက် ပတိတ် ကပေါတ် ပံက်ထိၚ်တအ်"
+
+#: ../alternative-toolbar.py:267
+msgid "Show Source Toolbar"
+msgstr "ထ္မံက်ပတိတ် ကပေါတ် တမ်မူလ"
+
+#: ../alternative-toolbar.py:270
+msgid "Show or hide the source toolbar"
+msgstr "ထ္မံက်/ပၞုက် ပတိတ်  ကပေါတ် တမ်မူလ"
+
+#. define .plugin text strings used for translation
+#: ../alternative-toolbar.py:551
+msgid "Alternative Toolbar"
+msgstr "ရုဲစှ် ကပေါတ်တၞဟ်"
+
+#: ../alternative-toolbar.py:554
+msgid ""
+"Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
+"Toolbar which can be hidden"
+msgstr ""
+"ထပ်အဇာ ကပေါတ်ထိၚ်ပံက်ဒွက်ဇၞော် Rhythmbox တအ် နူကဵု "
+"လ္ပာ်ရဲသုၚ်စောဲပလေဝ်ပလေတ်လဝ်တအ် ဟွံသေၚ် နကဵုကပေါတ်ထိၚ်ရမျာၚ်   သိပ်ဂၠိပ်တအ် "
+"သီုပၞုက်ဒဒန်မာန်ရ။"
+
+#: ../alttoolbar_controller.py:156
+msgid "View All"
+msgstr "ဗဵုသီုဖအိုတ်"
+
+#: ../alttoolbar_controller.py:324
+msgid "Import"
+msgstr "ပၠောပ်"
+
+#: ../alttoolbar_controller.py:542
+msgid "Stations"
+msgstr "ရုၚ်စက်ဗလး"
+
+#: ../alttoolbar_controller.py:571
+msgid "Libre.fm"
+msgstr "Libre.fm"
+
+#: ../alttoolbar_controller.py:614
+msgid "My Top Rated"
+msgstr "ရုဲစှ်လဝ် အဇာခိုဟ်တအ်"
+
+#: ../alttoolbar_controller.py:618
+msgid "Recently Added"
+msgstr "စုတ်လဝ်နူက္လၚ်တအ်"
+
+#: ../alttoolbar_controller.py:622
+msgid "Recently Played"
+msgstr "ပံက်က္လၚ်လဝ် နူက္လၚ်တအ်"
+
+#: ../alttoolbar_controller.py:655
+msgid "Podcasts"
+msgstr "ရမျာၚ်ဗလး"
+
+#: ../alttoolbar_preferences.py:308
+msgid "Restart"
+msgstr "ကၠေၚ်မ္ၚုဟ်"
+
+#: ../alttoolbar_sidebar.py:81
+msgid "Local collection"
+msgstr "ရုဲစှ်ပကောံလဝ် ပ္ဍဲစက်"
+
+#: ../alttoolbar_sidebar.py:82
+msgid "Online sources"
+msgstr "တမ်မူလ လတူလပှ်ကျာတေံ"
+
+#: ../alttoolbar_sidebar.py:83
+msgid "Other sources"
+msgstr "တမ်မူလ တၞဟ်ဟ်တအ်"
+
+#: ../alttoolbar_sidebar.py:84
+msgid "Playlists"
+msgstr "ဒွက်ပံၚ်ကောံဂမၠိုၚ်"
+
+#: ../alttoolbar_type.py:1478 ../ui/altlibrary.ui.h:1
+msgid "Songs"
+msgstr "ဒွက်ဂမၠိုၚ်"
+
+#: ../alttoolbar_type.py:1484 ../alttoolbar_type.py:1568
+#: ../ui/altpreferences.ui.h:26 ../ui/altlibrary.ui.h:2
+msgid "Categories"
+msgstr "လၟေၚ်ကဏ္ဍဂမၠိုၚ်"
+
+#: ../alttoolbar_type.py:1552
+msgid "Browse"
+msgstr "ၚဳဂၠာဲ"
+
+#: ../alttoolbar_type.py:1564
+msgid "_Help"
+msgstr "_အရီုဗၚ်"
+
+#: ../alttoolbar_type.py:1565
+msgid "_About"
+msgstr "_ပရောပရာ"
+
+#: ../alttoolbar_type.py:1566
+msgid "_Quit"
+msgstr "_တိတ်"
+
+#: ../alttoolbar_repeat.py:96 ../alttoolbar_repeat.py:193
+msgid "Repeat all tracks"
+msgstr "ဒွက်ၜိုတ်နွံ ကၠေၚ်ပံက်ဖအိုတ်"
+
+#: ../alttoolbar_repeat.py:98 ../alttoolbar_repeat.py:214
+#: ../ui/alttoolbar.ui.h:4
+msgid "Repeat the current track"
+msgstr "ဒွက်ပံက်မံၚ်လၟုဟ်ဏံ ထပ်ကၠေၚ်ပံက်"
+
+#: ../ui/altpreferences.ui.h:1
+msgid "Restart the player for the changes to take effect."
+msgstr "ကၠေၚ်မ္ၚုဟ် player ပလေဝ်ပလေတ်လဝ်တံ ဂွံကၠောန်ဂမၠောန်"
+
+#: ../ui/altpreferences.ui.h:2
+msgid "Toolbar:"
+msgstr "ကပေါတ်ကညောတ် :"
+
+#: ../ui/altpreferences.ui.h:3
+msgid ""
+"Best suitable for desktop\n"
+"environments like Gnome and Elementary."
+msgstr ""
+"သွက် ကောန်ပျူတာဗ္ဂၚ်ခုၚ်တအ် စိုပ်သၞောတ်အိုတ်\n"
+"ဗလးစက် ဗီုပြၚ် Gnome ကေုာံ Elementary"
+
+#: ../ui/altpreferences.ui.h:5
+msgid "Modern"
+msgstr "ဂတာပ်ခေတ်"
+
+#: ../ui/altpreferences.ui.h:6
+msgid "Use compact controls"
+msgstr "သုၚ်စောဲ ထိၚ် ဗွဲမသိပ်ကၞက်"
+
+#: ../ui/altpreferences.ui.h:7
+msgid ""
+"Display the playback controls in the toolbar in visually compact style "
+"instead of the standard rhythmbox style.\n"
+"Always enabled for modern toolbar mode."
+msgstr ""
+"ထ္မံက်ထ္ၜး ပံက်ထိၚ်တအ် ပ္ဍဲကဵု ဒၞဲါကပေါတ်ထိၚ်တေံ ဟာန်ဗါန်ဗီုပြၚ် သိက်ကၞက်စၞး "
+"ဟာန်ဗါန် rhythmbox ဓမ္မတာ။\n"
+"ပံက်ကေတ်လၟိုန် ဗီုပြၚ် ကပေါတ်ထိၚ် ဂတာပ်ခေတ်တအ်။"
+
+#: ../ui/altpreferences.ui.h:9
+msgid "Show:"
+msgstr "ထ္ၜး :"
+
+#: ../ui/altpreferences.ui.h:10
+msgid "Album/genre/year for playing song"
+msgstr "ကဝး/ဂကူ/သၞာံ သွက်ပံက်က္လၚ်ဒွက်"
+
+#: ../ui/altpreferences.ui.h:11
+msgid ""
+"Display album/genre/year instead of song-artist-album.  Useful for those "
+"desktop-environments where song-artist-album is already displayed in the "
+"window title."
+msgstr ""
+"ထ္မံက်ထ္ၜး ကဝး/ဂကူ/သၞာံ စၞးဒးထ္မံက် ကဝးညးတၠရမျာၚ်။\r\n"
+"သုၚ်စောဲခိုဟ် သွက်ပ္ဍဲဗလးကောန်ဗျူတာဂ္ဇံက်ခုၚ်တအ် ကာလထ္မံက်လဝ် "
+"သီုကဝးညးတၠရမျာၚ်တအ် မံက်မံၚ်ပ္ဍဲက္ဍိုပ်မုက်လ္တူတေံ။"
+
+#: ../ui/altpreferences.ui.h:12
+msgid "Tooltips for the playback controls"
+msgstr "နဲကဲရပ်စပ် သွက်ကပေါတ်ထိၚ် ကလေၚ်ပံက်က္လၚ်တအ်"
+
+#: ../ui/altpreferences.ui.h:13
+msgid "Show or hide the tooltips for the playback controls."
+msgstr "ထ္မံက် ဟွံ ပၞုက် နဲကဲရပ်စပ် သွက်ကပေါတ်ထိၚ် ကလေၚ်ပံက်က္လၚ်တအ်"
+
+#: ../ui/altpreferences.ui.h:14
+msgid "Volume control"
+msgstr "ကပေါတ် ထိၚ်ရမျာၚ်"
+
+#: ../ui/altpreferences.ui.h:15
+msgid "Show or hide the volume control."
+msgstr "ထ္မံက် (ဟွံ) ပၞုက် ထိၚ်ရမျာၚ်"
+
+#: ../ui/altpreferences.ui.h:16
+msgid "Playback controls"
+msgstr "ကပေါတ်ထိၚ် ကလေၚ်ပံက်"
+
+#: ../ui/altpreferences.ui.h:17
+msgid "Show or hide the playing controls on player startup."
+msgstr "ထ္မံက် ဟွံ ပၞုက် ကပေါတ်ထိၚ်ပံက်တအ် အဃော စပံက်"
+
+#: ../ui/altpreferences.ui.h:18
+msgid "Use:"
+msgstr "သုၚ်စောဲ:"
+
+#: ../ui/altpreferences.ui.h:19
+msgid "Inline song/artist label"
+msgstr "ပ္ဍဲပၞောန် ဒွက်/သၟာဒွက် စၞောန်ပ္ညုၚ်"
+
+#: ../ui/altpreferences.ui.h:20
+msgid ""
+"Display Song and Artist labels before the progress slider.  If not checked, "
+"they are displayed above the progress slider."
+msgstr ""
+"ပံက်ထ္ၜး ဒွက်ကေုာံသၟာဒွက် စၞောန်ပ်ညုၚ်တအ် ကၠာနူ ပၞောန်အာ သ္ကဲတေံ။ "
+"ယဝ်ဟွံပံက်ထၟံက်လဝ်မ္ဂး၊ ဍေံတအ် ထ္ၜးမံၚ်လ္တူ ပၞောန်အာ သ္ကဲဂှ်ရ။"
+
+#: ../ui/altpreferences.ui.h:21
+msgid "Enhanced sidebar"
+msgstr "ပယျေဝ်ပ္တိုန် ပၞောန်သ္ကဲ"
+
+#: ../ui/altpreferences.ui.h:22
+msgid ""
+"Show or hide redesigned sidebar for the player. It features improved "
+"symbolic icons, better sources organisation and ability to expand and "
+"collapse categories."
+msgstr ""
+"ထ္မံက်/ပၞုက် ဗီုပြၚ်ပလေဝ် ပၞောန်သ္ကဲ သွက် player။ ဍေံသၠုၚ်ပတိုန် ရုပ်သာ် "
+"ခၞော်ဗီုပြၚ်၊ စဳရေၚ်ပြုပြေၚ် ခိုဟ်တိုန်တုဲ ဂွံတိုန်အခေါၚ် ပံက်/ပၠး "
+"လၟေၚ်ကဏ္ဍဂမၠိုၚ်မာန်"
+
+#: ../ui/altpreferences.ui.h:23
+msgid "Enhanced plugins dialog"
+msgstr "ပယျေဝ်ပတိုန် ပလာတ်ဂေန် ဆေၚ်ကဵုရမျာၚ်တအ်"
+
+#: ../ui/altpreferences.ui.h:24
+msgid ""
+"Show or hide redesigned plugins dialog. It features switches instead of "
+"checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
+"based desktop environments."
+msgstr ""
+"ထၟံက် ဟွံ ပၞုက်ထောံ ပလာတ်ဂေါန်ရမျာၚ် ကၠောန်ပလေဝ်တအ်။ စၞး ဇိုၚ်ခ္ဍာ် ကေုာံ "
+"ဗီုပြၚ်သၚ်္ကေတခၞော် ပ္ဍဲကပေါတ်ထိၚ် ပံက်သၠာဲကေတ်လက်သန်ဏံမာန်။ "
+"ကၠောန်ဂမၠောန်ခိုဟ် ပ္ဍဲ ဗလးကောန်ပျူတာ ဂ္ဇံက်ခုၚ် Gnome တအ်။"
+
+#: ../ui/altpreferences.ui.h:25
+msgid "Dark theme if available"
+msgstr "ခၞော်ဂၠု ယဝ်နွံတှေ်"
+
+#: ../ui/altpreferences.ui.h:27
+msgid "Horizontal"
+msgstr "လက်ဇမၠိၚ်"
+
+#: ../ui/altpreferences.ui.h:28
+msgid "Vertical"
+msgstr "လက်စူ"
+
+#: ../ui/alttoolbar.ui.h:1
+msgid "Play the previous track"
+msgstr "ကၠေၚ်ပံက် ဒွက် တုဲအာဂှ်"
+
+#: ../ui/alttoolbar.ui.h:2
+msgid "Resume or pause the playback"
+msgstr "ကၠေၚ်/ဗဒေံါ ဒွက်"
+
+#: ../ui/alttoolbar.ui.h:3
+msgid "Play the next track"
+msgstr "ပံက်ဒွက် ဂတတေံ"
+
+#: ../ui/alttoolbar.ui.h:5
+msgid "Play the tracks in random order"
+msgstr "ပံက်ဒွက်တအ် လၟေၚ်ဆဆဵု"
