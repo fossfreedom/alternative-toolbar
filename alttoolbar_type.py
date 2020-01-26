@@ -223,6 +223,12 @@ class AltToolbarBase(GObject.Object):
 
         self.purge_builder_content()
 
+    def on_search_toggle(self):
+        """
+           use the toolbar search
+        """
+        pass
+
     def set_visible(self, visible):
         """
            change the visibility of the toolbar
@@ -1370,16 +1376,26 @@ class AltToolbarHeaderBar(AltToolbarShared):
     def _on_key_press(self, widget, event):
         self.searchbar.handle_event(event)
         keyname = Gdk.keyval_name(event.keyval)
-        if keyname == 'Escape' and self.current_search_button:
-            self.current_search_button.set_active(False)
+        #if keyname == 'Escape' and self.current_search_button:
+            #self.current_search_button.set_active(False)
+            #self.searchbar.set_search_mode(False)
+            #self.search_button_toggled(self.current_search_button)
+
         if event.state and Gdk.ModifierType.CONTROL_MASK:
             if keyname == 'f' and self.current_search_button:
                 self.current_search_button.set_active(
                     not self.current_search_button.get_active())
 
-    def _on_search(self, widget):
+    def on_search_toggle(self):
+        if self.current_search_button.get_active() and \
+           not self.searchbar.get_search_mode():
+           self.searchbar.set_search_mode(True)
+           return
+
         self.current_search_button.set_active(
             not self.current_search_button.get_active())
+
+        self.searchbar.set_search_mode(self.current_search_button.get_active())
 
     def initialise(self, plugin):
         super(AltToolbarHeaderBar, self).initialise(plugin)
@@ -1390,21 +1406,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self._setup_headerbar()
 
         # hook the key-press for the application window
-        self.shell.props.window.connect("key-press-event", self._on_key_press)
-
-        try:
-            import gi
-            gi.require_version('Keybinder', '3.0')
-            from gi.repository import Keybinder
-
-            # bind the zoom keyboard shortcuts
-            Keybinder.init()
-            if Keybinder.supported():
-                Keybinder.bind("<Ctrl>f", self._on_search)
-        except ValueError:
-            # no need to worry if keybinder is not installed - just
-            # that the toggle does not work
-            return
+        #self.shell.props.window.connect("key-press-event", self._on_key_press)
 
     def add_always_visible_source(self, source):
         """
@@ -1455,20 +1457,18 @@ class AltToolbarHeaderBar(AltToolbarShared):
             action.set_active(True)
 
     def search_button_toggled(self, search_button):
-        print("search_button_toggled")
-        print(search_button.get_active())
-
         def delay_hide(*args):
             # we use a delay to allow the searchbar minimise effect to be
             # visible
             self.searchbar.set_visible(False)
+            self.searchbar.set_search_mode(False)
+            search_button.set_active(False)
 
         if search_button.get_active():
             self.searchbar.set_visible(True)
+            self.searchbar.set_search_mode(True)
         else:
             GLib.timeout_add(350, delay_hide)
-
-        self.searchbar.set_search_mode(True)
 
     def set_library_labels(self, song_label=None, category_label=None):
         # locale stuff

@@ -224,10 +224,23 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self._plugin_dialog_width, self._plugin_dialog_height = dlg.get_size()
         dlg.destroy()
 
+    def on_search(self, *args):
+        self.toolbar_type.on_search_toggle()
+
     def _add_menu_options(self):
         """
           add the various menu options to the application
         """
+        self.search_action_group = ActionGroup(self.shell,
+                                             'AltToolbarPluginSearchActions')
+        self.search_action_group.add_action(func=self.on_search,
+                                          action_name='Search',
+                                          label=_("Search"),
+                                          action_type='app', accel="<Ctrl>f",
+                                          tooltip=_(
+                                              "Search"))
+        self.appshell.insert_action_group(self.search_action_group)
+
         self.seek_action_group = ActionGroup(self.shell,
                                              'AltToolbarPluginSeekActions')
         self.seek_action_group.add_action(func=self.on_skip_backward,
