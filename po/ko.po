@@ -7,141 +7,129 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-09-04 11:35+0100\n"
-"PO-Revision-Date: 2019-03-21 02:39+0000\n"
+"POT-Creation-Date: 2019-10-29 05:12+0000\n"
+"PO-Revision-Date: 2018-03-23 09:22+0000\n"
 "Last-Translator: minwook shin <Unknown>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-06 11:24+0000\n"
-"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
+"X-Launchpad-Export-Date: 2020-01-27 19:32+0000\n"
+"X-Generator: Launchpad (build b8d1327fd820d6bf500589d6da587d5037c7d88e)\n"
 
-#: ../alternative-toolbar.py:221
+#: ../alternative-toolbar.py:235
 msgid "Seek Backward"
 msgstr "되감기"
 
-#: ../alternative-toolbar.py:224
+#: ../alternative-toolbar.py:238
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr "5초로 , 현재 트랙 에서 뒤로 탐색 ."
 
-#: ../alternative-toolbar.py:228
+#: ../alternative-toolbar.py:242
 msgid "Seek Forward"
 msgstr "빨리감기"
 
-#: ../alternative-toolbar.py:232
+#: ../alternative-toolbar.py:246
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr "10초로 , 현재 트랙에서 앞으로 탐색."
 
-#: ../alternative-toolbar.py:244
+#: ../alternative-toolbar.py:258
 msgid "Show Play-Controls Toolbar"
 msgstr "재생-제어 툴바 보기"
 
-#: ../alternative-toolbar.py:248
+#: ../alternative-toolbar.py:262
 msgid "Show or hide the play-controls toolbar"
 msgstr "재생-제어 툴바를 보거나 숨기기"
 
-#: ../alternative-toolbar.py:253
+#: ../alternative-toolbar.py:267
 msgid "Show Source Toolbar"
 msgstr "소스 툴바 보기"
 
-#: ../alternative-toolbar.py:256
+#: ../alternative-toolbar.py:270
 msgid "Show or hide the source toolbar"
 msgstr "소스 툴바를 보거나 숨기기"
 
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:536
+#: ../alternative-toolbar.py:551
 msgid "Alternative Toolbar"
 msgstr "대체 도구 모음"
 
-#: ../alternative-toolbar.py:539
+#: ../alternative-toolbar.py:554
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr "클라이언트-측 장식 또는 숨길수있는 소형 도구 모음가 있는 리듬박스 큰 툴바를 재 배치할수있습니다"
 
-#: ../alttoolbar_controller.py:157
+#: ../alttoolbar_controller.py:156
 msgid "View All"
 msgstr "모두 보기"
 
-#: ../alttoolbar_controller.py:325
+#: ../alttoolbar_controller.py:324
 msgid "Import"
 msgstr "가져오기"
 
-#: ../alttoolbar_controller.py:543
+#: ../alttoolbar_controller.py:542
 msgid "Stations"
 msgstr "역"
 
-#: ../alttoolbar_controller.py:572
+#: ../alttoolbar_controller.py:571
 msgid "Libre.fm"
 msgstr "Libre.fm"
 
-#: ../alttoolbar_controller.py:615
+#: ../alttoolbar_controller.py:614
 msgid "My Top Rated"
 msgstr "나의 가장 높은 점수순"
 
-#: ../alttoolbar_controller.py:619
+#: ../alttoolbar_controller.py:618
 msgid "Recently Added"
 msgstr "최근에 추가됨"
 
-#: ../alttoolbar_controller.py:623
+#: ../alttoolbar_controller.py:622
 msgid "Recently Played"
 msgstr "최근 연주된 것"
 
-#: ../alttoolbar_controller.py:656
+#: ../alttoolbar_controller.py:655
 msgid "Podcasts"
 msgstr "팟캐스트"
 
-#: ../alttoolbar_preferences.py:307
+#: ../alttoolbar_preferences.py:308
 msgid "Restart"
 msgstr "다시 시작"
 
-#: ../alttoolbar_sidebar.py:82
+#: ../alttoolbar_sidebar.py:81
 msgid "Local collection"
 msgstr "로컬 컬랙션"
 
-#: ../alttoolbar_sidebar.py:83
+#: ../alttoolbar_sidebar.py:82
 msgid "Online sources"
 msgstr "온라인 소스"
 
-#: ../alttoolbar_sidebar.py:84
+#: ../alttoolbar_sidebar.py:83
 msgid "Other sources"
 msgstr "다른 소스"
 
-#: ../alttoolbar_sidebar.py:85
+#: ../alttoolbar_sidebar.py:84
 msgid "Playlists"
 msgstr "재생목록"
 
-#: ../alttoolbar_type.py:1415 ../ui/altlibrary.ui.h:1
+#: ../alttoolbar_type.py:1478 ../ui/altlibrary.ui.h:1
 msgid "Songs"
 msgstr "노래들"
 
-#: ../alttoolbar_type.py:1420 ../alttoolbar_type.py:1502
+#: ../alttoolbar_type.py:1484 ../alttoolbar_type.py:1568
 #: ../ui/altpreferences.ui.h:26 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "카테고리"
 
-#: ../alttoolbar_type.py:1486
+#: ../alttoolbar_type.py:1552
 msgid "Browse"
 msgstr "찾아보기"
 
-#: ../alttoolbar_type.py:1564
-msgid "_Help"
-msgstr "도움말(_H)"
-
-#: ../alttoolbar_type.py:1565
-msgid "_About"
-msgstr "정보(_A)"
-
-#: ../alttoolbar_type.py:1566
-msgid "_Quit"
-msgstr "끝내기(_Q)"
-
-#: ../alttoolbar_repeat.py:98 ../alttoolbar_repeat.py:195
+#: ../alttoolbar_repeat.py:96 ../alttoolbar_repeat.py:193
 msgid "Repeat all tracks"
 msgstr "모든 트랙 반복"
 
-#: ../alttoolbar_repeat.py:100 ../alttoolbar_repeat.py:216
+#: ../alttoolbar_repeat.py:98 ../alttoolbar_repeat.py:214
 #: ../ui/alttoolbar.ui.h:4
 msgid "Repeat the current track"
 msgstr "현재 트랙 을 반복"
@@ -287,5 +275,11 @@ msgstr "다음 트랙 재생"
 msgid "Play the tracks in random order"
 msgstr "임의의 순서로트랙을 재생"
 
-#~ msgid "Compact progress slider"
-#~ msgstr "맞춤 진행 슬라이더"
+#~ msgid "_About"
+#~ msgstr "정보(_A)"
+
+#~ msgid "_Quit"
+#~ msgstr "끝내기(_Q)"
+
+#~ msgid "_Help"
+#~ msgstr "도움말(_H)"

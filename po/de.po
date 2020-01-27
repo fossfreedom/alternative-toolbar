@@ -7,54 +7,54 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-09-04 11:35+0100\n"
+"POT-Creation-Date: 2019-10-29 05:12+0000\n"
 "PO-Revision-Date: 2018-02-16 21:18+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-03-05 16:04+0000\n"
-"X-Generator: Launchpad (build 18888)\n"
+"X-Launchpad-Export-Date: 2020-01-27 19:32+0000\n"
+"X-Generator: Launchpad (build b8d1327fd820d6bf500589d6da587d5037c7d88e)\n"
 
-#: ../alternative-toolbar.py:221
+#: ../alternative-toolbar.py:235
 msgid "Seek Backward"
 msgstr "Rückwärts suchen"
 
-#: ../alternative-toolbar.py:224
+#: ../alternative-toolbar.py:238
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr "Von der aktuellen Wiedergabeposition 5 Sekunden zurück suchen"
 
-#: ../alternative-toolbar.py:228
+#: ../alternative-toolbar.py:242
 msgid "Seek Forward"
 msgstr "Vorwärts suchen"
 
-#: ../alternative-toolbar.py:232
+#: ../alternative-toolbar.py:246
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr "Von der aktuellen Wiedergabeposition 10 Sekunden vorwärts suchen"
 
-#: ../alternative-toolbar.py:244
+#: ../alternative-toolbar.py:258
 msgid "Show Play-Controls Toolbar"
 msgstr "Leiste mit Wiedergabesteuerung anzeigen"
 
-#: ../alternative-toolbar.py:248
+#: ../alternative-toolbar.py:262
 msgid "Show or hide the play-controls toolbar"
 msgstr "Wiedergabesteuerung anzeigen?"
 
-#: ../alternative-toolbar.py:253
+#: ../alternative-toolbar.py:267
 msgid "Show Source Toolbar"
 msgstr "Wiedergabequellenleiste anzeigen"
 
-#: ../alternative-toolbar.py:256
+#: ../alternative-toolbar.py:270
 msgid "Show or hide the source toolbar"
 msgstr "Leiste mit Wiedergabequellen anzeigen?"
 
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:536
+#: ../alternative-toolbar.py:551
 msgid "Alternative Toolbar"
 msgstr "Alternatives Erscheinungsbild"
 
-#: ../alternative-toolbar.py:539
+#: ../alternative-toolbar.py:554
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -63,88 +63,76 @@ msgstr ""
 "Werkzeugleiste/Titelleiste (Moderner Stil) oder eine kompakte ausblendbare "
 "Werkzeugleiste."
 
-#: ../alttoolbar_controller.py:157
+#: ../alttoolbar_controller.py:156
 msgid "View All"
 msgstr "Alle anzeigen"
 
-#: ../alttoolbar_controller.py:325
+#: ../alttoolbar_controller.py:324
 msgid "Import"
 msgstr "Importieren"
 
-#: ../alttoolbar_controller.py:543
+#: ../alttoolbar_controller.py:542
 msgid "Stations"
 msgstr "Sender"
 
-#: ../alttoolbar_controller.py:572
+#: ../alttoolbar_controller.py:571
 msgid "Libre.fm"
 msgstr "Libre.fm"
 
-#: ../alttoolbar_controller.py:615
+#: ../alttoolbar_controller.py:614
 msgid "My Top Rated"
 msgstr "Beste Bewertung"
 
-#: ../alttoolbar_controller.py:619
+#: ../alttoolbar_controller.py:618
 msgid "Recently Added"
 msgstr "Zuletzt hinzugefügt"
 
-#: ../alttoolbar_controller.py:623
+#: ../alttoolbar_controller.py:622
 msgid "Recently Played"
 msgstr "Zuletzt gespielt"
 
-#: ../alttoolbar_controller.py:656
+#: ../alttoolbar_controller.py:655
 msgid "Podcasts"
 msgstr "Podcasts"
 
-#: ../alttoolbar_preferences.py:307
+#: ../alttoolbar_preferences.py:308
 msgid "Restart"
 msgstr "Neustart"
 
-#: ../alttoolbar_sidebar.py:82
+#: ../alttoolbar_sidebar.py:81
 msgid "Local collection"
 msgstr "Lokale Sammlung"
 
-#: ../alttoolbar_sidebar.py:83
+#: ../alttoolbar_sidebar.py:82
 msgid "Online sources"
 msgstr "Onlinequellen"
 
-#: ../alttoolbar_sidebar.py:84
+#: ../alttoolbar_sidebar.py:83
 msgid "Other sources"
 msgstr "Andere Quellen"
 
-#: ../alttoolbar_sidebar.py:85
+#: ../alttoolbar_sidebar.py:84
 msgid "Playlists"
 msgstr "Wiedergabelisten"
 
-#: ../alttoolbar_type.py:1415 ../ui/altlibrary.ui.h:1
+#: ../alttoolbar_type.py:1478 ../ui/altlibrary.ui.h:1
 msgid "Songs"
 msgstr "Titel"
 
-#: ../alttoolbar_type.py:1420 ../alttoolbar_type.py:1502
+#: ../alttoolbar_type.py:1484 ../alttoolbar_type.py:1568
 #: ../ui/altpreferences.ui.h:26 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "Kategorien"
 
-#: ../alttoolbar_type.py:1486
+#: ../alttoolbar_type.py:1552
 msgid "Browse"
 msgstr "Durchsuchen"
 
-#: ../alttoolbar_type.py:1564
-msgid "_Help"
-msgstr "_Hilfe"
-
-#: ../alttoolbar_type.py:1565
-msgid "_About"
-msgstr "_Info"
-
-#: ../alttoolbar_type.py:1566
-msgid "_Quit"
-msgstr "_Beenden"
-
-#: ../alttoolbar_repeat.py:98 ../alttoolbar_repeat.py:195
+#: ../alttoolbar_repeat.py:96 ../alttoolbar_repeat.py:193
 msgid "Repeat all tracks"
 msgstr "Alle Titel wiederholen"
 
-#: ../alttoolbar_repeat.py:100 ../alttoolbar_repeat.py:216
+#: ../alttoolbar_repeat.py:98 ../alttoolbar_repeat.py:214
 #: ../ui/alttoolbar.ui.h:4
 msgid "Repeat the current track"
 msgstr "Aktuellen Titel wiederholen"
@@ -294,3 +282,12 @@ msgstr "Nächsten Titel abspielen"
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
 msgstr "Titel in zufälliger Reihenfolge abspielen"
+
+#~ msgid "_Help"
+#~ msgstr "_Hilfe"
+
+#~ msgid "_About"
+#~ msgstr "_Info"
+
+#~ msgid "_Quit"
+#~ msgstr "_Beenden"
