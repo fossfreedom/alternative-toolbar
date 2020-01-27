@@ -3,6 +3,7 @@ Section: misc
 Priority: optional
 Maintainer: David Mohammed <fossfreedom@ubuntu.com>
 Build-Depends: debhelper (>= 12),
+               debhelper-compat (= 12),
                dh-python (>= 1.20141111-2),
                gir1.2-glib-2.0 (>= 1.40),
                gir1.2-gstreamer-1.0,

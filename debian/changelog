@@ -4,6 +4,9 @@ rhythmbox-plugin-alternative-toolbar (0.19.2-1) unstable; urgency=medium
     See ChangeLog
   * Packaging Changes
     control: update policy version
+    remove unneeded compat
+    control: BD debhelper-compat
+    remove unneeded source/include-binaries
     copyright: update copyright year
 
  -- David Mohammed <fossfreedom@ubuntu.com>  Mon, 27 Jan 2020 20:16:40 +0000
