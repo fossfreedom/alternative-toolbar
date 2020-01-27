@@ -198,7 +198,6 @@ class AltToolbarBase(GObject.Object):
         """
         cssprovider = Gtk.CssProvider.new()
         cssprovider.load_from_data(cssdata.encode())
-        screen = Gdk.Screen.get_default()
         styleContext = Gtk.StyleContext()
         styleContext.add_provider_for_screen(
             self.shell.props.window.props.screen,
