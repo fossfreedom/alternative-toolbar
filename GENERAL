@@ -33,16 +33,3 @@ change the version number in the README as well as configure.ac
 to create readme.html install the markdown package then
 
 markdown README.md > readme.html
-
-to sign the github tarball
-
-gpg --default-key 7B0393D9 --armor --detach-sign alternative-toolbar-0.15
-.tar.gz
-
-Then add to the debian branch
-
-Then test all is well via:
-
-uscan --debug --force-download
-
-remember to remove the old compressed tarball above the source folder first!
