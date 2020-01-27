@@ -5,7 +5,7 @@
 # PLUGIN - https://github.com/fossfreedom/coverart-browser
 # PLEASE SUBMIT CHANGES BACK TO HELP EXPAND THIS API
 #
-# Copyright (C) 2012-2019 - David Mohammed <fossfreedom@ubuntu.com>
+# Copyright (C) 2012-2020 - David Mohammed <fossfreedom@ubuntu.com>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
