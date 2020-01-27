@@ -1,3 +1,13 @@
+rhythmbox-plugin-alternative-toolbar (0.19.2-1) unstable; urgency=medium
+
+  * New release
+    See ChangeLog
+  * Packaging Changes
+    control: update policy version
+    copyright: update copyright year
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Mon, 27 Jan 2020 20:16:40 +0000
+
 rhythmbox-plugin-alternative-toolbar (0.19.1-1) unstable; urgency=medium
 
   * New release

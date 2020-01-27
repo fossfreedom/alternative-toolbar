@@ -16,7 +16,7 @@ Build-Depends: debhelper (>= 12),
                pkg-config (>= 0.28-1+b1),
                python3-gi,
                python3
-Standards-Version: 4.4.1
+Standards-Version: 4.5.0
 Homepage: https://github.com/fossfreedom/alternative-toolbar
 Vcs-Browser: https://github.com/fossfreedom/alternative-toolbar/tree/debian
 Vcs-Git: https://github.com/fossfreedom/alternative-toolbar -b debian
