@@ -15,7 +15,7 @@
 	        Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact toolbar which can be hidden.
 	    </td>
 		<td align="center" width="10%">
-			v0.19.2
+			v0.19.3
 		</td>
 		<td align="right" width="30%">
 		    <a href="http://flattr.com/thing/1811704/" title="fossfreedom">
@@ -53,6 +53,7 @@ or with the new Gnome-style client-side decoration:
 ## Features
 
  - Option to prefer dark-themes
+ - Standard Menu for the compact toolbar
  - Display Browse Categories horizontally or vertically
  - Move columns via Drag-and-Drop using a views' column headers
  - Toggle compact or standard toolbar on or off
@@ -66,8 +67,7 @@ or with the new Gnome-style client-side decoration:
  - Force display of the app-menu (compact/headerbar)
    `gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar
   app-menu-display true`
- - Plugin translated completely into [14 languages and locales (18 more on the
-  way)](https://translations.launchpad.net/alternative-toolbar)
+ - Plugin translated into [47 languages and locales](https://translations.launchpad.net/alternative-toolbar)
 
 The plugin preferences allows you to define which toolbars are used:
 

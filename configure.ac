@@ -1,4 +1,4 @@
-AC_INIT([alternative-toolbar], 0.19.2, [fossfreedom@ubuntu.com],
+AC_INIT([alternative-toolbar], 0.19.3, [fossfreedom@ubuntu.com],
 [alternative-toolbar], [https://github.com/fossfreedom/alternative-toolbar])
 AM_INIT_AUTOMAKE([-Wno-portability no-dist-gzip dist-xz foreign subdir-objects])
 AC_PREFIX_DEFAULT(/usr/local)
