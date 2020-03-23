@@ -1,3 +1,49 @@
+commit 1c50e1bdaba3a00a1781e4f488bfc00d3e741216
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Mon Mar 23 21:51:23 2020 +0000
+
+    v0.19.3 updates
+
+ README.md                     | 6 +++---
+ alternative-toolbar.plugin.in | 2 +-
+ configure.ac                  | 2 +-
+ readme.html                   | 6 +++---
+ 4 files changed, 8 insertions(+), 8 deletions(-)
+
+commit ff892d802bae099ef94348b60b53e70f21e92335
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Mon Mar 23 21:46:17 2020 +0000
+
+    Latest translations
+
+ po/LINGUAS  |   2 +
+ po/af.po    |  40 +++++----
+ po/ast.po   | 285 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ckb.po   | 282 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/da.po    |  40 +++++----
+ po/de.po    |  40 +++++----
+ po/en_GB.po |  40 +++++----
+ po/es.po    |  38 ++++----
+ po/fi.po    |  40 +++++----
+ po/fr.po    |  38 ++++----
+ po/gl.po    |  40 +++++----
+ po/hr.po    |  38 ++++----
+ po/id.po    |  38 ++++----
+ po/it.po    |  38 ++++----
+ po/ko.po    |  40 +++++----
+ po/pt.po    |  40 +++++----
+ po/uk.po    |  40 +++++----
+ 17 files changed, 872 insertions(+), 247 deletions(-)
+
+commit a76a6e086f180ad60dc363a39485db448afb25b7
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Mon Jan 27 20:07:22 2020 +0000
+
+    Update ChangeLog
+
+ ChangeLog | 197 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 197 insertions(+)
+
 commit 0b7e5c886ef0ff73417d56d238ab8fbc0b852076
 Author: David Mohammed <fossfreedom@ubuntu.com>
 Date:   Mon Jan 27 20:06:44 2020 +0000
