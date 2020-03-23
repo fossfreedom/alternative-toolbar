@@ -1,16 +1,16 @@
-# German translation for alternative-toolbar
-# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
-# This file is distributed under the same license as the alternative-toolbar package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+# Kurdish (Sorani) translation for rhythmbox-plugin-alternative-toolbar
+# Copyright (c) 2020 Rosetta Contributors and Canonical Ltd 2020
+# This file is distributed under the same license as the rhythmbox-plugin-alternative-toolbar package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: alternative-toolbar\n"
+"Project-Id-Version: rhythmbox-plugin-alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-01-28 05:18+0000\n"
-"PO-Revision-Date: 2020-02-11 18:26+0000\n"
-"Last-Translator: Torsten Franz <Unknown>\n"
-"Language-Team: German <de@li.org>\n"
+"PO-Revision-Date: 2020-02-19 10:59+0000\n"
+"Last-Translator: Jwtiyar Nariman <jwtiyar@gmail.com>\n"
+"Language-Team: Kurdish (Sorani) <ckb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,65 +19,62 @@ msgstr ""
 
 #: ../alternative-toolbar.py:238 ../alternative-toolbar.py:241
 msgid "Search"
-msgstr "Suchen"
+msgstr "گەڕان"
 
 #: ../alternative-toolbar.py:248
 msgid "Seek Backward"
-msgstr "Rückwärts suchen"
+msgstr "بیبە دواوە"
 
 #: ../alternative-toolbar.py:251
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr "Von der aktuellen Wiedergabeposition 5 Sekunden zurück suchen"
+msgstr "بیبە دوواوە، لەم تراکەی ئێستا، بە ٥ چرکە"
 
 #: ../alternative-toolbar.py:255
 msgid "Seek Forward"
-msgstr "Vorwärts suchen"
+msgstr "بیبە پێشەوە"
 
 #: ../alternative-toolbar.py:259
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr "Von der aktuellen Wiedergabeposition 10 Sekunden vorwärts suchen"
+msgstr "بیبە پێشەوە،لەم تراکەی ئێستا، بە ١٠ چرکە."
 
 #: ../alternative-toolbar.py:271
 msgid "Show Play-Controls Toolbar"
-msgstr "Leiste mit Wiedergabesteuerung anzeigen"
+msgstr "توڵامرازی لێدان-ئاڕاستەکردن پیشان بدە"
 
 #: ../alternative-toolbar.py:275
 msgid "Show or hide the play-controls toolbar"
-msgstr "Wiedergabesteuerung anzeigen?"
+msgstr "پیشاندان یا شاردنەوەی توڵامرازی لێدان-ئاڕاستەکردن"
 
 #: ../alternative-toolbar.py:280
 msgid "Show Source Toolbar"
-msgstr "Wiedergabequellenleiste anzeigen"
+msgstr "توڵامرازی سەرچاوە پیشان بدە"
 
 #: ../alternative-toolbar.py:283
 msgid "Show or hide the source toolbar"
-msgstr "Leiste mit Wiedergabequellen anzeigen?"
+msgstr "پیشاندان یا، شاردنەوەی توڵامرازی لێدان-ئاڕاستەکردن"
 
 #. define .plugin text strings used for translation
 #: ../alternative-toolbar.py:564
 msgid "Alternative Toolbar"
-msgstr "Alternatives Erscheinungsbild"
+msgstr "توڵامرازی جێگرەوە"
 
 #: ../alternative-toolbar.py:567
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr ""
-"Ersetzt die großen Schaltflächen durch eine kombinierte "
-"Werkzeugleiste/Titelleiste (Moderner Stil) oder eine kompakte ausblendbare "
-"Werkzeugleiste."
 
 #: ../alttoolbar_controller.py:156
 msgid "View All"
-msgstr "Alle anzeigen"
+msgstr "هەمووی پیشان بدە"
 
 #: ../alttoolbar_controller.py:324
 msgid "Import"
-msgstr "Importieren"
+msgstr "هاوردەکردن"
 
 #: ../alttoolbar_controller.py:542
 msgid "Stations"
-msgstr "Sender"
+msgstr "وێستگەکان"
 
 #: ../alttoolbar_controller.py:571
 msgid "Libre.fm"
@@ -85,85 +82,85 @@ msgstr "Libre.fm"
 
 #: ../alttoolbar_controller.py:614
 msgid "My Top Rated"
-msgstr "Beste Bewertung"
+msgstr "باشترین هەڵبژێراو"
 
 #: ../alttoolbar_controller.py:618
 msgid "Recently Added"
-msgstr "Zuletzt hinzugefügt"
+msgstr "نوێترین زیادکراو"
 
 #: ../alttoolbar_controller.py:622
 msgid "Recently Played"
-msgstr "Zuletzt gespielt"
+msgstr "دوواترین لێدراو"
 
 #: ../alttoolbar_controller.py:655
 msgid "Podcasts"
-msgstr "Podcasts"
+msgstr "پۆدکاست"
 
 #: ../alttoolbar_preferences.py:308
 msgid "Restart"
-msgstr "Neustart"
+msgstr "دووبارە پێکردنەوە"
 
 #: ../alttoolbar_sidebar.py:81
 msgid "Local collection"
-msgstr "Lokale Sammlung"
+msgstr "هەڵبژاردەی ناوخۆیی"
 
 #: ../alttoolbar_sidebar.py:82
 msgid "Online sources"
-msgstr "Onlinequellen"
+msgstr "سەرچاوە سەرهێڵەکان"
 
 #: ../alttoolbar_sidebar.py:83
 msgid "Other sources"
-msgstr "Andere Quellen"
+msgstr "سەرچاوەی تر"
 
 #: ../alttoolbar_sidebar.py:84
 msgid "Playlists"
-msgstr "Wiedergabelisten"
+msgstr "لیستی گۆرانی"
 
 #: ../alttoolbar_type.py:1477 ../ui/altlibrary.ui.h:1
 msgid "Songs"
-msgstr "Titel"
+msgstr "گۆرانییەکان"
 
 #: ../alttoolbar_type.py:1483 ../alttoolbar_type.py:1567
 #: ../ui/altpreferences.ui.h:26 ../ui/altlibrary.ui.h:2
 msgid "Categories"
-msgstr "Kategorien"
+msgstr "هاوپۆلەکان"
 
 #: ../alttoolbar_type.py:1551
 msgid "Browse"
-msgstr "Durchsuchen"
+msgstr "بگەڕێ"
 
 #: ../alttoolbar_repeat.py:96 ../alttoolbar_repeat.py:193
 msgid "Repeat all tracks"
-msgstr "Alle Titel wiederholen"
+msgstr "هەموو تراکەکان پێبکەرەوە"
 
 #: ../alttoolbar_repeat.py:98 ../alttoolbar_repeat.py:214
 #: ../ui/alttoolbar.ui.h:4
 msgid "Repeat the current track"
-msgstr "Aktuellen Titel wiederholen"
+msgstr "تراکی ئێشتا دووبارە بکەرەوە"
 
 #: ../ui/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
-msgstr "Änderungen werden nach Neustart wirksam"
+msgstr "لێدەر پێکبکەرەوە بۆ جێگیربوونی گۆڕانکارییەکان"
 
 #: ../ui/altpreferences.ui.h:2
 msgid "Toolbar:"
-msgstr "Werkzeugleiste"
+msgstr "توڵامراز:"
 
 #: ../ui/altpreferences.ui.h:3
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
 msgstr ""
-"Am besten geeignet für Desktopumgebungen\n"
-"wie GNOME und Pantheon"
+"باشترین گونجاندنی هەیە بۆ ڕوومێز\n"
+"وەکوو گنۆم و ئلیمێنتەری."
 
 #: ../ui/altpreferences.ui.h:5
 msgid "Modern"
-msgstr "Moderner Stil"
+msgstr "نوێ"
 
 #: ../ui/altpreferences.ui.h:6
 msgid "Use compact controls"
-msgstr "Kompakte Wiedergabesteuerung"
+msgstr "توڵامرازی پەستێنراو بەکاربێنە"
 
 #: ../ui/altpreferences.ui.h:7
 msgid ""
@@ -171,16 +168,14 @@ msgid ""
 "instead of the standard rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 msgstr ""
-"Gegenüber dem Rhythmbox-Standard kompaktere Wiedergabesteuerung.\n"
-"Für den modernen Stil stets wirksam."
 
 #: ../ui/altpreferences.ui.h:9
 msgid "Show:"
-msgstr "Zeige:"
+msgstr "پیشاندان:"
 
 #: ../ui/altpreferences.ui.h:10
 msgid "Album/genre/year for playing song"
-msgstr "Album, Genre und Jahr des abgespielten Titels"
+msgstr "ئەلبوم/ڕەگەز/ساڵ بۆ لێدانی گۆرانی"
 
 #: ../ui/altpreferences.ui.h:11
 msgid ""
@@ -188,52 +183,48 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
-"Zeige Album, Genre und Jahr anstelle von Titel, Künstler und Album. Nützlich "
-"wenn Titel, Künstler und Album bereits in der Titelleiste gezeigt werden."
 
 #: ../ui/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
-msgstr "Minihilfe zu Steuerungselementen"
+msgstr "زانیاریە توڵامراز بۆ ئاڕاستکەردنی لێدانەوە"
 
 #: ../ui/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
-msgstr "Minihilfe anzeigen?"
+msgstr "پیشاندان یان شاردنەوەی زانیاریە توڵامراز بۆ ئاڕاستکەردنی پێکردنەوە"
 
 #: ../ui/altpreferences.ui.h:14
 msgid "Volume control"
-msgstr "Lautstärkeregelung"
+msgstr "ئاڕاستەکردنی دەنگ"
 
 #: ../ui/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
-msgstr "Lautstärkeregelung anzeigen?"
+msgstr "پیشاندان یان شاردنەوەی ئاڕاستەکردنی دەنگ"
 
 #: ../ui/altpreferences.ui.h:16
 msgid "Playback controls"
-msgstr "Wiedergabesteuerung"
+msgstr "ئاڕاستەکردنی لێدانەوە"
 
 #: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
-msgstr "Wiedergabesteuerung beim Start von Rhythmbox anzeigen?"
+msgstr "پیشاندان یا شاردنەوەی ئاڕاستەکردنی دەنگ لەکاتی پێکردنی لێدەر"
 
 #: ../ui/altpreferences.ui.h:18
 msgid "Use:"
-msgstr "Verwende:"
+msgstr "بەکارهێنانی:"
 
 #: ../ui/altpreferences.ui.h:19
 msgid "Inline song/artist label"
-msgstr "Kompakte Anzeige von Titel und Künstler"
+msgstr "پێناسی سەرهێڵی گۆرانی\\هونەرمەند"
 
 #: ../ui/altpreferences.ui.h:20
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
-"Zeigt Angaben zu Titel und Künstler links vor der Fortschrittsanzeige. Falls "
-"nicht ausgewählt, erscheinen die Angaben oberhalb der Fortschrittsanzeige."
 
 #: ../ui/altpreferences.ui.h:21
 msgid "Enhanced sidebar"
-msgstr "Überarbeitete Seitenleiste"
+msgstr "سایدباری ڕێکخەرەوە"
 
 #: ../ui/altpreferences.ui.h:22
 msgid ""
@@ -241,13 +232,10 @@ msgid ""
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
-"Überarbeitete Seitenleiste mit verbesserten symbolischen Icons, verbesserter "
-"Organisation der Musikquellen, sowie der Möglichkeit Kategorien hinzu- und "
-"abzuschalten."
 
 #: ../ui/altpreferences.ui.h:23
 msgid "Enhanced plugins dialog"
-msgstr "Überarbeitete Plugin-Verwaltung"
+msgstr ""
 
 #: ../ui/altpreferences.ui.h:24
 msgid ""
@@ -255,43 +243,40 @@ msgid ""
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
 "based desktop environments."
 msgstr ""
-"Die überarbeitete Plugin-Verwaltung bietet Schalter anstelle von "
-"Kontrollkästchen und eine integrierte Werkzeugleiste mit symbolischen Icons. "
-"Funktioniert am besten mit GNOME-basierten Desktopumgebungen."
 
 #: ../ui/altpreferences.ui.h:25
 msgid "Dark theme if available"
-msgstr "Dunkles Thema"
+msgstr "ڕووکاری تاریک ئەگەر بەردەست بوو"
 
 #: ../ui/altpreferences.ui.h:27
 msgid "Horizontal"
-msgstr "Horizontal"
+msgstr "ئاسۆیی"
 
 #: ../ui/altpreferences.ui.h:28
 msgid "Vertical"
-msgstr "Vertikal"
+msgstr "ستوونی"
 
 #: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"
-msgstr "Vorherigen Titel abspielen"
+msgstr "تراکی پێشوو لێبدە"
 
 #: ../ui/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr "Wiedergabe pausieren oder fortsetzen"
+msgstr "دەستپێکردنەوە یا وەستاندنی لێدانەوە"
 
 #: ../ui/alttoolbar.ui.h:3
 msgid "Play the next track"
-msgstr "Nächsten Titel abspielen"
+msgstr "تراکی داهاتوو لێبدە"
 
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
-msgstr "Titel in zufälliger Reihenfolge abspielen"
+msgstr "تراکەکان لێبدە بە هەڕەمەکی"
 
 #~ msgid "_Help"
-#~ msgstr "_Hilfe"
+#~ msgstr "_یارمەتی"
 
 #~ msgid "_About"
-#~ msgstr "_Info"
+#~ msgstr "_دەربارە"
 
 #~ msgid "_Quit"
-#~ msgstr "_Beenden"
+#~ msgstr "_دەرچوون"
