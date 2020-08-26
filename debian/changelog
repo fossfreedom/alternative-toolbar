@@ -1,3 +1,12 @@
+rhythmbox-plugin-alternative-toolbar (0.19.3-2) unstable; urgency=medium
+
+  * Bug-fix release
+    - 0001-No-longer-explicitly-hide-the-Import-button-Closes-1.patch
+      Don't try to hide the Import button which is no longer accessible
+      by other means in rhythmbox v3.4.4 (LP: #1893113)
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Wed, 26 Aug 2020 20:06:17 +0100
+
 rhythmbox-plugin-alternative-toolbar (0.19.3-1) unstable; urgency=medium
 
   * New release
