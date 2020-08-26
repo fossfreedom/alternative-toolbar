@@ -7,54 +7,58 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-10-29 05:12+0000\n"
-"PO-Revision-Date: 2018-09-18 11:00+0000\n"
+"POT-Creation-Date: 2020-03-24 07:34+0000\n"
+"PO-Revision-Date: 2020-04-09 10:50+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-01-27 19:32+0000\n"
-"X-Generator: Launchpad (build b8d1327fd820d6bf500589d6da587d5037c7d88e)\n"
+"X-Launchpad-Export-Date: 2020-08-26 22:12+0000\n"
+"X-Generator: Launchpad (build 99c2d833c8d727fd05148486920aca032e908071)\n"
 
-#: ../alternative-toolbar.py:235
+#: ../alternative-toolbar.py:238 ../alternative-toolbar.py:241
+msgid "Search"
+msgstr "חיפוש"
+
+#: ../alternative-toolbar.py:248
 msgid "Seek Backward"
 msgstr "מעבר אחורה"
 
-#: ../alternative-toolbar.py:238
+#: ../alternative-toolbar.py:251
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr "מעבר אחורה, ברצועה הנוכחית, 5 שניות."
 
-#: ../alternative-toolbar.py:242
+#: ../alternative-toolbar.py:255
 msgid "Seek Forward"
 msgstr "מעבר קדימה"
 
-#: ../alternative-toolbar.py:246
+#: ../alternative-toolbar.py:259
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr "מעבר קדימה, ברצועה הנוכחית, 10 שניות."
 
-#: ../alternative-toolbar.py:258
+#: ../alternative-toolbar.py:271
 msgid "Show Play-Controls Toolbar"
 msgstr "הצגת סרגל כלים פקדי נגינה"
 
-#: ../alternative-toolbar.py:262
+#: ../alternative-toolbar.py:275
 msgid "Show or hide the play-controls toolbar"
 msgstr "הצגה או הסתרה של סרגל כלים פקדי נגינה"
 
-#: ../alternative-toolbar.py:267
+#: ../alternative-toolbar.py:280
 msgid "Show Source Toolbar"
 msgstr "הצגת סרגל כלי מקור"
 
-#: ../alternative-toolbar.py:270
+#: ../alternative-toolbar.py:283
 msgid "Show or hide the source toolbar"
 msgstr "הצגה או הסתרה של סרגל כלי המקור"
 
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:551
+#: ../alternative-toolbar.py:564
 msgid "Alternative Toolbar"
 msgstr "סרגל כלים חלופי"
 
-#: ../alternative-toolbar.py:554
+#: ../alternative-toolbar.py:567
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -114,16 +118,16 @@ msgstr "מקורות אחרים"
 msgid "Playlists"
 msgstr "רשימות נגינה"
 
-#: ../alttoolbar_type.py:1478 ../ui/altlibrary.ui.h:1
+#: ../alttoolbar_type.py:1477 ../ui/altlibrary.ui.h:1
 msgid "Songs"
 msgstr "שירים"
 
-#: ../alttoolbar_type.py:1484 ../alttoolbar_type.py:1568
+#: ../alttoolbar_type.py:1483 ../alttoolbar_type.py:1567
 #: ../ui/altpreferences.ui.h:26 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "קטגוריות"
 
-#: ../alttoolbar_type.py:1552
+#: ../alttoolbar_type.py:1551
 msgid "Browse"
 msgstr "עיון"
 

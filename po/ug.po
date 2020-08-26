@@ -1,16 +1,16 @@
-# Serbian translation for alternative-toolbar
-# Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
-# This file is distributed under the same license as the alternative-toolbar package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+# Uyghur translation for rhythmbox-plugin-alternative-toolbar
+# Copyright (c) 2020 Rosetta Contributors and Canonical Ltd 2020
+# This file is distributed under the same license as the rhythmbox-plugin-alternative-toolbar package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: alternative-toolbar\n"
+"Project-Id-Version: rhythmbox-plugin-alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-03-24 07:34+0000\n"
-"PO-Revision-Date: 2020-03-27 16:45+0000\n"
-"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
-"Language-Team: Serbian <sr@li.org>\n"
+"PO-Revision-Date: 2020-05-13 16:10+0000\n"
+"Last-Translator: abdusalamstd <Unknown>\n"
+"Language-Team: Uyghur <ug@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,150 +19,148 @@ msgstr ""
 
 #: ../alternative-toolbar.py:238 ../alternative-toolbar.py:241
 msgid "Search"
-msgstr "Потражи"
+msgstr "ئىزدەش"
 
 #: ../alternative-toolbar.py:248
 msgid "Seek Backward"
-msgstr "Иди уназад"
+msgstr "ئارقىغا ئىزدەش"
 
 #: ../alternative-toolbar.py:251
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr "Иди уназад, у тренутној нумери, за 5 секунди"
+msgstr "نۆۋەتتىكى يولدا ئارقىغا 5 سېكۇنت ئىزدەڭ."
 
 #: ../alternative-toolbar.py:255
 msgid "Seek Forward"
-msgstr "Иди Унапред"
+msgstr "ئالدىغا ئىزدەش"
 
 #: ../alternative-toolbar.py:259
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr "Иди унапред, у тренутној нумери, за 10 секунди"
+msgstr "نۆۋەتتىكى يولدا ئالدىغا 10 سېكۇنت ئىزدەش."
 
 #: ../alternative-toolbar.py:271
 msgid "Show Play-Controls Toolbar"
-msgstr "Прикажи Траку Алата Контрола-Пуштања"
+msgstr "قويۇش-كونتروللاش قورالبالدىقىنى كۆرسىتىش"
 
 #: ../alternative-toolbar.py:275
 msgid "Show or hide the play-controls toolbar"
-msgstr "Прикажи или сакриј алатну траку контрола-пуштања"
+msgstr "قويۇش-كونتروللاش قورالبالدىقىنى كۆرسىتىش ياكى يوشۇرۇش"
 
 #: ../alternative-toolbar.py:280
 msgid "Show Source Toolbar"
-msgstr "Прикажи Алатну Траку Извора"
+msgstr "مەنبە قورالبالدىقىنى كۆرسىتىش"
 
 #: ../alternative-toolbar.py:283
 msgid "Show or hide the source toolbar"
-msgstr "Прикажи или сакриј алатну траку извора"
+msgstr "مەنبە قورالبالدىقىنى كۆرسىتىش ياكى يوشۇرۇش"
 
 #. define .plugin text strings used for translation
 #: ../alternative-toolbar.py:564
 msgid "Alternative Toolbar"
-msgstr "Алтернативна Трака Алата"
+msgstr "تاللانما قورالبالداق"
 
 #: ../alternative-toolbar.py:567
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr ""
-"Замени алатну траку Ритам Машине Ukrašenom Алатном Траком Клијента или "
-"Сажетом Алатном Траком која може бити скривена"
+"Rhythmbox چوڭ قورالبالدىقىنى ئىشلەتكۈچى يان بېزەك ياكى يوشۇرغىلى بولىدىغان "
+"ئىخچام قورالبالدىقىغا ئالماشتۇرغىلى بولىدۇ."
 
 #: ../alttoolbar_controller.py:156
 msgid "View All"
-msgstr "Прикажи Све"
+msgstr "ھەممىنى كۆرۈش"
 
 #: ../alttoolbar_controller.py:324
 msgid "Import"
-msgstr "Увези"
+msgstr "كىرگۈزۈش"
 
 #: ../alttoolbar_controller.py:542
 msgid "Stations"
-msgstr "Станице"
+msgstr "بېكەتلەر"
 
 #: ../alttoolbar_controller.py:571
 msgid "Libre.fm"
-msgstr "Либре.фм"
+msgstr "Libre.fm"
 
 #: ../alttoolbar_controller.py:614
 msgid "My Top Rated"
-msgstr "Најбоље Оцењене"
+msgstr "مىنىڭ ئەڭ ئالقىشلىغىنىم"
 
 #: ../alttoolbar_controller.py:618
 msgid "Recently Added"
-msgstr "Недавно Додате"
+msgstr "يېقىندا قوشۇلغىنى"
 
 #: ../alttoolbar_controller.py:622
 msgid "Recently Played"
-msgstr "Недавно Пуштане"
+msgstr "يېقىندا قويۇلغىنى"
 
 #: ../alttoolbar_controller.py:655
 msgid "Podcasts"
-msgstr "Подемисије"
+msgstr "Podcasts"
 
 #: ../alttoolbar_preferences.py:308
 msgid "Restart"
-msgstr "Покрени Поново"
+msgstr "قايتا قوزغىتىش"
 
 #: ../alttoolbar_sidebar.py:81
 msgid "Local collection"
-msgstr "Локална Колекција"
+msgstr "يەرلىك توپلام"
 
 #: ../alttoolbar_sidebar.py:82
 msgid "Online sources"
-msgstr "Извори На Вези"
+msgstr "تور مەنبەلىرى"
 
 #: ../alttoolbar_sidebar.py:83
 msgid "Other sources"
-msgstr "Други извори"
+msgstr "باشقا مەنبەلەر"
 
 #: ../alttoolbar_sidebar.py:84
 msgid "Playlists"
-msgstr "Листе Нумера"
+msgstr "قويۇش تىزىملىكلىرى"
 
 #: ../alttoolbar_type.py:1477 ../ui/altlibrary.ui.h:1
 msgid "Songs"
-msgstr "Песме"
+msgstr "ناخشىلار"
 
 #: ../alttoolbar_type.py:1483 ../alttoolbar_type.py:1567
 #: ../ui/altpreferences.ui.h:26 ../ui/altlibrary.ui.h:2
 msgid "Categories"
-msgstr "Категорије"
+msgstr "كاتېگورىيەلەر"
 
 #: ../alttoolbar_type.py:1551
 msgid "Browse"
-msgstr "Разгледај"
+msgstr "كۆز يۈگۈرت"
 
 #: ../alttoolbar_repeat.py:96 ../alttoolbar_repeat.py:193
 msgid "Repeat all tracks"
-msgstr "Понови све нумере"
+msgstr "بارلىق ئىزلارنى تەكرارلاڭ"
 
 #: ../alttoolbar_repeat.py:98 ../alttoolbar_repeat.py:214
 #: ../ui/alttoolbar.ui.h:4
 msgid "Repeat the current track"
-msgstr "Понављај тренутну нумеру"
+msgstr "نۆۋەتتىكى يولنى تەكرارلاڭ"
 
 #: ../ui/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
-msgstr "Поново покрени програм да би измене имале ефекта."
+msgstr "ئۆزگەرتىشلەرنىڭ كۈچكە ئىگە بولۇشى ئۈچۈن قويغۇچنى قايتا قوزغىتىڭ."
 
 #: ../ui/altpreferences.ui.h:2
 msgid "Toolbar:"
-msgstr "Трака Алата:"
+msgstr "قورالبالداق:"
 
 #: ../ui/altpreferences.ui.h:3
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
 msgstr ""
-"Најпогодније за радне површине\n"
-"окружења попут Гнома или Елементари."
 
 #: ../ui/altpreferences.ui.h:5
 msgid "Modern"
-msgstr "Савремено"
+msgstr "زامانىۋى"
 
 #: ../ui/altpreferences.ui.h:6
 msgid "Use compact controls"
-msgstr "Користи сажете контроле"
+msgstr "ئىخچام كونتروللارنى ئىشلىتىڭ"
 
 #: ../ui/altpreferences.ui.h:7
 msgid ""
@@ -170,17 +168,14 @@ msgid ""
 "instead of the standard rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 msgstr ""
-"Прикажи визуелно сажет стил контрола репродукције у алатној траци уместо "
-"уобичејног стила Ритам Машине\n"
-"Увек омогућено у савременом режиму алатне траке."
 
 #: ../ui/altpreferences.ui.h:9
 msgid "Show:"
-msgstr "Прикажи:"
+msgstr "كۆرسىتىش:"
 
 #: ../ui/altpreferences.ui.h:10
 msgid "Album/genre/year for playing song"
-msgstr "Албум/жанр/година пуштене песме"
+msgstr "ناخشا ئېيتىش ئۈچۈن پىلاستىنكا / ژانىر / يىل"
 
 #: ../ui/altpreferences.ui.h:11
 msgid ""
@@ -188,52 +183,52 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
-"Прикажи албум/жанр/годину уместо песма-извођач-албум. Корисно за радна "
-"окружења где је песма-извођач-албум већ приказано у наслову прозора."
+"song-artist-albumنىڭ ئورنىغا album/genre/yearنى كۆرسىتىڭ. كۆزنەك نامىدا song-"
+"artist-album كۆرسىتىلگەن ئۈستەل يۈزى مۇھىتىغا پايدىلىق."
 
 #: ../ui/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
-msgstr "Информације о контролама репродукције"
+msgstr "قويۇشنى كونترول قىلىش قوراللىرى"
 
 #: ../ui/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
-msgstr "Прикажи или сакриј информације о контролама репродукције"
+msgstr "قويۇشنى كونترول قىلىش قوراللىرىنى كۆرسىتىش ياكى يوشۇرۇش"
 
 #: ../ui/altpreferences.ui.h:14
 msgid "Volume control"
-msgstr "Контрола јачине звука"
+msgstr "ئاۋاز تىزگىنى"
 
 #: ../ui/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
-msgstr "Прикажи или сакриј контролу јачине звука."
+msgstr "ئاۋاز تىزگىنىنى كۆرسىتىش ياكى يوشۇرۇش."
 
 #: ../ui/altpreferences.ui.h:16
 msgid "Playback controls"
-msgstr "Контроле репродукције"
+msgstr "قويۇش تىزگىنى"
 
 #: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
-msgstr "Прикажи или сакриј контроле репродукције при покретању програма."
+msgstr "قويۇش تىزگىنىنى كۆرسىتىش ياكى يوشۇرۇش."
 
 #: ../ui/altpreferences.ui.h:18
 msgid "Use:"
-msgstr "Користи:"
+msgstr "ئىشلىتىلىشى:"
 
 #: ../ui/altpreferences.ui.h:19
 msgid "Inline song/artist label"
-msgstr "Назив песма/извођач у реду"
+msgstr "ئىچكى باغلانما ناخشا/سەنئەتكار بەلگىسى"
 
 #: ../ui/altpreferences.ui.h:20
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
-"Прикажи називе Песме и Извођача испред клизача. Уколико није означено, они "
-"су приказани изнад клизача."
+"ئىلگىرىلەش سىيرىلمىسى سىيرىلىشتىن ئىلگىرى ناخشا ۋە سەنئەتكارلارنىڭ بەلگىسىنى "
+"كۆرسىتىڭ. تەكشۈرۈلمىسە ، ئىلگىرىلەش سىيرىلمىسىنىڭ ئۈستىدە كۆرسىتىلىدۇ."
 
 #: ../ui/altpreferences.ui.h:21
 msgid "Enhanced sidebar"
-msgstr "Унапређена бочна трака"
+msgstr "كۈچەيتىلگەن يان بالداق"
 
 #: ../ui/altpreferences.ui.h:22
 msgid ""
@@ -241,12 +236,13 @@ msgid ""
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
-"Прикажи или сакриј унапређену бочну траку програма. Садржи побољшане "
-"иконице, бољи распоред извора и могућност ширења и скупљања категорија."
+"قويغۇچ ئۈچۈن قايتىدىن لايىھەلەنگەن يان بالداقنى كۆرسىتىش ياكى يوشۇرۇش. "
+"ئۇنىڭدا سىمۋوللۇق سىنبەلگىلەر ياخشىلانغان ، تېخىمۇ ياخشى مەنبە تەشكىللەش ۋە "
+"تۈرلەرنى كېڭەيتىش ۋە يىمىرىلىش ئىقتىدارى بار."
 
 #: ../ui/altpreferences.ui.h:23
 msgid "Enhanced plugins dialog"
-msgstr "Унапређен дијалог прикључака"
+msgstr "كۈچەيتىلگەن قىستۇرما دىئالوگ"
 
 #: ../ui/altpreferences.ui.h:24
 msgid ""
@@ -254,43 +250,34 @@ msgid ""
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
 "based desktop environments."
 msgstr ""
-"Прикажи или сакриј унапређен дијалог прикључака. Садржи прекидаче уместо "
-"поља за означавање и редне алатне траке са иконицама. Најпогодније за Гном "
-"базирана окружења."
+"قايتا لايىھەلەنگەن قىستۇرما سۆزلىشىش رامكىسىنى كۆرسىتىش ياكى يوشۇرۇش. "
+"ئۇنىڭدا تەكشۈرۈش ساندۇقى ۋە سىمۋوللۇق سىنبەلگە بار قورال بالداقنىڭ ئورنىغا "
+"ئالماشتۇرغۇچ بار. Gnome ئاساسىدىكى ئۈستەل مۇھىتى بىلەن ئەڭ ياخشى ئىشلەيدۇ."
 
 #: ../ui/altpreferences.ui.h:25
 msgid "Dark theme if available"
-msgstr "Тамна тема ако је доступна"
+msgstr "ئەگەر بار بولسا قاراڭغۇ تېما"
 
 #: ../ui/altpreferences.ui.h:27
 msgid "Horizontal"
-msgstr "Водоравно"
+msgstr "توغرىسىغا"
 
 #: ../ui/altpreferences.ui.h:28
 msgid "Vertical"
-msgstr "Усправно"
+msgstr "بويىغا"
 
 #: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"
-msgstr "Пусти претходну нумеру"
+msgstr "ئالدىنقىسىنى قويىدۇ"
 
 #: ../ui/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr "Настави или паузирај репродукцију"
+msgstr "قويۇشنى ئەسلىگە كەلتۈرۈش ياكى توختىتىش"
 
 #: ../ui/alttoolbar.ui.h:3
 msgid "Play the next track"
-msgstr "Пусти следећу нумеру"
+msgstr "كېيىنكىسىنى قويۇش"
 
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
-msgstr "Насумично пусти нумере"
-
-#~ msgid "_Help"
-#~ msgstr "_Помоћ"
-
-#~ msgid "_About"
-#~ msgstr "_О програму"
-
-#~ msgid "_Quit"
-#~ msgstr "_Изађи"
+msgstr "ئىختىيارى تەرتىپ بويىچە قويۇش"

@@ -7,144 +7,136 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rhythmbox-plugin-alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-09-04 11:35+0100\n"
-"PO-Revision-Date: 2018-05-15 16:03+0000\n"
-"Last-Translator: Cédric VALMARY (Tot en òc) <cvalmary@yahoo.fr>\n"
+"POT-Creation-Date: 2020-03-24 07:34+0000\n"
+"PO-Revision-Date: 2020-03-30 11:03+0000\n"
+"Last-Translator: Quentin PAGÈS <Unknown>\n"
 "Language-Team: Occitan (post 1500) <oc@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-03-05 16:04+0000\n"
-"X-Generator: Launchpad (build 18888)\n"
+"X-Launchpad-Export-Date: 2020-08-26 22:12+0000\n"
+"X-Generator: Launchpad (build 99c2d833c8d727fd05148486920aca032e908071)\n"
 
-#: ../alternative-toolbar.py:221
+#: ../alternative-toolbar.py:238 ../alternative-toolbar.py:241
+msgid "Search"
+msgstr "Recercar"
+
+#: ../alternative-toolbar.py:248
 msgid "Seek Backward"
 msgstr "Recuolar"
 
-#: ../alternative-toolbar.py:224
+#: ../alternative-toolbar.py:251
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr ""
 
-#: ../alternative-toolbar.py:228
+#: ../alternative-toolbar.py:255
 msgid "Seek Forward"
 msgstr "Recercar en avant"
 
-#: ../alternative-toolbar.py:232
+#: ../alternative-toolbar.py:259
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr ""
 
-#: ../alternative-toolbar.py:244
+#: ../alternative-toolbar.py:271
 msgid "Show Play-Controls Toolbar"
 msgstr ""
 
-#: ../alternative-toolbar.py:248
+#: ../alternative-toolbar.py:275
 msgid "Show or hide the play-controls toolbar"
 msgstr ""
 
-#: ../alternative-toolbar.py:253
+#: ../alternative-toolbar.py:280
 msgid "Show Source Toolbar"
 msgstr ""
 
-#: ../alternative-toolbar.py:256
+#: ../alternative-toolbar.py:283
 msgid "Show or hide the source toolbar"
 msgstr ""
 
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:536
+#: ../alternative-toolbar.py:564
 msgid "Alternative Toolbar"
-msgstr ""
+msgstr "Barra d’aisinas alternativa"
 
-#: ../alternative-toolbar.py:539
+#: ../alternative-toolbar.py:567
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr ""
 
-#: ../alttoolbar_controller.py:157
+#: ../alttoolbar_controller.py:156
 msgid "View All"
 msgstr "Afichar tot"
 
-#: ../alttoolbar_controller.py:325
+#: ../alttoolbar_controller.py:324
 msgid "Import"
 msgstr "Importar"
 
-#: ../alttoolbar_controller.py:543
+#: ../alttoolbar_controller.py:542
 msgid "Stations"
-msgstr ""
+msgstr "Estacions"
 
-#: ../alttoolbar_controller.py:572
+#: ../alttoolbar_controller.py:571
 msgid "Libre.fm"
 msgstr "Libre.fm"
 
-#: ../alttoolbar_controller.py:615
+#: ../alttoolbar_controller.py:614
 msgid "My Top Rated"
 msgstr "Mos tròces preferits"
 
-#: ../alttoolbar_controller.py:619
+#: ../alttoolbar_controller.py:618
 msgid "Recently Added"
 msgstr "Aponduts recentament"
 
-#: ../alttoolbar_controller.py:623
+#: ../alttoolbar_controller.py:622
 msgid "Recently Played"
 msgstr "Legits recentament"
 
-#: ../alttoolbar_controller.py:656
+#: ../alttoolbar_controller.py:655
 msgid "Podcasts"
 msgstr "Podcasts"
 
-#: ../alttoolbar_preferences.py:307
+#: ../alttoolbar_preferences.py:308
 msgid "Restart"
 msgstr "Reaviar"
 
-#: ../alttoolbar_sidebar.py:82
+#: ../alttoolbar_sidebar.py:81
 msgid "Local collection"
-msgstr ""
+msgstr "Colleccion locala"
+
+#: ../alttoolbar_sidebar.py:82
+msgid "Online sources"
+msgstr "Fonts en linha"
 
 #: ../alttoolbar_sidebar.py:83
-msgid "Online sources"
-msgstr ""
+msgid "Other sources"
+msgstr "Autras fonts"
 
 #: ../alttoolbar_sidebar.py:84
-msgid "Other sources"
-msgstr ""
-
-#: ../alttoolbar_sidebar.py:85
 msgid "Playlists"
 msgstr "Listas de lectura"
 
-#: ../alttoolbar_type.py:1415 ../ui/altlibrary.ui.h:1
+#: ../alttoolbar_type.py:1477 ../ui/altlibrary.ui.h:1
 msgid "Songs"
 msgstr "Cançons"
 
-#: ../alttoolbar_type.py:1420 ../alttoolbar_type.py:1502
+#: ../alttoolbar_type.py:1483 ../alttoolbar_type.py:1567
 #: ../ui/altpreferences.ui.h:26 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "Categorias"
 
-#: ../alttoolbar_type.py:1486
+#: ../alttoolbar_type.py:1551
 msgid "Browse"
 msgstr "Recercar"
 
-#: ../alttoolbar_type.py:1564
-msgid "_Help"
-msgstr "A_juda"
-
-#: ../alttoolbar_type.py:1565
-msgid "_About"
-msgstr "A _prepaus"
-
-#: ../alttoolbar_type.py:1566
-msgid "_Quit"
-msgstr "_Quitar"
-
-#: ../alttoolbar_repeat.py:98 ../alttoolbar_repeat.py:195
+#: ../alttoolbar_repeat.py:96 ../alttoolbar_repeat.py:193
 msgid "Repeat all tracks"
-msgstr ""
+msgstr "Repetir totas las pistas"
 
-#: ../alttoolbar_repeat.py:100 ../alttoolbar_repeat.py:216
+#: ../alttoolbar_repeat.py:98 ../alttoolbar_repeat.py:214
 #: ../ui/alttoolbar.ui.h:4
 msgid "Repeat the current track"
-msgstr ""
+msgstr "Repetir la pista actuala"
 
 #: ../ui/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
@@ -152,7 +144,7 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:2
 msgid "Toolbar:"
-msgstr ""
+msgstr "Barra d’asinas :"
 
 #: ../ui/altpreferences.ui.h:3
 msgid ""
@@ -162,7 +154,7 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:5
 msgid "Modern"
-msgstr ""
+msgstr "Modèrne"
 
 #: ../ui/altpreferences.ui.h:6
 msgid "Use compact controls"
@@ -200,11 +192,11 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:14
 msgid "Volume control"
-msgstr ""
+msgstr "Preferéncias del volum"
 
 #: ../ui/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
-msgstr ""
+msgstr "Mostrar o amagar las preferéncias del volum"
 
 #: ../ui/altpreferences.ui.h:16
 msgid "Playback controls"
@@ -230,7 +222,7 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:21
 msgid "Enhanced sidebar"
-msgstr ""
+msgstr "Barra laterala optimizada"
 
 #: ../ui/altpreferences.ui.h:22
 msgid ""
@@ -252,7 +244,7 @@ msgstr ""
 
 #: ../ui/altpreferences.ui.h:25
 msgid "Dark theme if available"
-msgstr ""
+msgstr "Tèma fosc se disponible"
 
 #: ../ui/altpreferences.ui.h:27
 msgid "Horizontal"
@@ -277,3 +269,12 @@ msgstr "Passar a la lista seguenta"
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
 msgstr ""
+
+#~ msgid "_About"
+#~ msgstr "A _prepaus"
+
+#~ msgid "_Quit"
+#~ msgstr "_Quitar"
+
+#~ msgid "_Help"
+#~ msgstr "A_juda"
