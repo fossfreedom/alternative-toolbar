@@ -317,15 +317,6 @@ class AltMusicLibraryController(AltGenericController):
 
         return "LibrarySource" in type(source).__name__
 
-    def hide_controls(self, source):
-        super(AltMusicLibraryController, self).hide_controls(source)
-
-        val, import_button = self.header.has_button_with_label(source,
-                                                               _('Import'))
-
-        if val:
-            import_button.set_visible(False)
-
 
 class AltSoundCloudController(AltGenericController):
     """
