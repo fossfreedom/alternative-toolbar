@@ -1,114 +1,110 @@
 # Serbian translation for alternative-toolbar
-# Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
+# Copyright © 2016 Rosetta Contributors and Canonical Ltd 2016
 # This file is distributed under the same license as the alternative-toolbar package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-03-24 07:34+0000\n"
-"PO-Revision-Date: 2020-03-27 16:45+0000\n"
+"POT-Creation-Date: 2020-08-27 05:14+0000\n"
+"PO-Revision-Date: 2020-11-22 12:30+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
-"Language-Team: Serbian <sr@li.org>\n"
+"Language-Team: Serbian <(nothing)>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-08-26 22:12+0000\n"
-"X-Generator: Launchpad (build 99c2d833c8d727fd05148486920aca032e908071)\n"
+"X-Launchpad-Export-Date: 2021-02-26 15:28+0000\n"
+"X-Generator: Launchpad (build cd61f0bfc5208dd4b58a15e953892eaabba1e0b8)\n"
+"Language: sr\n"
 
 #: ../alternative-toolbar.py:238 ../alternative-toolbar.py:241
 msgid "Search"
-msgstr "Потражи"
+msgstr "Тражи"
 
 #: ../alternative-toolbar.py:248
 msgid "Seek Backward"
-msgstr "Иди уназад"
+msgstr "Премотај назад"
 
 #: ../alternative-toolbar.py:251
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr "Иди уназад, у тренутној нумери, за 5 секунди"
+msgstr "Премотајте уназад, у тренутној нумери, за 5 секунде."
 
 #: ../alternative-toolbar.py:255
 msgid "Seek Forward"
-msgstr "Иди Унапред"
+msgstr "Премотај напред"
 
 #: ../alternative-toolbar.py:259
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr "Иди унапред, у тренутној нумери, за 10 секунди"
+msgstr "Премотајте напред, у тренутној нумери, за 10 секунде."
 
 #: ../alternative-toolbar.py:271
 msgid "Show Play-Controls Toolbar"
-msgstr "Прикажи Траку Алата Контрола-Пуштања"
+msgstr "Прикажи траку алата управљања пуштањем"
 
 #: ../alternative-toolbar.py:275
 msgid "Show or hide the play-controls toolbar"
-msgstr "Прикажи или сакриј алатну траку контрола-пуштања"
+msgstr "Прикажите или сакријте траку алата управљања пуштањем"
 
 #: ../alternative-toolbar.py:280
 msgid "Show Source Toolbar"
-msgstr "Прикажи Алатну Траку Извора"
+msgstr "Прикажи траку алата извора"
 
 #: ../alternative-toolbar.py:283
 msgid "Show or hide the source toolbar"
-msgstr "Прикажи или сакриј алатну траку извора"
+msgstr "Прикажите или сакријте траку алата извора"
 
 #. define .plugin text strings used for translation
 #: ../alternative-toolbar.py:564
 msgid "Alternative Toolbar"
-msgstr "Алтернативна Трака Алата"
+msgstr "Заменска трака алата"
 
 #: ../alternative-toolbar.py:567
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr ""
-"Замени алатну траку Ритам Машине Ukrašenom Алатном Траком Клијента или "
-"Сажетом Алатном Траком која може бити скривена"
+"Замените велику траку алата Ритам Машине траком алата коју је украшеном од "
+"стране клијента или сажетом траком алата која може бити скривена"
 
 #: ../alttoolbar_controller.py:156
 msgid "View All"
-msgstr "Прикажи Све"
+msgstr "Прикажи све"
 
-#: ../alttoolbar_controller.py:324
-msgid "Import"
-msgstr "Увези"
-
-#: ../alttoolbar_controller.py:542
+#: ../alttoolbar_controller.py:533
 msgid "Stations"
 msgstr "Станице"
 
-#: ../alttoolbar_controller.py:571
+#: ../alttoolbar_controller.py:562
 msgid "Libre.fm"
 msgstr "Либре.фм"
 
-#: ../alttoolbar_controller.py:614
+#: ../alttoolbar_controller.py:605
 msgid "My Top Rated"
-msgstr "Најбоље Оцењене"
+msgstr "Најбоље оцењене"
 
-#: ../alttoolbar_controller.py:618
+#: ../alttoolbar_controller.py:609
 msgid "Recently Added"
-msgstr "Недавно Додате"
+msgstr "Недавно додате"
 
-#: ../alttoolbar_controller.py:622
+#: ../alttoolbar_controller.py:613
 msgid "Recently Played"
-msgstr "Недавно Пуштане"
+msgstr "Недавно пуштане"
 
-#: ../alttoolbar_controller.py:655
+#: ../alttoolbar_controller.py:646
 msgid "Podcasts"
 msgstr "Подемисије"
 
 #: ../alttoolbar_preferences.py:308
 msgid "Restart"
-msgstr "Покрени Поново"
+msgstr "Поново покрени"
 
 #: ../alttoolbar_sidebar.py:81
 msgid "Local collection"
-msgstr "Локална Колекција"
+msgstr "Месна збирка"
 
 #: ../alttoolbar_sidebar.py:82
 msgid "Online sources"
-msgstr "Извори На Вези"
+msgstr "Извори на вези"
 
 #: ../alttoolbar_sidebar.py:83
 msgid "Other sources"
@@ -116,7 +112,7 @@ msgstr "Други извори"
 
 #: ../alttoolbar_sidebar.py:84
 msgid "Playlists"
-msgstr "Листе Нумера"
+msgstr "Спискови нумера"
 
 #: ../alttoolbar_type.py:1477 ../ui/altlibrary.ui.h:1
 msgid "Songs"
@@ -142,19 +138,19 @@ msgstr "Понављај тренутну нумеру"
 
 #: ../ui/altpreferences.ui.h:1
 msgid "Restart the player for the changes to take effect."
-msgstr "Поново покрени програм да би измене имале ефекта."
+msgstr "Поново покрените програм да измене ступе у дејство."
 
 #: ../ui/altpreferences.ui.h:2
 msgid "Toolbar:"
-msgstr "Трака Алата:"
+msgstr "Трака алата:"
 
 #: ../ui/altpreferences.ui.h:3
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
 msgstr ""
-"Најпогодније за радне површине\n"
-"окружења попут Гнома или Елементари."
+"Најпогодније за окружења радне\n"
+"површи попут Гнома или Елементарија."
 
 #: ../ui/altpreferences.ui.h:5
 msgid "Modern"
@@ -170,9 +166,9 @@ msgid ""
 "instead of the standard rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 msgstr ""
-"Прикажи визуелно сажет стил контрола репродукције у алатној траци уместо "
-"уобичејног стила Ритам Машине\n"
-"Увек омогућено у савременом режиму алатне траке."
+"Прикажите дугмад за репродукцију у траци алата у визуелно сажетом стилу "
+"уместо уобичејног стила Ритам Машине\n"
+"Увек омогућено у савременом режиму траке алата."
 
 #: ../ui/altpreferences.ui.h:9
 msgid "Show:"
@@ -188,16 +184,16 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
-"Прикажи албум/жанр/годину уместо песма-извођач-албум. Корисно за радна "
-"окружења где је песма-извођач-албум већ приказано у наслову прозора."
+"Прикажите албум/жанр/годину уместо „песма-извођач-албум“. Корисно за радна "
+"окружења где је „песма-извођач-албум“ већ приказано у наслову прозора."
 
 #: ../ui/altpreferences.ui.h:12
 msgid "Tooltips for the playback controls"
-msgstr "Информације о контролама репродукције"
+msgstr "Облачићи о контролама репродукције"
 
 #: ../ui/altpreferences.ui.h:13
 msgid "Show or hide the tooltips for the playback controls."
-msgstr "Прикажи или сакриј информације о контролама репродукције"
+msgstr "Прикажите или сакријте облачиће за дугмад репродукције."
 
 #: ../ui/altpreferences.ui.h:14
 msgid "Volume control"
@@ -205,7 +201,7 @@ msgstr "Контрола јачине звука"
 
 #: ../ui/altpreferences.ui.h:15
 msgid "Show or hide the volume control."
-msgstr "Прикажи или сакриј контролу јачине звука."
+msgstr "Прикажите или сакријте контролу јачине звука."
 
 #: ../ui/altpreferences.ui.h:16
 msgid "Playback controls"
@@ -213,7 +209,7 @@ msgstr "Контроле репродукције"
 
 #: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the playing controls on player startup."
-msgstr "Прикажи или сакриј контроле репродукције при покретању програма."
+msgstr "Прикажите или сакријте контроле репродукције при покретању програма."
 
 #: ../ui/altpreferences.ui.h:18
 msgid "Use:"
@@ -228,8 +224,8 @@ msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
-"Прикажи називе Песме и Извођача испред клизача. Уколико није означено, они "
-"су приказани изнад клизача."
+"Прикажите називе песме и извођача испред клизача. Уколико није означено, "
+"приказују се изнад клизача."
 
 #: ../ui/altpreferences.ui.h:21
 msgid "Enhanced sidebar"
@@ -241,12 +237,12 @@ msgid ""
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
-"Прикажи или сакриј унапређену бочну траку програма. Садржи побољшане "
+"Прикажите или сакријте унапређену бочну траку програма. Садржи побољшане "
 "иконице, бољи распоред извора и могућност ширења и скупљања категорија."
 
 #: ../ui/altpreferences.ui.h:23
 msgid "Enhanced plugins dialog"
-msgstr "Унапређен дијалог прикључака"
+msgstr "Унапређен прозорчић прикључака"
 
 #: ../ui/altpreferences.ui.h:24
 msgid ""
@@ -254,9 +250,9 @@ msgid ""
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
 "based desktop environments."
 msgstr ""
-"Прикажи или сакриј унапређен дијалог прикључака. Садржи прекидаче уместо "
-"поља за означавање и редне алатне траке са иконицама. Најпогодније за Гном "
-"базирана окружења."
+"Прикажите или сакријте унапређено прозорче прикључака. Садржи прекидаче "
+"уместо поља за означавање и редну траку алата са симболичким иконицама. "
+"Најбоље ради са радним окружењима заснованим на Гному."
 
 #: ../ui/altpreferences.ui.h:25
 msgid "Dark theme if available"
@@ -272,25 +268,16 @@ msgstr "Усправно"
 
 #: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"
-msgstr "Пусти претходну нумеру"
+msgstr "Пустите претходну нумеру"
 
 #: ../ui/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr "Настави или паузирај репродукцију"
+msgstr "Наставите или паузирајте репродукцију"
 
 #: ../ui/alttoolbar.ui.h:3
 msgid "Play the next track"
-msgstr "Пусти следећу нумеру"
+msgstr "Пустите следећу нумеру"
 
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
-msgstr "Насумично пусти нумере"
-
-#~ msgid "_Help"
-#~ msgstr "_Помоћ"
-
-#~ msgid "_About"
-#~ msgstr "_О програму"
-
-#~ msgid "_Quit"
-#~ msgstr "_Изађи"
+msgstr "Насумично пуштајте нумере"

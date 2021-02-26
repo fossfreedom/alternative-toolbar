@@ -7,54 +7,58 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-10-29 05:12+0000\n"
-"PO-Revision-Date: 2018-04-18 16:45+0000\n"
-"Last-Translator: Josef Andersson <Unknown>\n"
+"POT-Creation-Date: 2020-08-27 05:14+0000\n"
+"PO-Revision-Date: 2021-01-09 00:06+0000\n"
+"Last-Translator: Luna Jernberg <Unknown>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-01-27 19:32+0000\n"
-"X-Generator: Launchpad (build b8d1327fd820d6bf500589d6da587d5037c7d88e)\n"
+"X-Launchpad-Export-Date: 2021-02-26 15:28+0000\n"
+"X-Generator: Launchpad (build cd61f0bfc5208dd4b58a15e953892eaabba1e0b8)\n"
 
-#: ../alternative-toolbar.py:235
+#: ../alternative-toolbar.py:238 ../alternative-toolbar.py:241
+msgid "Search"
+msgstr "Sök"
+
+#: ../alternative-toolbar.py:248
 msgid "Seek Backward"
 msgstr "Sök bakåt"
 
-#: ../alternative-toolbar.py:238
+#: ../alternative-toolbar.py:251
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr "Sök bakåt, i aktuellt spår, med 5 sekunder."
 
-#: ../alternative-toolbar.py:242
+#: ../alternative-toolbar.py:255
 msgid "Seek Forward"
 msgstr "Sök framåt"
 
-#: ../alternative-toolbar.py:246
+#: ../alternative-toolbar.py:259
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr "Sök framåt, i aktuellt spår, med 10 sekunder."
 
-#: ../alternative-toolbar.py:258
+#: ../alternative-toolbar.py:271
 msgid "Show Play-Controls Toolbar"
 msgstr "Visa uppspelningskontrollens verktygsfält"
 
-#: ../alternative-toolbar.py:262
+#: ../alternative-toolbar.py:275
 msgid "Show or hide the play-controls toolbar"
 msgstr "Visa eller dölj uppspelningskontrollens verktygsfält"
 
-#: ../alternative-toolbar.py:267
+#: ../alternative-toolbar.py:280
 msgid "Show Source Toolbar"
 msgstr "Visa källans verktygsfält"
 
-#: ../alternative-toolbar.py:270
+#: ../alternative-toolbar.py:283
 msgid "Show or hide the source toolbar"
 msgstr "Visa eller göm källans verktygsfält"
 
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:551
+#: ../alternative-toolbar.py:564
 msgid "Alternative Toolbar"
 msgstr "Alternativt verktygsfält"
 
-#: ../alternative-toolbar.py:554
+#: ../alternative-toolbar.py:567
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -66,31 +70,27 @@ msgstr ""
 msgid "View All"
 msgstr "Visa alla"
 
-#: ../alttoolbar_controller.py:324
-msgid "Import"
-msgstr "Importera"
-
-#: ../alttoolbar_controller.py:542
+#: ../alttoolbar_controller.py:533
 msgid "Stations"
 msgstr "Stationer"
 
-#: ../alttoolbar_controller.py:571
+#: ../alttoolbar_controller.py:562
 msgid "Libre.fm"
 msgstr "Libre.fm"
 
-#: ../alttoolbar_controller.py:614
+#: ../alttoolbar_controller.py:605
 msgid "My Top Rated"
 msgstr "Mina högst rankade"
 
-#: ../alttoolbar_controller.py:618
+#: ../alttoolbar_controller.py:609
 msgid "Recently Added"
 msgstr "Senast tillagda"
 
-#: ../alttoolbar_controller.py:622
+#: ../alttoolbar_controller.py:613
 msgid "Recently Played"
 msgstr "Senast spelade"
 
-#: ../alttoolbar_controller.py:655
+#: ../alttoolbar_controller.py:646
 msgid "Podcasts"
 msgstr "Poddsändningar"
 
@@ -114,16 +114,16 @@ msgstr "Andra källor"
 msgid "Playlists"
 msgstr "Spellistor"
 
-#: ../alttoolbar_type.py:1478 ../ui/altlibrary.ui.h:1
+#: ../alttoolbar_type.py:1477 ../ui/altlibrary.ui.h:1
 msgid "Songs"
 msgstr "Låtar"
 
-#: ../alttoolbar_type.py:1484 ../alttoolbar_type.py:1568
+#: ../alttoolbar_type.py:1483 ../alttoolbar_type.py:1567
 #: ../ui/altpreferences.ui.h:26 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "Kategorier"
 
-#: ../alttoolbar_type.py:1552
+#: ../alttoolbar_type.py:1551
 msgid "Browse"
 msgstr "Bläddra"
 
@@ -282,12 +282,3 @@ msgstr "Spela upp nästa spår"
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
 msgstr "Spela spår i slumpmässig ordning"
-
-#~ msgid "_About"
-#~ msgstr "_Om"
-
-#~ msgid "_Quit"
-#~ msgstr "_Avsluta"
-
-#~ msgid "_Help"
-#~ msgstr "_Hjälp"
