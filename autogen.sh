@@ -9,16 +9,20 @@ PKG_NAME="alternative-toolbar"
 prevdir="$PWD"
 cd "$srcdir"
 
+INTLTOOLIZE=`which intltoolize`
+if test -z $INTLTOOLIZE; then
+  echo "*** No intltoolize found, please install the intltool package ***"
+  exit 1
+fi
 
-intltoolize --force
 AUTORECONF=`which autoreconf`
-if test -z $AUTORECONF;
-then
+if test -z $AUTORECONF; then
   echo "*** No autoreconf found, please install it ***"
   exit 1
-else
-  autoreconf --force --install || exit $?
 fi
+
+intltoolize --force
+autoreconf --force --install || exit $?
 
 cd "$prevdir"
 test -n "$NOCONFIGURE" || "$srcdir/configure" "$@"

@@ -3,8 +3,6 @@
 	$(MKDIR_P) "$(dir $@)"; \
 	$(INTLTOOL_MERGE) $(top_srcdir)/po $< $@ -d -u -c $(top_builddir)/po/.intltool-merge-cache
 
-rb_plugin_libdir = $(libdir)/rhythmbox/plugins/alternative-toolbar
-
 SUBDIRS = po
 
 CLEANFILES = \
@@ -18,7 +16,7 @@ CLEANFILES = \
 	./m4/intltool.m4
 
 DISTCLEANFILES = \
-    ChangeLog \
+	ChangeLog \
 	alternative-toolbar.plugin \
 	./po/.intltool-merge-cache \
 	./po/Makefile \
@@ -68,6 +66,7 @@ EXTRA_DIST = \
 	LICENSE \
 	$(METAINFO_FILES)
 
+rb_plugin_libdir = $(libdir)/rhythmbox/plugins/alternative-toolbar
 rb_plugin_lib_DATA = \
 	$(PLUGIN_FILES) \
 	alternative-toolbar.plugin
@@ -80,14 +79,18 @@ rb_plugin_uidir = $(datadir)/rhythmbox/plugins/alternative-toolbar/ui
 rb_plugin_ui_DATA = \
 	$(UI_FILES)
 
-gsettings_SCHEMAS = \
-	schema/org.gnome.rhythmbox.plugins.alternative_toolbar.gschema.xml
-	
 rb_plugin_metainfodir = $(datadir)/metainfo
 rb_plugin_metainfo_DATA = \
 	$(METAINFO_FILES)
 
+gsettings_SCHEMAS = \
+	schema/org.gnome.rhythmbox.plugins.alternative_toolbar.gschema.xml
+
 @GSETTINGS_RULES@
+
+uninstall-hook:
+	-rmdir -p --ignore-fail-on-non-empty $(am__installdirs) $(gsettingsschemadir)
+	-find $(localedir) -type d -empty -delete
 
 CHANGELOG_START = v0.14.0
 
