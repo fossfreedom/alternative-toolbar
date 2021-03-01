@@ -141,6 +141,18 @@ version of the plugin, remove it:
 rm -rf ~/.local/share/rhythmbox/plugins/alternative-toolbar
 ```
 
+### Install in the home directory from Git
+
+```bash
+cd ~/Downloads
+sudo apt-get install intltool git gir1.2-glib-2.0 gir1.2-gstreamer-1.0 gir1.2-gtk-3.0 gir1.2-peas-1.0 gir1.2-rb-3.0 gnome-pkg-tools gobject-introspection libglib2.0-dev pkg-config python3-gi python3
+git clone https://github.com/fossfreedom/alternative-toolbar.git
+cd alternative-toolbar
+./autogen.sh --with-home-install
+make
+make install
+```
+
 ### Ubuntu PPA - latest stable release
 
 If you are using Ubuntu you can install alternative-toolbar via a

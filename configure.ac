@@ -1,7 +1,12 @@
-AC_INIT([alternative-toolbar], 0.19.3, [fossfreedom@ubuntu.com],
-[alternative-toolbar], [https://github.com/fossfreedom/alternative-toolbar])
+AC_INIT([Alternative Toolbar],
+        [0.19.3],
+        [fossfreedom@ubuntu.com],
+        [alternative-toolbar],
+        [https://github.com/fossfreedom/alternative-toolbar])
+AC_CONFIG_SRCDIR([alternative-toolbar.plugin.in])
 AM_INIT_AUTOMAKE([-Wno-portability no-dist-gzip dist-xz foreign subdir-objects])
-AC_PREFIX_DEFAULT(/usr/local)
+AC_PREFIX_DEFAULT(/usr)
+AC_PREFIX_PROGRAM(rhythmbox)
 AM_SILENT_RULES([yes])
 AC_CONFIG_MACRO_DIR([m4])
 
@@ -17,6 +22,15 @@ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE",
                    [The prefix for gettext translation domains.])
 
 AM_GLIB_GNU_GETTEXT
+
+AC_ARG_WITH(home-install,
+            AC_HELP_STRING([--with-home-install],
+                           [Install alternative-toolbar in the home directory (~/.local/share/rhythmbox/plugins)]))
+if test "x$with_home_install" = "xyes"; then
+       prefix=~/.local/share
+       libdir=${prefix}
+       datarootdir=${prefix}
+fi
 
 # Pythonic checks
 AM_PATH_PYTHON([3.2])
