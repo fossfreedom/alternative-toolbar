@@ -1267,8 +1267,6 @@ class AltToolbarCompact(AltToolbarShared):
     def initialise(self, plugin):
         super(AltToolbarCompact, self).initialise(plugin)
 
-        self._setup_compactbar()
-
         if self.shell.props.application.get_menubar() == None:
             builder = Gtk.Builder()
             ui = rb.find_plugin_file(self.plugin, 'ui/altmenubar.ui')
@@ -1280,6 +1278,8 @@ class AltToolbarCompact(AltToolbarShared):
             self.shell.props.application.set_menubar(menubar)
 
             self.load_builder_content(builder)
+
+        self._setup_compactbar()
 
     def on_startup(self, *args):
         super(AltToolbarCompact, self).on_startup(*args)
