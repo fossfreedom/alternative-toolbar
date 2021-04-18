@@ -1342,7 +1342,7 @@ class AltToolbarCompact(AltToolbarShared):
             self.end_box.add(menu_button)
 
         if not self.plugin.start_hidden:
-            if self.plugin.compact_toolbar_pos == 'TOP':
+            if self.plugin.compact_toolbar_pos == 0:
                 self.shell.add_widget(self.small_bar,
                                     RB.ShellUILocation.MAIN_TOP, expand=False,
                                     fill=False)

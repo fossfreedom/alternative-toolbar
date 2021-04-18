@@ -245,7 +245,7 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
 
         self._compact_pos = builder.get_object('compact_pos_combobox')
         self.plugin_settings.bind(self.gs.PluginKey.COMPACT_POS,
-                                  self._compact_pos, 'text',
+                                  self._compact_pos, 'active',
                                   Gio.SettingsBindFlags.DEFAULT)
 
         self._playing_label = builder.get_object('playing_label_checkbox')
@@ -362,6 +362,7 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
     def _modern_switch_state(self, switch, param):
         state = switch.get_active()
         self._show_compact.set_sensitive(not state)
+        self._compact_pos.set_sensitive(not state)
 
         if state:
             self._show_compact.set_active(True)

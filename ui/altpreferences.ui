@@ -172,7 +172,7 @@ Always enabled for modern toolbar mode.</property>
               </packing>
             </child>
             <child>
-              <object class="GtkComboBox">
+              <object class="GtkComboBox" id="compact_pos_combobox">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="model">liststore1</property>
@@ -182,7 +182,7 @@ Always enabled for modern toolbar mode.</property>
                 <property name="id-column">0</property>
                 <property name="active-id">0</property>
                 <child internal-child="entry">
-                  <object class="GtkEntry" id="compact_pos_combobox">
+                  <object class="GtkEntry">
                     <property name="can-focus">False</property>
                     <property name="text" translatable="yes">TOP</property>
                   </object>
