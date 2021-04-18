@@ -1170,6 +1170,31 @@ class AltToolbarShared(AltToolbarBase):
         self.small_bar.show_all()
         self.inline_box.set_visible(False)
 
+    def show_small_bar_bottom(self):
+        """
+          setup the play controls at the bottom part of the application
+        """
+
+        box = self.find(self.shell.props.window,
+                        'GtkBox', 'by_name')
+        frame_box = Gtk.Box()
+        frame_box.set_orientation(Gtk.Orientation.VERTICAL)
+        self.small_frame = Gtk.Frame()
+        self.small_frame.set_shadow_type(Gtk.ShadowType.ETCHED_IN)
+        frame_box.pack_start(self.small_frame, False, True, 0)
+        frame_box.pack_start(self.small_bar, False, True, 1)
+        box.pack_start(frame_box, False, True, 0)
+        box.reorder_child(frame_box, 3)
+
+        frame_box.show_all()
+        self.show_small_bar()
+
+        # hide status bar
+        action = self.plugin.appshell.lookup_action('', 'statusbar-visible',
+                                                    'win')
+        if action:
+            action.set_active(True)
+
     def request_rtl_icon(self, control, icon_name):
         rtl_name = {}
         rtl_name["media-playback-start-symbolic"] = \
@@ -1317,10 +1342,13 @@ class AltToolbarCompact(AltToolbarShared):
             self.end_box.add(menu_button)
 
         if not self.plugin.start_hidden:
-            self.shell.add_widget(self.small_bar,
-                                  RB.ShellUILocation.MAIN_TOP, expand=False,
-                                  fill=False)
-            self.show_small_bar()
+            if self.plugin.compact_toolbar_pos == 'TOP':
+                self.shell.add_widget(self.small_bar,
+                                    RB.ShellUILocation.MAIN_TOP, expand=False,
+                                    fill=False)
+                self.show_small_bar()
+            else:
+                self.show_small_bar_bottom()
             action.set_active(True)
             print("not hidden but compact")
         else:
@@ -1332,18 +1360,7 @@ class AltToolbarCompact(AltToolbarShared):
         return self.end_box
 
     def set_visible(self, visible):
-        if visible:
-            print("show_compact")
-            self.shell.add_widget(self.small_bar,
-                                  RB.ShellUILocation.MAIN_TOP, expand=False,
-                                  fill=False)
-            self.show_small_bar()
-            self.volume_button.set_visible(self.plugin.volume_control)
-        else:
-            print("hide compact")
-            self.shell.remove_widget(self.small_bar,
-                                     RB.ShellUILocation.MAIN_TOP)
-
+        self.small_bar.set_visible(visible)
 
 class AltToolbarHeaderBar(AltToolbarShared):
     """
@@ -1401,7 +1418,7 @@ class AltToolbarHeaderBar(AltToolbarShared):
 
         self.main_window = self.shell.props.window
 
-        self._setup_playbar()
+        self.show_small_bar_bottom()
         self._setup_headerbar()
 
         # hook the key-press for the application window
@@ -1429,31 +1446,6 @@ class AltToolbarHeaderBar(AltToolbarShared):
         self._set_toolbar_controller()
 
         self.setup_completed = True
-
-    def _setup_playbar(self):
-        """
-          setup the play controls at the bottom part of the application
-        """
-
-        box = self.find(self.shell.props.window,
-                        'GtkBox', 'by_name')
-        frame_box = Gtk.Box()
-        frame_box.set_orientation(Gtk.Orientation.VERTICAL)
-        self.small_frame = Gtk.Frame()
-        self.small_frame.set_shadow_type(Gtk.ShadowType.ETCHED_IN)
-        frame_box.pack_start(self.small_frame, False, True, 0)
-        frame_box.pack_start(self.small_bar, False, True, 1)
-        box.pack_start(frame_box, False, True, 0)
-        box.reorder_child(frame_box, 3)
-
-        frame_box.show_all()
-        self.show_small_bar()
-
-        # hide status bar
-        action = self.plugin.appshell.lookup_action('', 'statusbar-visible',
-                                                    'win')
-        if action:
-            action.set_active(True)
 
     def search_button_toggled(self, search_button):
         def delay_hide(*args):

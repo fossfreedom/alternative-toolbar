@@ -17,6 +17,11 @@
             <summary>Show compact toolbar</summary>
             <description>Show compact toolbar</description>
         </key>
+        <key type="s" name="compact-pos">
+            <default>'TOP'</default>
+            <summary>Compact toolbar position</summary>
+            <description>Compact toolbar TOP or BOTTOM</description>
+        </key>
         <key type="b" name="playing-label">
             <default>false</default>
             <summary>Show album/genre/year for playing label</summary>

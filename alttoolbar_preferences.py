@@ -59,6 +59,7 @@ class GSetting:
                 DISPLAY_TYPE='display-type',
                 START_HIDDEN='start-hidden',
                 SHOW_COMPACT='show-compact',
+                COMPACT_POS='compact-pos',
                 PLAYING_LABEL='playing-label',
                 VOLUME_CONTROL='volume-control',
                 INLINE_LABEL='inline-label',
@@ -241,6 +242,11 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
 
         self._show_compact.connect('toggled',
                                    self._show_compact_checkbox_toggled)
+
+        self._compact_pos = builder.get_object('compact_pos_combobox')
+        self.plugin_settings.bind(self.gs.PluginKey.COMPACT_POS,
+                                  self._compact_pos, 'text',
+                                  Gio.SettingsBindFlags.DEFAULT)
 
         self._playing_label = builder.get_object('playing_label_checkbox')
         self.plugin_settings.bind(self.gs.PluginKey.PLAYING_LABEL,

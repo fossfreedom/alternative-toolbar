@@ -133,6 +133,8 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.gs.PluginKey.VOLUME_CONTROL]
         self.show_compact_toolbar = self.plugin_settings[
             self.gs.PluginKey.SHOW_COMPACT]
+        self.compact_toolbar_pos = self.plugin_settings[
+            self.gs.PluginKey.COMPACT_POS]
         self.start_hidden = self.plugin_settings[
             self.gs.PluginKey.START_HIDDEN]
         self.inline_label = self.plugin_settings[
