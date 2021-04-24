@@ -1,0 +1,299 @@
+# Burmese translation for rhythmbox-plugin-alternative-toolbar
+# Copyright (c) 2021 Rosetta Contributors and Canonical Ltd 2021
+# This file is distributed under the same license as the rhythmbox-plugin-alternative-toolbar package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: rhythmbox-plugin-alternative-toolbar\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2018-09-04 11:35+0100\n"
+"PO-Revision-Date: 2021-03-31 13:05+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Burmese <my@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2021-04-24 09:36+0000\n"
+"X-Generator: Launchpad (build f9f562f07f129de414c16be22a405ff0964e0018)\n"
+
+#: ../alternative-toolbar.py:248
+msgid "Seek Backward"
+msgstr "နောက်ကိုပြန်ဆုတ်မည်"
+
+#: ../alternative-toolbar.py:251
+msgid "Seek backward, in current track, by 5 seconds."
+msgstr "နောက်ကိုပြန်ဆုတ်မည် ၅ စက္ကန့်ဖြင့်ရှာမည်"
+
+#: ../alternative-toolbar.py:255
+msgid "Seek Forward"
+msgstr "အရှေ့တိုးရှာမည်"
+
+#: ../alternative-toolbar.py:259
+msgid "Seek forward, in current track, by 10 seconds."
+msgstr "အရှေ့ကိုဆက်ရှာမည် ၁၀ စက္ကန့် တိုးတိုးပြီး"
+
+#: ../alternative-toolbar.py:271
+msgid "Show Play-Controls Toolbar"
+msgstr "Play-Controls Toolbar ကိုပြပါ"
+
+#: ../alternative-toolbar.py:275
+msgid "Show or hide the play-controls toolbar"
+msgstr "play-controls toolbar ကိုပြသသို့မဟုတ်ဖုံးကွယ်ပါ"
+
+#: ../alternative-toolbar.py:280
+msgid "Show Source Toolbar"
+msgstr "Source Toolbar ကိုပြပါ"
+
+#: ../alternative-toolbar.py:283
+msgid "Show or hide the source toolbar"
+msgstr "အရင်းအမြစ် toolbar ကိုပြသသို့မဟုတ်ဖုံးကွယ်"
+
+#. define .plugin text strings used for translation
+#: ../alternative-toolbar.py:564
+msgid "Alternative Toolbar"
+msgstr "တခြား Toolbar"
+
+#: ../alternative-toolbar.py:567
+msgid ""
+"Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
+"Toolbar which can be hidden"
+msgstr ""
+"ဝှက်ထားနိုင်သော Client-Side Decorated (သို့) Compact Toolbar ဖြင့် Rhythmbox "
+"toolbar ကိုအစားထိုးပါ"
+
+#: ../alttoolbar_controller.py:156
+msgid "View All"
+msgstr "အားလုံးကြည့်မည်"
+
+#: ../alttoolbar_controller.py:324
+msgid "Import"
+msgstr ""
+
+#: ../alttoolbar_controller.py:533
+msgid "Stations"
+msgstr "နေရာများ"
+
+#: ../alttoolbar_controller.py:562
+msgid "Libre.fm"
+msgstr "Libre.fm"
+
+#: ../alttoolbar_controller.py:605
+msgid "My Top Rated"
+msgstr "ကျွနိုပ်အကြိုက်ဆုံး"
+
+#: ../alttoolbar_controller.py:609
+msgid "Recently Added"
+msgstr "မကြာခင်က ပေါင်းထည့်ထားသော"
+
+#: ../alttoolbar_controller.py:613
+msgid "Recently Played"
+msgstr "မကြာခင်က ဖွင့်ခဲ့သော"
+
+#: ../alttoolbar_controller.py:646
+msgid "Podcasts"
+msgstr "Podcasts"
+
+#: ../alttoolbar_preferences.py:308
+msgid "Restart"
+msgstr "အစမှ ပြန်ဖွင့်မည်"
+
+#: ../alttoolbar_sidebar.py:81
+msgid "Local collection"
+msgstr "စက်ထဲသိမ်းဆည်းထားမှု"
+
+#: ../alttoolbar_sidebar.py:82
+msgid "Online sources"
+msgstr "အွန်လိုင်းရင်းမြစ်"
+
+#: ../alttoolbar_sidebar.py:83
+msgid "Other sources"
+msgstr "တခြားရင်းမြစ်"
+
+#: ../alttoolbar_sidebar.py:84
+msgid "Playlists"
+msgstr "ဖွင့်ရန်စာရင်းများ"
+
+#: ../alttoolbar_type.py:1477 ../ui/altlibrary.ui.h:1
+msgid "Songs"
+msgstr "သီချင်းများ"
+
+#: ../alttoolbar_type.py:1483 ../alttoolbar_type.py:1567
+#: ../ui/altpreferences.ui.h:26 ../ui/altlibrary.ui.h:2
+msgid "Categories"
+msgstr "ခေါင်းစဉ်များ"
+
+#: ../alttoolbar_type.py:1551
+msgid "Browse"
+msgstr "ရှာဖွေမည်။"
+
+#: ../alttoolbar_type.py:1564
+msgid "_Help"
+msgstr ""
+
+#: ../alttoolbar_type.py:1565
+msgid "_About"
+msgstr ""
+
+#: ../alttoolbar_type.py:1566
+msgid "_Quit"
+msgstr ""
+
+#: ../alttoolbar_repeat.py:96 ../alttoolbar_repeat.py:193
+msgid "Repeat all tracks"
+msgstr "အပုဒ်အားလုံးကိုပြန်ဖွင့်မည်"
+
+#: ../alttoolbar_repeat.py:98 ../alttoolbar_repeat.py:214
+#: ../ui/alttoolbar.ui.h:4
+msgid "Repeat the current track"
+msgstr "ယခုအပုဒ်ကိုပြန်ဖွင့်မည်"
+
+#: ../ui/altpreferences.ui.h:1
+msgid "Restart the player for the changes to take effect."
+msgstr "ပြောင်းလဲထားသည်များ အသက်၀င်ရန် Player ကိုအစကနေပြန်စပါ"
+
+#: ../ui/altpreferences.ui.h:2
+msgid "Toolbar:"
+msgstr "Toolbar:"
+
+#: ../ui/altpreferences.ui.h:3
+msgid ""
+"Best suitable for desktop\n"
+"environments like Gnome and Elementary."
+msgstr ""
+"Gnome နှင့်Elementary ကဲ့သို့သော \n"
+"အသင့်တော်ဆုံးသော Desktop"
+
+#: ../ui/altpreferences.ui.h:5
+msgid "Modern"
+msgstr "ခေတ်မှီသော"
+
+#: ../ui/altpreferences.ui.h:6
+msgid "Use compact controls"
+msgstr "ကျစ်လစ်သိပ်သည်းသောထိန်းချုပ်မှုများကိုသုံးပါ"
+
+#: ../ui/altpreferences.ui.h:7
+msgid ""
+"Display the playback controls in the toolbar in visually compact style "
+"instead of the standard rhythmbox style.\n"
+"Always enabled for modern toolbar mode."
+msgstr ""
+"စံ rhythmbox ပုံစံအစားအစားကိရိယာထိန်းချုပ်မှုကို toolbar "
+"တွင်အမြင်အာရုံကျစ်လစ်သိပ်သည်းစွာပြပါ။ ခေတ်သစ် toolbar mode အတွက်အမြဲတမ်း "
+"enable လုပ်ထားတယ်။"
+
+#: ../ui/altpreferences.ui.h:9
+msgid "Show:"
+msgstr "ပြရန် -"
+
+#: ../ui/altpreferences.ui.h:10
+msgid "Album/genre/year for playing song"
+msgstr "သီချင်းဖွင့်ရန် Album / အမျိုးအစား / နှစ်"
+
+#: ../ui/altpreferences.ui.h:11
+msgid ""
+"Display album/genre/year instead of song-artist-album.  Useful for those "
+"desktop-environments where song-artist-album is already displayed in the "
+"window title."
+msgstr ""
+"Album / အမျိုးအစား / နှစ် ကို သီချင်း-အဆိုတော်-အယ်ဘမ် ဖြင့်အစားထိုးပြသမည်၊ "
+"သီချင်း-အဆိုတော်-အယ်ဘမ် ကို Window ခေါင်းစဥ်နေရာမှာ\r\n"
+"ပြထားသည့်နေရာများအတွက် Desktop-environment အတွက်အသုံး၀င်သည်"
+
+#: ../ui/altpreferences.ui.h:12
+msgid "Tooltips for the playback controls"
+msgstr "ပြန်ဖွင့်ထိန်းချုပ်မှုအတွက် Tooltips"
+
+#: ../ui/altpreferences.ui.h:13
+msgid "Show or hide the tooltips for the playback controls."
+msgstr "ပြန်ဖွင့်ထိန်းချုပ်မှုအတွက် Tooltip များကိုပြပါသို့မဟုတ်ဖုံးကွယ်ပါ။"
+
+#: ../ui/altpreferences.ui.h:14
+msgid "Volume control"
+msgstr "အသံအတိုးအကျယ်ထိန်းချုပ်ခြင်း"
+
+#: ../ui/altpreferences.ui.h:15
+msgid "Show or hide the volume control."
+msgstr "အသံအတိုးအကျယ်ထိန်းချုပ်မှုကိုပြပါသို့မဟုတ်ဖုံးကွယ်ပါ။"
+
+#: ../ui/altpreferences.ui.h:16
+msgid "Playback controls"
+msgstr "ပြန်ဖွင့်ထိန်းချုပ်မှု"
+
+#: ../ui/altpreferences.ui.h:17
+msgid "Show or hide the playing controls on player startup."
+msgstr "Player အစတွင် ဖွင့်သည့် ခလုတ်များကိုပြသို့မဟုတ်ဖုံးကွယ်ပါ။"
+
+#: ../ui/altpreferences.ui.h:18
+msgid "Use:"
+msgstr "အသုံးပြုသည် -"
+
+#: ../ui/altpreferences.ui.h:19
+msgid "Inline song/artist label"
+msgstr "Inline သီချင်း / အဆိုတော် label"
+
+#: ../ui/altpreferences.ui.h:20
+msgid ""
+"Display Song and Artist labels before the progress slider.  If not checked, "
+"they are displayed above the progress slider."
+msgstr ""
+"Progress Slider မတိုင်ခင် သီချင်းနှင့် အဆိုတော် label ကိုပြသမည်၊ မဟုတ်ပါက "
+"အဆင့်ပြ Slider အထက်တွင်ပြသမည်"
+
+#: ../ui/altpreferences.ui.h:21
+msgid "Enhanced sidebar"
+msgstr "ဘေးဘားကိုပြင်ဆင်မည်"
+
+#: ../ui/altpreferences.ui.h:22
+msgid ""
+"Show or hide redesigned sidebar for the player. It features improved "
+"symbolic icons, better sources organisation and ability to expand and "
+"collapse categories."
+msgstr ""
+"Player အတွက်ပြန်လည်ပုံစံချထားသည့်ဘေးဘားကိုပြပါသို့မဟုတ်ဖျောက်ပါ။ "
+"၎င်းတွင်ပိုမိုကောင်းမွန်သောသင်္ကေတသင်္ကေတများ၊ "
+"ပိုမိုကောင်းမွန်သောရင်းမြစ်များဖွဲ့စည်းခြင်းနှင့်အမျိုးအစားများကိုချဲ့ထွင်နို"
+"င်ခြင်းတို့ပါဝင်သည်။"
+
+#: ../ui/altpreferences.ui.h:23
+msgid "Enhanced plugins dialog"
+msgstr "ပိုမိုကောင်းမွန်သော plugins များပေးသည့် dialog"
+
+#: ../ui/altpreferences.ui.h:24
+msgid ""
+"Show or hide redesigned plugins dialog. It features switches instead of "
+"checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
+"based desktop environments."
+msgstr ""
+"ဒီဇိုင်းပြန်လည်ပြုပြင်ထားသောပလပ်အင်များပြသမှုကိုပြပါသို့မဟုတ်ဖျောက်ပါ။ သူက "
+"checkboxes အစား symbols icon များပါ ၀ င်တဲ့ inline toolbar "
+"ကိုအစားထိုးတပ်ဆင်ထားသည်။ Gnome အခြေပြု desktop environment "
+"များနှင့်အကောင်းဆုံးအလုပ်လုပ်သည်။"
+
+#: ../ui/altpreferences.ui.h:25
+msgid "Dark theme if available"
+msgstr "ရရှိနိုင်ပါလျှင်အမှောင် theme"
+
+#: ../ui/altpreferences.ui.h:27
+msgid "Horizontal"
+msgstr "အလျားလိုက်"
+
+#: ../ui/altpreferences.ui.h:28
+msgid "Vertical"
+msgstr "ဒေါင်လိုက်"
+
+#: ../ui/alttoolbar.ui.h:1
+msgid "Play the previous track"
+msgstr "ယခင်အပုဒ်ကိုဖွင့်မည်"
+
+#: ../ui/alttoolbar.ui.h:2
+msgid "Resume or pause the playback"
+msgstr "သီချင်းကို ပြန်ဖွင့်မည် သို့မဟုတ် ရပ်မည်"
+
+#: ../ui/alttoolbar.ui.h:3
+msgid "Play the next track"
+msgstr "နောက်တစ်ပုဒ်ဖွင့်မည်"
+
+#: ../ui/alttoolbar.ui.h:5
+msgid "Play the tracks in random order"
+msgstr "သီချင်းများကိုကျပန်းအစီအစဉ်ဖြင့်ဖွင့်မည်"
