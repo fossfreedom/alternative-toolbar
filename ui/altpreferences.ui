@@ -16,6 +16,20 @@
       </row>
     </data>
   </object>
+  <object class="GtkListStore" id="liststore2">
+    <columns>
+      <!-- column-name gchararray1 -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Horizontal</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Vertical</col>
+      </row>
+    </data>
+  </object>
   <object class="GtkBox" id="preferences_box">
     <property name="visible">True</property>
     <property name="can-focus">False</property>
@@ -400,36 +414,26 @@ Always enabled for modern toolbar mode.</property>
                 <property name="can-focus">False</property>
                 <property name="homogeneous">True</property>
                 <child>
-                  <object class="GtkRadioButton" id="hcategory_radiobutton">
-                    <property name="label" translatable="yes">Horizontal</property>
+                  <object class="GtkComboBox" id="category_combobox">
                     <property name="visible">True</property>
-                    <property name="can-focus">True</property>
-                    <property name="receives-default">False</property>
-                    <property name="xalign">0.5</property>
-                    <property name="active">True</property>
-                    <property name="draw-indicator">False</property>
+                    <property name="can-focus">False</property>
+                    <property name="model">liststore2</property>
+                    <property name="active">0</property>
+                    <property name="has-entry">True</property>
+                    <property name="entry-text-column">0</property>
+                    <property name="id-column">0</property>
+                    <property name="active-id">0</property>
+                    <child internal-child="entry">
+                      <object class="GtkEntry">
+                        <property name="can-focus">True</property>
+                        <property name="text" translatable="yes">Horizontal</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
                     <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkRadioButton" id="vcategory_radiobutton">
-                    <property name="label" translatable="yes">Vertical</property>
-                    <property name="visible">True</property>
-                    <property name="can-focus">True</property>
-                    <property name="receives-default">False</property>
-                    <property name="xalign">0</property>
-                    <property name="active">True</property>
-                    <property name="draw-indicator">False</property>
-                    <property name="group">hcategory_radiobutton</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
                   </packing>
                 </child>
               </object>

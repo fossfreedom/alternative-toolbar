@@ -315,34 +315,14 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         # restart_button = builder.get_object('restart_button')
         button.connect('clicked', self._restart_button_clicked)
 
-        self._hcategory_radiobutton = builder.get_object(
-            'hcategory_radiobutton')
-        self._vcategory_radiobutton = builder.get_object(
-            'vcategory_radiobutton')
-
-        category = self.plugin_settings[self.gs.PluginKey.HORIZ_CATEGORIES]
-        if category:
-            self._vcategory_radiobutton.set_active(True)
-        else:
-            self._hcategory_radiobutton.set_active(True)
-
-        self._hcategory_radiobutton.connect('toggled',
-                                            self._category_radiobutton)
-        self._vcategory_radiobutton.connect('toggled',
-                                            self._category_radiobutton)
+        self._category_pos = builder.get_object('category_combobox')
+        self.plugin_settings.bind(self.gs.PluginKey.HORIZ_CATEGORIES,
+                                  self._category_pos, 'active',
+                                  Gio.SettingsBindFlags.DEFAULT)
 
         self._first_run = False
 
         return builder.get_object('preferences_box')
-
-    def _category_radiobutton(self, button):
-        if button.get_active():
-            if button == self._hcategory_radiobutton:
-                value = False
-            else:
-                value = True
-
-            self.plugin_settings[self.gs.PluginKey.HORIZ_CATEGORIES] = value
 
     def _restart_button_clicked(self, *args):
         exepath = shutil.which('rhythmbox')
