@@ -9,10 +9,10 @@
     </columns>
     <data>
       <row>
-        <col id="0" translatable="yes">TOP</col>
+        <col id="0" translatable="yes">Top</col>
       </row>
       <row>
-        <col id="0" translatable="yes">BOTTOM</col>
+        <col id="0" translatable="yes">Bottom</col>
       </row>
     </data>
   </object>
@@ -198,7 +198,7 @@ Always enabled for modern toolbar mode.</property>
                 <child internal-child="entry">
                   <object class="GtkEntry">
                     <property name="can-focus">False</property>
-                    <property name="text" translatable="yes">TOP</property>
+                    <property name="text" translatable="yes">Top</property>
                   </object>
                 </child>
               </object>
