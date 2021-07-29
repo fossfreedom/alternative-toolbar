@@ -1,3 +1,16 @@
+rhythmbox-plugin-alternative-toolbar (0.20.0-0ubuntu1) impish; urgency=medium
+
+  * New upstream version
+    - See ChangeLog
+  * Packaging Changes
+    - drop all patches
+    - d/c bump StandardsVersion
+    - d/upstream use my debian maintainer signing key
+    - d/c update debhelper version
+    - d/copyright bump copyright year
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Thu, 29 Jul 2021 19:55:40 +0100
+
 rhythmbox-plugin-alternative-toolbar (0.19.3-2) unstable; urgency=medium
 
   * Bug-fix release

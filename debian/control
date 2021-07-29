@@ -2,8 +2,8 @@ Source: rhythmbox-plugin-alternative-toolbar
 Section: misc
 Priority: optional
 Maintainer: David Mohammed <fossfreedom@ubuntu.com>
-Build-Depends: debhelper (>= 12),
-               debhelper-compat (= 12),
+Build-Depends: debhelper (>= 13),
+               debhelper-compat (= 13),
                dh-python (>= 1.20141111-2),
                gir1.2-glib-2.0 (>= 1.40),
                gir1.2-gstreamer-1.0,
@@ -17,7 +17,7 @@ Build-Depends: debhelper (>= 12),
                pkg-config (>= 0.28-1+b1),
                python3-gi,
                python3
-Standards-Version: 4.5.0
+Standards-Version: 4.5.1
 Homepage: https://github.com/fossfreedom/alternative-toolbar
 Vcs-Browser: https://github.com/fossfreedom/alternative-toolbar/tree/debian
 Vcs-Git: https://github.com/fossfreedom/alternative-toolbar -b debian
