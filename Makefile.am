@@ -8,6 +8,7 @@ SUBDIRS = po
 CLEANFILES = \
 	alternative-toolbar.plugin \
 	./po/.intltool-merge-cache \
+	./po/.intltool-merge-cache.lock \
 	./po/Makefile \
 	./po/POTFILES \
 	./po/Makefile.in \
@@ -19,6 +20,7 @@ DISTCLEANFILES = \
 	ChangeLog \
 	alternative-toolbar.plugin \
 	./po/.intltool-merge-cache \
+	./po/.intltool-merge-cache.lock \
 	./po/Makefile \
 	./po/POTFILES \
 	./po/Makefile.in \
