@@ -1,3 +1,206 @@
+commit 3e712becfbed35bd75e39896447c8dd041d9609e
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Thu Jul 29 19:39:46 2021 +0100
+
+    Remove lock file
+
+ Makefile.am | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 01606f68928ff9170fd2fe5652bd692b1977f65b
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Thu Jul 29 19:32:29 2021 +0100
+
+    Bump version to 0.20.0
+
+ README.md                     | 2 +-
+ alternative-toolbar.plugin.in | 4 ++--
+ configure.ac                  | 2 +-
+ 3 files changed, 4 insertions(+), 4 deletions(-)
+
+commit e6b1452e8362214178f0daa3b84770247f628464
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Thu Jul 29 19:17:18 2021 +0100
+
+    Latest ast.po
+
+ po/ast.po | 37 ++++++++++++++++++++-----------------
+ 1 file changed, 20 insertions(+), 17 deletions(-)
+
+commit e712804c39115205f11185697f487a20afc384cb
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sat Apr 24 10:41:51 2021 +0100
+
+    Latest oc translation from launchpad
+
+ po/oc.po | 45 ++++++++++++++++-----------------------------
+ 1 file changed, 16 insertions(+), 29 deletions(-)
+
+commit cf180131e8032f28704970b0f13e77e4765f44a7
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sat Apr 24 10:38:05 2021 +0100
+
+    Add burmese translation from launchpad
+
+ po/LINGUAS |   1 +
+ po/my.po   | 299 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 300 insertions(+)
+
+commit c75425ab8cb83f3526d9ae9fc302fcabcf7b24ab
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sat Apr 24 10:34:19 2021 +0100
+
+    Regen pot
+
+ po/alternative-toolbar.pot | 150 +++++++++++++++++++++++----------------------
+ 1 file changed, 77 insertions(+), 73 deletions(-)
+
+commit ab1f75ec01789ec7bf95fad6e289123b780277dc
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sat Apr 24 10:32:20 2021 +0100
+
+    Case change for compact position options
+
+ ui/altpreferences.ui | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit 8197333a9d3224896b8b0cf0c9639d592ac26d7e
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sat Apr 24 10:30:43 2021 +0100
+
+    Use combobox for category Fixes #92
+
+ alttoolbar_preferences.py                          | 28 ++----------
+ ...ythmbox.plugins.alternative_toolbar.gschema.xml |  4 +-
+ ui/altpreferences.ui                               | 52 ++++++++++++----------
+ 3 files changed, 34 insertions(+), 50 deletions(-)
+
+commit a743cde4c05510b5fb722b32309743f808498f52
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Apr 18 14:44:23 2021 +0100
+
+    Actually use the combobox this time - #166
+
+ alttoolbar_preferences.py                                          | 3 ++-
+ alttoolbar_type.py                                                 | 2 +-
+ schema/org.gnome.rhythmbox.plugins.alternative_toolbar.gschema.xml | 4 ++--
+ ui/altpreferences.ui                                               | 4 ++--
+ 4 files changed, 7 insertions(+), 6 deletions(-)
+
+commit e27c72fb576dd149306ec341ebbe2f7003f640e8
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Apr 18 14:24:17 2021 +0100
+
+    Compact view - add top/bottom option - Fixes: #166
+
+ alternative-toolbar.py                             |   2 +
+ alttoolbar_preferences.py                          |   6 +
+ alttoolbar_type.py                                 |  76 ++++----
+ ...ythmbox.plugins.alternative_toolbar.gschema.xml |   5 +
+ ui/altpreferences.ui                               | 202 +++++++++++++--------
+ 5 files changed, 172 insertions(+), 119 deletions(-)
+
+commit 160307bd09d86ed1824b7d3cd7654e578abcd876
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Fri Apr 16 23:37:09 2021 +0100
+
+    For compact toolbar ensure we dont display the menubutton
+
+ alttoolbar_type.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 9f88271e9a8192c71502b9c2fcea239a67f1fb25
+Merge: 73aa18d 9e50cb1
+Author: David Mohammed <fossfreedom@users.noreply.github.com>
+Date:   Tue Mar 16 09:04:53 2021 +0000
+
+    Merge pull request #156 from crvigh/restart-dialog-on-plugin-disable
+    
+    Show app restart info dialog when plugin is disabled
+
+commit 73aa18d7b86e89909dfcc5e83a52f14aabeaede9
+Merge: f29746b 85062fc
+Author: David Mohammed <fossfreedom@users.noreply.github.com>
+Date:   Mon Mar 1 08:45:44 2021 +0000
+
+    Merge pull request #164 from helfper/home-install
+    
+    Add home install option
+
+commit 85062fc8585df7983a47cbf68f08bbf0ce45f345
+Author: Helder Pereira <helfper@gmail.com>
+Date:   Sat Feb 27 21:35:06 2021 +0000
+
+    Add home install option
+
+ Makefile.am  | 15 +++++++++------
+ README.md    | 12 ++++++++++++
+ autogen.sh   | 14 +++++++++-----
+ configure.ac | 20 +++++++++++++++++---
+ 4 files changed, 47 insertions(+), 14 deletions(-)
+
+commit f29746b2e1ae635e77dfccf0f72a67ac6f61fe3d
+Author: David Mohammed <fossfreedom@users.noreply.github.com>
+Date:   Fri Feb 26 15:31:47 2021 +0000
+
+    Latest translations from launchpad
+
+ po/sr.po | 129 ++++++++++++++++++++++++++++-----------------------------------
+ po/sv.po |  65 ++++++++++++++------------------
+ 2 files changed, 86 insertions(+), 108 deletions(-)
+
+commit 9f2c27b51f19d36f24268000ebf96401509457e6
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Wed Aug 26 23:27:56 2020 +0100
+
+    Latest translations
+
+ po/LINGUAS     |   1 +
+ po/el.po       |  38 ++++----
+ po/en_AU.po    |  38 ++++----
+ po/en_GB.po    |  18 ++--
+ po/eu.po       |  78 +++++++++-------
+ po/he.po       |  38 ++++----
+ po/id.po       |   6 +-
+ po/oc.po       | 117 ++++++++++++------------
+ po/ru.po       |  40 ++++----
+ po/sr.po       |  40 ++++----
+ po/sr@latin.po |  42 +++++----
+ po/tr.po       |  40 ++++----
+ po/ug.po       | 283 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/zh_TW.po    |  40 ++++----
+ 14 files changed, 576 insertions(+), 243 deletions(-)
+
+commit 50cbad34b514551cf494bad787b5652f68586c93
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Wed Aug 26 20:01:01 2020 +0100
+
+    No longer explicitly hide the Import button (Closes: #158)
+    v3.4.4 changes mean we shouldn't explictly hide
+    the Import button that was previously visible by other
+    means.
+
+ alttoolbar_controller.py | 9 ---------
+ 1 file changed, 9 deletions(-)
+
+commit 9e50cb17a99cd2cff6f6c1b71d2ad219cac6ac5d
+Author: crvi <crvisqr@gmail.com>
+Date:   Sat Aug 8 03:48:11 2020 +0530
+
+    Show app restart info dialog when plugin is disabled
+
+ alternative-toolbar.py | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+commit 84f15aa2c5f21e466c1fbf5d18c8967bfd69f5cd
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Mon Mar 23 21:52:49 2020 +0000
+
+    Update ChangeLog
+
+ ChangeLog | 46 ++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 46 insertions(+)
+
 commit 1c50e1bdaba3a00a1781e4f488bfc00d3e741216
 Author: David Mohammed <fossfreedom@ubuntu.com>
 Date:   Mon Mar 23 21:51:23 2020 +0000
