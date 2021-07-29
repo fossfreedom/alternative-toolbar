@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rhythmbox-plugin-alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-01-28 05:18+0000\n"
-"PO-Revision-Date: 2020-03-12 11:52+0000\n"
+"POT-Creation-Date: 2020-08-27 05:14+0000\n"
+"PO-Revision-Date: 2021-07-12 11:55+0000\n"
 "Last-Translator: Xandru Martino <Unknown>\n"
 "Language-Team: Asturian <ast@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-23 21:36+0000\n"
-"X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
+"X-Launchpad-Export-Date: 2021-07-29 18:16+0000\n"
+"X-Generator: Launchpad (build 33e31d845587d75ee5a0727697204c950ad471d5)\n"
 
 #: ../alternative-toolbar.py:238 ../alternative-toolbar.py:241
 msgid "Search"
@@ -70,31 +70,27 @@ msgstr ""
 msgid "View All"
 msgstr "Amosar too"
 
-#: ../alttoolbar_controller.py:324
-msgid "Import"
-msgstr "Importar"
-
-#: ../alttoolbar_controller.py:542
+#: ../alttoolbar_controller.py:533
 msgid "Stations"
 msgstr "Estaciones"
 
-#: ../alttoolbar_controller.py:571
+#: ../alttoolbar_controller.py:562
 msgid "Libre.fm"
 msgstr "Libre.fm"
 
-#: ../alttoolbar_controller.py:614
+#: ../alttoolbar_controller.py:605
 msgid "My Top Rated"
 msgstr "Los mios meyores puntuaos"
 
-#: ../alttoolbar_controller.py:618
+#: ../alttoolbar_controller.py:609
 msgid "Recently Added"
 msgstr "Amestaos recién"
 
-#: ../alttoolbar_controller.py:622
+#: ../alttoolbar_controller.py:613
 msgid "Recently Played"
 msgstr "Reproducíos más recientemente"
 
-#: ../alttoolbar_controller.py:655
+#: ../alttoolbar_controller.py:646
 msgid "Podcasts"
 msgstr "Podcasts"
 
@@ -244,10 +240,13 @@ msgid ""
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
+"Activar o desactivar la barra llateral rediseñada. Ufierta iconos "
+"monocromáticos ameyoraos, una meyor organización de fontes y la capacidá "
+"d'espandir y contrayer categoríes."
 
 #: ../ui/altpreferences.ui.h:23
 msgid "Enhanced plugins dialog"
-msgstr ""
+msgstr "Cuadru de diálogu de Complementos ameyoráu"
 
 #: ../ui/altpreferences.ui.h:24
 msgid ""
@@ -255,10 +254,14 @@ msgid ""
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
 "based desktop environments."
 msgstr ""
+"Activar o desactivar el cuadru de diálogu de Complementos rediseñu. Ufierta "
+"interruptores en vez de casiyes de verificación y una barra de ferramientes "
+"cenciella con iconos monocromáticos. Funciona meyor colos entornos "
+"d'escritoriu basados en Gnome."
 
 #: ../ui/altpreferences.ui.h:25
 msgid "Dark theme if available"
-msgstr ""
+msgstr "Tema escuro si ta disponible"
 
 #: ../ui/altpreferences.ui.h:27
 msgid "Horizontal"
@@ -274,7 +277,7 @@ msgstr "Reproducir la pista anterior"
 
 #: ../ui/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr ""
+msgstr "Reanudar o pausar la reproducción"
 
 #: ../ui/alttoolbar.ui.h:3
 msgid "Play the next track"
