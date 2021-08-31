@@ -7,58 +7,66 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-03-24 07:34+0000\n"
-"PO-Revision-Date: 2020-04-09 10:50+0000\n"
+"POT-Creation-Date: 2021-07-29 19:16+0000\n"
+"PO-Revision-Date: 2021-08-25 12:27+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-08-26 22:12+0000\n"
-"X-Generator: Launchpad (build 99c2d833c8d727fd05148486920aca032e908071)\n"
+"X-Launchpad-Export-Date: 2021-08-31 12:36+0000\n"
+"X-Generator: Launchpad (build 76ef73296f01d64cdfe5c48bfc4daf35cdfde808)\n"
 
-#: ../alternative-toolbar.py:238 ../alternative-toolbar.py:241
+#: ../alternative-toolbar.py:241 ../alternative-toolbar.py:244
 msgid "Search"
 msgstr "חיפוש"
 
-#: ../alternative-toolbar.py:248
+#: ../alternative-toolbar.py:251
 msgid "Seek Backward"
 msgstr "מעבר אחורה"
 
-#: ../alternative-toolbar.py:251
+#: ../alternative-toolbar.py:254
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr "מעבר אחורה, ברצועה הנוכחית, 5 שניות."
 
-#: ../alternative-toolbar.py:255
+#: ../alternative-toolbar.py:258
 msgid "Seek Forward"
 msgstr "מעבר קדימה"
 
-#: ../alternative-toolbar.py:259
+#: ../alternative-toolbar.py:262
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr "מעבר קדימה, ברצועה הנוכחית, 10 שניות."
 
-#: ../alternative-toolbar.py:271
+#: ../alternative-toolbar.py:274
 msgid "Show Play-Controls Toolbar"
 msgstr "הצגת סרגל כלים פקדי נגינה"
 
-#: ../alternative-toolbar.py:275
+#: ../alternative-toolbar.py:278
 msgid "Show or hide the play-controls toolbar"
 msgstr "הצגה או הסתרה של סרגל כלים פקדי נגינה"
 
-#: ../alternative-toolbar.py:280
+#: ../alternative-toolbar.py:283
 msgid "Show Source Toolbar"
 msgstr "הצגת סרגל כלי מקור"
 
-#: ../alternative-toolbar.py:283
+#: ../alternative-toolbar.py:286
 msgid "Show or hide the source toolbar"
 msgstr "הצגה או הסתרה של סרגל כלי המקור"
 
+#: ../alternative-toolbar.py:516
+msgid "Restart Rhythmbox"
+msgstr "הפעלת Rhythmbox מחדש"
+
+#: ../alternative-toolbar.py:517
+msgid "Please restart Rhythmbox for the changes to take effect."
+msgstr "נא להפעיל את Rhythmbox כדי שהשינויים יחולו."
+
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:564
+#: ../alternative-toolbar.py:584
 msgid "Alternative Toolbar"
 msgstr "סרגל כלים חלופי"
 
-#: ../alternative-toolbar.py:567
+#: ../alternative-toolbar.py:587
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -70,35 +78,31 @@ msgstr ""
 msgid "View All"
 msgstr "להציג הכול"
 
-#: ../alttoolbar_controller.py:324
-msgid "Import"
-msgstr "ייבוא"
-
-#: ../alttoolbar_controller.py:542
+#: ../alttoolbar_controller.py:533
 msgid "Stations"
 msgstr "תחנות"
 
-#: ../alttoolbar_controller.py:571
+#: ../alttoolbar_controller.py:562
 msgid "Libre.fm"
 msgstr "Libre.fm"
 
-#: ../alttoolbar_controller.py:614
+#: ../alttoolbar_controller.py:605
 msgid "My Top Rated"
 msgstr "המדורגים הכי גבוהים שלי"
 
-#: ../alttoolbar_controller.py:618
+#: ../alttoolbar_controller.py:609
 msgid "Recently Added"
 msgstr "נוספו לאחרונה"
 
-#: ../alttoolbar_controller.py:622
+#: ../alttoolbar_controller.py:613
 msgid "Recently Played"
 msgstr "התנגנו לאחרונה"
 
-#: ../alttoolbar_controller.py:655
+#: ../alttoolbar_controller.py:646
 msgid "Podcasts"
 msgstr "פודקאסטים"
 
-#: ../alttoolbar_preferences.py:308
+#: ../alttoolbar_preferences.py:314
 msgid "Restart"
 msgstr "הפעלה מחדש"
 
@@ -118,16 +122,16 @@ msgstr "מקורות אחרים"
 msgid "Playlists"
 msgstr "רשימות נגינה"
 
-#: ../alttoolbar_type.py:1477 ../ui/altlibrary.ui.h:1
+#: ../alttoolbar_type.py:1469 ../ui/altlibrary.ui.h:1
 msgid "Songs"
 msgstr "שירים"
 
-#: ../alttoolbar_type.py:1483 ../alttoolbar_type.py:1567
-#: ../ui/altpreferences.ui.h:26 ../ui/altlibrary.ui.h:2
+#: ../alttoolbar_type.py:1475 ../alttoolbar_type.py:1559
+#: ../ui/altpreferences.ui.h:30 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "קטגוריות"
 
-#: ../alttoolbar_type.py:1551
+#: ../alttoolbar_type.py:1543
 msgid "Browse"
 msgstr "עיון"
 
@@ -141,14 +145,30 @@ msgid "Repeat the current track"
 msgstr "חזרה על הרצועה הנוכחית"
 
 #: ../ui/altpreferences.ui.h:1
+msgid "Top"
+msgstr "למעלה"
+
+#: ../ui/altpreferences.ui.h:2
+msgid "Bottom"
+msgstr "למטה"
+
+#: ../ui/altpreferences.ui.h:3
+msgid "Horizontal"
+msgstr "אופקי"
+
+#: ../ui/altpreferences.ui.h:4
+msgid "Vertical"
+msgstr "אנכי"
+
+#: ../ui/altpreferences.ui.h:5
 msgid "Restart the player for the changes to take effect."
 msgstr "יש להפעיל את הנגן מחדש כדי שהשינויים ייכנסו לתוקף."
 
-#: ../ui/altpreferences.ui.h:2
+#: ../ui/altpreferences.ui.h:6
 msgid "Toolbar:"
 msgstr "סרגל כלים:"
 
-#: ../ui/altpreferences.ui.h:3
+#: ../ui/altpreferences.ui.h:7
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
@@ -156,15 +176,15 @@ msgstr ""
 "מתאים מאוד לסביבות שולחן\n"
 "עבודה כגון Gnome ו־Elementary."
 
-#: ../ui/altpreferences.ui.h:5
+#: ../ui/altpreferences.ui.h:9
 msgid "Modern"
 msgstr "מודרני"
 
-#: ../ui/altpreferences.ui.h:6
+#: ../ui/altpreferences.ui.h:10
 msgid "Use compact controls"
 msgstr "שימוש בפקדים מצומצמים"
 
-#: ../ui/altpreferences.ui.h:7
+#: ../ui/altpreferences.ui.h:11
 msgid ""
 "Display the playback controls in the toolbar in visually compact style "
 "instead of the standard rhythmbox style.\n"
@@ -173,15 +193,15 @@ msgstr ""
 "הצגת פקדי הנגינה בסרגל הכלים בסגנון מצומצם במקום הסגנון הרגיל של rhythmbox.\n"
 "תמיד פעיל עבור מצב סרגל כלים מודרני."
 
-#: ../ui/altpreferences.ui.h:9
+#: ../ui/altpreferences.ui.h:13
 msgid "Show:"
 msgstr "הצגה:"
 
-#: ../ui/altpreferences.ui.h:10
+#: ../ui/altpreferences.ui.h:14
 msgid "Album/genre/year for playing song"
 msgstr "אלבום/סוגה/שנה של השיר המתנגן"
 
-#: ../ui/altpreferences.ui.h:11
+#: ../ui/altpreferences.ui.h:15
 msgid ""
 "Display album/genre/year instead of song-artist-album.  Useful for those "
 "desktop-environments where song-artist-album is already displayed in the "
@@ -190,39 +210,39 @@ msgstr ""
 "הצגת אלבום/סגנון/שנה במקום שיר-אמן-אלבום. שימושי לסביבות עבודה בהן שיר-אמן-"
 "אלבום כבר מופיע בכותרת החלון."
 
-#: ../ui/altpreferences.ui.h:12
+#: ../ui/altpreferences.ui.h:16
 msgid "Tooltips for the playback controls"
 msgstr "חלוניות עצה לפקדי הנגינה"
 
-#: ../ui/altpreferences.ui.h:13
+#: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the tooltips for the playback controls."
 msgstr "הצגה או הסתרה של חלוניות עצה לפקדי הנגינה."
 
-#: ../ui/altpreferences.ui.h:14
+#: ../ui/altpreferences.ui.h:18
 msgid "Volume control"
 msgstr "בקרת עצמת שמע"
 
-#: ../ui/altpreferences.ui.h:15
+#: ../ui/altpreferences.ui.h:19
 msgid "Show or hide the volume control."
 msgstr "הצגה או הסתרה של בקרת עצמת השמע."
 
-#: ../ui/altpreferences.ui.h:16
+#: ../ui/altpreferences.ui.h:20
 msgid "Playback controls"
 msgstr "פקדי נגינה"
 
-#: ../ui/altpreferences.ui.h:17
+#: ../ui/altpreferences.ui.h:21
 msgid "Show or hide the playing controls on player startup."
 msgstr "הצגה או הסתרה של פקדי הנגינה עם הפעלת הנגן."
 
-#: ../ui/altpreferences.ui.h:18
+#: ../ui/altpreferences.ui.h:22
 msgid "Use:"
 msgstr "שימוש:"
 
-#: ../ui/altpreferences.ui.h:19
+#: ../ui/altpreferences.ui.h:23
 msgid "Inline song/artist label"
 msgstr "תווית שיר/אמן מובנית"
 
-#: ../ui/altpreferences.ui.h:20
+#: ../ui/altpreferences.ui.h:24
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
@@ -230,11 +250,11 @@ msgstr ""
 "הצגת תוויות שיר ואמן לפני סרגל ההתקדמות. אם אפשרות זו לא מסומנת, הן תוצגנה "
 "מעל סרגל ההתקדמות."
 
-#: ../ui/altpreferences.ui.h:21
+#: ../ui/altpreferences.ui.h:25
 msgid "Enhanced sidebar"
 msgstr "סרגל צד מורחב"
 
-#: ../ui/altpreferences.ui.h:22
+#: ../ui/altpreferences.ui.h:26
 msgid ""
 "Show or hide redesigned sidebar for the player. It features improved "
 "symbolic icons, better sources organisation and ability to expand and "
@@ -243,11 +263,11 @@ msgstr ""
 "הצגה או הסתרה של סרגל צד שעוצב מחדש עבור הנגן. סרגל הצד מציג סמלים ייצוגיים "
 "משופרים, ארגון טוב יותר של מקורות והיכולת להרחיב ולצמצם קטגוריות."
 
-#: ../ui/altpreferences.ui.h:23
+#: ../ui/altpreferences.ui.h:27
 msgid "Enhanced plugins dialog"
 msgstr "תיבת דו־שיח תוספים מורחבת"
 
-#: ../ui/altpreferences.ui.h:24
+#: ../ui/altpreferences.ui.h:28
 msgid ""
 "Show or hide redesigned plugins dialog. It features switches instead of "
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
@@ -257,17 +277,9 @@ msgstr ""
 "וסרגל כלים פנימי עם סמלים ייצוגיים. עובד הכי טוב עם סביבות עבודה מבוססות "
 "Gnome."
 
-#: ../ui/altpreferences.ui.h:25
+#: ../ui/altpreferences.ui.h:29
 msgid "Dark theme if available"
 msgstr "ערכת עיצוב כהה אם ניתן"
-
-#: ../ui/altpreferences.ui.h:27
-msgid "Horizontal"
-msgstr "אופקי"
-
-#: ../ui/altpreferences.ui.h:28
-msgid "Vertical"
-msgstr "אנכי"
 
 #: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"
@@ -284,12 +296,3 @@ msgstr "ניגון הרצועה הבאה"
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
 msgstr "ניגון הרצועות בסדר אקראי"
-
-#~ msgid "_Help"
-#~ msgstr "ע_זרה"
-
-#~ msgid "_About"
-#~ msgstr "על _אודות"
-
-#~ msgid "_Quit"
-#~ msgstr "י_ציאה"

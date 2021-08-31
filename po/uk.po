@@ -7,58 +7,66 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-01-28 05:18+0000\n"
-"PO-Revision-Date: 2020-02-02 06:33+0000\n"
-"Last-Translator: Roman Pavlyshyn <Unknown>\n"
+"POT-Creation-Date: 2021-07-29 19:16+0000\n"
+"PO-Revision-Date: 2021-08-02 19:31+0000\n"
+"Last-Translator: Artem Polivanchuk <a.polivanchuk@outlook.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-23 21:36+0000\n"
-"X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
+"X-Launchpad-Export-Date: 2021-08-31 12:36+0000\n"
+"X-Generator: Launchpad (build 76ef73296f01d64cdfe5c48bfc4daf35cdfde808)\n"
 
-#: ../alternative-toolbar.py:238 ../alternative-toolbar.py:241
+#: ../alternative-toolbar.py:241 ../alternative-toolbar.py:244
 msgid "Search"
 msgstr "Пошук"
 
-#: ../alternative-toolbar.py:248
+#: ../alternative-toolbar.py:251
 msgid "Seek Backward"
 msgstr "Перемотати назад"
 
-#: ../alternative-toolbar.py:251
+#: ../alternative-toolbar.py:254
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr "Перемотати назад, поточну композицію, на 5 секунд"
 
-#: ../alternative-toolbar.py:255
+#: ../alternative-toolbar.py:258
 msgid "Seek Forward"
 msgstr "Перемотати вперед"
 
-#: ../alternative-toolbar.py:259
+#: ../alternative-toolbar.py:262
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr "Перемотати вперед, поточну композицію, на 10 секунд"
 
-#: ../alternative-toolbar.py:271
+#: ../alternative-toolbar.py:274
 msgid "Show Play-Controls Toolbar"
 msgstr "Показати панель інструментів керування відтворенням"
 
-#: ../alternative-toolbar.py:275
+#: ../alternative-toolbar.py:278
 msgid "Show or hide the play-controls toolbar"
 msgstr "Показати або приховати панель інструментів керування відтворенням"
 
-#: ../alternative-toolbar.py:280
+#: ../alternative-toolbar.py:283
 msgid "Show Source Toolbar"
 msgstr "Показати панель інструментів джерел"
 
-#: ../alternative-toolbar.py:283
+#: ../alternative-toolbar.py:286
 msgid "Show or hide the source toolbar"
 msgstr "Показати або приховати панель інструментів джерел"
 
+#: ../alternative-toolbar.py:516
+msgid "Restart Rhythmbox"
+msgstr "Перезапустити Rhythmbox"
+
+#: ../alternative-toolbar.py:517
+msgid "Please restart Rhythmbox for the changes to take effect."
+msgstr "Перезапустіть Rhythmbox для застосування змін."
+
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:564
+#: ../alternative-toolbar.py:584
 msgid "Alternative Toolbar"
 msgstr "Альтернативна панель інструментів"
 
-#: ../alternative-toolbar.py:567
+#: ../alternative-toolbar.py:587
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -70,35 +78,31 @@ msgstr ""
 msgid "View All"
 msgstr "Показати всі"
 
-#: ../alttoolbar_controller.py:324
-msgid "Import"
-msgstr "Імпортувати"
-
-#: ../alttoolbar_controller.py:542
+#: ../alttoolbar_controller.py:533
 msgid "Stations"
 msgstr "Станції"
 
-#: ../alttoolbar_controller.py:571
+#: ../alttoolbar_controller.py:562
 msgid "Libre.fm"
 msgstr "Libre.fm"
 
-#: ../alttoolbar_controller.py:614
+#: ../alttoolbar_controller.py:605
 msgid "My Top Rated"
 msgstr "Мої Високо Оцінені"
 
-#: ../alttoolbar_controller.py:618
+#: ../alttoolbar_controller.py:609
 msgid "Recently Added"
 msgstr "Нещодавно долучені"
 
-#: ../alttoolbar_controller.py:622
+#: ../alttoolbar_controller.py:613
 msgid "Recently Played"
 msgstr "Нещодавно відтворені"
 
-#: ../alttoolbar_controller.py:655
+#: ../alttoolbar_controller.py:646
 msgid "Podcasts"
 msgstr "Радіотрансляції"
 
-#: ../alttoolbar_preferences.py:308
+#: ../alttoolbar_preferences.py:314
 msgid "Restart"
 msgstr "Перезавантажити"
 
@@ -118,22 +122,22 @@ msgstr "Інші джерела"
 msgid "Playlists"
 msgstr "Списки відтворення"
 
-#: ../alttoolbar_type.py:1477 ../ui/altlibrary.ui.h:1
+#: ../alttoolbar_type.py:1469 ../ui/altlibrary.ui.h:1
 msgid "Songs"
 msgstr "Композиції"
 
-#: ../alttoolbar_type.py:1483 ../alttoolbar_type.py:1567
-#: ../ui/altpreferences.ui.h:26 ../ui/altlibrary.ui.h:2
+#: ../alttoolbar_type.py:1475 ../alttoolbar_type.py:1559
+#: ../ui/altpreferences.ui.h:30 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "Категорії"
 
-#: ../alttoolbar_type.py:1551
+#: ../alttoolbar_type.py:1543
 msgid "Browse"
 msgstr "Огляд"
 
 #: ../alttoolbar_repeat.py:96 ../alttoolbar_repeat.py:193
 msgid "Repeat all tracks"
-msgstr "Повторити усі треки"
+msgstr "Повторити всі доріжки"
 
 #: ../alttoolbar_repeat.py:98 ../alttoolbar_repeat.py:214
 #: ../ui/alttoolbar.ui.h:4
@@ -141,14 +145,30 @@ msgid "Repeat the current track"
 msgstr "Повторити поточну композицію"
 
 #: ../ui/altpreferences.ui.h:1
+msgid "Top"
+msgstr "Вгорі"
+
+#: ../ui/altpreferences.ui.h:2
+msgid "Bottom"
+msgstr "Внизу"
+
+#: ../ui/altpreferences.ui.h:3
+msgid "Horizontal"
+msgstr "Горизонтально"
+
+#: ../ui/altpreferences.ui.h:4
+msgid "Vertical"
+msgstr "Вертикально"
+
+#: ../ui/altpreferences.ui.h:5
 msgid "Restart the player for the changes to take effect."
 msgstr "Перезавантажити програвач, щоб зміни набули чинності."
 
-#: ../ui/altpreferences.ui.h:2
+#: ../ui/altpreferences.ui.h:6
 msgid "Toolbar:"
 msgstr "Панель інструментів:"
 
-#: ../ui/altpreferences.ui.h:3
+#: ../ui/altpreferences.ui.h:7
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
@@ -156,15 +176,15 @@ msgstr ""
 "Найкраще пасує для настільних\n"
 "середовищ, таких як: Gnome та Elementary."
 
-#: ../ui/altpreferences.ui.h:5
+#: ../ui/altpreferences.ui.h:9
 msgid "Modern"
 msgstr "Сучасна"
 
-#: ../ui/altpreferences.ui.h:6
+#: ../ui/altpreferences.ui.h:10
 msgid "Use compact controls"
 msgstr "Використовувати компактні елементи керування"
 
-#: ../ui/altpreferences.ui.h:7
+#: ../ui/altpreferences.ui.h:11
 msgid ""
 "Display the playback controls in the toolbar in visually compact style "
 "instead of the standard rhythmbox style.\n"
@@ -174,15 +194,15 @@ msgstr ""
 "компактному стилі, замість стандартного стилю rhytmbox.\n"
 "Завжди увімкнене для режиму сучасної панелі інструментів."
 
-#: ../ui/altpreferences.ui.h:9
+#: ../ui/altpreferences.ui.h:13
 msgid "Show:"
 msgstr "Показати:"
 
-#: ../ui/altpreferences.ui.h:10
+#: ../ui/altpreferences.ui.h:14
 msgid "Album/genre/year for playing song"
 msgstr "Альбом/жанр/рік для композиції, що відтворюється"
 
-#: ../ui/altpreferences.ui.h:11
+#: ../ui/altpreferences.ui.h:15
 msgid ""
 "Display album/genre/year instead of song-artist-album.  Useful for those "
 "desktop-environments where song-artist-album is already displayed in the "
@@ -192,42 +212,42 @@ msgstr ""
 "для таких настільних середовищ у яких композиція-виконавець-альбом вже "
 "відображається у вікні заголовку."
 
-#: ../ui/altpreferences.ui.h:12
+#: ../ui/altpreferences.ui.h:16
 msgid "Tooltips for the playback controls"
 msgstr "Підказки для елементів керування відтворенням."
 
-#: ../ui/altpreferences.ui.h:13
+#: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the tooltips for the playback controls."
 msgstr ""
 "Показати або приховати підказки для  елементів керування відтворенням."
 
-#: ../ui/altpreferences.ui.h:14
+#: ../ui/altpreferences.ui.h:18
 msgid "Volume control"
 msgstr "Керування гучністю"
 
-#: ../ui/altpreferences.ui.h:15
+#: ../ui/altpreferences.ui.h:19
 msgid "Show or hide the volume control."
 msgstr "Показати або приховати керування гучністю."
 
-#: ../ui/altpreferences.ui.h:16
+#: ../ui/altpreferences.ui.h:20
 msgid "Playback controls"
 msgstr "Керування відтворенням"
 
-#: ../ui/altpreferences.ui.h:17
+#: ../ui/altpreferences.ui.h:21
 msgid "Show or hide the playing controls on player startup."
 msgstr ""
 "Показати або приховати елементи керування відтворенням при завантаженні "
 "програвача."
 
-#: ../ui/altpreferences.ui.h:18
+#: ../ui/altpreferences.ui.h:22
 msgid "Use:"
 msgstr "Використовувати:"
 
-#: ../ui/altpreferences.ui.h:19
+#: ../ui/altpreferences.ui.h:23
 msgid "Inline song/artist label"
 msgstr "Вмістити мітку композиція/виконавець"
 
-#: ../ui/altpreferences.ui.h:20
+#: ../ui/altpreferences.ui.h:24
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
@@ -235,11 +255,11 @@ msgstr ""
 "Відображати мітки Композиція та Виконавець перед повзунком поступу "
 "відтворення."
 
-#: ../ui/altpreferences.ui.h:21
+#: ../ui/altpreferences.ui.h:25
 msgid "Enhanced sidebar"
 msgstr "Покращена бічна панель"
 
-#: ../ui/altpreferences.ui.h:22
+#: ../ui/altpreferences.ui.h:26
 msgid ""
 "Show or hide redesigned sidebar for the player. It features improved "
 "symbolic icons, better sources organisation and ability to expand and "
@@ -249,11 +269,11 @@ msgstr ""
 "поліпшеними символічними іконками, кращою організацією джерел та здатністю "
 "до розгортання та згортання категорій."
 
-#: ../ui/altpreferences.ui.h:23
+#: ../ui/altpreferences.ui.h:27
 msgid "Enhanced plugins dialog"
 msgstr "Покращене діалогове вікно додатків"
 
-#: ../ui/altpreferences.ui.h:24
+#: ../ui/altpreferences.ui.h:28
 msgid ""
 "Show or hide redesigned plugins dialog. It features switches instead of "
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
@@ -264,17 +284,9 @@ msgstr ""
 "символічними іконками. Краще всього працює з настільними середовищами на "
 "базі Gnome."
 
-#: ../ui/altpreferences.ui.h:25
+#: ../ui/altpreferences.ui.h:29
 msgid "Dark theme if available"
 msgstr "Темна тема, якщо є"
-
-#: ../ui/altpreferences.ui.h:27
-msgid "Horizontal"
-msgstr "Горизонтально"
-
-#: ../ui/altpreferences.ui.h:28
-msgid "Vertical"
-msgstr "Вертикально"
 
 #: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"
@@ -291,12 +303,3 @@ msgstr "Відтворити наступну композицію"
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
 msgstr "Відтворити композицію в довільному порядку"
-
-#~ msgid "_About"
-#~ msgstr "_Про програму"
-
-#~ msgid "_Quit"
-#~ msgstr "_Вийти"
-
-#~ msgid "_Help"
-#~ msgstr "_Довідка"

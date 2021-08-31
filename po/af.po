@@ -7,58 +7,66 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-01-28 05:18+0000\n"
-"PO-Revision-Date: 2020-02-21 17:57+0000\n"
-"Last-Translator: bernard stafford <Unknown>\n"
+"POT-Creation-Date: 2021-07-29 19:16+0000\n"
+"PO-Revision-Date: 2021-07-30 12:58+0000\n"
+"Last-Translator: Bernard Stafford <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-23 21:36+0000\n"
-"X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
+"X-Launchpad-Export-Date: 2021-08-31 12:36+0000\n"
+"X-Generator: Launchpad (build 76ef73296f01d64cdfe5c48bfc4daf35cdfde808)\n"
 
-#: ../alternative-toolbar.py:238 ../alternative-toolbar.py:241
+#: ../alternative-toolbar.py:241 ../alternative-toolbar.py:244
 msgid "Search"
 msgstr "Soek"
 
-#: ../alternative-toolbar.py:248
+#: ../alternative-toolbar.py:251
 msgid "Seek Backward"
 msgstr "Soek Terugwaarts"
 
-#: ../alternative-toolbar.py:251
+#: ../alternative-toolbar.py:254
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr "Soek Terugwaartse, in huidige spoor, 5 sekondes."
 
-#: ../alternative-toolbar.py:255
+#: ../alternative-toolbar.py:258
 msgid "Seek Forward"
 msgstr "Soek Vorentoe"
 
-#: ../alternative-toolbar.py:259
+#: ../alternative-toolbar.py:262
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr "Soek vorentoe, in huidige track, 10 sekondes."
 
-#: ../alternative-toolbar.py:271
+#: ../alternative-toolbar.py:274
 msgid "Show Play-Controls Toolbar"
 msgstr "Wys Speel-Kontroles Nutsbalk"
 
-#: ../alternative-toolbar.py:275
+#: ../alternative-toolbar.py:278
 msgid "Show or hide the play-controls toolbar"
 msgstr "Wys of verberg die Speel-Kontroles Nutsbalk"
 
-#: ../alternative-toolbar.py:280
+#: ../alternative-toolbar.py:283
 msgid "Show Source Toolbar"
 msgstr "Wys Bron Nutsbalk"
 
-#: ../alternative-toolbar.py:283
+#: ../alternative-toolbar.py:286
 msgid "Show or hide the source toolbar"
 msgstr "Wys of verberg die bron nutsbalk"
 
+#: ../alternative-toolbar.py:516
+msgid "Restart Rhythmbox"
+msgstr "Herbegin Rhythmbox"
+
+#: ../alternative-toolbar.py:517
+msgid "Please restart Rhythmbox for the changes to take effect."
+msgstr "Herbegin asseblief Rhythmbox vir die veranderinge te neem effek."
+
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:564
+#: ../alternative-toolbar.py:584
 msgid "Alternative Toolbar"
 msgstr "Alternatiewe Nutsbalk"
 
-#: ../alternative-toolbar.py:567
+#: ../alternative-toolbar.py:587
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -70,35 +78,31 @@ msgstr ""
 msgid "View All"
 msgstr "Bekyk Alle"
 
-#: ../alttoolbar_controller.py:324
-msgid "Import"
-msgstr "Invoer"
-
-#: ../alttoolbar_controller.py:542
+#: ../alttoolbar_controller.py:533
 msgid "Stations"
 msgstr "Stasies"
 
-#: ../alttoolbar_controller.py:571
+#: ../alttoolbar_controller.py:562
 msgid "Libre.fm"
 msgstr "Libre.fm"
 
-#: ../alttoolbar_controller.py:614
+#: ../alttoolbar_controller.py:605
 msgid "My Top Rated"
 msgstr "My Top Gegradeerde"
 
-#: ../alttoolbar_controller.py:618
+#: ../alttoolbar_controller.py:609
 msgid "Recently Added"
 msgstr "Onlangs Bygevoeg"
 
-#: ../alttoolbar_controller.py:622
+#: ../alttoolbar_controller.py:613
 msgid "Recently Played"
 msgstr "Onlangs Gespeel"
 
-#: ../alttoolbar_controller.py:655
+#: ../alttoolbar_controller.py:646
 msgid "Podcasts"
 msgstr "Podcasts"
 
-#: ../alttoolbar_preferences.py:308
+#: ../alttoolbar_preferences.py:314
 msgid "Restart"
 msgstr "Herbegin"
 
@@ -118,16 +122,16 @@ msgstr "Ander bronne"
 msgid "Playlists"
 msgstr "Afspeel lys"
 
-#: ../alttoolbar_type.py:1477 ../ui/altlibrary.ui.h:1
+#: ../alttoolbar_type.py:1469 ../ui/altlibrary.ui.h:1
 msgid "Songs"
 msgstr "Liedjies"
 
-#: ../alttoolbar_type.py:1483 ../alttoolbar_type.py:1567
-#: ../ui/altpreferences.ui.h:26 ../ui/altlibrary.ui.h:2
+#: ../alttoolbar_type.py:1475 ../alttoolbar_type.py:1559
+#: ../ui/altpreferences.ui.h:30 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "Kategorië"
 
-#: ../alttoolbar_type.py:1551
+#: ../alttoolbar_type.py:1543
 msgid "Browse"
 msgstr "Snuffel"
 
@@ -141,14 +145,30 @@ msgid "Repeat the current track"
 msgstr "Herhaal die huidige spor"
 
 #: ../ui/altpreferences.ui.h:1
+msgid "Top"
+msgstr "Bopunt"
+
+#: ../ui/altpreferences.ui.h:2
+msgid "Bottom"
+msgstr "Bodem"
+
+#: ../ui/altpreferences.ui.h:3
+msgid "Horizontal"
+msgstr "Horisontale"
+
+#: ../ui/altpreferences.ui.h:4
+msgid "Vertical"
+msgstr "Vertikale"
+
+#: ../ui/altpreferences.ui.h:5
 msgid "Restart the player for the changes to take effect."
 msgstr "Herbegin die toepassing om die veranderinge te sien."
 
-#: ../ui/altpreferences.ui.h:2
+#: ../ui/altpreferences.ui.h:6
 msgid "Toolbar:"
 msgstr "Nutsbalk:"
 
-#: ../ui/altpreferences.ui.h:3
+#: ../ui/altpreferences.ui.h:7
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
@@ -156,15 +176,15 @@ msgstr ""
 "Meer geskik vir werkskerm\n"
 "omgewings soos Gnome en Elementary."
 
-#: ../ui/altpreferences.ui.h:5
+#: ../ui/altpreferences.ui.h:9
 msgid "Modern"
 msgstr "Modern"
 
-#: ../ui/altpreferences.ui.h:6
+#: ../ui/altpreferences.ui.h:10
 msgid "Use compact controls"
 msgstr "Gebruik kompakte opstelling"
 
-#: ../ui/altpreferences.ui.h:7
+#: ../ui/altpreferences.ui.h:11
 msgid ""
 "Display the playback controls in the toolbar in visually compact style "
 "instead of the standard rhythmbox style.\n"
@@ -174,15 +194,15 @@ msgstr ""
 "die standaard rhythmbox styl.\n"
 "Altyd aan vir die moderne opstelling."
 
-#: ../ui/altpreferences.ui.h:9
+#: ../ui/altpreferences.ui.h:13
 msgid "Show:"
 msgstr "Toon:"
 
-#: ../ui/altpreferences.ui.h:10
+#: ../ui/altpreferences.ui.h:14
 msgid "Album/genre/year for playing song"
 msgstr "Album/styl/jaar van die huidige liedjie"
 
-#: ../ui/altpreferences.ui.h:11
+#: ../ui/altpreferences.ui.h:15
 msgid ""
 "Display album/genre/year instead of song-artist-album.  Useful for those "
 "desktop-environments where song-artist-album is already displayed in the "
@@ -192,39 +212,39 @@ msgstr ""
 "werksbladomgewings waar liedjie-kunstenaar-album reeds in die titelbalk "
 "vertoon word."
 
-#: ../ui/altpreferences.ui.h:12
+#: ../ui/altpreferences.ui.h:16
 msgid "Tooltips for the playback controls"
 msgstr "Nutsbeskrywings vir die terugspeelknoppies"
 
-#: ../ui/altpreferences.ui.h:13
+#: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the tooltips for the playback controls."
 msgstr "Vertoon of verberg die nutsbeskywings vir die terugspeelknoppies"
 
-#: ../ui/altpreferences.ui.h:14
+#: ../ui/altpreferences.ui.h:18
 msgid "Volume control"
 msgstr "Volume verstelling"
 
-#: ../ui/altpreferences.ui.h:15
+#: ../ui/altpreferences.ui.h:19
 msgid "Show or hide the volume control."
 msgstr "Vertoon of verberg die volume verstelling"
 
-#: ../ui/altpreferences.ui.h:16
+#: ../ui/altpreferences.ui.h:20
 msgid "Playback controls"
 msgstr "Terugspeelknoppies"
 
-#: ../ui/altpreferences.ui.h:17
+#: ../ui/altpreferences.ui.h:21
 msgid "Show or hide the playing controls on player startup."
 msgstr "Wys of verberg die speelkontroles tydens die aanvang van die speler."
 
-#: ../ui/altpreferences.ui.h:18
+#: ../ui/altpreferences.ui.h:22
 msgid "Use:"
 msgstr "Gebruik:"
 
-#: ../ui/altpreferences.ui.h:19
+#: ../ui/altpreferences.ui.h:23
 msgid "Inline song/artist label"
 msgstr "Inline liedjie/kunstenaar etiket"
 
-#: ../ui/altpreferences.ui.h:20
+#: ../ui/altpreferences.ui.h:24
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
@@ -232,11 +252,11 @@ msgstr ""
 "Vertoon sang- en kunstenaaretikette voor die skuifskyf. As dit nie gemerk is "
 "nie, word dit bo die vordering-skuifknoppie vertoon."
 
-#: ../ui/altpreferences.ui.h:21
+#: ../ui/altpreferences.ui.h:25
 msgid "Enhanced sidebar"
 msgstr "Verbeterde sybalk"
 
-#: ../ui/altpreferences.ui.h:22
+#: ../ui/altpreferences.ui.h:26
 msgid ""
 "Show or hide redesigned sidebar for the player. It features improved "
 "symbolic icons, better sources organisation and ability to expand and "
@@ -246,11 +266,11 @@ msgstr ""
 "simboliese ikone, beter organisasie van bronne en die vermoë om kategorieë "
 "uit te brei en ineenstort."
 
-#: ../ui/altpreferences.ui.h:23
+#: ../ui/altpreferences.ui.h:27
 msgid "Enhanced plugins dialog"
 msgstr "Verbeterde inprop-dialoog"
 
-#: ../ui/altpreferences.ui.h:24
+#: ../ui/altpreferences.ui.h:28
 msgid ""
 "Show or hide redesigned plugins dialog. It features switches instead of "
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
@@ -260,17 +280,9 @@ msgstr ""
 "plaas van merkblokkies en 'n inlyn nutsbalk met simboliese ikone. Werk die "
 "beste saam met Gnome-gebaseerde lessenaaromgewings."
 
-#: ../ui/altpreferences.ui.h:25
+#: ../ui/altpreferences.ui.h:29
 msgid "Dark theme if available"
 msgstr "Donker tema indien beskikbaar"
-
-#: ../ui/altpreferences.ui.h:27
-msgid "Horizontal"
-msgstr "Horisontale"
-
-#: ../ui/altpreferences.ui.h:28
-msgid "Vertical"
-msgstr "Vertikale"
 
 #: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"
@@ -287,12 +299,3 @@ msgstr "Speel die volgende spor"
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
 msgstr "Speel die spore in ewekansige volgorde"
-
-#~ msgid "_Help"
-#~ msgstr "_Hulp"
-
-#~ msgid "_About"
-#~ msgstr "_Omtrent"
-
-#~ msgid "_Quit"
-#~ msgstr "_Quit"
