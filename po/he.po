@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-08-31 12:36+0000\n"
-"X-Generator: Launchpad (build 76ef73296f01d64cdfe5c48bfc4daf35cdfde808)\n"
+"X-Launchpad-Export-Date: 2021-09-14 18:32+0000\n"
+"X-Generator: Launchpad (build d297c56d4f761367bf9bf563de1abea41f9b4f9e)\n"
 
 #: ../alternative-toolbar.py:241 ../alternative-toolbar.py:244
 msgid "Search"
