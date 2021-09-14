@@ -103,7 +103,6 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.shell = self.object
         self.db = self.shell.props.db
         self.shell_player = self.shell.props.shell_player
-        self.app_exiting = False
 
         # Prepare internal variables
         self.song_duration = 0
@@ -298,10 +297,6 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                                   'playing_label',
                                   Gio.SettingsBindFlags.GET)
 
-    def on_window_delete(self, widget, event):
-            self.app_exiting = True
-            return False
-
     def _connect_signals(self):
         """
           connect to various rhythmbox signals that the toolbars need
@@ -337,8 +332,6 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.connect('notify::show-song-position-slider',
                      self.show_song_position_slider_settings_changed)
         self.show_song_position_slider_settings_changed(None)
-        self.shell.props.window.connect("delete-event",
-                                        self.on_window_delete)
 
     def _sh_on_song_property_changed(self, sp, uri, property, old, new):
         """
@@ -512,15 +505,6 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
 
         return None
 
-    def restart_prompt(self):
-        title = _("Restart Rhythmbox")
-        msg = _("Please restart Rhythmbox for the changes to take effect.")
-
-        dialog = Gtk.MessageDialog (None, 0, Gtk.MessageType.INFO, Gtk.ButtonsType.OK, title)
-        Gtk.MessageDialog.format_secondary_text (dialog, msg)
-        dialog.run()
-        dialog.destroy()
-
     def do_deactivate(self):
         """
         Called by Rhythmbox when the plugin is deactivated. It makes sure to
@@ -546,8 +530,6 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
         self.toolbar_type.cleanup()
 
         del self.shell
-        if not self.app_exiting:
-                self.restart_prompt()
 
     def toggle_visibility(self, action, param=None, data=None):
         """
