@@ -1,4 +1,4 @@
-rhythmbox-plugin-alternative-toolbar (0.20.0-0ubuntu1) impish; urgency=medium
+rhythmbox-plugin-alternative-toolbar (0.20.1-1) unstable; urgency=medium
 
   * New upstream version
     - See ChangeLog
@@ -8,8 +8,9 @@ rhythmbox-plugin-alternative-toolbar (0.20.0-0ubuntu1) impish; urgency=medium
     - d/upstream use my debian maintainer signing key
     - d/c update debhelper version
     - d/copyright bump copyright year
+    - metadata/upstream remove Homepage which resolved lintian warning
 
- -- David Mohammed <fossfreedom@ubuntu.com>  Thu, 29 Jul 2021 19:55:40 +0100
+ -- David Mohammed <fossfreedom@ubuntu.com>  Sun, 19 Sep 2021 18:41:47 +0100
 
 rhythmbox-plugin-alternative-toolbar (0.19.3-2) unstable; urgency=medium
 
