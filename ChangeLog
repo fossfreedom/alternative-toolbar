@@ -1,3 +1,70 @@
+commit 68ae3d37ae41edbead1f16bf5d12f0b8b92bc062
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Tue Sep 14 20:28:09 2021 +0100
+
+    Bump version
+
+ README.md                     | 2 +-
+ alternative-toolbar.plugin.in | 2 +-
+ configure.ac                  | 2 +-
+ readme.html                   | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+commit 3294eebca62dd5ad3750665d885aac3fa20f31df
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Tue Sep 14 19:50:19 2021 +0100
+
+    Latest launchpad impish translations
+
+ po/en_AU.po | 141 +++++++++++++++++++++++++++++++-----------------------------
+ po/gl.po    | 141 +++++++++++++++++++++++++++++++-----------------------------
+ po/he.po    |   4 +-
+ po/hr.po    | 141 +++++++++++++++++++++++++++++++-----------------------------
+ po/pt.po    | 141 +++++++++++++++++++++++++++++++-----------------------------
+ 5 files changed, 290 insertions(+), 278 deletions(-)
+
+commit abb01a11bee5a8aa41711c5428ac254535ba416b
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Tue Sep 14 07:47:30 2021 +0100
+
+    Revert "Show app restart info dialog when plugin is disabled" #172
+    
+    This reverts commit 9e50cb17a99cd2cff6f6c1b71d2ad219cac6ac5d.
+
+ alternative-toolbar.py | 18 ------------------
+ 1 file changed, 18 deletions(-)
+
+commit f4887dd40ca150d1b95b476e0b47fbd1a45a6ca4
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Tue Aug 31 13:40:40 2021 +0100
+
+    Latest translations
+
+ po/af.po    | 143 ++++++++++++++++++++++++++++++-----------------------------
+ po/en_GB.po | 143 ++++++++++++++++++++++++++++++-----------------------------
+ po/he.po    | 141 +++++++++++++++++++++++++++++-----------------------------
+ po/tr.po    | 143 ++++++++++++++++++++++++++++++-----------------------------
+ po/uk.po    | 145 +++++++++++++++++++++++++++++++-----------------------------
+ 5 files changed, 365 insertions(+), 350 deletions(-)
+
+commit 685cff601eb1b77e39b829d2ee249de33425f989
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Thu Jul 29 19:45:51 2021 +0100
+
+    Convert README.md to readme.html
+
+ readme.html | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
+
+commit 08e2d0f7a60e8610e55f3226648fb2abaeadd8f3
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Thu Jul 29 19:41:28 2021 +0100
+
+    Update ChangeLog
+
+ ChangeLog | 203 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 203 insertions(+)
+
 commit 3e712becfbed35bd75e39896447c8dd041d9609e
 Author: David Mohammed <fossfreedom@ubuntu.com>
 Date:   Thu Jul 29 19:39:46 2021 +0100
