@@ -7,54 +7,58 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rhythmbox-plugin-alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-09-04 11:35+0100\n"
-"PO-Revision-Date: 2021-03-31 13:05+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2021-09-14 19:50+0000\n"
+"PO-Revision-Date: 2021-12-06 20:43+0000\n"
+"Last-Translator: Zayar Lwin <Unknown>\n"
 "Language-Team: Burmese <my@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-24 09:36+0000\n"
-"X-Generator: Launchpad (build f9f562f07f129de414c16be22a405ff0964e0018)\n"
+"X-Launchpad-Export-Date: 2022-02-28 14:16+0000\n"
+"X-Generator: Launchpad (build 61f4697954ab70d633d14d8ceecff69a20b08a6b)\n"
 
-#: ../alternative-toolbar.py:248
+#: ../alternative-toolbar.py:240 ../alternative-toolbar.py:243
+msgid "Search"
+msgstr "ရှာဖွေမည်"
+
+#: ../alternative-toolbar.py:250
 msgid "Seek Backward"
 msgstr "နောက်ကိုပြန်ဆုတ်မည်"
 
-#: ../alternative-toolbar.py:251
+#: ../alternative-toolbar.py:253
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr "နောက်ကိုပြန်ဆုတ်မည် ၅ စက္ကန့်ဖြင့်ရှာမည်"
 
-#: ../alternative-toolbar.py:255
+#: ../alternative-toolbar.py:257
 msgid "Seek Forward"
 msgstr "အရှေ့တိုးရှာမည်"
 
-#: ../alternative-toolbar.py:259
+#: ../alternative-toolbar.py:261
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr "အရှေ့ကိုဆက်ရှာမည် ၁၀ စက္ကန့် တိုးတိုးပြီး"
 
-#: ../alternative-toolbar.py:271
+#: ../alternative-toolbar.py:273
 msgid "Show Play-Controls Toolbar"
 msgstr "Play-Controls Toolbar ကိုပြပါ"
 
-#: ../alternative-toolbar.py:275
+#: ../alternative-toolbar.py:277
 msgid "Show or hide the play-controls toolbar"
 msgstr "play-controls toolbar ကိုပြသသို့မဟုတ်ဖုံးကွယ်ပါ"
 
-#: ../alternative-toolbar.py:280
+#: ../alternative-toolbar.py:282
 msgid "Show Source Toolbar"
 msgstr "Source Toolbar ကိုပြပါ"
 
-#: ../alternative-toolbar.py:283
+#: ../alternative-toolbar.py:285
 msgid "Show or hide the source toolbar"
 msgstr "အရင်းအမြစ် toolbar ကိုပြသသို့မဟုတ်ဖုံးကွယ်"
 
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:564
+#: ../alternative-toolbar.py:566
 msgid "Alternative Toolbar"
 msgstr "တခြား Toolbar"
 
-#: ../alternative-toolbar.py:567
+#: ../alternative-toolbar.py:569
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -65,10 +69,6 @@ msgstr ""
 #: ../alttoolbar_controller.py:156
 msgid "View All"
 msgstr "အားလုံးကြည့်မည်"
-
-#: ../alttoolbar_controller.py:324
-msgid "Import"
-msgstr ""
 
 #: ../alttoolbar_controller.py:533
 msgid "Stations"
@@ -94,7 +94,7 @@ msgstr "မကြာခင်က ဖွင့်ခဲ့သော"
 msgid "Podcasts"
 msgstr "Podcasts"
 
-#: ../alttoolbar_preferences.py:308
+#: ../alttoolbar_preferences.py:314
 msgid "Restart"
 msgstr "အစမှ ပြန်ဖွင့်မည်"
 
@@ -114,30 +114,18 @@ msgstr "တခြားရင်းမြစ်"
 msgid "Playlists"
 msgstr "ဖွင့်ရန်စာရင်းများ"
 
-#: ../alttoolbar_type.py:1477 ../ui/altlibrary.ui.h:1
+#: ../alttoolbar_type.py:1469 ../ui/altlibrary.ui.h:1
 msgid "Songs"
 msgstr "သီချင်းများ"
 
-#: ../alttoolbar_type.py:1483 ../alttoolbar_type.py:1567
-#: ../ui/altpreferences.ui.h:26 ../ui/altlibrary.ui.h:2
+#: ../alttoolbar_type.py:1475 ../alttoolbar_type.py:1559
+#: ../ui/altpreferences.ui.h:30 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "ခေါင်းစဉ်များ"
 
-#: ../alttoolbar_type.py:1551
+#: ../alttoolbar_type.py:1543
 msgid "Browse"
 msgstr "ရှာဖွေမည်။"
-
-#: ../alttoolbar_type.py:1564
-msgid "_Help"
-msgstr ""
-
-#: ../alttoolbar_type.py:1565
-msgid "_About"
-msgstr ""
-
-#: ../alttoolbar_type.py:1566
-msgid "_Quit"
-msgstr ""
 
 #: ../alttoolbar_repeat.py:96 ../alttoolbar_repeat.py:193
 msgid "Repeat all tracks"
@@ -149,14 +137,30 @@ msgid "Repeat the current track"
 msgstr "ယခုအပုဒ်ကိုပြန်ဖွင့်မည်"
 
 #: ../ui/altpreferences.ui.h:1
+msgid "Top"
+msgstr "ထိပ်"
+
+#: ../ui/altpreferences.ui.h:2
+msgid "Bottom"
+msgstr "အောက်"
+
+#: ../ui/altpreferences.ui.h:3
+msgid "Horizontal"
+msgstr "အလျားလိုက်"
+
+#: ../ui/altpreferences.ui.h:4
+msgid "Vertical"
+msgstr "ဒေါင်လိုက်"
+
+#: ../ui/altpreferences.ui.h:5
 msgid "Restart the player for the changes to take effect."
 msgstr "ပြောင်းလဲထားသည်များ အသက်၀င်ရန် Player ကိုအစကနေပြန်စပါ"
 
-#: ../ui/altpreferences.ui.h:2
+#: ../ui/altpreferences.ui.h:6
 msgid "Toolbar:"
 msgstr "Toolbar:"
 
-#: ../ui/altpreferences.ui.h:3
+#: ../ui/altpreferences.ui.h:7
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
@@ -164,15 +168,15 @@ msgstr ""
 "Gnome နှင့်Elementary ကဲ့သို့သော \n"
 "အသင့်တော်ဆုံးသော Desktop"
 
-#: ../ui/altpreferences.ui.h:5
+#: ../ui/altpreferences.ui.h:9
 msgid "Modern"
 msgstr "ခေတ်မှီသော"
 
-#: ../ui/altpreferences.ui.h:6
+#: ../ui/altpreferences.ui.h:10
 msgid "Use compact controls"
 msgstr "ကျစ်လစ်သိပ်သည်းသောထိန်းချုပ်မှုများကိုသုံးပါ"
 
-#: ../ui/altpreferences.ui.h:7
+#: ../ui/altpreferences.ui.h:11
 msgid ""
 "Display the playback controls in the toolbar in visually compact style "
 "instead of the standard rhythmbox style.\n"
@@ -182,15 +186,15 @@ msgstr ""
 "တွင်အမြင်အာရုံကျစ်လစ်သိပ်သည်းစွာပြပါ။ ခေတ်သစ် toolbar mode အတွက်အမြဲတမ်း "
 "enable လုပ်ထားတယ်။"
 
-#: ../ui/altpreferences.ui.h:9
+#: ../ui/altpreferences.ui.h:13
 msgid "Show:"
 msgstr "ပြရန် -"
 
-#: ../ui/altpreferences.ui.h:10
+#: ../ui/altpreferences.ui.h:14
 msgid "Album/genre/year for playing song"
 msgstr "သီချင်းဖွင့်ရန် Album / အမျိုးအစား / နှစ်"
 
-#: ../ui/altpreferences.ui.h:11
+#: ../ui/altpreferences.ui.h:15
 msgid ""
 "Display album/genre/year instead of song-artist-album.  Useful for those "
 "desktop-environments where song-artist-album is already displayed in the "
@@ -200,39 +204,39 @@ msgstr ""
 "သီချင်း-အဆိုတော်-အယ်ဘမ် ကို Window ခေါင်းစဥ်နေရာမှာ\r\n"
 "ပြထားသည့်နေရာများအတွက် Desktop-environment အတွက်အသုံး၀င်သည်"
 
-#: ../ui/altpreferences.ui.h:12
+#: ../ui/altpreferences.ui.h:16
 msgid "Tooltips for the playback controls"
 msgstr "ပြန်ဖွင့်ထိန်းချုပ်မှုအတွက် Tooltips"
 
-#: ../ui/altpreferences.ui.h:13
+#: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the tooltips for the playback controls."
 msgstr "ပြန်ဖွင့်ထိန်းချုပ်မှုအတွက် Tooltip များကိုပြပါသို့မဟုတ်ဖုံးကွယ်ပါ။"
 
-#: ../ui/altpreferences.ui.h:14
+#: ../ui/altpreferences.ui.h:18
 msgid "Volume control"
 msgstr "အသံအတိုးအကျယ်ထိန်းချုပ်ခြင်း"
 
-#: ../ui/altpreferences.ui.h:15
+#: ../ui/altpreferences.ui.h:19
 msgid "Show or hide the volume control."
 msgstr "အသံအတိုးအကျယ်ထိန်းချုပ်မှုကိုပြပါသို့မဟုတ်ဖုံးကွယ်ပါ။"
 
-#: ../ui/altpreferences.ui.h:16
+#: ../ui/altpreferences.ui.h:20
 msgid "Playback controls"
 msgstr "ပြန်ဖွင့်ထိန်းချုပ်မှု"
 
-#: ../ui/altpreferences.ui.h:17
+#: ../ui/altpreferences.ui.h:21
 msgid "Show or hide the playing controls on player startup."
 msgstr "Player အစတွင် ဖွင့်သည့် ခလုတ်များကိုပြသို့မဟုတ်ဖုံးကွယ်ပါ။"
 
-#: ../ui/altpreferences.ui.h:18
+#: ../ui/altpreferences.ui.h:22
 msgid "Use:"
 msgstr "အသုံးပြုသည် -"
 
-#: ../ui/altpreferences.ui.h:19
+#: ../ui/altpreferences.ui.h:23
 msgid "Inline song/artist label"
 msgstr "Inline သီချင်း / အဆိုတော် label"
 
-#: ../ui/altpreferences.ui.h:20
+#: ../ui/altpreferences.ui.h:24
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
@@ -240,11 +244,11 @@ msgstr ""
 "Progress Slider မတိုင်ခင် သီချင်းနှင့် အဆိုတော် label ကိုပြသမည်၊ မဟုတ်ပါက "
 "အဆင့်ပြ Slider အထက်တွင်ပြသမည်"
 
-#: ../ui/altpreferences.ui.h:21
+#: ../ui/altpreferences.ui.h:25
 msgid "Enhanced sidebar"
 msgstr "ဘေးဘားကိုပြင်ဆင်မည်"
 
-#: ../ui/altpreferences.ui.h:22
+#: ../ui/altpreferences.ui.h:26
 msgid ""
 "Show or hide redesigned sidebar for the player. It features improved "
 "symbolic icons, better sources organisation and ability to expand and "
@@ -255,11 +259,11 @@ msgstr ""
 "ပိုမိုကောင်းမွန်သောရင်းမြစ်များဖွဲ့စည်းခြင်းနှင့်အမျိုးအစားများကိုချဲ့ထွင်နို"
 "င်ခြင်းတို့ပါဝင်သည်။"
 
-#: ../ui/altpreferences.ui.h:23
+#: ../ui/altpreferences.ui.h:27
 msgid "Enhanced plugins dialog"
 msgstr "ပိုမိုကောင်းမွန်သော plugins များပေးသည့် dialog"
 
-#: ../ui/altpreferences.ui.h:24
+#: ../ui/altpreferences.ui.h:28
 msgid ""
 "Show or hide redesigned plugins dialog. It features switches instead of "
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
@@ -270,17 +274,9 @@ msgstr ""
 "ကိုအစားထိုးတပ်ဆင်ထားသည်။ Gnome အခြေပြု desktop environment "
 "များနှင့်အကောင်းဆုံးအလုပ်လုပ်သည်။"
 
-#: ../ui/altpreferences.ui.h:25
+#: ../ui/altpreferences.ui.h:29
 msgid "Dark theme if available"
 msgstr "ရရှိနိုင်ပါလျှင်အမှောင် theme"
-
-#: ../ui/altpreferences.ui.h:27
-msgid "Horizontal"
-msgstr "အလျားလိုက်"
-
-#: ../ui/altpreferences.ui.h:28
-msgid "Vertical"
-msgstr "ဒေါင်လိုက်"
 
 #: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"

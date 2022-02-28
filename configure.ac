@@ -1,5 +1,5 @@
 AC_INIT([Alternative Toolbar],
-        [0.20.1],
+        [0.20.2],
         [fossfreedom@ubuntu.com],
         [alternative-toolbar],
         [https://github.com/fossfreedom/alternative-toolbar])
