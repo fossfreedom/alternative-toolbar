@@ -3,11 +3,11 @@ Upstream-Name: alternative-toolbar
 Source: https://github.com/fossfreedom/alternative-toolbar
 
 Files: *
-Copyright: 2012-2021, David Mohammed <fossfreedom@ubuntu.com>
+Copyright: 2012-2022, David Mohammed <fossfreedom@ubuntu.com>
 License: GPL-3+
 
 Files: po/*.po
-Copyright: 2015-2021 Rosetta Contributors and Canonical Ltd
+Copyright: 2015-2022 Rosetta Contributors and Canonical Ltd
 License: GPL-3+
 
 Files: alttoolbar_widget.py
@@ -16,7 +16,7 @@ Copyright: 2018, Nguyễn Gia Phong <vn.mcsinyx@gmail.com>
 License: GPL-3+
 
 Files: debian/*
-Copyright: 2016-2021, David Mohammed <fossfreedom@ubuntu.com>
+Copyright: 2016-2022, David Mohammed <fossfreedom@ubuntu.com>
   2015-2017, David Mohammed <foss.freedom@gmail.com>
   2015, 2016, fossfreedom <foss.freedom@gmail.com>
 License: GPL-2+

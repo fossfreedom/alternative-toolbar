@@ -1,3 +1,12 @@
+rhythmbox-plugin-alternative-toolbar (0.20.2-1) unstable; urgency=medium
+
+  * Translation only release
+  * Packaging Changes:
+    - d/c bump StandardsVersion; no changes required
+    - d/copyright bump copyright year
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Mon, 28 Feb 2022 16:54:09 +0000
+
 rhythmbox-plugin-alternative-toolbar (0.20.1-1) unstable; urgency=medium
 
   * New upstream version
