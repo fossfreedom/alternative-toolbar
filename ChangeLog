@@ -1,3 +1,37 @@
+commit 54a53f83f4d72137b6c9b03a86497c2a009488b8
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Mon Feb 28 16:49:01 2022 +0000
+
+    Latest translations and bump version
+
+ README.md                     |   4 +-
+ alternative-toolbar.plugin.in |   4 +-
+ configure.ac                  |   2 +-
+ po/LINGUAS                    |   1 +
+ po/da.po                      | 133 +++++++++----------
+ po/de.po                      | 133 +++++++++----------
+ po/es.po                      | 135 +++++++++----------
+ po/fa.po                      | 301 ++++++++++++++++++++++++++++++++++++++++++
+ po/fi.po                      | 140 +++++++++++---------
+ po/hr.po                      |  36 ++---
+ po/id.po                      | 135 +++++++++----------
+ po/ja.po                      | 145 +++++++++++---------
+ po/my.po                      | 128 +++++++++---------
+ po/pl.po                      | 130 +++++++++---------
+ po/ru.po                      | 151 +++++++++++----------
+ po/zh_CN.po                   | 145 +++++++++++---------
+ readme.html                   |   4 +-
+ 17 files changed, 1033 insertions(+), 694 deletions(-)
+
+commit b43709bc5de20c7ea66c0e992f59361793874ed3
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Sun Sep 19 18:45:51 2021 +0100
+
+    Update changelog
+
+ ChangeLog | 67 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 67 insertions(+)
+
 commit 68ae3d37ae41edbead1f16bf5d12f0b8b92bc062
 Author: David Mohammed <fossfreedom@ubuntu.com>
 Date:   Tue Sep 14 20:28:09 2021 +0100
