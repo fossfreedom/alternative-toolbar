@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-24 10:33+0100\n"
+"POT-Creation-Date: 2022-12-15 19:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,56 +17,48 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../alternative-toolbar.py:241 ../alternative-toolbar.py:244
+#: ../alternative-toolbar.py:228 ../alternative-toolbar.py:231
 msgid "Search"
 msgstr ""
 
-#: ../alternative-toolbar.py:251
+#: ../alternative-toolbar.py:238
 msgid "Seek Backward"
 msgstr ""
 
-#: ../alternative-toolbar.py:254
+#: ../alternative-toolbar.py:241
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr ""
 
-#: ../alternative-toolbar.py:258
+#: ../alternative-toolbar.py:245
 msgid "Seek Forward"
 msgstr ""
 
-#: ../alternative-toolbar.py:262
+#: ../alternative-toolbar.py:249
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr ""
 
-#: ../alternative-toolbar.py:274
+#: ../alternative-toolbar.py:261
 msgid "Show Play-Controls Toolbar"
 msgstr ""
 
-#: ../alternative-toolbar.py:278
+#: ../alternative-toolbar.py:265
 msgid "Show or hide the play-controls toolbar"
 msgstr ""
 
-#: ../alternative-toolbar.py:283
+#: ../alternative-toolbar.py:270
 msgid "Show Source Toolbar"
 msgstr ""
 
-#: ../alternative-toolbar.py:286
+#: ../alternative-toolbar.py:273
 msgid "Show or hide the source toolbar"
 msgstr ""
 
-#: ../alternative-toolbar.py:516
-msgid "Restart Rhythmbox"
-msgstr ""
-
-#: ../alternative-toolbar.py:517
-msgid "Please restart Rhythmbox for the changes to take effect."
-msgstr ""
-
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:584
+#: ../alternative-toolbar.py:554
 msgid "Alternative Toolbar"
 msgstr ""
 
-#: ../alternative-toolbar.py:587
+#: ../alternative-toolbar.py:557
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -100,7 +92,7 @@ msgstr ""
 msgid "Podcasts"
 msgstr ""
 
-#: ../alttoolbar_preferences.py:314
+#: ../alttoolbar_preferences.py:307
 msgid "Restart"
 msgstr ""
 
@@ -125,7 +117,7 @@ msgid "Songs"
 msgstr ""
 
 #: ../alttoolbar_type.py:1475 ../alttoolbar_type.py:1559
-#: ../ui/altpreferences.ui.h:30 ../ui/altlibrary.ui.h:2
+#: ../ui/altpreferences.ui.h:28 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr ""
 
@@ -252,17 +244,6 @@ msgid ""
 msgstr ""
 
 #: ../ui/altpreferences.ui.h:27
-msgid "Enhanced plugins dialog"
-msgstr ""
-
-#: ../ui/altpreferences.ui.h:28
-msgid ""
-"Show or hide redesigned plugins dialog. It features switches instead of "
-"checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
-"based desktop environments."
-msgstr ""
-
-#: ../ui/altpreferences.ui.h:29
 msgid "Dark theme if available"
 msgstr ""
 
