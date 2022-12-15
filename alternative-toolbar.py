@@ -142,8 +142,6 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
             self.gs.PluginKey.ENHANCED_SIDEBAR]
         self.show_tooltips = self.plugin_settings[
             self.gs.PluginKey.SHOW_TOOLTIPS]
-        self.enhanced_plugins = self.plugin_settings[
-            self.gs.PluginKey.ENHANCED_PLUGINS]
         self.horiz_categories = self.plugin_settings[
             self.gs.PluginKey.HORIZ_CATEGORIES]
         self.app_menu = self.plugin_settings[
@@ -185,16 +183,6 @@ class AltToolbarPlugin(GObject.Object, Peas.Activatable):
                 ver = buf.split(' ')[1]
         except:
             ver = "999.99.99"
-
-        if self.enhanced_plugins and ver <= "3.4.3":
-            # redirect plugins action to our implementation
-            # after v3.4.3 plugins has been moved into
-            # preferences so no need to activate our own
-            # implementation
-
-            action = Gio.SimpleAction.new('plugins', None)
-            action.connect('activate', self._display_plugins)
-            self.shell.props.application.add_action(action)
 
         self._connect_signals()
         self._connect_properties()

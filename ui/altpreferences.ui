@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.38.2 -->
+<!-- Generated with glade 3.40.0 -->
 <interface>
-  <requires lib="gtk+" version="3.10"/>
+  <requires lib="gtk+" version="3.22"/>
   <object class="GtkListStore" id="liststore1">
     <columns>
       <!-- column-name gchararray1 -->
@@ -33,6 +33,7 @@
   <object class="GtkBox" id="preferences_box">
     <property name="visible">True</property>
     <property name="can-focus">False</property>
+    <property name="double-buffered">False</property>
     <property name="margin-left">10</property>
     <property name="margin-right">10</property>
     <property name="orientation">vertical</property>
@@ -336,7 +337,6 @@ Always enabled for modern toolbar mode.</property>
             <property name="can-focus">True</property>
             <property name="receives-default">False</property>
             <property name="tooltip-text" translatable="yes">Display Song and Artist labels before the progress slider.  If not checked, they are displayed above the progress slider.</property>
-            <property name="xalign">0</property>
             <property name="draw-indicator">True</property>
           </object>
           <packing>
@@ -352,7 +352,6 @@ Always enabled for modern toolbar mode.</property>
             <property name="can-focus">True</property>
             <property name="receives-default">False</property>
             <property name="tooltip-text" translatable="yes">Show or hide redesigned sidebar for the player. It features improved symbolic icons, better sources organisation and ability to expand and collapse categories.</property>
-            <property name="xalign">0</property>
             <property name="draw-indicator">True</property>
           </object>
           <packing>
@@ -362,20 +361,7 @@ Always enabled for modern toolbar mode.</property>
           </packing>
         </child>
         <child>
-          <object class="GtkCheckButton" id="enhanced_plugins_checkbox">
-            <property name="label" translatable="yes">Enhanced plugins dialog</property>
-            <property name="visible">True</property>
-            <property name="can-focus">True</property>
-            <property name="receives-default">False</property>
-            <property name="tooltip-text" translatable="yes">Show or hide redesigned plugins dialog. It features switches instead of checkboxes and inline toolbar with symbolic icons .  Works best with Gnome based desktop environments.</property>
-            <property name="xalign">0</property>
-            <property name="draw-indicator">True</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">4</property>
-          </packing>
+          <placeholder/>
         </child>
         <child>
           <object class="GtkCheckButton" id="dark_theme_checkbox">
@@ -383,7 +369,6 @@ Always enabled for modern toolbar mode.</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">False</property>
-            <property name="xalign">0</property>
             <property name="draw-indicator">True</property>
           </object>
           <packing>

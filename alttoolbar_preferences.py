@@ -66,7 +66,6 @@ class GSetting:
                 ENHANCED_SIDEBAR='enhanced-sidebar',
                 EXPANDERS='expanders',
                 SHOW_TOOLTIPS='show-tooltips',
-                ENHANCED_PLUGINS='enhanced-plugins',
                 REPEAT_TYPE='repeat-type',
                 SOURCE_TOOLBAR='show-source-toolbar',
                 HORIZ_CATEGORIES='horiz-categories',
@@ -272,12 +271,6 @@ class Preferences(GObject.Object, PeasGtk.Configurable):
         self._show_tooltips = builder.get_object('tooltips_checkbox')
         self.plugin_settings.bind(self.gs.PluginKey.SHOW_TOOLTIPS,
                                   self._show_tooltips, 'active',
-                                  Gio.SettingsBindFlags.DEFAULT)
-
-        self._enhanced_plugins = \
-            builder.get_object('enhanced_plugins_checkbox')
-        self.plugin_settings.bind(self.gs.PluginKey.ENHANCED_PLUGINS,
-                                  self._enhanced_plugins, 'active',
                                   Gio.SettingsBindFlags.DEFAULT)
 
         self._dark_theme = \

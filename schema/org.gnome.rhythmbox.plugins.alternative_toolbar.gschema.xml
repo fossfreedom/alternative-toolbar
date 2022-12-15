@@ -59,8 +59,7 @@
         </key>
         <key type="b" name="enhanced-plugins">
             <default>true</default>
-            <summary>show enhanced plugins dialog</summary>
-            <description>Use the enhanced plugins dialog</description>
+            <summary>Obsolete option no longer used</summary>
         </key>
         <key type="i" name="repeat-type">
             <default>2</default>
