@@ -7,58 +7,58 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-08-27 05:14+0000\n"
-"PO-Revision-Date: 2021-01-09 00:06+0000\n"
-"Last-Translator: Luna Jernberg <Unknown>\n"
+"POT-Creation-Date: 2022-03-01 20:25+0000\n"
+"PO-Revision-Date: 2022-03-27 01:26+0000\n"
+"Last-Translator: Kristoffer Grundström <Unknown>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-02-26 15:28+0000\n"
-"X-Generator: Launchpad (build cd61f0bfc5208dd4b58a15e953892eaabba1e0b8)\n"
+"X-Launchpad-Export-Date: 2022-12-15 19:08+0000\n"
+"X-Generator: Launchpad (build 31c78762a8046acf7ab47372e5d588ebb3759d2e)\n"
 
-#: ../alternative-toolbar.py:238 ../alternative-toolbar.py:241
+#: ../alternative-toolbar.py:240 ../alternative-toolbar.py:243
 msgid "Search"
 msgstr "Sök"
 
-#: ../alternative-toolbar.py:248
+#: ../alternative-toolbar.py:250
 msgid "Seek Backward"
 msgstr "Sök bakåt"
 
-#: ../alternative-toolbar.py:251
+#: ../alternative-toolbar.py:253
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr "Sök bakåt, i aktuellt spår, med 5 sekunder."
 
-#: ../alternative-toolbar.py:255
+#: ../alternative-toolbar.py:257
 msgid "Seek Forward"
 msgstr "Sök framåt"
 
-#: ../alternative-toolbar.py:259
+#: ../alternative-toolbar.py:261
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr "Sök framåt, i aktuellt spår, med 10 sekunder."
 
-#: ../alternative-toolbar.py:271
+#: ../alternative-toolbar.py:273
 msgid "Show Play-Controls Toolbar"
 msgstr "Visa uppspelningskontrollens verktygsfält"
 
-#: ../alternative-toolbar.py:275
+#: ../alternative-toolbar.py:277
 msgid "Show or hide the play-controls toolbar"
 msgstr "Visa eller dölj uppspelningskontrollens verktygsfält"
 
-#: ../alternative-toolbar.py:280
+#: ../alternative-toolbar.py:282
 msgid "Show Source Toolbar"
 msgstr "Visa källans verktygsfält"
 
-#: ../alternative-toolbar.py:283
+#: ../alternative-toolbar.py:285
 msgid "Show or hide the source toolbar"
 msgstr "Visa eller göm källans verktygsfält"
 
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:564
+#: ../alternative-toolbar.py:566
 msgid "Alternative Toolbar"
 msgstr "Alternativt verktygsfält"
 
-#: ../alternative-toolbar.py:567
+#: ../alternative-toolbar.py:569
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -94,7 +94,7 @@ msgstr "Senast spelade"
 msgid "Podcasts"
 msgstr "Poddsändningar"
 
-#: ../alttoolbar_preferences.py:308
+#: ../alttoolbar_preferences.py:314
 msgid "Restart"
 msgstr "Starta om"
 
@@ -114,16 +114,16 @@ msgstr "Andra källor"
 msgid "Playlists"
 msgstr "Spellistor"
 
-#: ../alttoolbar_type.py:1477 ../ui/altlibrary.ui.h:1
+#: ../alttoolbar_type.py:1469 ../ui/altlibrary.ui.h:1
 msgid "Songs"
 msgstr "Låtar"
 
-#: ../alttoolbar_type.py:1483 ../alttoolbar_type.py:1567
-#: ../ui/altpreferences.ui.h:26 ../ui/altlibrary.ui.h:2
+#: ../alttoolbar_type.py:1475 ../alttoolbar_type.py:1559
+#: ../ui/altpreferences.ui.h:30 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "Kategorier"
 
-#: ../alttoolbar_type.py:1551
+#: ../alttoolbar_type.py:1543
 msgid "Browse"
 msgstr "Bläddra"
 
@@ -137,14 +137,30 @@ msgid "Repeat the current track"
 msgstr "Upprepa aktuellt spår"
 
 #: ../ui/altpreferences.ui.h:1
+msgid "Top"
+msgstr "Överst"
+
+#: ../ui/altpreferences.ui.h:2
+msgid "Bottom"
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:3
+msgid "Horizontal"
+msgstr "Horisontellt"
+
+#: ../ui/altpreferences.ui.h:4
+msgid "Vertical"
+msgstr "Vertikalt"
+
+#: ../ui/altpreferences.ui.h:5
 msgid "Restart the player for the changes to take effect."
 msgstr "Starta om spelaren för att ändringarna ska börja gälla."
 
-#: ../ui/altpreferences.ui.h:2
+#: ../ui/altpreferences.ui.h:6
 msgid "Toolbar:"
 msgstr "Verktygsfält:"
 
-#: ../ui/altpreferences.ui.h:3
+#: ../ui/altpreferences.ui.h:7
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
@@ -152,15 +168,15 @@ msgstr ""
 "Passar bäst för skrivbords-\n"
 "miljöer som Gnome och Elementary."
 
-#: ../ui/altpreferences.ui.h:5
+#: ../ui/altpreferences.ui.h:9
 msgid "Modern"
 msgstr "Modern"
 
-#: ../ui/altpreferences.ui.h:6
+#: ../ui/altpreferences.ui.h:10
 msgid "Use compact controls"
 msgstr "Använd kompakta kontroller"
 
-#: ../ui/altpreferences.ui.h:7
+#: ../ui/altpreferences.ui.h:11
 msgid ""
 "Display the playback controls in the toolbar in visually compact style "
 "instead of the standard rhythmbox style.\n"
@@ -170,15 +186,15 @@ msgstr ""
 "istället för den förvalda rhythmbox-stilen.\n"
 "Alltid aktiverat för läget modernt verktygsfält."
 
-#: ../ui/altpreferences.ui.h:9
+#: ../ui/altpreferences.ui.h:13
 msgid "Show:"
 msgstr "Visa:"
 
-#: ../ui/altpreferences.ui.h:10
+#: ../ui/altpreferences.ui.h:14
 msgid "Album/genre/year for playing song"
 msgstr "Album/genre/år för uppspelad låt"
 
-#: ../ui/altpreferences.ui.h:11
+#: ../ui/altpreferences.ui.h:15
 msgid ""
 "Display album/genre/year instead of song-artist-album.  Useful for those "
 "desktop-environments where song-artist-album is already displayed in the "
@@ -187,39 +203,39 @@ msgstr ""
 "Visa album/genre/år istället för låt-artist-album. Praktiskt för "
 "skrivbordsmiljöer där låt-artist-album redan visas i fönstrets titel."
 
-#: ../ui/altpreferences.ui.h:12
+#: ../ui/altpreferences.ui.h:16
 msgid "Tooltips for the playback controls"
 msgstr "Verktygstips för uppspelningskontrollerna"
 
-#: ../ui/altpreferences.ui.h:13
+#: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the tooltips for the playback controls."
 msgstr "Visa eller dölj verktygstipsen för uppspelningskontrollerna."
 
-#: ../ui/altpreferences.ui.h:14
+#: ../ui/altpreferences.ui.h:18
 msgid "Volume control"
 msgstr "Volymkontroll"
 
-#: ../ui/altpreferences.ui.h:15
+#: ../ui/altpreferences.ui.h:19
 msgid "Show or hide the volume control."
 msgstr "Visa eller dölj volymkontrollen."
 
-#: ../ui/altpreferences.ui.h:16
+#: ../ui/altpreferences.ui.h:20
 msgid "Playback controls"
 msgstr "Uppspelningskontroller"
 
-#: ../ui/altpreferences.ui.h:17
+#: ../ui/altpreferences.ui.h:21
 msgid "Show or hide the playing controls on player startup."
 msgstr "Visa eller dölj uppspelningskontrollerna när spelaren startas."
 
-#: ../ui/altpreferences.ui.h:18
+#: ../ui/altpreferences.ui.h:22
 msgid "Use:"
 msgstr "Använd:"
 
-#: ../ui/altpreferences.ui.h:19
+#: ../ui/altpreferences.ui.h:23
 msgid "Inline song/artist label"
 msgstr "Inline låt-/artistetikett"
 
-#: ../ui/altpreferences.ui.h:20
+#: ../ui/altpreferences.ui.h:24
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
@@ -227,11 +243,11 @@ msgstr ""
 "Visa låt- och artistetiketter före förloppsindikatorn. Om det inte är "
 "markerat visas etiketterna ovanför förloppsindikatorn."
 
-#: ../ui/altpreferences.ui.h:21
+#: ../ui/altpreferences.ui.h:25
 msgid "Enhanced sidebar"
 msgstr "Förbättrat sidofält"
 
-#: ../ui/altpreferences.ui.h:22
+#: ../ui/altpreferences.ui.h:26
 msgid ""
 "Show or hide redesigned sidebar for the player. It features improved "
 "symbolic icons, better sources organisation and ability to expand and "
@@ -241,11 +257,11 @@ msgstr ""
 "symboliska ikoner, bättre källorganisation och bättre förmåga att expandera "
 "och fälla ihop kategorier."
 
-#: ../ui/altpreferences.ui.h:23
+#: ../ui/altpreferences.ui.h:27
 msgid "Enhanced plugins dialog"
 msgstr "Förbättrad insticksdialog"
 
-#: ../ui/altpreferences.ui.h:24
+#: ../ui/altpreferences.ui.h:28
 msgid ""
 "Show or hide redesigned plugins dialog. It features switches instead of "
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
@@ -255,17 +271,9 @@ msgstr ""
 "för kryssrutor, och ett inline-verktygsfält med symboliska ikoner. Fungerar "
 "bäst med Gnome-baserade skrivbordsmiljöer."
 
-#: ../ui/altpreferences.ui.h:25
+#: ../ui/altpreferences.ui.h:29
 msgid "Dark theme if available"
 msgstr "Mörkt tema om tillgängligt"
-
-#: ../ui/altpreferences.ui.h:27
-msgid "Horizontal"
-msgstr "Horisontellt"
-
-#: ../ui/altpreferences.ui.h:28
-msgid "Vertical"
-msgstr "Vertikalt"
 
 #: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"

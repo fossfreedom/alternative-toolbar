@@ -7,62 +7,64 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rhythmbox-plugin-alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-08-27 05:14+0000\n"
-"PO-Revision-Date: 2021-03-20 18:59+0000\n"
+"POT-Creation-Date: 2022-03-01 20:25+0000\n"
+"PO-Revision-Date: 2022-03-13 19:17+0000\n"
 "Last-Translator: Quentin PAGÈS <Unknown>\n"
 "Language-Team: Occitan (post 1500) <oc@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-24 09:40+0000\n"
-"X-Generator: Launchpad (build f9f562f07f129de414c16be22a405ff0964e0018)\n"
+"X-Launchpad-Export-Date: 2022-12-15 19:08+0000\n"
+"X-Generator: Launchpad (build 31c78762a8046acf7ab47372e5d588ebb3759d2e)\n"
 
-#: ../alternative-toolbar.py:238 ../alternative-toolbar.py:241
+#: ../alternative-toolbar.py:240 ../alternative-toolbar.py:243
 msgid "Search"
 msgstr "Recercar"
 
-#: ../alternative-toolbar.py:248
+#: ../alternative-toolbar.py:250
 msgid "Seek Backward"
-msgstr "Recuolar"
+msgstr "Recular"
 
-#: ../alternative-toolbar.py:251
+#: ../alternative-toolbar.py:253
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr "Recular de 5 segondas d’aquesta pista."
 
-#: ../alternative-toolbar.py:255
+#: ../alternative-toolbar.py:257
 msgid "Seek Forward"
 msgstr "Recercar en avant"
 
-#: ../alternative-toolbar.py:259
+#: ../alternative-toolbar.py:261
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr "Recular de 10 segondas d’aquesta pista."
 
-#: ../alternative-toolbar.py:271
+#: ../alternative-toolbar.py:273
 msgid "Show Play-Controls Toolbar"
 msgstr "Afichar la comandas de lectura a la barra d’aisinas"
 
-#: ../alternative-toolbar.py:275
+#: ../alternative-toolbar.py:277
 msgid "Show or hide the play-controls toolbar"
 msgstr "Afichar o rescondre la comandas de lectura a la barra d’aisinas"
 
-#: ../alternative-toolbar.py:280
+#: ../alternative-toolbar.py:282
 msgid "Show Source Toolbar"
-msgstr ""
+msgstr "Afichar la barra d’aisinas de las fonts"
 
-#: ../alternative-toolbar.py:283
+#: ../alternative-toolbar.py:285
 msgid "Show or hide the source toolbar"
-msgstr ""
+msgstr "Afichar o amagar la barra d’aisinas de las fonts"
 
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:564
+#: ../alternative-toolbar.py:566
 msgid "Alternative Toolbar"
 msgstr "Barra d’aisinas alternativa"
 
-#: ../alternative-toolbar.py:567
+#: ../alternative-toolbar.py:569
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr ""
+"Remplaçar la granda barra d’aisinas de Rhythmbox per una barra d’aisinas "
+"decorada costat client o una barra d’aisinas compacta que se pòt amagar"
 
 #: ../alttoolbar_controller.py:156
 msgid "View All"
@@ -92,7 +94,7 @@ msgstr "Legits recentament"
 msgid "Podcasts"
 msgstr "Podcasts"
 
-#: ../alttoolbar_preferences.py:308
+#: ../alttoolbar_preferences.py:314
 msgid "Restart"
 msgstr "Reaviar"
 
@@ -112,16 +114,16 @@ msgstr "Autras fonts"
 msgid "Playlists"
 msgstr "Listas de lectura"
 
-#: ../alttoolbar_type.py:1477 ../ui/altlibrary.ui.h:1
+#: ../alttoolbar_type.py:1469 ../ui/altlibrary.ui.h:1
 msgid "Songs"
 msgstr "Cançons"
 
-#: ../alttoolbar_type.py:1483 ../alttoolbar_type.py:1567
-#: ../ui/altpreferences.ui.h:26 ../ui/altlibrary.ui.h:2
+#: ../alttoolbar_type.py:1475 ../alttoolbar_type.py:1559
+#: ../ui/altpreferences.ui.h:30 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "Categorias"
 
-#: ../alttoolbar_type.py:1551
+#: ../alttoolbar_type.py:1543
 msgid "Browse"
 msgstr "Recercar"
 
@@ -135,120 +137,145 @@ msgid "Repeat the current track"
 msgstr "Repetir la pista actuala"
 
 #: ../ui/altpreferences.ui.h:1
-msgid "Restart the player for the changes to take effect."
+msgid "Top"
 msgstr ""
 
 #: ../ui/altpreferences.ui.h:2
+msgid "Bottom"
+msgstr ""
+
+#: ../ui/altpreferences.ui.h:3
+msgid "Horizontal"
+msgstr "Orizontal"
+
+#: ../ui/altpreferences.ui.h:4
+msgid "Vertical"
+msgstr "Vertical"
+
+#: ../ui/altpreferences.ui.h:5
+msgid "Restart the player for the changes to take effect."
+msgstr "Relançatz lo lector per aplicar las modificacions."
+
+#: ../ui/altpreferences.ui.h:6
 msgid "Toolbar:"
 msgstr "Barra d’asinas :"
 
-#: ../ui/altpreferences.ui.h:3
+#: ../ui/altpreferences.ui.h:7
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
 msgstr ""
+"Fonciona melhor amb los environaments\n"
+"de burèu coma Gnome o Elementary."
 
-#: ../ui/altpreferences.ui.h:5
+#: ../ui/altpreferences.ui.h:9
 msgid "Modern"
 msgstr "Modèrne"
 
-#: ../ui/altpreferences.ui.h:6
+#: ../ui/altpreferences.ui.h:10
 msgid "Use compact controls"
-msgstr ""
+msgstr "Utilizar los contraròtles compactes"
 
-#: ../ui/altpreferences.ui.h:7
+#: ../ui/altpreferences.ui.h:11
 msgid ""
 "Display the playback controls in the toolbar in visually compact style "
 "instead of the standard rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 msgstr ""
+"Afichar las comandas del lector dins la barra d’aisinas dins un estil visual "
+"compacte allòc de l’estil estandard de Rhythmbox.\n"
+"Totjorn activat en mòde barra d’aisinas modèrna."
 
-#: ../ui/altpreferences.ui.h:9
+#: ../ui/altpreferences.ui.h:13
 msgid "Show:"
 msgstr "Afichar :"
 
-#: ../ui/altpreferences.ui.h:10
+#: ../ui/altpreferences.ui.h:14
 msgid "Album/genre/year for playing song"
-msgstr ""
+msgstr "Album/genre/annada per la cançon en lectura"
 
-#: ../ui/altpreferences.ui.h:11
+#: ../ui/altpreferences.ui.h:15
 msgid ""
 "Display album/genre/year instead of song-artist-album.  Useful for those "
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
+"Afichar album/genre/annada a la plaça de cançon-artista-album. Util pels "
+"environaments de burèu ont cançon-artista-album es ja afichat dins la barra "
+"de títol de la fenèstra."
 
-#: ../ui/altpreferences.ui.h:12
+#: ../ui/altpreferences.ui.h:16
 msgid "Tooltips for the playback controls"
-msgstr ""
+msgstr "Balonets d’ajuda per las comandas del lector"
 
-#: ../ui/altpreferences.ui.h:13
+#: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the tooltips for the playback controls."
-msgstr ""
+msgstr "Afichar o amagar los balonets d’ajuda per las comandas del lector."
 
-#: ../ui/altpreferences.ui.h:14
+#: ../ui/altpreferences.ui.h:18
 msgid "Volume control"
 msgstr "Preferéncias del volum"
 
-#: ../ui/altpreferences.ui.h:15
+#: ../ui/altpreferences.ui.h:19
 msgid "Show or hide the volume control."
 msgstr "Mostrar o amagar las preferéncias del volum"
 
-#: ../ui/altpreferences.ui.h:16
+#: ../ui/altpreferences.ui.h:20
 msgid "Playback controls"
 msgstr "Contraròtles del playback"
 
-#: ../ui/altpreferences.ui.h:17
+#: ../ui/altpreferences.ui.h:21
 msgid "Show or hide the playing controls on player startup."
-msgstr ""
+msgstr "Afichar o amagar las comandas de lector a l’aviada."
 
-#: ../ui/altpreferences.ui.h:18
+#: ../ui/altpreferences.ui.h:22
 msgid "Use:"
 msgstr "Utilizar :"
 
-#: ../ui/altpreferences.ui.h:19
+#: ../ui/altpreferences.ui.h:23
 msgid "Inline song/artist label"
-msgstr ""
+msgstr "Etiqueta sus una linha cançon/artista"
 
-#: ../ui/altpreferences.ui.h:20
+#: ../ui/altpreferences.ui.h:24
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
+"Afichar las etiqueta Cançon e Artista abans lo cursor progressiu. S’aquesta "
+"opcion es marcada, seràn mostrada al dessús d’aqueste."
 
-#: ../ui/altpreferences.ui.h:21
+#: ../ui/altpreferences.ui.h:25
 msgid "Enhanced sidebar"
 msgstr "Barra laterala optimizada"
 
-#: ../ui/altpreferences.ui.h:22
+#: ../ui/altpreferences.ui.h:26
 msgid ""
 "Show or hide redesigned sidebar for the player. It features improved "
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
+"Afichar o amagar la barra lateral renovada pel lector. Inclutz d’icònas "
+"simbolicas melhoradas, de melhoras fonts d’organizacion e la possibilitat "
+"d’agrandir o de reduire las categorias."
 
-#: ../ui/altpreferences.ui.h:23
+#: ../ui/altpreferences.ui.h:27
 msgid "Enhanced plugins dialog"
-msgstr ""
+msgstr "Fenèstra de dialòg melhorada de las extension"
 
-#: ../ui/altpreferences.ui.h:24
+#: ../ui/altpreferences.ui.h:28
 msgid ""
 "Show or hide redesigned plugins dialog. It features switches instead of "
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
 "based desktop environments."
 msgstr ""
+"Afichar o amagar la fenèstra de dialòg de las extensions. Inclutz de botons "
+"a doas opcions allòc de casa de marcar e tanben una barra d’aisinas sus una "
+"linha amb d’icònas simbolicas. Fonciona melhor amb los environaments de "
+"burèu basats sus Gnome."
 
-#: ../ui/altpreferences.ui.h:25
+#: ../ui/altpreferences.ui.h:29
 msgid "Dark theme if available"
 msgstr "Tèma fosc se disponible"
-
-#: ../ui/altpreferences.ui.h:27
-msgid "Horizontal"
-msgstr "Orizontal"
-
-#: ../ui/altpreferences.ui.h:28
-msgid "Vertical"
-msgstr "Vertical"
 
 #: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"
