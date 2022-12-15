@@ -1,3 +1,71 @@
+commit 3cf1b3cd4ba6da90045be401c5b754df1d4cba0b
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Thu Dec 15 19:51:59 2022 +0000
+
+    Regenerate pot
+
+ po/alternative-toolbar.pot | 47 ++++++++++++++--------------------------------
+ 1 file changed, 14 insertions(+), 33 deletions(-)
+
+commit a10d137836ef5e82c8fe8abd284330f391cc5a85
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Thu Dec 15 19:45:05 2022 +0000
+
+    Bump version
+
+ README.md                     | 2 +-
+ alternative-toolbar.plugin.in | 2 +-
+ configure.ac                  | 2 +-
+ readme.html                   | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+commit ac0015b4bdc3a12439ad6a340ec09eebd3951933
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Thu Dec 15 19:37:34 2022 +0000
+
+    Remove enhanced plugins option since no longer used in recent rhythmbox versions - closes #178
+
+ alternative-toolbar.py                             | 12 -----------
+ alttoolbar_preferences.py                          |  7 -------
+ ...ythmbox.plugins.alternative_toolbar.gschema.xml |  3 +--
+ ui/altpreferences.ui                               | 23 ++++------------------
+ 4 files changed, 5 insertions(+), 40 deletions(-)
+
+commit 8fc6014407bcb7baabe68be42cbb3236b8caa396
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Thu Dec 15 19:15:49 2022 +0000
+
+    Latest translations
+
+ po/LINGUAS  |   1 +
+ po/cs.po    | 142 ++++++++++++++++-------------
+ po/el.po    | 133 +++++++++++++--------------
+ po/en_CA.po | 293 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/it.po    | 135 ++++++++++++++--------------
+ po/my.po    |  12 +--
+ po/oc.po    | 147 +++++++++++++++++-------------
+ po/sr.po    | 108 +++++++++++-----------
+ po/sv.po    | 110 ++++++++++++-----------
+ 9 files changed, 715 insertions(+), 366 deletions(-)
+
+commit 6cac11564f31fdf00b367a7956f79e1a59682170
+Author: David Mohammed <fossfreedom@users.noreply.github.com>
+Date:   Sun Jun 5 13:19:41 2022 +0100
+
+    update release install instructions to use configure
+
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit bba50d75a71c1432a6e77e8eabcc16825b716c23
+Author: David Mohammed <fossfreedom@ubuntu.com>
+Date:   Mon Feb 28 16:50:23 2022 +0000
+
+    Update ChangeLog
+
+ ChangeLog | 34 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
+
 commit 54a53f83f4d72137b6c9b03a86497c2a009488b8
 Author: David Mohammed <fossfreedom@ubuntu.com>
 Date:   Mon Feb 28 16:49:01 2022 +0000
