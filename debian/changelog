@@ -1,3 +1,11 @@
+rhythmbox-plugin-alternative-toolbar (0.20.3-1) unstable; urgency=medium
+
+  * New release
+    - updated translations
+    - remove obsolete Enhanced Plugins preferences option
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Fri, 30 Dec 2022 14:03:22 +0000
+
 rhythmbox-plugin-alternative-toolbar (0.20.2-1) unstable; urgency=medium
 
   * Translation only release
