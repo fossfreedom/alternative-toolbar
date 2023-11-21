@@ -15,7 +15,7 @@
 	        Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact toolbar which can be hidden.
 	    </td>
 		<td align="center" width="10%">
-			v0.20.3
+			v0.20.4
 		</td>
 		<td align="right" width="30%">
 		    <a href="http://flattr.com/thing/1811704/" title="fossfreedom">
@@ -110,7 +110,7 @@ cd ~/Downloads
 sudo apt-get install intltool git gir1.2-glib-2.0 gir1.2-gstreamer-1.0 gir1.2-gtk-3.0 gir1.2-peas-1.0 gir1.2-rb-3.0 gnome-pkg-tools gobject-introspection libglib2.0-dev pkg-config python3-gi python3
 tar -zxvf alternative-toolbar*.tar.gz
 cd alternative-toolbar*
-./configure --prefix=/usr
+./autogen.sh --prefix=/usr
 make
 sudo make install
 ```
