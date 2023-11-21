@@ -7,66 +7,58 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2021-07-29 19:16+0000\n"
-"PO-Revision-Date: 2021-09-10 16:12+0000\n"
+"POT-Creation-Date: 2023-03-28 13:44+0200\n"
+"PO-Revision-Date: 2023-09-17 19:57+0000\n"
 "Last-Translator: Xosé <Unknown>\n"
 "Language-Team: Galician <gl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-09-14 18:32+0000\n"
-"X-Generator: Launchpad (build d297c56d4f761367bf9bf563de1abea41f9b4f9e)\n"
+"X-Launchpad-Export-Date: 2023-11-21 20:00+0000\n"
+"X-Generator: Launchpad (build 5c5453089af6e124865a31f368febff22e0acc72)\n"
 
-#: ../alternative-toolbar.py:241 ../alternative-toolbar.py:244
+#: ../alternative-toolbar.py:228 ../alternative-toolbar.py:231
 msgid "Search"
 msgstr "Buscar"
 
-#: ../alternative-toolbar.py:251
+#: ../alternative-toolbar.py:238
 msgid "Seek Backward"
 msgstr "Buscar cara a atrás"
 
-#: ../alternative-toolbar.py:254
+#: ../alternative-toolbar.py:241
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr "Buscar cara adiante na pista actual, 5 segundos."
 
-#: ../alternative-toolbar.py:258
+#: ../alternative-toolbar.py:245
 msgid "Seek Forward"
 msgstr "Buscar cara a adiante"
 
-#: ../alternative-toolbar.py:262
+#: ../alternative-toolbar.py:249
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr "Buscar cara a adiante na pista actual, 10 segundos."
 
-#: ../alternative-toolbar.py:274
+#: ../alternative-toolbar.py:261
 msgid "Show Play-Controls Toolbar"
 msgstr "Mostrar barra cos controis de reprodución"
 
-#: ../alternative-toolbar.py:278
+#: ../alternative-toolbar.py:265
 msgid "Show or hide the play-controls toolbar"
 msgstr "Mostrar ou ocultar a barra cos controis de reprodución"
 
-#: ../alternative-toolbar.py:283
+#: ../alternative-toolbar.py:270
 msgid "Show Source Toolbar"
 msgstr "Mostrar a barra de ferramentas orixe"
 
-#: ../alternative-toolbar.py:286
+#: ../alternative-toolbar.py:273
 msgid "Show or hide the source toolbar"
 msgstr "Mostrar ou ocultar a barra de ferramentas orixe"
 
-#: ../alternative-toolbar.py:516
-msgid "Restart Rhythmbox"
-msgstr "Reiniciar o Rhythmbox"
-
-#: ../alternative-toolbar.py:517
-msgid "Please restart Rhythmbox for the changes to take effect."
-msgstr "Reinicie o Rhythmbox para facer efectivos os cambios."
-
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:584
+#: ../alternative-toolbar.py:554 ../alttoolbar_plugins.py:385
 msgid "Alternative Toolbar"
 msgstr "Barra de ferramentas alternativa"
 
-#: ../alternative-toolbar.py:587
+#: ../alternative-toolbar.py:557
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -102,7 +94,39 @@ msgstr "Reproducidas recentemente"
 msgid "Podcasts"
 msgstr "Podcasts"
 
-#: ../alttoolbar_preferences.py:314
+#: ../alttoolbar_plugins.py:116
+msgid "The plugin cannot be enabled"
+msgstr "Non é posíbel activar este engadido"
+
+#: ../alttoolbar_plugins.py:246
+msgid "Configure Plugins"
+msgstr "Configurar engadidos"
+
+#: ../alttoolbar_plugins.py:333
+msgid "About this plugin"
+msgstr "Sobre este engadido"
+
+#: ../alttoolbar_plugins.py:365
+msgid "Version: "
+msgstr "Versión: "
+
+#: ../alttoolbar_plugins.py:390
+msgid "Developer:"
+msgstr "Desenvolvemento:"
+
+#: ../alttoolbar_plugins.py:402
+msgid "Designer:"
+msgstr "Deseño:"
+
+#: ../alttoolbar_plugins.py:425
+msgid "Help"
+msgstr "Axuda"
+
+#: ../alttoolbar_plugins.py:433
+msgid "Homepage"
+msgstr "Páxina web"
+
+#: ../alttoolbar_preferences.py:307
 msgid "Restart"
 msgstr "Reiniciar"
 
@@ -127,7 +151,7 @@ msgid "Songs"
 msgstr "Cancións"
 
 #: ../alttoolbar_type.py:1475 ../alttoolbar_type.py:1559
-#: ../ui/altpreferences.ui.h:30 ../ui/altlibrary.ui.h:2
+#: ../ui/altpreferences.ui.h:28 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "Categorías"
 
@@ -268,21 +292,6 @@ msgstr ""
 "ampliar e reducir categorías."
 
 #: ../ui/altpreferences.ui.h:27
-msgid "Enhanced plugins dialog"
-msgstr "Diálogo de engadidos mellorado"
-
-#: ../ui/altpreferences.ui.h:28
-msgid ""
-"Show or hide redesigned plugins dialog. It features switches instead of "
-"checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
-"based desktop environments."
-msgstr ""
-"Mostrar ou ocultar o diálogo renovado dos engadidos. Presenta interruptores "
-"non canto de caixas de verificación e unha barra de ferramentas incorporada "
-"con iconas simbólicas. Funciona mellor cos ambientes de escritorio baseados "
-"no GNOME."
-
-#: ../ui/altpreferences.ui.h:29
 msgid "Dark theme if available"
 msgstr "Tema escuro se está dispoñíbel"
 
@@ -301,3 +310,175 @@ msgstr "Reproducir a pista seguinte"
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
 msgstr "Reproducir as pistas aleatoriamente"
+
+#: ../ui/altmenubar.ui.h:1
+msgid "_File"
+msgstr "_Ficheiro"
+
+#: ../ui/altmenubar.ui.h:2
+msgid "_Add Music"
+msgstr "Eng_adir música"
+
+#: ../ui/altmenubar.ui.h:3
+msgid "_Playlist"
+msgstr "Lista de re_produción"
+
+#: ../ui/altmenubar.ui.h:4
+msgid "_New Playlist…"
+msgstr "_Nova lista de reprodución..."
+
+#: ../ui/altmenubar.ui.h:5
+msgid "New _Automatic Playlist…"
+msgstr "Nova lista _automática de reprodución..."
+
+#: ../ui/altmenubar.ui.h:6
+msgid "_Load from File…"
+msgstr "_Cargar desde un ficheiro..."
+
+#: ../ui/altmenubar.ui.h:7
+msgid "_Save to File…"
+msgstr "_Gardar nun ficheiro..."
+
+#: ../ui/altmenubar.ui.h:8
+msgid "_Edit…"
+msgstr "_Editar…"
+
+#: ../ui/altmenubar.ui.h:9
+msgid "_Delete"
+msgstr "_Eliminar"
+
+#: ../ui/altmenubar.ui.h:10
+msgid "Pr_operties"
+msgstr "Pr_opiedades"
+
+#: ../ui/altmenubar.ui.h:11
+msgid "_Close"
+msgstr "_Pechar"
+
+#: ../ui/altmenubar.ui.h:12
+msgid "_Edit"
+msgstr "_Editar"
+
+#: ../ui/altmenubar.ui.h:13
+msgid "Cu_t"
+msgstr "Cor_tar"
+
+#: ../ui/altmenubar.ui.h:14
+msgid "_Copy"
+msgstr "_Copiar"
+
+#: ../ui/altmenubar.ui.h:15
+msgid "_Paste"
+msgstr "_Pegar"
+
+#: ../ui/altmenubar.ui.h:16
+msgid "Select _All"
+msgstr "Seleccionar _todo"
+
+#: ../ui/altmenubar.ui.h:17
+msgid "D_eselect All"
+msgstr "D_eseleccionar todo"
+
+#: ../ui/altmenubar.ui.h:18
+msgid "Add _to Play Queue"
+msgstr "Engadir á _cola de reprodución"
+
+#: ../ui/altmenubar.ui.h:19
+msgid "Add to _Playlist"
+msgstr "Engadir á lista de re_produción"
+
+#: ../ui/altmenubar.ui.h:20
+msgid "_New Playlist"
+msgstr "_Nova lista de reprodución"
+
+#: ../ui/altmenubar.ui.h:21
+msgid "_Move to Trash"
+msgstr "_Mover ao lixo"
+
+#: ../ui/altmenubar.ui.h:22
+msgid "Prefere_nces"
+msgstr "Prefere_ncias"
+
+#: ../ui/altmenubar.ui.h:23
+msgid "_View"
+msgstr "_Vista"
+
+#: ../ui/altmenubar.ui.h:24
+msgid "_Fullscreen"
+msgstr "_Pantalla completa"
+
+#: ../ui/altmenubar.ui.h:25
+msgid "Side _Pane"
+msgstr "_Panel lateral"
+
+#: ../ui/altmenubar.ui.h:26
+msgid "View _Queue as Side Pane"
+msgstr "Ver _cola como panel lateral"
+
+#: ../ui/altmenubar.ui.h:27
+msgid "S_tatusbar"
+msgstr "Barra de es_tado"
+
+#: ../ui/altmenubar.ui.h:28
+msgid "_Song Position Slider"
+msgstr "De_slizador de posición da canción"
+
+#: ../ui/altmenubar.ui.h:29
+msgid "_Album Art"
+msgstr "Ilustr_acións do álbum"
+
+#: ../ui/altmenubar.ui.h:30
+msgid "_Jump to Playing Song"
+msgstr "_Saltar á canción en reprodución"
+
+#: ../ui/altmenubar.ui.h:31
+msgid "_Control"
+msgstr "_Control"
+
+#: ../ui/altmenubar.ui.h:32
+msgid "_Play"
+msgstr "Re_producir"
+
+#: ../ui/altmenubar.ui.h:33
+msgid "Pre_vious"
+msgstr "_Anterior"
+
+#: ../ui/altmenubar.ui.h:34
+msgid "_Next"
+msgstr "Segui_nte"
+
+#: ../ui/altmenubar.ui.h:35
+msgid "_Increase Volume"
+msgstr "_Aumentar volume"
+
+#: ../ui/altmenubar.ui.h:36
+msgid "_Decrease Volume"
+msgstr "_Reducir volume"
+
+#: ../ui/altmenubar.ui.h:37
+msgid "Sh_uffle"
+msgstr "_Aleatorio"
+
+#: ../ui/altmenubar.ui.h:38
+msgid "_Repeat"
+msgstr "_Repetir"
+
+#: ../ui/altmenubar.ui.h:39
+msgid "_Tools"
+msgstr "Ferramen_tas"
+
+#: ../ui/altmenubar.ui.h:40
+msgid "Plu_gins…"
+msgstr "En_gadidos..."
+
+#: ../ui/altmenubar.ui.h:41
+msgid "_Help"
+msgstr "_Axuda"
+
+#: ../ui/altmenubar.ui.h:42
+msgid "_Contents"
+msgstr "_Contido"
+
+#: ../ui/altmenubar.ui.h:43
+msgid "_About"
+msgstr "_Sobre"

@@ -7,59 +7,59 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-14 19:50+0000\n"
-"PO-Revision-Date: 2021-11-23 18:50+0000\n"
+"POT-Creation-Date: 2023-03-28 13:44+0200\n"
+"PO-Revision-Date: 2023-07-27 22:30+0000\n"
 "Last-Translator: Marek Adamski <Unknown>\n"
 "Language-Team: polski <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-02-28 14:16+0000\n"
-"X-Generator: Launchpad (build 61f4697954ab70d633d14d8ceecff69a20b08a6b)\n"
+"X-Launchpad-Export-Date: 2023-11-21 20:00+0000\n"
+"X-Generator: Launchpad (build 5c5453089af6e124865a31f368febff22e0acc72)\n"
 "Language: \n"
 
-#: ../alternative-toolbar.py:240 ../alternative-toolbar.py:243
+#: ../alternative-toolbar.py:228 ../alternative-toolbar.py:231
 msgid "Search"
 msgstr "Wyszukaj"
 
-#: ../alternative-toolbar.py:250
+#: ../alternative-toolbar.py:238
 msgid "Seek Backward"
 msgstr "Przeszukaj wstecz"
 
-#: ../alternative-toolbar.py:253
+#: ../alternative-toolbar.py:241
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr "Przechodzi 5 s wstecz bieżącego nagrania"
 
-#: ../alternative-toolbar.py:257
+#: ../alternative-toolbar.py:245
 msgid "Seek Forward"
 msgstr "Przeszukaj naprzód"
 
-#: ../alternative-toolbar.py:261
+#: ../alternative-toolbar.py:249
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr "Przechodzi 10 sekund naprzód bieżącego nagrania"
 
-#: ../alternative-toolbar.py:273
+#: ../alternative-toolbar.py:261
 msgid "Show Play-Controls Toolbar"
 msgstr "Pasek odtwarzania"
 
-#: ../alternative-toolbar.py:277
+#: ../alternative-toolbar.py:265
 msgid "Show or hide the play-controls toolbar"
 msgstr "Przełącza wyświetlanie paska sterowania odtwarzaniem"
 
-#: ../alternative-toolbar.py:282
+#: ../alternative-toolbar.py:270
 msgid "Show Source Toolbar"
 msgstr "Pasek zasobu"
 
-#: ../alternative-toolbar.py:285
+#: ../alternative-toolbar.py:273
 msgid "Show or hide the source toolbar"
 msgstr "Przełącza wyświetlanie paska zasobu"
 
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:566
+#: ../alternative-toolbar.py:554 ../alttoolbar_plugins.py:385
 msgid "Alternative Toolbar"
 msgstr "Alternatywny pasek narzędziowy"
 
-#: ../alternative-toolbar.py:569
+#: ../alternative-toolbar.py:557
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -95,7 +95,39 @@ msgstr "Ostatnio odtworzone"
 msgid "Podcasts"
 msgstr "Podcasty"
 
-#: ../alttoolbar_preferences.py:314
+#: ../alttoolbar_plugins.py:116
+msgid "The plugin cannot be enabled"
+msgstr "Nie można włączyć wtyczki"
+
+#: ../alttoolbar_plugins.py:246
+msgid "Configure Plugins"
+msgstr "Konfiguracja wtyczek"
+
+#: ../alttoolbar_plugins.py:333
+msgid "About this plugin"
+msgstr "O wtyczce"
+
+#: ../alttoolbar_plugins.py:365
+msgid "Version: "
+msgstr "Wersja: "
+
+#: ../alttoolbar_plugins.py:390
+msgid "Developer:"
+msgstr "Programista:"
+
+#: ../alttoolbar_plugins.py:402
+msgid "Designer:"
+msgstr "Projektant:"
+
+#: ../alttoolbar_plugins.py:425
+msgid "Help"
+msgstr "Pomoc"
+
+#: ../alttoolbar_plugins.py:433
+msgid "Homepage"
+msgstr "Strona WWW"
+
+#: ../alttoolbar_preferences.py:307
 msgid "Restart"
 msgstr "Uruchom ponownie"
 
@@ -120,7 +152,7 @@ msgid "Songs"
 msgstr "Utwory"
 
 #: ../alttoolbar_type.py:1475 ../alttoolbar_type.py:1559
-#: ../ui/altpreferences.ui.h:30 ../ui/altlibrary.ui.h:2
+#: ../ui/altpreferences.ui.h:28 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "Kategorie"
 
@@ -260,20 +292,6 @@ msgstr ""
 "zwijania i rozwijania kategorii"
 
 #: ../ui/altpreferences.ui.h:27
-msgid "Enhanced plugins dialog"
-msgstr "Ulepszone okno konfiguracji wtyczek"
-
-#: ../ui/altpreferences.ui.h:28
-msgid ""
-"Show or hide redesigned plugins dialog. It features switches instead of "
-"checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
-"based desktop environments."
-msgstr ""
-"Przełącza używanie przeprojektowanego okna konfiguracji wtyczek, "
-"zawierającego przełączniki zamiast pól wyboru, pasek narzędziowy z ikonami "
-"symbolicznymi. Najlepiej działa ze środowiskami graficznymi opartymi o GNOME."
-
-#: ../ui/altpreferences.ui.h:29
 msgid "Dark theme if available"
 msgstr "Ciemny styl"
 
@@ -292,3 +310,175 @@ msgstr "Przechodzi do następnego nagrania"
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
 msgstr "Odtwarza nagrania w losowej kolejności"
+
+#: ../ui/altmenubar.ui.h:1
+msgid "_File"
+msgstr "_Plik"
+
+#: ../ui/altmenubar.ui.h:2
+msgid "_Add Music"
+msgstr "_Dodaj muzykę"
+
+#: ../ui/altmenubar.ui.h:3
+msgid "_Playlist"
+msgstr "_Lista odtwarzania"
+
+#: ../ui/altmenubar.ui.h:4
+msgid "_New Playlist…"
+msgstr "_Nowa lista odtwarzania…"
+
+#: ../ui/altmenubar.ui.h:5
+msgid "New _Automatic Playlist…"
+msgstr "Nowa _automatyczna lista odtwarzania…"
+
+#: ../ui/altmenubar.ui.h:6
+msgid "_Load from File…"
+msgstr "_Wczytaj z pliku…"
+
+#: ../ui/altmenubar.ui.h:7
+msgid "_Save to File…"
+msgstr "_Zapisz do pliku…"
+
+#: ../ui/altmenubar.ui.h:8
+msgid "_Edit…"
+msgstr "_Edytuj…"
+
+#: ../ui/altmenubar.ui.h:9
+msgid "_Delete"
+msgstr "_Usuń"
+
+#: ../ui/altmenubar.ui.h:10
+msgid "Pr_operties"
+msgstr "_Właściwości"
+
+#: ../ui/altmenubar.ui.h:11
+msgid "_Close"
+msgstr "Za_mknij"
+
+#: ../ui/altmenubar.ui.h:12
+msgid "_Edit"
+msgstr "_Edycja"
+
+#: ../ui/altmenubar.ui.h:13
+msgid "Cu_t"
+msgstr "W_ytnij"
+
+#: ../ui/altmenubar.ui.h:14
+msgid "_Copy"
+msgstr "S_kopiuj"
+
+#: ../ui/altmenubar.ui.h:15
+msgid "_Paste"
+msgstr "Wk_lej"
+
+#: ../ui/altmenubar.ui.h:16
+msgid "Select _All"
+msgstr "_Zaznacz wszystko"
+
+#: ../ui/altmenubar.ui.h:17
+msgid "D_eselect All"
+msgstr "_Odznacz wszystko"
+
+#: ../ui/altmenubar.ui.h:18
+msgid "Add _to Play Queue"
+msgstr "Dodaj do kolejki odtwa_rzania"
+
+#: ../ui/altmenubar.ui.h:19
+msgid "Add to _Playlist"
+msgstr "Dodaj do _listy odtwarzania"
+
+#: ../ui/altmenubar.ui.h:20
+msgid "_New Playlist"
+msgstr "_Nowa lista odtwarzania"
+
+#: ../ui/altmenubar.ui.h:21
+msgid "_Move to Trash"
+msgstr "_Przenieś do kosza"
+
+#: ../ui/altmenubar.ui.h:22
+msgid "Prefere_nces"
+msgstr "_Preferencje"
+
+#: ../ui/altmenubar.ui.h:23
+msgid "_View"
+msgstr "_Widok"
+
+#: ../ui/altmenubar.ui.h:24
+msgid "_Fullscreen"
+msgstr "Pełny _ekran"
+
+#: ../ui/altmenubar.ui.h:25
+msgid "Side _Pane"
+msgstr "Panel _boczny"
+
+#: ../ui/altmenubar.ui.h:26
+msgid "View _Queue as Side Pane"
+msgstr "Przejrzyj _kolejkę w panelu bocznym"
+
+#: ../ui/altmenubar.ui.h:27
+msgid "S_tatusbar"
+msgstr "Pasek _stanu"
+
+#: ../ui/altmenubar.ui.h:28
+msgid "_Song Position Slider"
+msgstr "_Suwak położenia utworu w czasie"
+
+#: ../ui/altmenubar.ui.h:29
+msgid "_Album Art"
+msgstr "_Okładka albumu"
+
+#: ../ui/altmenubar.ui.h:30
+msgid "_Jump to Playing Song"
+msgstr "_Przejdź do odtwarzanego utworu"
+
+#: ../ui/altmenubar.ui.h:31
+msgid "_Control"
+msgstr "S_terowanie"
+
+#: ../ui/altmenubar.ui.h:32
+msgid "_Play"
+msgstr "_Odtwórz"
+
+#: ../ui/altmenubar.ui.h:33
+msgid "Pre_vious"
+msgstr "_Poprzedni"
+
+#: ../ui/altmenubar.ui.h:34
+msgid "_Next"
+msgstr "_Następny"
+
+#: ../ui/altmenubar.ui.h:35
+msgid "_Increase Volume"
+msgstr "Z_większ głośność"
+
+#: ../ui/altmenubar.ui.h:36
+msgid "_Decrease Volume"
+msgstr "Z_mniejsz głośność"
+
+#: ../ui/altmenubar.ui.h:37
+msgid "Sh_uffle"
+msgstr "Odtwarzanie lo_sowe"
+
+#: ../ui/altmenubar.ui.h:38
+msgid "_Repeat"
+msgstr "Pow_tarzanie"
+
+#: ../ui/altmenubar.ui.h:39
+msgid "_Tools"
+msgstr "_Narzędzia"
+
+#: ../ui/altmenubar.ui.h:40
+msgid "Plu_gins…"
+msgstr "Wt_yczki…"
+
+#: ../ui/altmenubar.ui.h:41
+msgid "_Help"
+msgstr "Po_moc"
+
+#: ../ui/altmenubar.ui.h:42
+msgid "_Contents"
+msgstr "_Zawartość"
+
+#: ../ui/altmenubar.ui.h:43
+msgid "_About"
+msgstr "_Informacje"

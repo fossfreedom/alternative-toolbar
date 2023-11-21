@@ -7,66 +7,58 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2021-04-24 10:33+0100\n"
-"PO-Revision-Date: 2021-11-20 10:38+0000\n"
-"Last-Translator: Aron Xu <Unknown>\n"
+"POT-Creation-Date: 2023-03-28 13:44+0200\n"
+"PO-Revision-Date: 2023-03-30 05:04+0000\n"
+"Last-Translator: Luke Na <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-02-28 14:16+0000\n"
-"X-Generator: Launchpad (build 61f4697954ab70d633d14d8ceecff69a20b08a6b)\n"
+"X-Launchpad-Export-Date: 2023-11-21 20:00+0000\n"
+"X-Generator: Launchpad (build 5c5453089af6e124865a31f368febff22e0acc72)\n"
 
-#: ../alternative-toolbar.py:240 ../alternative-toolbar.py:243
+#: ../alternative-toolbar.py:228 ../alternative-toolbar.py:231
 msgid "Search"
 msgstr "搜索(_S)"
 
-#: ../alternative-toolbar.py:250
+#: ../alternative-toolbar.py:238
 msgid "Seek Backward"
 msgstr "快退"
 
-#: ../alternative-toolbar.py:253
+#: ../alternative-toolbar.py:241
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr "在当前曲目快退 5 秒"
 
-#: ../alternative-toolbar.py:257
+#: ../alternative-toolbar.py:245
 msgid "Seek Forward"
 msgstr "快进"
 
-#: ../alternative-toolbar.py:261
+#: ../alternative-toolbar.py:249
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr "在当前曲目快进 10 秒"
 
-#: ../alternative-toolbar.py:273
+#: ../alternative-toolbar.py:261
 msgid "Show Play-Controls Toolbar"
 msgstr "显示播放控制工具栏"
 
-#: ../alternative-toolbar.py:277
+#: ../alternative-toolbar.py:265
 msgid "Show or hide the play-controls toolbar"
 msgstr "显示或隐藏播放控制工具栏"
 
-#: ../alternative-toolbar.py:282
+#: ../alternative-toolbar.py:270
 msgid "Show Source Toolbar"
 msgstr "显示源工具栏"
 
-#: ../alternative-toolbar.py:285
+#: ../alternative-toolbar.py:273
 msgid "Show or hide the source toolbar"
 msgstr "显示或隐藏源工具栏"
 
-#: ../alternative-toolbar.py:516
-msgid "Restart Rhythmbox"
-msgstr "重启 Rhythmbox"
-
-#: ../alternative-toolbar.py:517
-msgid "Please restart Rhythmbox for the changes to take effect."
-msgstr "请重启 Rhythmbox 以使更改生效"
-
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:566
+#: ../alternative-toolbar.py:554 ../alttoolbar_plugins.py:385
 msgid "Alternative Toolbar"
 msgstr "替代工具栏"
 
-#: ../alternative-toolbar.py:569
+#: ../alternative-toolbar.py:557
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -100,7 +92,39 @@ msgstr "最近播放"
 msgid "Podcasts"
 msgstr "播客"
 
-#: ../alttoolbar_preferences.py:314
+#: ../alttoolbar_plugins.py:116
+msgid "The plugin cannot be enabled"
+msgstr ""
+
+#: ../alttoolbar_plugins.py:246
+msgid "Configure Plugins"
+msgstr "配置插件"
+
+#: ../alttoolbar_plugins.py:333
+msgid "About this plugin"
+msgstr "关于插件"
+
+#: ../alttoolbar_plugins.py:365
+msgid "Version: "
+msgstr "版本： "
+
+#: ../alttoolbar_plugins.py:390
+msgid "Developer:"
+msgstr "开发者："
+
+#: ../alttoolbar_plugins.py:402
+msgid "Designer:"
+msgstr ""
+
+#: ../alttoolbar_plugins.py:425
+msgid "Help"
+msgstr "帮助"
+
+#: ../alttoolbar_plugins.py:433
+msgid "Homepage"
+msgstr "主页"
+
+#: ../alttoolbar_preferences.py:307
 msgid "Restart"
 msgstr "重新启动"
 
@@ -125,7 +149,7 @@ msgid "Songs"
 msgstr "歌曲"
 
 #: ../alttoolbar_type.py:1475 ../alttoolbar_type.py:1559
-#: ../ui/altpreferences.ui.h:30 ../ui/altlibrary.ui.h:2
+#: ../ui/altpreferences.ui.h:28 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "类别"
 
@@ -256,17 +280,6 @@ msgid ""
 msgstr "显示或隐藏重新设计的播放器边栏。它拥有改进的符号图标、更好的源组织和展开/收起类别的能力。"
 
 #: ../ui/altpreferences.ui.h:27
-msgid "Enhanced plugins dialog"
-msgstr "增前的插件对话框"
-
-#: ../ui/altpreferences.ui.h:28
-msgid ""
-"Show or hide redesigned plugins dialog. It features switches instead of "
-"checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
-"based desktop environments."
-msgstr "显示或隐藏重新设计的插件对话框。它使用开关而非复选框，并且拥有带符号图标的行内工具栏。在基于 GNOME 的桌面环境上效果最佳。"
-
-#: ../ui/altpreferences.ui.h:29
 msgid "Dark theme if available"
 msgstr "使用深色主题（如果可用）"
 
@@ -286,8 +299,174 @@ msgstr "播放下一曲目"
 msgid "Play the tracks in random order"
 msgstr "随机播放曲目"
 
-#~ msgid "Import"
-#~ msgstr "导入"
+#: ../ui/altmenubar.ui.h:1
+msgid "_File"
+msgstr "文件(_F)"
 
-#~ msgid "Compact progress slider"
-#~ msgstr "紧凑进度条"
+#: ../ui/altmenubar.ui.h:2
+msgid "_Add Music"
+msgstr "添加音乐(_A)"
+
+#: ../ui/altmenubar.ui.h:3
+msgid "_Playlist"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:4
+msgid "_New Playlist…"
+msgstr "新建播放列表(_N)..."
+
+#: ../ui/altmenubar.ui.h:5
+msgid "New _Automatic Playlist…"
+msgstr "新建自动播放列表(_A)..."
+
+#: ../ui/altmenubar.ui.h:6
+msgid "_Load from File…"
+msgstr "从文件载入(_L)..."
+
+#: ../ui/altmenubar.ui.h:7
+msgid "_Save to File…"
+msgstr "保存到文件(_S)..."
+
+#: ../ui/altmenubar.ui.h:8
+msgid "_Edit…"
+msgstr "编辑(_E)..."
+
+#: ../ui/altmenubar.ui.h:9
+msgid "_Delete"
+msgstr "删除(_D)"
+
+#: ../ui/altmenubar.ui.h:10
+msgid "Pr_operties"
+msgstr "属性(_O)"
+
+#: ../ui/altmenubar.ui.h:11
+msgid "_Close"
+msgstr "关闭(_C)"
+
+#: ../ui/altmenubar.ui.h:12
+msgid "_Edit"
+msgstr "编辑(_E)"
+
+#: ../ui/altmenubar.ui.h:13
+msgid "Cu_t"
+msgstr "剪切(_T)"
+
+#: ../ui/altmenubar.ui.h:14
+msgid "_Copy"
+msgstr "复制(_C)"
+
+#: ../ui/altmenubar.ui.h:15
+msgid "_Paste"
+msgstr "粘贴(_P)"
+
+#: ../ui/altmenubar.ui.h:16
+msgid "Select _All"
+msgstr "全选(_A)"
+
+#: ../ui/altmenubar.ui.h:17
+msgid "D_eselect All"
+msgstr "全部不选(_E)"
+
+#: ../ui/altmenubar.ui.h:18
+msgid "Add _to Play Queue"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:19
+msgid "Add to _Playlist"
+msgstr "添加到播放列表(_P)"
+
+#: ../ui/altmenubar.ui.h:20
+msgid "_New Playlist"
+msgstr "新建播放列表(_N)"
+
+#: ../ui/altmenubar.ui.h:21
+msgid "_Move to Trash"
+msgstr "移动到回收站(_M)"
+
+#: ../ui/altmenubar.ui.h:22
+msgid "Prefere_nces"
+msgstr "首选项(_N)"
+
+#: ../ui/altmenubar.ui.h:23
+msgid "_View"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:24
+msgid "_Fullscreen"
+msgstr "全屏(_F)"
+
+#: ../ui/altmenubar.ui.h:25
+msgid "Side _Pane"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:26
+msgid "View _Queue as Side Pane"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:27
+msgid "S_tatusbar"
+msgstr "状态栏(_T)"
+
+#: ../ui/altmenubar.ui.h:28
+msgid "_Song Position Slider"
+msgstr "曲目位置滑动条(_S)"
+
+#: ../ui/altmenubar.ui.h:29
+msgid "_Album Art"
+msgstr "专辑封面(_A)"
+
+#: ../ui/altmenubar.ui.h:30
+msgid "_Jump to Playing Song"
+msgstr "跳转到正在播放的曲目(_J)"
+
+#: ../ui/altmenubar.ui.h:31
+msgid "_Control"
+msgstr "控制(_C)"
+
+#: ../ui/altmenubar.ui.h:32
+msgid "_Play"
+msgstr "播放(_P)"
+
+#: ../ui/altmenubar.ui.h:33
+msgid "Pre_vious"
+msgstr "上一首(_V)"
+
+#: ../ui/altmenubar.ui.h:34
+msgid "_Next"
+msgstr "下一个(_N)"
+
+#: ../ui/altmenubar.ui.h:35
+msgid "_Increase Volume"
+msgstr "增加音量(_I)"
+
+#: ../ui/altmenubar.ui.h:36
+msgid "_Decrease Volume"
+msgstr "减少音量(_D)"
+
+#: ../ui/altmenubar.ui.h:37
+msgid "Sh_uffle"
+msgstr "乱序(_U)"
+
+#: ../ui/altmenubar.ui.h:38
+msgid "_Repeat"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:39
+msgid "_Tools"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:40
+msgid "Plu_gins…"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:41
+msgid "_Help"
+msgstr "帮助(_H)"
+
+#: ../ui/altmenubar.ui.h:42
+msgid "_Contents"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:43
+msgid "_About"
+msgstr "关于(_A)"

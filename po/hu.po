@@ -1,78 +1,80 @@
-# Czech translation for alternative-toolbar
-# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# Hungarian translation for Rhythmbox alternative toolbar.
+# Copyright (C) 2023 Free Software Foundation, Inc.
 # This file is distributed under the same license as the alternative-toolbar package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
 #
+# Balázs Úr <ur.balazs at fsf dot hu>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: https://github.com/fossfreedom/alternative-"
+"toolbar/issues\n"
 "POT-Creation-Date: 2023-03-28 13:44+0200\n"
-"PO-Revision-Date: 2023-09-30 13:07+0000\n"
-"Last-Translator: Marek Hladík <mhladik@seznam.cz>\n"
-"Language-Team: Czech <cs@li.org>\n"
+"PO-Revision-Date: 2023-09-22 08:24+0000\n"
+"Last-Translator: Balázs Úr <Unknown>\n"
+"Language-Team: Hungarian <openscope at fsf dot hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-11-21 20:00+0000\n"
 "X-Generator: Launchpad (build 5c5453089af6e124865a31f368febff22e0acc72)\n"
+"Language: hu\n"
 
 #: ../alternative-toolbar.py:228 ../alternative-toolbar.py:231
 msgid "Search"
-msgstr "Vyhledat"
+msgstr "Keresés"
 
 #: ../alternative-toolbar.py:238
 msgid "Seek Backward"
-msgstr "Přetočit zpět"
+msgstr "Tekerés vissza"
 
 #: ../alternative-toolbar.py:241
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr "Přetáčet zpět v nynější skladbě o 5 sekund."
+msgstr "Tekerés vissza a jelenlegi számban 5 másodpercet."
 
 #: ../alternative-toolbar.py:245
 msgid "Seek Forward"
-msgstr "Přetočit vpřed"
+msgstr "Tekerés előre"
 
 #: ../alternative-toolbar.py:249
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr "Přetáčet vpřed v nynější skladbě o 10 sekund."
+msgstr "Tekerés előre a jelenlegi számban 10 másodpercet."
 
 #: ../alternative-toolbar.py:261
 msgid "Show Play-Controls Toolbar"
-msgstr "Zobrazit panel nástrojů ovládání přehrávače"
+msgstr "Lejátszási vezérlők eszköztár megjelenítése"
 
 #: ../alternative-toolbar.py:265
 msgid "Show or hide the play-controls toolbar"
-msgstr "Zobrazit nebo skrýt panel nástrojů ovládání přehrávání"
+msgstr "A lejátszási vezérlők eszköztár megjelenítése vagy elrejtése"
 
 #: ../alternative-toolbar.py:270
 msgid "Show Source Toolbar"
-msgstr "Zobrazit panel nástrojů zdroje"
+msgstr "Forrás eszköztár megjelenítése"
 
 #: ../alternative-toolbar.py:273
 msgid "Show or hide the source toolbar"
-msgstr "Zobrazit nebo skrýt panel nástrojů zdroje"
+msgstr "A forrás eszköztár megjelenítése vagy elrejtése"
 
 #. define .plugin text strings used for translation
 #: ../alternative-toolbar.py:554 ../alttoolbar_plugins.py:385
 msgid "Alternative Toolbar"
-msgstr "Alternative Toolbar"
+msgstr "Alternatív eszköztár"
 
 #: ../alternative-toolbar.py:557
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr ""
-"Nahradí velký panel nástrojů Rhythmboxu na straně klienta dekorovaným nebo "
-"kompaktním panelem nástrojů, který může být skryt"
+"A Rhythmbox nagy eszköztárának lecserélése egy ügyféloldali díszített vagy "
+"tömör eszköztárra, amely elrejthető."
 
 #: ../alttoolbar_controller.py:156
 msgid "View All"
-msgstr "Zobrazit vše"
+msgstr "Összes megtekintése"
 
 #: ../alttoolbar_controller.py:533
 msgid "Stations"
-msgstr "Stanice"
+msgstr "Állomások"
 
 #: ../alttoolbar_controller.py:562
 msgid "Libre.fm"
@@ -80,133 +82,133 @@ msgstr "Libre.fm"
 
 #: ../alttoolbar_controller.py:605
 msgid "My Top Rated"
-msgstr "Moje nejlépe hodnocené"
+msgstr "Legjobb értékelés"
 
 #: ../alttoolbar_controller.py:609
 msgid "Recently Added"
-msgstr "Nedávno přidané"
+msgstr "Legutóbb hozzáadott"
 
 #: ../alttoolbar_controller.py:613
 msgid "Recently Played"
-msgstr "Nedávno hrané"
+msgstr "Legutóbb lejátszott"
 
 #: ../alttoolbar_controller.py:646
 msgid "Podcasts"
-msgstr "Podcasty"
+msgstr "Podcastok"
 
 #: ../alttoolbar_plugins.py:116
 msgid "The plugin cannot be enabled"
-msgstr "Zásuvný modul nelze povolit"
+msgstr "A bővítményt nem lehet engedélyezni"
 
 #: ../alttoolbar_plugins.py:246
 msgid "Configure Plugins"
-msgstr "Nastavit zásuvné moduly"
+msgstr "Bővítmények beállítása"
 
 #: ../alttoolbar_plugins.py:333
 msgid "About this plugin"
-msgstr "Informace o zásuvném modulu"
+msgstr "A bővítmény névjegye"
 
 #: ../alttoolbar_plugins.py:365
 msgid "Version: "
-msgstr "Verze: "
+msgstr "Verzió: "
 
 #: ../alttoolbar_plugins.py:390
 msgid "Developer:"
-msgstr "Vývojář:"
+msgstr "Fejlesztő:"
 
 #: ../alttoolbar_plugins.py:402
 msgid "Designer:"
-msgstr "Designer:"
+msgstr "Tervező:"
 
 #: ../alttoolbar_plugins.py:425
 msgid "Help"
-msgstr "Nápověda"
+msgstr "Súgó"
 
 #: ../alttoolbar_plugins.py:433
 msgid "Homepage"
-msgstr "Domovská stránka"
+msgstr "Honlap"
 
 #: ../alttoolbar_preferences.py:307
 msgid "Restart"
-msgstr "Restartovat"
+msgstr "Újraindítás"
 
 #: ../alttoolbar_sidebar.py:81
 msgid "Local collection"
-msgstr "Místní sbírka"
+msgstr "Helyi gyűjtemény"
 
 #: ../alttoolbar_sidebar.py:82
 msgid "Online sources"
-msgstr "Online zdroje"
+msgstr "Internetes források"
 
 #: ../alttoolbar_sidebar.py:83
 msgid "Other sources"
-msgstr "Jiné zdroje"
+msgstr "Egyéb források"
 
 #: ../alttoolbar_sidebar.py:84
 msgid "Playlists"
-msgstr "Seznamy skladeb"
+msgstr "Lejátszási listák"
 
 #: ../alttoolbar_type.py:1469 ../ui/altlibrary.ui.h:1
 msgid "Songs"
-msgstr "Skladby"
+msgstr "Dalok"
 
 #: ../alttoolbar_type.py:1475 ../alttoolbar_type.py:1559
 #: ../ui/altpreferences.ui.h:28 ../ui/altlibrary.ui.h:2
 msgid "Categories"
-msgstr "Kategorie"
+msgstr "Kategóriák"
 
 #: ../alttoolbar_type.py:1543
 msgid "Browse"
-msgstr "Procházet"
+msgstr "Böngészés"
 
 #: ../alttoolbar_repeat.py:96 ../alttoolbar_repeat.py:193
 msgid "Repeat all tracks"
-msgstr "Opakovat všechny skladby"
+msgstr "Összes szám ismétlése"
 
 #: ../alttoolbar_repeat.py:98 ../alttoolbar_repeat.py:214
 #: ../ui/alttoolbar.ui.h:4
 msgid "Repeat the current track"
-msgstr "Opakovat nynější skladbu"
+msgstr "A jelenlegi szám ismétlése"
 
 #: ../ui/altpreferences.ui.h:1
 msgid "Top"
-msgstr "Nahoře"
+msgstr "Fent"
 
 #: ../ui/altpreferences.ui.h:2
 msgid "Bottom"
-msgstr "Dole"
+msgstr "Lent"
 
 #: ../ui/altpreferences.ui.h:3
 msgid "Horizontal"
-msgstr "Vodorovně"
+msgstr "Vízszintes"
 
 #: ../ui/altpreferences.ui.h:4
 msgid "Vertical"
-msgstr "Svisle"
+msgstr "Függőleges"
 
 #: ../ui/altpreferences.ui.h:5
 msgid "Restart the player for the changes to take effect."
-msgstr "Pro aplikování změn restartujte přehrávač."
+msgstr "Indítsa újra a lejátszót, hogy a változtatások életbe lépjenek."
 
 #: ../ui/altpreferences.ui.h:6
 msgid "Toolbar:"
-msgstr "Panel nástrojů:"
+msgstr "Eszköztár:"
 
 #: ../ui/altpreferences.ui.h:7
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
 msgstr ""
-"Nejvhodnější pro pracovní\n"
-"prostředí typu Gnome a Elementary."
+"A legmegfelelőbb az olyan asztali környezetekhez,\n"
+"mint a Gnome és az Elementary."
 
 #: ../ui/altpreferences.ui.h:9
 msgid "Modern"
-msgstr "Moderní"
+msgstr "Modern"
 
 #: ../ui/altpreferences.ui.h:10
 msgid "Use compact controls"
-msgstr "Použít kompaktní ovládání"
+msgstr "Tömör vezérlők használata"
 
 #: ../ui/altpreferences.ui.h:11
 msgid ""
@@ -214,17 +216,17 @@ msgid ""
 "instead of the standard rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 msgstr ""
-"Zobrazit ovládání přehrávání v panelu nástrojů ve vizuálně kompaktním stylu "
-"namísto standardního rhythmbox stylu.\n"
-"Vždy povoleno pro moderní mód panelu nástrojů."
+"A lejátszási vezérlők megjelenítése az eszköztáron vizuálisan tömör "
+"stílusban a szabványos Rhythmbox stílus helyett.\n"
+"Mindig engedélyezve van a modern eszköztár módnál."
 
 #: ../ui/altpreferences.ui.h:13
 msgid "Show:"
-msgstr "Zobrazit:"
+msgstr "Megjelenítés:"
 
 #: ../ui/altpreferences.ui.h:14
 msgid "Album/genre/year for playing song"
-msgstr "Album/žánr/rok pro hranou skladbu"
+msgstr "Album/műfaj/év a lejátszott számnál"
 
 #: ../ui/altpreferences.ui.h:15
 msgid ""
@@ -232,52 +234,55 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
-"Zobrazit album/žánr/rok namísto skladba-umělec-album. Užitečné pro pracovní "
-"prostředí, kde je skladba-umělec-album již zobrazeno v názvu okna."
+"Album/műfaj/év megjelenítése a dal-előadó-album helyett. Azoknál az asztali "
+"környezeteknél hasznos, ahol a dal-előadó-album már megjelenik az ablak "
+"címében."
 
 #: ../ui/altpreferences.ui.h:16
 msgid "Tooltips for the playback controls"
-msgstr "Tipy pro ovládací prvky přehrávače"
+msgstr "Buboréksúgók a lejátszási vezérlőknél"
 
 #: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the tooltips for the playback controls."
-msgstr "Zobrazit nebo skrýt tipy pro ovládání přehrávání."
+msgstr ""
+"A buboréksúgók megjelenítése vagy elrejtése a lejátszási vezérlőknél."
 
 #: ../ui/altpreferences.ui.h:18
 msgid "Volume control"
-msgstr "Ovládání hlasitosti"
+msgstr "Hangerőszabályzó"
 
 #: ../ui/altpreferences.ui.h:19
 msgid "Show or hide the volume control."
-msgstr "Zobrazit nebo skrýt ovládání přehrávání."
+msgstr "A hangerőszabályzó megjelenítése vagy elrejtése."
 
 #: ../ui/altpreferences.ui.h:20
 msgid "Playback controls"
-msgstr "Ovládací prvky přehrávače"
+msgstr "Lejátszási vezérlők"
 
 #: ../ui/altpreferences.ui.h:21
 msgid "Show or hide the playing controls on player startup."
-msgstr "Zobrazit nebo skrýt ovládání přehrávání při startu přehrávače."
+msgstr ""
+"A lejátszási vezérlők megjelenítése vagy elrejtése a lejátszó indításakor."
 
 #: ../ui/altpreferences.ui.h:22
 msgid "Use:"
-msgstr "Použití:"
+msgstr "Használat:"
 
 #: ../ui/altpreferences.ui.h:23
 msgid "Inline song/artist label"
-msgstr "Vložený štítek skladby/umělce"
+msgstr "Sorközi dal/előadó címke"
 
 #: ../ui/altpreferences.ui.h:24
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
-"Zobrazit štítky skladby a umělce před posuvníkem průběhu. Pokud není "
-"zvoleno, jsou zobrazeny nad posuvníkem průběhu."
+"Dal és előadó címkék megjelenítése a lejátszási csúszka előtt. Ha nincs "
+"bejelölve, akkor a lejátszási csúszka fölött jelennek meg."
 
 #: ../ui/altpreferences.ui.h:25
 msgid "Enhanced sidebar"
-msgstr "Rozšířený postranní panel"
+msgstr "Továbbfejlesztett oldalsáv"
 
 #: ../ui/altpreferences.ui.h:26
 msgid ""
@@ -285,198 +290,198 @@ msgid ""
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
-"Zobrazit nebo skrýt přepracovaný postranní panel pro přehrávač. Obsahuje "
-"vylepšené symbolické ikony, lepší organizování zdrojů a možnost rozbalit a "
-"sbalit kategorie."
+"Újratervezett oldalsáv megjelenítése vagy elrejtése a lejátszónál. Javított "
+"szimbolikus ikonokkal, jobb forrásszervezéssel, valamint a kategóriák "
+"kinyitásának és összecsukásának lehetőségével rendelkezik."
 
 #: ../ui/altpreferences.ui.h:27
 msgid "Dark theme if available"
-msgstr "Tmavé téma, pokud je k dispozici"
+msgstr "Sötét téma, ha elérhető"
 
 #: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"
-msgstr "Přehrát předchozí skladbu"
+msgstr "Az előző szám lejátszása"
 
 #: ../ui/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr "Obnovit nebo pozastavit přehrávání"
+msgstr "A lejátszás folytatása vagy szüneteltetése"
 
 #: ../ui/alttoolbar.ui.h:3
 msgid "Play the next track"
-msgstr "Přehrát následující skladbu"
+msgstr "A következő szám lejátszása"
 
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
-msgstr "Přehrát skladby v náhodném pořadí"
+msgstr "A számok lejátszása véletlen sorrendben"
 
 #: ../ui/altmenubar.ui.h:1
 msgid "_File"
-msgstr "_Soubor"
+msgstr "_Fájl"
 
 #: ../ui/altmenubar.ui.h:2
 msgid "_Add Music"
-msgstr "Přid_at hudbu"
+msgstr "Zene _hozzáadása"
 
 #: ../ui/altmenubar.ui.h:3
 msgid "_Playlist"
-msgstr "_Seznam skladeb"
+msgstr "_Lejátszási lista"
 
 #: ../ui/altmenubar.ui.h:4
 msgid "_New Playlist…"
-msgstr "Nový _seznam skladeb…"
+msgstr "Ú_j lejátszási lista…"
 
 #: ../ui/altmenubar.ui.h:5
 msgid "New _Automatic Playlist…"
-msgstr "Nový _automatický seznam skladeb…"
+msgstr "Új _automatikus lejátszási lista…"
 
 #: ../ui/altmenubar.ui.h:6
 msgid "_Load from File…"
-msgstr "_Nahrát ze souboru…"
+msgstr "_Betöltés fájlból…"
 
 #: ../ui/altmenubar.ui.h:7
 msgid "_Save to File…"
-msgstr "_Uložit do souboru…"
+msgstr "_Mentés fájlba…"
 
 #: ../ui/altmenubar.ui.h:8
 msgid "_Edit…"
-msgstr "_Upravit…"
+msgstr "S_zerkesztés…"
 
 #: ../ui/altmenubar.ui.h:9
 msgid "_Delete"
-msgstr "_Odstranit"
+msgstr "_Törlés"
 
 #: ../ui/altmenubar.ui.h:10
 msgid "Pr_operties"
-msgstr "Vlastn_osti"
+msgstr "Tulajd_onságok"
 
 #: ../ui/altmenubar.ui.h:11
 msgid "_Close"
-msgstr "_Zavřít"
+msgstr "_Bezárás"
 
 #: ../ui/altmenubar.ui.h:12
 msgid "_Edit"
-msgstr "_Upravit"
+msgstr "S_zerkesztés"
 
 #: ../ui/altmenubar.ui.h:13
 msgid "Cu_t"
-msgstr "Vyjmou_t"
+msgstr "_Kivágás"
 
 #: ../ui/altmenubar.ui.h:14
 msgid "_Copy"
-msgstr "_Kopírovat"
+msgstr "_Másolás"
 
 #: ../ui/altmenubar.ui.h:15
 msgid "_Paste"
-msgstr "_Vložit"
+msgstr "_Beillesztés"
 
 #: ../ui/altmenubar.ui.h:16
 msgid "Select _All"
-msgstr "Vybr_at vše"
+msgstr "Összes _kijelölése"
 
 #: ../ui/altmenubar.ui.h:17
 msgid "D_eselect All"
-msgstr "_Zrušit výběr"
+msgstr "Összes kijelölésének megs_züntetése"
 
 #: ../ui/altmenubar.ui.h:18
 msgid "Add _to Play Queue"
-msgstr "Přidat do _fronty"
+msgstr "Hozzáadás a lejá_tszási sorhoz"
 
 #: ../ui/altmenubar.ui.h:19
 msgid "Add to _Playlist"
-msgstr "_Přidat do seznamu skladeb"
+msgstr "Hozzáadás _lejátszási listához"
 
 #: ../ui/altmenubar.ui.h:20
 msgid "_New Playlist"
-msgstr "_Nový seznam skladeb"
+msgstr "Ú_j lejátszási lista"
 
 #: ../ui/altmenubar.ui.h:21
 msgid "_Move to Trash"
-msgstr "Přesunout do _koše"
+msgstr "Áthelyezés a _kukába"
 
 #: ../ui/altmenubar.ui.h:22
 msgid "Prefere_nces"
-msgstr "_Předvolby"
+msgstr "_Beállítások"
 
 #: ../ui/altmenubar.ui.h:23
 msgid "_View"
-msgstr "_Zobrazit"
+msgstr "_Nézet"
 
 #: ../ui/altmenubar.ui.h:24
 msgid "_Fullscreen"
-msgstr "_Celá obrazovka"
+msgstr "_Teljes képernyő"
 
 #: ../ui/altmenubar.ui.h:25
 msgid "Side _Pane"
-msgstr "Postranní _panel"
+msgstr "Oldal_panel"
 
 #: ../ui/altmenubar.ui.h:26
 msgid "View _Queue as Side Pane"
-msgstr "Zobrazit _frontu v bočním panelu"
+msgstr "_Sor megtekintése oldalpanelként"
 
 #: ../ui/altmenubar.ui.h:27
 msgid "S_tatusbar"
-msgstr "S_tavová lišta"
+msgstr "Á_llapotsor"
 
 #: ../ui/altmenubar.ui.h:28
 msgid "_Song Position Slider"
-msgstr "Po_suvník pozice ve skladbě"
+msgstr "_Dal pozíciójának csúszkája"
 
 #: ../ui/altmenubar.ui.h:29
 msgid "_Album Art"
-msgstr "Obal _alba"
+msgstr "_Album borítója"
 
 #: ../ui/altmenubar.ui.h:30
 msgid "_Jump to Playing Song"
-msgstr "_Přejít na přehrávanou skladbu"
+msgstr "_Ugrás a lejátszott dalra"
 
 #: ../ui/altmenubar.ui.h:31
 msgid "_Control"
-msgstr "_Ovládání"
+msgstr "_Vezérlés"
 
 #: ../ui/altmenubar.ui.h:32
 msgid "_Play"
-msgstr "_Přehrát"
+msgstr "_Lejátszás"
 
 #: ../ui/altmenubar.ui.h:33
 msgid "Pre_vious"
-msgstr "Pře_dchozí"
+msgstr "_Előző"
 
 #: ../ui/altmenubar.ui.h:34
 msgid "_Next"
-msgstr "_Následující"
+msgstr "_Következő"
 
 #: ../ui/altmenubar.ui.h:35
 msgid "_Increase Volume"
-msgstr "Z_výšit hlasitost"
+msgstr "Hangerő _növelése"
 
 #: ../ui/altmenubar.ui.h:36
 msgid "_Decrease Volume"
-msgstr "S_nížit hlasitost"
+msgstr "Hangerő _csökkentése"
 
 #: ../ui/altmenubar.ui.h:37
 msgid "Sh_uffle"
-msgstr "Za_míchat"
+msgstr "Ke_verés"
 
 #: ../ui/altmenubar.ui.h:38
 msgid "_Repeat"
-msgstr "Opa_kovat"
+msgstr "_Ismétlés"
 
 #: ../ui/altmenubar.ui.h:39
 msgid "_Tools"
-msgstr "Nás_troje"
+msgstr "_Eszközök"
 
 #: ../ui/altmenubar.ui.h:40
 msgid "Plu_gins…"
-msgstr "Zásuvné _moduly…"
+msgstr "_Bővítmények…"
 
 #: ../ui/altmenubar.ui.h:41
 msgid "_Help"
-msgstr "_Nápověda"
+msgstr "_Súgó"
 
 #: ../ui/altmenubar.ui.h:42
 msgid "_Contents"
-msgstr "_Obsah"
+msgstr "_Tartalom"
 
 #: ../ui/altmenubar.ui.h:43
 msgid "_About"
-msgstr "O _aplikaci"
+msgstr "_Névjegy"

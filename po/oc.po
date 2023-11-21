@@ -7,58 +7,58 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rhythmbox-plugin-alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2022-03-01 20:25+0000\n"
-"PO-Revision-Date: 2022-03-13 19:17+0000\n"
+"POT-Creation-Date: 2023-03-28 13:44+0200\n"
+"PO-Revision-Date: 2023-02-23 19:20+0000\n"
 "Last-Translator: Quentin PAGÈS <Unknown>\n"
 "Language-Team: Occitan (post 1500) <oc@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-12-15 19:08+0000\n"
-"X-Generator: Launchpad (build 31c78762a8046acf7ab47372e5d588ebb3759d2e)\n"
+"X-Launchpad-Export-Date: 2023-11-21 20:00+0000\n"
+"X-Generator: Launchpad (build 5c5453089af6e124865a31f368febff22e0acc72)\n"
 
-#: ../alternative-toolbar.py:240 ../alternative-toolbar.py:243
+#: ../alternative-toolbar.py:228 ../alternative-toolbar.py:231
 msgid "Search"
 msgstr "Recercar"
 
-#: ../alternative-toolbar.py:250
+#: ../alternative-toolbar.py:238
 msgid "Seek Backward"
 msgstr "Recular"
 
-#: ../alternative-toolbar.py:253
+#: ../alternative-toolbar.py:241
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr "Recular de 5 segondas d’aquesta pista."
 
-#: ../alternative-toolbar.py:257
+#: ../alternative-toolbar.py:245
 msgid "Seek Forward"
 msgstr "Recercar en avant"
 
-#: ../alternative-toolbar.py:261
+#: ../alternative-toolbar.py:249
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr "Recular de 10 segondas d’aquesta pista."
 
-#: ../alternative-toolbar.py:273
+#: ../alternative-toolbar.py:261
 msgid "Show Play-Controls Toolbar"
 msgstr "Afichar la comandas de lectura a la barra d’aisinas"
 
-#: ../alternative-toolbar.py:277
+#: ../alternative-toolbar.py:265
 msgid "Show or hide the play-controls toolbar"
 msgstr "Afichar o rescondre la comandas de lectura a la barra d’aisinas"
 
-#: ../alternative-toolbar.py:282
+#: ../alternative-toolbar.py:270
 msgid "Show Source Toolbar"
 msgstr "Afichar la barra d’aisinas de las fonts"
 
-#: ../alternative-toolbar.py:285
+#: ../alternative-toolbar.py:273
 msgid "Show or hide the source toolbar"
 msgstr "Afichar o amagar la barra d’aisinas de las fonts"
 
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:566
+#: ../alternative-toolbar.py:554 ../alttoolbar_plugins.py:385
 msgid "Alternative Toolbar"
 msgstr "Barra d’aisinas alternativa"
 
-#: ../alternative-toolbar.py:569
+#: ../alternative-toolbar.py:557
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -94,7 +94,39 @@ msgstr "Legits recentament"
 msgid "Podcasts"
 msgstr "Podcasts"
 
-#: ../alttoolbar_preferences.py:314
+#: ../alttoolbar_plugins.py:116
+msgid "The plugin cannot be enabled"
+msgstr ""
+
+#: ../alttoolbar_plugins.py:246
+msgid "Configure Plugins"
+msgstr ""
+
+#: ../alttoolbar_plugins.py:333
+msgid "About this plugin"
+msgstr ""
+
+#: ../alttoolbar_plugins.py:365
+msgid "Version: "
+msgstr ""
+
+#: ../alttoolbar_plugins.py:390
+msgid "Developer:"
+msgstr ""
+
+#: ../alttoolbar_plugins.py:402
+msgid "Designer:"
+msgstr ""
+
+#: ../alttoolbar_plugins.py:425
+msgid "Help"
+msgstr ""
+
+#: ../alttoolbar_plugins.py:433
+msgid "Homepage"
+msgstr ""
+
+#: ../alttoolbar_preferences.py:307
 msgid "Restart"
 msgstr "Reaviar"
 
@@ -119,7 +151,7 @@ msgid "Songs"
 msgstr "Cançons"
 
 #: ../alttoolbar_type.py:1475 ../alttoolbar_type.py:1559
-#: ../ui/altpreferences.ui.h:30 ../ui/altlibrary.ui.h:2
+#: ../ui/altpreferences.ui.h:28 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "Categorias"
 
@@ -138,11 +170,11 @@ msgstr "Repetir la pista actuala"
 
 #: ../ui/altpreferences.ui.h:1
 msgid "Top"
-msgstr ""
+msgstr "Superior"
 
 #: ../ui/altpreferences.ui.h:2
 msgid "Bottom"
-msgstr ""
+msgstr "Inferior"
 
 #: ../ui/altpreferences.ui.h:3
 msgid "Horizontal"
@@ -259,21 +291,6 @@ msgstr ""
 "d’agrandir o de reduire las categorias."
 
 #: ../ui/altpreferences.ui.h:27
-msgid "Enhanced plugins dialog"
-msgstr "Fenèstra de dialòg melhorada de las extension"
-
-#: ../ui/altpreferences.ui.h:28
-msgid ""
-"Show or hide redesigned plugins dialog. It features switches instead of "
-"checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
-"based desktop environments."
-msgstr ""
-"Afichar o amagar la fenèstra de dialòg de las extensions. Inclutz de botons "
-"a doas opcions allòc de casa de marcar e tanben una barra d’aisinas sus una "
-"linha amb d’icònas simbolicas. Fonciona melhor amb los environaments de "
-"burèu basats sus Gnome."
-
-#: ../ui/altpreferences.ui.h:29
 msgid "Dark theme if available"
 msgstr "Tèma fosc se disponible"
 
@@ -292,3 +309,175 @@ msgstr "Passar a la lista seguenta"
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
 msgstr "Legir las pistas en òrdre aleatòri"
+
+#: ../ui/altmenubar.ui.h:1
+msgid "_File"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:2
+msgid "_Add Music"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:3
+msgid "_Playlist"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:4
+msgid "_New Playlist…"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:5
+msgid "New _Automatic Playlist…"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:6
+msgid "_Load from File…"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:7
+msgid "_Save to File…"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:8
+msgid "_Edit…"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:9
+msgid "_Delete"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:10
+msgid "Pr_operties"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:11
+msgid "_Close"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:12
+msgid "_Edit"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:13
+msgid "Cu_t"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:14
+msgid "_Copy"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:15
+msgid "_Paste"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:16
+msgid "Select _All"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:17
+msgid "D_eselect All"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:18
+msgid "Add _to Play Queue"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:19
+msgid "Add to _Playlist"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:20
+msgid "_New Playlist"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:21
+msgid "_Move to Trash"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:22
+msgid "Prefere_nces"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:23
+msgid "_View"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:24
+msgid "_Fullscreen"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:25
+msgid "Side _Pane"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:26
+msgid "View _Queue as Side Pane"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:27
+msgid "S_tatusbar"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:28
+msgid "_Song Position Slider"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:29
+msgid "_Album Art"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:30
+msgid "_Jump to Playing Song"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:31
+msgid "_Control"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:32
+msgid "_Play"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:33
+msgid "Pre_vious"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:34
+msgid "_Next"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:35
+msgid "_Increase Volume"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:36
+msgid "_Decrease Volume"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:37
+msgid "Sh_uffle"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:38
+msgid "_Repeat"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:39
+msgid "_Tools"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:40
+msgid "Plu_gins…"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:41
+msgid "_Help"
+msgstr "A_juda"
+
+#: ../ui/altmenubar.ui.h:42
+msgid "_Contents"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:43
+msgid "_About"
+msgstr "A _prepaus"

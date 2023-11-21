@@ -1,74 +1,77 @@
-# Czech translation for alternative-toolbar
-# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# Slovak translation for alternative-toolbar
+# Copyright (c) 2017 Rosetta Contributors and Canonical Ltd 2017
 # This file is distributed under the same license as the alternative-toolbar package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+# Dušan Kazik <prescott66@gmail.com>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-03-28 13:44+0200\n"
-"PO-Revision-Date: 2023-09-30 13:07+0000\n"
-"Last-Translator: Marek Hladík <mhladik@seznam.cz>\n"
-"Language-Team: Czech <cs@li.org>\n"
+"PO-Revision-Date: 2018-02-16 22:39+0000\n"
+"Last-Translator: Dusan Kazik <prescott66@gmail.com>\n"
+"Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-11-21 20:00+0000\n"
 "X-Generator: Launchpad (build 5c5453089af6e124865a31f368febff22e0acc72)\n"
+"Language: sk\n"
 
 #: ../alternative-toolbar.py:228 ../alternative-toolbar.py:231
 msgid "Search"
-msgstr "Vyhledat"
+msgstr ""
 
 #: ../alternative-toolbar.py:238
 msgid "Seek Backward"
-msgstr "Přetočit zpět"
+msgstr "Presunúť dozadu"
 
 #: ../alternative-toolbar.py:241
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr "Přetáčet zpět v nynější skladbě o 5 sekund."
+msgstr "Presunie dozadu v aktuálnej skladbe o 5 sekúnd."
 
 #: ../alternative-toolbar.py:245
 msgid "Seek Forward"
-msgstr "Přetočit vpřed"
+msgstr "Presunúť dopredu"
 
 #: ../alternative-toolbar.py:249
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr "Přetáčet vpřed v nynější skladbě o 10 sekund."
+msgstr "Presunie dopredu v aktuálnej skladbe o 10 sekúnd."
 
 #: ../alternative-toolbar.py:261
 msgid "Show Play-Controls Toolbar"
-msgstr "Zobrazit panel nástrojů ovládání přehrávače"
+msgstr "Zobraziť panel nástrojov s ovládacími prvkami prehrávania"
 
 #: ../alternative-toolbar.py:265
 msgid "Show or hide the play-controls toolbar"
-msgstr "Zobrazit nebo skrýt panel nástrojů ovládání přehrávání"
+msgstr ""
+"Zobrazí alebo skryje panel nástrojov s ovládacími prvkami prehrávania"
 
 #: ../alternative-toolbar.py:270
 msgid "Show Source Toolbar"
-msgstr "Zobrazit panel nástrojů zdroje"
+msgstr "Zobraziť zdrojový panel nástrojov"
 
 #: ../alternative-toolbar.py:273
 msgid "Show or hide the source toolbar"
-msgstr "Zobrazit nebo skrýt panel nástrojů zdroje"
+msgstr "Zobrazí alebo skryje zdrojový panel nástrojov"
 
 #. define .plugin text strings used for translation
 #: ../alternative-toolbar.py:554 ../alttoolbar_plugins.py:385
 msgid "Alternative Toolbar"
-msgstr "Alternative Toolbar"
+msgstr "Alternatívny panel nástrojov"
 
 #: ../alternative-toolbar.py:557
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr ""
-"Nahradí velký panel nástrojů Rhythmboxu na straně klienta dekorovaným nebo "
-"kompaktním panelem nástrojů, který může být skryt"
+"Nahrádza veľký panel nástrojov prehrávača Rhythmbox s panelom nástrojov "
+"dekorovaným na strane klienta alebo kompaktným panelom nástrojov, ktorý môže "
+"byť skrytý"
 
 #: ../alttoolbar_controller.py:156
 msgid "View All"
-msgstr "Zobrazit vše"
+msgstr "Zobraziť všetko"
 
 #: ../alttoolbar_controller.py:533
 msgid "Stations"
@@ -80,15 +83,15 @@ msgstr "Libre.fm"
 
 #: ../alttoolbar_controller.py:605
 msgid "My Top Rated"
-msgstr "Moje nejlépe hodnocené"
+msgstr "Moje najlepšie hodnotené"
 
 #: ../alttoolbar_controller.py:609
 msgid "Recently Added"
-msgstr "Nedávno přidané"
+msgstr "Nedávno pridané"
 
 #: ../alttoolbar_controller.py:613
 msgid "Recently Played"
-msgstr "Nedávno hrané"
+msgstr "Nedávno prehrávané"
 
 #: ../alttoolbar_controller.py:646
 msgid "Podcasts"
@@ -96,55 +99,55 @@ msgstr "Podcasty"
 
 #: ../alttoolbar_plugins.py:116
 msgid "The plugin cannot be enabled"
-msgstr "Zásuvný modul nelze povolit"
+msgstr ""
 
 #: ../alttoolbar_plugins.py:246
 msgid "Configure Plugins"
-msgstr "Nastavit zásuvné moduly"
+msgstr ""
 
 #: ../alttoolbar_plugins.py:333
 msgid "About this plugin"
-msgstr "Informace o zásuvném modulu"
+msgstr ""
 
 #: ../alttoolbar_plugins.py:365
 msgid "Version: "
-msgstr "Verze: "
+msgstr ""
 
 #: ../alttoolbar_plugins.py:390
 msgid "Developer:"
-msgstr "Vývojář:"
+msgstr ""
 
 #: ../alttoolbar_plugins.py:402
 msgid "Designer:"
-msgstr "Designer:"
+msgstr ""
 
 #: ../alttoolbar_plugins.py:425
 msgid "Help"
-msgstr "Nápověda"
+msgstr ""
 
 #: ../alttoolbar_plugins.py:433
 msgid "Homepage"
-msgstr "Domovská stránka"
+msgstr ""
 
 #: ../alttoolbar_preferences.py:307
 msgid "Restart"
-msgstr "Restartovat"
+msgstr "Reštartovať"
 
 #: ../alttoolbar_sidebar.py:81
 msgid "Local collection"
-msgstr "Místní sbírka"
+msgstr "Miestna zbierka"
 
 #: ../alttoolbar_sidebar.py:82
 msgid "Online sources"
-msgstr "Online zdroje"
+msgstr "Internetové zdroje"
 
 #: ../alttoolbar_sidebar.py:83
 msgid "Other sources"
-msgstr "Jiné zdroje"
+msgstr "Ostatné zdroje"
 
 #: ../alttoolbar_sidebar.py:84
 msgid "Playlists"
-msgstr "Seznamy skladeb"
+msgstr "Zoznamy skladieb"
 
 #: ../alttoolbar_type.py:1469 ../ui/altlibrary.ui.h:1
 msgid "Songs"
@@ -153,60 +156,60 @@ msgstr "Skladby"
 #: ../alttoolbar_type.py:1475 ../alttoolbar_type.py:1559
 #: ../ui/altpreferences.ui.h:28 ../ui/altlibrary.ui.h:2
 msgid "Categories"
-msgstr "Kategorie"
+msgstr "Kategórie"
 
 #: ../alttoolbar_type.py:1543
 msgid "Browse"
-msgstr "Procházet"
+msgstr "Prehliadať"
 
 #: ../alttoolbar_repeat.py:96 ../alttoolbar_repeat.py:193
 msgid "Repeat all tracks"
-msgstr "Opakovat všechny skladby"
+msgstr "Zopakuje všetky skladby"
 
 #: ../alttoolbar_repeat.py:98 ../alttoolbar_repeat.py:214
 #: ../ui/alttoolbar.ui.h:4
 msgid "Repeat the current track"
-msgstr "Opakovat nynější skladbu"
+msgstr "Zopakuje aktuálnu skladbu"
 
 #: ../ui/altpreferences.ui.h:1
 msgid "Top"
-msgstr "Nahoře"
+msgstr ""
 
 #: ../ui/altpreferences.ui.h:2
 msgid "Bottom"
-msgstr "Dole"
+msgstr ""
 
 #: ../ui/altpreferences.ui.h:3
 msgid "Horizontal"
-msgstr "Vodorovně"
+msgstr "Vodorovne"
 
 #: ../ui/altpreferences.ui.h:4
 msgid "Vertical"
-msgstr "Svisle"
+msgstr "Zvislo"
 
 #: ../ui/altpreferences.ui.h:5
 msgid "Restart the player for the changes to take effect."
-msgstr "Pro aplikování změn restartujte přehrávač."
+msgstr "Na uplatnenie zmien reštartujte prehrávač."
 
 #: ../ui/altpreferences.ui.h:6
 msgid "Toolbar:"
-msgstr "Panel nástrojů:"
+msgstr "Panel nástrojov:"
 
 #: ../ui/altpreferences.ui.h:7
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
 msgstr ""
-"Nejvhodnější pro pracovní\n"
-"prostředí typu Gnome a Elementary."
+"Najvhodnejšie pre pracovné\n"
+"prostredia ako je Gnome alebo Elementary."
 
 #: ../ui/altpreferences.ui.h:9
 msgid "Modern"
-msgstr "Moderní"
+msgstr "Moderný"
 
 #: ../ui/altpreferences.ui.h:10
 msgid "Use compact controls"
-msgstr "Použít kompaktní ovládání"
+msgstr "Použiť kompaktné ovládacie prvky"
 
 #: ../ui/altpreferences.ui.h:11
 msgid ""
@@ -214,17 +217,17 @@ msgid ""
 "instead of the standard rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 msgstr ""
-"Zobrazit ovládání přehrávání v panelu nástrojů ve vizuálně kompaktním stylu "
-"namísto standardního rhythmbox stylu.\n"
-"Vždy povoleno pro moderní mód panelu nástrojů."
+"Zobrazí ovládacie prvky prehrávania v paneli nástrojov vo vizuálne "
+"kompaktnom štýle namiesto bežného štýlu prehrávača Rhythmbox.\n"
+"Voľba je vždy povolená pre režim moderného panela nástrojov."
 
 #: ../ui/altpreferences.ui.h:13
 msgid "Show:"
-msgstr "Zobrazit:"
+msgstr "Zobraziť:"
 
 #: ../ui/altpreferences.ui.h:14
 msgid "Album/genre/year for playing song"
-msgstr "Album/žánr/rok pro hranou skladbu"
+msgstr "Album/žáner/rok pre hranú skladbu"
 
 #: ../ui/altpreferences.ui.h:15
 msgid ""
@@ -232,52 +235,54 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
-"Zobrazit album/žánr/rok namísto skladba-umělec-album. Užitečné pro pracovní "
-"prostředí, kde je skladba-umělec-album již zobrazeno v názvu okna."
+"Zobrazí album/žáner/rok namiesto formátu skladba-interpret-album. Užitočná "
+"voľba pre tie pracovné prostredia, ktoré už zobrazujú informácie vo formáte "
+"skladba-interpret-album v záhlaví okna."
 
 #: ../ui/altpreferences.ui.h:16
 msgid "Tooltips for the playback controls"
-msgstr "Tipy pro ovládací prvky přehrávače"
+msgstr "Bublinové tipy pre ovládacie prvky prehrávania"
 
 #: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the tooltips for the playback controls."
-msgstr "Zobrazit nebo skrýt tipy pro ovládání přehrávání."
+msgstr "Zobrazí alebo skryje bublinové tipy pre ovládacie prvky prehrávania."
 
 #: ../ui/altpreferences.ui.h:18
 msgid "Volume control"
-msgstr "Ovládání hlasitosti"
+msgstr "Ovládanie hlasitosti"
 
 #: ../ui/altpreferences.ui.h:19
 msgid "Show or hide the volume control."
-msgstr "Zobrazit nebo skrýt ovládání přehrávání."
+msgstr "Zobrazí alebo skryje ovládanie hlasitosti."
 
 #: ../ui/altpreferences.ui.h:20
 msgid "Playback controls"
-msgstr "Ovládací prvky přehrávače"
+msgstr "Ovládacie prvky prehrávania"
 
 #: ../ui/altpreferences.ui.h:21
 msgid "Show or hide the playing controls on player startup."
-msgstr "Zobrazit nebo skrýt ovládání přehrávání při startu přehrávače."
+msgstr ""
+"Zobrazí alebo skryje ovládacie prvky prehrávania po spustení prehrávača."
 
 #: ../ui/altpreferences.ui.h:22
 msgid "Use:"
-msgstr "Použití:"
+msgstr "Použiť:"
 
 #: ../ui/altpreferences.ui.h:23
 msgid "Inline song/artist label"
-msgstr "Vložený štítek skladby/umělce"
+msgstr "Vložená menovka skladba/interpret"
 
 #: ../ui/altpreferences.ui.h:24
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
-"Zobrazit štítky skladby a umělce před posuvníkem průběhu. Pokud není "
-"zvoleno, jsou zobrazeny nad posuvníkem průběhu."
+"Zobrazí menovky so skladbou a interpretom pred posuvníkom priebehu. Ak voľba "
+"nie je vybraná, menovky sú zobrazené nad posuvníkom priebehu."
 
 #: ../ui/altpreferences.ui.h:25
 msgid "Enhanced sidebar"
-msgstr "Rozšířený postranní panel"
+msgstr "Rozšírený bočný panel"
 
 #: ../ui/altpreferences.ui.h:26
 msgid ""
@@ -285,198 +290,198 @@ msgid ""
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
-"Zobrazit nebo skrýt přepracovaný postranní panel pro přehrávač. Obsahuje "
-"vylepšené symbolické ikony, lepší organizování zdrojů a možnost rozbalit a "
-"sbalit kategorie."
+"Zobrazí alebo skryje prepracovaný bočný panel prehrávača. Obsahuje vylepšené "
+"symbolické ikony, lepšiu organizáciu zdrojov a možnosť rozbaliť a zbaliť "
+"kategórie."
 
 #: ../ui/altpreferences.ui.h:27
 msgid "Dark theme if available"
-msgstr "Tmavé téma, pokud je k dispozici"
+msgstr "Tmavá téma ak je dostupná"
 
 #: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"
-msgstr "Přehrát předchozí skladbu"
+msgstr "Prehrá predchádzajúcu skladbu"
 
 #: ../ui/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr "Obnovit nebo pozastavit přehrávání"
+msgstr "Pokračuje alebo pozastaví prehrávanie"
 
 #: ../ui/alttoolbar.ui.h:3
 msgid "Play the next track"
-msgstr "Přehrát následující skladbu"
+msgstr "Prehrá nasledujúcu skladbu"
 
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
-msgstr "Přehrát skladby v náhodném pořadí"
+msgstr "Prehrá skladby v náhodnom poradí"
 
 #: ../ui/altmenubar.ui.h:1
 msgid "_File"
-msgstr "_Soubor"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:2
 msgid "_Add Music"
-msgstr "Přid_at hudbu"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:3
 msgid "_Playlist"
-msgstr "_Seznam skladeb"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:4
 msgid "_New Playlist…"
-msgstr "Nový _seznam skladeb…"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:5
 msgid "New _Automatic Playlist…"
-msgstr "Nový _automatický seznam skladeb…"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:6
 msgid "_Load from File…"
-msgstr "_Nahrát ze souboru…"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:7
 msgid "_Save to File…"
-msgstr "_Uložit do souboru…"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:8
 msgid "_Edit…"
-msgstr "_Upravit…"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:9
 msgid "_Delete"
-msgstr "_Odstranit"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:10
 msgid "Pr_operties"
-msgstr "Vlastn_osti"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:11
 msgid "_Close"
-msgstr "_Zavřít"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:12
 msgid "_Edit"
-msgstr "_Upravit"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:13
 msgid "Cu_t"
-msgstr "Vyjmou_t"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:14
 msgid "_Copy"
-msgstr "_Kopírovat"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:15
 msgid "_Paste"
-msgstr "_Vložit"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:16
 msgid "Select _All"
-msgstr "Vybr_at vše"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:17
 msgid "D_eselect All"
-msgstr "_Zrušit výběr"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:18
 msgid "Add _to Play Queue"
-msgstr "Přidat do _fronty"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:19
 msgid "Add to _Playlist"
-msgstr "_Přidat do seznamu skladeb"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:20
 msgid "_New Playlist"
-msgstr "_Nový seznam skladeb"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:21
 msgid "_Move to Trash"
-msgstr "Přesunout do _koše"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:22
 msgid "Prefere_nces"
-msgstr "_Předvolby"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:23
 msgid "_View"
-msgstr "_Zobrazit"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:24
 msgid "_Fullscreen"
-msgstr "_Celá obrazovka"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:25
 msgid "Side _Pane"
-msgstr "Postranní _panel"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:26
 msgid "View _Queue as Side Pane"
-msgstr "Zobrazit _frontu v bočním panelu"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:27
 msgid "S_tatusbar"
-msgstr "S_tavová lišta"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:28
 msgid "_Song Position Slider"
-msgstr "Po_suvník pozice ve skladbě"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:29
 msgid "_Album Art"
-msgstr "Obal _alba"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:30
 msgid "_Jump to Playing Song"
-msgstr "_Přejít na přehrávanou skladbu"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:31
 msgid "_Control"
-msgstr "_Ovládání"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:32
 msgid "_Play"
-msgstr "_Přehrát"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:33
 msgid "Pre_vious"
-msgstr "Pře_dchozí"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:34
 msgid "_Next"
-msgstr "_Následující"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:35
 msgid "_Increase Volume"
-msgstr "Z_výšit hlasitost"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:36
 msgid "_Decrease Volume"
-msgstr "S_nížit hlasitost"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:37
 msgid "Sh_uffle"
-msgstr "Za_míchat"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:38
 msgid "_Repeat"
-msgstr "Opa_kovat"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:39
 msgid "_Tools"
-msgstr "Nás_troje"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:40
 msgid "Plu_gins…"
-msgstr "Zásuvné _moduly…"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:41
 msgid "_Help"
-msgstr "_Nápověda"
+msgstr "_Pomocník"
 
 #: ../ui/altmenubar.ui.h:42
 msgid "_Contents"
-msgstr "_Obsah"
+msgstr ""
 
 #: ../ui/altmenubar.ui.h:43
 msgid "_About"
-msgstr "O _aplikaci"
+msgstr "_O aplikácii"

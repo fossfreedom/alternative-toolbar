@@ -7,66 +7,58 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2021-07-29 19:16+0000\n"
-"PO-Revision-Date: 2021-08-02 19:31+0000\n"
-"Last-Translator: Artem Polivanchuk <a.polivanchuk@outlook.com>\n"
+"POT-Creation-Date: 2023-03-28 13:44+0200\n"
+"PO-Revision-Date: 2023-10-19 08:27+0000\n"
+"Last-Translator: tizen48 <tizen48@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-08-31 12:36+0000\n"
-"X-Generator: Launchpad (build 76ef73296f01d64cdfe5c48bfc4daf35cdfde808)\n"
+"X-Launchpad-Export-Date: 2023-11-21 20:00+0000\n"
+"X-Generator: Launchpad (build 5c5453089af6e124865a31f368febff22e0acc72)\n"
 
-#: ../alternative-toolbar.py:241 ../alternative-toolbar.py:244
+#: ../alternative-toolbar.py:228 ../alternative-toolbar.py:231
 msgid "Search"
 msgstr "Пошук"
 
-#: ../alternative-toolbar.py:251
+#: ../alternative-toolbar.py:238
 msgid "Seek Backward"
 msgstr "Перемотати назад"
 
-#: ../alternative-toolbar.py:254
+#: ../alternative-toolbar.py:241
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr "Перемотати назад, поточну композицію, на 5 секунд"
 
-#: ../alternative-toolbar.py:258
+#: ../alternative-toolbar.py:245
 msgid "Seek Forward"
 msgstr "Перемотати вперед"
 
-#: ../alternative-toolbar.py:262
+#: ../alternative-toolbar.py:249
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr "Перемотати вперед, поточну композицію, на 10 секунд"
 
-#: ../alternative-toolbar.py:274
+#: ../alternative-toolbar.py:261
 msgid "Show Play-Controls Toolbar"
 msgstr "Показати панель інструментів керування відтворенням"
 
-#: ../alternative-toolbar.py:278
+#: ../alternative-toolbar.py:265
 msgid "Show or hide the play-controls toolbar"
 msgstr "Показати або приховати панель інструментів керування відтворенням"
 
-#: ../alternative-toolbar.py:283
+#: ../alternative-toolbar.py:270
 msgid "Show Source Toolbar"
 msgstr "Показати панель інструментів джерел"
 
-#: ../alternative-toolbar.py:286
+#: ../alternative-toolbar.py:273
 msgid "Show or hide the source toolbar"
 msgstr "Показати або приховати панель інструментів джерел"
 
-#: ../alternative-toolbar.py:516
-msgid "Restart Rhythmbox"
-msgstr "Перезапустити Rhythmbox"
-
-#: ../alternative-toolbar.py:517
-msgid "Please restart Rhythmbox for the changes to take effect."
-msgstr "Перезапустіть Rhythmbox для застосування змін."
-
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:584
+#: ../alternative-toolbar.py:554 ../alttoolbar_plugins.py:385
 msgid "Alternative Toolbar"
 msgstr "Альтернативна панель інструментів"
 
-#: ../alternative-toolbar.py:587
+#: ../alternative-toolbar.py:557
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -102,7 +94,39 @@ msgstr "Нещодавно відтворені"
 msgid "Podcasts"
 msgstr "Радіотрансляції"
 
-#: ../alttoolbar_preferences.py:314
+#: ../alttoolbar_plugins.py:116
+msgid "The plugin cannot be enabled"
+msgstr "Неможливо ввікнути цей пагін"
+
+#: ../alttoolbar_plugins.py:246
+msgid "Configure Plugins"
+msgstr "Налаштування плагінів"
+
+#: ../alttoolbar_plugins.py:333
+msgid "About this plugin"
+msgstr "Про пагін"
+
+#: ../alttoolbar_plugins.py:365
+msgid "Version: "
+msgstr "Версія: "
+
+#: ../alttoolbar_plugins.py:390
+msgid "Developer:"
+msgstr "Розробник:"
+
+#: ../alttoolbar_plugins.py:402
+msgid "Designer:"
+msgstr "Дизайнер:"
+
+#: ../alttoolbar_plugins.py:425
+msgid "Help"
+msgstr "Допомога"
+
+#: ../alttoolbar_plugins.py:433
+msgid "Homepage"
+msgstr "Головна сторінка"
+
+#: ../alttoolbar_preferences.py:307
 msgid "Restart"
 msgstr "Перезавантажити"
 
@@ -127,7 +151,7 @@ msgid "Songs"
 msgstr "Композиції"
 
 #: ../alttoolbar_type.py:1475 ../alttoolbar_type.py:1559
-#: ../ui/altpreferences.ui.h:30 ../ui/altlibrary.ui.h:2
+#: ../ui/altpreferences.ui.h:28 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "Категорії"
 
@@ -270,21 +294,6 @@ msgstr ""
 "до розгортання та згортання категорій."
 
 #: ../ui/altpreferences.ui.h:27
-msgid "Enhanced plugins dialog"
-msgstr "Покращене діалогове вікно додатків"
-
-#: ../ui/altpreferences.ui.h:28
-msgid ""
-"Show or hide redesigned plugins dialog. It features switches instead of "
-"checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
-"based desktop environments."
-msgstr ""
-"Показати або приховати змінене діалогове вікно додатків. Воно оснащене "
-"перемикачами замість прапорців та вбудованою панеллю інструментів з "
-"символічними іконками. Краще всього працює з настільними середовищами на "
-"базі Gnome."
-
-#: ../ui/altpreferences.ui.h:29
 msgid "Dark theme if available"
 msgstr "Темна тема, якщо є"
 
@@ -303,3 +312,175 @@ msgstr "Відтворити наступну композицію"
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
 msgstr "Відтворити композицію в довільному порядку"
+
+#: ../ui/altmenubar.ui.h:1
+msgid "_File"
+msgstr "_Файл"
+
+#: ../ui/altmenubar.ui.h:2
+msgid "_Add Music"
+msgstr "_Додати музику"
+
+#: ../ui/altmenubar.ui.h:3
+msgid "_Playlist"
+msgstr "_Плейлист"
+
+#: ../ui/altmenubar.ui.h:4
+msgid "_New Playlist…"
+msgstr "_Новий плейлист"
+
+#: ../ui/altmenubar.ui.h:5
+msgid "New _Automatic Playlist…"
+msgstr "Новий _автоматичний плейлист…"
+
+#: ../ui/altmenubar.ui.h:6
+msgid "_Load from File…"
+msgstr "_Завантажити з файлу…"
+
+#: ../ui/altmenubar.ui.h:7
+msgid "_Save to File…"
+msgstr "Зберегти _у файл…"
+
+#: ../ui/altmenubar.ui.h:8
+msgid "_Edit…"
+msgstr "_Редагувати…"
+
+#: ../ui/altmenubar.ui.h:9
+msgid "_Delete"
+msgstr "_Видалити"
+
+#: ../ui/altmenubar.ui.h:10
+msgid "Pr_operties"
+msgstr "В_ластивості"
+
+#: ../ui/altmenubar.ui.h:11
+msgid "_Close"
+msgstr "За_крити"
+
+#: ../ui/altmenubar.ui.h:12
+msgid "_Edit"
+msgstr "Змі_ни"
+
+#: ../ui/altmenubar.ui.h:13
+msgid "Cu_t"
+msgstr "_Вирізати"
+
+#: ../ui/altmenubar.ui.h:14
+msgid "_Copy"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:15
+msgid "_Paste"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:16
+msgid "Select _All"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:17
+msgid "D_eselect All"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:18
+msgid "Add _to Play Queue"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:19
+msgid "Add to _Playlist"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:20
+msgid "_New Playlist"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:21
+msgid "_Move to Trash"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:22
+msgid "Prefere_nces"
+msgstr "_Налаштування"
+
+#: ../ui/altmenubar.ui.h:23
+msgid "_View"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:24
+msgid "_Fullscreen"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:25
+msgid "Side _Pane"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:26
+msgid "View _Queue as Side Pane"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:27
+msgid "S_tatusbar"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:28
+msgid "_Song Position Slider"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:29
+msgid "_Album Art"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:30
+msgid "_Jump to Playing Song"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:31
+msgid "_Control"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:32
+msgid "_Play"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:33
+msgid "Pre_vious"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:34
+msgid "_Next"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:35
+msgid "_Increase Volume"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:36
+msgid "_Decrease Volume"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:37
+msgid "Sh_uffle"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:38
+msgid "_Repeat"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:39
+msgid "_Tools"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:40
+msgid "Plu_gins…"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:41
+msgid "_Help"
+msgstr "_Довідка"
+
+#: ../ui/altmenubar.ui.h:42
+msgid "_Contents"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:43
+msgid "_About"
+msgstr "_Про програму"

@@ -1,16 +1,16 @@
-# Danish translation for alternative-toolbar
-# Copyright (c) 2017 Rosetta Contributors and Canonical Ltd 2017
-# This file is distributed under the same license as the alternative-toolbar package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+# Arabic translation for rhythmbox-plugin-alternative-toolbar
+# Copyright (c) 2023 Rosetta Contributors and Canonical Ltd 2023
+# This file is distributed under the same license as the rhythmbox-plugin-alternative-toolbar package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: alternative-toolbar\n"
+"Project-Id-Version: rhythmbox-plugin-alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2021-04-24 10:33+0100\n"
-"PO-Revision-Date: 2023-03-28 17:39+0000\n"
-"Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
-"Language-Team: Danish <da@li.org>\n"
+"PO-Revision-Date: 2023-01-31 12:29+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Arabic <ar@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,68 +19,66 @@ msgstr ""
 
 #: ../alternative-toolbar.py:228 ../alternative-toolbar.py:231
 msgid "Search"
-msgstr "Søg"
+msgstr "بحث"
 
 #: ../alternative-toolbar.py:238
 msgid "Seek Backward"
-msgstr "Søg baglæns"
+msgstr "رجوع للخلف"
 
 #: ../alternative-toolbar.py:241
 msgid "Seek backward, in current track, by 5 seconds."
-msgstr "Søg baglæns, i nuværende nummer, spring 5 sekunder"
+msgstr "رجوع للخلف، في المقطع الحالي بمقدار 5 ثواني."
 
 #: ../alternative-toolbar.py:245
 msgid "Seek Forward"
-msgstr "Søg forlæns"
+msgstr "تقدم للأمام"
 
 #: ../alternative-toolbar.py:249
 msgid "Seek forward, in current track, by 10 seconds."
-msgstr "Søg forlæns, i nuværende nummer, spring 10 sekunder"
+msgstr "تقدم للأمام ، في المقطع الحالي بمقدار 10 ثواني"
 
 #: ../alternative-toolbar.py:261
 msgid "Show Play-Controls Toolbar"
-msgstr "Vis Afspilningskontrol-værktøjslinje"
+msgstr "عرض شريط أدوات التحكم في التشغيل"
 
 #: ../alternative-toolbar.py:265
 msgid "Show or hide the play-controls toolbar"
-msgstr "Vis eller gem værktøjslinjen til afspilningskontrol"
+msgstr "عرض أو إخفاء شريط أدوات التحكم في التشغيل"
 
 #: ../alternative-toolbar.py:270
 msgid "Show Source Toolbar"
-msgstr "Vis Kilde-værktøjslinje"
+msgstr "عرض شريط أدوات المصدر"
 
 #: ../alternative-toolbar.py:273
 msgid "Show or hide the source toolbar"
-msgstr "Vis eller gem kilde værktøjslinjen"
+msgstr "عرض أو إخفاء شريط أدوات المصدر"
 
 #: ../alternative-toolbar.py:516
 msgid "Restart Rhythmbox"
-msgstr "Genstart Rhythmbox"
+msgstr ""
 
 #: ../alternative-toolbar.py:517
 msgid "Please restart Rhythmbox for the changes to take effect."
-msgstr "Ændringerne træder ikke i kraft, før Rhythmbox genstartes."
+msgstr ""
 
 #. define .plugin text strings used for translation
 #: ../alternative-toolbar.py:554
 msgid "Alternative Toolbar"
-msgstr "Alternativ Værktøjslinje"
+msgstr "شريط الأدوات البديل"
 
 #: ../alternative-toolbar.py:557
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
 msgstr ""
-"Erstat Rhytmbox' store værktøjslinje med en Klient-Dekoreret (Client-Side "
-"Decorated) eller en Kompakt Værktøjslinje som kan gemmes"
 
 #: ../alttoolbar_controller.py:156
 msgid "View All"
-msgstr "Vis alle"
+msgstr "عرض الكل"
 
 #: ../alttoolbar_controller.py:533
 msgid "Stations"
-msgstr "Stationer"
+msgstr "المحطات"
 
 #: ../alttoolbar_controller.py:562
 msgid "Libre.fm"
@@ -88,101 +86,101 @@ msgstr "Libre.fm"
 
 #: ../alttoolbar_controller.py:605
 msgid "My Top Rated"
-msgstr "Mine favoritter"
+msgstr "الأعلى تقييمًا"
 
 #: ../alttoolbar_controller.py:609
 msgid "Recently Added"
-msgstr "Senest tilføjede"
+msgstr "المُضافة حديثًا"
 
 #: ../alttoolbar_controller.py:613
 msgid "Recently Played"
-msgstr "Senest afspillet"
+msgstr "المُشغّلة حديثًا"
 
 #: ../alttoolbar_controller.py:646
 msgid "Podcasts"
-msgstr "Podcaster"
+msgstr "النشرات الصوتية"
 
 #: ../alttoolbar_preferences.py:307
 msgid "Restart"
-msgstr "Genstart"
+msgstr "إعادة تشغيل"
 
 #: ../alttoolbar_sidebar.py:81
 msgid "Local collection"
-msgstr "Lokal samling"
+msgstr ""
 
 #: ../alttoolbar_sidebar.py:82
 msgid "Online sources"
-msgstr "Online kilder"
+msgstr "مصادر عبر الإنترنت"
 
 #: ../alttoolbar_sidebar.py:83
 msgid "Other sources"
-msgstr "Andre kilder"
+msgstr "مصادر أخرى"
 
 #: ../alttoolbar_sidebar.py:84
 msgid "Playlists"
-msgstr "Afspilningslister"
+msgstr "قوائم التشغيل"
 
 #: ../alttoolbar_type.py:1469 ../ui/altlibrary.ui.h:1
 msgid "Songs"
-msgstr "Sange"
+msgstr "الأَغاني"
 
 #: ../alttoolbar_type.py:1475 ../alttoolbar_type.py:1559
 #: ../ui/altpreferences.ui.h:28 ../ui/altlibrary.ui.h:2
 msgid "Categories"
-msgstr "Kategorier"
+msgstr "التصنيفات"
 
 #: ../alttoolbar_type.py:1543
 msgid "Browse"
-msgstr "Gennemse"
+msgstr "تصفح"
 
 #: ../alttoolbar_repeat.py:96 ../alttoolbar_repeat.py:193
 msgid "Repeat all tracks"
-msgstr "Gentag alle numre"
+msgstr "تكرار جميع المقاطع"
 
 #: ../alttoolbar_repeat.py:98 ../alttoolbar_repeat.py:214
 #: ../ui/alttoolbar.ui.h:4
 msgid "Repeat the current track"
-msgstr "Gentag nuværende nummer"
+msgstr "تكرار المقطع الحالي"
 
 #: ../ui/altpreferences.ui.h:1
 msgid "Top"
-msgstr "Øverst"
+msgstr "فوق"
 
 #: ../ui/altpreferences.ui.h:2
 msgid "Bottom"
-msgstr "Nederst"
+msgstr "تحت"
 
 #: ../ui/altpreferences.ui.h:3
 msgid "Horizontal"
-msgstr "Vandret"
+msgstr "أفقي"
 
 #: ../ui/altpreferences.ui.h:4
 msgid "Vertical"
-msgstr "Lodret"
+msgstr "رأسي"
 
 #: ../ui/altpreferences.ui.h:5
 msgid "Restart the player for the changes to take effect."
-msgstr "Genstart afspilleren for at ændringen træder i kraft."
+msgstr "إعادة تشغيل التطبيق حتى تأخذ التغييرات مجراها"
 
 #: ../ui/altpreferences.ui.h:6
 msgid "Toolbar:"
-msgstr "Værktøjslinje:"
+msgstr "شريط الأدوات:"
 
 #: ../ui/altpreferences.ui.h:7
 msgid ""
 "Best suitable for desktop\n"
 "environments like Gnome and Elementary."
 msgstr ""
-"Mest egnet til desktop-miljøer\n"
-"som Gnome og Elementary"
+"أفضل مناسبة لسطح المكتب\n"
+"بيئات مثل جنوم و إليمينتري"
 
 #: ../ui/altpreferences.ui.h:9
 msgid "Modern"
-msgstr "Moderne"
+msgstr "حديث"
 
 #: ../ui/altpreferences.ui.h:10
 msgid "Use compact controls"
-msgstr "Brug kompakt kontrol"
+msgstr "استخدام عناصر التحكم المدمجة"
 
 #: ../ui/altpreferences.ui.h:11
 msgid ""
@@ -190,17 +188,14 @@ msgid ""
 "instead of the standard rhythmbox style.\n"
 "Always enabled for modern toolbar mode."
 msgstr ""
-"Viser afspilningskontrollen i værktøjslinjen i en visuelt kompakt stil i "
-"stedet for den almindelige rhythmbox-stil.\n"
-"Altid aktiveret når moderne værktøjslinjer er slået til."
 
 #: ../ui/altpreferences.ui.h:13
 msgid "Show:"
-msgstr "Vis:"
+msgstr "عرض:"
 
 #: ../ui/altpreferences.ui.h:14
 msgid "Album/genre/year for playing song"
-msgstr "Album/genre/år for nuværende sang"
+msgstr "الألبوم/النوع/السنة للأغنية الحالية"
 
 #: ../ui/altpreferences.ui.h:15
 msgid ""
@@ -208,52 +203,50 @@ msgid ""
 "desktop-environments where song-artist-album is already displayed in the "
 "window title."
 msgstr ""
-"Vis album/genre/år i stedet for sang-artist-album. Brugbar i de skrivebords-"
-"miljøer hvor sang-artist-album allerede vises vinduesrammen."
+"عرض الألبوم/النوع/السنة بدلا من الأغنية-الفنان-الألبوم. مفيد لبيئات سطح "
+"المكتب التي تعرض الأغنية-الفنان-الألبوم في عنوان النافذة"
 
 #: ../ui/altpreferences.ui.h:16
 msgid "Tooltips for the playback controls"
-msgstr "Værktøjshjælp til afspilningskontrol"
+msgstr "تلميحات لأزرار التحكم في التشغيل"
 
 #: ../ui/altpreferences.ui.h:17
 msgid "Show or hide the tooltips for the playback controls."
-msgstr "Vis eller gem værktøjshjælp for afspilningskontrollen."
+msgstr "عرض أو إخفاء تلميحات أزرار التحكم في التشغيل"
 
 #: ../ui/altpreferences.ui.h:18
 msgid "Volume control"
-msgstr "Lydstyke-kontrol"
+msgstr "التحكم في الصوت"
 
 #: ../ui/altpreferences.ui.h:19
 msgid "Show or hide the volume control."
-msgstr "Vis eller gem lydstyke-kontrol"
+msgstr "عرض أو إخفاء التحكم في الصوت."
 
 #: ../ui/altpreferences.ui.h:20
 msgid "Playback controls"
-msgstr "Afspilnings-kontrol"
+msgstr "أزرار التحكم في التشغيل"
 
 #: ../ui/altpreferences.ui.h:21
 msgid "Show or hide the playing controls on player startup."
-msgstr "Vis eller gem kontroller til afspilning ved opstart."
+msgstr "عرض أو إخفاء أزرار التحكم في التشغيل عند تشغيل التطبيق"
 
 #: ../ui/altpreferences.ui.h:22
 msgid "Use:"
-msgstr "Brug:"
+msgstr "الاستخدام:"
 
 #: ../ui/altpreferences.ui.h:23
 msgid "Inline song/artist label"
-msgstr "Vis sang/artist på linje"
+msgstr ""
 
 #: ../ui/altpreferences.ui.h:24
 msgid ""
 "Display Song and Artist labels before the progress slider.  If not checked, "
 "they are displayed above the progress slider."
 msgstr ""
-"Vis sang og kunstner foran sangstatuslinjen. Hvis ikke markeret, vises de "
-"over denne."
 
 #: ../ui/altpreferences.ui.h:25
 msgid "Enhanced sidebar"
-msgstr "Fobedret sidebar"
+msgstr "الشريط الجانبي المحسن"
 
 #: ../ui/altpreferences.ui.h:26
 msgid ""
@@ -261,12 +254,10 @@ msgid ""
 "symbolic icons, better sources organisation and ability to expand and "
 "collapse categories."
 msgstr ""
-"Vis eller gem afspillerens redsignede sidebar. Den har forbedrede ikoner, "
-"bedre kilde-organisering og mulighed for at åbne og lukke kategorier."
 
 #: ../ui/altpreferences.ui.h:27
 msgid "Enhanced plugins dialog"
-msgstr "Forbedret plugin-dialog"
+msgstr ""
 
 #: ../ui/altpreferences.ui.h:28
 msgid ""
@@ -274,38 +265,23 @@ msgid ""
 "checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
 "based desktop environments."
 msgstr ""
-"Vis eller gem afspillerens redsignede plugin-dialog. Den har knapper i "
-"stedet for markerings-bokse og indbygget værktøjslinje med ikoner. Virker "
-"bedst med Gnome-baserede skrivebords-miljøer."
 
 #: ../ui/altpreferences.ui.h:27
 msgid "Dark theme if available"
-msgstr "Mørkt tema hvis tilgængeligt"
+msgstr "السمة الداكنة إذا كانت متاحة"
 
 #: ../ui/alttoolbar.ui.h:1
 msgid "Play the previous track"
-msgstr "Spil det forrige nummer"
+msgstr "عزف المقطع السابق"
 
 #: ../ui/alttoolbar.ui.h:2
 msgid "Resume or pause the playback"
-msgstr "Genoptag eller paus afspilning"
+msgstr "إكمال أو إلباث المقطع"
 
 #: ../ui/alttoolbar.ui.h:3
 msgid "Play the next track"
-msgstr "Spil det næste nummer"
+msgstr "عزف المقطع التالي"
 
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
-msgstr "Spil numre i tilfældig orden"
-
-#~ msgid "Import"
-#~ msgstr "Importér"
-
-#~ msgid "_Help"
-#~ msgstr "_Hjælp"
-
-#~ msgid "_About"
-#~ msgstr "_Om"
-
-#~ msgid "_Quit"
-#~ msgstr "_Afslut"
+msgstr "عرض المقاطع بترتيب عشوائي"

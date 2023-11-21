@@ -6,59 +6,59 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alternative-toolbar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2022-03-01 20:25+0000\n"
-"PO-Revision-Date: 2022-08-07 19:00+0000\n"
-"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"POT-Creation-Date: 2023-03-28 13:44+0200\n"
+"PO-Revision-Date: 2023-04-30 20:59+0000\n"
+"Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-12-15 19:08+0000\n"
-"X-Generator: Launchpad (build 31c78762a8046acf7ab47372e5d588ebb3759d2e)\n"
+"X-Launchpad-Export-Date: 2023-11-21 20:00+0000\n"
+"X-Generator: Launchpad (build 5c5453089af6e124865a31f368febff22e0acc72)\n"
 "Language: sr\n"
 
-#: ../alternative-toolbar.py:240 ../alternative-toolbar.py:243
+#: ../alternative-toolbar.py:228 ../alternative-toolbar.py:231
 msgid "Search"
 msgstr "Тражи"
 
-#: ../alternative-toolbar.py:250
+#: ../alternative-toolbar.py:238
 msgid "Seek Backward"
 msgstr "Премотај назад"
 
-#: ../alternative-toolbar.py:253
+#: ../alternative-toolbar.py:241
 msgid "Seek backward, in current track, by 5 seconds."
 msgstr "Премотајте уназад, у тренутној нумери, за 5 секунде."
 
-#: ../alternative-toolbar.py:257
+#: ../alternative-toolbar.py:245
 msgid "Seek Forward"
 msgstr "Премотај напред"
 
-#: ../alternative-toolbar.py:261
+#: ../alternative-toolbar.py:249
 msgid "Seek forward, in current track, by 10 seconds."
 msgstr "Премотајте напред, у тренутној нумери, за 10 секунде."
 
-#: ../alternative-toolbar.py:273
+#: ../alternative-toolbar.py:261
 msgid "Show Play-Controls Toolbar"
 msgstr "Прикажи траку алата управљања пуштањем"
 
-#: ../alternative-toolbar.py:277
+#: ../alternative-toolbar.py:265
 msgid "Show or hide the play-controls toolbar"
 msgstr "Прикажите или сакријте траку алата управљања пуштањем"
 
-#: ../alternative-toolbar.py:282
+#: ../alternative-toolbar.py:270
 msgid "Show Source Toolbar"
 msgstr "Прикажи траку алата извора"
 
-#: ../alternative-toolbar.py:285
+#: ../alternative-toolbar.py:273
 msgid "Show or hide the source toolbar"
 msgstr "Прикажите или сакријте траку алата извора"
 
 #. define .plugin text strings used for translation
-#: ../alternative-toolbar.py:566
+#: ../alternative-toolbar.py:554 ../alttoolbar_plugins.py:385
 msgid "Alternative Toolbar"
 msgstr "Заменска трака алата"
 
-#: ../alternative-toolbar.py:569
+#: ../alternative-toolbar.py:557
 msgid ""
 "Replace the Rhythmbox large toolbar with a Client-Side Decorated or Compact "
 "Toolbar which can be hidden"
@@ -94,7 +94,39 @@ msgstr "Недавно пуштане"
 msgid "Podcasts"
 msgstr "Подемисије"
 
-#: ../alttoolbar_preferences.py:314
+#: ../alttoolbar_plugins.py:116
+msgid "The plugin cannot be enabled"
+msgstr ""
+
+#: ../alttoolbar_plugins.py:246
+msgid "Configure Plugins"
+msgstr "Подесите прикључке"
+
+#: ../alttoolbar_plugins.py:333
+msgid "About this plugin"
+msgstr "О овом прикључку"
+
+#: ../alttoolbar_plugins.py:365
+msgid "Version: "
+msgstr "Издање: "
+
+#: ../alttoolbar_plugins.py:390
+msgid "Developer:"
+msgstr "Програмер:"
+
+#: ../alttoolbar_plugins.py:402
+msgid "Designer:"
+msgstr ""
+
+#: ../alttoolbar_plugins.py:425
+msgid "Help"
+msgstr "Помоћ"
+
+#: ../alttoolbar_plugins.py:433
+msgid "Homepage"
+msgstr "Матична страна"
+
+#: ../alttoolbar_preferences.py:307
 msgid "Restart"
 msgstr "Поново покрени"
 
@@ -119,7 +151,7 @@ msgid "Songs"
 msgstr "Песме"
 
 #: ../alttoolbar_type.py:1475 ../alttoolbar_type.py:1559
-#: ../ui/altpreferences.ui.h:30 ../ui/altlibrary.ui.h:2
+#: ../ui/altpreferences.ui.h:28 ../ui/altlibrary.ui.h:2
 msgid "Categories"
 msgstr "Категорије"
 
@@ -257,20 +289,6 @@ msgstr ""
 "иконице, бољи распоред извора и могућност ширења и скупљања категорија."
 
 #: ../ui/altpreferences.ui.h:27
-msgid "Enhanced plugins dialog"
-msgstr "Унапређен прозорчић прикључака"
-
-#: ../ui/altpreferences.ui.h:28
-msgid ""
-"Show or hide redesigned plugins dialog. It features switches instead of "
-"checkboxes and inline toolbar with symbolic icons .  Works best with Gnome "
-"based desktop environments."
-msgstr ""
-"Прикажите или сакријте унапређено прозорче прикључака. Садржи прекидаче "
-"уместо поља за означавање и редну траку алата са симболичким иконицама. "
-"Најбоље ради са радним окружењима заснованим на Гному."
-
-#: ../ui/altpreferences.ui.h:29
 msgid "Dark theme if available"
 msgstr "Тамна тема ако је доступна"
 
@@ -289,3 +307,175 @@ msgstr "Пустите следећу нумеру"
 #: ../ui/alttoolbar.ui.h:5
 msgid "Play the tracks in random order"
 msgstr "Насумично пуштајте нумере"
+
+#: ../ui/altmenubar.ui.h:1
+msgid "_File"
+msgstr "_Датотека"
+
+#: ../ui/altmenubar.ui.h:2
+msgid "_Add Music"
+msgstr "_Додај музику"
+
+#: ../ui/altmenubar.ui.h:3
+msgid "_Playlist"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:4
+msgid "_New Playlist…"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:5
+msgid "New _Automatic Playlist…"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:6
+msgid "_Load from File…"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:7
+msgid "_Save to File…"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:8
+msgid "_Edit…"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:9
+msgid "_Delete"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:10
+msgid "Pr_operties"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:11
+msgid "_Close"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:12
+msgid "_Edit"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:13
+msgid "Cu_t"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:14
+msgid "_Copy"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:15
+msgid "_Paste"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:16
+msgid "Select _All"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:17
+msgid "D_eselect All"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:18
+msgid "Add _to Play Queue"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:19
+msgid "Add to _Playlist"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:20
+msgid "_New Playlist"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:21
+msgid "_Move to Trash"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:22
+msgid "Prefere_nces"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:23
+msgid "_View"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:24
+msgid "_Fullscreen"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:25
+msgid "Side _Pane"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:26
+msgid "View _Queue as Side Pane"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:27
+msgid "S_tatusbar"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:28
+msgid "_Song Position Slider"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:29
+msgid "_Album Art"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:30
+msgid "_Jump to Playing Song"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:31
+msgid "_Control"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:32
+msgid "_Play"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:33
+msgid "Pre_vious"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:34
+msgid "_Next"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:35
+msgid "_Increase Volume"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:36
+msgid "_Decrease Volume"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:37
+msgid "Sh_uffle"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:38
+msgid "_Repeat"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:39
+msgid "_Tools"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:40
+msgid "Plu_gins…"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:41
+msgid "_Help"
+msgstr "_Помоћ"
+
+#: ../ui/altmenubar.ui.h:42
+msgid "_Contents"
+msgstr ""
+
+#: ../ui/altmenubar.ui.h:43
+msgid "_About"
+msgstr "_О програму"
