@@ -168,7 +168,7 @@ class PluginDialog(Gtk.Dialog):
         def extract_text(str):
             # remove _ and (_A) type expressions
             translation = gettext.gettext(str)
-            translation = re.sub('\(..\)', '', translation, flags=re.DOTALL)
+            translation = re.sub(r'\(..\)', '', translation, flags=re.DOTALL)
             translation = translation.replace('_', '')
             return translation
 
