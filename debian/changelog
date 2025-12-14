@@ -1,3 +1,16 @@
+rhythmbox-plugin-alternative-toolbar (0.21.0-1) unstable; urgency=medium
+
+  * New release
+    - fix python warning (Closes: #1087052)
+    - Translation updates
+    - Lots of packaging cleanups - thanks to Jeremy Bicha
+  * Packaging changes
+    d/control B/D remove gnome-pkg-tools,  debhelper
+      switch from pkg-config to pkgconfig, dh-sequence-python3
+    d/rules no need to build  --with python3 due to the B/D updates
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Sun, 14 Dec 2025 19:57:44 +0000
+
 rhythmbox-plugin-alternative-toolbar (0.20.4-1) unstable; urgency=medium
 
   * New release
